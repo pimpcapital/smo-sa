@@ -3,7 +3,8 @@ FLTFLAGS="-s 1331200"
 export FLTFLAGS
 #CFLAGS=-w -O3 -g $(INCFLAGS)
 #CHOST="i686-pc-linux-gnu"
-CFLAGS=-fprefetch-loop-arrays -march=pentium4 -w -O3 -pipe -fomit-frame-pointer -freg-struct-return -malign-double -maccumulate-outgoing-args -minline-all-stringops -mmmx -msse -msse2 $(INCFLAGS)
+#CFLAGS=-fprefetch-loop-arrays -march=pentium4 -w -O3 -pipe -fomit-frame-pointer -freg-struct-return -malign-double -maccumulate-outgoing-args -minline-all-stringops -mmmx -msse -msse2 $(INCFLAGS)
+CFLAGS=-fprefetch-loop-arrays -march=native -w -O3 -pipe -fomit-frame-pointer -freg-struct-return -malign-double -maccumulate-outgoing-args -minline-all-stringops -mmmx -msse -msse2 $(INCFLAGS)
 #CXXFLAGS="-march=pentium4 -O3 -pipe -fomit-frame-pointer"
 
 PROG=libitem.a

@@ -14,7 +14,8 @@ INCFLAGS=-Iinclude
 #CFLAGS=-w -g -O3 -pipe $(INCFLAGS)
 #CFLAGS=-march=pentium4 -w -O3 -pipe -fomit-frame-pointer -fstack-check -freg-struct-return -malign-double -maccumulate-outgoing-args -minline-all-stringops -mmmx -msse -msse2 $(INCFLAGS)
 #-fstack-limit-symbol==0xBFEBAFFF -fstack-check 
-CFLAGS=-fprefetch-loop-arrays -march=pentium4 -w -O3 -pipe -fomit-frame-pointer -freg-struct-return -malign-double -maccumulate-outgoing-args -minline-all-stringops -mmmx -msse -msse2 $(INCFLAGS)
+#CFLAGS=-fprefetch-loop-arrays -march=pentium4 -w -O3 -pipe -fomit-frame-pointer -freg-struct-return -malign-double -maccumulate-outgoing-args -minline-all-stringops -mmmx -msse -msse2 $(INCFLAGS)
+CFLAGS=-fprefetch-loop-arrays -march=native -w -O3 -pipe -fomit-frame-pointer -freg-struct-return -malign-double -maccumulate-outgoing-args -minline-all-stringops -mmmx -msse -msse2 $(INCFLAGS)
 #CXXFLAGS="-march=pentium4 -O3 -pipe -fomit-frame-pointer"
 
 PROG=gmsv

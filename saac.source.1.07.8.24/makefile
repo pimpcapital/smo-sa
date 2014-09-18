@@ -8,7 +8,8 @@
 CC = gcc
 
 #加入mysql資料庫功能
-CFLAGS=-march=pentium4 -w -O3 -pipe -freg-struct-return -minline-all-stringops -mmmx -msse -msse2 -I /usr/include/mysql $(INCFLAGS)
+#CFLAGS=-march=pentium4 -w -O3 -pipe -freg-struct-return -minline-all-stringops -mmmx -msse -msse2 -I /usr/include/mysql $(INCFLAGS)
+CFLAGS=-march=native -w -O3 -pipe -freg-struct-return -minline-all-stringops -mmmx -msse -msse2 -I /usr/include/mysql $(INCFLAGS)
 MYSQL=-L /usr/lib/mysql -lmysqlclient -lz -lm -I./
 
 TOP=../..
