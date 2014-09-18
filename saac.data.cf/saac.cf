@@ -1,0 +1,39 @@
+port	9200 
+logdir	log 
+lockdir	lock 
+chardir	char 
+pass	test 
+wklogdir	data/wklog 
+dbdir	db 
+rotate_interval	1000 
+maildir	mail 
+familydir	data/family 
+fmpointdir	data/fmpointdir 
+fmsmemodir	data/fmsmemodir 
+SANAME	Test 
+LSADDRESS	localhost 
+LSPORT	2222 
+TESTNAME	Test 
+OACBIND	
+saacname	Test 
+
+
+#以下是SAAC部分 請在每行結束後按一下空格 謝謝
+#比如 "mysqlserver	127.0.0.1 "在127.0.0.1後記得要按一下空格
+#mysql地址
+mysqlserver	127.0.0.1 
+#mysql用戶名
+sqluser	root
+#mysql密碼
+sqlpass	root
+#連接到MYSQL的數據庫名
+databasename	root
+#MYSQL端口
+mysqlport	3306
+#數據表名
+tablename	root
+#帳號列名
+account	name
+#密碼列名
+password	pass
+

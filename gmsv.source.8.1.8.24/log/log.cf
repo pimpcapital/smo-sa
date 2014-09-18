@@ -1,0 +1,34 @@
+talklog=talk.log
+itemlog=item.log
+petlog=pet.log
+tenseilog=tensei.log
+tradelog=trade.log
+stonelog=stone.log
+killlog=kill.log
+hacklog=hack.log
+speedlog=speed.log
+proc=proc.log
+fmpklog=fmpk.log
+gmlog=gm.log
+#賭場輪盤	寶寶小豬 
+gamblelog=gamble.log
+#沒用
+#creatpetlog=
+#creatpetavglog=
+#loginlog=
+#pettranslog=
+#增加莊園戰勝負Log
+fmpkresultlog=fmpkresult.log
+#新增家族個人銀行存取Log (不含家族銀行)
+bankstonelog=bankstone.log
+acmessagelog=acmessage.log
+pkcontendlog=pkcontend.log
+#擺灘
+StreetVendorlog=StreetVendor.log
+#精靈召喚
+angellog=angel.log
+#雜項訊息專用LOG
+otherlog=other.log
+#新莊園規則LOG
+FMPKGetMoneylog=FMPKGetMoney.log
+FMFameShoplog=FMFameShop.log

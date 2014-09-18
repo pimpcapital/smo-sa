@@ -1,0 +1,155 @@
+#服務器調試等級
+#有用的值為0、1、3
+#0：不報告任何錯誤
+#1: 只報告關鍵錯誤 其他錯誤將忽略
+#3：報告所有錯誤
+debuglevel=3
+#GMSV啟動佔用內存總量公式為 (usememoryunit*usememoryunitnum)/(1024*1024) 兆
+#每內存單元大小 單位：字節
+usememoryunit=128
+#有多少個內存單元
+usememoryunitnum=2500000
+# 帳號服務器 SAAC的服務器IP地址
+acserv=127.0.0.1
+# 帳號服務器 SAAC的服務器端口
+acservport=9200
+# 連接到帳號服務器 SAAC的密碼
+acpasswd=test
+# 服務器名字
+gameservname=一線
+# 服務器的ID
+gameservid=一線
+# 是否允許族戰
+allowmanorpk=1
+# 服務器端口
+port=9065
+# 服務器SN
+servernumber=1
+# 重複使用socket地址
+# 當9065端口被佔用的情況下會不斷重試使用該端口
+reuseaddr=1
+#套接字延遲 TCP_NODELAY 不建議開放
+nodelay=0
+#以下請設置為0 不寫日誌
+log_write_time=0
+log_io_time=0
+log_game_time=0
+# 記錄LOG
+log_netloop_faster=1
+# 每次讀取SAAC的數目
+saacwritenum=10000
+# 每次寫入SAAC的數目
+saacreadnum=10000
+# 最大在線人數
+fdnum=10
+# Max pets numbers
+# 最大在線寵數
+petnum=100
+# 其他最大數目 包含NPC數目+玩家數目
+othercharnum=10000
+# 最大對像數目
+objnum=15000
+# 最大道具數目
+itemnum=1000
+# 最大戰鬥數目
+battlenum=100
+#頂層文件夾
+topdir=. 
+#地圖文件夾
+mapdir=data/map
+#地圖設置文件
+maptilefile=data/map/mapset.txt
+#戰鬥地圖文件
+battlemapfile=data/map/battlemap.txt
+#道具文件
+itemset6file=data/itemset6.txt
+#無敵NPC或不可戰鬥NPC
+invinciblefile=data/inv.txt
+#顯示位置文件
+appearpositionfile=data/appear.txt
+#所有名稱文件
+titlenamefile=data/titlename.txt
+#所有設置文件
+titleconfigfile=./data/titleconfig.txt
+#遇到怪的文件
+encountfile=./data/encount.txt
+#寵物文件
+enemyfile=./data/enemy1.txt
+#寵物基礎設置文件
+enemybasefile=./data/enemybase1.txt
+#遇敵組文件
+groupfile=./data/group1.txt
+# ?(精靈和魔法文件?)
+magicfile=./data/magic.txt
+#攻擊魔法文件
+attmagicfile=./data/attmagic.bin
+#寵物技能文件
+petskillfile2=./data/petskill2.txt
+petskillfile1=./data/petskill.txt
+# ?(物品組成文件?還是素材文件?)
+itematomfile=./data/itematom.txt
+# ?(遇敵?)
+effectfile=data/effect.txt
+# 猜迷的文件
+quizfile=data/question.txt
+#每次發送封包和接收封包時候記錄封包內容的文件
+#設置為空則不寫該文件
+lsgenlogfilename=
+#GM帳號文件
+gmsetfile=./data/gmset.txt
+# 還原玩家資料目錄 可防止當機回檔
+storedir=./data/store
+# NPC 目錄
+npcdir=data/npc
+# 日誌目錄
+logdir=./log
+# 日誌配置文件
+logconfname=log.cf
+#GM密碼
+chatmagicpasswd=jzgm1
+# ?(是否所有人都能使用GM權限)
+chatmagiccdkeycheck=0
+# NPC下最大使用文件總數
+filesearchnum=9000
+# 註冊NPC_fuction類型文件最大數
+npctemplatenum=256
+# NPC最大數
+npccreatenum=9000
+# 走路間隔
+walkinterval=250
+# CleanAll間隔
+CAinterval=250
+# CleanDest間隔
+CDinterval=250
+# Character data save interval(數據存儲間隔?)
+CharSaveinterval=300
+# 執行一次 netloop_faster 所消耗時間
+Onelooptime=6
+#(寵物消失時間)
+Petdeletetime=60
+#(物品消失時間)
+Itemdeletetime=60
+# 名片相關的設置 好像是發送名片最大限制 沒仔細看過
+addressbookoffmesgnum=5000
+# 接口頻率調整 值越大頻率越慢越節省資源
+protocolreadfrequency=2000
+# 每個連接錯誤上限 超過這個上限的連接將被關閉
+allowerrornum=100
+#log時間
+loghour=24
+#是否顯示戰鬥錯誤消息
+battledebugmsg=0
+# 客戶端驗證字串
+encodekey=1
+# 往writebuffer緩衝區寫數據大小 單位字節
+acwritesize=100000
+# 緩衝區大小
+acwbsize=500000
+# 如果發現玩家使用非法手段 比如說改封包跳NPC判斷 或者點數異常 則關進監獄
+erruser_down=1
+#人物職業技能
+profession=./data/profession.txt
+#退出團隊的道具
+itemquitparty=./data/itemquitparty.txt
+#刪除石幣時間
+Golddeletetime=360
