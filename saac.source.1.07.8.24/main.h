@@ -192,8 +192,11 @@ void gmsvBroadcast( int fd, char *p1, char *p2, char *p3 , int flag );
 int login_game_server( int ti, char *svname, char *svpas, char *result,
 					  int resultlen , char *retdata , int retdatalen );
 void sigusr2(int a);
-static void initWorkerPort( void );
-void checkMissionTimelimit( void);
+static void initWorkerPort(void);
+void checkMissionTimelimit(void);
+static int initMissionTable(void);
+static int initRankTable(void);
+
 #ifdef _ANGEL_SUMMON
 typedef enum
 {
