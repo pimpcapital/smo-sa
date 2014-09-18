@@ -16,7 +16,7 @@ typedef struct tagMAP_Map
 {
     int     id;             /*        ID    */
     int     xsiz,ysiz;      /*          */
-    char    string[64];     /*  ™Ì•‹    */
+    char    string[64];     /*  Ë°®Á§∫    */
     unsigned short*  tile;           /*          */
     unsigned short*  obj;            /*                  */
     MAP_Objlink** olink;
@@ -30,33 +30,33 @@ typedef struct tagMAP_Map
 typedef enum
 {
     MAP_WALKABLE,           /*
-                             *         ≥ı¶X
-                             * ﬂI? Q            ®£     0
-                             * ﬂI? M        ®£   1
-                             * ﬂI? M        ®£     2
+                             *         Â†¥Âêà
+                             * Á≠¥? Q            Ë¶ã     0
+                             * Á≠¥? M        Ë¶ã   1
+                             * Á≠¥? M        Ë¶ã     2
                              */
-    MAP_HAVEHEIGHT,         /*  ∞™            ´D0           0   */
-    MAP_DEFENCE,            /*   Á        °B¶u≥∆§O°B0 •H§U     Á        */
+    MAP_HAVEHEIGHT,         /*  È´ò            Èùû0           0   */
+    MAP_DEFENCE,            /*  ÊäÉ        „ÄÅÂÆàÂÇôÂäõ„ÄÅ0 ‰ª•‰∏ã    ÊäÉ        */
 
-    MAP_INTODAMAGE,         /*        §J    Æ…  HP  ®¨  ?  */
-    MAP_OUTOFDAMAGE,        /*          •X  Æ…  HP  ®¨  ?  */
+    MAP_INTODAMAGE,         /*        ÂÖ•    ÊôÇ  HP  Ë∂≥  ?  */
+    MAP_OUTOFDAMAGE,        /*          Âá∫  ÊôÇ  HP  Ë∂≥  ?  */
 
-    MAP_SETED_BATTLEMAP,    /*             ≥]©w? */
-	MAP_BATTLEMAP,			/*               µfÕ˝ ¢∞*/
-	MAP_BATTLEMAP2,			/*               µfÕ˝ ¢±*/
-	MAP_BATTLEMAP3,			/*               µfÕ˝ ¢≤*/
+    MAP_SETED_BATTLEMAP,    /*             Ë®≠ÂÆö? */
+	MAP_BATTLEMAP,			/*               Áï™Âí• Ôºë*/
+	MAP_BATTLEMAP2,			/*               Áï™Âí• Ôºí*/
+	MAP_BATTLEMAP3,			/*               Áï™Âí• Ôºì*/
 
-/* •H§U  ¢⁄¢·¢±  ®œ        ¢·¢œ    ®œ      (? X      ? @) */
+/* ‰ª•‰∏ã  Ôº¨Ôº≥Ôºí  ‰Ωø        Ôº≥Ôº°    ‰Ωø      (? X      ? @) */
 
-    MAP_INTODARKNESS,       /*  §J    Æ…  ∑t      */
-    MAP_INTOCONFUSION,      /*  §J    Æ…  ≤V?    */
+    MAP_INTODARKNESS,       /*  ÂÖ•    ÊôÇ  Êöó      */
+    MAP_INTOCONFUSION,      /*  ÂÖ•    ÊôÇ  Ê∑∑?    */
 
-    MAP_OUTOFPOISON,         /*  §J    Æ…  ¨r    */
-    MAP_OUTOFPARALYSIS,      /*  §J    Æ…            */
-    MAP_OUTOFSILENCE,        /*  §J    Æ…  ®H?  */
-    MAP_OUTOFSTONE,          /*  §J    Æ…  •€    */
-    MAP_OUTOFDARKNESS,       /*  §J    Æ…  ∑t      */
-    MAP_OUTOFCONFUSION,      /*  §J    Æ…  ≤V?    */
+    MAP_OUTOFPOISON,         /*  ÂÖ•    ÊôÇ  ÊØí    */
+    MAP_OUTOFPARALYSIS,      /*  ÂÖ•    ÊôÇ            */
+    MAP_OUTOFSILENCE,        /*  ÂÖ•    ÊôÇ  Ê≤à?  */
+    MAP_OUTOFSTONE,          /*  ÂÖ•    ÊôÇ  Áü≥    */
+    MAP_OUTOFDARKNESS,       /*  ÂÖ•    ÊôÇ  Êöó      */
+    MAP_OUTOFCONFUSION,      /*  ÂÖ•    ÊôÇ  Ê∑∑?    */
 
     MAP_DATAINT_NUM,
 }MAP_DATAINT;
@@ -72,7 +72,7 @@ typedef struct tagMAP_ImageData
 
 typedef enum
 {
-    MAP_KINDWALKABLE,           /*  ﬂI? F   1   §J     */
+    MAP_KINDWALKABLE,           /*  Á≠¥? F   1   ÂÖ•     */
 
     MAP_KINDNUM,
 }MAP_kind;
@@ -117,7 +117,7 @@ BOOL _MAP_objmove( char *file, int line, int objindex, int ofloor, int ox, int o
 char *MAP_getFloorName( int floor);
 BOOL MAP_setObjData( int ff ,int fx, int fy, int obj, int objhp );
 
-#ifdef _STATUS_WATERWORD //§Ù•@¨…™¨∫A
+#ifdef _STATUS_WATERWORD //Ê∞¥‰∏ñÁïåÁãÄÊÖã
 int MAP_getMapFloorType( int floor);
 #endif
 

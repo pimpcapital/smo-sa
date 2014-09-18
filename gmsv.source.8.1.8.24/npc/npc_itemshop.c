@@ -15,7 +15,7 @@
 static void NPC_ItemShop_selectWindow( int meindex, int talker, int num,int select);
 void NPC_ItemShop_BuyMain(int meindex,int talker,int before );
 
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬	
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶	
 
 #else
 void NPC_GetItemList(char *argstr,char * argtoken2);
@@ -32,7 +32,7 @@ BOOL NPC_SellNewItem(int meindex,int talker,char *data);
 void NPC_ItemShop_Menu(int meindex,int talker);
 
 #ifdef _NPC_SHOPALTER01
-int NPC_GetLimtItemList(int talker,char *argstr,char *token2,int sell, char* sLimt); //sLimt¦s©ñª±®aªºª««~¥i§_½æ¥X,¥H¤Î»ù¿ú,®æ¦¡¬° 0|100|10|0|1|50|10|0|1|80|10|0| ,0:¥i½æ,1:¤£¥i½æ,¦A¨Ó¼Æ­È¬°»ù¿ú,10¬°table,0¬°°ïÅ|
+int NPC_GetLimtItemList(int talker,char *argstr,char *token2,int sell, char* sLimt); //sLimtå­˜æ”¾ç©å®¶çš„ç‰©å“å¯å¦è³£å‡º,ä»¥åŠåƒ¹éŒ¢,æ ¼å¼ç‚º 0|100|10|0|1|50|10|0|1|80|10|0| ,0:å¯è³£,1:ä¸å¯è³£,å†ä¾†æ•¸å€¼ç‚ºåƒ¹éŒ¢,10ç‚ºtable,0ç‚ºå †ç–Š
 #else
 int NPC_GetLimtItemList(int talker,char *argstr,char *token2,int sell);
 #endif
@@ -63,26 +63,26 @@ typedef struct {
 
 
 static NPC_Shop		TypeTable[] = {
-	{ "FIST",		0 }, //®±
-	{ "AXE",		1 }, //©ò
-	{ "CLUB",		2 }, //´Ò´Î
-	{ "SPEAR",		3},  //¥Ù
-	{ "BOW",		4},  //¤}
-	{ "SHIELD",		5},  //¬Ş
-	{ "HELM",		6 }, //ÀY²¯
-	{ "ARMOUR",		7 }, //²¯¥Ò
-	{ "BRACELET",	8},  //¤âÅN
-	{ "ANCLET",		9 }, //½ï¹¢
-	{ "NECKLACE",	10}, //¶µ  
-	{ "RING",		11}, //§Ù«ü
-	{ "BELT",		12}, //¸y±a
-	{ "EARRING",	13}, //¦ÕÀô
-	{ "NOSERING",	14}, //»óÀô
-	{ "AMULET",		15}, //Å@¨­²Å
+	{ "FIST",		0 }, //æ‹³
+	{ "AXE",		1 }, //æ–§
+	{ "CLUB",		2 }, //æ£æ£’
+	{ "SPEAR",		3},  //çŸ›
+	{ "BOW",		4},  //å¼“
+	{ "SHIELD",		5},  //ç›¾
+	{ "HELM",		6 }, //é ­ç›”
+	{ "ARMOUR",		7 }, //ç›”ç”²
+	{ "BRACELET",	8},  //æ‰‹é²
+	{ "ANCLET",		9 }, //è¸é£¾
+	{ "NECKLACE",	10}, //é …  
+	{ "RING",		11}, //æˆ’æŒ‡
+	{ "BELT",		12}, //è…°å¸¶
+	{ "EARRING",	13}, //è€³ç’°
+	{ "NOSERING",	14}, //é¼»ç’°
+	{ "AMULET",		15}, //è­·èº«ç¬¦
 	{ "OTHER",		16}, 
-	{ "BOOMERANG",	17}, //¦^¤O¼Ğ
+	{ "BOOMERANG",	17}, //å›åŠ›æ¨™
 	{ "BOUNDTHROW",	18}, 
-	{ "BREAKTHROW",	19}, //§ëÂYª«
+	{ "BREAKTHROW",	19}, //æŠ•æ“²ç‰©
 #ifdef _ITEM_TYPETABLE
 	{ "DISH",	20},
 	{ "METAL",	21},
@@ -95,9 +95,9 @@ static NPC_Shop		TypeTable[] = {
 	{ "ANGELTOKEN",	28},
 	{ "HEROTOKEN",	29},
 #endif
-	{ "ACCESSORY",	30}, //°t¥ó
-	{ "OFFENCE",	40}, //§ğÀ»
-	{ "DEFENCE",	50}, //¨¾¿m
+	{ "ACCESSORY",	30}, //é…ä»¶
+	{ "OFFENCE",	40}, //æ”»æ“Š
+	{ "DEFENCE",	50}, //é˜²ç¦¦
 
 };
 
@@ -145,26 +145,26 @@ void NPC_ItemShopTalked( int meindex , int talker , char *szMes ,int color )
     	return;
     }
 
-	if(NPC_Util_isFaceToFace( meindex, talker, 2) == FALSE) {//¥æ½Í®ÉÀË¬d¬O§_­±¹ï­±
-		if( NPC_Util_CharDistance( talker, meindex ) > 1) return; //­Y¶ZÂ÷¤j©ó1¸õ¥X
+	if(NPC_Util_isFaceToFace( meindex, talker, 2) == FALSE) {//äº¤è«‡æ™‚æª¢æŸ¥æ˜¯å¦é¢å°é¢
+		if( NPC_Util_CharDistance( talker, meindex ) > 1) return; //è‹¥è·é›¢å¤§æ–¼1è·³å‡º
 	}
 
-	//¨ú±onpc¶R½æ³]©wÀÉ¤ºªº¤º®e,­Y¬°NULL,«h¿ù»~
+	//å–å¾—npcè²·è³£è¨­å®šæª”å…§çš„å…§å®¹,è‹¥ç‚ºNULL,å‰‡éŒ¯èª¤
     if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1)))== NULL){
     	print("itemshopGetArgStrErr");
     	return;
     }
 
-	//¨ú±oNPC¥u¯à½æªº°T®§
+	//å–å¾—NPCåªèƒ½è³£çš„è¨Šæ¯
 	if( NPC_Util_GetStrFromStrWithDelim( argstr, "sellonly_msg", token, sizeof( token))	!= NULL){
-		sellonlyflg = TRUE; //NPC¤£¯à¶Rª±®aªºªF¦è
-		strcpysafe(sellmsg, sizeof( sellmsg), token);//¨Ò¦p:sellmsgªº­È¥i¯à¬O->¨Ã¤£¬O±Mªù¦¬¶RªF¦èªº©±¡C
+		sellonlyflg = TRUE; //NPCä¸èƒ½è²·ç©å®¶çš„æ±è¥¿
+		strcpysafe(sellmsg, sizeof( sellmsg), token);//ä¾‹å¦‚:sellmsgçš„å€¼å¯èƒ½æ˜¯->ä¸¦ä¸æ˜¯å°ˆé–€æ”¶è²·æ±è¥¿çš„åº—ã€‚
 	}
 
-    //¨ú±oª±®a¶RªF¦èªº«ü¥O. buff¬°¤@¦ê¶RªF¦è«ü¥Oªº¦r¦ê,¨Ò¦p:¶R,ÁÊ¶R,·PÁÂ±z,kau,buy,menu,ÁÂÁÂ,¶RªF¦è,·íª±®a¥´¥X³o¨Ç¦r¥y®É,´N¥i¥H¶RªF¦è¤F
+    //å–å¾—ç©å®¶è²·æ±è¥¿çš„æŒ‡ä»¤. buffç‚ºä¸€ä¸²è²·æ±è¥¿æŒ‡ä»¤çš„å­—ä¸²,ä¾‹å¦‚:è²·,è³¼è²·,æ„Ÿè¬æ‚¨,kau,buy,menu,è¬è¬,è²·æ±è¥¿,ç•¶ç©å®¶æ‰“å‡ºé€™äº›å­—å¥æ™‚,å°±å¯ä»¥è²·æ±è¥¿äº†
 	if( NPC_Util_GetStrFromStrWithDelim( argstr, "buy_msg",	buff, sizeof( buff)) != NULL ){
 	    while(getStringFromIndexWithDelim(buff,",",i,buf2,sizeof(buf2)) != FALSE ){
-			i++; //­Y¶RªF¦èªº«ü¥O¦³8­Ó,i´N·|¥[¨ì8
+			i++; //è‹¥è²·æ±è¥¿çš„æŒ‡ä»¤æœ‰8å€‹,iå°±æœƒåŠ åˆ°8
 			if( strstr( szMes, buf2) != NULL) {
 				if( CHAR_getWorkInt( meindex, NPC_SHOP_WORK_EV) == 0) {
 					if( CHAR_getWorkInt( meindex, NPC_SHOP_WORK_NO) == 1) {
@@ -192,7 +192,7 @@ void NPC_ItemShopTalked( int meindex , int talker , char *szMes ,int color )
 		}
 	}
 	i=1;
-    //¨ú±oª±®a½æªF¦èªº«ü¥O. buff¬°¤@¦ê½æªF¦è«ü¥Oªº¦r¦ê,¨Ò¦p:½æªF¦è,½æ,sell,uru  ·íª±®a¥´¥X³o¨Ç¦r¥y®É,´N¥i¥H½æªF¦è¤F
+    //å–å¾—ç©å®¶è³£æ±è¥¿çš„æŒ‡ä»¤. buffç‚ºä¸€ä¸²è³£æ±è¥¿æŒ‡ä»¤çš„å­—ä¸²,ä¾‹å¦‚:è³£æ±è¥¿,è³£,sell,uru  ç•¶ç©å®¶æ‰“å‡ºé€™äº›å­—å¥æ™‚,å°±å¯ä»¥è³£æ±è¥¿äº†
 	if( NPC_Util_GetStrFromStrWithDelim( argstr, "sell_msg", buff, sizeof( buff)) != NULL ){
 	    while( getStringFromIndexWithDelim(buff,",", i,buf2,sizeof(buf2)) != FALSE ){
 			i++;
@@ -204,7 +204,7 @@ void NPC_ItemShopTalked( int meindex , int talker , char *szMes ,int color )
 	}
 	i = 1;
 
-	//¨ä¥¦°T®§
+	//å…¶å®ƒè¨Šæ¯
 	if( NPC_Util_GetStrFromStrWithDelim( argstr, "other_msg", buff, sizeof( buff)) != NULL ){
 	    while(getStringFromIndexWithDelim( buff, ",", i, buf2, sizeof( buf2)) != FALSE ){
 			i++;
@@ -252,25 +252,25 @@ static void NPC_ItemShop_selectWindow( int meindex, int talker, int num,int sele
 {
 	switch( num) {
 	  case 0:
-		CHAR_send_P_StatusString( talker, CHAR_P_STRING_GOLD);//¶Ç°eª÷¿ú,­Y100¤¸ °e¥X¥hªº¸ê®Æ®æ¦¡¥i¯à¬° P8Nz2|100|
+		CHAR_send_P_StatusString( talker, CHAR_P_STRING_GOLD);//å‚³é€é‡‘éŒ¢,è‹¥100å…ƒ é€å‡ºå»çš„è³‡æ–™æ ¼å¼å¯èƒ½ç‚º P8Nz2|100|
 		
 		if(CHAR_getWorkInt( meindex, NPC_SHOP_WORK_EXPRESS) == 1 ) {
 			if(CHAR_getWorkInt( meindex, NPC_SHOP_WORK_NO) ==0 ) {
-				NPC_ExpressmanCheck( meindex, talker);//ªø¤ò¶H§Ö»¼ 
+				NPC_ExpressmanCheck( meindex, talker);//é•·æ¯›è±¡å¿«é 
 			}
 		}else if(CHAR_getWorkInt( meindex, NPC_SHOP_WORK_NO) == 1) {
 		
 		}else{
-		  	NPC_ItemShop_Menu( meindex, talker);//¿ï¾Ü(¶R,½æ,Â÷¶})ªº¤pµøµ¡	
+		  	NPC_ItemShop_Menu( meindex, talker);//é¸æ“‡(è²·,è³£,é›¢é–‹)çš„å°è¦–çª—	
 		}
 	  	break;
 
-	  case 1://¶i¤J¶Rµøµ¡
-		CHAR_sendStatusString( talker,"I");//¶Ç°eª±®a¨­¤W©Ò¦³ªº¹D¨ãµ¹Client
+	  case 1://é€²å…¥è²·è¦–çª—
+		CHAR_sendStatusString( talker,"I");//å‚³é€ç©å®¶èº«ä¸Šæ‰€æœ‰çš„é“å…·çµ¦Client
 	  	NPC_ItemShop_BuyMain( meindex, talker, select);
 	  	break;
 
-	  case 2://¶i¤J½æµøµ¡
+	  case 2://é€²å…¥è³£è¦–çª—
 		CHAR_sendStatusString( talker,"I");
 	  	NPC_ItemShop_SellMain( meindex, talker, select);
 	  	break;
@@ -297,7 +297,7 @@ void NPC_ItemShopWindowTalked( int meindex, int talkerindex,
 	  case CHAR_WINDOWTYPE_WINDOWITEMSHOP_STARTMSG:
 		if(atoi( data) == 1 )	NPC_ItemShop_selectWindow(meindex, talkerindex, 1, -1);
 		if(atoi( data) == 2)	NPC_ItemShop_selectWindow(meindex, talkerindex, 2, -1);
-		if(atoi( data) == 3)	return;/*--²¿¤â¤·¤Ê¤¤--*/
+		if(atoi( data) == 3)	return;/*--çª’æ‰‹ä»„å…ä¸­--*/
 		break;
 	  case CHAR_WINDOWTYPE_WINDOWITEMSHOP_BUY_MSG:
 		if(NPC_SetNewItem(meindex , talkerindex, data) == TRUE) {
@@ -349,9 +349,9 @@ void NPC_ItemShop_BuyMain(int meindex,int talker,int before )
     char buff[256];
     
 #ifdef _NPC_SHOPALTER01
-	char sLimt[1024]; //¦s©ñª±®aª««~¥i§_½æ¥X¤Î»ù¿ú
-	char tokentemp[NPC_UTIL_GETARGSTR_BUFSIZE]; //»Ptoken¥\¯à¬Û¦P
-	float fdata; //Âà´«sell_rate¬°¼Æ­È
+	char sLimt[1024]; //å­˜æ”¾ç©å®¶ç‰©å“å¯å¦è³£å‡ºåŠåƒ¹éŒ¢
+	char tokentemp[NPC_UTIL_GETARGSTR_BUFSIZE]; //èˆ‡tokenåŠŸèƒ½ç›¸åŒ
+	float fdata; //è½‰æ›sell_rateç‚ºæ•¸å€¼
 #endif
 
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1)))== NULL) {
@@ -392,7 +392,7 @@ void NPC_ItemShop_BuyMain(int meindex,int talker,int before )
 		strncat(token , token2,sizeof(token));
 		strcpy(token2, "|");
 
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬	
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶	
 
 #else
 		NPC_GetItemList( argstr, token2);
@@ -403,10 +403,10 @@ void NPC_ItemShop_BuyMain(int meindex,int talker,int before )
 #ifdef _NPC_SHOPALTER01
 	sprintf(tokentemp,"%s","");
 	sprintf(sLimt,"%s","");
-	NPC_GetLimtItemList( talker, argstr, tokentemp, -1, sLimt);//¸Ô²Óª±®a­n½æ¥Xªº¹D¨ã¸ê®Æ
+	NPC_GetLimtItemList( talker, argstr, tokentemp, -1, sLimt);//è©³ç´°ç©å®¶è¦è³£å‡ºçš„é“å…·è³‡æ–™
     fdata = atof(NPC_Util_GetStrFromStrWithDelim( argstr, "sell_rate", buff, sizeof( buff)));
-	fdata *= 100; //­ì¥»¸ê®Æ¬°¤p¼Æ,Clientºİ³B²zªº¬°¾ã¼Æ,©Ò¥H­¼¥H100
-	sprintf(token,"%suseritem|%d%s", token, (int)fdata, sLimt);//­ì¥»ªº¦r¦ê«á¦A¥[¤Wsell_rate,»PsLimt¸ê®Æ
+	fdata *= 100; //åŸæœ¬è³‡æ–™ç‚ºå°æ•¸,Clientç«¯è™•ç†çš„ç‚ºæ•´æ•¸,æ‰€ä»¥ä¹˜ä»¥100
+	sprintf(token,"%suseritem|%d%s", token, (int)fdata, sLimt);//åŸæœ¬çš„å­—ä¸²å¾Œå†åŠ ä¸Šsell_rate,èˆ‡sLimtè³‡æ–™
 #endif
 
 	lssproto_WN_send( fd, WINDOW_MESSAGETYPE_ITEMSHOPMAIN, 
@@ -417,7 +417,7 @@ void NPC_ItemShop_BuyMain(int meindex,int talker,int before )
 
 }
 
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬	
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶	
 
 #else
 void NPC_GetItemList(char *argstr,char *argtoken)
@@ -467,7 +467,7 @@ void NPC_GetItemList(char *argstr,char *argtoken)
 				loopcnt++;
 				if(loopcnt == MAXSHOPITEM) break;
 
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶
 
 #else
 	#ifdef _NEW_MANOR_LAW
@@ -491,14 +491,14 @@ void NPC_GetItemList(char *argstr,char *argtoken)
 				}
 				end++;
 				for(; start < end ; start++ ) {
-					/*--¤Ş¤º  Á°      --*/
+					/*--å¼•å…§  èŸ†      --*/
 
 				 	name = ITEM_getNameFromNumber( start );
 					if(name == NULL) continue;
 					loopcnt++;
 					if(loopcnt == MAXSHOPITEM) break;
 
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶
 
 #else
 	#ifdef _NEW_MANOR_LAW
@@ -514,7 +514,7 @@ void NPC_GetItemList(char *argstr,char *argtoken)
 	}
 }
 
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶
 
 #else
 	#ifdef _NEW_MANOR_LAW
@@ -531,7 +531,7 @@ void NPC_GetItemList(char *argstr,char *argtoken)
 	char info[1024];
 	char escape[256];	
 
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬(§ï¤E¤j²ø¶é®É­n­×§ï)
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶(æ”¹ä¹å¤§èŠåœ’æ™‚è¦ä¿®æ”¹)
 
 #else
 	#ifdef _NEW_MANOR_LAW
@@ -578,7 +578,7 @@ BOOL NPC_SetNewItem(int meindex,int talker,char *data)
 	int kosuucnt = 0;
 	int itemindex;
 
-	/*--ÊÖ¤Ã¤Æ¤­¥û¥Ç¡¼¥¿¤ò¥»¥ì¥¯¥È¤È¸Ä¿ô¤ËÊ¬²ò--*/
+	/*--å¿’å‹»åŒ–äº”å…‡çŠ¯â–¡æ­£æ¯›æœ¬ä¼Šå¼ç„åˆèœŠé†’ååŒè¸--*/
 	getStringFromIndexWithDelim( data, "|", 1, buf, sizeof( buf));
 	select = atoi(buf);
 	if(select == 0) return FALSE;
@@ -586,7 +586,7 @@ BOOL NPC_SetNewItem(int meindex,int talker,char *data)
 	kosuu = atoi(buf);
 	if( kosuu <= 0 ) return FALSE;
 	
-	/*--¸Ä¿ô¤Î¥Á¥§¥Ã¥¯  Åö¤ËÁ´    ¤ë¤«¡ª-*/
+	/*--èœŠé†’åŠæ°‘å°¼æ°¸å¼  ç™²åèŸˆ    æœˆäº•ã€-*/
 	for( i = CHAR_STARTITEMARRAY ; i < CHAR_MAXITEMHAVE ; i++ ) {
 		itemindex = CHAR_getItemIndex( talker , i );
 		if( !ITEM_CHECKINDEX( itemindex) ) {
@@ -594,22 +594,22 @@ BOOL NPC_SetNewItem(int meindex,int talker,char *data)
 		}
 	}
 
-	/*--ÊÖ¤Ã¤Æ  ¤¿¸Ä¿ô¤Î  ¤¬  ºİ¤Î¸Ä¿ô  ¥µ¡¼¥ĞÂ¦  ¤è¤êÂ¿¤¤¤È¶³¤«¤·¤¤¤Î¤Ç--*/
-	/*--¥µ¡¼¥Ğ¡¼Â¦¤Î  ¤ò  ¤ì¤ë--*/
+	/*--å¿’å‹»åŒ–  å‡¶èœŠé†’åŠ  äº’  ç«¯åŠèœŠé†’  æ‰”â–¡ç”°ç¤  æ–¹æ›°è¶ä¸­åˆé›²äº•ä»„ä¸­åŠåŒ¹--*/
+	/*--æ‰”â–¡ç”°â–¡ç¤åŠ  æ¯›  æœ¨æœˆ--*/
 	if( kosuucnt < kosuu) kosuu = kosuucnt;
 		
-	/*--¥¼¤Ò¤Î¾ì¹ç¤Ï¥¨¥é¡¼--*/
+	/*--æœªå¤«åŠæ¨ºå¯§åå·¨ä»¿â–¡--*/
 	if(kosuucnt == 0 ) return FALSE;
 
 	i = 1;
 
-	/*--¶³Å¹¤Î¥Õ¥¡¥¤¥ë  ¤¤Ëô¤Ï¥Õ¥¡¥¤¥ë¤¬³«¤±¤Ê¤«¤Ã¤¿¤È¤­¤Ï½ª  --*/
+	/*--é›²é¥•åŠç™½å¤®å¥¶ä¼™  ä¸­å­åç™½å¤®å¥¶ä¼™äº’é‡©ä»ƒå…äº•å‹»å‡¶åˆäº”åè”½  --*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1)))== NULL) {
    	print("shop_GetArgStr_Err");
    	return FALSE;
 	}
 
-	/*---¥ì¡¼¥È¤ò¼è    ¤Ê¤±¤ì¤Ğ1.0)-*/
+	/*---ä¼Šâ–¡ç„æ¯›æ½¸    å…ä»ƒæœ¨å£¬1.0)-*/
 	if(NPC_Util_GetStrFromStrWithDelim( argstr, "buy_rate", buf, sizeof( buf)) != NULL) {
 		rate= atof( buf);
 	}
@@ -621,7 +621,7 @@ BOOL NPC_SetNewItem(int meindex,int talker,char *data)
 	if(NPC_Util_GetStrFromStrWithDelim(argstr,"ChangeItemCost",buff5,sizeof(buff5)) == NULL) iChangeItemCost = -1;
 #endif
 
-	/*--¥¢¥¤  ¥à¤ÎÄÉ²Ã¤ò¹Ô¤¦¤È¤³¤í-*/
+	/*--å¤±å¥¶  ä¸åŠé¦¨ç¬›æ¯›å¢Šä¸¹åˆä»‡æ¬ -*/
 	if( NPC_Util_GetStrFromStrWithDelim( argstr, "ItemList", buf, sizeof( buf)) != NULL ){
 		while(getStringFromIndexWithDelim(buf , "," , j, buff2, sizeof(buff2)) != FALSE ){
 #ifdef _NEW_MANOR_LAW
@@ -633,12 +633,12 @@ BOOL NPC_SetNewItem(int meindex,int talker,char *data)
 			}
 #endif
 			j++;
-			/*--  "-"¤¬´Ş¤Ş¤ì¤Æ¤¤¤ë¤«¤É¤¦¤«--*/
+			/*--  "-"äº’æ®–å¼•æœ¨åŒ–ä¸­æœˆäº•å‡ä¸¹äº•--*/
 			if(strstr( buff2, "-") == NULL) {
 				if( ITEM_getcostFromITEMtabl(atoi(buff2)) !=-1) {
 					if ( i == select) {
-						/*---¥¢¥¤  ¥à¤Îºî©¨---*/
-						/*--¸Ä¿ôÊ¬ºî©¨--*/
+						/*---å¤±å¥¶  ä¸åŠç¶œå²³---*/
+						/*--èœŠé†’åŒç¶œå²³--*/
 #ifdef _NEW_MANOR_LAW
 						if(NPC_AddItemBuy(meindex, talker,atoi(buff2),kosuu,rate,iCostFame,iChangeItemCost) != TRUE)
 #else
@@ -652,30 +652,30 @@ BOOL NPC_SetNewItem(int meindex,int talker,char *data)
 					i++;		
 				}
 			}else{
-				/*--¥¢¥¤  ¥à¤¬  15-25  ¤Î·Á¤ÇÁ÷¤é¤ì¤¿¾ì¹ç--*/
+				/*--å¤±å¥¶  ä¸äº’  15-25  åŠæº¥åŒ¹éœœæ—¥æœ¨å‡¶æ¨ºå¯§--*/
 				int start;
 				int end;
 
-				/* "-"¤Ç¶èÀÚ¤é¤ì¤¿»Ï¤á¤Î¿ôÃÍ¤È  ¤Î¿ôÃÍ¤ò¼è  --*/
+				/* "-"åŒ¹å—‰æ¿ æ—¥æœ¨å‡¶éŠ¨æˆ¶åŠé†’è¥–åˆ  åŠé†’è¥–æ¯›æ½¸  --*/
 				getStringFromIndexWithDelim( buff2, "-", 1, buff7, sizeof(buff7));
 				start = atoi( buff7);
 				getStringFromIndexWithDelim( buff2, "-", 2 ,buff7, sizeof(buff7));
 				end = atoi( buff7);
 				end++;
 
-				/*--  ¹æ¤¬µÕ¤Ë¤Ê¤Ã¤Æ¤¤¤¿¤é¡b  ¤ìÂØ¤¨¤ë**/
+				/*--  å¯äº’è…åå…å‹»åŒ–ä¸­å‡¶æ—¥ï½  æœ¨è´…å°¹æœˆ**/
 				if(start > end){
 					gold = start;
 					start = end;
 					end = gold;
 				}
 
-				/*--"-"¤Ç¶èÀÚ¤é¤ì¤¿Ê¬¤Î¥¢¥¤  ¥à¤ò¾ğ  ¤ò  ¤ë--*/
+				/*--"-"åŒ¹å—‰æ¿ æ—¥æœ¨å‡¶åŒåŠå¤±å¥¶  ä¸æ¯›æ¨¹  æ¯›  æœˆ--*/
 				for(; start < end ; start++ ) {
 					if( ITEM_getcostFromITEMtabl( start) != -1) {
 						if ( i == select) {
-							/*---¥¢¥¤  ¥à¤Îºî©¨---*/
-							/*--¸Ä¿ôÊ¬ºî©¨--*/
+							/*---å¤±å¥¶  ä¸åŠç¶œå²³---*/
+							/*--èœŠé†’åŒç¶œå²³--*/
 #ifdef _NEW_MANOR_LAW
 							if(NPC_AddItemBuy(meindex, talker, start, kosuu, rate,iCostFame,iChangeItemCost) != TRUE)
 #else
@@ -698,7 +698,7 @@ BOOL NPC_SetNewItem(int meindex,int talker,char *data)
 }
 
 /*---------------------------------------------
- *¥¢¥¤  ¥à¤ÎÄÉ²Ã¤ò¹Ô¤¦
+ *å¤±å¥¶  ä¸åŠé¦¨ç¬›æ¯›å¢Šä¸¹
  *--------------------------------------------*/
 #ifdef _NEW_MANOR_LAW
 BOOL NPC_AddItemBuy(int meindex, int talker,int itemID,int kosuu,double rate,int iCostFame,int iChangeItemCost)
@@ -715,7 +715,7 @@ BOOL NPC_AddItemBuy(int meindex, int talker,int itemID,int kosuu,double rate)
 #ifdef _NEW_MANOR_LAW
 	int iTotalCostFame = -1;
 #endif
-#ifdef _ADD_FAMILY_TAX			   // WON ADD ¼W¥[²ø¶éµ|¦¬(§ï¤E¤j²ø¶é®É­n­×§ï)
+#ifdef _ADD_FAMILY_TAX			   // WON ADD å¢åŠ èŠåœ’ç¨…æ”¶(æ”¹ä¹å¤§èŠåœ’æ™‚è¦ä¿®æ”¹)
 
 #else
 	#ifdef _NEW_MANOR_LAW
@@ -776,7 +776,7 @@ BOOL NPC_AddItemBuy(int meindex, int talker,int itemID,int kosuu,double rate)
 
 }
 
-//¿ï¾Ü (¶R,½æ,¥X¥h) ªº¤pµøµ¡
+//é¸æ“‡ (è²·,è³£,å‡ºå») çš„å°è¦–çª—
 void NPC_ItemShop_Menu(int meindex,int talker)
 {	
 	char	argstr1[NPC_UTIL_GETARGSTR_BUFSIZE];
@@ -786,17 +786,17 @@ void NPC_ItemShop_Menu(int meindex,int talker)
 	int fd = getfdFromCharaIndex( talker);
 
 #ifdef _NPC_SHOPALTER01
-	char sLimt[1024]; //¦s©ñª±®aª««~¥i§_½æ¥X¤Î»ù¿ú
-	char tokentemp[NPC_UTIL_GETARGSTR_BUFSIZE]; //»Ptoken¥\¯à¬Û¦P
-	float fdata; //Âà´«sell_rate¬°¼Æ­È
+	char sLimt[1024]; //å­˜æ”¾ç©å®¶ç‰©å“å¯å¦è³£å‡ºåŠåƒ¹éŒ¢
+	char tokentemp[NPC_UTIL_GETARGSTR_BUFSIZE]; //èˆ‡tokenåŠŸèƒ½ç›¸åŒ
+	float fdata; //è½‰æ›sell_rateç‚ºæ•¸å€¼
 #endif
-    //argstr¨ú±o¾ã­Ó³]©wÀÉªº°T®§: ¨Ò¦p->buy_rate:1.0|sell_rate:0.2|buy_msg:¶R,ÁÊ¶R,·PÁÂ±z,kau,buy............. (¤¤¶¡ªº¤À®æ¸¹¬OÅª¤J®É¥[¤Jªº)
+    //argstrå–å¾—æ•´å€‹è¨­å®šæª”çš„è¨Šæ¯: ä¾‹å¦‚->buy_rate:1.0|sell_rate:0.2|buy_msg:è²·,è³¼è²·,æ„Ÿè¬æ‚¨,kau,buy............. (ä¸­é–“çš„åˆ†æ ¼è™Ÿæ˜¯è®€å…¥æ™‚åŠ å…¥çš„)
     if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1)))== NULL) {
 		print("shop_GetArgStr_Err");
        	return;
     }
     
-	//token¬°µøµ¡¤W­±ªºtitle¤å¦r  ¨Ò¦p: ÂÄ©i¦Nº¸ªº¨¾¨ã©±|Åwªï¥úÁ{
+	//tokenç‚ºè¦–çª—ä¸Šé¢çš„titleæ–‡å­—  ä¾‹å¦‚: è–©å§†å‰çˆ¾çš„é˜²å…·åº—|æ­¡è¿å…‰è‡¨
     NPC_Util_GetStrFromStrWithDelim( argstr, "main_msg", buff, sizeof( buff));
 #ifdef _NEW_MANOR_LAW
 	snprintf(token, sizeof(token),"%s|%s|%d",CHAR_getChar(meindex,CHAR_NAME),buff,CHAR_getInt(talker,CHAR_FAME)/100);
@@ -807,10 +807,10 @@ void NPC_ItemShop_Menu(int meindex,int talker)
 #ifdef _NPC_SHOPALTER01
 	sprintf(tokentemp,"%s","");
 	sprintf(sLimt,"%s","");
-	NPC_GetLimtItemList( talker, argstr, tokentemp, -1, sLimt);//¸Ô²Óª±®a­n½æ¥Xªº¹D¨ã¸ê®Æ
+	NPC_GetLimtItemList( talker, argstr, tokentemp, -1, sLimt);//è©³ç´°ç©å®¶è¦è³£å‡ºçš„é“å…·è³‡æ–™
     fdata = atof(NPC_Util_GetStrFromStrWithDelim( argstr, "sell_rate", buff, sizeof( buff)));
-	fdata *= 100; //­ì¥»¸ê®Æ¬°¤p¼Æ,Clientºİ³B²zªº¬°¾ã¼Æ,©Ò¥H­¼¥H100
-	sprintf(token,"%suseritem|%d%s", token, (int)fdata, sLimt);//­ì¥»ªº¦r¦ê«á¦A¥[¤Wsell_rate,»PsLimt¸ê®Æ
+	fdata *= 100; //åŸæœ¬è³‡æ–™ç‚ºå°æ•¸,Clientç«¯è™•ç†çš„ç‚ºæ•´æ•¸,æ‰€ä»¥ä¹˜ä»¥100
+	sprintf(token,"%suseritem|%d%s", token, (int)fdata, sLimt);//åŸæœ¬çš„å­—ä¸²å¾Œå†åŠ ä¸Šsell_rate,èˆ‡sLimtè³‡æ–™
 #endif
 	lssproto_WN_send( fd, WINDOW_MESSAGETYPE_ITEMSHOPMENU, 
 				WINDOW_BUTTONTYPE_NONE, 
@@ -826,7 +826,7 @@ void NPC_ItemShop_SellMain(int meindex,int talker,int before)
 	char *argstr;
 	char	token[NPC_UTIL_GETARGSTR_BUFSIZE];
 	int fd = getfdFromCharaIndex( talker);
-	//¨ú±onpc³]©w¸ê®Æ
+	//å–å¾—npcè¨­å®šè³‡æ–™
     if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1)))== NULL) {
        	print("shop_GetArgStr_Err");
        	return;
@@ -866,9 +866,9 @@ void NPC_ItemShop_SellMain(int meindex,int talker,int before)
 		}
 		sprintf( token2,"%s|%s|", buff, buff2);
 #ifdef _NPC_SHOPALTER01
-		NPC_GetLimtItemList( talker,argstr, token2, -1, NULL);//¸Ô²Óª±®a­n½æ¥Xªº¹D¨ã¸ê®Æ
+		NPC_GetLimtItemList( talker,argstr, token2, -1, NULL);//è©³ç´°ç©å®¶è¦è³£å‡ºçš„é“å…·è³‡æ–™
 #else
-		NPC_GetLimtItemList( talker,argstr, token2, -1);//¸Ô²Óª±®a­n½æ¥Xªº¹D¨ã¸ê®Æ
+		NPC_GetLimtItemList( talker,argstr, token2, -1);//è©³ç´°ç©å®¶è¦è³£å‡ºçš„é“å…·è³‡æ–™
 #endif	
 		strncat( token, token2, sizeof( token));
 
@@ -882,7 +882,7 @@ void NPC_ItemShop_SellMain(int meindex,int talker,int before)
 	}
 }
 #ifdef _NPC_SHOPALTER01
-int NPC_GetLimtItemList(int talker, char *argstr, char* token2,int sell, char* sLimt)//sLimt:ª±®a¥i½æª««~ªº¦r¦ê
+int NPC_GetLimtItemList(int talker, char *argstr, char* token2,int sell, char* sLimt)//sLimt:ç©å®¶å¯è³£ç‰©å“çš„å­—ä¸²
 #else
 int NPC_GetLimtItemList(int talker, char *argstr, char* token2,int sell)
 #endif
@@ -901,7 +901,7 @@ int NPC_GetLimtItemList(int talker, char *argstr, char* token2,int sell)
 	int cost;
 
 #ifdef _NPC_SHOPALTER01
-    char sbuf[256]; //¨ú±osLimt«e,¥Îsbuf¨ú±o¨C¤@¶µ¸ê®Æ,¦A¦s¤JsLimt
+    char sbuf[256]; //å–å¾—sLimtå‰,ç”¨sbufå–å¾—æ¯ä¸€é …è³‡æ–™,å†å­˜å…¥sLimt
 #endif
 
 
@@ -1167,7 +1167,7 @@ int NPC_GetLimtItemList(int talker, char *argstr, char* token2,int sell)
 
 /*----------------------------------------------------------
 
-	¥¯¥é¥¤¥¢¥ó¥È¤ËÁ÷¿®¤¹¤ë¥×¤Ò¥È¥³¥ë¤Îºî©¨
+	å¼ä»¿å¥¶å¤±ä»¶ç„åéœœè€¨å…æœˆçš¿å¤«ç„æˆŠä¼™åŠç¶œå²³
 
  *----------------------------------------------------------*/
 int NPC_GetSellItemList(int itemindex,int flg, char *argstr,char *argtoken,int select,int sell)
@@ -1294,7 +1294,7 @@ BOOL NPC_SellNewItem(int meindex,int talker,char *data)
 #endif
 	if( cost == -1 || (cost*sellnum)+MyGold >= MaxGold || !ITEM_CHECKINDEX( itemindex) ){
 		int fd = getfdFromCharaIndex( talker);
-		sprintf(token,"\n\n«u§r!¹ï¤£°_" "\n\n¹ï¤£°_°Ú ! ¥i¤£¥i¥H¦A¿ï¤@¦¸©O¡H" );	
+		sprintf(token,"\n\nå“å‘€!å°ä¸èµ·" "\n\nå°ä¸èµ·å•Š ! å¯ä¸å¯ä»¥å†é¸ä¸€æ¬¡å‘¢ï¼Ÿ" );	
 		lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE, 
 				WINDOW_BUTTONTYPE_OK, 
 				CHAR_WINDOWTYPE_WINDOWITEMSHOP_LIMIT,
@@ -1309,12 +1309,12 @@ BOOL NPC_SellNewItem(int meindex,int talker,char *data)
 		LogItem(
 			CHAR_getChar( talker, CHAR_NAME ),
 			CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 			itemindex,
 #else
 	   		ITEM_getInt( itemindex, ITEM_ID ),
 #endif
-			"Sell(½æ¹D¨ã)",
+			"Sell(è³£é“å…·)",
 			CHAR_getInt( talker,CHAR_FLOOR),
 			CHAR_getInt( talker,CHAR_X ),
 			CHAR_getInt( talker,CHAR_Y ),
@@ -1356,7 +1356,7 @@ void NPC_LimitItemShop(int meindex,int talker,int select)
 				token);
 
 	}else{
-		CHAR_talkToCli( talker, meindex, "³o¬O¶R½æ±Mªù©±¡C",CHAR_COLORWHITE);
+		CHAR_talkToCli( talker, meindex, "é€™æ˜¯è²·è³£å°ˆé–€åº—ã€‚",CHAR_COLORWHITE);
 	}
 	return;
 }
@@ -1375,8 +1375,8 @@ void NPC_ExpressmanCheck(int meindex,int talker)
 	}
 	NPC_Util_GetStrFromStrWithDelim( argstr, "main_msg", buf, sizeof( buf));
 	sprintf(token,"4\n              %s\n\n%s"
-					"\n\n          ¡Õ  ¥´¤u  ¡Ö      "
-				  "\n\n          ¡Õ¥æ¥I¦æ§õ¡Ö"
+					"\n\n          ï¼œ  æ‰“å·¥  ï¼      "
+				  "\n\n          ï¼œäº¤ä»˜è¡Œæï¼"
 					,CHAR_getChar(meindex,CHAR_NAME),buf);
 	lssproto_WN_send( fd, WINDOW_MESSAGETYPE_SELECT, 
 			WINDOW_BUTTONTYPE_CANCEL, 

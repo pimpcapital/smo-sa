@@ -11,7 +11,7 @@
 #include "battle.h"
 #include "log.h"
 
-// WON ADD ¼W¥[±Úªø¥l³êªº­­¨î
+// WON ADD å¢åŠ æ—é•·å¬å–šçš„é™åˆ¶
 #include "npc_scheduleman.h"
 #include "handletime.h"
 
@@ -20,7 +20,7 @@ static void NPC_FMPKCallMan_selectWindow(int meindex, int toindex, int num, int 
 void NPC_CallFMMember(int meindex, int floor, int fmindex, char *fmname, int index);
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_FMPKCallManInit( int meindex )
 {
@@ -35,15 +35,15 @@ BOOL NPC_FMPKCallManInit( int meindex )
 		return FALSE;
 	}
 
-	/*--¥ï¡¼¥×¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¤«----*/
-	/*--¥ï¡¼¥×¤¬ÀßÄê¤µ¤ì¤Æ¤Ê¤±¤ì¤ĞNPC¤òºî¤é¤Ê¤¤¤³¤È¤Ë¤¹¤ë--*/
+	/*--ä¼â–¡çš¿äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­æœˆäº•----*/
+	/*--ä¼â–¡çš¿äº’æ¾€çˆ›ä»Šæœ¨åŒ–å…ä»ƒæœ¨å£¬NPCæ¯›ç¶œæ—¥å…ä¸­ä»‡åˆåå…æœˆ--*/
 	if(NPC_Util_GetStrFromStrWithDelim( npcarg, "WARP", buf, sizeof( buf))==NULL){
 	        print("FMPKCallMan Err is %s",npcarg);
 		print("FMPKCallMan Err");
 		return FALSE;
 	}
 
-	/*--¥ï¡¼¥×¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤Æ¤â¥ï¡¼¥×Àè¤¬¤Ê¤±¤ì¤Ğ¤â¤Á¤í¤óNPC¤òºî¤é¤Ê¤¤--*/
+	/*--ä¼â–¡çš¿äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­åŒ–æ‰‹ä¼â–¡çš¿ç‡®äº’å…ä»ƒæœ¨å£¬æ‰‹åˆ‡æ¬ æ°NPCæ¯›ç¶œæ—¥å…ä¸­--*/
 	getStringFromIndexWithDelim(buf,",",1,buff2,sizeof(buff2));
 	fl=atoi(buff2);
 	getStringFromIndexWithDelim(buf,",",2,buff2,sizeof(buff2));
@@ -56,32 +56,32 @@ BOOL NPC_FMPKCallManInit( int meindex )
 		return FALSE;
 	}
 
-	/*--¥¿¥¤¥×ÀßÄê--*/
+	/*--æ­£å¥¶çš¿æ¾€çˆ›--*/
    	CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEWARPMAN );
 
     return TRUE;
 }
 
 /*********************************
-*   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+*   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_FMPKCallManTalked( int meindex , int talkerindex , char *szMes ,int color )
 {
-    /* ¥×¥ì¥¤¥ä¡¼¤ËÂĞ¤·¤Æ¤À¤±  ±ş¤¹¤ë */
+    /* çš¿ä¼Šå¥¶ä¹©â–¡åè¦†ä»„åŒ–åˆ†ä»ƒ  æ®ºå…æœˆ */
     if( CHAR_getInt( talkerindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) {
     	return;
     }
 	
-	/*--  ¤ÎÁ°¤Ë¤¤¤ë¤«¤É¤¦¤«¡ª--*/
+	/*--  åŠèŸ†åä¸­æœˆäº•å‡ä¸¹äº•ã€--*/
 	if(NPC_Util_isFaceToFace(talkerindex,meindex,2 )==FALSE){
-		/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+		/* ã„ å¼˜ä¼‰æ°¸ç‰å‹•  åŠå¿ƒ */
 		if( NPC_Util_isFaceToChara( talkerindex, meindex, 1) == FALSE) return;
 	}
 
-	/*--¥ï¡¼¥¯¤Î½é´ü²½--*/
+	/*--ä¼â–¡å¼åŠè³¡æ¸ç¥­--*/
 	CHAR_setWorkInt(talkerindex, CHAR_WORKSHOPRELEVANT, 0);
 
-	/*-¤Ï¤¸¤á¤ÎÁª      --*/
+	/*-åå…ƒæˆ¶åŠè–Š      --*/
 	NPC_FMPKCallMan_selectWindow( meindex, talkerindex, 0, -1);
 }
 
@@ -104,7 +104,7 @@ static void NPC_FMPKCallMan_selectWindow( int meindex, int toindex,
 		print("GetArgStrErr");
 		return ;
 	}
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤Î  ¤Ë¥Õ¤Ò¥¢¿Í¿ô¤¬»ØÄê¤µ¤ì¤Æ¤¤¤ë¤«¤µ¤ì¤Æ¤¤¤ì¤Ğ¥Õ¤Ò¥¢¿Í¿ô¤Î³ä¤ê½Ğ¤·*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™åŠ  åç™½å¤«å¤±è«¦é†’äº’éš™çˆ›ä»Šæœ¨åŒ–ä¸­æœˆäº•ä»Šæœ¨åŒ–ä¸­æœ¨å£¬ç™½å¤«å¤±è«¦é†’åŠå–ƒæ›°è«‹ä»„*/
 	if(strstr(npcarg,"%4d")!=NULL){
 		int work;
 		NPC_Util_GetStrFromStrWithDelim( npcarg, "WARP", buf, sizeof( buf));
@@ -120,11 +120,11 @@ static void NPC_FMPKCallMan_selectWindow( int meindex, int toindex,
 	   	if (NPC_Util_GetStrFromStrWithDelim(npcarg, "MainMsg", buf,
 	   		sizeof(buf)) == NULL)
 	   			return;
-	   	sprintf(token, "3\n               ¡¹®a±Ú¢Ş¢Ù³õ¡¹\n"
+	   	sprintf(token, "3\n               â˜…å®¶æ—ï¼°ï¼«å ´â˜…\n"
 	   			"%s"
-	   			"\n              ¡m¥l³ê®a±Ú¦¨­û¡n"
-	   			"\n               ¡mªğ¦^°O¿ıÂI¡n"
-	   			"\n                  ¡m¨ú®ø¡n",
+	   			"\n              ã€Šå¬å–šå®¶æ—æˆå“¡ã€‹"
+	   			"\n               ã€Šè¿”å›è¨˜éŒ„é»ã€‹"
+	   			"\n                  ã€Šå–æ¶ˆã€‹",
 	   			buf);
 	   	lssproto_WN_send(fd, WINDOW_MESSAGETYPE_SELECT,
 	   		WINDOW_BUTTONTYPE_NONE,
@@ -156,24 +156,24 @@ static void NPC_FMPKCallMan_selectWindow( int meindex, int toindex,
 	   	      if (strstr(buf, "%s") != NULL)
 	   	      	 sprintf(token, buf, CHAR_getChar(toindex, CHAR_FMNAME));
 
-// WON ADD ¼W¥[±Úªø¥l³êªº­­¨î
+// WON ADD å¢åŠ æ—é•·å¬å–šçš„é™åˆ¶
 			  {
 					int fmindex, fmpk_pos=-1, j;
 					int now_time;
 					struct  tm tm1;
-// Terry add for ¯Á¤Ş­È¬° 0 ªº®a±Ú·|¦³°İÃD,©Ò¥H¦h¥[§PÂ_®a±Ú¦WºÙ
+// Terry add for ç´¢å¼•å€¼ç‚º 0 çš„å®¶æ—æœƒæœ‰å•é¡Œ,æ‰€ä»¥å¤šåŠ åˆ¤æ–·å®¶æ—åç¨±
 					char szFMName[32];
 // end
 					
 					memcpy(&tm1,localtime((time_t *)&NowTime.tv_sec),sizeof(tm1));
 
 					fmindex = CHAR_getWorkInt(toindex, CHAR_WORKFMINDEXI);
-// Terry add for ¯Á¤Ş­È¬° 0 ªº®a±Ú·|¦³°İÃD,©Ò¥H¦h¥[§PÂ_®a±Ú¦WºÙ
+// Terry add for ç´¢å¼•å€¼ç‚º 0 çš„å®¶æ—æœƒæœ‰å•é¡Œ,æ‰€ä»¥å¤šåŠ åˆ¤æ–·å®¶æ—åç¨±
 					strncpy(szFMName,CHAR_getChar(toindex,CHAR_FMNAME),sizeof(szFMName));
 // end
 
 					for( j=0; j <= MAX_SCHEDULEMAN*MAX_SCHEDULE; j++ ){
-// Terry fix for ¯Á¤Ş­È¬° 0 ªº®a±Ú·|¦³°İÃD,©Ò¥H¦h¥[§PÂ_®a±Ú¦WºÙ
+// Terry fix for ç´¢å¼•å€¼ç‚º 0 çš„å®¶æ—æœƒæœ‰å•é¡Œ,æ‰€ä»¥å¤šåŠ åˆ¤æ–·å®¶æ—åç¨±
 //						if( (fmindex == fmpks[j].host_index ) || (fmindex == fmpks[j].guest_index ) ){
 						if((fmindex == fmpks[j].host_index && strcmp(szFMName,fmpks[j].host_name) == 0) || 
 							 (fmindex == fmpks[j].guest_index && strcmp(szFMName,fmpks[j].guest_name) == 0)){
@@ -195,13 +195,13 @@ static void NPC_FMPKCallMan_selectWindow( int meindex, int toindex,
 						if( (fmpks[fmpk_pos].flag != FMPKS_FLAG_SCHEDULED) &&
 							(fmpks[fmpk_pos].flag != FMPKS_FLAG_MANOR_PREPARE) )
 						{
-                            sprintf(token,"§A¨S¦³®a±Ú¬ù¾Ô¡A½Ğ¥ı¬ù¾Ô§a¡C");
+                            sprintf(token,"ä½ æ²’æœ‰å®¶æ—ç´„æˆ°ï¼Œè«‹å…ˆç´„æˆ°å§ã€‚");
 	   						lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 	   							WINDOW_BUTTONTYPE_OK, -1, -1, token);
 
 						}else if( now_time  < fmpks[fmpk_pos].dueltime ){
 	   	      		
-							sprintf(token,"½Ğ¦b¹ï¾Ô«e¤@¤p®É¦A¨Ó¥l³ê±Ú­û§a!");
+							sprintf(token,"è«‹åœ¨å°æˆ°å‰ä¸€å°æ™‚å†ä¾†å¬å–šæ—å“¡å§!");
 	   						lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 	   							WINDOW_BUTTONTYPE_OK, -1, -1, token);
 
@@ -212,7 +212,7 @@ static void NPC_FMPKCallMan_selectWindow( int meindex, int toindex,
 	   							CHAR_getWorkInt( meindex, CHAR_WORKOBJINDEX), token);
 						}
 					}else{
-                            sprintf(token,"§A¨S¦³®a±Ú¬ù¾Ô¡A½Ğ¥ı¬ù¾Ô§a¡C");
+                            sprintf(token,"ä½ æ²’æœ‰å®¶æ—ç´„æˆ°ï¼Œè«‹å…ˆç´„æˆ°å§ã€‚");
                             lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
                                      WINDOW_BUTTONTYPE_OK, -1, -1, token);
 					}
@@ -240,7 +240,7 @@ static void NPC_FMPKCallMan_selectWindow( int meindex, int toindex,
 }
 
 /*-----------------------------------------
- * ¥¯¥é¥¤¥¢¥ó¥È¤«¤éÊÖ¤Ã¤Æ¤­¤¿»ş¤Ë¸Æ¤Ó½Ğ¤µ¤ì¤ë¡e
+ * å¼ä»¿å¥¶å¤±ä»¶ç„äº•æ—¥å¿’å‹»åŒ–äº”å‡¶å‡œåè£Ÿå¤ªè«‹ä»Šæœ¨æœˆã€”
  *
 -------------------------------------------*/
 void NPC_FMPKCallManWindowTalked( int meindex, int talkerindex, 
@@ -273,7 +273,7 @@ void NPC_FMPKCallManWindowTalked( int meindex, int talkerindex,
 	datanum = atoi( data);
 	switch( seqno){
 
-	/*--¤Ï¤¸¤Ş¤ê¤Î    --*/
+	/*--åå…ƒå¼•æ›°åŠ    --*/
 	  case CHAR_WINDOWTYPE_FMPKCALLMAN_START:
 	  	if (datanum == 1)
 	  		NPC_FMPKCallMan_selectWindow(meindex, talkerindex, 1, -1);
@@ -285,7 +285,7 @@ void NPC_FMPKCallManWindowTalked( int meindex, int talkerindex,
 	  	{
 	  	   	lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
 	  	   		WINDOW_BUTTONTYPE_OK, -1, -1,
-	  	   		makeEscapeString("\n¥l³ê¤¤¡P¡P¡P½Ğµy­Ô¡I\n¢I¡­¢C¢H¡ô¡®¡¯¡P¡P¡P", buf, sizeof(buf)));
+	  	   		makeEscapeString("\nå¬å–šä¸­Â·Â·Â·è«‹ç¨å€™ï¼\nï¼ ï¼ƒï¼„ï¼…â†‘ï¼†ï¼ŠÂ·Â·Â·", buf, sizeof(buf)));
 	  		NPC_CallFMMember(meindex,
 	  			CHAR_getInt(talkerindex, CHAR_FLOOR),
 	  			CHAR_getInt(talkerindex, CHAR_FMINDEX),
@@ -321,7 +321,7 @@ void NPC_FMPKCallManWindowTalked( int meindex, int talkerindex,
 	  		{
 	  			lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
 	  				WINDOW_BUTTONTYPE_OK, -1, -1,
-	  				makeEscapeString("\nµLªk¥H¹Î¶¤¤è¦¡Â÷¶}­ò¡I\n½Ğ¥ı¸Ñ´²¹Î¶¤¡I", buf, sizeof(buf)));
+	  				makeEscapeString("\nç„¡æ³•ä»¥åœ˜éšŠæ–¹å¼é›¢é–‹å”·ï¼\nè«‹å…ˆè§£æ•£åœ˜éšŠï¼", buf, sizeof(buf)));
 	  			return;
 	  		}
 	  		for (i = 0; i < CHAR_MAXITEMHAVE; i++)
@@ -333,7 +333,7 @@ void NPC_FMPKCallManWindowTalked( int meindex, int talkerindex,
 	  			{
 	  				lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
 	  					WINDOW_BUTTONTYPE_OK, -1, -1,
-	  					makeEscapeString("\n±z¨­¤W¦³¶Q­«ª««~³á¡I\n¬°¤FÁ×§K¦b¶Ç°e³~¤¤¤£¤p¤ß·lÃa¡A\n½Ğ¥ı±N³oÃşª««~¨ø¤U¡A\nÁÂÁÂ±zªº¦X§@¡I", buf, sizeof(buf)));
+	  					makeEscapeString("\næ‚¨èº«ä¸Šæœ‰è²´é‡ç‰©å“å–”ï¼\nç‚ºäº†é¿å…åœ¨å‚³é€é€”ä¸­ä¸å°å¿ƒæå£ï¼Œ\nè«‹å…ˆå°‡é€™é¡ç‰©å“å¸ä¸‹ï¼Œ\nè¬è¬æ‚¨çš„åˆä½œï¼", buf, sizeof(buf)));
 	  				return;
 	  			}
 	  				
@@ -385,7 +385,7 @@ void NPC_CallFMMember(int meindex, int floor, int fmindex, char *fmname, int ind
 	            	lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
 	            		WINDOW_BUTTONTYPE_YESNO, CHAR_WINDOWTYPE_FMPKCALLMAN_COME,
 	            		CHAR_getWorkInt(meindex, CHAR_WORKOBJINDEX),
-	            		makeEscapeString("\n®a±Ú¤w¸g¦b¢Ş¢ÙÃ¹¡ã­n¤£­n¥[¤J©O¡H\n¤£¹L­Y¬O¦b²Õ¶¤ª¬ºA¤¤¡A±N·|²æÂ÷¹Î¶¤­ò¡I", buf, sizeof(buf)));
+	            		makeEscapeString("\nå®¶æ—å·²ç¶“åœ¨ï¼°ï¼«ç¾…ï½è¦ä¸è¦åŠ å…¥å‘¢ï¼Ÿ\nä¸éè‹¥æ˜¯åœ¨çµ„éšŠç‹€æ…‹ä¸­ï¼Œå°‡æœƒè„«é›¢åœ˜éšŠå”·ï¼", buf, sizeof(buf)));
 	         }
 	      }	 
 	      else

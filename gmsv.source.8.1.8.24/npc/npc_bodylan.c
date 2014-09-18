@@ -11,24 +11,24 @@
 
 
 /*
- *���a�ܥǥ���󥲡�����Ȥ���  ������NPC
- * �ޤ�  ��������줿��b���Υץ쥤�䡼��
- * ����NPC��INDEX����¸����e
+ *迭｛示犯奴仿件必□斥毛銀尹壬  殺允月NPC
+ * 引內  仄井仃日木凶日｝公及皿伊奶乩□卞
+ * 仇及NPC及INDEX毛忡繡允月〔
  *
- *���aNPC�μ���ǥ�������󤬤��ä���b���������򵯤������ץ쥤�䡼��
- *NPC��INDEX����  ���Ƥ��뤫�����å�
- *�����å�    �ʤ鱭�ϥ��������μ������󥹥����å�����
- *��˾�Υ��������򤷤Ƥ�����ץ쥤�䡼�Υ�����Ȥ򥢥åפ�����e
- *������ȥ��å�  �b����������    �ʤ����ξ��إ�פ�����
+ *迫｛NPC及璃曰匹失弁撲亦件互丐勻凶日｝失弁撲亦件毛粟仇仄凶皿伊奶乩□互
+ *NPC及INDEX毛忡  仄化中月井民尼永弁
+ *民尼永弁    卅日戚反失弁撲亦件及撲□弗件旦民尼永弁允月
+ *渦侗及失弁撲亦件毛仄化中凶日皿伊奶乩□及市它件玄毛失永皿今六月〔
+ *市它件玄失永皿  ｝蟈撲□弗件旦    卅日隙爛及樺赭尺伐□皿今六月
  *
  */
 
 enum {
-	BODYLAN_E_COMMANDNUM = CHAR_NPCWORKINT1,	// ���ޥ�ɤ�Ĺ��
+	BODYLAN_E_COMMANDNUM = CHAR_NPCWORKINT1,	// 戊穴件玉及贏今
 };
 
 
-// ������ɥ��⡼��
+// 它奶件玉它乒□玉
 enum{
 	BODYLAN_WIN_FIRST,
 	BODYLAN_WIN_LAST_GOOD,
@@ -49,7 +49,7 @@ static void NPC_BodyLan_Window(
 
 
 /*********************************
-* �����  
+* 賡渝質  
 *********************************/
 BOOL NPC_BodyLanInit( int meindex )
 {
@@ -62,38 +62,38 @@ BOOL NPC_BodyLanInit( int meindex )
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEEVENT );
 
     if((szArg = NPC_Util_GetArgStr( meindex, szArg1, sizeof( szArg1)))== NULL ){
-    	print( "npc_bodylan.c:�S���޼�(%s)\n",
+    	print( "npc_bodylan.c:沒有引數(%s)\n",
     		CHAR_getChar(meindex,CHAR_NPCARGUMENT) );
     	return FALSE;
     }
 
 
-	// �������󥹤�õ��
+	// 撲□弗件旦毛繭允
 	if( NPC_Util_GetStrFromStrWithDelim( szArg, "Act", szP, sizeof( szP ) ) == NULL ){
-		print( "npc_bodylan:�ʧ@��r�C�|���]�w(%s)\n",	szArg );
+		print( "npc_bodylan:動作文字列尚未設定(%s)\n",	szArg );
 		return FALSE;
 	}
 
 	for( i = 0 ; ; i ++ ){
-		//   �פʽ�  
+		//   邰卅賜  
 		if( getStringFromIndexWithDelim( szP, ",", i, buf, sizeof( buf)) != FALSE ){
 			needSeq = atoi(buf);
-			// �ޥ��ʥ���  ���餳���ޤ�
+			// 穴奶瓜旦互  凶日仇仇引匹
 			if( needSeq < 0 ){
 				if( i <= 0 ){
-					print( "npc_bodylan:�ʧ@�C�|���]�w(%s)\n", szArg );
+					print( "npc_bodylan:動作列尚未設定(%s)\n", szArg );
 				}
-				//     ���򥻥å�
+				//     醒毛本永玄
 				CHAR_setWorkInt( meindex, BODYLAN_E_COMMANDNUM, i );
 				break;
 			}else{
-				// �롼�פ��ƿ�����
+				// 伙□皿仄化醒尹月
 			}
 		}else{
 			if( i <= 0 ){
-				print( "npc_bodylan:�ʧ@�C�|���]�w(%s)\n", szArg );
+				print( "npc_bodylan:動作列尚未設定(%s)\n", szArg );
 			}
-			//     ���򥻥å�
+			//     醒毛本永玄
 			CHAR_setWorkInt( meindex, BODYLAN_E_COMMANDNUM, i );
 			break;
 		}
@@ -109,7 +109,7 @@ BOOL NPC_BodyLanInit( int meindex )
 
 
 /*********************************
-*   ��������줿���ν�  
+*   仄井仃日木凶凜及質  
 *********************************/
 void NPC_BodyLanTalked( int meindex , int talkerindex , char *szMes ,int color )
 {
@@ -117,75 +117,75 @@ void NPC_BodyLanTalked( int meindex , int talkerindex , char *szMes ,int color )
 	char *szArg;
 	int EventNo = -1,Pre_Event = -1;
 
-    /* �ץ쥤�䡼���Ф��Ƥ���  ������ */
+    /* 皿伊奶乩□卞覆仄化分仃  殺允月 */
     if( CHAR_getInt( talkerindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) {
     	return;
     }
 
-	/* ������åɰ�  �Τ� */
+	/* ㄠ弘伉永玉動  及心 */
 	if( NPC_Util_CharDistance( talkerindex, meindex ) > 2 )
 	{
 		return;
 	}
 
-	// ����  ��  
+	// 婁醒  儂  
     if( (szArg = NPC_Util_GetArgStr( meindex, szArg1, sizeof( szArg1 )) ) == NULL ){
-    	print( "npc_bodylan.c:�S���޼�(%s)\n",
+    	print( "npc_bodylan.c:沒有引數(%s)\n",
     		CHAR_getChar(meindex,CHAR_NPCARGUMENT) );
     	return ;
     }else{
-		// ���٥��  ���  
+		// 奶矛件玄  寞潸  
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "EventNo", szP, sizeof( szP ) ) != NULL ){
 			EventNo = atoi(szP);
 		}
-		// ����  �ץ��٥��  ���  
+		// 儀蟆  邰奶矛件玄  寞潸  
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "Pre_Event", szP, sizeof( szP ) ) != NULL ){
 			Pre_Event = atoi(szP);
 		}
 	}
 
-	// ������  �ץ��٥��  �椬�����
+	// 儀蟆卞  邰奶矛件玄  寞互丐木壬
 	if( Pre_Event >= 0 ){
-		// ���٥�Ȥ��Ф��Ƥɤ����Ƥ��뤫�����å�
+		// 奶矛件玄卞覆仄化升丹仄化中月井民尼永弁
 		if( NPC_EventCheckFlg( talkerindex, Pre_Event ) == FALSE ){
-			//   �ץ��٥�Ȥ򥯥ꥢ���Ƥ��ʤ��ä��餳�Υ����
+			//   邰奶矛件玄毛弁伉失仄化中卅井勻凶日仇及本伉白
 			NPC_BodyLan_Window( meindex, talkerindex, BODYLAN_WIN_NOT_PREEVENT );
 			return;
 		}
 	}
-	// ���٥��  �椬�����
+	// 奶矛件玄  寞互丐木壬
 	if( EventNo >= 0 ){
-		// ���٥�Ȥ��Ф��Ƥɤ����Ƥ��뤫�����å�
+		// 奶矛件玄卞覆仄化升丹仄化中月井民尼永弁
 		if( NPC_EventCheckFlg( talkerindex, EventNo ) == TRUE ){
-			//   �äƤ����餳�Υ����
+			//   勻化中凶日仇及本伉白
 			NPC_BodyLan_Window( meindex, talkerindex, BODYLAN_WIN_ALREADY );
 			return;
 		}
 	}
 
-	// ���󤳤Υץ쥤�䡼�ϼ�ʬ�����äƤ�����
+	// 蟆莢仇及皿伊奶乩□反憤坌午韻勻化中凶井
 	if( CHAR_getWorkInt( talkerindex, CHAR_WORKTRADER ) == meindex ){
 
-		// ����˥��ޥ�ɤ���  ��  ���Ƥ�����
+		// 今日卞戊穴件玉互蟈  岳  仄化中凶日
 		if( CHAR_getWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT )
 		 >= CHAR_getWorkInt( meindex, BODYLAN_E_COMMANDNUM )
 		){
-			// ��  ������    ����
+			// 岳  〞〞仍    井〞
 			NPC_BodyLan_Window( meindex, talkerindex, BODYLAN_WIN_LAST_GOOD );
 			return;
 		}else{
-			// ��  
+			// 撩  
 			NPC_BodyLan_Window( meindex, talkerindex, BODYLAN_WIN_LAST_NG );
 			return;
 		}
 	}else{
-		// ���ƤʤΤǳФ���
-		// �ץ쥤�䡼�˼�ʬ�Υ���ǥå�������¸������
+		// 賡戶化卅及匹創尹月
+		// 皿伊奶乩□卞憤坌及奶件犯永弁旦毛忡繡今六月
 		CHAR_setWorkInt( talkerindex, CHAR_WORKTRADER, meindex );
-		// �������󥹤�  �餫��˽����
+		// 撲□弗件旦反  賡井日卞賡渝祭
 		CHAR_setWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT, 1 );
 
-		// ���κݥ���դȤ�����٤����ʤ��z�z�z
+		// 公及端本伉白午井韻月屯五井卅丐』』』
 		NPC_BodyLan_Window( meindex, talkerindex, BODYLAN_WIN_FIRST );
 		return;
 	}
@@ -193,7 +193,7 @@ void NPC_BodyLanTalked( int meindex , int talkerindex , char *szMes ,int color )
 
 
 /*=======================================
- * watch ��  
+ * watch 質  
  *======================================*/
 void NPC_BodyLanWatch(
 	int objmeindex,
@@ -213,116 +213,116 @@ void NPC_BodyLanWatch(
 	int meindex;
 	int seqNo, needSeq;
 
-	// ����饯���ʳ��ϥ꥿����
+	// 平乓仿弁正動陸反伉正□件
 	if( OBJECT_getType(objmoveindex) != OBJTYPE_CHARA ) return;
 	actindex = OBJECT_getIndex(objmoveindex);
-	// �ץ쥤�䡼�ʳ��ϥ꥿����
+	// 皿伊奶乩□動陸反伉正□件
 	if( CHAR_getInt( actindex, CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) return;
 
-	// ��ʬ�Υ���ǥå���
+	// 憤坌及奶件犯永弁旦
 	meindex = OBJECT_getIndex(objmeindex);
 
-	// ��ʬ��INDEX����  ���Ƥ��뤫�����ʤ���Х꥿����
+	// 憤坌及INDEX毛忡  仄化中月井〞中卅仃木壬伉正□件
 	if( CHAR_getWorkInt( actindex, CHAR_WORKTRADER ) != meindex ){
 		return;
 	}
 
-	// �ɤ��ޤǥ��������򤷤Ƥ��뤫
+	// 升仇引匹失弁撲亦件毛仄化中月井
 	seqNo = CHAR_getWorkInt( actindex, CHAR_WORKSHOPRELEVANT );
-	//   �ʾ���  �餫��
+	//   卅樺寧反  賡井日
 	if( seqNo < 1 )seqNo = 1;
 
-	// ����  ��  
+	// 婁醒  儂  
     if((szArg = NPC_Util_GetArgStr( meindex, szArg1, sizeof( szArg1 )) ) == NULL ){
-    	print( "npc_bodylan.c:�S���޼�(%s)\n",
+    	print( "npc_bodylan.c:沒有引數(%s)\n",
     		CHAR_getChar(meindex,CHAR_NPCARGUMENT) );
     	return ;
     }
 
 
-	// �������󥹤�õ��
+	// 撲□弗件旦毛繭允
 	if( NPC_Util_GetStrFromStrWithDelim( szArg, "Act", szP, sizeof( szP ) ) == NULL ){
-		print( "npc_bodylan:�ʧ@��r�C�|���]�w(%s)\n",	szArg );
+		print( "npc_bodylan:動作文字列尚未設定(%s)\n",	szArg );
 		return;
 	}
 
-	//   �פʽ�  
+	//   邰卅賜  
 	if(getStringFromIndexWithDelim( szP, ",", seqNo, buf, sizeof( buf)) != FALSE ){
 		needSeq = atoi(buf);
 	}else{
-		// �ʤ����ʤ��ä���  �餫��
+		// 卅兮井卅井勻凶日  賡井日
 		CHAR_setWorkInt( actindex, CHAR_WORKSHOPRELEVANT, 1 );
 
-//		print( "���L�Y�F�C�^��̪�C\n", seqNo, needSeq );
-		// ��������٤����z�z�z
+//		print( "做過頭了。回到最初。\n", seqNo, needSeq );
+		// 窒井韻月屯五井』』』
 		return;
 	}
 
-	// ����  �פʥ�������󤬰��פ���
+	// 漆莢  邰卅失弁撲亦件互域譙仄凶
 	if( needSeq == act ){
-		// ���פ����e���줬    ��
-//		print( "���\\(%d���ƬO%d)\n", seqNo, needSeq );
+		// 域譙仄凶〔仇木互    井
+//		print( "成功\(%d次數是%d)\n", seqNo, needSeq );
 		seqNo ++;
 		if( seqNo >= CHAR_getWorkInt( meindex, BODYLAN_E_COMMANDNUM ) ){
-//			print( "�b�������C\n" );
+//			print( "在此結束。\n" );
 		}
-		// ���ΰ�  ����¸
+		// 仇及匏  毛忡繡
 		CHAR_setWorkInt( actindex, CHAR_WORKSHOPRELEVANT, seqNo );
 	}else{
-		// ��  ��������  �餫����  ��
+		// 撩  仄凶樺寧反  賡井日支曰  仄
 		CHAR_setWorkInt( actindex, CHAR_WORKSHOPRELEVANT, 1 );
-//		print( "(%d���ƬO%d)\n", seqNo, needSeq );
+//		print( "(%d次數是%d)\n", seqNo, needSeq );
 	}
 
 }
 
 
 
-//********* ��  ���Τ�     *********
+//********* 岳  凜及仍     *********
 static void NPC_BodyLan_Profit( int meindex, int playerindex )
 {
 	char szArg1[4096], szP[256];
 	char *szArg;
 	int fl, x, y, pmode, i, subindex, parent;
 
-	// ����  ��  
+	// 婁醒  儂  
     if(( szArg = NPC_Util_GetArgStr( meindex, szArg1, sizeof( szArg1 ) )) == NULL ){
-    	print( "npc_bodylan.c:�S���޼�(%s)\n",
+    	print( "npc_bodylan.c:沒有引數(%s)\n",
     		CHAR_getChar(meindex,CHAR_NPCARGUMENT) );
     	return ;
     }
 
 	//*********************************************
 	//
-	//   ��    ���Σ��e�������
+	//   仍    公及ㄠ〔伐□皿澀爛
 	//
 	//*********************************************
 	if( NPC_Util_GetStrFromStrWithDelim( szArg, "Warp", szP, sizeof( szP ) ) != NULL ){
-		// ��    �˥�סe��  ���
+		// 仍    卞伐□皿〔甄  潸月
 		if( sscanf( szP, "%d,%d,%d", &fl, &x, &y ) == 3 ){
 		}else{
-			print( "npc_bodylan: �L�kŪ���Ŷ��y��(%s)\n", szP );
+			print( "npc_bodylan: 無法讀取空間座標(%s)\n", szP );
 			return;
 		}
-		// �ѡ�  ���Ȥ�Ǥ���Ҷ�����
+		// 由□  奴賺氏匹月樺寧閡間手伐□皿
 		pmode = CHAR_getWorkInt( playerindex, CHAR_WORKPARTYMODE );
 		switch( pmode ){
-		case 1: // ��ʬ����
+		case 1: // 憤坌互褪
 			parent = playerindex;
 			break;
-		case 2: // ��ʬ���Ҷ��e�Ƥ��  
+		case 2: // 憤坌互閡間〔褪毛潸  
 			parent = CHAR_getWorkInt( playerindex, CHAR_WORKPARTYINDEX1 );
 			break;
 		default:
-			// �ѡ�  ������ʤ��ä��e��ʬ�������
+			// 由□  奴元扎卅井勻凶〔憤坌分仃伐□皿
 			CHAR_warpToSpecificPoint( playerindex, fl, x, y );
 			return;
 		}
-		// �������
+		// 蟈夠伐□皿
 		for( i = 0; i < CHAR_PARTYMAX; i ++ ){
 			subindex = CHAR_getWorkInt( parent, CHAR_WORKPARTYINDEX1+i );
 			if( CHAR_CHECKINDEX( subindex ) == FALSE )continue;
-			// �ѡ�  ���������
+			// 由□  奴蟈夠伐□皿
 			CHAR_warpToSpecificPoint( subindex, fl, x, y );
 		}
 	}
@@ -349,9 +349,9 @@ static void NPC_BodyLan_Window(
 	if( CHAR_CHECKINDEX( talkerindex ) == FALSE )return;
 	fd = getfdFromCharaIndex( talkerindex );
 
-	// ����  ��  
+	// 婁醒  儂  
     if(( szArg = NPC_Util_GetArgStr( meindex, szArg1, sizeof( szArg1 ) )) == NULL ){
-    	print( "npc_bodylan.c:�S���޼�(%s)\n",
+    	print( "npc_bodylan.c:沒有引數(%s)\n",
     		CHAR_getChar(meindex,CHAR_NPCARGUMENT) );
     	return ;
     }
@@ -360,9 +360,9 @@ static void NPC_BodyLan_Window(
 
 	switch( mode ){
 	  case BODYLAN_WIN_FIRST:
-		//   ���  ���줿���Υ����
+		//   賡卞  今木凶樺寧及本伉白
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "First", szP, sizeof( szP ) ) == NULL ){
-			print( "npc_bodylan:�@�}�l���ܪ���r�S����J(%s)\n",	szArg );
+			print( "npc_bodylan:一開始講話的文字沒有輸入(%s)\n",	szArg );
 			return;
 		}
 		sprintf( token,"%s", szP );
@@ -372,9 +372,9 @@ static void NPC_BodyLan_Window(
 	  	break;
 
 	  case BODYLAN_WIN_LAST_GOOD:
-		//     ��������ä���
+		//     匹懇荸分勻凶日
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "Good", szP, sizeof( szP ) ) == NULL ){
-			print( "npc_bodylan:����ɻ�����r�S����J(%s)\n",	szArg );
+			print( "npc_bodylan:答對時說的文字沒有輸入(%s)\n",	szArg );
 			return;
 		}
 		sprintf( token,"%s", szP );
@@ -384,9 +384,9 @@ static void NPC_BodyLan_Window(
 	  	break;
 
 	  case BODYLAN_WIN_LAST_NG:
-		//     ��������ä���
+		//     匹懇荸分勻凶日
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "Ng", szP, sizeof( szP ) ) == NULL ){
-			print( "npc_bodylan:�����ɻ�����r�S����J(%s)\n",	szArg );
+			print( "npc_bodylan:答錯時說的文字沒有輸入(%s)\n",	szArg );
 			return;
 		}
 		sprintf( token,"%s", szP );
@@ -396,9 +396,9 @@ static void NPC_BodyLan_Window(
 	  	break;
 
 	  case BODYLAN_WIN_GOOD_NO:
-		// �������    �򥭥�󥻥�
+		// 懇荸凜卞    毛平乓件本伙
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "Good_No", szP, sizeof( szP ) ) == NULL ){
-			print( "npc_bodylan:����ɨ������~����r�S����J(%s)\n",	szArg );
+			print( "npc_bodylan:答對時取消獎品的文字沒有輸入(%s)\n",	szArg );
 			return;
 		}
 		sprintf( token,"%s", szP );
@@ -408,9 +408,9 @@ static void NPC_BodyLan_Window(
 	  	break;
 
 	  case BODYLAN_WIN_ALREADY:
-		// ���Ǥ˥��٥�Ȥ�  ���Ƥ������
+		// 允匹卞奶矛件玄毛蔽  仄化中凶樺寧
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "Good_No", szP, sizeof( szP ) ) == NULL ){
-			print( "npc_bodylan:�ƥ󵲧��ɪ���r�S����J(%s)\n",	szArg );
+			print( "npc_bodylan:事件結束時的文字沒有輸入(%s)\n",	szArg );
 			return;
 		}
 		sprintf( token,"%s", szP );
@@ -420,9 +420,9 @@ static void NPC_BodyLan_Window(
 	  	break;
 
 	case BODYLAN_WIN_NOT_PREEVENT:
-		// ������  �פʥ��٥�Ȥ򤳤ʤ��Ƥ��ʤ����
+		// 儀蟆卞  邰卅奶矛件玄毛仇卅仄化中卅中樺寧
 		if( NPC_Util_GetStrFromStrWithDelim( szArg, "Pre_Not", szP, sizeof( szP ) ) == NULL ){
-			print( "npc_bodylan:?�ƫe�ƥ󵲧�����r�S����J(%s)\n",	szArg );
+			print( "npc_bodylan:?事前事件結束的文字沒有輸入(%s)\n",	szArg );
 			return;
 		}
 		sprintf( token,"%s", szP );
@@ -435,7 +435,7 @@ static void NPC_BodyLan_Window(
 	}
 
 	makeEscapeString( token, escapedname, sizeof(escapedname));
-	/*-��������������--*/
+	/*-仇仇匹霜耨允月--*/
 	lssproto_WN_send( fd, windowtype,
 					buttontype,
 					windowno,
@@ -448,7 +448,7 @@ static void NPC_BodyLan_Window(
 
 
 /*-----------------------------------------
-���饤����Ȥ����֤äƤ������˸ƤӽФ����e
+弁仿奶失件玄井日忒勻化五凶凜卞裟太請今木月〔
 -------------------------------------------*/
 void NPC_BodyLanWindowTalked(
 	int meindex,
@@ -463,20 +463,20 @@ void NPC_BodyLanWindowTalked(
 	if( NPC_Util_CharDistance( talkerindex, meindex ) > 2) return;
 
 	switch( seqno){
-	case BODYLAN_WIN_LAST_GOOD:	// �������OK�����줿��
+	case BODYLAN_WIN_LAST_GOOD:	// 懇荸凜卞OK瓷今木凶日
 		if(select==WINDOW_BUTTONTYPE_YES ){
 			NPC_BodyLan_Profit( meindex, talkerindex );
-			// �ץ쥤�䡼�˼�ʬ�Υ���ǥå�����˺�줵����
+			// 皿伊奶乩□卞憤坌及奶件犯永弁旦毛侉木今六月
 			CHAR_setWorkInt( talkerindex, CHAR_WORKTRADER, -1 );
-			// �������󥹤�  �餫��˽����
+			// 撲□弗件旦反  賡井日卞賡渝祭
 			CHAR_setWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT, 1 );
 		}else
 		if( select == WINDOW_BUTTONTYPE_NO ){
-			// ������˥���󥻥뤵�줿��
+			// 懇荸凜卞平乓件本伙今木凶日
 			NPC_BodyLan_Window( meindex, talkerindex, BODYLAN_WIN_GOOD_NO );
-			// �ץ쥤�䡼�˼�ʬ�Υ���ǥå�����˺�줵����
+			// 皿伊奶乩□卞憤坌及奶件犯永弁旦毛侉木今六月
 			CHAR_setWorkInt( talkerindex, CHAR_WORKTRADER, -1 );
-			// �������󥹤�  �餫��˽����
+			// 撲□弗件旦反  賡井日卞賡渝祭
 			CHAR_setWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT, 1 );
 		}
 		break;

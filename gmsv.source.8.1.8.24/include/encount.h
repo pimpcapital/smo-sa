@@ -17,20 +17,20 @@ int ENCOUNT_getGroupIdFromArray( int array, int grouparray );
 int ENCOUNT_getGroupProbFromArray( int array, int grouparray );
 int ENCOUNT_getZorderFromArray( int array );
 
-#ifdef _ADD_ENCOUNT           // WON ADD ¼W¥[¼Ä¾D¹JÄ²µo­×¥ó
+#ifdef _ADD_ENCOUNT           // WON ADD å¢åŠ æ•µé­é‡è§¸ç™¼ä¿®ä»¶
 typedef struct tagENCOUNT_Table
 {
     int                 index;
     int                 floor;
-    int                 encountprob_min;                /* ¥¨¥ó¥«¥¦¥ó¥È³Î   */
-    int                 encountprob_max;                /* ¥¨¥ó¥«¥¦¥ó¥È³Î   */
-    int                 enemymaxnum;        /* ¤É¤ì¤À¤±Å¨¤òºî¤ë¤« */
+    int                 encountprob_min;                /* å·¨ä»¶å¸‚å®ƒä»¶ç„å‰²   */
+    int                 encountprob_max;                /* å·¨ä»¶å¸‚å®ƒä»¶ç„å‰²   */
+    int                 enemymaxnum;        /* å‡æœ¨åˆ†ä»ƒè¥¯æ¯›ç¶œæœˆäº• */
     int                 zorder;
-    int                 groupid[ENCOUNT_GROUPMAXNUM];       /* ¥°¥ë¡¼¥×No */
-    int                 createprob[ENCOUNT_GROUPMAXNUM];    /* ¤½¤Î¥°¥ë¡¼¥×¤Î½Ğ¸½   */
+    int                 groupid[ENCOUNT_GROUPMAXNUM];       /* å¼˜ä¼™â–¡çš¿No */
+    int                 createprob[ENCOUNT_GROUPMAXNUM];    /* å…¬åŠå¼˜ä¼™â–¡çš¿åŠè«‹èœ‡   */
 	int					event_now;			
 	int					event_end;
-	int					enemy_group;		// ©Çª«ªºgroup ½s¸¹
+	int					enemy_group;		// æ€ªç‰©çš„group ç·¨è™Ÿ
     RECT                rect;
 }ENCOUNT_Table;
 

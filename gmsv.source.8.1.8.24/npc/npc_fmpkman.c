@@ -23,7 +23,7 @@ BOOL NPC_PARTY_CHAECK1(int meindex,int talker);
 void NPC_ERR_DiSP1(int meindex,int talker,int errNO);
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_FMPKManInit( int meindex )
 {
@@ -39,15 +39,15 @@ BOOL NPC_FMPKManInit( int meindex )
 		return FALSE;
 	}
 
-	/*--¥ï¡¼¥×¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¤«----*/
-	/*--¥ï¡¼¥×¤¬ÀßÄê¤µ¤ì¤Æ¤Ê¤±¤ì¤ĞNPC¤òºî¤é¤Ê¤¤¤³¤È¤Ë¤¹¤ë--*/
+	/*--ä¼â–¡çš¿äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­æœˆäº•----*/
+	/*--ä¼â–¡çš¿äº’æ¾€çˆ›ä»Šæœ¨åŒ–å…ä»ƒæœ¨å£¬NPCæ¯›ç¶œæ—¥å…ä¸­ä»‡åˆåå…æœˆ--*/
 	if(NPC_Util_GetStrFromStrWithDelim( npcarg, "WARP", buf, sizeof( buf))==NULL){
 	        print("FMPKMan Err is %s",npcarg);
 		print("FMPKMan Err");
 		return FALSE;
 	}
 
-	/*--¥ï¡¼¥×¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤Æ¤â¥ï¡¼¥×Àè¤¬¤Ê¤±¤ì¤Ğ¤â¤Á¤í¤óNPC¤òºî¤é¤Ê¤¤--*/
+	/*--ä¼â–¡çš¿äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­åŒ–æ‰‹ä¼â–¡çš¿ç‡®äº’å…ä»ƒæœ¨å£¬æ‰‹åˆ‡æ¬ æ°NPCæ¯›ç¶œæ—¥å…ä¸­--*/
 	getStringFromIndexWithDelim(buf,",",1,buff2,sizeof(buff2));
 	fl=atoi(buff2);
 	getStringFromIndexWithDelim(buf,",",2,buff2,sizeof(buff2));
@@ -68,7 +68,7 @@ BOOL NPC_FMPKManInit( int meindex )
 	}
 	CHAR_setWorkInt(meindex, NPC_WORK_ID, meid);
 
-	/*--¥¿¥¤¥×ÀßÄê--*/
+	/*--æ­£å¥¶çš¿æ¾€çˆ›--*/
    	CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEWARPMAN );
 
     return TRUE;
@@ -76,25 +76,25 @@ BOOL NPC_FMPKManInit( int meindex )
 }
 
 /*********************************
-*   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+*   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_FMPKManTalked( int meindex , int talkerindex , char *szMes ,int color )
 {
-    /* ¥×¥ì¥¤¥ä¡¼¤ËÂĞ¤·¤Æ¤À¤±  ±ş¤¹¤ë */
+    /* çš¿ä¼Šå¥¶ä¹©â–¡åè¦†ä»„åŒ–åˆ†ä»ƒ  æ®ºå…æœˆ */
     if( CHAR_getInt( talkerindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) {
     	return;
     }
 	
-	/*--  ¤ÎÁ°¤Ë¤¤¤ë¤«¤É¤¦¤«¡ª--*/
+	/*--  åŠèŸ†åä¸­æœˆäº•å‡ä¸¹äº•ã€--*/
 	if(NPC_Util_isFaceToFace(talkerindex,meindex,2 )==FALSE){
-		/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+		/* ã„ å¼˜ä¼‰æ°¸ç‰å‹•  åŠå¿ƒ */
 		if( NPC_Util_CharDistance( talkerindex, meindex ) > 1) return;
 	}
 
-	/*--¥ï¡¼¥¯¤Î½é´ü²½--*/
+	/*--ä¼â–¡å¼åŠè³¡æ¸ç¥­--*/
 	CHAR_setWorkInt(talkerindex, CHAR_WORKSHOPRELEVANT, 0);
 
-	/*-¤Ï¤¸¤á¤ÎÁª      --*/
+	/*-åå…ƒæˆ¶åŠè–Š      --*/
 	NPC_FMPKMan_selectWindow( meindex, talkerindex, 0, -1);
 }
 
@@ -117,7 +117,7 @@ static void NPC_FMPKMan_selectWindow( int meindex, int toindex, int num,int sele
 		print("GetArgStrErr");
 		return ;
 	}
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤Î  ¤Ë¥Õ¤Ò¥¢¿Í¿ô¤¬»ØÄê¤µ¤ì¤Æ¤¤¤ë¤«¤µ¤ì¤Æ¤¤¤ì¤Ğ¥Õ¤Ò¥¢¿Í¿ô¤Î³ä¤ê½Ğ¤·*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™åŠ  åç™½å¤«å¤±è«¦é†’äº’éš™çˆ›ä»Šæœ¨åŒ–ä¸­æœˆäº•ä»Šæœ¨åŒ–ä¸­æœ¨å£¬ç™½å¤«å¤±è«¦é†’åŠå–ƒæ›°è«‹ä»„*/
 	if(strstr(npcarg,"%4d")!=NULL){
 		int work;
 		NPC_Util_GetStrFromStrWithDelim( npcarg, "WARP", buf, sizeof( buf));
@@ -128,15 +128,15 @@ static void NPC_FMPKMan_selectWindow( int meindex, int toindex, int num,int sele
 	token[0] = '\0';
 	
 	switch(num){
-      //   ½é¤Î¥¦¥£¥ó¥É¥¦
+      //   è³¡åŠå®ƒå¥´ä»¶ç‰å®ƒ
 	  case 0:
 	  	if(NPC_Util_GetStrFromStrWithDelim( npcarg, "MainMsg", buf,
 	  		sizeof( buf)) == NULL)
 	  			return;
-			sprintf(token, "3\n¡@¡@    ¡@¡@¡¹®a±Ú¢Ş¢Ù³õ¡¹\n"
+			sprintf(token, "3\nã€€ã€€    ã€€ã€€â˜…å®¶æ—ï¼°ï¼«å ´â˜…\n"
 				"%s"
-				"\n           ¡m ¹î¬İÂù¤è¤H¼Æ ¡n"
-				"\n            ¡m Â÷¶}¢Ş¢Ù³õ ¡n",
+				"\n           ã€Š å¯Ÿçœ‹é›™æ–¹äººæ•¸ ã€‹"
+				"\n            ã€Š é›¢é–‹ï¼°ï¼«å ´ ã€‹",
 				buf);
 		buttontype = WINDOW_BUTTONTYPE_NONE;
 		windowtype = WINDOW_MESSAGETYPE_SELECT;
@@ -157,7 +157,7 @@ static void NPC_FMPKMan_selectWindow( int meindex, int toindex, int num,int sele
 	  		fmpks[fmpks_pos].host_index,
 	  		fmpks[fmpks_pos].guest_index);
 */
-	  	sprintf(token, "\n%s\n\n%s:%4d¤H\n\n%s:%4d¤H", buf,
+	  	sprintf(token, "\n%s\n\n%s:%4däºº\n\n%s:%4däºº", buf,
 	  		fmpks[fmpks_pos].host_name, num1,
 	  		fmpks[fmpks_pos].guest_name, num2);
 	  	buttontype = WINDOW_BUTTONTYPE_OK;
@@ -177,11 +177,11 @@ static void NPC_FMPKMan_selectWindow( int meindex, int toindex, int num,int sele
 	  	break;
 	}
 	
-	/*--¥¨¥¹¥±¡¼¥×--*/
+	/*--å·¨æ—¦å¼—â–¡çš¿--*/
 	//makeEscapeString( token, escapedname, sizeof(escapedname));
 		
 		
-	/*--Á÷¿®--*/
+	/*--éœœè€¨--*/
 	lssproto_WN_send( fd, windowtype, 
 				buttontype, 
 				windowno,
@@ -191,7 +191,7 @@ static void NPC_FMPKMan_selectWindow( int meindex, int toindex, int num,int sele
 }
 
 /*-----------------------------------------
- * ¥¯¥é¥¤¥¢¥ó¥È¤«¤éÊÖ¤Ã¤Æ¤­¤¿»ş¤Ë¸Æ¤Ó½Ğ¤µ¤ì¤ë¡e
+ * å¼ä»¿å¥¶å¤±ä»¶ç„äº•æ—¥å¿’å‹»åŒ–äº”å‡¶å‡œåè£Ÿå¤ªè«‹ä»Šæœ¨æœˆã€”
  *
 -------------------------------------------*/
 void NPC_FMPKManWindowTalked( int meindex, int talkerindex, 
@@ -222,7 +222,7 @@ void NPC_FMPKManWindowTalked( int meindex, int talkerindex,
 	datanum = atoi( data);
 	switch( seqno){
 
-	/*--¤Ï¤¸¤Ş¤ê¤Î    --*/
+	/*--åå…ƒå¼•æ›°åŠ    --*/
 	  case CHAR_WINDOWTYPE_FMPKMAN_START:
 	  	if (datanum == 1)
 	  		NPC_FMPKMan_selectWindow(meindex, talkerindex, 1, -1);
@@ -262,7 +262,7 @@ BOOL NPC_PARTY_CHAECK1(int meindex,int talker)
     return TRUE;
 }
 
-// shan add  errNO=1(²Õ¶¤)
+// shan add  errNO=1(çµ„éšŠ)
 void NPC_ERR_DiSP1(int meindex,int talker,int errNO)
 {
     char token[1024];
@@ -279,7 +279,7 @@ void NPC_ERR_DiSP1(int meindex,int talker,int errNO)
          
     if(errNO==1){
        if(NPC_Util_GetStrFromStrWithDelim( npcarg, "PartyMsg",token, sizeof( token))==NULL){
-           sprintf(token, "µLªk¥H¹Î¶¤Â÷³õ¡C\n\n½Ğ§â¹Î¶¤¸Ñ´²¤§«á¦A­Ó§O\nÂ÷³õ¡C");
+           sprintf(token, "ç„¡æ³•ä»¥åœ˜éšŠé›¢å ´ã€‚\n\nè«‹æŠŠåœ˜éšŠè§£æ•£ä¹‹å¾Œå†å€‹åˆ¥\né›¢å ´ã€‚");
        }
        
        if(CHAR_getWorkInt(talker,CHAR_WORKPARTYMODE)==CHAR_PARTY_CLIENT){

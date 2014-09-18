@@ -18,7 +18,7 @@ BOOL NPC_OldmanInit( int meindex )
     int     oldmanid=0, bornfl=0, bornx=0 ,borny=0;
     char*   npcarg;
     char    token[32]="";
-/*    print( "ªø¦Ñªº¤Ş¼Æ: '%s'\n" , CHAR_getChar(
+/*    print( "é•·è€çš„å¼•æ•¸: '%s'\n" , CHAR_getChar(
                          meindex, CHAR_NPCARGUMENT ));*/
     npcarg = CHAR_getChar(meindex,CHAR_NPCARGUMENT);
 
@@ -31,24 +31,24 @@ BOOL NPC_OldmanInit( int meindex )
     getStringFromIndexWithDelim( npcarg,"|",4,token,sizeof(token));
     borny = atoi( token );
 
-    /* Ä¹  ¤ÏID¤ò³Ğ¤¨¤Æ¶³¤¯¥Ê¥ê */
+    /* è´  åIDæ¯›å‰µå°¹åŒ–é›²ä»ç“œä¼‰ */
     CHAR_setWorkInt( meindex , CHAR_WORKOLDMANID ,oldmanid );
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEHEALER );
     CHAR_setFlg( meindex , CHAR_ISATTACKED , 0 );
     CHAR_setFlg( meindex , CHAR_ISOVERED , 0 );
 
     if( MAP_IsValidCoordinate( bornfl,bornx,borny )== TRUE
-        /*  ¥Õ¤Ò¥¢ID¤¬¤¤¤¤¤«¤É¤¦¤«¤òÄ´¤Ù¤ë  */
+        /*  ç™½å¤«å¤±IDäº’ä¸­ä¸­äº•å‡ä¸¹äº•æ¯›è­¬å±¯æœˆ  */
         &&
         CHAR_ElderSetPosition( oldmanid ,bornfl,bornx, borny ) 
         == TRUE ){
-        /* Ä¹  ¤Î°Ì  ¤ò½é´ü²½¤¹¤ë¤Ê¤ê */
+        /* è´  åŠåŒ  æ¯›è³¡æ¸ç¥­å…æœˆå…æ›° */
         return TRUE;
     }else{
         printf( "Invalid elder npcarg=%s\n", npcarg );
         
-        /* ¤¢¤Ş¤ê¤Ë½ÅÍ×¤Ê¥¨¥é¡¼¤Ê¤Î¤Ç¡bneverMake¤·¤Ê¤¤¡e
-             ²ó¥¨¥é¡¼¥á¥Ã¥»¡¼¥¸½Ğ¤µ¤»¤ë */
+        /* ä¸å¼•æ›°åè¤é‚°å…å·¨ä»¿â–¡å…åŠåŒ¹ï½neverMakeä»„å…ä¸­ã€”
+             è¢å·¨ä»¿â–¡ä¸Ÿæ°¸æœ¬â–¡æ–¥è«‹ä»Šå…­æœˆ */
         return FALSE;
     }
 #endif
@@ -60,10 +60,10 @@ BOOL NPC_OldmanInit( int meindex )
 
 /*
  *
- *  Ä¹  ¡e
+ *  è´  ã€”
  *
- *  ¶³¤â¤Ê»Å»ö¤Ï  ¤·¤«¤±¤é¤ì¤¿¤È¤­¤Ë¾Î¹æ¤Î  Äê¤ò¤·¤¿¤ê
- * ¤¹¤ë¤³¤È¤À¡e
+ *  é›²æ‰‹å…é…·å„€å  ä»„äº•ä»ƒæ—¥æœ¨å‡¶åˆäº”åæ†Šå¯åŠ  çˆ›æ¯›ä»„å‡¶æ›°
+ * å…æœˆä»‡åˆåˆ†ã€”
  * * by ringo
  */
 
@@ -75,20 +75,20 @@ void NPC_OldmanTalked( int meindex , int talkerindex , char *msg ,
     char *n = CHAR_getChar( talkerindex , CHAR_NAME );
     int title_change = 0;
 
-    /* ¤Ï¤Ê¤·¤«¤±¤¿ÅÛ¤Ë¡b¼«Ê¬¤ÎID¤òµ­²±¤µ¤»¤ë */
+    /* åå…ä»„äº•ä»ƒå‡¶è ±åï½æ†¤åŒåŠIDæ¯›ç­ç››ä»Šå…­æœˆ */
     CHAR_setInt( talkerindex, CHAR_LASTTALKELDER ,
                  CHAR_getWorkInt( meindex, CHAR_WORKOLDMANID ) );
 
     /*
 
-      if( title_change == 0 && strcmp( n , "Ä«ªG" ) == 0 ){
+      if( title_change == 0 && strcmp( n , "è˜‹æœ" ) == 0 ){
         
         if( NPC_Util_HaveTitle( talkerindex , 3 ) == 0 ){
             char *ts;
             NPC_Util_AddOneTitle( talkerindex , 3 );
             ts = TITLE_makeTitleStatusString( talkerindex , 3 );
             snprintf( message , sizeof(message),
-                  "¨º¬O­Ó¤£¿ùªº¦W¦r, ´N¥s%s§a¡I",
+                  "é‚£æ˜¯å€‹ä¸éŒ¯çš„åå­—, å°±å«%så§ï¼",
                   ts );
             title_change = 1;
         }
@@ -100,20 +100,20 @@ void NPC_OldmanTalked( int meindex , int talkerindex , char *msg ,
 	
     if( !title_change){
         snprintf( message, sizeof( message ) ,
-              "¨Óªº¦n%s¦bµ¹§AºÙ¸¹®É"
-              "¤£¬OÁÙ¨S¨Ó¶Ü¡H" , n );
+              "ä¾†çš„å¥½%såœ¨çµ¦ä½ ç¨±è™Ÿæ™‚"
+              "ä¸æ˜¯é‚„æ²’ä¾†å—ï¼Ÿ" , n );
 	    CHAR_talkToCli( talkerindex , meindex , message , CHAR_COLORWHITE );
     }
     else {
     	#define		NPC_OLDMAN_TITLE_UNIT1		"TSU"
     	#define		NPC_OLDMAN_TITLE_UNIT2		"KO"
     	
-        snprintf( message, sizeof( message ) ,"¨Óªº¦n%s",n );
+        snprintf( message, sizeof( message ) ,"ä¾†çš„å¥½%s",n );
     	CHAR_talkToCli( talkerindex , meindex , message , CHAR_COLORWHITE );
 		if( delcnt > 0 && addcnt > 0 ) {
 	        snprintf( message, sizeof( message ) ,
-	    			"§A³à¥¢¤F%d%s ºÙ¸¹ªº¸ê®æ¡C"
-	    			"¤£¬O±o¨ì¤F%d%s ªººÙ¸¹¸ê®æ¶Ü¡H"
+	    			"ä½ å–ªå¤±äº†%d%s ç¨±è™Ÿçš„è³‡æ ¼ã€‚"
+	    			"ä¸æ˜¯å¾—åˆ°äº†%d%s çš„ç¨±è™Ÿè³‡æ ¼å—ï¼Ÿ"
 	    			, delcnt,
 	    			delcnt < 10 ?  NPC_OLDMAN_TITLE_UNIT1:NPC_OLDMAN_TITLE_UNIT2,
 	    			addcnt,
@@ -123,25 +123,25 @@ void NPC_OldmanTalked( int meindex , int talkerindex , char *msg ,
 		}
 		else if( delcnt > 0 ) {
 	        snprintf( message, sizeof( message ) ,
-	    			"§A¤w³à¥¢±o¨ì%d%sºÙ¸¹ªº¸ê®æ¡C", delcnt,
+	    			"ä½ å·²å–ªå¤±å¾—åˆ°%d%sç¨±è™Ÿçš„è³‡æ ¼ã€‚", delcnt,
 	    			delcnt < 10 ?  NPC_OLDMAN_TITLE_UNIT1:NPC_OLDMAN_TITLE_UNIT2);
 	    	CHAR_talkToCli( talkerindex , meindex , message , CHAR_COLORWHITE );
 		}
 		else if( addcnt > 0 ) {
 	        snprintf( message, sizeof( message ) ,
-	    			"µ¹§A%d%sªººÙ¸¹§a¡I", addcnt, // CoolFish: d%s -> %d%s 2001/4/18
+	    			"çµ¦ä½ %d%sçš„ç¨±è™Ÿå§ï¼", addcnt, // CoolFish: d%s -> %d%s 2001/4/18
 	    			addcnt < 10 ?  NPC_OLDMAN_TITLE_UNIT1:NPC_OLDMAN_TITLE_UNIT2);
 	    	CHAR_talkToCli( talkerindex , meindex , message , CHAR_COLORWHITE );
 		}
 	    if( delcnt > 0 ) {
 	        snprintf( message, sizeof( message), 
-	                    "¥¢¥h%d%s ºÙ¸¹¡I", delcnt,
+	                    "å¤±å»%d%s ç¨±è™Ÿï¼", delcnt,
 	    				delcnt < 10 ?  NPC_OLDMAN_TITLE_UNIT1:NPC_OLDMAN_TITLE_UNIT2);
 	        CHAR_talkToCli( talkerindex, -1, message,  CHAR_COLORYELLOW);
 	    }
 	    if( addcnt > 0 ) {
 	        snprintf( message, sizeof( message), 
-	                    "Àò±o%d%s ºÙ¸¹¡I", addcnt,
+	                    "ç²å¾—%d%s ç¨±è™Ÿï¼", addcnt,
 	    				addcnt < 10 ?  NPC_OLDMAN_TITLE_UNIT1:NPC_OLDMAN_TITLE_UNIT2);
 	        CHAR_talkToCli( talkerindex, -1, message,  CHAR_COLORYELLOW);
 	    }

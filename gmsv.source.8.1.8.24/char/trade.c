@@ -19,29 +19,29 @@
 #include "battle.h"
 #include "npc_bus.h"
 #include "char_talk.h"
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
 #include "pet_skill.h"
 #endif
 
-#define TRADE_WAIT		"½Ğµy­Ô¡A³sµ¸%s¤¤¡P¡P¡P"
-#define TRADE_NONE		"«e¤è¤°»ò¤H¤]¨S¦³¡I"
-#define	TRADE_OVERPLAYER	"«e¤è¤£¥u¤@¦ìª±®a³á¡I"
-#define	TRADE_NOWILL		"¯u¬O©êºp¡A¹ï¤è¤£Ä@·N¸ò§A¥æ©ö¡I"
-#define	TRADE_TRADING		"%s¥¿¦b»P¨ä¥L¤H¥æ©ö¡P¡P¡P"
-#define	TRADE_VANISHITEM	"¥á¦b¦a¤W·|®ø¥¢ªºª««~µLªk¥æ©ö¡I"
-#define TRADE_PETFULL		"%sÃdª«Äæ¤wº¡¡A¥æ©ö¨ú®ø¡I"
-#define	TRADE_ITEMFULL		"%sª««~Äæ¤wº¡¡A½Ğ¾ã²z«á¦A¥æ©ö¡ã"
-#define TRADE_CANCEL		"%s±N¥æ©ö¨ú®ø¤F¡I"
-#define TRADE_POOR		"%s¿ú¤£°÷¡AµLªk¥æ©ö¡I"
-#define	TRADE_RICH		"%sª÷¿ú¥æ©ö½Ğ¤Å¶W¹L¤@¦Ê¸U¡I"
-#define TRADE_TOORICH		"%sª÷¿ú±N·|¶W¹L¤@¦Ê¸U¡I"
-#define TRADE_POORLV		"%sµ¥¯Å¤£°÷¡AµLªk·ÓÅU¥æ©ö«áªºÃdª«¡I"
-#define	TRADE_LOCK		"¥æ©öÂê©w¡P¡P¡P"
-#define	TRADE_SUCCESS		"¥æ©ö¢İ¢Ù¡I"
-#define	TRADE_FAILED		"¥æ©ö¥¢±Ñ¡I"
-#define TRADE_FMPET		"®a±Ú¦uÅ@Ã~µLªk¥æ©ö¡I"
+#define TRADE_WAIT		"è«‹ç¨å€™ï¼Œé€£çµ¡%sä¸­Â·Â·Â·"
+#define TRADE_NONE		"å‰æ–¹ä»€éº¼äººä¹Ÿæ²’æœ‰ï¼"
+#define	TRADE_OVERPLAYER	"å‰æ–¹ä¸åªä¸€ä½ç©å®¶å–”ï¼"
+#define	TRADE_NOWILL		"çœŸæ˜¯æŠ±æ­‰ï¼Œå°æ–¹ä¸é¡˜æ„è·Ÿä½ äº¤æ˜“ï¼"
+#define	TRADE_TRADING		"%sæ­£åœ¨èˆ‡å…¶ä»–äººäº¤æ˜“Â·Â·Â·"
+#define	TRADE_VANISHITEM	"ä¸Ÿåœ¨åœ°ä¸Šæœƒæ¶ˆå¤±çš„ç‰©å“ç„¡æ³•äº¤æ˜“ï¼"
+#define TRADE_PETFULL		"%så¯µç‰©æ¬„å·²æ»¿ï¼Œäº¤æ˜“å–æ¶ˆï¼"
+#define	TRADE_ITEMFULL		"%sç‰©å“æ¬„å·²æ»¿ï¼Œè«‹æ•´ç†å¾Œå†äº¤æ˜“ï½"
+#define TRADE_CANCEL		"%så°‡äº¤æ˜“å–æ¶ˆäº†ï¼"
+#define TRADE_POOR		"%séŒ¢ä¸å¤ ï¼Œç„¡æ³•äº¤æ˜“ï¼"
+#define	TRADE_RICH		"%sé‡‘éŒ¢äº¤æ˜“è«‹å‹¿è¶…éä¸€ç™¾è¬ï¼"
+#define TRADE_TOORICH		"%sé‡‘éŒ¢å°‡æœƒè¶…éä¸€ç™¾è¬ï¼"
+#define TRADE_POORLV		"%sç­‰ç´šä¸å¤ ï¼Œç„¡æ³•ç…§é¡§äº¤æ˜“å¾Œçš„å¯µç‰©ï¼"
+#define	TRADE_LOCK		"äº¤æ˜“é–å®šÂ·Â·Â·"
+#define	TRADE_SUCCESS		"äº¤æ˜“ï¼¯ï¼«ï¼"
+#define	TRADE_FAILED		"äº¤æ˜“å¤±æ•—ï¼"
+#define TRADE_FMPET		"å®¶æ—å®ˆè­·ç¸ç„¡æ³•äº¤æ˜“ï¼"
 
-#define TRADE_RDCANCEL	"¥æ©ö¨ú®ø¡I"
+#define TRADE_RDCANCEL	"äº¤æ˜“å–æ¶ˆï¼"
 
 
 
@@ -222,19 +222,19 @@ BOOL TRADE_addSomeTradeList( int meindex, int usTi, int *num, int type)
 	case TRADE_ITEM:
 		{
 			int itemindex, MeMaxPile;
-			MeMaxPile = CHAR_getMyMaxPilenum( meindex);//³Ì¤j°ïÅ|¼Æ
+			MeMaxPile = CHAR_getMyMaxPilenum( meindex);//æœ€å¤§å †ç–Šæ•¸
 			if( usTi < CHAR_STARTITEMARRAY || usTi >= CHAR_MAXITEMHAVE ) return FALSE;
 			itemindex = CHAR_getItemIndex( meindex, usTi );
 			if( !ITEM_CHECKINDEX( itemindex))	return FALSE;
 
 			if( ITEM_getInt( itemindex, ITEM_VANISHATDROP) == 1 ){
 				char buf[256];
-				sprintf( buf, "%sµLªk¥æ©ö¡C", ITEM_getChar( itemindex, ITEM_NAME) );
+				sprintf( buf, "%sç„¡æ³•äº¤æ˜“ã€‚", ITEM_getChar( itemindex, ITEM_NAME) );
 				CHAR_talkToCli( meindex, -1, buf, CHAR_COLORYELLOW);
 				return FALSE;
 			}
 
-			if( ITEM_getInt( itemindex, ITEM_CANBEPILE) == 1 ){//¥i°ïÅ|
+			if( ITEM_getInt( itemindex, ITEM_CANBEPILE) == 1 ){//å¯å †ç–Š
 				int itemMaxPile = ITEM_getInt( itemindex, ITEM_USEPILENUMS);
 				if( itemMaxPile < 0  ) return FALSE;
 				//ITEM_USEPILENUMS
@@ -264,13 +264,13 @@ BOOL TRADE_addSomeTradeList( int meindex, int usTi, int *num, int type)
 			petindex = CHAR_getCharPet( meindex, usTi );
 			if( !CHAR_CHECKINDEX(petindex))	return FALSE;
 			if( CHAR_getInt( petindex, CHAR_PETFAMILY) == 1 ){
-				CHAR_talkToCli( meindex, -1, "®a±Ú¦uÅ@Ã~µLªk¥æ©ö¡C", CHAR_COLORYELLOW);
-				return FALSE;//®a±Ú¦uÅ@Ã~
+				CHAR_talkToCli( meindex, -1, "å®¶æ—å®ˆè­·ç¸ç„¡æ³•äº¤æ˜“ã€‚", CHAR_COLORYELLOW);
+				return FALSE;//å®¶æ—å®ˆè­·ç¸
 			}
 			if( CHAR_getWorkInt( toindex, CHAR_PickAllPet) != TRUE ){
 				if( CHAR_getInt( petindex, CHAR_LV) > (CHAR_getInt( toindex, CHAR_LV)+5) &&
 					(CHAR_getInt( toindex, CHAR_TRANSMIGRATION ) <= 0 ) ){
-					CHAR_talkToCli( meindex, -1, "¹ï¤èµLªk·ÓÅU¸ÓÃdª«¡C", CHAR_COLORYELLOW);
+					CHAR_talkToCli( meindex, -1, "å°æ–¹ç„¡æ³•ç…§é¡§è©²å¯µç‰©ã€‚", CHAR_COLORYELLOW);
 					return FALSE;
 				}
 			}
@@ -330,7 +330,7 @@ BOOL TRADE_HandlePet( int meindex, int showindex, char *message, char *outmess);
 void CHAR_Trade(int fd, int index, char* message)
 {
    char		firstToken[64];
-   // shan ¥H¤Uª`±¼¬O¤£¥²­nªº°Ê§@  2002/03/05
+   // shan ä»¥ä¸‹æ³¨æ‰æ˜¯ä¸å¿…è¦çš„å‹•ä½œ  2002/03/05
    //char		messageeraseescape[512];
    char*	messagebody;
    
@@ -341,17 +341,17 @@ void CHAR_Trade(int fd, int index, char* message)
    	CHAR_getMessageBody( message, firstToken, sizeof(firstToken), &messagebody);
 
 	switch( tolower( firstToken[0]) ){
-	   case 'd':	// ´M§ä«e¤èª±®a
+	   case 'd':	// å°‹æ‰¾å‰æ–¹ç©å®¶
 		
 		TRADE_Search(fd, index, message);
 	   	break;
 /*	   case 'c':
 	   	TRADE_Will(fd, index, message);
 	   	break;
-*/	   case 't':	// Åã¥Ü¥æ©öªºª««~¡Bª÷¿ú¡BÃdª«
+*/	   case 't':	// é¡¯ç¤ºäº¤æ˜“çš„ç‰©å“ã€é‡‘éŒ¢ã€å¯µç‰©
 	   	TRADE_ShowItem(fd, index, message);
 	   	break;
-	   case 'w':	// Ãö³¬¥æ©ö
+	   case 'w':	// é—œé–‰äº¤æ˜“
 		print(" TRADE_Close:%d ", index);
 		TRADE_Close(fd, index, message);
 	   	break;
@@ -373,27 +373,27 @@ BOOL TRADE_Search(int fd, int meindex, char* message)
    if (!CHAR_CHECKINDEX(meindex))	return FALSE;
 
 #if 0	// Robin fix
-//#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+//#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 	{
 		char	msgbuf[512];
-		snprintf( msgbuf, sizeof( msgbuf), "¸ó¬P¨t®a±ÚPK¡AµLªk¥æ©ö");
+		snprintf( msgbuf, sizeof( msgbuf), "è·¨æ˜Ÿç³»å®¶æ—PKï¼Œç„¡æ³•äº¤æ˜“");
 		CHAR_talkToCli( meindex, -1, msgbuf, CHAR_COLORWHITE);
 		return FALSE;
 	}
 #endif
 
-   // ­Yª±®aª¬ºA¬°¥æ©ö¤¤©Î¥æ©öÂê©w¤¤«h¤£¤©³B²z
+   // è‹¥ç©å®¶ç‹€æ…‹ç‚ºäº¤æ˜“ä¸­æˆ–äº¤æ˜“é–å®šä¸­å‰‡ä¸äºˆè™•ç†
    if (CHAR_getWorkInt(meindex, CHAR_WORKTRADEMODE) == CHAR_TRADE_TRADING
    	|| CHAR_getWorkInt(meindex, CHAR_WORKTRADEMODE) == CHAR_TRADE_LOCK)
    		return FALSE;
 
-   // ­Yª±®aª¬ºA¬°²Õ¶¤©Î¾Ô°«¤¤«h¤£¤©³B²z
+   // è‹¥ç©å®¶ç‹€æ…‹ç‚ºçµ„éšŠæˆ–æˆ°é¬¥ä¸­å‰‡ä¸äºˆè™•ç†
    if ((CHAR_getWorkInt(meindex, CHAR_WORKPARTYMODE) != CHAR_PARTY_NONE)
    	|| (CHAR_getWorkInt(meindex, CHAR_WORKBATTLEMODE) != BATTLE_CHARMODE_NONE))
    		return FALSE;
 
 #ifdef _STREET_VENDOR
-	 // ­Yª±®a¦bÂ\Åu¤¤¤£³B²z¥æ©ö
+	 // è‹¥ç©å®¶åœ¨æ“ºæ”¤ä¸­ä¸è™•ç†äº¤æ˜“
 		if(CHAR_getWorkInt(meindex,CHAR_WORKSTREETVENDOR) > -1) return FALSE;
 #endif
 
@@ -401,7 +401,7 @@ BOOL TRADE_Search(int fd, int meindex, char* message)
 
    if (getStringFromIndexWithDelim(message, "|", 2, token,
 	sizeof(token)) == FALSE)	return FALSE;
-   // ³]©wª¬ºA¥æ©ö½Ğ¨D¤¤
+   // è¨­å®šç‹€æ…‹äº¤æ˜“è«‹æ±‚ä¸­
 //   CHAR_setWorkInt(meindex, CHAR_WORKTRADEMODE, CHAR_TRADE_SENDING);
    
 #ifndef _ITEM_PILEFORTRADE
@@ -415,7 +415,7 @@ BOOL TRADE_Search(int fd, int meindex, char* message)
 
 	found_count = CHAR_getSameCoordinateObjects( objbuf, arraysizeof(objbuf),
 							CHAR_getInt(meindex, CHAR_FLOOR),front_x, front_y);
-	// «e¤è¨S¦³ª±®a©Î¹ï¤èÃö³¬¥æ©ö¿ï¶µ
+	// å‰æ–¹æ²’æœ‰ç©å®¶æˆ–å°æ–¹é—œé–‰äº¤æ˜“é¸é …
 	if (found_count == 0){
 		CHAR_talkToCli(meindex, -1, TRADE_NONE, CHAR_COLORYELLOW);
 		CHAR_setWorkInt(meindex, CHAR_WORKTRADEMODE, CHAR_TRADE_FREE);
@@ -452,7 +452,7 @@ BOOL TRADE_Search(int fd, int meindex, char* message)
 	}
 
 	if (cnt == 0){
-		// «e¤è¨S¦³ª±®a©Î¹ï¤èÃö³¬¥æ©ö¿ï¶µ
+		// å‰æ–¹æ²’æœ‰ç©å®¶æˆ–å°æ–¹é—œé–‰äº¤æ˜“é¸é …
 		if (found){
 			CHAR_talkToCli(meindex, -1, TRADE_NOWILL, CHAR_COLORYELLOW);
 		}else
@@ -462,7 +462,7 @@ BOOL TRADE_Search(int fd, int meindex, char* message)
 		CHAR_setWorkInt(meindex, CHAR_WORKTRADEMODE, CHAR_TRADE_FREE);
 		return FALSE;
 	}
-	// «e¤è¦³¤@¦ìª±®a
+	// å‰æ–¹æœ‰ä¸€ä½ç©å®¶
 	if (cnt == 1){
 #ifdef _ITEM_PILEFORTRADE
 		int ti;
@@ -475,7 +475,7 @@ BOOL TRADE_Search(int fd, int meindex, char* message)
 		if( (ti = TRADE_getTradeListIndex()) < 0 ||
 			TRADE_setTradeListIndex( ti, meindex, toindex) == FALSE ){
 
-			CHAR_talkToCli( meindex, -1, "¨t²Î¦£¸L¤¤¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( meindex, -1, "ç³»çµ±å¿™ç¢Œä¸­ã€‚", CHAR_COLORYELLOW);
 			CHAR_setWorkInt( meindex, CHAR_WORKTRADEMODE, CHAR_TRADE_FREE);
 			TRADE_CheckTradeListUser();
 
@@ -500,7 +500,7 @@ BOOL TRADE_Search(int fd, int meindex, char* message)
         CHAR_sendTradeEffect(meindex, 1);
         CHAR_sendTradeEffect(toindex, 1);
         return TRUE;
-   }else if (cnt > 1){	// «e¤è¤£¥u¤@¦ìª±®a
+   }else if (cnt > 1){	// å‰æ–¹ä¸åªä¸€ä½ç©å®¶
 		CHAR_talkToCli(meindex, -1, TRADE_OVERPLAYER, CHAR_COLORYELLOW);
 //		sprintf(msgbuf, "C|%d|%s|0", tofd, tocharaname);
 		CHAR_setWorkInt(meindex, CHAR_WORKTRADEMODE, CHAR_TRADE_FREE);
@@ -644,7 +644,7 @@ void TRADE_ShowItem(int fd, int meindex, char* message)
 #endif
 
    if (!CHAR_CHECKINDEX(toindex))       return;
-   // ­Yª±®aª¬ºA¬°²Õ¶¤©Î¾Ô°«¤¤«h¤£¤©³B²z
+   // è‹¥ç©å®¶ç‹€æ…‹ç‚ºçµ„éšŠæˆ–æˆ°é¬¥ä¸­å‰‡ä¸äºˆè™•ç†
    if ((CHAR_getWorkInt(meindex, CHAR_WORKPARTYMODE) != CHAR_PARTY_NONE)
    	|| (CHAR_getWorkInt(meindex, CHAR_WORKBATTLEMODE) != BATTLE_CHARMODE_NONE))
    		return;
@@ -682,7 +682,7 @@ void TRADE_ShowItem(int fd, int meindex, char* message)
 				print(" TRADE_Close_Err4:%d,%d,%s,%s ", meindex, showindex, message, buf1);
 				TRADE_Close(fd, meindex, message);
 				return;
-			}else{// ±N±ı¥æ©ö¤§ª÷¿ú¶Çµ¹¹ï¤è
+			}else{// å°‡æ¬²äº¤æ˜“ä¹‹é‡‘éŒ¢å‚³çµ¦å°æ–¹
 				snprintf(msg, sizeof(msg), "T|%d|%s|G|%d|%s", fd, mycharaname, showindex, buf1);
 				lssproto_TD_send( tofd, -1, msg);
 			}
@@ -704,14 +704,14 @@ void TRADE_ShowItem(int fd, int meindex, char* message)
 		break;
    	case 'k':
 	    if((CONNECT_get_confirm(fd)==TRUE) &&
-			(CONNECT_get_confirm(tofd)==TRUE) ){//·íÂù¤è³£«ö¤U lock
+			(CONNECT_get_confirm(tofd)==TRUE) ){//ç•¶é›™æ–¹éƒ½æŒ‰ä¸‹ lock
 			if( CHAR_getWorkInt(meindex, CHAR_WORKTRADEMODE) == CHAR_TRADE_LOCK ){
 				//andy_log
-				print("ANDY err ¨¾¤î²Ä¤G¦¸¶i¤J!!\n");
-				return;//¨¾¤î²Ä¤G¦¸¶i¤J
+				print("ANDY err é˜²æ­¢ç¬¬äºŒæ¬¡é€²å…¥!!\n");
+				return;//é˜²æ­¢ç¬¬äºŒæ¬¡é€²å…¥
 			}
 			CHAR_setWorkInt(meindex, CHAR_WORKTRADEMODE, CHAR_TRADE_LOCK);
-			//ÀË¬d¹ï¤è¬O§_«ö¤U ok
+			//æª¢æŸ¥å°æ–¹æ˜¯å¦æŒ‰ä¸‹ ok
 			if( CHAR_getWorkInt( toindex, CHAR_WORKTRADEMODE) != CHAR_TRADE_LOCK )return;
 
 			snprintf(msg, sizeof(msg), "T|%d|%s|A", fd, mycharaname);
@@ -978,10 +978,10 @@ BOOL TRADE_HandleTrade( int meindex, STradeList *temp1, int toindex, STradeList 
 	int MePet[5], ToPet[5];
 	int MeGold=0, ToGold=0;
 	
-	MeMaxPile = CHAR_getMyMaxPilenum( meindex);//³Ì¤j°ïÅ|¼Æ
+	MeMaxPile = CHAR_getMyMaxPilenum( meindex);//æœ€å¤§å †ç–Šæ•¸
 	ToMaxPile = CHAR_getMyMaxPilenum( toindex);
-	//²¾°£meindex
-	//²¾°£toindex
+	//ç§»é™¤meindex
+	//ç§»é™¤toindex
 	{
 		char buf[256];
 
@@ -993,7 +993,7 @@ BOOL TRADE_HandleTrade( int meindex, STradeList *temp1, int toindex, STradeList 
 		LogTrade(buf);
 	}
 
-	//²¾°£
+	//ç§»é™¤
 	if( (ret=TRADE_HandleTrade_DelItem( meindex, MeMaxPile, ToMaxPile, temp1->ItemTi, temp1->ItemNum, ToItem ))== -1 ) return FALSE;
 	if( (ret=TRADE_HandleTrade_DelItem( toindex, ToMaxPile, MeMaxPile, temp2->ItemTi, temp2->ItemNum, MeItem ))== -1 ) return FALSE;
 
@@ -1001,7 +1001,7 @@ BOOL TRADE_HandleTrade( int meindex, STradeList *temp1, int toindex, STradeList 
 	if( (ret=TRADE_HandleTrade_DelPet( toindex, temp2->PetTi, MePet)) == -1 ) return FALSE;
 	if( TRADE_HandleTrade_DelGold( meindex, temp1->Golds, &ToGold) == FALSE ) return FALSE;
 	if( TRADE_HandleTrade_DelGold( toindex, temp2->Golds, &MeGold) == FALSE ) return FALSE;
-	//¥[¤J
+	//åŠ å…¥
 	if( TRADE_HandleTrade_AddItem( meindex, MeItem) == FALSE ) return FALSE;
 	if( TRADE_HandleTrade_AddItem( toindex, ToItem) == FALSE ) return FALSE;
 	if( TRADE_HandleTrade_AddPet( meindex, MePet) == FALSE) return FALSE;
@@ -1066,12 +1066,12 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 	if( TradeList[Tradeti][0].use != 1 || TradeList[Tradeti][1].use != 1 ) return -1;
 	if( TRADE_getSomeTradeList( meindex, &TradeListTemp[0]) == FALSE ) return -1;
 	if( TRADE_getSomeTradeList( toindex, &TradeListTemp[1]) == FALSE ) return -1;
-	//½T©wªÅ¦ì
+	//ç¢ºå®šç©ºä½
 	if( TRADE_CheckTradeList( meindex, &TradeListTemp[0], toindex, &TradeListTemp[1]) == FALSE ) return -1;
-	//²¾°£¤Hª«¨­¤W
-	//¥[¤J¤Hª«¨­¤W
+	//ç§»é™¤äººç‰©èº«ä¸Š
+	//åŠ å…¥äººç‰©èº«ä¸Š
 	if( TRADE_HandleTrade( meindex, &TradeListTemp[0], toindex, &TradeListTemp[1] ) == FALSE )	return -1;
-	//¥æ©öµ²§ô°Ê§@
+	//äº¤æ˜“çµæŸå‹•ä½œ
 	return 1;
 }
 
@@ -1079,14 +1079,14 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 /*
 int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mycharaname, char* tocharaname)
 {
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	int myItem[42] = { -1 } ;			//§Ú¤è©Ò¦³ªº¥æ©ö¤º®e½s¸¹
-	int oppItem[42] = { -1 };			//¹ï¤è©Ò¦³ªº¥æ©ö¤º®e½s¸¹
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	int myItem[42] = { -1 } ;			//æˆ‘æ–¹æ‰€æœ‰çš„äº¤æ˜“å…§å®¹ç·¨è™Ÿ
+	int oppItem[42] = { -1 };			//å°æ–¹æ‰€æœ‰çš„äº¤æ˜“å…§å®¹ç·¨è™Ÿ
 	int ii , jj; 
-	int Iitem1[15] = { 0 } ;			//§Ú¤è¹D¨ãªºindex
-	int Iitem2[15] = { 0 } ;			//¹ï¤è¹D¨ãªºindex
-	int ppet1[5] = { 0 } ;				//§Ú¤èÃdª«ªºindex
-	int ppet2[5] = { 0 } ;				//¹ï¤èÃdª«ªºindex
+	int Iitem1[15] = { 0 } ;			//æˆ‘æ–¹é“å…·çš„index
+	int Iitem2[15] = { 0 } ;			//å°æ–¹é“å…·çš„index
+	int ppet1[5] = { 0 } ;				//æˆ‘æ–¹å¯µç‰©çš„index
+	int ppet2[5] = { 0 } ;				//å°æ–¹å¯µç‰©çš„index
 	BOOL tradeflag = TRUE ;
 	int count = 0 ; 
 #endif
@@ -1106,19 +1106,19 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
    CONNECT_getTradeTmp(tofd, toitembuf, sizeof(toitembuf));
 
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-   //¨ú±o§Ú¤è©Ò¦³¥æ©ö¤º®e½s¸¹
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+   //å–å¾—æˆ‘æ–¹æ‰€æœ‰äº¤æ˜“å…§å®¹ç·¨è™Ÿ
    for ( ii = 0  ; ii < 42 ; ii ++ ) {
 	   if (getStringFromIndexWithDelim(itembuf, "|", 6 + ii * 2 , token, sizeof(token)) == TRUE)
 		   myItem[ii] = atoi(token);
    }
-   //¨ú±o¹ï¤è©Ò¦³¥æ©ö¤º®e½s¸¹
+   //å–å¾—å°æ–¹æ‰€æœ‰äº¤æ˜“å…§å®¹ç·¨è™Ÿ
    for ( ii = 0  ; ii < 42 ; ii ++ ) {
 	   if (getStringFromIndexWithDelim(toitembuf, "|", 6 + ii * 2 , token, sizeof(token)) == TRUE)
 		   oppItem[ii] = atoi(token);
    }
 #else
-   // ¤ñ¹ïÂù¤è¤§³Ì«á¥æ©ö¨ó©w
+   // æ¯”å°é›™æ–¹ä¹‹æœ€å¾Œäº¤æ˜“å”å®š
    if (getStringFromIndexWithDelim(itembuf, "|", 5, token, sizeof(token)) == TRUE)
 	   	strcpy(a, token);
    if (getStringFromIndexWithDelim(itembuf, "|", 6, token, sizeof(token)) == TRUE)
@@ -1170,8 +1170,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 		toitemindex6 = atoi(token);
 #endif 
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-   //ÀË¬d¦³µL­«½Æ¥æ©öªº¹D¨ã
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+   //æª¢æŸ¥æœ‰ç„¡é‡è¤‡äº¤æ˜“çš„é“å…·
    for ( ii = 0 ; ii < 15 ; ii ++ ) {
 	   for ( jj = ii + 1 ; jj < 15 ; jj ++ ) {
 		   if ( myItem[ii] == myItem[jj] )
@@ -1187,7 +1187,7 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 	   }
    }
 #else
-   // shan hjj add ¬~¹D¨ã
+   // shan hjj add æ´—é“å…·
    if (itemindex1==itemindex2){
         if (itemindex1!=-1){
             return -1;
@@ -1201,8 +1201,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
    // End
 #endif
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-   //¤ñ¹ïÂù¤è¥æ©öªºª««~¬O§_³£¥¿½T
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+   //æ¯”å°é›™æ–¹äº¤æ˜“çš„ç‰©å“æ˜¯å¦éƒ½æ­£ç¢º
    for ( ii = 0 ; ii < 21 ; ii ++ ) {
 	   if ( myItem[ii] != oppItem[ii+21] ) {
 		   tradeflag = FALSE ; 
@@ -1215,9 +1215,9 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 		   break;
 	   }
    }
-   //Âù¤è¤º®e¥¿½T¶}©l¶i¦æ³B²z
+   //é›™æ–¹å…§å®¹æ­£ç¢ºé–‹å§‹é€²è¡Œè™•ç†
    if ( tradeflag == TRUE ) {
-   //­pºâÂù¤è¹D¨ãªº¥[´î
+   //è¨ˆç®—é›™æ–¹é“å…·çš„åŠ æ¸›
    for ( ii = 0 ; ii < 15 ; ii ++ ) {
 	   if ( myItem[ii] != -1 ) {
 		   swapitem1--;
@@ -1237,7 +1237,7 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
    	&& (itemindex3 == toitemindex6) && (itemindex4 == toitemindex1)
    	&& (itemindex5 == toitemindex2) && (itemindex6 == toitemindex3))
    {
-   	// ÀËÅçÂù¤èª««~Äæ¬O§_¦³ªÅ¦ì
+   	// æª¢é©—é›™æ–¹ç‰©å“æ¬„æ˜¯å¦æœ‰ç©ºä½
 	if ((strcmp(a, "I") == 0) && (itemindex1 != -1)){
 		swapitem1--;
 		swapitem2++;
@@ -1261,12 +1261,12 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 	if (!CHAR_CHECKINDEX(toindex))       return -1;
 	if (swapitem2 > CHAR_findTotalEmptyItem(toindex))
 		return	-3;
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	//¨ú±o¥æ´«ªºª÷¿ú
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	//å–å¾—äº¤æ›çš„é‡‘éŒ¢
 	if ( myItem[20] != -1 ) gold1 += myItem[20] ;
 	if ( myItem[41] != -1 ) gold2 += myItem[41] ; 
 #else
-	// ÀË¬dÂù¤èª÷¿ú
+	// æª¢æŸ¥é›™æ–¹é‡‘éŒ¢
 	if ((strcmp(a, "G") == 0) && (itemindex1 != -1))	gold1 += itemindex1;
 	if ((strcmp(b, "G") == 0) && (itemindex2 != -1))	gold1 += itemindex2;
 	if ((strcmp(d, "G") == 0) && (itemindex4 != -1))	gold2 += itemindex4;
@@ -1279,8 +1279,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 	if ((gold2 + CHAR_getInt(meindex, CHAR_GOLD) - gold1) > CHAR_getMaxHaveGold( meindex) )	return	-8;
 	if ((gold1 + CHAR_getInt(toindex, CHAR_GOLD) - gold2) > CHAR_getMaxHaveGold( toindex))	return	-9;
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	//­pºâÂù¤èÃdª«ªº¥[´î
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	//è¨ˆç®—é›™æ–¹å¯µç‰©çš„åŠ æ¸›
 	for ( ii = 15 ; ii < 20 ; ii ++ ) {
 		if ( myItem[ii] != -1 ) {
 			pet1--;	
@@ -1294,7 +1294,7 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 		}
 	}
 #else
-	// ÀË¬dÂù¤èÃdª«	
+	// æª¢æŸ¥é›™æ–¹å¯µç‰©	
 	if ((strcmp(c, "P") == 0) && (itemindex3 != -1))
 	{
 		pet1--;	pet2++;
@@ -1305,9 +1305,9 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 	}
 #endif
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
 	if ((pet1 > 5) || (pet2 > 5))	return	-10;
-	//¨ú±oÂù¤è¨­¤W¯à©ñªºÃdª«¼Æ¶q
+	//å–å¾—é›™æ–¹èº«ä¸Šèƒ½æ”¾çš„å¯µç‰©æ•¸é‡
 	for( ii = 0; ii < CHAR_MAXPETHAVE; ii ++ ) {
 		if( CHAR_getCharPet( meindex , ii ) == -1  ) count ++ ;
 	}
@@ -1322,8 +1322,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 	if ((pet1 == 1) && (CHAR_getCharPetElement( meindex) == -1))	return -10;
 	if ((pet2 == 1) && (CHAR_getCharPetElement( toindex) == -1))	return -11;
 #endif	
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	//¨ú±o©Ò¦³±ı¥æ©öªº¹D¨ãindex
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	//å–å¾—æ‰€æœ‰æ¬²äº¤æ˜“çš„é“å…·index
 	for ( ii = 0 ; ii < 15 ; ii ++ ) {
 		if ( myItem[ii] != -1 ) 
 			Iitem1[ii] = CHAR_getItemIndex(meindex, myItem[ii]);
@@ -1348,8 +1348,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 		item5 = CHAR_getItemIndex(toindex, itemindex5);
 	else	item5 = -1;
 #endif
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	//¨ú±o±ı¥æ©öÃdª«ªºindex
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	//å–å¾—æ¬²äº¤æ˜“å¯µç‰©çš„index
 	for ( ii = 15 ; ii < 20 ; ii ++ ) {
 		if ( myItem[ii] != -1 ) {
 			if ( CHAR_getInt( meindex , CHAR_RIDEPET) == myItem[ii] )
@@ -1387,7 +1387,7 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 
 
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
 	for ( ii = 0 ; ii < 15 ; ii ++ ) {
 		if ( ITEM_getInt( Iitem1[ii] , ITEM_VANISHATDROP ) == 1 )
 			return -12 ; 
@@ -1403,8 +1403,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 #endif
 
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	//Ãdª«µ¥¯Å¯à§_¥æ©ö§PÂ_
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	//å¯µç‰©ç­‰ç´šèƒ½å¦äº¤æ˜“åˆ¤æ–·
 	if( CHAR_getWorkInt( meindex, CHAR_PickAllPet) != TRUE )	{
 		for ( ii = 0 ; ii < 5 ; ii ++ ) {
 			if ( (ppet2[ii] != -1 ) && ( CHAR_getInt( ppet2[ii] , CHAR_LV ) 
@@ -1437,8 +1437,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 		 		return -14;
 	}
 #endif
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	//¬O§_¬°®a±Ú¦uÅ@Ã~
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	//æ˜¯å¦ç‚ºå®¶æ—å®ˆè­·ç¸
 	for ( ii = 0 ; ii < 5 ; ii ++ ) {
 		if ( ( ppet1[ii] != -1 ) && (CHAR_getInt(ppet1[ii], CHAR_PETFAMILY) == 1))
 			return -15;
@@ -1452,8 +1452,8 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 		 	return -15;
 #endif
 
-#ifdef _TRADESYSTEM2	// (¤£¥i¶}) Syu ADD ·s¥æ©ö¨t²Î
-	// ¥æ´«ª±®a¹D¨ã¡Bª÷¿ú¡BÃdª«	
+#ifdef _TRADESYSTEM2	// (ä¸å¯é–‹) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+	// äº¤æ›ç©å®¶é“å…·ã€é‡‘éŒ¢ã€å¯µç‰©	
 	for ( ii = 0 ; ii < 15 ; ii ++ ) {
 		TRADE_ChangeItem(meindex, toindex, "I", "I", Iitem1[ii], Iitem2[ii],
 			myItem[ii], oppItem[ii]);
@@ -1473,7 +1473,7 @@ int TRADE_CheckItembuf(int fd, int meindex, int toindex, int tofd, char* mychara
 		itemindex3, itemindex6);
 #endif
 
-	// ¼g¤J trade.log
+	// å¯«å…¥ trade.log
 	{
 		char petname1[256], petname2[256];
 		int pet1lv, pet2lv;
@@ -1531,10 +1531,10 @@ BOOL TRADE_ChangeItem(int meindex, int toindex, char *a, char *b,
    int gold1 = 0, gold2 = 0, eptitem = -1;
    if (CHAR_CHECKINDEX(meindex) == FALSE)	return FALSE;
    if (CHAR_CHECKINDEX(toindex) == FALSE)	return FALSE;
-   // ¹D¨ã <-> ¹D¨ã
+   // é“å…· <-> é“å…·
    if ((strcmp(a, "I") == 0) && (strcmp(b, "I") == 0))
    {
-   	// µL <-> ¹D¨ã
+   	// ç„¡ <-> é“å…·
    	if ((itemindex1 == -1) && (itemindex2 > 0))
    	{
    	   if (ITEM_CHECKINDEX(item2) == FALSE)	return FALSE;
@@ -1545,7 +1545,7 @@ BOOL TRADE_ChangeItem(int meindex, int toindex, char *a, char *b,
    	   ITEM_setWorkInt(item2, ITEM_WORKOBJINDEX, -1);
    	   CHAR_setItemIndex(toindex, itemindex2, -1);
    	}
-   	// ¹D¨ã <-> µL
+   	// é“å…· <-> ç„¡
    	else if ((itemindex1 > 0) && (itemindex2 == -1))
    	{
    	   if (ITEM_CHECKINDEX(item1) == FALSE)	return FALSE;
@@ -1556,7 +1556,7 @@ BOOL TRADE_ChangeItem(int meindex, int toindex, char *a, char *b,
    	   ITEM_setWorkInt(item1, ITEM_WORKOBJINDEX, -1);
    	   CHAR_setItemIndex(meindex, itemindex1, -1);
    	}
-   	// ¹D¨ã <-> ¹D¨ã
+   	// é“å…· <-> é“å…·
    	else if (itemindex1 > 0 && itemindex2 > 0)
    	{
    	   if (ITEM_CHECKINDEX(item1) == FALSE)	return FALSE;
@@ -1569,7 +1569,7 @@ BOOL TRADE_ChangeItem(int meindex, int toindex, char *a, char *b,
    	   CHAR_setItemIndex(meindex, itemindex1, item2);
    	}
    }
-   // ¹D¨ã <-> ª÷¿ú
+   // é“å…· <-> é‡‘éŒ¢
    else if ((strcmp(a, "I") == 0) && (strcmp(b, "G") == 0))
    {
    	if (itemindex1 > 0)
@@ -1590,7 +1590,7 @@ BOOL TRADE_ChangeItem(int meindex, int toindex, char *a, char *b,
    	gold2 -= itemindex2;
    	CHAR_setInt(toindex, CHAR_GOLD, gold2);
    }
-   // ª÷¿ú <-> ¹D¨ã
+   // é‡‘éŒ¢ <-> é“å…·
    else if ((strcmp(a, "G") == 0) && (strcmp(b, "I") == 0))
    {
    	if (itemindex2 > 0)
@@ -1611,7 +1611,7 @@ BOOL TRADE_ChangeItem(int meindex, int toindex, char *a, char *b,
    	gold2 += itemindex1;
    	CHAR_setInt(toindex, CHAR_GOLD, gold2);
    }
-   // ª÷¿ú <-> ª÷¿ú
+   // é‡‘éŒ¢ <-> é‡‘éŒ¢
    else if ((strcmp(a, "G") == 0) && (strcmp(b, "G") == 0))
    {
    	if (itemindex1 < 0)	itemindex1 = 0;
@@ -1623,7 +1623,7 @@ BOOL TRADE_ChangeItem(int meindex, int toindex, char *a, char *b,
    	gold2 = gold2 + itemindex2 - itemindex1;
    	CHAR_setInt(meindex, CHAR_GOLD, gold2);
    }
-   // Ãdª« <-> Ãdª«
+   // å¯µç‰© <-> å¯µç‰©
    else if ((strcmp(a, "P") == 0) && (strcmp(b, "P") == 0))
    {
 	char category[8];
@@ -1725,7 +1725,7 @@ BOOL TRADE_HandleItem( int meindex, int showindex, char *message, char *outmess)
 #endif
 		strcpy( itemname, ITEM_getChar(itemindex, ITEM_SECRETNAME));//ITEM_NAME
 		crushe	= ITEM_getItemDamageCrusheED( itemindex);
-		sprintf( token, "¤£·|·lÃa");
+		sprintf( token, "ä¸æœƒæå£");
 
 		if( crushe >= 0 ) snprintf( token, sizeof(token), "%d%%", crushe );
 #ifdef _ITEM_PILENUMS
@@ -1835,12 +1835,12 @@ BOOL TRADE_CheckTradeList( int meindex, STradeList *temp1, int toindex, STradeLi
 	int ToSurplus=0, ToNeeds=0, ToMaxPile;
 
 
-	MeMaxPile = CHAR_getMyMaxPilenum( meindex);//³Ì¤j°ïÅ|¼Æ
+	MeMaxPile = CHAR_getMyMaxPilenum( meindex);//æœ€å¤§å †ç–Šæ•¸
 	ToMaxPile = CHAR_getMyMaxPilenum( toindex);
 
 	MeSurplus = CHAR_findSurplusItemBox( meindex);
 	ToSurplus = CHAR_findSurplusItemBox( toindex);
-	//¹D¨ã
+	//é“å…·
 	ToNeeds=0; MeNeeds=0;
 	for( i=0; i<15; i++ ){
 		int pilenum, itemindex;
@@ -1874,17 +1874,17 @@ BOOL TRADE_CheckTradeList( int meindex, STradeList *temp1, int toindex, STradeLi
 	}
 	
 	if( MeSurplus < MeNeeds ){
-		CHAR_talkToCli( meindex, -1, "¥æ©ö«áª««~Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
-		CHAR_talkToCli( toindex, -1, "¹ï¤è¥æ©ö«áª««~Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( meindex, -1, "äº¤æ˜“å¾Œç‰©å“æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "å°æ–¹äº¤æ˜“å¾Œç‰©å“æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 	if( ToSurplus < ToNeeds ){
-		CHAR_talkToCli( toindex, -1, "¥æ©ö«áª««~Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
-		CHAR_talkToCli( meindex, -1, "¹ï¤è¥æ©ö«áª««~Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "äº¤æ˜“å¾Œç‰©å“æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
+		CHAR_talkToCli( meindex, -1, "å°æ–¹äº¤æ˜“å¾Œç‰©å“æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 
-	//Ãdª«
+	//å¯µç‰©
 	MeSurplus = CHAR_findSurplusPetBox( meindex);
 	ToSurplus = CHAR_findSurplusPetBox( toindex);
 	ToNeeds=0; MeNeeds=0;
@@ -1906,17 +1906,17 @@ BOOL TRADE_CheckTradeList( int meindex, STradeList *temp1, int toindex, STradeLi
 	}
 
 	if( MeSurplus < MeNeeds ){
-		CHAR_talkToCli( meindex, -1, "¥æ©ö«áÃdª«Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
-		CHAR_talkToCli( toindex, -1, "¹ï¤è¥æ©ö«áÃdª«Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( meindex, -1, "äº¤æ˜“å¾Œå¯µç‰©æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "å°æ–¹äº¤æ˜“å¾Œå¯µç‰©æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 	if( ToSurplus < ToNeeds ){
-		CHAR_talkToCli( meindex, -1, "¹ï¤è¥æ©ö«áÃdª«Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
-		CHAR_talkToCli( toindex, -1, "¥æ©ö«áÃdª«Äæ¦ì¤£¨¬¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( meindex, -1, "å°æ–¹äº¤æ˜“å¾Œå¯µç‰©æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "äº¤æ˜“å¾Œå¯µç‰©æ¬„ä½ä¸è¶³ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 
-	//ª÷¿ú
+	//é‡‘éŒ¢
 	MeMaxPile = CHAR_getMaxHaveGold( meindex);
 	ToMaxPile = CHAR_getMaxHaveGold( toindex);
 	MeSurplus = MeMaxPile - CHAR_getInt( meindex, CHAR_GOLD);
@@ -1927,13 +1927,13 @@ BOOL TRADE_CheckTradeList( int meindex, STradeList *temp1, int toindex, STradeLi
 	ToNeeds = temp1->Golds;
 	MeNeeds = temp2->Golds;
 	if( MeSurplus < MeNeeds ){
-		CHAR_talkToCli( meindex, -1, "¥æ©ö«á¥Û¹ô¶W¹L¤W­­¡C", CHAR_COLORYELLOW);
-		CHAR_talkToCli( toindex, -1, "¹ï¤è¥æ©ö«á¥Û¹ô¶W¹L¤W­­¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( meindex, -1, "äº¤æ˜“å¾ŒçŸ³å¹£è¶…éä¸Šé™ã€‚", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "å°æ–¹äº¤æ˜“å¾ŒçŸ³å¹£è¶…éä¸Šé™ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 	if( ToSurplus < ToNeeds ){
-		CHAR_talkToCli( meindex, -1, "¹ï¤è¥æ©ö«á¥Û¹ô¶W¹L¤W­­¡C", CHAR_COLORYELLOW);
-		CHAR_talkToCli( toindex, -1, "¥æ©ö«á¥Û¹ô¶W¹L¤W­­¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( meindex, -1, "å°æ–¹äº¤æ˜“å¾ŒçŸ³å¹£è¶…éä¸Šé™ã€‚", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "äº¤æ˜“å¾ŒçŸ³å¹£è¶…éä¸Šé™ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 	return TRUE;

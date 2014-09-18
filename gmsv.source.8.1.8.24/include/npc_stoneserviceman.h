@@ -1,11 +1,11 @@
 #ifndef __NPC_STONESERVICEMAN_H__
 #define __NPC_STONESERVICEMAN_H__
 
-// ¸ê®Æ¦ê¦C
+// è³‡æ–™ä¸²åˆ—
 typedef struct _List
 {
-  char Data[32];        // ¸ê®Æ
-  struct _List *Next;   // «ü¦V¤U¤@­ÓList
+  char Data[32];        // è³‡æ–™
+  struct _List *Next;   // æŒ‡å‘ä¸‹ä¸€å€‹List
 }List,*LPList;    
 
 BOOL NPC_StoneServiceManInit(int meindex);

@@ -1,9 +1,9 @@
 /*
-  ¥é¥ó¥­¥ó¥°µ¡  ¤Ä¤­¥Ç¡¼¥¿¥Ù¡¼¥¹¤Î  Áõ¡e
+  ä»¿ä»¶å¹³ä»¶å¼˜çª—  å‹¾äº”çŠ¯â–¡æ­£çŸ›â–¡æ—¦åŠ  éš¸ã€”
 
   1999 Aug 14 Created by ringo
 
-  ¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ï1  ¤Î¥ê¥ó¥¯¤Î·Á¤ÇÊİÂ¸¤µ¤ì¤ë¡e
+  çŠ¯â–¡æ­£çŸ›â–¡æ—¦å1  åŠä¼‰ä»¶å¼åŠæº¥åŒ¹å¿¡ç¹¡ä»Šæœ¨æœˆã€”
   
   
  */
@@ -21,32 +21,32 @@
 #include <string.h>
 #include <sys/stat.h>
 
-/*   »ú  ¥¨¥ó¥È¥ê¤Î    length */
+/*   å„‚  å·¨ä»¶ç„ä¼‰åŠ    length */
 //#define CHARVALUE_MAX 1024
 #define MAXTABLE 16
 // Spock 2000/10/12
-#define CHARVALUE_MAX 256	// DB ¦r¦ê¸ê®Æªºbuffer¤j¤p
-#define KEY_MAX 64		// DB Key¦r¦êªºbuffer¤j¤p
-#define HASH_SIZE 65536		// Hash table ¤@¦¸¼W¥[ªºEntry¼Æ¶q
-#define HASH_PRIME 65521	// Hash function ¨Ï¥Îªº½è¼Æ
-#define DBINIT_SIZE 16384	// DB ¨C¦¸°t¸mEntryªº¼Æ¶q
+#define CHARVALUE_MAX 256	// DB å­—ä¸²è³‡æ–™çš„bufferå¤§å°
+#define KEY_MAX 64		// DB Keyå­—ä¸²çš„bufferå¤§å°
+#define HASH_SIZE 65536		// Hash table ä¸€æ¬¡å¢åŠ çš„Entryæ•¸é‡
+#define HASH_PRIME 65521	// Hash function ä½¿ç”¨çš„è³ªæ•¸
+#define DBINIT_SIZE 16384	// DB æ¯æ¬¡é…ç½®Entryçš„æ•¸é‡
 // Spock end
 
-/* ¥Ç¡¼¥¿¥Ù¡¼¥¹¤Î¥ê¥ó¥¯¤ÎÍ×ÁÇ1¸Ä¤ò¤¢¤é¤ï¤¹¡e */
+/* çŠ¯â–¡æ­£çŸ›â–¡æ—¦åŠä¼‰ä»¶å¼åŠé‚°è±³1èœŠæ¯›ä¸æ—¥æ­¹å…ã€” */
 struct dbentry
 {
     int use;
-//    unsigned int keyhash;       /* ¸¡º÷¥­¡¼¤Î¥Ï¥Ã¼³¥å¥³¡¼¥É */
-    int ivalue;                  /* ¥¹¥³¥¢¡e¥È¥Ã¥× NODE ¤Ï  -1 ¤Ç¡b
-                                 ¤¹¤Ù¤Æ¤Î¥¹¥³¥¢¤Ï 0 °Ê¾å¤Ç¤Ê¤¤¤È¤¤¤±¤Ê¤¤*/
-//    int nextind;                /* -1 ¤À¤Ã¤¿¤é    ¤ò°Õ  ¤¹¤ë */
+//    unsigned int keyhash;       /* è…¹ç¶¢å¹³â–¡åŠç”©æ°¸æ’²äº™æˆŠâ–¡ç‰ */
+    int ivalue;                  /* æ—¦æˆŠå¤±ã€”ç„æ°¸çš¿ NODE å  -1 åŒ¹ï½
+                                 å…å±¯åŒ–åŠæ—¦æˆŠå¤±å 0 å‹•æ›‰åŒ¹å…ä¸­åˆä¸­ä»ƒå…ä¸­*/
+//    int nextind;                /* -1 åˆ†å‹»å‡¶æ—¥    æ¯›å•¦  å…æœˆ */
     // Spock 2000/10/12
-    int prev;	// «e¤@­Ódbentry, -1ªí¥Ü¦¹¶µ¬°head
-    int next;	// ¤U¤@­Ódbentry, -1ªí¥Ü¦¹¶µ¬°tail
+    int prev;	// å‰ä¸€å€‹dbentry, -1è¡¨ç¤ºæ­¤é …ç‚ºhead
+    int next;	// ä¸‹ä¸€å€‹dbentry, -1è¡¨ç¤ºæ­¤é …ç‚ºtail
     char key[KEY_MAX];
     char charvalue[CHARVALUE_MAX];
-//    char key[64];               /* ¸¡º÷¥­¡¼¤È¤Ê¤ë  »ú   */
-//    int charvalue_index;        /*   »ú  ¥Ğ¥Ã¥Õ¥¡¤ò¤µ¤¹index */
+//    char key[64];               /* è…¹ç¶¢å¹³â–¡åˆå…æœˆ  å„‚   */
+//    int charvalue_index;        /*   å„‚  ç”°æ°¸ç™½å¤®æ¯›ä»Šå…index */
     // Spock end
 };
 
@@ -54,11 +54,11 @@ struct dbentry
 // Database hashtable
 struct hashentry
 {
-    char key[KEY_MAX];	// ¯Á¤Şkey­È
-    int use;		// ¬O§_¤w³Q¨Ï¥Î
-    int dbind;		// «ü¦V dbentry ªº index
-    int prev;		// ¦P¤@key­Èªº¤W¤@­Ó hashentry, -1¬°head
-    int next;		// ¦P¤@key­Èªº¤U¤@­Ó hashentry, -1¬°tail
+    char key[KEY_MAX];	// ç´¢å¼•keyå€¼
+    int use;		// æ˜¯å¦å·²è¢«ä½¿ç”¨
+    int dbind;		// æŒ‡å‘ dbentry çš„ index
+    int prev;		// åŒä¸€keyå€¼çš„ä¸Šä¸€å€‹ hashentry, -1ç‚ºhead
+    int next;		// åŒä¸€keyå€¼çš„ä¸‹ä¸€å€‹ hashentry, -1ç‚ºtail
 };
 // Spock end
 
@@ -68,24 +68,24 @@ typedef enum
     DB_STRING,
 }DBTYPE;
 
-/* 1¸Ä¤Î¥Ç¡¼¥¿¥Ù¡¼¥¹¤ò¤¢¤é¤ï¤¹ */
+/* 1èœŠåŠçŠ¯â–¡æ­£çŸ›â–¡æ—¦æ¯›ä¸æ—¥æ­¹å… */
 struct table
 {
-    int use;		// 0:¥¼¨Ï¥Î 1:¤w¨Ï¥Î
-    DBTYPE type;                    /* DB¤Î¼ï   */
-    char name[32];                  /* ¥Ç¡¼¥¿¥Ù¡¼¥¹¤Î  Á° */
-    int num;                        /* ¥¨¥ó¥È¥ê¤Î¿ô */
+    int use;		// 0:æœªä½¿ç”¨ 1:å·²ä½¿ç”¨
+    DBTYPE type;                    /* DBåŠæ½˜   */
+    char name[32];                  /* çŠ¯â–¡æ­£çŸ›â–¡æ—¦åŠ  èŸ† */
+    int num;                        /* å·¨ä»¶ç„ä¼‰åŠé†’ */
     int toplinkindex;
     // Spock 2000/10/12
     struct hashentry *hashtable;
     int hashsize;
-    int updated;	// 0:dbflush«á¥¼§ó·s 1:¤w§ó·s
-    int ent_finder;	// «ü¦V³Ì«á¤@¦¸°t¸mªº hashentry
+    int updated;	// 0:dbflushå¾Œæœªæ›´æ–° 1:å·²æ›´æ–°
+    int ent_finder;	// æŒ‡å‘æœ€å¾Œä¸€æ¬¡é…ç½®çš„ hashentry
     // Spock end
 };
 
-struct dbentry *master_buf;     /* ¥¨¥ó¥È¥êµ­²±ÍÑ */
-int dbsize = 0;                 /*   ½é0¤Ç¡b1,2,4,8,16...*/
+struct dbentry *master_buf;     /* å·¨ä»¶ç„ä¼‰ç­ç››è¿• */
+int dbsize = 0;                 /*   è³¡0åŒ¹ï½1,2,4,8,16...*/
 static int dbent_finder = 0;
 
 struct table dbt[MAXTABLE];
@@ -119,7 +119,7 @@ int charvaluesize=0;
 */
 
 /*
-    »ú  ¥Ğ¥Ã¥Õ¥¡¡¼¤ò³ÈÄ¥¤¹¤ë
+    å„‚  ç”°æ°¸ç™½å¤®â–¡æ¯›å‚€è‰¦å…æœˆ
  */
 /* Spock deleted 2000/10/12
 int
@@ -157,8 +157,8 @@ reallocCharValue(void)
 */
 
 /*
-    »ú  ¥Ğ¥Ã¥Õ¥¡¡¼¤ò1¸Ä¤ï¤ê¤¢¤Æ¤ë¡e
-  ¤¿¤ê¤Ê¤¯¤Ê¤Ã¤¿¤érealloc¤¹¤ë¡e
+    å„‚  ç”°æ°¸ç™½å¤®â–¡æ¯›1èœŠæ­¹æ›°ä¸åŒ–æœˆã€”
+  å‡¶æ›°å…ä»å…å‹»å‡¶æ—¥reallocå…æœˆã€”
   
 */
 /* Spock deleted 2000/10/12
@@ -188,7 +188,7 @@ dbAllocCharValue( void )
 */
 
 /*
-  charvalue ¤«¤é/¤ËÃÍ¤ò¥²¥Ã¥È/¥»¥Ã¥È¤¹¤ë
+  charvalue äº•æ—¥/åè¥–æ¯›å¿…æ°¸ç„/æœ¬æ°¸ç„å…æœˆ
   int index : charvalue index
   
  */
@@ -209,8 +209,8 @@ dbSetString( int index , char *data )
 */
 
 /*
-  DB¤Î¤ª¤ª¤­¤µ¤¬¤¿¤é¤ó¤¯¤Ê¤Ã¤¿¤é¤ï¤ê¤¢¤Æ¤Ê¶³¤¹¡e¤¤¤Ş¤Î¥µ¥¤³N¤Î2  ¤Ë¤¹¤ë
-  0¤À¤Ã¤¿¤é1¤Ë¤¹¤ë
+  DBåŠäº‘äº‘äº”ä»Šäº’å‡¶æ—¥æ°ä»å…å‹»å‡¶æ—¥æ­¹æ›°ä¸åŒ–å…é›²å…ã€”ä¸­å¼•åŠæ‰”å¥¶è¡“åŠ2  åå…æœˆ
+  0åˆ†å‹»å‡¶æ—¥1åå…æœˆ
  */
 static int
 reallocDB( void )
@@ -230,20 +230,20 @@ reallocDB( void )
     
     newbuf = (struct dbentry* ) calloc( 1, new_dbsize *
                                          sizeof( struct dbentry) );
-    /* ¥á¥â¥ê¤¿¤ê¤Ê¤¤   */
+    /* ä¸Ÿä¹’ä¼‰å‡¶æ›°å…ä¸­   */
     if( newbuf == NULL ){
         log( "reallocDB: memory shortage!!! new_dbsize: %d\n", new_dbsize );
         return -1;
     }
 
-    /* ¸Å¤¤¤Û¤¦¤«¤é¿·¤·¤¤  ¤Ë¥³¥Ô¡¼¤·¤Æ */
+    /* è¡™ä¸­å¹»ä¸¹äº•æ—¥è•™ä»„ä¸­  åæˆŠç–‹â–¡ä»„åŒ– */
 
     memset( newbuf , 0 , new_dbsize * sizeof( struct dbentry ) );
     /* Spock deleted 2000/10/19
     if( previous )memcpy( (char*)newbuf, (char*)previous,
             dbsize * sizeof( struct dbentry ));
 
-    // ¸Å¤¤¤Û¤¦¤ò²ò  ¤·
+    // è¡™ä¸­å¹»ä¸¹æ¯›è¸  ä»„
     free( previous );
     */
     // Spock 2000/10/19
@@ -254,7 +254,7 @@ reallocDB( void )
     }
     // Spock end
 
-    dbent_finder = dbsize;	// ±N dbent_finder «ü¦V¥¼¨Ï¥Îªº entry
+    dbent_finder = dbsize;	// å°‡ dbent_finder æŒ‡å‘æœªä½¿ç”¨çš„ entry
     dbsize = new_dbsize;
     master_buf = newbuf;
     
@@ -283,11 +283,11 @@ dbAllocNode()
         if( master_buf[dbent_finder].use == 0 ){
             master_buf[dbent_finder].use = 1;
             /* Spock deleted 2000/10/12
-            // int ¤Ç¤âÉÕ²Ã¾ğ  ¤Î°Ù¤Ëstringbuffer¤ò  ¤Ä»ö¤Ë¤¹¤ë kawata
+            // int åŒ¹æ‰‹å°¥ç¬›æ¨¹  åŠå•ƒåstringbufferæ¯›  å‹¾å„€åå…æœˆ kawata
             if( type == DB_STRING || type == DB_INT_SORTED){
                 if( ( master_buf[dbent_finder].charvalue_index =
                       dbAllocCharValue() ) < 0 ){
-                    //   »ú  ¥Ğ¥Ã¥Õ¥¡¡¼¤¬¤¿¤ê¤Ê¤¤¤¾
+                    //   å„‚  ç”°æ°¸ç™½å¤®â–¡äº’å‡¶æ›°å…ä¸­å†—
                     return -1;
                 }
             }
@@ -474,8 +474,8 @@ tableReleaseNode( int dbi , int ind )
 }
 // Spock end
 /*
-  ¥ê¥ó¥¯¤Î¥È¥Ã¥×¤òÍ¿¤¨¤é¤ì¤¿¤é¡b¥­¡¼¤ò  ¤ê¤Ë¥Î¡¼¥É¤ò¸¡º÷¤¹¤ë¡e
-  ¤ß¤Ä¤«¤é¤Ê¤¤¾ì¹ç¤Ï¥¨¥é¡¼¤Ç¤Ï¤Ê¤¤¤Î¤Ç0
+  ä¼‰ä»¶å¼åŠç„æ°¸çš¿æ¯›èŠ¨å°¹æ—¥æœ¨å‡¶æ—¥ï½å¹³â–¡æ¯›  æ›°åç”¨â–¡ç‰æ¯›è…¹ç¶¢å…æœˆã€”
+  å¿ƒå‹¾äº•æ—¥å…ä¸­æ¨ºå¯§åå·¨ä»¿â–¡åŒ¹åå…ä¸­åŠåŒ¹0
 
  */
 /* Spock deleted 2000/10/13
@@ -486,20 +486,20 @@ dbExtractNodeByKey( int topind , char *k  )
     int prev = -1;
     unsigned int h = hashpjw( k );
 
-    // ¥ê¥ó¥¯¤¬¶õ¤Ç¤â¤ß¤Ä¤«¤é¤Ê¤¤¤À¤±¤Ê¤Î¤Ç0¤ò¤«¤¨¤¹
+    // ä¼‰ä»¶å¼äº’å¡¢åŒ¹æ‰‹å¿ƒå‹¾äº•æ—¥å…ä¸­åˆ†ä»ƒå…åŠåŒ¹0æ¯›äº•å°¹å…
     if( topind == -1 ) return 0;
 
     for(;;){
         if( cur == -1 )break;
         if( master_buf[cur].keyhash == h
             && strcmp( master_buf[cur].key , k ) == 0 ){
-            // prev ¤Î ±­¤¬ cur ¤Î±­¤Ë¤Ê¤ë¤è¤¦¤Ë¤¹¤ë
+            // prev åŠ æˆšäº’ cur åŠæˆšåå…æœˆæ–¹ä¸¹åå…æœˆ
             if( prev == -1 ){
-                // Àè  ¤À¤Ã¤¿¤Î¤Ç¥ê¥ó¥¯¤Ï¤¤¤¸¤é¤Ê¤¤
+                // ç‡®  åˆ†å‹»å‡¶åŠåŒ¹ä¼‰ä»¶å¼åä¸­å…ƒæ—¥å…ä¸­
             } else {                
                 master_buf[prev].nextind = master_buf[cur].nextind;
             }
-            // ¤½¤ì¤Ç¼«Ê¬¤¬¥ê¥¹¥È¤«¤é³°¤ì¤ë¤Î¤Ç²ò  ¤¹¤ë
+            // å…¬æœ¨åŒ¹æ†¤åŒäº’ä¼‰æ—¦ç„äº•æ—¥é™¸æœ¨æœˆåŠåŒ¹è¸  å…æœˆ
             dbReleaseNode( cur );
             log( "find key %s deleted\n", k );
             return 0;
@@ -554,9 +554,9 @@ dbGetEntryByKey( int topind , char *k )
 */
 
 /*
-  ¥ê¥ó¥¯¤Î¥È¥Ã¥×¤òÍ¿¤¨¤é¤ì¤¿¤é¡bÃÍ¤ò  ¤ê¤Ë¥Î¡¼¥É¤ò¸¡º÷¤·¤Æ
-  Å¬ÀÚ¤Ê¤È¤³¤í¤Ë Insert ¤¹¤ë¡e¤Á¤¤¤µ¤¤  ¤«¤é¤ª¤ª¤­¤¤  ¤Ë¤Ê¤é¤ó¤Ç¤¤¤ë¤È
-  ²¾Äê
+  ä¼‰ä»¶å¼åŠç„æ°¸çš¿æ¯›èŠ¨å°¹æ—¥æœ¨å‡¶æ—¥ï½è¥–æ¯›  æ›°åç”¨â–¡ç‰æ¯›è…¹ç¶¢ä»„åŒ–
+  è´—æ¿ å…åˆä»‡æ¬ å Insert å…æœˆã€”åˆ‡ä¸­ä»Šä¸­  äº•æ—¥äº‘äº‘äº”ä¸­  åå…æ—¥æ°åŒ¹ä¸­æœˆåˆ
+  ç§»çˆ›
 
  */
 /* Spock deleted 2000/10/13
@@ -570,7 +570,7 @@ dbInsertNodeByIValue( int topind , int ins )
     
     for(;;){
         if( cur == -1 ){
-            //     ¤Ş¤Ç¤¤¤Ã¤¿¤Î¤ÇÄÉ²Ã¤¹¤ë
+            //     å¼•åŒ¹ä¸­å‹»å‡¶åŠåŒ¹é¦¨ç¬›å…æœˆ
             master_buf[prev].nextind = ins;
             master_buf[ins].nextind = -1;
             return 0;
@@ -647,10 +647,10 @@ dbAppendNode( int topind , int ins )
 // Spock end
 
 /*
-  ¥Ç¡¼¥¿¥Ù¡¼¥¹¤Î  Á°¤ò  ¤ë¡edb¤Ï¿ô¤¬¾¯¤Ê¤¤¤Î¤Ç  ÄÌ¤Ëstrcmp¤·¤Æ¤è¤¤
-  DBTYPE :¼ï  ¡e
+  çŠ¯â–¡æ­£çŸ›â–¡æ—¦åŠ  èŸ†æ¯›  æœˆã€”dbåé†’äº’åŠ‘å…ä¸­åŠåŒ¹  é¨·åstrcmpä»„åŒ–æ–¹ä¸­
+  DBTYPE :æ½˜  ã€”
 
-  ¶³¤Ê¤¸¤Ê¤Ş¤¨¤Î  ¤Ï¡bÀ°¿ô¤È  »ú  ¤Î    ¤ËÂ¸ºß¤¹¤ë¤³¤È¤¬¤Ç¤­¤ë¡e
+  é›²å…å…ƒå…å¼•å°¹åŠ  åï½å¹«é†’åˆ  å„‚  åŠ    åç¹¡ç®•å…æœˆä»‡åˆäº’åŒ¹äº”æœˆã€”
   
  */
 static int
@@ -665,7 +665,7 @@ dbGetTableIndex( char *tname , DBTYPE type )
         }
     }
 
-    /* ¤ß¤Ä¤«¤é¤Ê¤«¤Ã¤¿¤Î¤Ç¿·µ¬¤À */
+    /* å¿ƒå‹¾äº•æ—¥å…äº•å‹»å‡¶åŠåŒ¹è•™ç­‹åˆ† */
     for(i=0;i<MAXTABLE;i++){
         if( dbt[i].use == 0 ){
             int topind;
@@ -695,9 +695,9 @@ dbGetTableIndex( char *tname , DBTYPE type )
             master_buf[topind].nextind = -1;
             */
             
-            /* ¥È¥Ã¥×¤Î¥Î¡¼¥É¤ò½é´ü²½¤¹¤ë¤Ê¤ê¡e
-               »ú  ¤Î¾ì¹ç¤âÀ°¿ô¤Î¾ì¹ç¤â¶³¤Ê¤¸¤Ç¤è¤¤¡e
-             0x7fffffff¤È¤¤¤¦ÃÍ¤Ï¡b  »ú  ¤Î¾ì¹ç¤Ï¤µ¤Û¤É°Õ  ¤ò¤â¤¿¤Ê¤¤¤Î¤À¡e*/
+            /* ç„æ°¸çš¿åŠç”¨â–¡ç‰æ¯›è³¡æ¸ç¥­å…æœˆå…æ›°ã€”
+               å„‚  åŠæ¨ºå¯§æ‰‹å¹«é†’åŠæ¨ºå¯§æ‰‹é›²å…å…ƒåŒ¹æ–¹ä¸­ã€”
+             0x7fffffffåˆä¸­ä¸¹è¥–åï½  å„‚  åŠæ¨ºå¯§åä»Šå¹»å‡å•¦  æ¯›æ‰‹å‡¶å…ä¸­åŠåˆ†ã€”*/
             master_buf[topind].ivalue = 0x7fffffff;    
             /* Spock deleted 2000/10/16
             if( type == DB_INT_SORTED ){
@@ -718,7 +718,7 @@ dbGetTableIndex( char *tname , DBTYPE type )
         }
     }
 
-    /*   ¤¬¤¤¤Ã¤Ñ¤¤¤À¡e */
+    /*   äº’ä¸­å‹»å¤©ä¸­åˆ†ã€” */
     log( "dbGetTableIndex: table full. now tables are:\n" );
     dbShowAllTable();
 
@@ -727,11 +727,11 @@ dbGetTableIndex( char *tname , DBTYPE type )
 
 /*
 
-  ¤È¤ê¤¢¤¨¤º strtol ¤Ç¤­¤ëÃÍ¤·¤«¥µ¥İ¡¼¥È¤·¤Ê¤¤¤è
+  åˆæ›°ä¸å°¹å…§ strtol åŒ¹äº”æœˆè¥–ä»„äº•æ‰”ç¦¾â–¡ç„ä»„å…ä¸­æ–¹
 
-  ¸¡º÷¤·¤Æ¸«¤Ä¤±¤¿¥Î¡¼¥É¤ËÂĞ¤·¤Æ¡b
-  ¥ê¥ó¥¯¤«¤é  ¤­¤È¤Ã¤Æ¤«¤é¡bº£ÅÙ¤Ï¥½¡¼¥È¤¹¤ë¤Î¤Ë»È¤¦ÃÍ¤ò¤¿¤è¤ê¤Ë
-  ¸¡º÷¤·¤Æ¡b¤¤¤¤¾ì½ê¤ò¤ß¤Ä¤±¤¿¤é¡b¤½¤³¤Ëº¹¤·¤³¤à¡e
+  è…¹ç¶¢ä»„åŒ–è‘¦å‹¾ä»ƒå‡¶ç”¨â–¡ç‰åè¦†ä»„åŒ–ï½
+  ä¼‰ä»¶å¼äº•æ—¥  äº”åˆå‹»åŒ–äº•æ—¥ï½æ¼†è˜¸åæœ«â–¡ç„å…æœˆåŠåéŠ€ä¸¹è¥–æ¯›å‡¶æ–¹æ›°å
+  è…¹ç¶¢ä»„åŒ–ï½ä¸­ä¸­æ¨ºèµ­æ¯›å¿ƒå‹¾ä»ƒå‡¶æ—¥ï½å…¬ä»‡åçŠ’ä»„ä»‡æˆˆã€”
   
  */
 /* Spock deleted 2000/10/16
@@ -758,7 +758,7 @@ int dbUpdateEntryInt( char *table , char *key , int value, char *info )
     master_buf[entind].keyhash = hashpjw( master_buf[entind].key );
     master_buf[entind].nextind = -1; 
 	
-	// ÉÕ²Ã¾ğ  ¤ò¥»¥Ã¥È¤¹¤ë
+	// å°¥ç¬›æ¨¹  æ¯›æœ¬æ°¸ç„å…æœˆ
     dbSetString( master_buf[entind].charvalue_index, info );
 	
 	
@@ -919,7 +919,7 @@ dbShowAllTable(void)
     
 }
 
-/* ¥Ç¡¼¥¿¤ò1¸Ä¼è¤ê¤À¤¹¡e
+/* çŠ¯â–¡æ­£æ¯›1èœŠæ½¸æ›°åˆ†å…ã€”
  */
 int
 dbGetEntryInt( char *table, char *key, int *output )
@@ -949,19 +949,19 @@ dbGetEntryInt( char *table, char *key, int *output )
     	log( "dbGetEntryInt: Invalid dbind in hashtable of %s\n" , table );
     	return -1;
     }
-    /* ¤ß¤Ä¤«¤Ã¤¿¤Î¤ÇÃÍ¤ò½Ğ  ¤Ë  ¤ì¤ÆÊÖ¤¹ */
+    /* å¿ƒå‹¾äº•å‹»å‡¶åŠåŒ¹è¥–æ¯›è«‹  å  æœ¨åŒ–å¿’å… */
     *output = master_buf[entind].ivalue;
 
     return 0;
 }
 
 /*
-  ¥¨¥é¡¼¤Î¾ì¹ç¤Ï  ¡e0¤À¤Ã¤¿¤é©¨  ¡e
+  å·¨ä»¿â–¡åŠæ¨ºå¯§å  ã€”0åˆ†å‹»å‡¶æ—¥å²³  ã€”
 
-  int *rank_out : ¥é¥ó¥¯¤Î½Ğ  
-  int *count_out : ¾å¤«¤é²¿¸Ä  ¤«¤Î½Ğ  
+  int *rank_out : ä»¿ä»¶å¼åŠè«‹  
+  int *count_out : æ›‰äº•æ—¥çª’èœŠ  äº•åŠè«‹  
 
-  int ¥Ç¡¼¥¿¥Ù¡¼¥¹·´ÍÑ¤Í
+  int çŠ¯â–¡æ­£çŸ›â–¡æ—¦æ¯€è¿•å‹
   
  */
 
@@ -972,7 +972,7 @@ dbGetEntryRank( char *table, char *key , int *rank_out, int *count_out)
     // Spock deleted 2000/10/19
     //unsigned int hash = hashpjw(key);
     int cur;
-    int now_score = 0x7fffffff;     /*int ¤Ç¤¤¤Á¤Ğ¤ó¤Ç¤«¤¤ÃÍ */
+    int now_score = 0x7fffffff;     /*int åŒ¹ä¸­åˆ‡å£¬æ°åŒ¹äº•ä¸­è¥– */
     int r = -1 , i=0;
 
     // Spock 2000/10/23
@@ -1021,14 +1021,14 @@ dbGetEntryRank( char *table, char *key , int *rank_out, int *count_out)
 }
 
 /*
-  int ·´ÍÑ¤Í
+  int æ¯€è¿•å‹
  */
 int
 dbGetEntryRankRange( char *table,
                      int start, int end, char *output, int outlen )
 {
-#define MAXHITS 1024        /* Å¬Åö¤ä¤Ê¤¢¡e¤Ç¤â¤³¤ì¤Ç½½Ê¬¤é¤·¤¤¤¾ ringo */
-    struct hitent{          /* ¤³¤Î¹½Â¤  ¤Ë¥Ò¥Ã¥È¤·¤¿¤ä¤Ä¤ò¤¿¤á¤Æ¤¤¤¯ */
+#define MAXHITS 1024        /* è´—ç™²æ”¯å…ä¸ã€”åŒ¹æ‰‹ä»‡æœ¨åŒ¹è¸åŒæ—¥ä»„ä¸­å†— ringo */
+    struct hitent{          /* ä»‡åŠå­ç»  åç”²æ°¸ç„ä»„å‡¶æ”¯å‹¾æ¯›å‡¶æˆ¶åŒ–ä¸­ä» */
         int entind;
         int rank;
     };
@@ -1264,11 +1264,11 @@ int dbRead( char *dir )
     return 0;
 }
 
-/* »ØÄê¤·¤¿°Ì  ¤«¤é»ØÄê¤·¤¿¸Ä¿ô¼è¤ê¤À¤¹¡e
- ¼º  ¤·¤¿¤é  ¡b©¨  ¤·¤¿¤é0¡e©¨  ¤·¤Æ¤â¶õ¤Î½Ğ  ¤Î¤È¤­¤¬¤¢¤ë¤¾¡e
-   ¡unum¤¬0¤Î¤È¤­¤È¤«¡b³ºÅö¤¹¤ë¥¨¥ó¥È¥ê¤¬¤Ê¤¤¤È¤­¡e
+/* éš™çˆ›ä»„å‡¶åŒ  äº•æ—¥éš™çˆ›ä»„å‡¶èœŠé†’æ½¸æ›°åˆ†å…ã€”
+ æ’©  ä»„å‡¶æ—¥  ï½å²³  ä»„å‡¶æ—¥0ã€”å²³  ä»„åŒ–æ‰‹å¡¢åŠè«‹  åŠåˆäº”äº’ä¸æœˆå†—ã€”
+   ã€Œnumäº’0åŠåˆäº”åˆäº•ï½ç«Ÿç™²å…æœˆå·¨ä»¶ç„ä¼‰äº’å…ä¸­åˆäº”ã€”
 
- int ¥Ç¡¼¥¿¥Ù¡¼¥¹·´ÍÑ¤À¤¾
+ int çŠ¯â–¡æ­£çŸ›â–¡æ—¦æ¯€è¿•åˆ†å†—
 
  */
 int dbGetEntryCountRange( char *table, int count_start, int  num,
@@ -1321,7 +1321,7 @@ int dbGetEntryCountRange( char *table, int count_start, int  num,
 
 
 /*
-    »ú  ¥Ç¡¼¥¿¥Ù¡¼¥¹¤Î½è  
+    å„‚  çŠ¯â–¡æ­£çŸ›â–¡æ—¦åŠè³ª  
  */
 /* Spock deleted 2000/10/19
 int

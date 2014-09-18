@@ -1,7 +1,7 @@
 #if 0
 static Char    slime=
 {
-    FALSE,      /*  use     ¡¼¡¼¡¼¡¼¡¼¡¼*/
+    FALSE,      /*  use     â–¡â–¡â–¡â–¡â–¡â–¡*/
 
     /*  data    */
     {
@@ -12,7 +12,7 @@ static Char    slime=
         0,      /*  CHAR_FLOOR  */
         0,      /*  CHAR_X */
         0,      /*  CHAR_Y  */
-        0,      /*  CHAR_DIR 12ºß¡¼0¡¼ºß¯É¥ó¡¼¡¼ */
+        0,      /*  CHAR_DIR 12ç®•â–¡0â–¡ç®•ç´›ä»¶â–¡â–¡ */
         0,      /*  CHAR_LV  */
         0,      /*  CHAR_GOLD    */
         1,      /*  CHAR_HP  */
@@ -27,10 +27,10 @@ static Char    slime=
     	0,		/*  CHAR_CHARM	*/
     	0,		/*  CHAR_LUCK	*/
 
-		0,		/* ©s¾Û©Ô */
-		0,		/* «±¾Û©Ô */
-		0,		/* ´Ý¾Û©Ô */
-		0,		/* ·V¾Û©Ô */
+		0,		/* å­Ÿæ“„æ‹‰ */
+		0,		/* åž®æ“„æ‹‰ */
+		0,		/* æ®˜æ“„æ‹‰ */
+		0,		/* æ…Žæ“„æ‹‰ */
 
 		0,		/* CHAR_SLOT */
 		0,		/* CHAR_CRITIAL */

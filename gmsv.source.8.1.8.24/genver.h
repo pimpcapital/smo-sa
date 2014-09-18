@@ -6,314 +6,314 @@ SERVER_VERSION 'SMO v8.0.4.7a For Linux Debug Marking'
 SERVER_VERSION 'SMO v8.0.4.7a For Linux'
 UNIQUE_KEYCODEITEM	100
 UNIQUE_KEYCODEPET	'i'
-_SA_VERSION_70				// (¥i¶}©ñ) WON ADD ¥Û¾¹®É¥N7.0 ªºª©¥»±±¨î
-_DEFAULT_PKEY 'smosmosmo'	// (¥i¶}©ñ)( ¥Û¾¹ 6.0 )
-_RUNNING_KEY  '20070328'	// (¥i¶}©ñ)( ¥Û¾¹ 6.0 )
-_VERSION_20010911	        // (¥i¶}©ñ) 9.11 ½s½X­×§ï 
-_TEST_PETCREATE             // (¤£¥i¶}) ANDY ´úÃdªºGM«ü¥O
-_FAMILY_MANORNUM_CHANGE	// CoolFish ¥Î¨Ó­×§ï¸Ë¶é¼Æ¶q(4.0)
-_FIX_10_FMPOINT			//¡]¥i¶}©ñ¡^¦N¥JADD ¦B²ø
-FAMILY_MAXHOME			10	// (4.0) ®a±Ú¾ÚÂI
-MANORNUM                10	// (4.0) ²ø¶é¼Æ¶q
-FMPOINTNUM				10   // (4.0) ¦³¾ÚÂI®a±Úªº³Ì¤j¼Æ¶q
-FAMILY_MAXHOME			9	// (4.0) ®a±Ú¾ÚÂI
-MANORNUM                9	// (4.0) ²ø¶é¼Æ¶q
-FMPOINTNUM				9   // (4.0) ¦³¾ÚÂI®a±Úªº³Ì¤j¼Æ¶q
-_FMVER21		        // (¥i¶}©ñ) ®a±ÚÂ¾´x¥\¯à  
-_PERSONAL_FAME	    	// (¥i¶}©ñ) Arminius 8.30 ®a±Ú­Ó¤HÁn±æ  
-_EVERYONE_RIDE	    	// (¥i¶}©ñ) Robin 0924 ÃMÃd¥­¥Á¤Æ  
-__ATTACK_MAGIC          // (¥i¶}©ñ)	´£¨Ñ¾Ô³õ¤¤ªº§ðÀ»©Ê©G³N
-_ADD_ACTION             // (¥i¶}©ñ) ¤@¯ëNPC°Ê§@ª¬ªpªº³]©w
-_UNIQUE_P_I	        	// (¥i¶}©ñ) CoolFish 2001/10/11 
-_NEWSAVE                // (¥i¶}©ñ) Robin
-_STORECHAR              // (¥i¶}©ñ) Robin
-_DROPCHECK              // (¥i¶}©ñ) Robin ¨¾¤î­«½Æ¥á¹D¨ã
-_DROPCHECK2             // (¥i¶}©ñ) Robin ¨¾¤î­«½Æ¥á¹D¨ã
-_PET_TRANS           	// (¥i¶}©ñ) Ãdª«Âà¥Í¥\¯à
-_NEW_WARPMAN        	// (¥i¶}©ñ) NPC¦h­«WARP¥\¯à
-_PET_TALK	            // (¥i¶}©ñ) Ãdª«¹ï¸Ü
-_PET_LIMITLEVEL	        // (¥i¶}©ñ) ¯S®íÃd³]­p(º¿Á¢)
-_MAP_NOEXIT	            // (¥i¶}©ñ) ¯S®í¦a¹Ï¤£±o­ìµn&­ìµn¦^«ü©wÂI
-_GMRELOAD           	// (¥i¶}©ñ) CoolFish: 2001/11/12 
-_GAMBLE_ROULETTE	    // (¥i¶}©ñ) «Û»¨ ½ä³õ½ü½L	Ä_Ä_¤p½Þ  
-_FIX_GAMBLENUM          // (¥i¶}©ñ) ½ü½L­×¥¿ : ¤U½u¦©¿n¤À 
-_GAMBLE_BANK	        // (¥i¶}©ñ) «Û»¨  ½ä³õ»È¦æ  
-_DROPSTAKENEW	        // (¥i¶}©ñ) CoolFish:  ½ä³õ¤Uª`  
-_PETRACE	            // (¥i¶}©ñ) CoolFish: 2001/12/3 Ãdª«Äv³t³õ  
-_NEWEVENT               // (¥i¶}©ñ) CoolFish: 2001/12/5 ·sªº¥ô°ÈºX¼Ð  
-_ITEM_FIRECRACKER       // (¥i¶}©ñ) ¾Ô°«¤¤¨Ï¥ÎÃ@¬¶¥i¥H§â¦~Ã~À~¨«
-_MANOR_PKRULE           // (¥i¶}©ñ)
-_MANOR_FIXFMPK          // (¥i¶}©ñ) WON ADD ®a±Ú¬ù¾Ôªº GM «ü¥O¡A´ú¸Õ¥Îªº
-_PSKILL_FALLGROUND		// (¥i¶}©ñ) Ãdª«§Þ¯à  (¸¨°¨³N)
-_ENEMY_FALLGROUND		// (¥i¶}©ñ) NPC ¸¨°¨
-_BATTLE_NEWPOWER		// (¥i¶}©ñ)
-_Item_MoonAct	        // (¥i¶}©ñ) ¤ë¯«ªº¦uÅ@
-_Item_DeathAct          // (¥i¶}©ñ) ´cÅ]ªº­º¹¢
-_Item_PetAct            // (¥i¶}©ñ) ¹¥Ã~§Ù«ü
-_Item_ReLifeAct         // (¥i¶}©ñ) »Ý­nitemset1.txt ¤~¯à¶}) ´À¨­«½«½
-_BATTLESTEAL_FIX        // (¥i¶}©ñ) ­×¥¿°½ÅÑ
-_CFREE_petskill         // (¥i¶}©ñ) »Ý­npetskill1.txt ¤~¯à¶}) ·s¾Ç²ßÃdª«§Þ¯à§Þ¯à
-_data_newreadfile       // (¥i¶}©ñ) ·sªºserver setup.cf ÀÉ®× ¥]§t itemset1.txt petskill1.txt ¨â­Ó·sÀÉ
-_ITEM_MAXUSERNUM        // (¥i¶}©ñ) ·s itemset1.txt ITEM ¨Ï¥Î¦¸¼Æ
-_PET_TALKPRO      		// (¥i¶}©ñ) Ãdª«¹ï¸Ü¥[±j	& §ï END
-_PRO_NPCFIX	     		// (¥i¶}©ñ) NPC¥\¯à¥[±j
-_PRO_BATTLEENEMYSKILL	// (¥i¶}©ñ) ¾Ô°«¥[±j	´£¤ÉNPCªºAI§Þ¯à
-_NEW_WARPPOINT		    // (¥i¶}©ñ) ¶Ç°eÂI¦h­«±ø¥ó§PÂ_WARP
-_FIX_CHECKITEM	      	// (¥i¶}©ñ) ¹D¨ã¤£°µ«DªkÀË¬d
-_ADD_ENCOUNT             // (¥i¶}©ñ) WON ¼W¥[¼Ä¾D¹JÄ²µo­×¥ó 
-_WON_PET_MAIL_LOG		 // (¥i¶}©ñ) WON ª±®a±HÃd¶l LOG 
-_FIX_FAMILY_PK_LIMIT	    // (¥i¶}©ñ) WON ±N¥i¬D¾Ô²ø¶éªº¥Ñ«e¤Q¤j§ï¬°«e¤G¤Q¤j
-_ADD_POOL_ITEM				// (¥i¶}©ñ) WON ¼W¥[¥i±H©ñªº¹D¨ã
-_ITEM_METAMO                // (¥i¶}©ñ) shan metamo sprite. code:robin->shan
-_ENEMY_ATTACK_AI            // (¥i¶}©ñ) shan enemy attack mode. code:shan  
-_ITEM_TIME_LIMIT            // (¥i¶}©ñ) shan time limit of item. code:shan
-_MIND_ICON                  // (¥i¶}©ñ) shan show icon from char mind. code:shan
-_BATTLENPC_WARP_PLAYER      // (¥i¶}©ñ) shan npc warp player when n round. code:shan
-_ITEM_WARP_FIX_BI           // (¥i¶}©ñ) shan fix bbi to bi. code:shan
-_SKILL_DAMAGETOHP			// (¥i¶}©ñ) ANDY ¶Ý¦å§Þ 
-_Skill_MPDAMAGE				// (¥i¶}©ñ) ANDY MP¶Ë®`
-_WAEI_KICK					// (¥i¶}©ñ) ANDY ¸ó¬P²y½ð¤H
-_BATTLE_TIMESPEED			// (¥i¶}©ñ) ANDY ¾Ô°«®É¶¡ ´ú¸Õ(¥_¨Ê¤£¥²¶}¡A¾×¥[³t¥\¯à)
-_NEW_RIDEPETS				// (¥i¶}©ñ) ANDY ·sÃMÃd
-_FIXBUG_ATTACKBOW			// (¥i¶}©ñ) ANDY ­×¥¿ÃMÃd¨Ï¥Î§ëÂYªZ¾¹bug
-_NPCCHANGE_PLAYERIMG		// (¥i¶}©ñ) ANDY NPC§ïÅÜª±®a¹Ï¸¹, ±j¨î¸¨°¨,»{ª±®a¹Ï¸¹ (´ú§¹)
-_ITEM_ATTSKILLMAGIC			// (¥i¶}©ñ) ANDY ¹D¨ã§Þ¯à  
-_EQUIT_DEFMAGIC				// (¥i¶}©ñ) ANDY §ÜÅ]¸Ë³Æ
-_FIX_MAGICDAMAGE			// (¥i¶}©ñ) ANDY ­×¥¿Å]ªk¤½¦¡ ¤T´Á¶}©ñ
-_ITEM_CONSTITUTION			// (¥i¶}©ñ) ANDY ­×¥¿­Ó¤HÅé½è
-_MAGIC_REHPAI				// (¥i¶}©ñ) ANDY ¸É¦åAI
-_TRANSER_MAN				// (¥i¶}©ñ) ANDY ¶Ç°e®v
-_TAKE_ITEMDAMAGE			// (¥i¶}©ñ) ANDY ¹D¨ã·lÃa	ITEMSET2
-_FIX_FIRECRACKER			// (¥i¶}©ñ) ANDY ­×¥¿ Ã@¬¶
-_FIX_ITEMPROB				// (¥i¶}©ñ) ANDY ­×¥¿ ±¼Ä_²v
-_ADD_DEAMGEDEFC				// (¥i¶}©ñ) ANDY ÃB¥~¶Ë®` & ªþ¥[§ðÀ»	ITEMSET2
-_FIX_MAXCHARMP				// (¥i¶}©ñ) ANDY MP¤W­­
-_ITEM_INSLAY				// (¥i¶}©ñ) ANDY Æ^Ä_¥Û °Ê§@
-_ITEMSET2_ITEM				// (¥i¶}©ñ) ANDY ITEMSET2
-_ITEM_NPCCHANGE				// (¥i¶}©ñ) ANDY ¤u¦K (´£·Ò, ºë¤u)
-_PETSKILL_FIXITEM			// (¥i¶}©ñ) ANDY ­×´_ && ¦P¹D¨ã·lÃa
-_FIX_SETWORKINT				// (¥i¶}©ñ) ANDY (FIXWORKINT)
-_ITEM_ADDEXP				// (¥i¶}©ñ) vincent  ¹D¨ã:«ü©w®É¶¡¤º¼W¥[¸gÅç­È¤W¤É´T«×
-_ITEM_ADDEXP2				// ´¼ªG®É¶¡¥i¥H²Ö¥[ Robin
-_FIX_METAMORIDE				// (¥i¶}©ñ) ANDY
-_CHECK_ITEMDAMAGE			// (¥i¶}©ñ) ¹D¨ã·lÃa­×¥¿	7/26
-_SKILL_WILDVIOLENT_ATT		// (¥i¶}©ñ) vincent  Ãd§Þ:¨g¼É§ðÀ»
-_MAGIC_WEAKEN				// (¥i¶}©ñ) vincent  ºëÆF:µê®z
-_SKILL_WEAKEN				// (¥i¶}©ñ) vincent  Ãd§Þ:µê®z//»Ý­n¶}#define _MAGIC_WEAKEN
-_SKILL_SPEEDY_ATT			// (¥i¶}©ñ) vincent  Ãd§Þ:¯e³t§ðÀ»
-_SKILL_GUARDBREAK2			// (¥i¶}©ñ) vincent  Ãd§Þ:¯}°£¨¾¿m2
-_SKILL_SACRIFICE			// (¥i¶}©ñ) vincent  Ãd§Þ:±Ï´©
-_PSKILL_MODIFY				// (¥i¶}©ñ) ANDY ÄÝ©Ê±j¤Æ§ðÀ»
-_PSKILL_MDFYATTACK			// (¥i¶}©ñ) ANDY §ðÀ»Âà¤ÆÄÝ©Ê
-_MAGIC_DEFMAGICATT			// (¥i¶}©ñ) ANDY Å]ªk¨¾¿m
-_MAGIC_SUPERWALL			// (¥i¶}©ñ) ANDY ÅK¾À¨¾¿m
-_OTHER_MAGICSTAUTS			// (¥i¶}©ñ) ANDY 
-_SKILL_TOOTH				// (¥i¶}©ñ) ANDY   ¾¦³N
-_MAGIC_DEEPPOISON			// (¥i¶}©ñ) vincent  ºëÆF:¼@¬r
-_MAGIC_BARRIER				// (¥i¶}©ñ) vincent  ºëÆF:Å]»Ù
-_MAGIC_NOCAST				// (¥i¶}©ñ) vincent  ºëÆF:¨IÀq
-_ITEM_CRACKER               // (¥i¶}©ñ) vincent  ¹D¨ã:©Ô¬¶//»Ý­n¶}#define _MIND_ICON
-_SKILL_DEEPPOISON			// (¥i¶}©ñ) vincent  Ãd§Þ:¼@¬r//»Ý­n¶}#define _MAGIC_DEEPPOISON
-_SKILL_BARRIER				// (¥i¶}©ñ) vincent  Ãd§Þ:Å]»Ù//»Ý­n¶}#define _MAGIC_BARRIER
-_SKILL_NOCAST				// (¥i¶}©ñ) vincent  Ãd§Þ:¨IÀq//»Ý­n¶}#define _MAGIC_NOCAST
-_SKILL_ROAR					// (¥i¶}©ñ) vincent  Ãd§Þ:¤j§q(§J¦~Ã~)
-_SKILL_REFRESH			    // (¥i¶}©ñ) vincent  Ãd§Þ:¸Ñ°£²§±`ª¬ºA
-_ITEM_REFRESH               // (¥i¶}©ñ) vincent  ¸Ñ°£²§±`ª¬ºA¹D¨ã
-_MAGIC_TOCALL				// (¥i¶}©ñ) kjl		 ¥l³ê	02/06/20 kjl
-_ITEMSET3_ITEM				// (¥i¶}©ñ) ANDY itemset3.txt
-_SUIT_ITEM					// (¥i¶}©ñ) ANDY (®M¸Ë) ¨Ó¦N¥d »Ý¥Îitemset3.txt
-_PETSKILL_SETDUCK			// (¥i¶}©ñ) ANDY »X©_§Þ¯à
-_VARY_WOLF                  // (¥i¶}©ñ) pet skill : vary wolf. code:shan
-_USEWARP_FORNUM				// (¥i¶}©ñ) ANDY °O¾Ð¦Ð¤ò ¨Ó¦N¥d
-_IMPRECATE_ITEM				// (¥i¶}©ñ) ANDY ¯S®í¹D¨ã ¨Ó¦N¥d
-_MAGICPET_SKILL				// (¥i¶}©ñ) ANDY Å]ªkÃd§Þ¯à
-_ITEM_CHECKWARES			// (¥i¶}©ñ) ANDY Âê©w¶Ç°e¤£¯à
-_NPC_REPLACEMENT			// (¥i¶}©ñ) ANDY ¸m´«¾Ô°«npc
-_EMENY_CHANCEMAN			// (¥i¶}©ñ) ANDY EMENY ¿ï¾Ü
-_TYPE_TOXICATION			// (¥i¶}©ñ) ANDY ¤¤¬rµLªk¦^¦å
-_PET_FUSION					// (¥i¶}©ñ) ANDY Ãdª«¿Ä¦X enemybase1.txt
-_NPC_FUSION					// (¥i¶}©ñ) ANDY NPCÃdª«¿Ä¦X
-_ITEM_EDITBASES				// (¥i¶}©ñ) ANDY Àç¾i¾¯
-_PET_EVOLUTION				// (¥i¶}©ñ) ANDY ¶i¤Æªí
-_AVID_TRADETRYBUG			// (¥i¶}©ñ) ANDY ¨¾¤î¥æ©ö¤¤¥áÃd/¹D¨ã ±H(Ãdª«)¶l¥ó ¥Û¹ô
-_ASSESS_SYSEFFICACY			// (¥i¶}©ñ) ANDY µû¦ô¨t²Î®Ä¯à 12/04 §ó·s
-_ASSESS_SYSEFFICACY_SUB		// (¥i¶}©ñ) Robin µû¦ô¨t²Î®Ä¯à ¼W¥[ÀË¬d¤º°j°é
-_PREVENT_TEAMATTACK			// (¥i¶}©ñ) ANDY ¨¾¤î¦P¶¤¤¬¥´ 12/04 §ó·s
-_ITEM_ORNAMENTS				// (¥i¶}©ñ) ANDY ¸Ë¹¢¹D¨ã	12/04 §ó·s //¥Xª©³¡
-_CHIKULA_STONE				// (¥i¶}©ñ) ANDY ©_§J©Ô¤§¥Û 12/04 §ó·s //¨Ó¦N¥d Ãd¥]
-_SEND_EFFECT				// (¥i¶}©ñ) WON  AC°e¤U³·¡B¤U«Bµ¥¯S®Ä 12/04 §ó·s
-_PETMAIL_DEFNUMS			// (¥i¶}©ñ) ANDY Ãdª«¶l¥ó­­¨î
-_TEAM_KICKPARTY				// (¥i¶}©ñ) ANDY ¶¤ªø½ð¤H(«D¾Ô°«ª¬ºA)
-_PETSKILL_TIMID				// (¥i¶}©ñ) ANDY Ãd§Þ-©Ä¾Ô
-_PETS_SELECTCON				// (¥i¶}©ñ) ANDY Ãdª«¤£¥iÂI¿ï¥X¾Ô
-_CHRISTMAS_REDSOCKS			// (¥i¶}©ñ) ANDY ¸t½Ï¬õÄû
-_FIX_ARRAYBUG				// (¥i¶}©ñ) ANDY ­×¥¿array ·¸¦ì
-_USER_CHARLOOPS				// (¥i¶}©ñ) ANDY ·s¥Îª«¥óLOOP
-_BATTLE_PROPERTY			// (¥i¶}©ñ) ANDY ¾Ô°«ÄÝ©Ê¯S©Ê
-_PETSKILL_PROPERTY			// (¥i¶}©ñ) ANDY µLÄÝÅ]Ã~Ãd§Þ
-_ITEM_FIXALLBASE			// (¥i¶}©ñ) ANDY ­×´_¤§¥Û
-_ITEM_LOVERPARTY			// (¥i¶}©ñ) ANDY ±¡¤H¸`¹D¨ã
-_ITEM_FORUSERNAMES			// (¥i¶}©ñ) ANDY ¹D¨ã©Ò¦³¤H
-_BATTLECOMMAND_TIME			// (¥i¶}©ñ) ANDY ¨¾¤îª±®a¶}½w³t(¦^¦X¾Ô°«®É¶¡)
-_NPCENEMY_ADDPOWER			// (¥i¶}©ñ) ANDY ­×§ï©Çª«ªº¯à¤O­È
-_PETSKILL_CANNEDFOOD		// (¥i¶}©ñ) ANDY Ãdª«§Þ¯àÅøÀY	for 6.0
-_TEST_DROPITEMS				// (¥i¶}©ñ) ANDY ´ú¸Õ¥áÃd
-_MAP_WARPPOINT				// (¥i¶}©ñ) ANDY Map WarpPoint
-_DEFEND_TIMECHECK			// (¥i¶}©ñ) ANDY ¤º³¡´ú¸Õ®É¶¡
-_TREASURE_BOX				// (¥i¶}©ñ) ANDY Ä_½c
-_BENEMY_EVENTRUN			// (¥i¶}©ñ) ANDY ¾Ô°«npcµ¹¹D¨ã
-_BATTLE_ABDUCTII			// (¥i¶}©ñ) ANDY ®È³~¹Ù¦ñ2
-_BATTLE_LIGHTTAKE			// (¥i¶}©ñ) ANDY ªö¥ú³N
-_BATTLE_ATTCRAZED			// (¥i¶}©ñ) ANDY ºÆ¨g¼É¨«
-_STATUS_WATERWORD			// (¥i¶}©ñ) ANDY ¤ô¥@¬Éª¬ºA
-_ITEM_WATERWORDSTATUS		// (¥i¶}©ñ) ANDY ¤ô¥@¬Éª¬ºA¹D¨ã
-_REEDIT_PETBBIS				// (¥i¶}©ñ) ANDY ­×¥¿Ãdª«ªi¤ñ¹Ï§Î
-_CAPTURE_FREES				// (¥i¶}©ñ) ANDY ¸É§ì±ø¥ó
-_THROWITEM_ITEMS			// (¥i¶}©ñ) ¥áÂY«á¦³¼ú«~
-_OBJSEND_C					// (¥i¶}©ñ) ANDY _OBJSEND_C
-_ADD_SHOW_ITEMDAMAGE		// (¥i¶}©ñ) WON  Åã¥Üª««~­@¤[«×
-_CHANGETRADERULE		    // (¥i¶}©ñ) Syu ADD ¥æ©ö³W«h­×­q
-_TRADE_SHOWHP				// (¥i¶}©ñ) Syu ADD ¥æ©öÅã¥Ü¦å¶q
-_SHOOTCHESTNUT				// (¥i¶}©ñ) Syu ADD Ãd§Þ¡G¥á®ß¤l
-_SKILLLIMIT					// (¥i¶}©ñ) Syu ADD ¤£±o§ðÀ»§Ú¤è­­¨î
-_TRADESYSTEM2				// (¥i¶}©ñ) Syu ADD ·s¥æ©ö¨t²Î
-_NPC_NOSAVEPOINT			// (¥i¶}©ñ) ANDY ¬ö¿ýÂI¤£¦s¤Hª«¸ê®Æ
-_ACFMPK_LIST				// (¥i¶}©ñ) ANDY ®a±Ú¹ï¾Ô¦Cªí­×¥¿
-_PETSKILL2_TXT				// (¥i¶}©ñ) ANDY petskill2.txt
-_PETSKILL_CHECKTYPE			// (¥i¶}©ñ) ANDY Ãdª«§Þ¯à¨Ï¥Î®É¾÷
-_PETSKILL_TEAR				// (¥i¶}©ñ) ANDY Ãd§Þ ¼¹µõ¶Ë¤f
-_NPC_MAKEPAIR				// (¥i¶}©ñ) ANDY NPC °t¹ï
-_ITEMSET4_TXT				// (¥i¶}©ñ) ANDY itemset4.txt
-_ITEM_PILENUMS				// (¥i¶}©ñ) ANDY ¹D¨ã¯À§÷°ïÅ| »Ý itemset4
-_ITEM_PILEFORTRADE			// (¥i¶}©ñ) ANDY ¥æ©ö°ïÅ|
-_ITEM_EQUITSPACE			// (¥i¶}©ñ) ANDY ·s¸Ë³ÆÄæ¦ì
-_PET_LOSTPET				// (¥i¶}©ñ) ANDY ¿ò¥¢Ãdª«·j´M­p¹ºÃdª«
-_ITEMSET5_TXT				// (¥i¶}©ñ) ANDY itemset5.txt
-_ITEMSET6_TXT				// (¥i¶}©ñ) ANDY itemset6.txt
-_EQUIT_ARRANGE				// (¥i¶}©ñ) ANDY ¾×®æ »Ý­n itemset5.txt
-_EQUIT_SEQUENCE				// (¥i¶}©ñ) ANDY §ðÀ»¶¶§Ç »Ý­n itemset5.txt
-_EQUIT_ADDPILE				// (¥i¶}©ñ) ANDY ¼W¥[¥i°ïÅ|¼Æ »Ý­n itemset5.txt
-_EQUIT_HITRIGHT				// (¥i¶}©ñ) ANDY ©R¤¤ »Ý­n itemset5.txt
-_EQUIT_NEGLECTGUARD			// (¥i¶}©ñ) ANDY ©¿µø¥Ø¼Ð¨¾¿m¤O% »Ý­n itemset6.txt
-_EQUIT_NEWGLOVE				// (¥i¶}©ñ) ANDY ¤â®MÄæ¦ì
-_FM_JOINLIMIT				// (¥i¶}©ñ) ANDY ¥[¤J®a±Ú±ø¥ó­­¨î
-_FIX_MAX_GOLD				// (¥i¶}©ñ) WON ADD ¼W¥[¤Hª«ª÷¿ú¤W­­ 
-_CK_ONLINE_PLAYER_COUNT		// (¥i¶}©ñ) WON ­pºâ½u¤W¤H¼Æ (­n°t¦Xac¡A§_«h·|­«¶})	
-_PET_SKILL_SARS				// (¥i¶}©ñ) WON ADD ¬r·Ù½¯©µ
-_SONIC_ATTACK				// (¥i¶}©ñ) WON ADD ­µªi§ðÀ»
-_NET_REDUCESEND				// (¥i¶}©ñ) ANDY ´î¤ÖDB¸ê®Æ¶Ç°e
-_FEV_ADD_NEW_ITEM			// (¥i¶}©ñ) Change ¼W¥[´_¬¡¦uºë
-_ALLDOMAN					// (¥i¶}©ñ) Syu ADD ±Æ¦æº]NPC
-_LOCKHELP_OK				// (¥i¶}©ñ) Syu ADD Âê©w¤£¥i¥[¤J¾Ô°«
-_TELLCHANNEL				// (¥i¶}©ñ) Syu ADD ±K»yÀW¹D
-_NEWREQUESTPROTOCOL			// (¥i¶}©ñ) Syu ADD ·s¼WProtocol­n¨D²Ó¶µ
-_OUTOFBATTLESKILL			// (¥i¶}©ñ) Syu ADD «D¾Ô°«®É§Þ¯àProtocol
-_CHAR_PROFESSION			// (¥i¶}©ñ) WON ADD ¤Hª«Â¾·~Äæ¦ì
-_PROFESSION_SKILL			// (¥i¶}©ñ) WON ADD ¤Hª«Â¾·~§Þ¯à
-_NPC_WELFARE				// (¥i¶}©ñ) WON ADD Â¾·~NPC
-_PROFESSION_FIX_LEVEL		// (¥i¶}©ñ) WON ADD ­×¥¿Â¾·~¸gÅç­È(¥_¨Ê&Áú°ê¤£¥²¶})
-_GM_SIGUSR2					// (¥i¶}©ñ) Change ¤U¹Fsigusr2«á°õ¦æ gm_sigusr_commandÀÉ®×¤ºªºGM«ü¥O,­Y¨S¦³«ü¥O´NÃö³¬GMSV
-_GM_BROADCAST				// (¥i¶}©ñ) WON ADD «ÈªA¤½§i¨t²Î
-_NPC_ADDLEVELUP				// (¥i¶}©ñ) ANDY NPC¼W¥[ª±®aµ¥¯Å
-_CHAR_FIXDATADEF			// (¥i¶}©ñ) ANDY ­×¥¿¤Hª«¸ê®Æªì©l
-_SIMPLIFY_ITEMSTRING		// (¥i¶}©ñ) ANDY Â²¤Æ¹D¨ã¦r¦ê
-_CHAR_NEWLOGOUT				// (¥i¶}©ñ) ANDY µn¥X·s¾÷¨î
-_CHATROOMPROTOCOL			// (¥i¶}©ñ) Syu ADD ²á¤Ñ«ÇÀW¹D 8/27
-_CHAR_POOLITEM				// (¥i¶}©ñ) ANDY ¤Hª«¹D¨ã­Ü®w¦@¥Î
-_NPC_DEPOTITEM				// (¥i¶}©ñ) ANDY ¤Hª«¹D¨ã­Ü®w¦@¥Î
-_SIMPLIFY_PETSTRING			// (¥i¶}©ñ) ANDY Â²¤ÆÃdª«¦sÀÉ¦r¦ê
-_SIMPLIFY_ITEMSTRING2		// (¥i¶}©ñ) ANDY Â²¤Æ¹D¨ã¦r¦ê2
-_WOLF_TAKE_AXE				// (¥i¶}©ñ) WON ADD §ìÂùÀY¯Tªº­­¨î
-_FIX_UNNECESSARY			// (¥i¶}©ñ) ANDY ­×¥¿¤£¥²­nªº§PÂ_
-_ITEM_MAGICRECOVERY			// (¥i¶}©ñ) ANDY ·s¥úÃè¦u
-_PETSKILL_GYRATE			// (¥i¶}©ñ) Change Ãd§Þ:°j±Û§ðÀ»
-_PETSKILL_ACUPUNCTURE		// (¥i¶}©ñ) Change Ãd§Þ:°w¨ë¥~¥Ö (clientºÝªº_PETSKILL_ACUPUNCTURE¤]­n¶})
-_PETSKILL_RETRACE			// (¥i¶}©ñ) Change Ãd§Þ:°l¸ñ§ðÀ»
-_PETSKILL_HECTOR			// (¥i¶}©ñ) Change Ãd§Þ:«ÂÀ~
-_PETSKILL_FIREKILL			// (¥i¶}©ñ) Change Ãd§Þ:¤õ½uÂy±þ
-_PETSKILL_DAMAGETOHP		// (¥i¶}©ñ) Change Ãd§Þ:·t¤ë¨g¯T(¶Ý¦å§ÞªºÅÜÅé) 
-_PETSKILL_BECOMEFOX         // (¥i¶}©ñ) Change Ãd§Þ:´A´b³N
-_FIX_MESSAGE				// (¥i¶}©ñ) WON ADD ­×§ïWORKER«Ê¥]¤º®e (¥_¨Ê&Áú°ê¤£¥²¶})     
-_PETSKILL_SHOWMERCY         // (¥i¶}) Change Ãd§Þ:¤â¤U¯d±¡
-_NPC_ActionFreeCmp          // (¥i¶}) Change ´ÀNPC°Ñ¼Æ¥[¤J·sªº¤ñ¸û¤è¦¡
-_NPC_ProfessionTrans      // (¥i¶}) Change ´ÀÂ¾·~NPC¥[¤J§PÂ_Âà¥Í
-_NPC_NewDelPet            // (¥i¶}) Change ´ÀNPC¥[¤J§R°£Ãdª«(­ì¥»´N¦³¤F,¥u¬O¥Îwarpman¨Ï¥Î®É¤£¦¨¥\,©Ò¥H¥ý°µ¤@­Ó³»¤@¤U)
-_CHANGEGALAXY	// (¥i¶}) ¬P¨t²¾¥Á¡@Robin 2003/10
-_ALLDOMAN_DEBUG           // (¥i¶}) Change ­×¥¿­«±Òserver«á±Æ¦æº]®ø¥¢bug
-_CHRISTMAS_REDSOCKS_NEW	  // (¥i¶}) Change ·s¸t½Ï¬õÄû
-_PETSKILL_COMBINED      // (¥i¶}) Change Ãd§Þ:Ãø±o½k¶î [ºî¦XÅ]ªk(¨Ì°Ñ¼Æ¶Ã¼Æ¨ú¥XÅ]ªk)]
-_NPC_ADDWARPMAN1			// (¥i¶}©ñ) Change npcgen_warpman¼W¥[¥\¯à(³]©w²Õ¶¤¤H¼Æ¡B³]©w²Õ¶¤¨k¤k¤H¼Æ)
-_ITEM_QUITPARTY			// (¥i¶}©ñ) Change ¶¤¥î¸Ñ´²®É¯S©w¹D¨ã§Y·|®ø¥¢
-_ITEM_ADDEQUIPEXP       // (¥i¶}) Change ¸Ë³Æ«á¸gÅç­È¼W¥[
-_ITEM_LVUPUP            // (¥i¶}) Change ¬ð¯}Ãdª«µ¥¯Å­­¨îªºÃÄ(¥ÈªZ±M¥Î)
-_PETSKILL_BECOMEPIG     // (¥i¶}) Change Ãd§Þ:¯Q¤O¤Æ
-_ITEM_UNBECOMEPIG       // (¥i¶}) Change ¯Q¤O¤Æªº¸ÑÃÄ
-_PET_TALKBBI            // (¥i¶}) Change ¼W¥[§PÂ_bbi
-_ITEM_USEMAGIC			// (¥i¶}) Change ¥Ñ¹D¨ã¨Ï¥ÎÅ]ªk
-_ITEM_PROPERTY          // (¥i¶}) Change §ïÅÜ¥|ÄÝ©Ê¹D¨ã
-_SUIT_ADDENDUM          // (¥i¶}) Change ´À®M¸Ë¼W¥[¥\¯à (_SUIT_ITEM­n¶})
-_ITEM_CHECKDROPATLOGOUT   // (¥i¶}) Change ÀË¬d¦^¬ö¿ýÂI®É¨­¤W¦³µLµn¥X«á®ø¥¢¹D¨ã,­Y¦³,¤£¥i¦^¬ö¿ýÂI
-_FM_MODIFY				// ®a±Ú¥\¯à­×§ï(¶}©ñ)
-_CHANNEL_MODIFY		// ÀW¹D¥\¯à¾ã¦X(¶}©ñ)
-_STANDBYPET		// Robin «Ý¾÷Ãd«Ê¥]
-_PROSKILL_OPTIMUM	// Robin Â¾·~§Þ¯à³B²z³Ì¨Î¤Æ
-_PETSKILL_OPTIMUM	// Robin Ãdª«§Þ¯à³B²z³Ì¨Î¤Æ
-_MAGIC_OPTIMUM		// Robin Magic table ³Ì¨Î¤Æ
-_AC_PIORITY		// Nuke ´£°ªACªºÀu¥ýÅv(¥i¶})
-_CHAR_POOLPET				// (¥i¶}©ñ) Robin ¤Hª«Ãdª«­Ü®w¦@¥Î
-_NPC_DEPOTPET				// (¥i¶}©ñ) Robin ¤Hª«Ãdª«­Ü®w¦@¥Î
-_TIMEOUTKICK	// (¥i¶}) ®É¬q¨î½ð¤H¡@Robin 2003/10
-_MAGIC_RESIST_EQUIT			// (¥i¶}) WON ADD Â¾·~§Ü©Ê¸Ë³Æ
-_LOG_OTHER // Âø¶µ°T®§±M¥ÎLOG
-_NPC_EXCHANGEMANTRANS   // (¥i¶}) Change ´Àexchangeman¥[¤J§PÂ_Âà¥Í
-_ANGEL_SUMMON	// Robin ¤Ñ¨Ï¥l³ê
-_STREET_VENDOR		// Â\Åu¥\¯à(¶}©ñ)
-_WATCH_EVENT			// ¬d¸ß¥ô°È¥\¯à(¶}©ñ)
-_NEW_MANOR_LAW		// ·s²ø¶é³W«h(¶}©ñ)
-_MAP_TIME					// ¯S®í¦a¹Ï,·|­Ë¼Æ(¶}©ñ)
-_PETSKILL_LER			// ¹pº¸§Þ¯à(¶}©ñ)
-_FIX_MAGIC_RESIST				// (¥i¶}) Change Â¾·~Å]ªk§Ü©Ê
-_ADD_DUNGEON					// (¥i¶}) Change °l¥[¦a¨c
-_PROFESSION_ADDSKILL			// (¥i¶}) Change °l¥[Â¾·~§Þ¯à
-_ITEM_ADDPETEXP				// (¥i¶}) Change ¼W¥[Ãdª«¸gÅç­È¹D¨ã(¥i¦Y¦¹¹D¨ãÃdª«,¥­±`¤£¥iÀò±o¸gÅç­È)
-_TRANS_6						// (¥i¶}) Change ¤Hª«6Âà
-_PET_2TRANS					// (¥i¶}) Change Ãdª«2Âà
-_PET_2LIMITLEVEL				// (¥i¶}) Change À°§UÃdª«2Âàªºº¿Á¢
-_MAGICSTAUTS_RESIST			// (¥i¶}) Change (¤õ¹q¦B)§Ü©ÊºëÆF
-_EQUIT_RESIST					// (¥i¶}) Change ³æ¤@¸Ë³Æ§Ü©Ê(¥i§Ü³æ¤@¥\¯à²§±`ª¬ºA)¦³§Ü¤õ ¹p ¦B µê®z Å]»Ù ¨IÀq ¸¨°¨
-_SUIT_TWFWENDUM				// (¥i¶}) Change ¥|ÄÝ©Ê®M¸Ë¥\¯à (_SUIT_ITEM­n¶})
-_EXCHANGEMAN_REQUEST_DELPET	// (¥i¶}) Change ´ÀexchangemanªºTYPE:REQUEST¼W¥[§R°£Ãdª«
-_DEL_DROP_GOLD			// §R°£¦a¤W¹L®Éªº¥Û¹ô	Robin
-_ITEM_STONE				// cyg ©_©Çªº¥ÛÀY
-_HELP_NEWHAND			// cyg ·s³Ð¨¤¦âµ¹¤©·s¤â¹D¨ã) 07.4.5¦N¥J­×§ï ¥Î©óCF³]¸m³Ð«Ø·s¤H©Ò°e¹D¨ãitem1-item15
-_DEF_FMFREETIME			// cyg GM«ü¥O °h¥X®a±Ú®É¶¡­­¨î³]¬°0
-_DEF_GETYOU				// cyg GM«ü¥O ¬d¸ß¦Û¤v¨â®æ  ³ò¤ºªºª±®a±b¸¹
-_DEF_NEWSEND			// cyg GM«ü¥O ¶Ç°eª±®a®É¥i¥[¥y¤l¤]¥i¤£¥[
-_DEF_SUPERSEND			// cyg GM«ü¥O ¥i¶Ç°e¤w¬Y±b¸¹¬°¤¤¤ßªþªñ3®æ¤º©Ò¦³ª±®a
-_SUIT_ADDPART3			// (¥i¶}) Change ®M¸Ë¥\¯à²Ä¤T¼u °jÁ×´£°ª% ¨IÀq§Ü©Ê´£°ª% ±Ó´£°ª% ¨¾´£°ª% §ð´£°ª%
-_PETSKILL_2TIMID		// (¥i¶}) Change ©Ä¾Ô²Ä¤Gª©(¨g·à«ã§q)
-CAVALRY_DEBUG			// (¼È®É¶}) Change ®yÃM§ðÀ»°£¿ù¤¤
-_SHOW_FUSION			// (¥i¶}) Change ¿Ä¦XÃdª«¦bCLIENTºÝ¥uÅã¥ÜÂà¥Í¼Æ,­×§ï¬°¿Ä¦XÃdÅã¥Ü¬°¿Ä¦X(clientºÝ¤]­n¶})
-_CONTRACT				// (¥i¶}) Robin «´¬ù¥\¯à 
-_FONT_SIZE				// (¥i¶}) Robin ¦r«¬¤j¤p¥\¯à
-_PROSK99				// (¥i¶}) Change ÀË¬dÂ¾§Þµ¥¯Å°e¥Õ¯T
-_TIME_TICKET			// Robin ­­®É¤J³õ ´ËªL®»Ãd¥Î
-_HALLOWEEN_EFFECT		// ¸U¸t¸`¯S®Ä
-_ADD_STATUS_2			// ·s¼W¶Ç°e¤Hª«ª¬ºA²Ä¤GÃþ
-_ADD_reITEM				// (¥i¶}) Change ÀË¬d¹D¨ãÄæ¦ìªÅ®æ
-_ADD_NOITEM_BATTLE		// ·s¼WNPCÀË¬d¤Hª«¨­¤W¨S¹D¨ã·|¶i¤J¾Ô°«
-_PETSKILL_BATTLE_MODEL	// Ãdª«§Þ¯à¾Ô°«¼Ò²Õ
-_RACEMAN				// cyg ÂyÃd¤j·|·snpc
-_PETSKILL_ANTINTER		// (¥i¶}) Change Ãd§Þ:ÃÆ¤§¸® °Ñ¦Ò_PETSKILL_2TIMID
-_PETSKILL_REGRET		// (¥i¶}) Change Ãd§Þ:¾Ñ¥Ò¤@À» °Ñ¦Ò_SONIC_ATTACK
-_SUIT_ADDPART4			// (¥i¶}) Change ®M¸Ë¥\¯à²Ä¥|¼u ¤¤¬r§ðÀ»% ¥[±jªk®vÅ]ªk(¾÷²v30%) ©è§Üªk®vªºÅ]ªk
-_STONEAGEA8XXX_S						//¦N¥J 8.0¶}Ãö
-_ITEM_S_TEMP						//¦N¥J 8.0¹D¨ã«Ê¥]¤ä«ù¡A¦¹¥\¯à¬°Á{®É¥\¯à
-_JZ_NEW_CONF						//¦N¥J ADD ·sCF¦r¬q (¤£¥]¬A³Ð«Ø¤Hª«°e¹D¨ã¦r¬q)
-_JZ_NEW_GMCOMMAND				//¦N¥J ADD ·sGM«ü¥O
-_JZ_IMPROVE_GMCOMMAND		//¦N¥J ADD §ï¶iGM«ü¥O
-_JZ_NEW_ITEM1						//¦N¥J ADD ·s¼W¹D¨ã
-_JZ_NEW_ADDMEMBERPOINT	//¦N¥J ADD ·|­ûÂI¨÷
-_JZ_MANORTES						//²ø¶é´ú¸Õ
-<<Generated at ¤­ 4¤ë 20 04:18:14 CST 2007>>
+_SA_VERSION_70				// (å¯é–‹æ”¾) WON ADD çŸ³å™¨æ™‚ä»£7.0 çš„ç‰ˆæœ¬æŽ§åˆ¶
+_DEFAULT_PKEY 'smosmosmo'	// (å¯é–‹æ”¾)( çŸ³å™¨ 6.0 )
+_RUNNING_KEY  '20070328'	// (å¯é–‹æ”¾)( çŸ³å™¨ 6.0 )
+_VERSION_20010911	        // (å¯é–‹æ”¾) 9.11 ç·¨ç¢¼ä¿®æ”¹ 
+_TEST_PETCREATE             // (ä¸å¯é–‹) ANDY æ¸¬å¯µçš„GMæŒ‡ä»¤
+_FAMILY_MANORNUM_CHANGE	// CoolFish ç”¨ä¾†ä¿®æ”¹è£åœ’æ•¸é‡(4.0)
+_FIX_10_FMPOINT			//ï¼ˆå¯é–‹æ”¾ï¼‰å‰ä»”ADD å†°èŽŠ
+FAMILY_MAXHOME			10	// (4.0) å®¶æ—æ“šé»ž
+MANORNUM                10	// (4.0) èŽŠåœ’æ•¸é‡
+FMPOINTNUM				10   // (4.0) æœ‰æ“šé»žå®¶æ—çš„æœ€å¤§æ•¸é‡
+FAMILY_MAXHOME			9	// (4.0) å®¶æ—æ“šé»ž
+MANORNUM                9	// (4.0) èŽŠåœ’æ•¸é‡
+FMPOINTNUM				9   // (4.0) æœ‰æ“šé»žå®¶æ—çš„æœ€å¤§æ•¸é‡
+_FMVER21		        // (å¯é–‹æ”¾) å®¶æ—è·æŽŒåŠŸèƒ½  
+_PERSONAL_FAME	    	// (å¯é–‹æ”¾) Arminius 8.30 å®¶æ—å€‹äººè²æœ›  
+_EVERYONE_RIDE	    	// (å¯é–‹æ”¾) Robin 0924 é¨Žå¯µå¹³æ°‘åŒ–  
+__ATTACK_MAGIC          // (å¯é–‹æ”¾)	æä¾›æˆ°å ´ä¸­çš„æ”»æ“Šæ€§å’’è¡“
+_ADD_ACTION             // (å¯é–‹æ”¾) ä¸€èˆ¬NPCå‹•ä½œç‹€æ³çš„è¨­å®š
+_UNIQUE_P_I	        	// (å¯é–‹æ”¾) CoolFish 2001/10/11 
+_NEWSAVE                // (å¯é–‹æ”¾) Robin
+_STORECHAR              // (å¯é–‹æ”¾) Robin
+_DROPCHECK              // (å¯é–‹æ”¾) Robin é˜²æ­¢é‡è¤‡ä¸Ÿé“å…·
+_DROPCHECK2             // (å¯é–‹æ”¾) Robin é˜²æ­¢é‡è¤‡ä¸Ÿé“å…·
+_PET_TRANS           	// (å¯é–‹æ”¾) å¯µç‰©è½‰ç”ŸåŠŸèƒ½
+_NEW_WARPMAN        	// (å¯é–‹æ”¾) NPCå¤šé‡WARPåŠŸèƒ½
+_PET_TALK	            // (å¯é–‹æ”¾) å¯µç‰©å°è©±
+_PET_LIMITLEVEL	        // (å¯é–‹æ”¾) ç‰¹æ®Šå¯µè¨­è¨ˆ(ç‘ªè•¾)
+_MAP_NOEXIT	            // (å¯é–‹æ”¾) ç‰¹æ®Šåœ°åœ–ä¸å¾—åŽŸç™»&åŽŸç™»å›žæŒ‡å®šé»ž
+_GMRELOAD           	// (å¯é–‹æ”¾) CoolFish: 2001/11/12 
+_GAMBLE_ROULETTE	    // (å¯é–‹æ”¾) å½¥è±ª è³­å ´è¼ªç›¤	å¯¶å¯¶å°è±¬  
+_FIX_GAMBLENUM          // (å¯é–‹æ”¾) è¼ªç›¤ä¿®æ­£ : ä¸‹ç·šæ‰£ç©åˆ† 
+_GAMBLE_BANK	        // (å¯é–‹æ”¾) å½¥è±ª  è³­å ´éŠ€è¡Œ  
+_DROPSTAKENEW	        // (å¯é–‹æ”¾) CoolFish:  è³­å ´ä¸‹æ³¨  
+_PETRACE	            // (å¯é–‹æ”¾) CoolFish: 2001/12/3 å¯µç‰©ç«¶é€Ÿå ´  
+_NEWEVENT               // (å¯é–‹æ”¾) CoolFish: 2001/12/5 æ–°çš„ä»»å‹™æ——æ¨™  
+_ITEM_FIRECRACKER       // (å¯é–‹æ”¾) æˆ°é¬¥ä¸­ä½¿ç”¨éž­ç‚®å¯ä»¥æŠŠå¹´ç¸åš‡èµ°
+_MANOR_PKRULE           // (å¯é–‹æ”¾)
+_MANOR_FIXFMPK          // (å¯é–‹æ”¾) WON ADD å®¶æ—ç´„æˆ°çš„ GM æŒ‡ä»¤ï¼Œæ¸¬è©¦ç”¨çš„
+_PSKILL_FALLGROUND		// (å¯é–‹æ”¾) å¯µç‰©æŠ€èƒ½  (è½é¦¬è¡“)
+_ENEMY_FALLGROUND		// (å¯é–‹æ”¾) NPC è½é¦¬
+_BATTLE_NEWPOWER		// (å¯é–‹æ”¾)
+_Item_MoonAct	        // (å¯é–‹æ”¾) æœˆç¥žçš„å®ˆè­·
+_Item_DeathAct          // (å¯é–‹æ”¾) æƒ¡é­”çš„é¦–é£¾
+_Item_PetAct            // (å¯é–‹æ”¾) é¦´ç¸æˆ’æŒ‡
+_Item_ReLifeAct         // (å¯é–‹æ”¾) éœ€è¦itemset1.txt æ‰èƒ½é–‹) æ›¿èº«å¨ƒå¨ƒ
+_BATTLESTEAL_FIX        // (å¯é–‹æ”¾) ä¿®æ­£å·ç«Š
+_CFREE_petskill         // (å¯é–‹æ”¾) éœ€è¦petskill1.txt æ‰èƒ½é–‹) æ–°å­¸ç¿’å¯µç‰©æŠ€èƒ½æŠ€èƒ½
+_data_newreadfile       // (å¯é–‹æ”¾) æ–°çš„server setup.cf æª”æ¡ˆ åŒ…å« itemset1.txt petskill1.txt å…©å€‹æ–°æª”
+_ITEM_MAXUSERNUM        // (å¯é–‹æ”¾) æ–° itemset1.txt ITEM ä½¿ç”¨æ¬¡æ•¸
+_PET_TALKPRO      		// (å¯é–‹æ”¾) å¯µç‰©å°è©±åŠ å¼·	& æ”¹ END
+_PRO_NPCFIX	     		// (å¯é–‹æ”¾) NPCåŠŸèƒ½åŠ å¼·
+_PRO_BATTLEENEMYSKILL	// (å¯é–‹æ”¾) æˆ°é¬¥åŠ å¼·	æå‡NPCçš„AIæŠ€èƒ½
+_NEW_WARPPOINT		    // (å¯é–‹æ”¾) å‚³é€é»žå¤šé‡æ¢ä»¶åˆ¤æ–·WARP
+_FIX_CHECKITEM	      	// (å¯é–‹æ”¾) é“å…·ä¸åšéžæ³•æª¢æŸ¥
+_ADD_ENCOUNT             // (å¯é–‹æ”¾) WON å¢žåŠ æ•µé­é‡è§¸ç™¼ä¿®ä»¶ 
+_WON_PET_MAIL_LOG		 // (å¯é–‹æ”¾) WON çŽ©å®¶å¯„å¯µéƒµ LOG 
+_FIX_FAMILY_PK_LIMIT	    // (å¯é–‹æ”¾) WON å°‡å¯æŒ‘æˆ°èŽŠåœ’çš„ç”±å‰åå¤§æ”¹ç‚ºå‰äºŒåå¤§
+_ADD_POOL_ITEM				// (å¯é–‹æ”¾) WON å¢žåŠ å¯å¯„æ”¾çš„é“å…·
+_ITEM_METAMO                // (å¯é–‹æ”¾) shan metamo sprite. code:robin->shan
+_ENEMY_ATTACK_AI            // (å¯é–‹æ”¾) shan enemy attack mode. code:shan  
+_ITEM_TIME_LIMIT            // (å¯é–‹æ”¾) shan time limit of item. code:shan
+_MIND_ICON                  // (å¯é–‹æ”¾) shan show icon from char mind. code:shan
+_BATTLENPC_WARP_PLAYER      // (å¯é–‹æ”¾) shan npc warp player when n round. code:shan
+_ITEM_WARP_FIX_BI           // (å¯é–‹æ”¾) shan fix bbi to bi. code:shan
+_SKILL_DAMAGETOHP			// (å¯é–‹æ”¾) ANDY å—œè¡€æŠ€ 
+_Skill_MPDAMAGE				// (å¯é–‹æ”¾) ANDY MPå‚·å®³
+_WAEI_KICK					// (å¯é–‹æ”¾) ANDY è·¨æ˜Ÿçƒè¸¢äºº
+_BATTLE_TIMESPEED			// (å¯é–‹æ”¾) ANDY æˆ°é¬¥æ™‚é–“ æ¸¬è©¦(åŒ—äº¬ä¸å¿…é–‹ï¼Œæ“‹åŠ é€ŸåŠŸèƒ½)
+_NEW_RIDEPETS				// (å¯é–‹æ”¾) ANDY æ–°é¨Žå¯µ
+_FIXBUG_ATTACKBOW			// (å¯é–‹æ”¾) ANDY ä¿®æ­£é¨Žå¯µä½¿ç”¨æŠ•æ“²æ­¦å™¨bug
+_NPCCHANGE_PLAYERIMG		// (å¯é–‹æ”¾) ANDY NPCæ”¹è®ŠçŽ©å®¶åœ–è™Ÿ, å¼·åˆ¶è½é¦¬,èªçŽ©å®¶åœ–è™Ÿ (æ¸¬å®Œ)
+_ITEM_ATTSKILLMAGIC			// (å¯é–‹æ”¾) ANDY é“å…·æŠ€èƒ½  
+_EQUIT_DEFMAGIC				// (å¯é–‹æ”¾) ANDY æŠ—é­”è£å‚™
+_FIX_MAGICDAMAGE			// (å¯é–‹æ”¾) ANDY ä¿®æ­£é­”æ³•å…¬å¼ ä¸‰æœŸé–‹æ”¾
+_ITEM_CONSTITUTION			// (å¯é–‹æ”¾) ANDY ä¿®æ­£å€‹äººé«”è³ª
+_MAGIC_REHPAI				// (å¯é–‹æ”¾) ANDY è£œè¡€AI
+_TRANSER_MAN				// (å¯é–‹æ”¾) ANDY å‚³é€å¸«
+_TAKE_ITEMDAMAGE			// (å¯é–‹æ”¾) ANDY é“å…·æå£ž	ITEMSET2
+_FIX_FIRECRACKER			// (å¯é–‹æ”¾) ANDY ä¿®æ­£ éž­ç‚®
+_FIX_ITEMPROB				// (å¯é–‹æ”¾) ANDY ä¿®æ­£ æŽ‰å¯¶çŽ‡
+_ADD_DEAMGEDEFC				// (å¯é–‹æ”¾) ANDY é¡å¤–å‚·å®³ & é™„åŠ æ”»æ“Š	ITEMSET2
+_FIX_MAXCHARMP				// (å¯é–‹æ”¾) ANDY MPä¸Šé™
+_ITEM_INSLAY				// (å¯é–‹æ”¾) ANDY é‘²å¯¶çŸ³ å‹•ä½œ
+_ITEMSET2_ITEM				// (å¯é–‹æ”¾) ANDY ITEMSET2
+_ITEM_NPCCHANGE				// (å¯é–‹æ”¾) ANDY å·¥åŒ  (æç…‰, ç²¾å·¥)
+_PETSKILL_FIXITEM			// (å¯é–‹æ”¾) ANDY ä¿®å¾© && åŒé“å…·æå£ž
+_FIX_SETWORKINT				// (å¯é–‹æ”¾) ANDY (FIXWORKINT)
+_ITEM_ADDEXP				// (å¯é–‹æ”¾) vincent  é“å…·:æŒ‡å®šæ™‚é–“å…§å¢žåŠ ç¶“é©—å€¼ä¸Šå‡å¹…åº¦
+_ITEM_ADDEXP2				// æ™ºæžœæ™‚é–“å¯ä»¥ç´¯åŠ  Robin
+_FIX_METAMORIDE				// (å¯é–‹æ”¾) ANDY
+_CHECK_ITEMDAMAGE			// (å¯é–‹æ”¾) é“å…·æå£žä¿®æ­£	7/26
+_SKILL_WILDVIOLENT_ATT		// (å¯é–‹æ”¾) vincent  å¯µæŠ€:ç‹‚æš´æ”»æ“Š
+_MAGIC_WEAKEN				// (å¯é–‹æ”¾) vincent  ç²¾éˆ:è™›å¼±
+_SKILL_WEAKEN				// (å¯é–‹æ”¾) vincent  å¯µæŠ€:è™›å¼±//éœ€è¦é–‹#define _MAGIC_WEAKEN
+_SKILL_SPEEDY_ATT			// (å¯é–‹æ”¾) vincent  å¯µæŠ€:ç–¾é€Ÿæ”»æ“Š
+_SKILL_GUARDBREAK2			// (å¯é–‹æ”¾) vincent  å¯µæŠ€:ç ´é™¤é˜²ç¦¦2
+_SKILL_SACRIFICE			// (å¯é–‹æ”¾) vincent  å¯µæŠ€:æ•‘æ´
+_PSKILL_MODIFY				// (å¯é–‹æ”¾) ANDY å±¬æ€§å¼·åŒ–æ”»æ“Š
+_PSKILL_MDFYATTACK			// (å¯é–‹æ”¾) ANDY æ”»æ“Šè½‰åŒ–å±¬æ€§
+_MAGIC_DEFMAGICATT			// (å¯é–‹æ”¾) ANDY é­”æ³•é˜²ç¦¦
+_MAGIC_SUPERWALL			// (å¯é–‹æ”¾) ANDY éµå£é˜²ç¦¦
+_OTHER_MAGICSTAUTS			// (å¯é–‹æ”¾) ANDY 
+_SKILL_TOOTH				// (å¯é–‹æ”¾) ANDY   é½’è¡“
+_MAGIC_DEEPPOISON			// (å¯é–‹æ”¾) vincent  ç²¾éˆ:åŠ‡æ¯’
+_MAGIC_BARRIER				// (å¯é–‹æ”¾) vincent  ç²¾éˆ:é­”éšœ
+_MAGIC_NOCAST				// (å¯é–‹æ”¾) vincent  ç²¾éˆ:æ²‰é»˜
+_ITEM_CRACKER               // (å¯é–‹æ”¾) vincent  é“å…·:æ‹‰ç‚®//éœ€è¦é–‹#define _MIND_ICON
+_SKILL_DEEPPOISON			// (å¯é–‹æ”¾) vincent  å¯µæŠ€:åŠ‡æ¯’//éœ€è¦é–‹#define _MAGIC_DEEPPOISON
+_SKILL_BARRIER				// (å¯é–‹æ”¾) vincent  å¯µæŠ€:é­”éšœ//éœ€è¦é–‹#define _MAGIC_BARRIER
+_SKILL_NOCAST				// (å¯é–‹æ”¾) vincent  å¯µæŠ€:æ²‰é»˜//éœ€è¦é–‹#define _MAGIC_NOCAST
+_SKILL_ROAR					// (å¯é–‹æ”¾) vincent  å¯µæŠ€:å¤§å¼(å…‹å¹´ç¸)
+_SKILL_REFRESH			    // (å¯é–‹æ”¾) vincent  å¯µæŠ€:è§£é™¤ç•°å¸¸ç‹€æ…‹
+_ITEM_REFRESH               // (å¯é–‹æ”¾) vincent  è§£é™¤ç•°å¸¸ç‹€æ…‹é“å…·
+_MAGIC_TOCALL				// (å¯é–‹æ”¾) kjl		 å¬å–š	02/06/20 kjl
+_ITEMSET3_ITEM				// (å¯é–‹æ”¾) ANDY itemset3.txt
+_SUIT_ITEM					// (å¯é–‹æ”¾) ANDY (å¥—è£) ä¾†å‰å¡ éœ€ç”¨itemset3.txt
+_PETSKILL_SETDUCK			// (å¯é–‹æ”¾) ANDY è’™å¥‡æŠ€èƒ½
+_VARY_WOLF                  // (å¯é–‹æ”¾) pet skill : vary wolf. code:shan
+_USEWARP_FORNUM				// (å¯é–‹æ”¾) ANDY è¨˜æ†¶ç¾½æ¯› ä¾†å‰å¡
+_IMPRECATE_ITEM				// (å¯é–‹æ”¾) ANDY ç‰¹æ®Šé“å…· ä¾†å‰å¡
+_MAGICPET_SKILL				// (å¯é–‹æ”¾) ANDY é­”æ³•å¯µæŠ€èƒ½
+_ITEM_CHECKWARES			// (å¯é–‹æ”¾) ANDY éŽ–å®šå‚³é€ä¸èƒ½
+_NPC_REPLACEMENT			// (å¯é–‹æ”¾) ANDY ç½®æ›æˆ°é¬¥npc
+_EMENY_CHANCEMAN			// (å¯é–‹æ”¾) ANDY EMENY é¸æ“‡
+_TYPE_TOXICATION			// (å¯é–‹æ”¾) ANDY ä¸­æ¯’ç„¡æ³•å›žè¡€
+_PET_FUSION					// (å¯é–‹æ”¾) ANDY å¯µç‰©èžåˆ enemybase1.txt
+_NPC_FUSION					// (å¯é–‹æ”¾) ANDY NPCå¯µç‰©èžåˆ
+_ITEM_EDITBASES				// (å¯é–‹æ”¾) ANDY ç‡Ÿé¤ŠåŠ‘
+_PET_EVOLUTION				// (å¯é–‹æ”¾) ANDY é€²åŒ–è¡¨
+_AVID_TRADETRYBUG			// (å¯é–‹æ”¾) ANDY é˜²æ­¢äº¤æ˜“ä¸­ä¸Ÿå¯µ/é“å…· å¯„(å¯µç‰©)éƒµä»¶ çŸ³å¹£
+_ASSESS_SYSEFFICACY			// (å¯é–‹æ”¾) ANDY è©•ä¼°ç³»çµ±æ•ˆèƒ½ 12/04 æ›´æ–°
+_ASSESS_SYSEFFICACY_SUB		// (å¯é–‹æ”¾) Robin è©•ä¼°ç³»çµ±æ•ˆèƒ½ å¢žåŠ æª¢æŸ¥å…§è¿´åœˆ
+_PREVENT_TEAMATTACK			// (å¯é–‹æ”¾) ANDY é˜²æ­¢åŒéšŠäº’æ‰“ 12/04 æ›´æ–°
+_ITEM_ORNAMENTS				// (å¯é–‹æ”¾) ANDY è£é£¾é“å…·	12/04 æ›´æ–° //å‡ºç‰ˆéƒ¨
+_CHIKULA_STONE				// (å¯é–‹æ”¾) ANDY å¥‡å…‹æ‹‰ä¹‹çŸ³ 12/04 æ›´æ–° //ä¾†å‰å¡ å¯µåŒ…
+_SEND_EFFECT				// (å¯é–‹æ”¾) WON  ACé€ä¸‹é›ªã€ä¸‹é›¨ç­‰ç‰¹æ•ˆ 12/04 æ›´æ–°
+_PETMAIL_DEFNUMS			// (å¯é–‹æ”¾) ANDY å¯µç‰©éƒµä»¶é™åˆ¶
+_TEAM_KICKPARTY				// (å¯é–‹æ”¾) ANDY éšŠé•·è¸¢äºº(éžæˆ°é¬¥ç‹€æ…‹)
+_PETSKILL_TIMID				// (å¯é–‹æ”¾) ANDY å¯µæŠ€-æ€¯æˆ°
+_PETS_SELECTCON				// (å¯é–‹æ”¾) ANDY å¯µç‰©ä¸å¯é»žé¸å‡ºæˆ°
+_CHRISTMAS_REDSOCKS			// (å¯é–‹æ”¾) ANDY è–èª•ç´…è¥ª
+_FIX_ARRAYBUG				// (å¯é–‹æ”¾) ANDY ä¿®æ­£array æº¢ä½
+_USER_CHARLOOPS				// (å¯é–‹æ”¾) ANDY æ–°ç”¨ç‰©ä»¶LOOP
+_BATTLE_PROPERTY			// (å¯é–‹æ”¾) ANDY æˆ°é¬¥å±¬æ€§ç‰¹æ€§
+_PETSKILL_PROPERTY			// (å¯é–‹æ”¾) ANDY ç„¡å±¬é­”ç¸å¯µæŠ€
+_ITEM_FIXALLBASE			// (å¯é–‹æ”¾) ANDY ä¿®å¾©ä¹‹çŸ³
+_ITEM_LOVERPARTY			// (å¯é–‹æ”¾) ANDY æƒ…äººç¯€é“å…·
+_ITEM_FORUSERNAMES			// (å¯é–‹æ”¾) ANDY é“å…·æ‰€æœ‰äºº
+_BATTLECOMMAND_TIME			// (å¯é–‹æ”¾) ANDY é˜²æ­¢çŽ©å®¶é–‹ç·©é€Ÿ(å›žåˆæˆ°é¬¥æ™‚é–“)
+_NPCENEMY_ADDPOWER			// (å¯é–‹æ”¾) ANDY ä¿®æ”¹æ€ªç‰©çš„èƒ½åŠ›å€¼
+_PETSKILL_CANNEDFOOD		// (å¯é–‹æ”¾) ANDY å¯µç‰©æŠ€èƒ½ç½é ­	for 6.0
+_TEST_DROPITEMS				// (å¯é–‹æ”¾) ANDY æ¸¬è©¦ä¸Ÿå¯µ
+_MAP_WARPPOINT				// (å¯é–‹æ”¾) ANDY Map WarpPoint
+_DEFEND_TIMECHECK			// (å¯é–‹æ”¾) ANDY å…§éƒ¨æ¸¬è©¦æ™‚é–“
+_TREASURE_BOX				// (å¯é–‹æ”¾) ANDY å¯¶ç®±
+_BENEMY_EVENTRUN			// (å¯é–‹æ”¾) ANDY æˆ°é¬¥npcçµ¦é“å…·
+_BATTLE_ABDUCTII			// (å¯é–‹æ”¾) ANDY æ—…é€”å¤¥ä¼´2
+_BATTLE_LIGHTTAKE			// (å¯é–‹æ”¾) ANDY é‡‡å…‰è¡“
+_BATTLE_ATTCRAZED			// (å¯é–‹æ”¾) ANDY ç˜‹ç‹‚æš´èµ°
+_STATUS_WATERWORD			// (å¯é–‹æ”¾) ANDY æ°´ä¸–ç•Œç‹€æ…‹
+_ITEM_WATERWORDSTATUS		// (å¯é–‹æ”¾) ANDY æ°´ä¸–ç•Œç‹€æ…‹é“å…·
+_REEDIT_PETBBIS				// (å¯é–‹æ”¾) ANDY ä¿®æ­£å¯µç‰©æ³¢æ¯”åœ–å½¢
+_CAPTURE_FREES				// (å¯é–‹æ”¾) ANDY è£œæŠ“æ¢ä»¶
+_THROWITEM_ITEMS			// (å¯é–‹æ”¾) ä¸Ÿæ“²å¾Œæœ‰çŽå“
+_OBJSEND_C					// (å¯é–‹æ”¾) ANDY _OBJSEND_C
+_ADD_SHOW_ITEMDAMAGE		// (å¯é–‹æ”¾) WON  é¡¯ç¤ºç‰©å“è€ä¹…åº¦
+_CHANGETRADERULE		    // (å¯é–‹æ”¾) Syu ADD äº¤æ˜“è¦å‰‡ä¿®è¨‚
+_TRADE_SHOWHP				// (å¯é–‹æ”¾) Syu ADD äº¤æ˜“é¡¯ç¤ºè¡€é‡
+_SHOOTCHESTNUT				// (å¯é–‹æ”¾) Syu ADD å¯µæŠ€ï¼šä¸Ÿæ —å­
+_SKILLLIMIT					// (å¯é–‹æ”¾) Syu ADD ä¸å¾—æ”»æ“Šæˆ‘æ–¹é™åˆ¶
+_TRADESYSTEM2				// (å¯é–‹æ”¾) Syu ADD æ–°äº¤æ˜“ç³»çµ±
+_NPC_NOSAVEPOINT			// (å¯é–‹æ”¾) ANDY ç´€éŒ„é»žä¸å­˜äººç‰©è³‡æ–™
+_ACFMPK_LIST				// (å¯é–‹æ”¾) ANDY å®¶æ—å°æˆ°åˆ—è¡¨ä¿®æ­£
+_PETSKILL2_TXT				// (å¯é–‹æ”¾) ANDY petskill2.txt
+_PETSKILL_CHECKTYPE			// (å¯é–‹æ”¾) ANDY å¯µç‰©æŠ€èƒ½ä½¿ç”¨æ™‚æ©Ÿ
+_PETSKILL_TEAR				// (å¯é–‹æ”¾) ANDY å¯µæŠ€ æ’•è£‚å‚·å£
+_NPC_MAKEPAIR				// (å¯é–‹æ”¾) ANDY NPC é…å°
+_ITEMSET4_TXT				// (å¯é–‹æ”¾) ANDY itemset4.txt
+_ITEM_PILENUMS				// (å¯é–‹æ”¾) ANDY é“å…·ç´ æå †ç–Š éœ€ itemset4
+_ITEM_PILEFORTRADE			// (å¯é–‹æ”¾) ANDY äº¤æ˜“å †ç–Š
+_ITEM_EQUITSPACE			// (å¯é–‹æ”¾) ANDY æ–°è£å‚™æ¬„ä½
+_PET_LOSTPET				// (å¯é–‹æ”¾) ANDY éºå¤±å¯µç‰©æœå°‹è¨ˆåŠƒå¯µç‰©
+_ITEMSET5_TXT				// (å¯é–‹æ”¾) ANDY itemset5.txt
+_ITEMSET6_TXT				// (å¯é–‹æ”¾) ANDY itemset6.txt
+_EQUIT_ARRANGE				// (å¯é–‹æ”¾) ANDY æ“‹æ ¼ éœ€è¦ itemset5.txt
+_EQUIT_SEQUENCE				// (å¯é–‹æ”¾) ANDY æ”»æ“Šé †åº éœ€è¦ itemset5.txt
+_EQUIT_ADDPILE				// (å¯é–‹æ”¾) ANDY å¢žåŠ å¯å †ç–Šæ•¸ éœ€è¦ itemset5.txt
+_EQUIT_HITRIGHT				// (å¯é–‹æ”¾) ANDY å‘½ä¸­ éœ€è¦ itemset5.txt
+_EQUIT_NEGLECTGUARD			// (å¯é–‹æ”¾) ANDY å¿½è¦–ç›®æ¨™é˜²ç¦¦åŠ›% éœ€è¦ itemset6.txt
+_EQUIT_NEWGLOVE				// (å¯é–‹æ”¾) ANDY æ‰‹å¥—æ¬„ä½
+_FM_JOINLIMIT				// (å¯é–‹æ”¾) ANDY åŠ å…¥å®¶æ—æ¢ä»¶é™åˆ¶
+_FIX_MAX_GOLD				// (å¯é–‹æ”¾) WON ADD å¢žåŠ äººç‰©é‡‘éŒ¢ä¸Šé™ 
+_CK_ONLINE_PLAYER_COUNT		// (å¯é–‹æ”¾) WON è¨ˆç®—ç·šä¸Šäººæ•¸ (è¦é…åˆacï¼Œå¦å‰‡æœƒé‡é–‹)	
+_PET_SKILL_SARS				// (å¯é–‹æ”¾) WON ADD æ¯’ç…žè”“å»¶
+_SONIC_ATTACK				// (å¯é–‹æ”¾) WON ADD éŸ³æ³¢æ”»æ“Š
+_NET_REDUCESEND				// (å¯é–‹æ”¾) ANDY æ¸›å°‘DBè³‡æ–™å‚³é€
+_FEV_ADD_NEW_ITEM			// (å¯é–‹æ”¾) Change å¢žåŠ å¾©æ´»å®ˆç²¾
+_ALLDOMAN					// (å¯é–‹æ”¾) Syu ADD æŽ’è¡Œæ¦œNPC
+_LOCKHELP_OK				// (å¯é–‹æ”¾) Syu ADD éŽ–å®šä¸å¯åŠ å…¥æˆ°é¬¥
+_TELLCHANNEL				// (å¯é–‹æ”¾) Syu ADD å¯†èªžé »é“
+_NEWREQUESTPROTOCOL			// (å¯é–‹æ”¾) Syu ADD æ–°å¢žProtocolè¦æ±‚ç´°é …
+_OUTOFBATTLESKILL			// (å¯é–‹æ”¾) Syu ADD éžæˆ°é¬¥æ™‚æŠ€èƒ½Protocol
+_CHAR_PROFESSION			// (å¯é–‹æ”¾) WON ADD äººç‰©è·æ¥­æ¬„ä½
+_PROFESSION_SKILL			// (å¯é–‹æ”¾) WON ADD äººç‰©è·æ¥­æŠ€èƒ½
+_NPC_WELFARE				// (å¯é–‹æ”¾) WON ADD è·æ¥­NPC
+_PROFESSION_FIX_LEVEL		// (å¯é–‹æ”¾) WON ADD ä¿®æ­£è·æ¥­ç¶“é©—å€¼(åŒ—äº¬&éŸ“åœ‹ä¸å¿…é–‹)
+_GM_SIGUSR2					// (å¯é–‹æ”¾) Change ä¸‹é”sigusr2å¾ŒåŸ·è¡Œ gm_sigusr_commandæª”æ¡ˆå…§çš„GMæŒ‡ä»¤,è‹¥æ²’æœ‰æŒ‡ä»¤å°±é—œé–‰GMSV
+_GM_BROADCAST				// (å¯é–‹æ”¾) WON ADD å®¢æœå…¬å‘Šç³»çµ±
+_NPC_ADDLEVELUP				// (å¯é–‹æ”¾) ANDY NPCå¢žåŠ çŽ©å®¶ç­‰ç´š
+_CHAR_FIXDATADEF			// (å¯é–‹æ”¾) ANDY ä¿®æ­£äººç‰©è³‡æ–™åˆå§‹
+_SIMPLIFY_ITEMSTRING		// (å¯é–‹æ”¾) ANDY ç°¡åŒ–é“å…·å­—ä¸²
+_CHAR_NEWLOGOUT				// (å¯é–‹æ”¾) ANDY ç™»å‡ºæ–°æ©Ÿåˆ¶
+_CHATROOMPROTOCOL			// (å¯é–‹æ”¾) Syu ADD èŠå¤©å®¤é »é“ 8/27
+_CHAR_POOLITEM				// (å¯é–‹æ”¾) ANDY äººç‰©é“å…·å€‰åº«å…±ç”¨
+_NPC_DEPOTITEM				// (å¯é–‹æ”¾) ANDY äººç‰©é“å…·å€‰åº«å…±ç”¨
+_SIMPLIFY_PETSTRING			// (å¯é–‹æ”¾) ANDY ç°¡åŒ–å¯µç‰©å­˜æª”å­—ä¸²
+_SIMPLIFY_ITEMSTRING2		// (å¯é–‹æ”¾) ANDY ç°¡åŒ–é“å…·å­—ä¸²2
+_WOLF_TAKE_AXE				// (å¯é–‹æ”¾) WON ADD æŠ“é›™é ­ç‹¼çš„é™åˆ¶
+_FIX_UNNECESSARY			// (å¯é–‹æ”¾) ANDY ä¿®æ­£ä¸å¿…è¦çš„åˆ¤æ–·
+_ITEM_MAGICRECOVERY			// (å¯é–‹æ”¾) ANDY æ–°å…‰é¡å®ˆ
+_PETSKILL_GYRATE			// (å¯é–‹æ”¾) Change å¯µæŠ€:è¿´æ—‹æ”»æ“Š
+_PETSKILL_ACUPUNCTURE		// (å¯é–‹æ”¾) Change å¯µæŠ€:é‡åˆºå¤–çš® (clientç«¯çš„_PETSKILL_ACUPUNCTUREä¹Ÿè¦é–‹)
+_PETSKILL_RETRACE			// (å¯é–‹æ”¾) Change å¯µæŠ€:è¿½è·¡æ”»æ“Š
+_PETSKILL_HECTOR			// (å¯é–‹æ”¾) Change å¯µæŠ€:å¨åš‡
+_PETSKILL_FIREKILL			// (å¯é–‹æ”¾) Change å¯µæŠ€:ç«ç·šçµæ®º
+_PETSKILL_DAMAGETOHP		// (å¯é–‹æ”¾) Change å¯µæŠ€:æš—æœˆç‹‚ç‹¼(å—œè¡€æŠ€çš„è®Šé«”) 
+_PETSKILL_BECOMEFOX         // (å¯é–‹æ”¾) Change å¯µæŠ€:åªšæƒ‘è¡“
+_FIX_MESSAGE				// (å¯é–‹æ”¾) WON ADD ä¿®æ”¹WORKERå°åŒ…å…§å®¹ (åŒ—äº¬&éŸ“åœ‹ä¸å¿…é–‹)     
+_PETSKILL_SHOWMERCY         // (å¯é–‹) Change å¯µæŠ€:æ‰‹ä¸‹ç•™æƒ…
+_NPC_ActionFreeCmp          // (å¯é–‹) Change æ›¿NPCåƒæ•¸åŠ å…¥æ–°çš„æ¯”è¼ƒæ–¹å¼
+_NPC_ProfessionTrans      // (å¯é–‹) Change æ›¿è·æ¥­NPCåŠ å…¥åˆ¤æ–·è½‰ç”Ÿ
+_NPC_NewDelPet            // (å¯é–‹) Change æ›¿NPCåŠ å…¥åˆªé™¤å¯µç‰©(åŽŸæœ¬å°±æœ‰äº†,åªæ˜¯ç”¨warpmanä½¿ç”¨æ™‚ä¸æˆåŠŸ,æ‰€ä»¥å…ˆåšä¸€å€‹é ‚ä¸€ä¸‹)
+_CHANGEGALAXY	// (å¯é–‹) æ˜Ÿç³»ç§»æ°‘ã€€Robin 2003/10
+_ALLDOMAN_DEBUG           // (å¯é–‹) Change ä¿®æ­£é‡å•Ÿserverå¾ŒæŽ’è¡Œæ¦œæ¶ˆå¤±bug
+_CHRISTMAS_REDSOCKS_NEW	  // (å¯é–‹) Change æ–°è–èª•ç´…è¥ª
+_PETSKILL_COMBINED      // (å¯é–‹) Change å¯µæŠ€:é›£å¾—ç³Šå¡— [ç¶œåˆé­”æ³•(ä¾åƒæ•¸äº‚æ•¸å–å‡ºé­”æ³•)]
+_NPC_ADDWARPMAN1			// (å¯é–‹æ”¾) Change npcgen_warpmanå¢žåŠ åŠŸèƒ½(è¨­å®šçµ„éšŠäººæ•¸ã€è¨­å®šçµ„éšŠç”·å¥³äººæ•¸)
+_ITEM_QUITPARTY			// (å¯é–‹æ”¾) Change éšŠä¼è§£æ•£æ™‚ç‰¹å®šé“å…·å³æœƒæ¶ˆå¤±
+_ITEM_ADDEQUIPEXP       // (å¯é–‹) Change è£å‚™å¾Œç¶“é©—å€¼å¢žåŠ 
+_ITEM_LVUPUP            // (å¯é–‹) Change çªç ´å¯µç‰©ç­‰ç´šé™åˆ¶çš„è—¥(çŽ„æ­¦å°ˆç”¨)
+_PETSKILL_BECOMEPIG     // (å¯é–‹) Change å¯µæŠ€:çƒåŠ›åŒ–
+_ITEM_UNBECOMEPIG       // (å¯é–‹) Change çƒåŠ›åŒ–çš„è§£è—¥
+_PET_TALKBBI            // (å¯é–‹) Change å¢žåŠ åˆ¤æ–·bbi
+_ITEM_USEMAGIC			// (å¯é–‹) Change ç”±é“å…·ä½¿ç”¨é­”æ³•
+_ITEM_PROPERTY          // (å¯é–‹) Change æ”¹è®Šå››å±¬æ€§é“å…·
+_SUIT_ADDENDUM          // (å¯é–‹) Change æ›¿å¥—è£å¢žåŠ åŠŸèƒ½ (_SUIT_ITEMè¦é–‹)
+_ITEM_CHECKDROPATLOGOUT   // (å¯é–‹) Change æª¢æŸ¥å›žç´€éŒ„é»žæ™‚èº«ä¸Šæœ‰ç„¡ç™»å‡ºå¾Œæ¶ˆå¤±é“å…·,è‹¥æœ‰,ä¸å¯å›žç´€éŒ„é»ž
+_FM_MODIFY				// å®¶æ—åŠŸèƒ½ä¿®æ”¹(é–‹æ”¾)
+_CHANNEL_MODIFY		// é »é“åŠŸèƒ½æ•´åˆ(é–‹æ”¾)
+_STANDBYPET		// Robin å¾…æ©Ÿå¯µå°åŒ…
+_PROSKILL_OPTIMUM	// Robin è·æ¥­æŠ€èƒ½è™•ç†æœ€ä½³åŒ–
+_PETSKILL_OPTIMUM	// Robin å¯µç‰©æŠ€èƒ½è™•ç†æœ€ä½³åŒ–
+_MAGIC_OPTIMUM		// Robin Magic table æœ€ä½³åŒ–
+_AC_PIORITY		// Nuke æé«˜ACçš„å„ªå…ˆæ¬Š(å¯é–‹)
+_CHAR_POOLPET				// (å¯é–‹æ”¾) Robin äººç‰©å¯µç‰©å€‰åº«å…±ç”¨
+_NPC_DEPOTPET				// (å¯é–‹æ”¾) Robin äººç‰©å¯µç‰©å€‰åº«å…±ç”¨
+_TIMEOUTKICK	// (å¯é–‹) æ™‚æ®µåˆ¶è¸¢äººã€€Robin 2003/10
+_MAGIC_RESIST_EQUIT			// (å¯é–‹) WON ADD è·æ¥­æŠ—æ€§è£å‚™
+_LOG_OTHER // é›œé …è¨Šæ¯å°ˆç”¨LOG
+_NPC_EXCHANGEMANTRANS   // (å¯é–‹) Change æ›¿exchangemanåŠ å…¥åˆ¤æ–·è½‰ç”Ÿ
+_ANGEL_SUMMON	// Robin å¤©ä½¿å¬å–š
+_STREET_VENDOR		// æ“ºæ”¤åŠŸèƒ½(é–‹æ”¾)
+_WATCH_EVENT			// æŸ¥è©¢ä»»å‹™åŠŸèƒ½(é–‹æ”¾)
+_NEW_MANOR_LAW		// æ–°èŽŠåœ’è¦å‰‡(é–‹æ”¾)
+_MAP_TIME					// ç‰¹æ®Šåœ°åœ–,æœƒå€’æ•¸(é–‹æ”¾)
+_PETSKILL_LER			// é›·çˆ¾æŠ€èƒ½(é–‹æ”¾)
+_FIX_MAGIC_RESIST				// (å¯é–‹) Change è·æ¥­é­”æ³•æŠ—æ€§
+_ADD_DUNGEON					// (å¯é–‹) Change è¿½åŠ åœ°ç‰¢
+_PROFESSION_ADDSKILL			// (å¯é–‹) Change è¿½åŠ è·æ¥­æŠ€èƒ½
+_ITEM_ADDPETEXP				// (å¯é–‹) Change å¢žåŠ å¯µç‰©ç¶“é©—å€¼é“å…·(å¯åƒæ­¤é“å…·å¯µç‰©,å¹³å¸¸ä¸å¯ç²å¾—ç¶“é©—å€¼)
+_TRANS_6						// (å¯é–‹) Change äººç‰©6è½‰
+_PET_2TRANS					// (å¯é–‹) Change å¯µç‰©2è½‰
+_PET_2LIMITLEVEL				// (å¯é–‹) Change å¹«åŠ©å¯µç‰©2è½‰çš„ç‘ªè•¾
+_MAGICSTAUTS_RESIST			// (å¯é–‹) Change (ç«é›»å†°)æŠ—æ€§ç²¾éˆ
+_EQUIT_RESIST					// (å¯é–‹) Change å–®ä¸€è£å‚™æŠ—æ€§(å¯æŠ—å–®ä¸€åŠŸèƒ½ç•°å¸¸ç‹€æ…‹)æœ‰æŠ—ç« é›· å†° è™›å¼± é­”éšœ æ²‰é»˜ è½é¦¬
+_SUIT_TWFWENDUM				// (å¯é–‹) Change å››å±¬æ€§å¥—è£åŠŸèƒ½ (_SUIT_ITEMè¦é–‹)
+_EXCHANGEMAN_REQUEST_DELPET	// (å¯é–‹) Change æ›¿exchangemançš„TYPE:REQUESTå¢žåŠ åˆªé™¤å¯µç‰©
+_DEL_DROP_GOLD			// åˆªé™¤åœ°ä¸ŠéŽæ™‚çš„çŸ³å¹£	Robin
+_ITEM_STONE				// cyg å¥‡æ€ªçš„çŸ³é ­
+_HELP_NEWHAND			// cyg æ–°å‰µè§’è‰²çµ¦äºˆæ–°æ‰‹é“å…·) 07.4.5å‰ä»”ä¿®æ”¹ ç”¨æ–¼CFè¨­ç½®å‰µå»ºæ–°äººæ‰€é€é“å…·item1-item15
+_DEF_FMFREETIME			// cyg GMæŒ‡ä»¤ é€€å‡ºå®¶æ—æ™‚é–“é™åˆ¶è¨­ç‚º0
+_DEF_GETYOU				// cyg GMæŒ‡ä»¤ æŸ¥è©¢è‡ªå·±å…©æ ¼  åœå…§çš„çŽ©å®¶å¸³è™Ÿ
+_DEF_NEWSEND			// cyg GMæŒ‡ä»¤ å‚³é€çŽ©å®¶æ™‚å¯åŠ å¥å­ä¹Ÿå¯ä¸åŠ 
+_DEF_SUPERSEND			// cyg GMæŒ‡ä»¤ å¯å‚³é€å·²æŸå¸³è™Ÿç‚ºä¸­å¿ƒé™„è¿‘3æ ¼å…§æ‰€æœ‰çŽ©å®¶
+_SUIT_ADDPART3			// (å¯é–‹) Change å¥—è£åŠŸèƒ½ç¬¬ä¸‰å½ˆ è¿´é¿æé«˜% æ²‰é»˜æŠ—æ€§æé«˜% æ•æé«˜% é˜²æé«˜% æ”»æé«˜%
+_PETSKILL_2TIMID		// (å¯é–‹) Change æ€¯æˆ°ç¬¬äºŒç‰ˆ(ç‹‚ç…æ€’å¼)
+CAVALRY_DEBUG			// (æš«æ™‚é–‹) Change åº§é¨Žæ”»æ“Šé™¤éŒ¯ä¸­
+_SHOW_FUSION			// (å¯é–‹) Change èžåˆå¯µç‰©åœ¨CLIENTç«¯åªé¡¯ç¤ºè½‰ç”Ÿæ•¸,ä¿®æ”¹ç‚ºèžåˆå¯µé¡¯ç¤ºç‚ºèžåˆ(clientç«¯ä¹Ÿè¦é–‹)
+_CONTRACT				// (å¯é–‹) Robin å¥‘ç´„åŠŸèƒ½ 
+_FONT_SIZE				// (å¯é–‹) Robin å­—åž‹å¤§å°åŠŸèƒ½
+_PROSK99				// (å¯é–‹) Change æª¢æŸ¥è·æŠ€ç­‰ç´šé€ç™½ç‹¼
+_TIME_TICKET			// Robin é™æ™‚å…¥å ´ æ£®æž—æ‰å¯µç”¨
+_HALLOWEEN_EFFECT		// è¬è–ç¯€ç‰¹æ•ˆ
+_ADD_STATUS_2			// æ–°å¢žå‚³é€äººç‰©ç‹€æ…‹ç¬¬äºŒé¡ž
+_ADD_reITEM				// (å¯é–‹) Change æª¢æŸ¥é“å…·æ¬„ä½ç©ºæ ¼
+_ADD_NOITEM_BATTLE		// æ–°å¢žNPCæª¢æŸ¥äººç‰©èº«ä¸Šæ²’é“å…·æœƒé€²å…¥æˆ°é¬¥
+_PETSKILL_BATTLE_MODEL	// å¯µç‰©æŠ€èƒ½æˆ°é¬¥æ¨¡çµ„
+_RACEMAN				// cyg çµå¯µå¤§æœƒæ–°npc
+_PETSKILL_ANTINTER		// (å¯é–‹) Change å¯µæŠ€:èŸ»ä¹‹è‘¬ åƒè€ƒ_PETSKILL_2TIMID
+_PETSKILL_REGRET		// (å¯é–‹) Change å¯µæŠ€:æ†¾ç”²ä¸€æ“Š åƒè€ƒ_SONIC_ATTACK
+_SUIT_ADDPART4			// (å¯é–‹) Change å¥—è£åŠŸèƒ½ç¬¬å››å½ˆ ä¸­æ¯’æ”»æ“Š% åŠ å¼·æ³•å¸«é­”æ³•(æ©ŸçŽ‡30%) æŠµæŠ—æ³•å¸«çš„é­”æ³•
+_STONEAGEA8XXX_S						//å‰ä»” 8.0é–‹é—œ
+_ITEM_S_TEMP						//å‰ä»” 8.0é“å…·å°åŒ…æ”¯æŒï¼Œæ­¤åŠŸèƒ½ç‚ºè‡¨æ™‚åŠŸèƒ½
+_JZ_NEW_CONF						//å‰ä»” ADD æ–°CFå­—æ®µ (ä¸åŒ…æ‹¬å‰µå»ºäººç‰©é€é“å…·å­—æ®µ)
+_JZ_NEW_GMCOMMAND				//å‰ä»” ADD æ–°GMæŒ‡ä»¤
+_JZ_IMPROVE_GMCOMMAND		//å‰ä»” ADD æ”¹é€²GMæŒ‡ä»¤
+_JZ_NEW_ITEM1						//å‰ä»” ADD æ–°å¢žé“å…·
+_JZ_NEW_ADDMEMBERPOINT	//å‰ä»” ADD æœƒå“¡é»žå·
+_JZ_MANORTES						//èŽŠåœ’æ¸¬è©¦
+<<Generated at äº” 4æœˆ 20 04:18:14 CST 2007>>
 ";

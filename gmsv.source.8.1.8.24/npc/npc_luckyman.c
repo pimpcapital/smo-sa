@@ -18,12 +18,12 @@ int NPC_GetMoney(int meindex,int talker,char *buf);
 
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_LuckyManInit( int meindex )
 {
 
-	/*--¥­¥ã¥é¤Î¥¿¥¤¥×¤òÀßÄê--**/
+	/*--å¹³ä¹“ä»¿åŠæ­£å¥¶çš¿æ¯›æ¾€çˆ›--**/
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPELUCKYMAN );
 
 	return TRUE;
@@ -33,7 +33,7 @@ BOOL NPC_LuckyManInit( int meindex )
 
 
 /*********************************
-*   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+*   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_LuckyManTalked( int meindex , int talkerindex , char *szMes ,int color )
 {
@@ -46,13 +46,13 @@ void NPC_LuckyManTalked( int meindex , int talkerindex , char *szMes ,int color 
 
 
 
-	/*--  ¤ÎÁ°¤Ë¤¤¤ë¤«¤É¤¦¤«¡ª--*/
+	/*--  åŠèŸ†åä¸­æœˆäº•å‡ä¸¹äº•ã€--*/
 	if(NPC_Util_isFaceToFace( meindex ,talkerindex ,2) == FALSE) {
-		/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+		/* ã„ å¼˜ä¼‰æ°¸ç‰å‹•  åŠå¿ƒ */
 		if(NPC_Util_isFaceToChara( talkerindex, meindex, 1) == FALSE) return;
 	}
 	
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤ß  ¤ß--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  å¿ƒ  å¿ƒ--*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1)))== NULL) {
 		print("NPC_ExChange.c TypeCheck: GetArgStrErr\n");
 		print("NPCName=%s\n", CHAR_getChar( meindex, CHAR_NAME));
@@ -81,7 +81,7 @@ static void NPC_LuckyMan_selectWindow( int meindex, int toindex, int num,char *m
 
 	switch( num){
 		case 1:
-			sprintf(token ,"              ¡¸¤µ¤éªº¹B¶Õ¡¸  "
+			sprintf(token ,"              â˜†ä»Šæ—¥çš„é‹å‹¢â˜†  "
 					"\n\n%s",msg
 				);
 				buttontype = WINDOW_BUTTONTYPE_OK;
@@ -90,7 +90,7 @@ static void NPC_LuckyMan_selectWindow( int meindex, int toindex, int num,char *m
 		break;
 	
 		case 2:
-			sprintf(token, "                ¡¸¥e¤R®v¡¸  "
+			sprintf(token, "                â˜†å åœå¸«â˜†  "
 					"\n\n%s",msg
 				);
 				buttontype = WINDOW_BUTTONTYPE_YESNO;
@@ -99,7 +99,7 @@ static void NPC_LuckyMan_selectWindow( int meindex, int toindex, int num,char *m
 		break;
 
 		case 3:
-			sprintf(token, "                ¡¸¥e¤R®v¡¸  "
+			sprintf(token, "                â˜†å åœå¸«â˜†  "
 					"\n\n%s",msg
 				);
 				buttontype = WINDOW_BUTTONTYPE_OK;
@@ -109,7 +109,7 @@ static void NPC_LuckyMan_selectWindow( int meindex, int toindex, int num,char *m
 	}
 
 
-	/*--Á÷¿®--*/
+	/*--éœœè€¨--*/
 	lssproto_WN_send( fd, windowtype, 
 				buttontype, 
 				windowno,
@@ -121,7 +121,7 @@ static void NPC_LuckyMan_selectWindow( int meindex, int toindex, int num,char *m
 
 
 /*-----------------------------------------
-¥¯¥é¥¤¥¢¥ó¥È¤«¤éÊÖ¤Ã¤Æ¤­¤¿»ş¤Ë¸Æ¤Ó½Ğ¤µ¤ì¤ë¡e
+å¼ä»¿å¥¶å¤±ä»¶ç„äº•æ—¥å¿’å‹»åŒ–äº”å‡¶å‡œåè£Ÿå¤ªè«‹ä»Šæœ¨æœˆã€”
 -------------------------------------------*/
 void NPC_LuckyManWindowTalked( int meindex, int talkerindex, 
 								int seqno, int select, char *data)
@@ -132,7 +132,7 @@ void NPC_LuckyManWindowTalked( int meindex, int talkerindex,
 	int money;
 	int level;
 	
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤ß  ¤ß--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  å¿ƒ  å¿ƒ--*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1)))== NULL) {
 		print("NPC_ExChange.c TypeCheck: GetArgStrErr\n");
 		print("NPCName=%s\n", CHAR_getChar(meindex,CHAR_NAME));
@@ -187,13 +187,13 @@ void NPC_LuckyDisp(int meindex,int talker)
 	char buf2[512];
 	int i = 1;
 
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤ß  ¤ß--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  å¿ƒ  å¿ƒ--*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1)))== NULL) {
 		print("NPC_Savepoint.c Init: GetArgStrErr");
 		return;
 	}
 
-	/*--±¿¤ò¸«¤ë--*/
+	/*--æ«æ¯›è‘¦æœˆ--*/
 	sprintf( buf, "luck%d", CHAR_getInt( talker, CHAR_LUCK));
 	NPC_Util_GetStrFromStrWithDelim( argstr, buf, buf2, sizeof( buf2));
 
@@ -205,17 +205,17 @@ void NPC_LuckyDisp(int meindex,int talker)
 	i--;
 	i = rand()%i + 1;
 
-	/*--¥é¥ó¥À¥à¤Ç¥á¥Ã¥»¡¼¥¸¤ò  ¼¨¤µ¤»¤ë--*/
+	/*--ä»¿ä»¶æ¯ä¸åŒ¹ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›  æ†ä»Šå…­æœˆ--*/
 	getStringFromIndexWithDelim( buf2,",", i, token, sizeof( token));
 	NPC_LuckyMan_selectWindow( meindex, talker, 1, token);
 }
 
 
-/*---¶³¶â¤Î¥Á¥§¥Ã¥¯-**/
+/*---é›²å—¯åŠæ°‘å°¼æ°¸å¼-**/
 BOOL NPC_LuckyCostCheck(int meindex,int talker,int cost)
 {
-	/*--¸½ºß¤Ï²¾ÀßÄê---*/
-	/*---¶³¶â¤¬Â­¤ê¤ë¤«¤É¤¦¤«¤Î¥Á¥§¥Ã¥¯---*/
+	/*--èœ‡ç®•åç§»æ¾€çˆ›---*/
+	/*---é›²å—¯äº’ç°«æ›°æœˆäº•å‡ä¸¹äº•åŠæ°‘å°¼æ°¸å¼---*/
 	if(CHAR_getInt( talker, CHAR_GOLD) < cost) {
 		return FALSE;
 	}

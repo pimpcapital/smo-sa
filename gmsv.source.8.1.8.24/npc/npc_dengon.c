@@ -189,7 +189,7 @@ static BOOL NPC_DengonReadString( int meindex, int id, char *str )
               CHAR_getInt( meindex, CHAR_Y ) );
 
     writeptr = str;
-	strcpy( writeptr, "                         ¶Ç¨¥ªO\n");
+	strcpy( writeptr, "                         å‚³è¨€æ¿\n");
     len = strlen(writeptr);
     writeptr += len;
 

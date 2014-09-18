@@ -43,7 +43,7 @@
 #include "npcserver.h"
 #endif
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 #include "profession_skill.h"
 #endif
 
@@ -68,19 +68,19 @@ void printUsage( void )
 }
 
 /*
- * ¥³¥Ş¥ó¥É¥é¥¤¥ó¤ò½è  ¤¹¤ë
+ * æˆŠç©´ä»¶ç‰ä»¿å¥¶ä»¶æ¯›è³ª  å…æœˆ
  *
- * °ú¿ô
- *      argc      »ú  ¤Î¿ô
- *      argv      »ú  ¤Î    
- * ÊÖ¤êÃÍ
- *      TRUE(1)     Àµ¾ï¤Ê¥³¥Ş¥ó¥É¥é¥¤¥ó°ú¿ô¤À¤Ã¤¿¤é
- *      FALSE(0)    °Û¾ï¤Ê¥³¥Ş¥ó¥É¥é¥¤¥ó°ú¿ô¤À¤Ã¤¿¤é
+ * å©é†’
+ *      argc      å„‚  åŠé†’
+ *      argv      å„‚  åŠ    
+ * å¿’æ›°è¥–
+ *      TRUE(1)     æ‡‡æ©˜å…æˆŠç©´ä»¶ç‰ä»¿å¥¶ä»¶å©é†’åˆ†å‹»å‡¶æ—¥
+ *      FALSE(0)    å”±æ©˜å…æˆŠç©´ä»¶ç‰ä»¿å¥¶ä»¶å©é†’åˆ†å‹»å‡¶æ—¥
  */
 BOOL parseCommandLine( int argc , char** argv )
 {
-    int c;                          /* getopt ¤Ç»È¤¦ */
-    extern char* optarg;            /* getopt ¤Ç»È¤¦ */
+    int c;                          /* getopt åŒ¹éŠ€ä¸¹ */
+    extern char* optarg;            /* getopt åŒ¹éŠ€ä¸¹ */
 
 
     while( ( c = getopt( argc, argv ,OPTIONSTRING )) != -1 ){
@@ -116,11 +116,11 @@ BOOL parseCommandLine( int argc , char** argv )
 
 
 /*
- * ´Ä¶­  ¿ô¤ò¥Ñ¡¼¥¹¤¹¤ë
- * °ú¿ô
- *      env     ´Ä¶­  ¿ô¤Î    
+ * æ£•é›  é†’æ¯›ç”±â–¡æ—¦å…æœˆ
+ * å©é†’
+ *      env     æ£•é›  é†’åŠ    
  *
- * º£¤Î½ê²¿¤â¤·¤Ê¤¤
+ * æ¼†åŠèµ­çª’æ‰‹ä»„å…ä¸­
  */
 BOOL parseEnvironment( char** env )
 {
@@ -135,21 +135,21 @@ BOOL parseEnvironment( char** env )
 
 
 
-/*lsgenÍÑ¤Î¥ï¡¼¥­¥ó¥°¥Ğ¥Ã¥Õ¥¡¤Î  ¤­¤µ*/
+/*lsgenè¿•åŠä¼â–¡å¹³ä»¶å¼˜ç”°æ°¸ç™½å¤®åŠ  äº”ä»Š*/
 #define LSGENWORKINGBUFFER  65536*4
 
 
 
 #define GOTORETURNFALSEIFFALSE(x) if(!(x))goto RETURNFALSE
 /*
- * ½é´ü²½¥ë¡¼¥Á¥ó
- * °ú¿ô
- *      argc    argv¤Î¿ô
- *      argv    ¥³¥Ş¥ó¥É¥é¥¤¥ó°ú¿ô
- *      env     ´Ä¶­  ¿ô
- * ÊÖ¤êÃÍ
- *      TRUE(1) ©¨  
- *      FALSE(1) ¼º  
+ * è³¡æ¸ç¥­ä¼™â–¡æ°‘ä»¶
+ * å©é†’
+ *      argc    argvåŠé†’
+ *      argv    æˆŠç©´ä»¶ç‰ä»¿å¥¶ä»¶å©é†’
+ *      env     æ£•é›  é†’
+ * å¿’æ›°è¥–
+ *      TRUE(1) å²³  
+ *      FALSE(1) æ’©  
  */
 BOOL init(int argc , char** argv , char** env )
 {
@@ -187,17 +187,17 @@ BOOL init(int argc , char** argv , char** env )
     //ttom start
     {  int iWork = setEncodeKey();
        if( iWork == 0 ){
-       // ¥¨¥ó¥³¡¼¥É¥­¡¼¤òÀßÄê
+       // å·¨ä»¶æˆŠâ–¡ç‰å¹³â–¡æ¯›æ¾€çˆ›
        printf( "----------------------------------------\n" );
        printf( "-------------[encodekey] is not set in %s\n", getConfigfilename() );
        printf( "----------------------------------------\n" );
        exit( 1 );
        }else{
-            // ¥¨¥ó¥³¡¼¥É¥­¡¼¤òÀßÄê
+            // å·¨ä»¶æˆŠâ–¡ç‰å¹³â–¡æ¯›æ¾€çˆ›
                printf( "encodekey = %d\n", iWork );
        }
     }
-    // AcWBuff¤òÀßÄê
+    // AcWBuffæ¯›æ¾€çˆ›
     {   int iWork = setAcWBSize();
         if( iWork == 0 ){
            printf( "----------------------------------------\n" );
@@ -228,7 +228,7 @@ BOOL init(int argc , char** argv , char** env )
         print("Reuseaddr: %d\n",  getReuseaddr() );
 
 
-        print("FileDiscriptorNum ¡Ü about player num: %d\n",
+        print("FileDiscriptorNum â‰’ about player num: %d\n",
               getFdnum() );
         print("PetCharNum: %d\n" , getPetcharnum() );
         print("OtherCharNum: %d\n"  , getOtherscharnum() );
@@ -259,7 +259,7 @@ BOOL init(int argc , char** argv , char** env )
 
         print("PetskillFile: %s\n"  , getPetskillfile());
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
         print("ProfessionFile: %s\n"  , getProfession());
 #endif
 
@@ -441,7 +441,7 @@ BOOL init(int argc , char** argv , char** env )
         goto CLOSEBIND;
 	print( "done\n" );
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 	print( "Reading profession File..." );
 	if( !PROFESSION_initSkill( getProfession() ) ){
 		goto CLOSEBIND;
@@ -449,7 +449,7 @@ BOOL init(int argc , char** argv , char** env )
 	print( "done\n" );
 #endif
 
-    /* ¥¢¥¤  ¥à¤Îºà    ¤ò  ¤à */
+    /* å¤±å¥¶  ä¸åŠç®‹    æ¯›  æˆˆ */
 	print( "Reading Itematomfile..." );
     if( !ITEM_initItemAtom( getItematomfile()) )
         goto CLOSEBIND;
@@ -572,7 +572,7 @@ BOOL init(int argc , char** argv , char** env )
     if( !CONNECT_acfdInitRB( acfd)) goto CLOSEAC;
     if( !CONNECT_acfdInitWB( acfd)) goto CLOSEAC;
     CONNECT_setCtype( acfd, AC );
-		//ªì¸Õ¤ÆEPOLL
+		//åˆè©¦åŒ–EPOLL
 #ifdef _JZ_EPOLL
 	print( "Initialize epoll ... " );
     if(!init_epoll(getevsls() , getFdnum() ))
@@ -585,13 +585,13 @@ BOOL init(int argc , char** argv , char** env )
 	print( "done\n" );
 #endif
 	print( "Initialize rpc client ... " );
-    /*  rpc(client)¤Î½é´ü²½ */
+    /*  rpc(client)åŠè³¡æ¸ç¥­ */
     if( saacproto_InitClient( lsrpcClientWriteFunc,LSGENWORKINGBUFFER, acfd) < 0 )
         goto CLOSEAC;
 	print( "done\n" );
 
 	print( "Sending login request to account server... " );
-    /*  ¤Ò¥°¥¤¥óÍ×µá¤ò½Ğ¤¹  */
+    /*  å¤«å¼˜å¥¶ä»¶é‚°è²æ¯›è«‹å…  */
     saacproto_ACServerLogin_send(acfd, getGameservername(),
                                  getAccountserverpasswd());
 	print( "done\n" );
@@ -608,9 +608,9 @@ BOOL init(int argc , char** argv , char** env )
 
 #ifdef _MUSEUM
 	if( getMuseum() )
-		print("\nThis is ¥Û¾¹³Õª«À]!!\n");
+		print("\nThis is çŸ³å™¨åšç‰©é¤¨!!\n");
 	else
-		print("\nThis is ´¶³q¬P²y!!\n");
+		print("\nThis is æ™®é€šæ˜Ÿçƒ!!\n");
 #endif
 
 	print( "Start Log\n" );
@@ -647,7 +647,7 @@ BOOL init(int argc , char** argv , char** env )
 #ifdef _ITEM_QUITPARTY
 	print( "Reading itemquitparty File..." );
     
-	//Åª¨úÀÉ®×
+	//è®€å–æª”æ¡ˆ
     f = fopen( getitemquitparty(), "r" );
 	if( f != NULL ){
 		while( fgets( line, sizeof( line ), f ) ){
@@ -661,7 +661,7 @@ BOOL init(int argc , char** argv , char** env )
 			fclose(f);
 			goto CLOSEAC;
 		}
-		//°t°O¾ĞÅé
+		//é…è¨˜æ†¶é«”
 		Disappear_Item = allocateMemory( sizeof(struct tagDisappearItem) * itemquitparty_num );
 		if( Disappear_Item == NULL ){
 			print( "Can't allocate Memory %d\n", sizeof(struct tagDisappearItem) * itemquitparty_num );
@@ -670,13 +670,13 @@ BOOL init(int argc , char** argv , char** env )
 		}
 
 		i = 0;
-		//±N¹D¨ã½s¸¹¦s¤J Disappear_Item.string
+		//å°‡é“å…·ç·¨è™Ÿå­˜å…¥ Disappear_Item.string
 		while( fgets( line, sizeof( line ), f ) ){
 			if( line[0] == '#' )continue;
 			if( line[0] == '\n' )continue; 
 			chomp( line );
 			sprintf( Disappear_Item[i].string,"%s",line );
-			print("\n¹D¨ã½s¸¹:%s", Disappear_Item[i].string );
+			print("\né“å…·ç·¨è™Ÿ:%s", Disappear_Item[i].string );
 			i++;
 		}
 		fclose(f);

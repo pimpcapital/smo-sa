@@ -13,17 +13,17 @@ static void NPC_SignBoard_Window( int meindex, int toindex, int num,int select);
 
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_SignBoardInit( int meindex )
 {
 
 	char npcarg1[NPC_UTIL_GETARGSTR_BUFSIZE];
 	char *npcarg;
-	/*--¥¿¥¤¥×ÀßÄê--*/
+	/*--æ­£å¥¶çš¿æ¾€çˆ›--*/
    	CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEMSG );
 
-	/*--¥Õ¥¡¥¤¥ë¤¬¤Ê¤±¤ì¤Ð­ã¼¨  ¤òÀß  ¤µ¤»¤Ê¤¤--*/
+	/*--ç™½å¤®å¥¶ä¼™äº’å…ä»ƒæœ¨å£¬å‡†æ†Ž  æ¯›æ¾€  ä»Šå…­å…ä¸­--*/
 	if((npcarg = NPC_Util_GetArgStr( meindex, npcarg1, sizeof(npcarg1)))==NULL){
 		print("GetArgStrErr");
 		return FALSE;
@@ -37,17 +37,17 @@ BOOL NPC_SignBoardInit( int meindex )
 
 
 /*********************************
-* ¸«¤é¤ì¤¿»þ¤Î½è  
+* è‘¦æ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_SignBoardLooked( int meindex , int lookedindex)
 {
 
-    /* ¥×¥ì¥¤¥ä¡¼¤ËÂÐ¤·¤Æ¤À¤±  ±þ¤¹¤ë */
+    /* çš¿ä¼Šå¥¶ä¹©â–¡åžè¦†ä»„åŒ–åˆ†ä»ƒ  æ®ºå…æœˆ */
     if( CHAR_getInt( lookedindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) {
     	return;
     }
 
-	/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+	/* ã„ å¼˜ä¼‰æ°¸çŽ‰å‹•  åŠå¿ƒ */
 	if( NPC_Util_CharDistance( lookedindex, meindex ) > 1) return;
 
 
@@ -84,7 +84,7 @@ static void NPC_SignBoard_Window( int meindex, int toindex, int num,int select)
   	      q[0]='\0';
  	      p[0]='\0';
 	      a=atoi(p+9);
-#ifdef _FAMILY_MANORNUM_CHANGE	// CoolFish ¥Î¨Ó­×§ï¸Ë¶é¼Æ¶q
+#ifdef _FAMILY_MANORNUM_CHANGE	// CoolFish ç”¨ä¾†ä¿®æ”¹è£åœ’æ•¸é‡
 	      if ((a>=1) && (a<=MANORNUM)) {		  
 #else
 	      if ((a>=1) && (a<=4)) {
@@ -94,23 +94,23 @@ static void NPC_SignBoard_Window( int meindex, int toindex, int num,int select)
                   getStringFromIndexWithDelim(fmpointlist.pointlistarray[a-1], "|", 6, token, sizeof(token));
   	          sprintf(tmp,"%s%s%s",npcarg,token,q+1);
 	          //strcpy(npcarg, tmp);
-	          sprintf(token, "¡@¡@¡@¡@¡@¡@¡Õ¡@¬ÝªO¡@¡Ö\n%s",tmp);
+	          sprintf(token, "ã€€ã€€ã€€ã€€ã€€ã€€ï¼œã€€çœ‹æ¿ã€€ï¼ž\n%s",tmp);
 	        } else {
-	          sprintf(tmp,"%s¨S¦³¥ô¦ó®a±Ú%s",npcarg,q+1);
+	          sprintf(tmp,"%sæ²’æœ‰ä»»ä½•å®¶æ—%s",npcarg,q+1);
 	          //strcpy(npcarg, tmp);
-	          sprintf(token, "¡@¡@¡@¡@¡@¡@¡Õ¡@¬ÝªO¡@¡Ö\n%s",tmp);
+	          sprintf(token, "ã€€ã€€ã€€ã€€ã€€ã€€ï¼œã€€çœ‹æ¿ã€€ï¼ž\n%s",tmp);
 	        }
 	      }
 	    }
 	    
 	  }else{
-	  	sprintf(token, "¡@¡@¡@¡@¡@¡@¡Õ¡@¬ÝªO¡@¡Ö\n%s",npcarg);
+	  	sprintf(token, "ã€€ã€€ã€€ã€€ã€€ã€€ï¼œã€€çœ‹æ¿ã€€ï¼ž\n%s",npcarg);
 	  }
 	}
 
 	
 	
-	/*--Á÷¿®--*/
+	/*--éœœè€¨--*/
 	lssproto_WN_send( fd,WINDOW_MESSAGETYPE_MESSAGE,
 					WINDOW_BUTTONTYPE_OK,
 					CHAR_WINDOWTYPE_WINDOWPETSHOP_START,
@@ -121,7 +121,7 @@ static void NPC_SignBoard_Window( int meindex, int toindex, int num,int select)
 
 
 /*-----------------------------------------
- * ¥¯¥é¥¤¥¢¥ó¥È¤«¤éÊÖ¤Ã¤Æ¤­¤¿»þ¤Ë¸Æ¤Ó½Ð¤µ¤ì¤ë¡e
+ * å¼ä»¿å¥¶å¤±ä»¶çŽ„äº•æ—¥å¿’å‹»åŒ–äº”å‡¶å‡œåžè£Ÿå¤ªè«‹ä»Šæœ¨æœˆã€”
  *
 -------------------------------------------*/
 void NPC_SignBoardWindowTalked( int meindex, int talkerindex, 

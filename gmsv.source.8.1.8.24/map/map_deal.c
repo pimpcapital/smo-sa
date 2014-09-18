@@ -8,18 +8,18 @@
 #include "anim_tbl.h"
 
 /*#define MAPEDITORTROUBLE*/
-#define SPR_kmydamY CG_HIT_MARK_10 // anim_tbl.h ¤ËÅĞ  ¤µ¤ì¤ë¤Ş¤Ç  ¤Î¥¨¥Õ¥§¥¯¥È
+#define SPR_kmydamY CG_HIT_MARK_10 // anim_tbl.h åç“š  ä»Šæœ¨æœˆå¼•åŒ¹  åŠå·¨ç™½å°¼å¼ç„
 
 /*------------------------------------------------------------
- * ¬¤¤±¤ë¤«¤É¤¦¤«  ÃÇ¤¹¤ë¡e¥­¥ã¥é¤¬  ¤ó¤Ç¤¤¤ë¤«¤É¤¦¤«°ú¿ô¤¬¤¢¤ë¡e
- * °ú¿ô
+ * æ´¶ä»ƒæœˆäº•å‡ä¸¹äº•  è …å…æœˆã€”å¹³ä¹“ä»¿äº’  æ°åŒ¹ä¸­æœˆäº•å‡ä¸¹äº•å©é†’äº’ä¸æœˆã€”
+ * å©é†’
  *  ff          int     floor
- *  fx          int     xºÂ  
- *  fy          int     yºÂ  
- *  isfly       int       ¤ó¤Ç¤¤¤ë¤«¤É¤¦¤«
- * ÊÖ¤êÃÍ
- *  ¬¤¤±¤ë      TRUE(1)
- *  ¬¤¤±¤Ê¤¤    FALSE(0)
+ *  fx          int     xç”„  
+ *  fy          int     yç”„  
+ *  isfly       int       æ°åŒ¹ä¸­æœˆäº•å‡ä¸¹äº•
+ * å¿’æ›°è¥–
+ *  æ´¶ä»ƒæœˆ      TRUE(1)
+ *  æ´¶ä»ƒå…ä¸­    FALSE(0)
  ------------------------------------------------------------*/
 BOOL MAP_walkAbleFromPoint( int ff, int fx, int fy, BOOL isfly )
 {
@@ -63,19 +63,19 @@ BOOL MAP_walkAbleFromPoint( int ff, int fx, int fy, BOOL isfly )
 
 
 /*------------------------------------------------------------
- * ¬¤¤±¤ë¤«¤É¤¦¤«  ÃÇ¤¹¤ë¡e
- * °ú¿ô
- *  index       int     Char    ¤Ç¤Î Index
+ * æ´¶ä»ƒæœˆäº•å‡ä¸¹äº•  è …å…æœˆã€”
+ * å©é†’
+ *  index       int     Char    åŒ¹åŠ Index
  *  ff          int     floor id
- *  fx          int     xºÂ  
- *  fy          int     yºÂ  
- * ÊÖ¤êÃÍ
- *  ¬¤¤¤¤Æ¤è¤¤      TRUE(1)
- *  ¬¤¤¤¤Æ¤Ï¥À¥á    FALSE(0)
+ *  fx          int     xç”„  
+ *  fy          int     yç”„  
+ * å¿’æ›°è¥–
+ *  æ´¶ä¸­åŒ–æ–¹ä¸­      TRUE(1)
+ *  æ´¶ä¸­åŒ–åæ¯ä¸Ÿ    FALSE(0)
  ------------------------------------------------------------*/
 BOOL MAP_walkAble( int index,int ff, int fx, int fy)
 {
-    /*      ¥­¥ã¥é¤Ê¤éOK    */
+    /*      å¹³ä¹“ä»¿å…æ—¥OK    */
     if( CHAR_getFlg( index, CHAR_ISTRANSPARENT ) )      return TRUE;
 
     // Arminius 7.9 Airplane ok
@@ -91,20 +91,20 @@ BOOL MAP_walkAble( int index,int ff, int fx, int fy)
 }
 
 /*------------------------------------------------------------
- * ºÂ  ¤ò»ØÄê¤·¤Æ¡b¤½¤³¤Î¥ª¥Ö¥¸¥§¥¯¥È¤Ë¹â¤µ¤¬¤¢¤ë¤«¤É¤¦¤«
- * °ú¿ô
- *  fl              int     ¥Õ¤Ò¥¢
- *  x               int     x ºÂ  
- *  y               int     y ºÂ  
- * ÊÖ¤êÃÍ
- *  ¹â¤µ¤¬¤¢¤ë  TRUE
- *  ¹â¤µ¤¬¤Ê¤¤  FALSE
+ * ç”„  æ¯›éš™çˆ›ä»„åŒ–ï½å…¬ä»‡åŠå·¦çš®æ–¥å°¼å¼ç„åå«–ä»Šäº’ä¸æœˆäº•å‡ä¸¹äº•
+ * å©é†’
+ *  fl              int     ç™½å¤«å¤±
+ *  x               int     x ç”„  
+ *  y               int     y ç”„  
+ * å¿’æ›°è¥–
+ *  å«–ä»Šäº’ä¸æœˆ  TRUE
+ *  å«–ä»Šäº’å…ä¸­  FALSE
  ------------------------------------------------------------*/
 BOOL MAP_haveHeight( int fl, int x, int y )
 {
     int     map[2];
 
-    /*  ¥Ş¥Ã¥×¥Ç¡¼¥¿¤ò  ¤Æ¤¯¤ë  */
+    /*  ç©´æ°¸çš¿çŠ¯â–¡æ­£æ¯›  åŒ–ä»æœˆ  */
     if( !MAP_getTileAndObjData( fl,x,y, &map[0], &map[1] ) )
         return FALSE;
 
@@ -114,20 +114,20 @@ BOOL MAP_haveHeight( int fl, int x, int y )
 
 
 /*----------------------------------------
- * ¥¹  ¡¼¥¿¥¹  ²½·Ï¤Î  ¹¹¤ò¤¹¤ë
- * °ú¿ô
- *  index   int     ¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- *  map     int     ¥Ş¥Ã¥×¥Ç¡¼¥¿
- *  outof   BOOL    ¿Ê¤à»ş¡bÂà¤¯»ş¤« TRUE ¤Ê¤é¤Ğ ¿Ê¤à»ş¤Ç¤¢¤ë¡e
- * ÊÖ¤êÃÍ
- *  ¥Ñ¥é¥á¡¼¥¿  ²½¤ò¤·¤¿    TRUE
- *  ¥Ñ¥é¥á¡¼¥¿  ²½¤ò¤·¤Ê¤«¤Ã¤¿  FALSE
+ * æ—¦  â–¡æ­£æ—¦  ç¥­ç…™åŠ  å‡³æ¯›å…æœˆ
+ * å©é†’
+ *  index   int     å¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ *  map     int     ç©´æ°¸çš¿çŠ¯â–¡æ­£
+ *  outof   BOOL    è¤¡æˆˆå‡œï½è½‰ä»å‡œäº• TRUE å…æ—¥å£¬ è¤¡æˆˆå‡œåŒ¹ä¸æœˆã€”
+ * å¿’æ›°è¥–
+ *  ç”±ä»¿ä¸Ÿâ–¡æ­£  ç¥­æ¯›ä»„å‡¶    TRUE
+ *  ç”±ä»¿ä¸Ÿâ–¡æ­£  ç¥­æ¯›ä»„å…äº•å‹»å‡¶  FALSE
   ----------------------------------------*/
 static BOOL MAP_changeCharStatusFromMapDataAndTime( int index,
                                                     int map, BOOL outof)
 {
 #if 0
-// ¥¹¥È¡¼¥ó¥¨¥¤¥¸¤Ç¤Ï»È¤ï¤Ê¤¤
+// æ—¦ç„â–¡ä»¶å·¨å¥¶æ–¥åŒ¹åéŠ€æ­¹å…ä¸­
     int i;
     int offset;
     BOOL    change=FALSE;
@@ -158,7 +158,7 @@ static BOOL MAP_changeCharStatusFromMapDataAndTime( int index,
                                   mapdataindex);
         if( newdata > 0 ){
             change=TRUE;
-            /*  ¥¹  ¡¼¥¿¥¹¤ÎÀßÄê    */
+            /*  æ—¦  â–¡æ­£æ—¦åŠæ¾€çˆ›    */
             CHAR_setInt( index,
                          statusInteraction[i+offset].charadataindex,
                          CHAR_getInt(index,
@@ -174,11 +174,11 @@ static BOOL MAP_changeCharStatusFromMapDataAndTime( int index,
 
 
 /*------------------------------------------------------------
- * Map ¥¤¥Ù¥ó¥È¤Î pre post¤ò½è  ¤¹¤ë
- * °ú¿ô
- *  index       int     ¾è¤í¤¦¤È¤·¤Æ¤¤¤ë¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- *  mode        BOOL    TRUE¤Î»ş¤Ï¡bin  FALSE¤Î»ş¤Ï out ¤ËÂĞ±ş
- * ÊÖ¤êÃÍ¤Ê¤·
+ * Map å¥¶çŸ›ä»¶ç„åŠ pre postæ¯›è³ª  å…æœˆ
+ * å©é†’
+ *  index       int     æ›‡æ¬ ä¸¹åˆä»„åŒ–ä¸­æœˆå¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ *  mode        BOOL    TRUEåŠå‡œåï½in  FALSEåŠå‡œå out åè¦†æ®º
+ * å¿’æ›°è¥–å…ä»„
  ------------------------------------------------------------*/
 static void MAP_dealprepostevent( int index, BOOL mode )
 {
@@ -187,7 +187,7 @@ static void MAP_dealprepostevent( int index, BOOL mode )
     int     damaged=FALSE,statuschange=FALSE;
 
     if( CHAR_getFlg(index,CHAR_ISFLYING) )
-        /*    ¤ó¤Ç¤ë¤ä¤Ä¤Ë¤Ï²¿¤â¤·¤Ê¤¤  */
+        /*    æ°åŒ¹æœˆæ”¯å‹¾ååçª’æ‰‹ä»„å…ä¸­  */
         return;
 
     if( !MAP_getMapDataFromCharIndex( index  ,  map ) ) return;
@@ -197,13 +197,13 @@ static void MAP_dealprepostevent( int index, BOOL mode )
         damage = MAP_getImageInt(map[i],
                                  mode ? MAP_INTODAMAGE : MAP_OUTOFDAMAGE);
         if( damage != 0 ){
-            /*  ¥À¥á¡¼¥¸¬¤¤òÀµ¤Ç  ¸½¤¹¤ë¤Î¤Ç  ¹æ  ¤ìÂØ¤¨    */
+            /*  æ¯ä¸Ÿâ–¡æ–¥æ´¶æ¯›æ‡‡åŒ¹  èœ‡å…æœˆåŠåŒ¹  å¯  æœ¨è´…å°¹    */
             int opt[2]={SPR_kmydamY,-damage};
             damaged=TRUE;
             CHAR_setInt(index, CHAR_HP,
                         CHAR_getInt(index,CHAR_HP) + damage );
             CHAR_complianceParameter(index);
-            /*  ¥À¥á¡¼¥¸¼õ¤±¤¿¥¨¥Õ¥§¥¯¥È½Ğ¤¹    */
+            /*  æ¯ä¸Ÿâ–¡æ–¥ç†¬ä»ƒå‡¶å·¨ç™½å°¼å¼ç„è«‹å…    */
             CHAR_sendWatchEvent(CHAR_getWorkInt(index,CHAR_WORKOBJINDEX),
                                 CHAR_ACTDAMAGE,opt,2,TRUE);
         }
@@ -221,15 +221,15 @@ static void MAP_dealprepostevent( int index, BOOL mode )
 
 
 /*----------------------------------------
- * ¤½¤Î¥¿¥¤¥ë¤Ë¾è¤ëÁ°¤Ë¸Æ¤Ğ¤ì¤ë¡e¤³¤³¤Ç¤½¤³¤«¤éÂà¤¯¤È¡bxxx·Ï¤Î
- * »ö¤ò  ¸½¤¹¤ë¡e
- * °ú¿ô
- *  index       int     ¾è¤í¤¦¤È¤·¤Æ¤¤¤ë¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- *  flooor      int     ¥Õ¤Ò¥¢ID
- *  fx          int     xºÂ  
- *  fy          int     yºÂ  
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * å…¬åŠæ­£å¥¶ä¼™åæ›‡æœˆèŸ†åè£Ÿå£¬æœ¨æœˆã€”ä»‡ä»‡åŒ¹å…¬ä»‡äº•æ—¥è½‰ä»åˆï½xxxç…™åŠ
+ * å„€æ¯›  èœ‡å…æœˆã€”
+ * å©é†’
+ *  index       int     æ›‡æ¬ ä¸¹åˆä»„åŒ–ä¸­æœˆå¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ *  flooor      int     ç™½å¤«å¤±ID
+ *  fx          int     xç”„  
+ *  fy          int     yç”„  
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ----------------------------------------*/
 void MAP_preovered( int index )
 {
@@ -237,11 +237,11 @@ void MAP_preovered( int index )
 }
 
 /*----------------------------------------
- * ¤½¤Î¥¿¥¤¥ë¤Ë¾è¤Ã¤¿  ¤Ë¸Æ¤Ğ¤ì¤ë¡e
- * °ú¿ô
- *  index       int     ¾è¤í¤¦¤È¤·¤Æ¤¤¤ë¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * å…¬åŠæ­£å¥¶ä¼™åæ›‡å‹»å‡¶  åè£Ÿå£¬æœ¨æœˆã€”
+ * å©é†’
+ *  index       int     æ›‡æ¬ ä¸¹åˆä»„åŒ–ä¸­æœˆå¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ----------------------------------------*/
 void MAP_postovered( int index )
 {
@@ -250,13 +250,13 @@ void MAP_postovered( int index )
 
 
 /*----------------------------------------
- * ¥­¥ã¥é¤Î¼ş¤ê¤Î¥Ş¥Ã¥×¤ò¤¹¤Ù¤ÆÁ÷¤ë
- * °ú¿ô
+ * å¹³ä¹“ä»¿åŠç’ƒæ›°åŠç©´æ°¸çš¿æ¯›å…å±¯åŒ–éœœæœˆ
+ * å©é†’
  *  fd          int
- *  charaindex  int     ¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- * ÊÖ¤êÃÍ
- *  ©¨      TRUE(1)
- *  ¼º      FALSE(0)
+ *  charaindex  int     å¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ * å¿’æ›°è¥–
+ *  å²³      TRUE(1)
+ *  æ’©      FALSE(0)
  ----------------------------------------*/
 BOOL MAP_sendArroundCharNeedFD( int fd,int charaindex )
 {
@@ -300,12 +300,12 @@ BOOL MAP_sendArroundCharNeedFD( int fd,int charaindex )
 
 
 /*----------------------------------------
- * ¥Ş¥Ã¥×¥Ç¡¼¥¿¤ò  ¤ë¡e
- * °ú¿ô
- *  charaindex      int     ¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- * ÊÖ¤êÃÍ
- *  ©¨      TRUE(1)
- *  ¼º      FALSE(0)
+ * ç©´æ°¸çš¿çŠ¯â–¡æ­£æ¯›  æœˆã€”
+ * å©é†’
+ *  charaindex      int     å¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ * å¿’æ›°è¥–
+ *  å²³      TRUE(1)
+ *  æ’©      FALSE(0)
  ----------------------------------------*/
 BOOL MAP_sendArroundChar(int charaindex)
 {

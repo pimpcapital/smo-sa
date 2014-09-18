@@ -40,7 +40,7 @@ void CHAR_CHAT_DEBUG_debug( int charaindex, char* message );
 void CHAR_CHAT_DEBUG_exp( int charindex , char *message );
 void CHAR_CHAT_DEBUG_dp( int charindex , char *message );
 void CHAR_CHAT_DEBUG_setTrans( int charaindex, char *message);
-//GM«ü¥O³]¸m­Ó¤HÁn±æ
+//GMæŒ‡ä»¤è¨­ç½®å€‹äººè²æœ›
 void CHAR_CHAT_DEBUG_charfame( int charaindex, char *message);
 
 #ifdef _JZ_CIRC_AN
@@ -87,7 +87,7 @@ void CHAR_CHAT_DEBUG_reset( int charaindex, char* message );
 #ifdef _GMRELOAD
 void CHAR_CHAT_DEBUG_gmreload(int charaindex, char *message);
 #endif
-#ifdef _CHAR_PROFESSION			// WON ADD ¤Hª«Â¾·~
+#ifdef _CHAR_PROFESSION			// WON ADD äººç‰©è·æ¥­
 void CHAR_CHAT_DEBUG_addsk( int charaindex, char *message );
 void CHAR_CHAT_DEBUG_delsk( int charaindex, char *message );
 #endif
@@ -103,10 +103,10 @@ void CHAR_CHAT_DEBUG_setgamblenum( int charaindex, char *message );
 #ifdef _WAEI_KICK
 void CHAR_CHAT_DEBUG_gmkick( int charindex, char* message);
 #endif
-// WON ADD ­×¥¿±Úªø°İÃD
+// WON ADD ä¿®æ­£æ—é•·å•é¡Œ
 void CHAR_CHAT_DEBUG_fixfmleader(int charaindex, char *message);
 
-// WON ADD ·í¾÷«ü¥O
+// WON ADD ç•¶æ©ŸæŒ‡ä»¤
 void CHAR_CHAT_DEBUG_crash(int charaindex, char *message);
 
 #ifdef _PETSKILL_SETDUCK
@@ -123,7 +123,7 @@ void CHAR_CHAT_DEBUG_getascore(int charindex, char *message);
 void CHAR_CHAT_DEBUG_acnewplayer(int charaindex, char *message);
 void CHAR_CHAT_DEBUG_loadnewplayer( int charaindex, char*message );
 #endif
-#ifdef _SEND_EFFECT	   	        // WON ADD AC°e¤U³·¡B¤U«Bµ¥¯S®Ä
+#ifdef _SEND_EFFECT	   	        // WON ADD ACé€ä¸‹é›ªã€ä¸‹é›¨ç­‰ç‰¹æ•ˆ
 void CHAR_CHAT_DEBUG_sendeffect(int charaindex, char *message);
 #endif
 #ifdef _TEST_DROPITEMS
@@ -135,7 +135,7 @@ void CHAR_CHAT_DEBUG_dropmyitem( int charindex , char *message );
 void CHAR_CHAT_DEBUG_cleanqute( int charaindex, char *message);
 #endif
 
-#ifdef _CHAR_PROFESSION			// WON ADD ¤Hª«Â¾·~
+#ifdef _CHAR_PROFESSION			// WON ADD äººç‰©è·æ¥­
 void CHAR_CHAT_DEBUG_show_profession( int charaindex, char*message );
 void CHAR_CHAT_DEBUG_set_regist( int charaindex, char*message );
 #endif
@@ -188,7 +188,7 @@ void CHAR_CHAT_DEBUG_ShowMyDepotPets( int charaindex, char *message );
 void CHAR_CHAT_DEBUG_InSideMyDepotPets( int charaindex, char *message );
 #endif
 
-#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 void CHAR_CHAR_DEBUG_reloadfm( int charaindex, char* message );
 void CHAR_CHAR_DEBUG_fmpk( int charaindex, char* message );
 void CHAR_CHAR_DEBUG_fmpk_clean( int charaindex, char* message );

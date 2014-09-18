@@ -9,13 +9,13 @@
 #include "magic_field.h"
 
 /*
- * ¼M¾å¤Ç¤Î  Ë¡¤Î½è  
+ * å˜©æ›‰åŒ¹åŠ  èŠŠåŠè³ª  
  */
 /*----------------------------------------------------------------------
- * ¼«Ê¬¤Î¤ß²óÉü
- * °ú¿ô
- * charaindex		int		¼«Ê¬¤Îindex
- * magicindex		int		  Ë¡¤Îindex
+ * æ†¤åŒåŠå¿ƒè¢æ±Š
+ * å©é†’
+ * charaindex		int		æ†¤åŒåŠindex
+ * magicindex		int		  èŠŠåŠindex
  *---------------------------------------------------------------------*/
 int MAGIC_Recovery_Field( int charaindex, int magicindex)
 {
@@ -67,18 +67,18 @@ int MAGIC_Recovery_Field( int charaindex, int magicindex)
 			}
 		}
 	}
-	snprintf( msgbuf, sizeof( msgbuf), "­@¤[¤O¦^´_%d",
+	snprintf( msgbuf, sizeof( msgbuf), "è€ä¹…åŠ›å›å¾©%d",
 			min( workhp, CHAR_getWorkInt( charaindex, CHAR_WORKMAXHP)) - prevhp);
 	CHAR_talkToCli( charaindex, -1, msgbuf, CHAR_COLORWHITE);
 	return TRUE;
 
 }
 /*----------------------------------------------------------------------
- * Â¾¿Í¤ò²óÉü
- * °ú¿ô
- * charaindex		int		¼«Ê¬¤Îindex
- * toindex			int		²óÉü¤¹¤ë¿Í¤Îindex
- * magicindex		int		  Ë¡¤Îindex
+ * è·è«¦æ¯›è¢æ±Š
+ * å©é†’
+ * charaindex		int		æ†¤åŒåŠindex
+ * toindex			int		è¢æ±Šå…æœˆè«¦åŠindex
+ * magicindex		int		  èŠŠåŠindex
  *---------------------------------------------------------------------*/
 int MAGIC_OtherRecovery_Field( int charaindex, int toindex, int magicindex)
 {
@@ -125,20 +125,20 @@ int MAGIC_OtherRecovery_Field( int charaindex, int toindex, int magicindex)
 	}
 
 	if( charaindex != toindex) {
-		snprintf( msgbuf, sizeof( msgbuf), "%sªº­@¤[¤O¦^´_%d",
+		snprintf( msgbuf, sizeof( msgbuf), "%sçš„è€ä¹…åŠ›å›å¾©%d",
 				CHAR_getUseName( toindex ),
 				min( workhp, CHAR_getWorkInt( toindex, CHAR_WORKMAXHP)) - prevhp);
 		CHAR_talkToCli( charaindex, -1, msgbuf, CHAR_COLORWHITE);
 
 		if( CHAR_getInt( toindex, CHAR_WHICHTYPE) == CHAR_TYPEPLAYER) {
-			snprintf( msgbuf, sizeof( msgbuf), "ÂÇ¥Ñ%s­@¤[¤O¦^´_%d",
+			snprintf( msgbuf, sizeof( msgbuf), "è—‰ç”±%sè€ä¹…åŠ›å›å¾©%d",
 					CHAR_getUseName( charaindex ),
 					min( workhp,CHAR_getWorkInt( toindex, CHAR_WORKMAXHP)) - prevhp);
 			CHAR_talkToCli( toindex, -1, msgbuf, CHAR_COLORWHITE);
 		}
 	}
 	else {
-		snprintf( msgbuf, sizeof( msgbuf), "­@¤[¤O¦^´_%d",
+		snprintf( msgbuf, sizeof( msgbuf), "è€ä¹…åŠ›å›å¾©%d",
 				min( workhp,CHAR_getWorkInt( charaindex, CHAR_WORKMAXHP)) - prevhp);
 		CHAR_talkToCli( charaindex, -1, msgbuf, CHAR_COLORWHITE);
 

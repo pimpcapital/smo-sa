@@ -10,8 +10,8 @@
 #ifdef _PETRACE
 #include "npc_petracepet.h"
 
-#define PETRACEPET_WAIT_LOOPTIME			30000	// 30¬í
-#define PETRACEPET_SHOWWIN_LOOPTIME			10000	// 10¬í
+#define PETRACEPET_WAIT_LOOPTIME			30000	// 30ç§’
+#define PETRACEPET_SHOWWIN_LOOPTIME			10000	// 10ç§’
 
 static void	NPC_PetRacePet_Walk(int meindex);
 static int NPC_PetRacePetSetPoint(int meindex, char *argstr);
@@ -113,7 +113,7 @@ void NPC_PetRacePetLoop( int meindex)
 						random = 3;
 				else
 					random = RAND(0, 8);
-				if (random == 0) // §ğÀ»
+				if (random == 0) // æ”»æ“Š
 				{
 					int rands = RAND(0, 3);
 					interval = 1500;
@@ -125,19 +125,19 @@ void NPC_PetRacePetLoop( int meindex)
 						int master = CHAR_getWorkInt(meindex, NPC_WORK_MASTER);
 						int randomi = RAND(1, 9);
 						if (randomi == 1)
-							snprintf(tmpbuf, sizeof(tmpbuf), "®@¡ã¬İ¨Ó%s¦n¹³µo«Â¤F­ò¡I",
+							snprintf(tmpbuf, sizeof(tmpbuf), "å“¦ï½çœ‹ä¾†%så¥½åƒç™¼å¨äº†å”·ï¼",
 								CHAR_getChar(meindex, CHAR_NAME));
 						else if (randomi == 2)
-							snprintf(tmpbuf, sizeof(tmpbuf), "%s¨Ï¥X¤F¾Ä¤Oªº¤@À»¡ã",
+							snprintf(tmpbuf, sizeof(tmpbuf), "%sä½¿å‡ºäº†å¥®åŠ›çš„ä¸€æ“Šï½",
 								CHAR_getChar(meindex, CHAR_NAME));
 						else if (randomi == 3)
-							snprintf(tmpbuf, sizeof(tmpbuf), "«x...%sµo«ã¤F¡H",
+							snprintf(tmpbuf, sizeof(tmpbuf), "å’¦...%sç™¼æ€’äº†ï¼Ÿ",
 								CHAR_getChar(meindex, CHAR_NAME));
 						if (randomi > 0 && randomi < 4)
 							CHAR_talkToFloor(floor, master, tmpbuf, CHAR_COLORWHITE);
 					}
 				}
-				else if (random == 1) // ·w­Ë
+				else if (random == 1) // æšˆå€’
 				{
 					int rands = RAND(0, 3);
 					interval = 2500;
@@ -149,24 +149,24 @@ void NPC_PetRacePetLoop( int meindex)
 						int master = CHAR_getWorkInt(meindex, NPC_WORK_MASTER);
 						int randomi = RAND(1, 9);
 						if (randomi == 1)
-							snprintf(tmpbuf, sizeof(tmpbuf), "%s¦n¹³·w­Ë¤F©O...",
+							snprintf(tmpbuf, sizeof(tmpbuf), "%så¥½åƒæšˆå€’äº†å‘¢...",
 								CHAR_getChar(meindex, CHAR_NAME));
 						else if (randomi == 2)
-							snprintf(tmpbuf, sizeof(tmpbuf), "%s¨ü¶Ë¤F¶Ü¡H",
+							snprintf(tmpbuf, sizeof(tmpbuf), "%så—å‚·äº†å—ï¼Ÿ",
 								CHAR_getChar(meindex, CHAR_NAME));
 						else if (randomi == 3)
-							snprintf(tmpbuf, sizeof(tmpbuf), "¼K...%s·w­Ë«á¤S«i´±ªºª¦°_¨Ó¤F¡I",
+							snprintf(tmpbuf, sizeof(tmpbuf), "å˜¿...%sæšˆå€’å¾Œåˆå‹‡æ•¢çš„çˆ¬èµ·ä¾†äº†ï¼",
 								CHAR_getChar(meindex, CHAR_NAME));
 						if (randomi > 0 && randomi < 4)
 							CHAR_talkToFloor(floor, master, tmpbuf, CHAR_COLORWHITE);
 					}
 				}
-				else if (random == 2) // ¯¸¥ß
+				else if (random == 2) // ç«™ç«‹
 				{
 					interval = 500;
 					CHAR_sendAction(meindex, 3, FALSE);
 				}
-				else // ¤@¯ë
+				else // ä¸€èˆ¬
 					interval = RAND(20, 100);
 				NPC_PetRacePet_Walk(meindex);
 				CHAR_setInt(meindex, CHAR_LOOPINTERVAL, interval);
@@ -203,7 +203,7 @@ static void NPC_PetRacePet_Walk(int meindex)
 
 		if (NPC_PetRacePetSetPoint(meindex, argstr) == FALSE)
 		{
-			// ¨ì¹F¥Øªº¦a«á¡Aªì©lª¬ºA
+			// åˆ°é”ç›®çš„åœ°å¾Œï¼Œåˆå§‹ç‹€æ…‹
 			char tmpbuf[256];
 			int masterindex = CHAR_getWorkInt(meindex, NPC_WORK_MASTER);
 			int petgoal = CHAR_getWorkInt(masterindex, CHAR_NPCWORKINT9);
@@ -212,13 +212,13 @@ static void NPC_PetRacePet_Walk(int meindex)
 			{
 				CHAR_setWorkInt(masterindex, CHAR_NPCWORKINT8, meindex);
 				CHAR_sendAction(meindex, 3, FALSE);
-				snprintf(tmpbuf, sizeof(tmpbuf), "­º¥ı¨ì¹F¥Øªº¦aªº¬O...%s",
+				snprintf(tmpbuf, sizeof(tmpbuf), "é¦–å…ˆåˆ°é”ç›®çš„åœ°çš„æ˜¯...%s",
 					CHAR_getChar(meindex, CHAR_NAME));
 			}
 			else
 			{
 				CHAR_warpToSpecificPoint(meindex, 888, 7, 7);
-				snprintf(tmpbuf, sizeof(tmpbuf), "±µµÛ¨ì¹F¥Øªº¦aªº¬O...%s",
+				snprintf(tmpbuf, sizeof(tmpbuf), "æ¥è‘—åˆ°é”ç›®çš„åœ°çš„æ˜¯...%s",
 					CHAR_getChar(meindex, CHAR_NAME));
 			}
 			CHAR_setWorkInt(meindex, NPC_WORK_STATE, NPC_State_ShowWin);
@@ -250,7 +250,7 @@ static void NPC_PetRacePet_Walk(int meindex)
 
 static int NPC_PetRacePetSetPoint(int meindex, char *argstr)
 {
-	// ´M§ä¤U¤@¨B x , y
+	// å°‹æ‰¾ä¸‹ä¸€æ­¥ x , y
 	char buf[4096], buf2[256], buf3[256];
 	int ret;
 	char routetostring[64];

@@ -95,7 +95,7 @@ BOOL NPC_WarpManInit( int meindex )
    	CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEWARPMAN );
 #ifdef _NEW_WARPMAN
 	if( strstr( npcarg,"NEWWARPMAN") )      {
-			//timeman ¥\¯à
+			//timeman åŠŸèƒ½
 			CHAR_setWorkInt( meindex, NPC_TIME_MODE, 1);
 			if(NPC_Util_GetStrFromStrWithDelim( npcarg, "NEWTIME", buff2, sizeof( buff2)) != NULL ){
 				CHAR_setInt( meindex, CHAR_LOOPINTERVAL, 60*1000);
@@ -170,7 +170,7 @@ void NPC_WarpManTalked( int meindex , int talkerindex , char *szMes ,int color )
 		NPC_NewWarpMan_selectWindow( meindex ,talkerindex, 0, -1, szMes);
 		return;
 	}else	{
-		if(NPC_PARTY_CHAECK( meindex, talkerindex) == FALSE)	{//¦³²Õ¶¤
+		if(NPC_PARTY_CHAECK( meindex, talkerindex) == FALSE)	{//æœ‰çµ„éšŠ
 			NPC_ERR_DiSP( meindex, talkerindex, 1);
 			return;
 		}
@@ -189,7 +189,7 @@ void NPC_WarpManTalked( int meindex , int talkerindex , char *szMes ,int color )
 #else
 	
 	
-	if(NPC_PARTY_CHAECK( meindex, talkerindex) == FALSE)	{//¦³²Õ¶¤
+	if(NPC_PARTY_CHAECK( meindex, talkerindex) == FALSE)	{//æœ‰çµ„éšŠ
 		NPC_ERR_DiSP( meindex, talkerindex, 1);
 		return;
 	}
@@ -592,8 +592,8 @@ void NPC_ERR_DiSP(int meindex,int talker,int errNO)
 	}	
 	if(errNO==1){
 		if(NPC_Util_GetStrFromStrWithDelim( npcarg, "PartyMsg",token, sizeof( token))==NULL) {
-			sprintf(token,"\n\n        µLªk¥[¤J¹Î¶¤¡C    "
-				"\n\n       ½Ğ¸Ñ´²¹Î¶¤ ¡C  ");
+			sprintf(token,"\n\n        ç„¡æ³•åŠ å…¥åœ˜éšŠã€‚    "
+				"\n\n       è«‹è§£æ•£åœ˜éšŠ ã€‚  ");
 		}
 		if(CHAR_getWorkInt(talker,CHAR_WORKPARTYMODE)==CHAR_PARTY_CLIENT){			
 		}else{	
@@ -613,8 +613,8 @@ void NPC_ERR_DiSP(int meindex,int talker,int errNO)
 		}
 	}else if (errNO==2){
 		if(NPC_Util_GetStrFromStrWithDelim( npcarg, "MoneyMsg", token, sizeof( token))==NULL){
-			sprintf(token,"\n\n        ¦ü¥Gª÷¿ú¤£¨¬­ò¡C    "
-				"\n\n  ½Ğ¦s¦n¿ú«á¡A¦A¹L¨Ó¡C");
+			sprintf(token,"\n\n        ä¼¼ä¹é‡‘éŒ¢ä¸è¶³å”·ã€‚    "
+				"\n\n  è«‹å­˜å¥½éŒ¢å¾Œï¼Œå†éä¾†ã€‚");
 		}
 	}
 	lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
@@ -690,12 +690,12 @@ BOOL NPC_WarpMsg(int meindex,int talker,char *arg)
 			if( !ITEM_CHECKINDEX( itemi) ) continue;
 			if( strcmp( ITEM_getChar( itemi, ITEM_USEFUNC), "ITEM_timeticket") )	continue;
 			//if( ITEM_getInt( itemi ,ITEM_ID) != 20646 )	continue;
-			CHAR_talkToCli( talker, -1, "¦Û°Ê¨Ï¥Îªù²¼¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( talker, -1, "è‡ªå‹•ä½¿ç”¨é–€ç¥¨ã€‚", CHAR_COLORYELLOW);
 			ITEM_timeticketEx( talker, talker, havei, 1);
 			break;
 		}
 		if( havei == CHAR_MAXITEMHAVE ) {
-			CHAR_talkToCli( talker, -1, "½Ğ¥ı·Ç³Æ±M¥Îªù²¼¤~¥i¶i¤J¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( talker, -1, "è«‹å…ˆæº–å‚™å°ˆç”¨é–€ç¥¨æ‰å¯é€²å…¥ã€‚", CHAR_COLORYELLOW);
 			return FALSE;
 		}
 	}
@@ -753,10 +753,10 @@ static void NPC_NewWarpMan_selectWindow( int meindex, int toindex, int num,int s
 
 	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 	sprintf( buf1,"TALKEVENT");
-	//´M§ä¦hºØ±ø¥ó FREE
+	//å°‹æ‰¾å¤šç¨®æ¢ä»¶ FREE
 	while(getStringFromIndexWithDelim( npcarg,"OVER",talkNo,buf,sizeof( buf)) != FALSE)	{ 
 	  if(strstr(buf, buf1) != NULL) {
-	    //ÀË¬d¹ï¸Ü  ·t»y
+	    //æª¢æŸ¥å°è©±  æš—èª
 		RunType = CheckWarpMsg( meindex, toindex, buf , TalkStr);
 		if( RunType > 1 )	{
 			return;
@@ -769,11 +769,11 @@ static void NPC_NewWarpMan_selectWindow( int meindex, int toindex, int num,int s
 	      return;
 	    }
 
-	    //ÀË¬dª±®a¬O§_ªş¦X±ø¥ó		
+	    //æª¢æŸ¥ç©å®¶æ˜¯å¦é™„åˆæ¢ä»¶		
 	    if((NPC_ActionPassCheck(meindex,toindex,token)==TRUE) || (strstr( token, "ALLFREE")!=NULL) )	{
 		  CHAR_setWorkInt( toindex, CHAR_WORKSHOPRELEVANT, talkNo-1);
 
-	      //­Yªş¦X±ø¥ó ¨ú¥X FreeMsg ¦r¦ê
+	      //è‹¥é™„åˆæ¢ä»¶ å–å‡º FreeMsg å­—ä¸²
 	      if(NPC_Util_GetStrFromStrWithDelim( buf, "FreeMsg", token, sizeof( token))==NULL)
 	        return;
 	      CONNECT_set_pass(fd,TRUE);
@@ -788,7 +788,7 @@ static void NPC_NewWarpMan_selectWindow( int meindex, int toindex, int num,int s
 	  talkNo++;
 	}
 
-	//µL¥ô¦ó±ø¥ó¦¨¥ß
+	//ç„¡ä»»ä½•æ¢ä»¶æˆç«‹
 	if( tenflg == FALSE )	{
 		if( getStringFromIndexWithDelim( npcarg,"OVER",1,buf,sizeof( buf)) == FALSE )
 			return;
@@ -804,7 +804,7 @@ static void NPC_NewWarpMan_selectWindow( int meindex, int toindex, int num,int s
 		}
 	}
 
-	//°e°T®§µ¹ CLI						
+	//é€è¨Šæ¯çµ¦ CLI						
 	lssproto_WN_send( fd, windowtype, buttontype, windowno,
 			CHAR_getWorkInt( meindex, CHAR_WORKOBJINDEX), token	);																				
 }
@@ -928,14 +928,14 @@ void NPC_WarpManWatch( int meobjindex, int objindex, CHAR_ACTION act,
 #ifdef _TREASURE_BOX
 	if( CHAR_getWorkInt( meindex, NPC_TIME_EVENTMODE) == NPC_EVENTMODE_OPEN ){
 		if( CHAR_getWorkInt( meindex, NPC_TIME_EVENTTIME) < NowTime.tv_sec ){
-			//ÅÜ¦^Ä_½c
+			//è®Šå›å¯¶ç®±
 			CHAR_setWorkInt( meindex, NPC_TIME_EVENTMODE, NPC_EVENTMODE_EVENT);
-			//ÅÜ¹Ï
+			//è®Šåœ–
 			CHAR_setInt( meindex, CHAR_BASEBASEIMAGENUMBER,
 				CHAR_getWorkInt( meindex, NPC_TIME_EVENOFFDBBI));
 			CHAR_setInt( meindex, CHAR_BASEIMAGENUMBER,
 				CHAR_getWorkInt( meindex, NPC_TIME_EVENOFFDBBI));
-			NPC_TreasureEventRunMsg( meindex);	//¬O§_warp
+			NPC_TreasureEventRunMsg( meindex);	//æ˜¯å¦warp
 			CHAR_sendCToArroundCharacter( CHAR_getWorkInt( meindex, CHAR_WORKOBJINDEX ) );
 		}
 	}
@@ -992,7 +992,7 @@ BOOL NPC_TreasureRandItemGet(int meidex,int talker,int rand_j,char *buf)
 	char token[128];
 
 	if(rand_j == 0) {
-		print("Event:¥Ñ©ó¢¯ªº¤¶¤J¡A¥X²{¿ù»~¡C");
+		print("Event:ç”±æ–¼ï¼çš„ä»‹å…¥ï¼Œå‡ºç¾éŒ¯èª¤ã€‚");
  		return FALSE;
  	}
  	
@@ -1005,7 +1005,7 @@ BOOL NPC_TreasureRandItemGet(int meidex,int talker,int rand_j,char *buf)
 
 	if(itemindex == -1) return FALSE;
 	
-	/*¥¢¥¤  ¥à¤ÎÄÉ²Ã(  ÀÜ¥¢¥¤  ¥à  ¤Ë¤¤¤ì¤Æ¤·¤Ş¤¦  */
+	/*å¤±å¥¶  ä¸åŠé¦¨ç¬›(  æ¿¤å¤±å¥¶  ä¸  åä¸­æœ¨åŒ–ä»„å¼•ä¸¹  */
 	ret = CHAR_addItemSpecificItemIndex( talker, itemindex);
 	if( !CHAR_CHECKITEMINDEX( talker, ret) ){
 		print( "npc_exchangeman.c: additem error itemindex[%d]\n", itemindex);
@@ -1015,14 +1015,14 @@ BOOL NPC_TreasureRandItemGet(int meidex,int talker,int rand_j,char *buf)
 
 	if(itemindex != -1) {
 		LogItem(
-			CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+			CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 			CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 			itemindex,
 #else
-			ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+			ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-			"EventAddItem(¥ô°È»İ¨D©Ò±o¨ìªº¹D¨ã)",
+			"EventAddItem(ä»»å‹™éœ€æ±‚æ‰€å¾—åˆ°çš„é“å…·)",
 			CHAR_getInt( talker,CHAR_FLOOR),
 			CHAR_getInt( talker,CHAR_X ),
  			CHAR_getInt( talker,CHAR_Y ),
@@ -1032,7 +1032,7 @@ BOOL NPC_TreasureRandItemGet(int meidex,int talker,int rand_j,char *buf)
 		);
 	}
 					
-	sprintf(token,"¦¬¤U¤F%s",ITEM_getChar( itemindex, ITEM_NAME));
+	sprintf(token,"æ”¶ä¸‹äº†%s",ITEM_getChar( itemindex, ITEM_NAME));
 	CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 
 	CHAR_sendItemDataOne( talker, ret);
@@ -1040,7 +1040,7 @@ BOOL NPC_TreasureRandItemGet(int meidex,int talker,int rand_j,char *buf)
 
 }
 
-#ifdef  _NPC_ADDLEVELUP				// (¤£¥i¶}) ANDY ¥~³¡´ú¸Õ¾÷¥Î¨Ó¼W¥[ª±®aµ¥¯Å
+#ifdef  _NPC_ADDLEVELUP				// (ä¸å¯é–‹) ANDY å¤–éƒ¨æ¸¬è©¦æ©Ÿç”¨ä¾†å¢åŠ ç©å®¶ç­‰ç´š
 extern  tagRidePetTable ridePetTable[146];
 void NPC_LevelAndTransUp( int meindex, int charindex, int level, int skillpoint, int exp, int ridepet)
 {
@@ -1055,12 +1055,12 @@ void NPC_LevelAndTransUp( int meindex, int charindex, int level, int skillpoint,
 		if( myexp > 300000000 ) myexp = 300000000;
 		CHAR_setInt( charindex, CHAR_EXP, myexp);
 		snprintf( szBuffer, sizeof(szBuffer),
-			"(%s) ±o¨ì EXP %d", CHAR_getUseName( charindex ), exp);
+			"(%s) å¾—åˆ° EXP %d", CHAR_getUseName( charindex ), exp);
 		CHAR_talkToCli( charindex, -1, szBuffer, CHAR_COLORYELLOW);
 		LevelUp = CHAR_LevelUpCheck( charindex , -1);
 		if( LevelUp > 0 ){
 			snprintf( szBuffer, sizeof(szBuffer),
-				"(%s) ¤É¯Å¦Ü %d",
+				"(%s) å‡ç´šè‡³ %d",
 				CHAR_getUseName( charindex ),
 				CHAR_getInt( charindex, CHAR_LV )
 			);
@@ -1074,7 +1074,7 @@ void NPC_LevelAndTransUp( int meindex, int charindex, int level, int skillpoint,
 	if( level > 0 ){
 		CHAR_setInt( charindex, CHAR_LV, level);
 		snprintf( szBuffer, sizeof(szBuffer),
-			"(%s) µ¥¯Å³]©w¬° %d",
+			"(%s) ç­‰ç´šè¨­å®šç‚º %d",
 			CHAR_getUseName( charindex ),	CHAR_getInt( charindex, CHAR_LV )
 		);
 		CHAR_talkToCli( charindex, -1, szBuffer, CHAR_COLORYELLOW);
@@ -1106,20 +1106,20 @@ void NPC_LevelAndTransUp( int meindex, int charindex, int level, int skillpoint,
 		}
 		j=0;
 		for( petNum=0; petNum<arraysizeof( petTemp); petNum++)	{
-			enemyarray = ENEMY_getEnemyArrayFromId( petTemp[ petNum]); //¥Õªê
+			enemyarray = ENEMY_getEnemyArrayFromId( petTemp[ petNum]); //ç™½è™
 			petindex = ENEMY_createPetFromEnemyIndex( charindex, enemyarray);
 			if( petindex == -1 ) {
 				continue;
 			}
 			j++;
-			for( k = 1; k < 120; k ++ ){	//¤É¯Å
+			for( k = 1; k < 120; k ++ ){	//å‡ç´š
 				CHAR_PetLevelUp( petindex );
 				CHAR_PetAddVariableAi( petindex, AI_FIX_PETLEVELUP );
 				CHAR_setInt( petindex, CHAR_LV, CHAR_getInt( petindex, CHAR_LV) +1 );
 			}
 			CHAR_complianceParameter( petindex );
 			CHAR_setInt( petindex , CHAR_HP , CHAR_getWorkInt( petindex , CHAR_WORKMAXHP ) );
-			snprintf( szBuffer, sizeof(szBuffer), "±o¨ì%s", CHAR_getUseName( petindex) );
+			snprintf( szBuffer, sizeof(szBuffer), "å¾—åˆ°%s", CHAR_getUseName( petindex) );
 			CHAR_talkToCli( charindex, -1, szBuffer, CHAR_COLORYELLOW);
 		}
 		for(j = 0; j < CHAR_MAXPETHAVE; j++){

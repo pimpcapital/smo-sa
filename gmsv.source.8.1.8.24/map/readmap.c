@@ -243,12 +243,12 @@ BOOL MAP_readBattleMapConfFile( char* filename )
 			iRet = sscanf( line+1, "%d %d %d", &iPre[0], &iPre[1], &iPre[2] );
 			BattleMapNo[0] = BattleMapNo[1] = BattleMapNo[2] = iPre[0];
 			if( iRet < 1 ){
-				print( "!!!!!ERROR µLªkÅª¨ú¾Ô°«¦a¹Ï(%s)( line %d )\n", filename, linenum );
+				print( "!!!!!ERROR ç„¡æ³•è®€å–æˆ°é¬¥åœ°åœ–(%s)( line %d )\n", filename, linenum );
 			}
 			for( i = 0; i < iRet; i ++ ){
 				BattleMapNo[i] = iPre[i];
 				if( BattleMapNo[i] < 0 ){
-					print( "!!!!!ERROR ¾Ô°«¦a¹Ï¸¹½X¬°­t­È (%s)( line %d )\n", filename, linenum );
+					print( "!!!!!ERROR æˆ°é¬¥åœ°åœ–è™Ÿç¢¼ç‚ºè² å€¼ (%s)( line %d )\n", filename, linenum );
 				}
 			}
 
@@ -259,7 +259,7 @@ BOOL MAP_readBattleMapConfFile( char* filename )
 			continue;
 		}
 		if( iWork < 0 ){
-			print( "!!!!!ERROR ª÷¿ú¸¹½X¬°­t­È (%s)( line %d )\n", filename, linenum );
+			print( "!!!!!ERROR é‡‘éŒ¢è™Ÿç¢¼ç‚ºè² å€¼ (%s)( line %d )\n", filename, linenum );
 			continue;
 		}
 		iFirst = iWork;
@@ -271,7 +271,7 @@ BOOL MAP_readBattleMapConfFile( char* filename )
 				iLast = iWork;
 			}
 			if( iWork < 0 ){
-				print( "!!!!!ERROR ª÷¿ú¸¹½X¬°­t­È (%s)( line %d )\n", filename, linenum );
+				print( "!!!!!ERROR é‡‘éŒ¢è™Ÿç¢¼ç‚ºè² å€¼ (%s)( line %d )\n", filename, linenum );
 				continue;
 			}
 		}else{
@@ -280,13 +280,13 @@ BOOL MAP_readBattleMapConfFile( char* filename )
 
 		for( i = iFirst; i <= iLast; i ++ ){
 			if( MAP_getImageInt( i, MAP_SETED_BATTLEMAP ) > 0 ){
-				print( "!!!!!Warning ¬Û¦Pª÷¿ú­«½Æ³]©w¤F¨â¦¸(%s)( line %d )(%d)(%d & %d)\n",
+				print( "!!!!!Warning ç›¸åŒé‡‘éŒ¢é‡è¤‡è¨­å®šäº†å…©æ¬¡(%s)( line %d )(%d)(%d & %d)\n",
 					filename, linenum, i,
 					MAP_getImageInt( i, MAP_BATTLEMAP ),
 					BattleMapNo[0] );
 			}
 
-			//   Áü  ¹æÀµ¤·¤¤¤«¡ª
+			//   é¢¶  å¯æ‡‡ä»„ä¸­äº•ã€
 			if( IsValidImagenumber( i ) == FALSE ){
 				continue;
 			}
@@ -302,7 +302,7 @@ BOOL MAP_readBattleMapConfFile( char* filename )
 	for( j = 0; j < arraysizeof( MAP_imgfilt ); j ++ ){
 		if( MAP_imgfilt[j] == -1 )continue;
 		if( MAP_getImageInt( j, MAP_SETED_BATTLEMAP ) == 0 ){
-			print( "!!!!!Error ª÷¿ú(%d)©|¥¼³]©w (%s)\n", j, filename );
+			print( "!!!!!Error é‡‘éŒ¢(%d)å°šæœªè¨­å®š (%s)\n", j, filename );
 		}
 	}
     return TRUE;
@@ -408,20 +408,20 @@ FCLOSERETURNTRUE:
 
 static BOOL MAP_readMapOne( char*   filename )
 {
-    FILE*   f;					/*  ¥Õ¥¡¥¤¥ë    */
-    char    buf[16];            /*  ¥Ş¥¸¥Ã¥¯¥Ê¥ó¥Ğ¡¼  ¤ßÍÑ  */
-    short   data[1024];         /*  ¼³¥ç¡¼¥È  ¤ßÍÑ¥Ğ¥Ã¥Õ¥¡  */
-    int     ret;                /*  ÊÖ¤êÃÍ¼õ¤±¼è¤êÍÑ        */
-    int     i;                  /*  ¥ë¡¼¥×  ¿ô  */
+    FILE*   f;					/*  ç™½å¤®å¥¶ä¼™    */
+    char    buf[16];            /*  ç©´æ–¥æ°¸å¼ç“œä»¶ç”°â–¡  å¿ƒè¿•  */
+    short   data[1024];         /*  æ’²äº¦â–¡ç„  å¿ƒè¿•ç”°æ°¸ç™½å¤®  */
+    int     ret;                /*  å¿’æ›°è¥–ç†¬ä»ƒæ½¸æ›°è¿•        */
+    int     i;                  /*  ä¼™â–¡çš¿  é†’  */
     int     mapindex;
 
-    int     id=0,xsiz=0,ysiz=0;     /*  ¥Ş¥Ã¥×¥Ç¡¼¥¿¤Î°ì»ş³Ê  ¾ì½ê  */
+    int     id=0,xsiz=0,ysiz=0;     /*  ç©´æ°¸çš¿çŠ¯â–¡æ­£åŠåŸŸå‡œå‚˜  æ¨ºèµ­  */
 
     short   *tile=NULL;
     short   *obj=NULL;
     MAP_Objlink**   olink=NULL;
-    char    showstring[32];         /*  ¥Ş¥Ã¥×¥Ç¡¼¥¿¤Î°ì»ş³Ê  ¾ì½ê  */
-    struct  stat    filestat;       /*  ¥Á¥§¥Ã¥¯ÍÑ¤Ë»È¤¦    */
+    char    showstring[32];         /*  ç©´æ°¸çš¿çŠ¯â–¡æ­£åŠåŸŸå‡œå‚˜  æ¨ºèµ­  */
+    struct  stat    filestat;       /*  æ°‘å°¼æ°¸å¼è¿•åéŠ€ä¸¹    */
     BOOL    invaliddata=FALSE;
     if( MAP_mapnum_index >= MAP_mapnum ){
         fprint( "There is no space left on MapArray.\n" );
@@ -620,8 +620,8 @@ BOOL CHECKFLOORID( id)
 }
 #endif
 
-//#define MAX_MAP_FILES 1200 // ¦a¹Ï¥Ø¿ı³Ì¤jÀÉ®×¼Æ
-#define MAX_MAP_FILES 2000 // ¦a¹Ï¥Ø¿ı³Ì¤jÀÉ®×¼Æ
+//#define MAX_MAP_FILES 1200 // åœ°åœ–ç›®éŒ„æœ€å¤§æª”æ¡ˆæ•¸
+#define MAX_MAP_FILES 2000 // åœ°åœ–ç›®éŒ„æœ€å¤§æª”æ¡ˆæ•¸
 
 BOOL MAP_readMapDir( char*  dirname )
 {
@@ -1443,7 +1443,7 @@ void MAP_sendAroundMapdata( int fl, int fromx, int fromy)
 	}
 }
 
-#ifdef _STATUS_WATERWORD //¤ô¥@¬Éª¬ºA
+#ifdef _STATUS_WATERWORD //æ°´ä¸–ç•Œç‹€æ…‹
 int MAP_getMapFloorType( int floor)
 {
 	int i=0;

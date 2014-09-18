@@ -12,17 +12,17 @@
 #include "npc_petracemaster.h"
 
 #define PETRACEPETNUM		3
-#define PETRACEMASTER_INITPET_LOOPTIME			3000	// 3¬í
-#define PETRACEMASTER_WAITDROPI_LOOPTIME		30000	// 30¬í
-#define PETRACEMASTER_WAITDROPII_LOOPTIME		10000	// 10¬í
-#define PETRACEMASTER_WAITDROPIII_LOOPTIME	5000	// 5¬í
-#define PETRACEMASTER_WAITDROPIV_LOOPTIME		1000	// 1¬í
-#define PETRACEMASTER_PETRACING_LOOPTIME		3000	// 3¬í
-#define PETRACEMASTER_SHOWWINPET_LOOPTIME		10000	// 10¬í
-#define PETRACEDROPSTAKETIME						120	// 2¤ÀÄÁ 120
-#define PETRACESHOWWINPET							30		// 30¬í
+#define PETRACEMASTER_INITPET_LOOPTIME			3000	// 3ç§’
+#define PETRACEMASTER_WAITDROPI_LOOPTIME		30000	// 30ç§’
+#define PETRACEMASTER_WAITDROPII_LOOPTIME		10000	// 10ç§’
+#define PETRACEMASTER_WAITDROPIII_LOOPTIME	5000	// 5ç§’
+#define PETRACEMASTER_WAITDROPIV_LOOPTIME		1000	// 1ç§’
+#define PETRACEMASTER_PETRACING_LOOPTIME		3000	// 3ç§’
+#define PETRACEMASTER_SHOWWINPET_LOOPTIME		10000	// 10ç§’
+#define PETRACEDROPSTAKETIME						120	// 2åˆ†é˜ 120
+#define PETRACESHOWWINPET							30		// 30ç§’
 #define PETRACESTDPAYRATE							6
-#define PETRACESTDGOLD								1		// ­pºâ½ß²v®É°ò¥»ª÷ÃB 1000
+#define PETRACESTDGOLD								1		// è¨ˆç®—è³ çŽ‡æ™‚åŸºæœ¬é‡‘é¡ 1000
 
 static void NPC_PetRaceMaster_selectWindow(int meindex, int toindex, int num, int select);
 void NPC_findRacePetIndex(int meindex, int floor);
@@ -77,64 +77,64 @@ typedef struct tagPetRaceGraTable
 #ifdef _DROPSTAKENEW
 PetRaceGraTable petracegra[27] =
 {
-	{100820, 100821, 100822, "¼³º¡¯Q¤O", "¯Q¤OµÜ¼w", "¯Q¤O©T¤O", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100823, 100824, 100825, "¥¬¨Ì¥¬¾|", "¥¬¨Ì¥¬¨Ì", "¥¬¨Ì­D", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100842, 100843, 100844, "¥§¥[´µ", "¥§°ò´µ", "¯S¬¥¥i´µ", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100852, 100853, 100855, "§J©Ôº¸", "©Ô´µ°ò", "§J¹F¹F", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100859, 100856, 100857, "¥i¥d¯S", "¥d¥d¯S", "©ø¨Ì¯S", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100864, 100865, 100866, "ÂÅÄ_", "·ç¼wÄ_", "¤òÄ_", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100829, 100826, 100827, "¤ñ¤ñ¥[", "¥[¥[", "¥[´µ¶ø", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100830, 100832, 100833, "¯QÄ_¨Ì", "«Â¤ñ", "¯Q©Ô©Ô", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100883, 100884, 100885, "¤×¨½µì", "¸Ê¸Ìµì", "¦ãº¸µì", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100898, 100900, 100901, "¥i¥i®¦", "¥¬Äõ®¦", "­}¥¬®¦", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100834, 100836, 100837, "¨©¬¥ª÷", "¨©¬¥¨©", "¨©¬¥ªiªi", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100838, 100840, 100841, "ÂÅÀt", "Àt¤§¿û", "¥d©ÔÀt", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100879, 100881, 100880, "­}¥[", "ªiªi¹y", "¬âÃT", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100888, 100887, 100889, "²ö©Ô¥q", "¼Ú·æµá", "º¿´µ¯S", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100913, 100914, 100915, "µÜ©i¬¥´µ", "¦¶§Q¬¥´µ", "¨¯´¶¬¥´µ", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100845, 100846, 100847, "©Iªiªi", "©I¾|¾|", "¾|©Ô¨ä´µ", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100849, 100850, 100851, "¨¹¿Õ´µ®R", "·¨®æ´µ", "­}°ò®æ´µ", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100878, 100876, 100877, "¬Á¬¥¥¬´µ", "¥[­C¥¬´µ", "­}¦Ì¥¬´µ", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100908, 100909, 100906, "ªü¦Ì¦·", "¨¹¥q²D¦·", "¦·¤Ú©`¯S", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100916, 100918, 100919, "¥ß§ù¾|´µ", "¤Ú§J¨È¥q", "¹p¼w¤O§J´µ", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100860, 100862, 100861, "¥qº¸¹y", "±öº¸¹y", "®æº¸§Æ¬¥", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100867, 100870, 100868, "¼ÚªL¦N¾|", "ªÝ©ÔªÝ", "¥v³Í¾|", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100871, 100873, 100874, "´¶¾|®L", "ÂÄ®æ¾|", "º¿´µ¨©¥d", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100894, 100895, 100896, "©T¤O¼¯", "¼¯¦N¼¯¦N", "¼¯¦Ì¯Á©Ô", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100902, 100903, 100905, "®æ¸ÌÄõ", "¼¯¸Ì", "¶ð´µ¤Ò", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100912, 100911, 100910, "¥ì¤ÒÀN®¦", "¥¬¨Ì­Û´µ", "¥¬µÜ¯÷", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100891, 100892, 100893, "¹Ç§s©Ô", "­ô´µ­ô´µ", "»X­ô©Ô´µ", 0, 0, 0, "¨}¦n", "¨}¦n", "¨}¦n"},
+	{100820, 100821, 100822, "æ’²æ»¿çƒåŠ›", "çƒåŠ›èŠå¾·", "çƒåŠ›å›ºåŠ›", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100823, 100824, 100825, "å¸ƒä¾å¸ƒé­¯", "å¸ƒä¾å¸ƒä¾", "å¸ƒä¾èƒ–", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100842, 100843, 100844, "å°¼åŠ æ–¯", "å°¼åŸºæ–¯", "ç‰¹æ´›å¯æ–¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100852, 100853, 100855, "å…‹æ‹‰çˆ¾", "æ‹‰æ–¯åŸº", "å…‹é”é”", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100859, 100856, 100857, "å¯å¡ç‰¹", "å¡å¡ç‰¹", "æ˜†ä¾ç‰¹", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100864, 100865, 100866, "è—å¯¶", "ç‘žå¾·å¯¶", "æ¯›å¯¶", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100829, 100826, 100827, "æ¯”æ¯”åŠ ", "åŠ åŠ ", "åŠ æ–¯å¥§", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100830, 100832, 100833, "çƒå¯¶ä¾", "å¨æ¯”", "çƒæ‹‰æ‹‰", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100883, 100884, 100885, "å°¤é‡Œè›™", "è£˜è£¡è›™", "è‰¾çˆ¾è›™", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100898, 100900, 100901, "å¯å¯æ©", "å¸ƒè˜­æ©", "è¿ªå¸ƒæ©", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100834, 100836, 100837, "è²æ´›é‡‘", "è²æ´›è²", "è²æ´›æ³¢æ³¢", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100838, 100840, 100841, "è—é¾œ", "é¾œä¹‹é‹¼", "å¡æ‹‰é¾œ", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100879, 100881, 100880, "è¿ªåŠ ", "æ³¢æ³¢é “", "ç ‚é¯Š", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100888, 100887, 100889, "èŽ«æ‹‰å¸", "æ­ç‘Ÿè²", "ç‘ªæ–¯ç‰¹", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100913, 100914, 100915, "èŠå§†æ´›æ–¯", "æœ±åˆ©æ´›æ–¯", "è¾›æ™®æ´›æ–¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100845, 100846, 100847, "å‘¼æ³¢æ³¢", "å‘¼é­¯é­¯", "é­¯æ‹‰å…¶æ–¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100849, 100850, 100851, "é‚¦è«¾æ–¯å¨œ", "æ¥Šæ ¼æ–¯", "è¿ªåŸºæ ¼æ–¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100878, 100876, 100877, "çŽ»æ´›å¸ƒæ–¯", "åŠ è€¶å¸ƒæ–¯", "è¿ªç±³å¸ƒæ–¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100908, 100909, 100906, "é˜¿ç±³æœµ", "é‚¦å¸æ¶¼æœµ", "æœµå·´å¥ˆç‰¹", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100916, 100918, 100919, "ç«‹æœé­¯æ–¯", "å·´å…‹äºžå¸", "é›·å¾·åŠ›å…‹æ–¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100860, 100862, 100861, "å¸çˆ¾é “", "æ¢…çˆ¾é “", "æ ¼çˆ¾å¸Œæ´›", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100867, 100870, 100868, "æ­æž—å‰é­¯", "èŠ­æ‹‰èŠ­", "å²å‡±é­¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100871, 100873, 100874, "æ™®é­¯å¤", "è–©æ ¼é­¯", "ç‘ªæ–¯è²å¡", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100894, 100895, 100896, "å›ºåŠ›æ‘©", "æ‘©å‰æ‘©å‰", "æ‘©ç±³ç´¢æ‹‰", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100902, 100903, 100905, "æ ¼è£¡è˜­", "æ‘©è£¡", "å¡”æ–¯å¤«", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100912, 100911, 100910, "ä¼Šå¤«éœæ©", "å¸ƒä¾å€«æ–¯", "å¸ƒèŠèŒ²", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100891, 100892, 100893, "å˜Žå±æ‹‰", "å“¥æ–¯å“¥æ–¯", "è’™å“¥æ‹‰æ–¯", 0, 0, 0, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
 };
 #else
 PetRaceGraTable petracegra[27] =
 {
-	{100820, 100821, 100822, "¼³º¡¯Q¤O", "¯Q¤OµÜ¼w", "¯Q¤O©T¤O", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100823, 100824, 100825, "¥¬¨Ì¥¬¾|", "¥¬¨Ì¥¬¨Ì", "¥¬¨Ì­D", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100842, 100843, 100844, "¥§¥[´µ", "¥§°ò´µ", "¯S¬¥¥i´µ", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100852, 100853, 100855, "§J©Ôº¸", "©Ô´µ°ò", "§J¹F¹F", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100859, 100856, 100857, "¥i¥d¯S", "¥d¥d¯S", "©ø¨Ì¯S", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100864, 100865, 100866, "ÂÅÄ_", "·ç¼wÄ_", "¤òÄ_", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100829, 100826, 100827, "¤ñ¤ñ¥[", "¥[¥[", "¥[´µ¶ø", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100830, 100832, 100833, "¯QÄ_¨Ì", "«Â¤ñ", "¯Q©Ô©Ô", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100883, 100884, 100885, "¤×¨½µì", "¸Ê¸Ìµì", "¦ãº¸µì", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100898, 100900, 100901, "¥i¥i®¦", "¥¬Äõ®¦", "­}¥¬®¦", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100834, 100836, 100837, "¨©¬¥ª÷", "¨©¬¥¨©", "¨©¬¥ªiªi", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100838, 100840, 100841, "ÂÅÀt", "Àt¤§¿û", "¥d©ÔÀt", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100879, 100881, 100880, "­}¥[", "ªiªi¹y", "¬âÃT", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100888, 100887, 100889, "²ö©Ô¥q", "¼Ú·æµá", "º¿´µ¯S", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100913, 100914, 100915, "µÜ©i¬¥´µ", "¦¶§Q¬¥´µ", "¨¯´¶¬¥´µ", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100845, 100846, 100847, "©Iªiªi", "©I¾|¾|", "¾|©Ô¨ä´µ", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100849, 100850, 100851, "¨¹¿Õ´µ®R", "·¨®æ´µ", "­}°ò®æ´µ", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100878, 100876, 100877, "¬Á¬¥¥¬´µ", "¥[­C¥¬´µ", "­}¦Ì¥¬´µ", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100908, 100909, 100906, "ªü¦Ì¦·", "¨¹¥q²D¦·", "¦·¤Ú©`¯S", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100916, 100918, 100919, "¥ß§ù¾|´µ", "¤Ú§J¨È¥q", "¹p¼w¤O§J´µ", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100860, 100862, 100861, "¥qº¸¹y", "±öº¸¹y", "®æº¸§Æ¬¥", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100867, 100870, 100868, "¼ÚªL¦N¾|", "ªÝ©ÔªÝ", "¥v³Í¾|", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100871, 100873, 100874, "´¶¾|®L", "ÂÄ®æ¾|", "º¿´µ¨©¥d", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100894, 100895, 100896, "©T¤O¼¯", "¼¯¦N¼¯¦N", "¼¯¦Ì¯Á©Ô", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100902, 100903, 100905, "®æ¸ÌÄõ", "¼¯¸Ì", "¶ð´µ¤Ò", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100912, 100911, 100910, "¥ì¤ÒÀN®¦", "¥¬¨Ì­Û´µ", "¥¬µÜ¯÷", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
-	{100891, 100892, 100893, "¹Ç§s©Ô", "­ô´µ­ô´µ", "»X­ô©Ô´µ", 0, 0, 0, 2, 2, 2, "¨}¦n", "¨}¦n", "¨}¦n"},
+	{100820, 100821, 100822, "æ’²æ»¿çƒåŠ›", "çƒåŠ›èŠå¾·", "çƒåŠ›å›ºåŠ›", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100823, 100824, 100825, "å¸ƒä¾å¸ƒé­¯", "å¸ƒä¾å¸ƒä¾", "å¸ƒä¾èƒ–", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100842, 100843, 100844, "å°¼åŠ æ–¯", "å°¼åŸºæ–¯", "ç‰¹æ´›å¯æ–¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100852, 100853, 100855, "å…‹æ‹‰çˆ¾", "æ‹‰æ–¯åŸº", "å…‹é”é”", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100859, 100856, 100857, "å¯å¡ç‰¹", "å¡å¡ç‰¹", "æ˜†ä¾ç‰¹", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100864, 100865, 100866, "è—å¯¶", "ç‘žå¾·å¯¶", "æ¯›å¯¶", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100829, 100826, 100827, "æ¯”æ¯”åŠ ", "åŠ åŠ ", "åŠ æ–¯å¥§", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100830, 100832, 100833, "çƒå¯¶ä¾", "å¨æ¯”", "çƒæ‹‰æ‹‰", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100883, 100884, 100885, "å°¤é‡Œè›™", "è£˜è£¡è›™", "è‰¾çˆ¾è›™", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100898, 100900, 100901, "å¯å¯æ©", "å¸ƒè˜­æ©", "è¿ªå¸ƒæ©", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100834, 100836, 100837, "è²æ´›é‡‘", "è²æ´›è²", "è²æ´›æ³¢æ³¢", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100838, 100840, 100841, "è—é¾œ", "é¾œä¹‹é‹¼", "å¡æ‹‰é¾œ", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100879, 100881, 100880, "è¿ªåŠ ", "æ³¢æ³¢é “", "ç ‚é¯Š", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100888, 100887, 100889, "èŽ«æ‹‰å¸", "æ­ç‘Ÿè²", "ç‘ªæ–¯ç‰¹", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100913, 100914, 100915, "èŠå§†æ´›æ–¯", "æœ±åˆ©æ´›æ–¯", "è¾›æ™®æ´›æ–¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100845, 100846, 100847, "å‘¼æ³¢æ³¢", "å‘¼é­¯é­¯", "é­¯æ‹‰å…¶æ–¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100849, 100850, 100851, "é‚¦è«¾æ–¯å¨œ", "æ¥Šæ ¼æ–¯", "è¿ªåŸºæ ¼æ–¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100878, 100876, 100877, "çŽ»æ´›å¸ƒæ–¯", "åŠ è€¶å¸ƒæ–¯", "è¿ªç±³å¸ƒæ–¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100908, 100909, 100906, "é˜¿ç±³æœµ", "é‚¦å¸æ¶¼æœµ", "æœµå·´å¥ˆç‰¹", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100916, 100918, 100919, "ç«‹æœé­¯æ–¯", "å·´å…‹äºžå¸", "é›·å¾·åŠ›å…‹æ–¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100860, 100862, 100861, "å¸çˆ¾é “", "æ¢…çˆ¾é “", "æ ¼çˆ¾å¸Œæ´›", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100867, 100870, 100868, "æ­æž—å‰é­¯", "èŠ­æ‹‰èŠ­", "å²å‡±é­¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100871, 100873, 100874, "æ™®é­¯å¤", "è–©æ ¼é­¯", "ç‘ªæ–¯è²å¡", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100894, 100895, 100896, "å›ºåŠ›æ‘©", "æ‘©å‰æ‘©å‰", "æ‘©ç±³ç´¢æ‹‰", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100902, 100903, 100905, "æ ¼è£¡è˜­", "æ‘©è£¡", "å¡”æ–¯å¤«", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100912, 100911, 100910, "ä¼Šå¤«éœæ©", "å¸ƒä¾å€«æ–¯", "å¸ƒèŠèŒ²", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
+	{100891, 100892, 100893, "å˜Žå±æ‹‰", "å“¥æ–¯å“¥æ–¯", "è’™å“¥æ‹‰æ–¯", 0, 0, 0, 2, 2, 2, "è‰¯å¥½", "è‰¯å¥½", "è‰¯å¥½"},
 };
 #endif
 BOOL NPC_PetRaceMasterInit( int meindex )
@@ -154,7 +154,7 @@ BOOL NPC_PetRaceMasterInit( int meindex )
 
 void NPC_PetRaceMasterTalked( int meindex , int talkerindex , char *szMes , int color )
 {
-	// ©|¶··s¼W»¡©ú¥H¤ÎÃdª«ª¬ªp
+	// å°šé ˆæ–°å¢žèªªæ˜Žä»¥åŠå¯µç‰©ç‹€æ³
 	if (CHAR_getInt(talkerindex, CHAR_WHICHTYPE) != CHAR_TYPEPLAYER)
 		return;
 	if (NPC_Util_isFaceToFace(talkerindex, meindex, 2) == FALSE)
@@ -173,11 +173,11 @@ static void NPC_PetRaceMaster_selectWindow(int meindex, int toindex, int num, in
 	switch(num)
 	{
 		case 0:
-			sprintf(token, "4\n\n	          ¡¹Ãdª«Äv³t³õ¡¹\n"
-				"§A¦n¡A·Q­nª¾¹D¤°»ò±¡³ø¶Ü¡H\n"
-				"\n	          ¡m¹î¬Ý¹CÀ¸³W«h¡n"
-				"\n             ¡mÃdª«ª¬ªp¡n"
-				"\n               ¡mÂ÷¶}¡n");
+			sprintf(token, "4\n\n	          â˜…å¯µç‰©ç«¶é€Ÿå ´â˜…\n"
+				"ä½ å¥½ï¼Œæƒ³è¦çŸ¥é“ä»€éº¼æƒ…å ±å—Žï¼Ÿ\n"
+				"\n	          ã€Šå¯Ÿçœ‹éŠæˆ²è¦å‰‡ã€‹"
+				"\n             ã€Šå¯µç‰©ç‹€æ³ã€‹"
+				"\n               ã€Šé›¢é–‹ã€‹");
 			buttontype = WINDOW_BUTTONTYPE_NONE;
 			windowtype = WINDOW_MESSAGETYPE_SELECT;
 			windowno = 	CHAR_WINDOWTYPE_PETRACEMASTER_START;
@@ -185,22 +185,22 @@ static void NPC_PetRaceMaster_selectWindow(int meindex, int toindex, int num, in
 		case 1:
 #ifdef _DROPSTAKENEW
 			sprintf(token, 
-				"\nÄv³t³õ³W«h¡G"
-				"\n°Ñ¥[Äv³tªºÃdª«Á`¦@¦³¤T°¦¡A±z¥i¥H¨Ì·ÓÃdª«"
-				"\nªºª¬ªp©Î­Ó¤H³ß¦n¤Uª`¡A½Ð±N§I´«±o¨ìªº±m¨é"
-				"\n©ñ¸m©ó±ý¤Uª`ªº¸¹½X«e¤è¡C·íÄv³tµ²§ô®É¡A¥D"
-				"\n«ù¤H±N·|¦Û°ÊÀ°±z­pºâ¿n¤À¡C"
-				"\n½Ðª`·N¡G·í±zÂ÷¶}¦¹©Ð¶¡©Îµn¥X®É¡A¤Uª`ªº±m"
-				"\n¨÷¤Î¿n¤À±NµLªk¨ú¦^­ò¡I");
+				"\nç«¶é€Ÿå ´è¦å‰‡ï¼š"
+				"\nåƒåŠ ç«¶é€Ÿçš„å¯µç‰©ç¸½å…±æœ‰ä¸‰éš»ï¼Œæ‚¨å¯ä»¥ä¾ç…§å¯µç‰©"
+				"\nçš„ç‹€æ³æˆ–å€‹äººå–œå¥½ä¸‹æ³¨ï¼Œè«‹å°‡å…Œæ›å¾—åˆ°çš„å½©åˆ¸"
+				"\næ”¾ç½®æ–¼æ¬²ä¸‹æ³¨çš„è™Ÿç¢¼å‰æ–¹ã€‚ç•¶ç«¶é€ŸçµæŸæ™‚ï¼Œä¸»"
+				"\næŒäººå°‡æœƒè‡ªå‹•å¹«æ‚¨è¨ˆç®—ç©åˆ†ã€‚"
+				"\nè«‹æ³¨æ„ï¼šç•¶æ‚¨é›¢é–‹æ­¤æˆ¿é–“æˆ–ç™»å‡ºæ™‚ï¼Œä¸‹æ³¨çš„å½©"
+				"\nå·åŠç©åˆ†å°‡ç„¡æ³•å–å›žå”·ï¼");
 #else
 			sprintf(token, 
-				"\nÄv³t³õ³W«h¡G°Ñ¥[Äv³tªºÃdª«¦@¦³¤T°¦¡A±z¥i"
-				"\n¥H¨Ì·ÓÃdª«ª¬ªp©Î­Ó¤H³ß¦n¤Uª`¡A¨C­ÓÃdª«¦³"
-				"\n¦Û¤vªº½ß²v¡C½Ð±N¥Û¹ô¥á¸m©ó±ý¤Uª`ªº¸¹½X«e"
-				"\n¤è¡C·íÄv³tµ²§ô®É¡A¥D«ù¤H·|¦Û°Ê¦a±Nª÷ÃB©ñ"
-				"\n¦^§Aªº¨­¤W©Î¦s¤J­Ó¤H»È¦æ¡C"
-				"\n½Ðª`·N¡G»È¦æª÷ÃB½Ð¤Å¶W¹L¤@¤d¸U¡I·í±zÂ÷¶}"
-				"\n¦¹©Ð¶¡©Îµn¥X®É¡A¤Uª`ªºª÷ÃB±NµLªk¨ú¦^­ò¡I");
+				"\nç«¶é€Ÿå ´è¦å‰‡ï¼šåƒåŠ ç«¶é€Ÿçš„å¯µç‰©å…±æœ‰ä¸‰éš»ï¼Œæ‚¨å¯"
+				"\nä»¥ä¾ç…§å¯µç‰©ç‹€æ³æˆ–å€‹äººå–œå¥½ä¸‹æ³¨ï¼Œæ¯å€‹å¯µç‰©æœ‰"
+				"\nè‡ªå·±çš„è³ çŽ‡ã€‚è«‹å°‡çŸ³å¹£ä¸Ÿç½®æ–¼æ¬²ä¸‹æ³¨çš„è™Ÿç¢¼å‰"
+				"\næ–¹ã€‚ç•¶ç«¶é€ŸçµæŸæ™‚ï¼Œä¸»æŒäººæœƒè‡ªå‹•åœ°å°‡é‡‘é¡æ”¾"
+				"\nå›žä½ çš„èº«ä¸Šæˆ–å­˜å…¥å€‹äººéŠ€è¡Œã€‚"
+				"\nè«‹æ³¨æ„ï¼šéŠ€è¡Œé‡‘é¡è«‹å‹¿è¶…éŽä¸€åƒè¬ï¼ç•¶æ‚¨é›¢é–‹"
+				"\næ­¤æˆ¿é–“æˆ–ç™»å‡ºæ™‚ï¼Œä¸‹æ³¨çš„é‡‘é¡å°‡ç„¡æ³•å–å›žå”·ï¼");
 #endif
 			buttontype = WINDOW_BUTTONTYPE_OK;
 			windowtype = WINDOW_MESSAGETYPE_MESSAGE;
@@ -244,7 +244,7 @@ static void NPC_PetRaceMaster_selectWindow(int meindex, int toindex, int num, in
 				winrate3 = (float)pet3win / (float)total;
 			}
 #ifdef _DROPSTAKENEW
-			sprintf(token, "Ãdª«ª¬ªp\n\n  Ãdª«    ³Ó³õ  ±Ñ³õ  ª¬ªp    ³Ó³õ²v\n"
+			sprintf(token, "å¯µç‰©ç‹€æ³\n\n  å¯µç‰©    å‹å ´  æ•—å ´  ç‹€æ³    å‹å ´çŽ‡\n"
 				"========================================"
 				"%-10s%-6d%-6d%-8s%-6.2f\n"
 				"%-10s%-6d%-6d%-8s%-6.2f\n"
@@ -256,7 +256,7 @@ static void NPC_PetRaceMaster_selectWindow(int meindex, int toindex, int num, in
 				CHAR_getChar(petindex3, CHAR_NAME), pet3win, total - pet3win,
 				petracegra[petgroup].state3, winrate3);
 #else
-			sprintf(token, "Ãdª«ª¬ªp\n\n  Ãdª«    ³Ó³õ  ±Ñ³õ  ª¬ªp  ³Ó³õ²v  ½ß²v\n"
+			sprintf(token, "å¯µç‰©ç‹€æ³\n\n  å¯µç‰©    å‹å ´  æ•—å ´  ç‹€æ³  å‹å ´çŽ‡  è³ çŽ‡\n"
 				"========================================"
 				"%-10s%-6d%-6d%-6s%-6.2f%-4s\n"
 				"%-10s%-6d%-6d%-6s%-6.2f%-4s\n"
@@ -312,7 +312,7 @@ void NPC_PetRaceMasterLoop( int meindex)
 	switch(CHAR_getWorkInt(meindex, NPC_WORK_STATE))
 	{
 		case NPC_State_Init:	
-				// ´M§äÃdª«index
+				// å°‹æ‰¾å¯µç‰©index
 				NPC_findRacePetIndex(meindex, floor);
 			break;
 		case NPC_State_WaitDropStake:
@@ -324,23 +324,23 @@ void NPC_PetRaceMasterLoop( int meindex)
 					if (statechangetime - t1 <= 5)
 					{
 						CHAR_setInt(meindex, CHAR_LOOPINTERVAL, PETRACEMASTER_WAITDROPIV_LOOPTIME);
-						snprintf(tmpbuf, sizeof(tmpbuf), "ÁÙ¦³%2d¬í´N­n¶}¶]¤F¡A½Ð¤j®a¿ãÅD¤Uª`¡I",
+						snprintf(tmpbuf, sizeof(tmpbuf), "é‚„æœ‰%2dç§’å°±è¦é–‹è·‘äº†ï¼Œè«‹å¤§å®¶è¸´èºä¸‹æ³¨ï¼",
 							(int)(statechangetime - t1) % 60);
 					}
 					else if (statechangetime - t1 <= 10)
 					{
 						CHAR_setInt(meindex, CHAR_LOOPINTERVAL, PETRACEMASTER_WAITDROPIII_LOOPTIME);
-						snprintf(tmpbuf, sizeof(tmpbuf), "ÁÙ¦³%2d¬í´N­n¶}¶]¤F¡A½Ð¤j®a¿ãÅD¤Uª`¡I",
+						snprintf(tmpbuf, sizeof(tmpbuf), "é‚„æœ‰%2dç§’å°±è¦é–‹è·‘äº†ï¼Œè«‹å¤§å®¶è¸´èºä¸‹æ³¨ï¼",
 							(int)(statechangetime - t1) % 60);
 					}
 					else if (statechangetime - t1 <= 30)
 					{
 						CHAR_setInt(meindex, CHAR_LOOPINTERVAL, PETRACEMASTER_WAITDROPII_LOOPTIME);
-						snprintf(tmpbuf, sizeof(tmpbuf), "ÁÙ¦³%2d¬í´N­n¶}¶]¤F¡A½Ð¤j®a¿ãÅD¤Uª`¡I",
+						snprintf(tmpbuf, sizeof(tmpbuf), "é‚„æœ‰%2dç§’å°±è¦é–‹è·‘äº†ï¼Œè«‹å¤§å®¶è¸´èºä¸‹æ³¨ï¼",
 							(int)(statechangetime - t1) % 60);
 					}
 					else
-						snprintf(tmpbuf, sizeof(tmpbuf), "ÁÙ¦³%2d¤ÀÄÁ%2d¬í´N­n¶}¶]¤F¡A½Ð¤j®a¿ãÅD¤Uª`¡I",
+						snprintf(tmpbuf, sizeof(tmpbuf), "é‚„æœ‰%2dåˆ†é˜%2dç§’å°±è¦é–‹è·‘äº†ï¼Œè«‹å¤§å®¶è¸´èºä¸‹æ³¨ï¼",
 							(int)(statechangetime - t1) / 60, (int)(statechangetime - t1) % 60);
 				}
 				if (t1 >= statechangetime)
@@ -357,12 +357,12 @@ void NPC_PetRaceMasterLoop( int meindex)
 #endif
 					int i = 0;
 					CHAR_setWorkInt(meindex, NPC_WORK_STATE, NPC_State_PetRacing);
-					// ³]©w¦a­±¤£¥i¤Uª`
+					// è¨­å®šåœ°é¢ä¸å¯ä¸‹æ³¨
 					SetCasinoMap(meindex, 0, FALSE);
 #ifdef _DROPSTAKENEW
-					snprintf(tmpbuf, sizeof(tmpbuf), "½Ð¤j®a°±¤î¤Uª`¡AÃdª«ÁÉ¶]¶}©lÃ¹¡I");
+					snprintf(tmpbuf, sizeof(tmpbuf), "è«‹å¤§å®¶åœæ­¢ä¸‹æ³¨ï¼Œå¯µç‰©è³½è·‘é–‹å§‹ç¾…ï¼");
 #else
-					// §iª¾¤j®a½ß²v¡]¨ú±oÃdª«¤Uª`ª÷ÃB­pºâ½ß²v¡^
+					// å‘ŠçŸ¥å¤§å®¶è³ çŽ‡ï¼ˆå–å¾—å¯µç‰©ä¸‹æ³¨é‡‘é¡è¨ˆç®—è³ çŽ‡ï¼‰
 					GetCasinoMapGold(meindex, PET_RACE1, &pet1gold);
 					GetCasinoMapGold(meindex, PET_RACE2, &pet2gold);
 					GetCasinoMapGold(meindex, PET_RACE3, &pet3gold);
@@ -409,13 +409,13 @@ void NPC_PetRaceMasterLoop( int meindex)
 					SetCasinoPayRate(meindex, PET_RACE1, payrate1);
 					SetCasinoPayRate(meindex, PET_RACE2, payrate2);
 					SetCasinoPayRate(meindex, PET_RACE3, payrate3);
-					snprintf(tmpbuf, sizeof(tmpbuf), "½Ð¤j®a°±¤î¤Uª`¡AÃdª«ÁÉ¶]¶}©lÃ¹¡I%sªº½ß²v¬°%5.2f¡F%sªº½ß²v¬°%5.2f¡F%sªº½ß²v¬°%5.2f",
+					snprintf(tmpbuf, sizeof(tmpbuf), "è«‹å¤§å®¶åœæ­¢ä¸‹æ³¨ï¼Œå¯µç‰©è³½è·‘é–‹å§‹ç¾…ï¼%sçš„è³ çŽ‡ç‚º%5.2fï¼›%sçš„è³ çŽ‡ç‚º%5.2fï¼›%sçš„è³ çŽ‡ç‚º%5.2f",
 						CHAR_getChar(petindex1, CHAR_NAME), payrate1,
 						CHAR_getChar(petindex2, CHAR_NAME), payrate2,
 						CHAR_getChar(petindex3, CHAR_NAME), payrate3);
 #endif
 					CHAR_setInt(meindex, CHAR_LOOPINTERVAL, PETRACEMASTER_PETRACING_LOOPTIME);
-					// ³]©wÃdª«ª¬ºA
+					// è¨­å®šå¯µç‰©ç‹€æ…‹
 					for (i = 0; i < PETRACEPETNUM; i++)
 					{
 						CHAR_setWorkInt(CHAR_getWorkInt(meindex, NPC_WORK_PET1 + i), NPC_WORK_STATE, NPC_State_Run);
@@ -431,10 +431,10 @@ void NPC_PetRaceMasterLoop( int meindex)
 				char tmpbuf[256];
 				int winpetindex = CHAR_getWorkInt(meindex, NPC_WORK_WINPET);
 				int petgroup = CHAR_getWorkInt(meindex, NPC_WORK_PETGROUP);
-				snprintf(tmpbuf, sizeof(tmpbuf), "ÄvÁÉµ²§ô¡A³Ó§QªºÃdª«¬O¡G%s\n", 
+				snprintf(tmpbuf, sizeof(tmpbuf), "ç«¶è³½çµæŸï¼Œå‹åˆ©çš„å¯µç‰©æ˜¯ï¼š%s\n", 
 					CHAR_getChar(winpetindex, CHAR_NAME));
 				CHAR_talkToFloor(floor, meindex, tmpbuf, CHAR_COLORYELLOW);
-				// ³]©w¿éÄ¹¡A¥H­pºâ½ß²v
+				// è¨­å®šè¼¸è´ï¼Œä»¥è¨ˆç®—è³ çŽ‡
 				if (CHAR_getWorkInt(meindex, NPC_WORK_PET1) == winpetindex)
 					petracegra[petgroup].pet1win = petracegra[petgroup].pet1win + 1;
 				else if (CHAR_getWorkInt(meindex, NPC_WORK_PET2) == winpetindex)
@@ -444,7 +444,7 @@ void NPC_PetRaceMasterLoop( int meindex)
 				CHAR_setWorkInt(meindex, NPC_WORK_STATE, NPC_State_ShowWinPet);
 				CHAR_setInt(meindex, CHAR_LOOPINTERVAL, PETRACEMASTER_SHOWWINPET_LOOPTIME);
 				CHAR_setWorkInt(meindex, NPC_WORK_STATECHANGE, t1 + PETRACESHOWWINPET);	
-				// µo¼úª÷
+				// ç™¼çŽé‡‘
 				NPC_givePriceToPlayer(meindex, floor, winpetindex);
 			}
 			break;
@@ -464,9 +464,9 @@ void NPC_PetRaceMasterLoop( int meindex)
 					CHAR_setWorkInt(meindex, NPC_WORK_PETGOAL, 0);
 					CHAR_setWorkInt(meindex, NPC_WORK_STATECHANGE, t1 + PETRACEDROPSTAKETIME);
 					CHAR_setInt(meindex, CHAR_LOOPINTERVAL, PETRACEMASTER_WAITDROPI_LOOPTIME);
-					// ³]©w¦a­±¥i¤Uª`
+					// è¨­å®šåœ°é¢å¯ä¸‹æ³¨
 					SetCasinoMap(meindex, 0, TRUE);
-					// ³]©wÃdª«
+					// è¨­å®šå¯µç‰©
 					CHAR_setWorkInt(petindex1, NPC_WORK_STATE, NPC_State_Wait);
 					CHAR_setInt(petindex1, CHAR_LOOPINTERVAL, 1000);
 					CHAR_setInt(petindex1, CHAR_BASEIMAGENUMBER, petracegra[randpet].pet1gra);
@@ -481,7 +481,7 @@ void NPC_PetRaceMasterLoop( int meindex)
 					CHAR_setInt(petindex3, CHAR_LOOPINTERVAL, 1000);
 					CHAR_setInt(petindex3, CHAR_BASEIMAGENUMBER, petracegra[randpet].pet3gra);
 					CHAR_setChar(petindex3, CHAR_NAME, petracegra[randpet].pet3name);
-					// ³]©wÃdª«ª¬ªp
+					// è¨­å®šå¯µç‰©ç‹€æ³
 #ifdef _DROPSTAKENEW
 #else
 					petracegra[randpet].payrate1 = 0;
@@ -493,31 +493,31 @@ void NPC_PetRaceMasterLoop( int meindex)
 						int state2 = RAND(0, 3);
 						int state3 = RAND(0, 3);
 						if (state1 == 0)
-							sprintf(petracegra[randpet].state1, "¨}¦n");
+							sprintf(petracegra[randpet].state1, "è‰¯å¥½");
 						else if (state1 == 1)
-							sprintf(petracegra[randpet].state1, "´¶³q");
+							sprintf(petracegra[randpet].state1, "æ™®é€š");
 						else if (state1 == 2)
-							sprintf(petracegra[randpet].state1, "¤£¨Î");
+							sprintf(petracegra[randpet].state1, "ä¸ä½³");
 						else if (state1 == 3)
-							sprintf(petracegra[randpet].state1, "¥¼ª¾");
+							sprintf(petracegra[randpet].state1, "æœªçŸ¥");
 						if (state2 == 0)
-							sprintf(petracegra[randpet].state2, "¨}¦n");
+							sprintf(petracegra[randpet].state2, "è‰¯å¥½");
 						else if (state2 == 1)
-							sprintf(petracegra[randpet].state2, "´¶³q");
+							sprintf(petracegra[randpet].state2, "æ™®é€š");
 						else if (state2 == 2)
-							sprintf(petracegra[randpet].state2, "¤£¨Î");
+							sprintf(petracegra[randpet].state2, "ä¸ä½³");
 						else if (state2 == 3)
-							sprintf(petracegra[randpet].state2, "¥¼ª¾");
+							sprintf(petracegra[randpet].state2, "æœªçŸ¥");
 						if (state3 == 0)
-							sprintf(petracegra[randpet].state3, "¨}¦n");
+							sprintf(petracegra[randpet].state3, "è‰¯å¥½");
 						else if (state3 == 1)
-							sprintf(petracegra[randpet].state3, "´¶³q");
+							sprintf(petracegra[randpet].state3, "æ™®é€š");
 						else if (state3 == 2)
-							sprintf(petracegra[randpet].state3, "¤£¨Î");
+							sprintf(petracegra[randpet].state3, "ä¸ä½³");
 						else if (state3 == 3)
-							sprintf(petracegra[randpet].state3, "¥¼ª¾");
+							sprintf(petracegra[randpet].state3, "æœªçŸ¥");
 					}
-					snprintf(tmpbuf, sizeof(tmpbuf), "Ãdª«Äv³t·Ç³Æ¤¤¡A½Ð¤j®a¿ãÅD¤Uª`¡I");
+					snprintf(tmpbuf, sizeof(tmpbuf), "å¯µç‰©ç«¶é€Ÿæº–å‚™ä¸­ï¼Œè«‹å¤§å®¶è¸´èºä¸‹æ³¨ï¼");
 					CHAR_talkToFloor(floor, meindex, tmpbuf, CHAR_COLORYELLOW);
 				}
 			}

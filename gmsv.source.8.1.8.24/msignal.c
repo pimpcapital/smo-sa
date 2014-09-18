@@ -17,9 +17,9 @@
 #include "petmail.h"
 
 /*------------------------------------------------------------
- * lsprotocol ¤Î¥ï¡¼¥­¥ó¥°    ¤ò²ò  ¤¹¤ë´Ø¿ô¤ò¸Æ¤Ö¡e
- * °ú¿ô¡bÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * lsprotocol åŠä¼â–¡å¹³ä»¶å¼˜    æ¯›è¸  å…æœˆæ¥®é†’æ¯›è£Ÿå°‘ã€”
+ * å©é†’ï½å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 static void endlsprotocol( void )
 {
@@ -28,10 +28,10 @@ static void endlsprotocol( void )
 }
 
 /*------------------------------------------------------------
- * ¤¹¤Ù¤Æ¤ÎÊİÂ¸¤·¤Ê¤±¤ì¤Ğ¤Ê¤é¤Ê¤¤¥Ç¡¼¥¿¤ò¥À¥ó¥×¤¹¤ë´Ø¿ô
- * ¤½¤ì¤¾¤ì¤Î¥â¥¸¥å¡¼¥ë¤Î´Ø¿ô¤ò¸Æ¤Ö¤Î¤ß¡e
- * °ú¿ô¡bÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * å…å±¯åŒ–åŠå¿¡ç¹¡ä»„å…ä»ƒæœ¨å£¬å…æ—¥å…ä¸­çŠ¯â–¡æ­£æ¯›æ¯ä»¶çš¿å…æœˆæ¥®é†’
+ * å…¬æœ¨å†—æœ¨åŠä¹’æ–¥äº™â–¡ä¼™åŠæ¥®é†’æ¯›è£Ÿå°‘åŠå¿ƒã€”
+ * å©é†’ï½å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 static void allDataDump( void )
 {
@@ -44,9 +44,9 @@ static void allDataDump( void )
 }
 
 /*------------------------------------------------------------
- * ¥×¤Ò¥°¥é¥à¤Î½ª  ½è  ¤Î¤¿¤á¤Ë¸Æ¤Ó½Ğ¤µ¤ì¤ë¡e
- * °ú¿ô¡bÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * çš¿å¤«å¼˜ä»¿ä¸åŠè”½  è³ª  åŠå‡¶æˆ¶åè£Ÿå¤ªè«‹ä»Šæœ¨æœˆã€”
+ * å©é†’ï½å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 void shutdownProgram( void )
 {
@@ -99,7 +99,7 @@ extern jztimeout;
 
 void jztime_out( int number )
 {
-	print("¶W®É¾÷¨î¥Í®Ä");
+	print("è¶…æ™‚æ©Ÿåˆ¶ç”Ÿæ•ˆ");
 	jztimeout=TRUE;
 }
 void signalset( void )
@@ -115,11 +115,11 @@ void signalset( void )
 	print("SIGTERM:%d\n", SIGTERM);
   print("SIGALRM:%d\n", SIGALRM);
 
-    signal( SIGINT , sigshutdown );  //²×ºİ¤¤Â_²Å
-    signal( SIGQUIT, sigshutdown );	 //²×ºİ°h¥X²Å
-    signal( SIGKILL, sigshutdown );	 //²×¤î
-    signal( SIGSEGV, sigshutdown );	 //µL®ÄÀx¦s³X°İ
-    signal( SIGPIPE, SIG_IGN );			 //¼g¦ÜµLÅª¶iµ{ªººŞ¹D
-    signal( SIGTERM, sigshutdown );	 //²×¤î
-    signal( SIGALRM, jztime_out  );	 //¶W®É
+    signal( SIGINT , sigshutdown );  //çµ‚ç«¯ä¸­æ–·ç¬¦
+    signal( SIGQUIT, sigshutdown );	 //çµ‚ç«¯é€€å‡ºç¬¦
+    signal( SIGKILL, sigshutdown );	 //çµ‚æ­¢
+    signal( SIGSEGV, sigshutdown );	 //ç„¡æ•ˆå„²å­˜è¨ªå•
+    signal( SIGPIPE, SIG_IGN );			 //å¯«è‡³ç„¡è®€é€²ç¨‹çš„ç®¡é“
+    signal( SIGTERM, sigshutdown );	 //çµ‚æ­¢
+    signal( SIGALRM, jztime_out  );	 //è¶…æ™‚
 }

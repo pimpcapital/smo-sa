@@ -1,232 +1,232 @@
-07.8.12��s��x
-1.�u�ƫʥ]�������
+07.8.12更新日誌
+1.優化封包解釋函數
 
-07.8.5��s��x
-1.�ק�NPC�w�s
-2.�W�[CF�r�q
-#�P�@IP�a�}�̤j�s���ơA����a�h�} �p������г]�m��0
+07.8.5更新日誌
+1.修改NPC緩存
+2.增加CF字段
+#同一IP地址最大連接數，防止玩家多開 如不限制請設置為0
 ipconn=1
-#evsls�̤j�P�ɬ�o�ШD����A�Y�P�ɳB�z�ШD�ƥ�
+#evsls最大同時突發請求限制，即同時處理請求數目
 evsls=100
-#recvbuffer���ܨC�Ӫ��a�s���������w�İϤj�p
+#recvbuffer表示每個玩家連接的接收緩衝區大小
 recvbuffer=8192
-#readbuffer���ܨC�Ӫ��a�s��Ū���U����
+#readbuffer表示每個玩家連接讀取下限制
 readbuffer=128
-#�C�Τ�TCP�U��
+#每用戶TCP下限
 acwritebuf=2048
 
-07.8.3��s��x
-1.�״_�g����D
-2.�״_�ǯS���ޯ����ܤ@��ýX���D
-3.�R��CF�r�q
-#�C���`��������
+07.8.3更新日誌
+1.修復經驗問題
+2.修復學特殊技能時顯示一行亂碼問題
+3.刪除CF字段
+#每次循環的延遲
 SOCKETOUTTIME=30000
-#MAXSOCKET=1�ɶ}�ҳ̤j�ǿ�Ҧ��A��0�ɶ}�ҳ̤p���ӼҦ��C���̤j�ǿ�Ҧ��}�ҫ�A�A�Ⱥݳ̤j�b�u�H�Ƭ�MAXPTSOCKET*MAXPTSOCKET+100���������CF���H�Ƴ]�m�Ѽ�
+#MAXSOCKET=1時開啟最大傳輸模式，為0時開啟最小消耗模式。當最大傳輸模式開啟後，服務端最大在線人數為MAXPTSOCKET*MAXPTSOCKET+100忽略掉原先CF的人數設置參數
 MAXSOCKET=1
-#�̤j�B�z�q(1-100)
+#最大處理量(1-100)
 MAXPSOCKET=200
-#�̤j�P�ɨõo��(1-5)
+#最大同時並發數(1-5)
 MAXPTSOCKET=3
-#�W�ɧP�_(���:�L�� 1000�L��=1�@�� 1000�@��=1��)-���ѼƨM�wrecv��Ƴ̤j������ɶ�
+#超時判斷(單位:微秒 1000微秒=1毫秒 1000毫秒=1秒)-此參數決定recv函數最大的阻塞時間
 RECVSOCKETTIMEOUT=1000
-#RECV��Ū���W��-���ѼƸ򤧫e��sorecvlowat=22���Ҥ��Psorecvlowat�O�w��select����RECVBUFFLEN�h�O�w��recv��
+#RECV的讀取上限-此參數跟之前的sorecvlowat=22有所不同sorecvlowat是針對select的而RECVBUFFLEN則是針對recv的
 RECVBUFFLEN=128
-#sorecvbuf���ܨC�Ӫ��a�s���������w�İϤj�p�]�o�ӳ]�m�v�T���媺�����ɶ��^
-#�]�m�o�ӭȪ��P�ɪ��aTCP�����w�ķ|�H�o�ӼƭȪ�2���Q�]�m
+#sorecvbuf表示每個玩家連接的接收緩衝區大小（這個設置影響報文的接收時間）
+#設置這個值的同時玩家TCP接收緩衝會以這個數值的2倍被設置
 sorecvbuf=81920
-#sorecvlowa���ܨC�Ӫ��a�s��Ū���U����
+#sorecvlowa表示每個玩家連接讀取下限制
 sorecvlowat=22
 
-07.6.26��s
-1.�W�[CF�r�q
-#���Ѽ�>0�ɩ����H���I�ƭp�⤽���������ӳo�ӤW���@���H���W���I�A���Ҧ��H���N�|�P���I��(���Ѽ�7��~�ͮ�)
+07.6.26更新
+1.增加CF字段
+#此參數>0時忽略人物點數計算公式直接按照這個上限作為人物上限點，但所有人物將會同樣點數(此參數7轉才生效)
 maxcharor=702
 
-07.6.19��s��x
-1.�W�[NPC�w�s
+07.6.19更新日誌
+1.增加NPC緩存
 
-07.6.18��s
-1.�W�[CF�r�q
-#�b���F��6��ɡA�O�_�}�Һ��F�l��P�_(1=�}�� 0=����)
+07.6.18更新
+1.增加CF字段
+#在精靈王6轉時，是否開啟精靈召喚判斷(1=開啟 0=關閉)
 AngelOpen=1
-2.�ק�log.cf�榡
-#�o�ؤ覡�O�Y�ɰO��LOG
+2.修改log.cf格式
+#這種方式是即時記錄LOG
 vipActionlog=vipAction.log:0
-#�H�U2�ؤ覡�O�w�ɰO���bsetup.cf�i�H�]�m�h�֮ɶ��g�@��LOG
+#以下2種方式是定時記錄在setup.cf可以設置多少時間寫一次LOG
 vipActionlog=vipAction.log:1
 vipActionlog=vipAction.log
 
-07.6.15��s��x
-1.�W�[GM���O
-[�K�X reloopan]��Ū�`�����i���e
-[�K�X showip �b��]��ܪ��a��IP
-[�K�X lockip ip�a�}]�]�m�S�wIP����n���C��
-�p�G�n��IP�q�A�Х�* ��p127.0.0.*��127.0.*.*��127.*.*.*��*.*.*.*�]�o�Ӫ��������A�Ⱥݪ��s���ݤf�^
-[�K�X unlockip ip�a�}]�Ѱ��S�wIP����n���C���A�ϥΦ����O�Ѱ��YIP�ɡA��IP�����w�g�Q lockip ���O�ʱ��~����
-�p�G�n��IP�q�A�Х�* ��p127.0.0.*��127.0.*.*��127.*.*.*��*.*.*.*�]�o�Ӫ����}�ҪA�Ⱥݪ��s���ݤf�^
-[�K�X showlockip]��ܤw�g�Q�ꪺIP�a�}
-2.�W�[log.cf�r�q
-#VIP�ө�LOG
+07.6.15更新日誌
+1.增加GM指令
+[密碼 reloopan]重讀循環公告內容
+[密碼 showip 帳號]顯示玩家的IP
+[密碼 lockip ip地址]設置特定IP不能登陸遊戲
+如果要封IP段，請用* 比如127.0.0.*或127.0.*.*或127.*.*.*或*.*.*.*（這個直接關掉服務端的連接端口）
+[密碼 unlockip ip地址]解除特定IP不能登陸遊戲，使用此指令解除某IP時，此IP必須已經被 lockip 指令封掉才有效
+如果要解IP段，請用* 比如127.0.0.*或127.0.*.*或127.*.*.*或*.*.*.*（這個直接開啟服務端的連接端口）
+[密碼 showlockip]顯示已經被鎖的IP地址
+2.增加log.cf字段
+#VIP商店LOG
 vipActionlog=vipAction.log
-�s�W��xNPC���O
-AddMemberPet:�d��ID�]����O��AddPet���O�ϥΤ�k�@�ˡA�u�O�W�[�F��x�O���^
-AddMemberItem:�D��ID�]����O��AddItem���O�ϥΤ�k�@�ˡA�u�O�W�[�F��x�O���^
+新增日誌NPC指令
+AddMemberPet:寵物ID（改指令跟AddPet指令使用方法一樣，只是增加了日誌記錄）
+AddMemberItem:道具ID（改指令跟AddItem指令使用方法一樣，只是增加了日誌記錄）
 
-07.6.14��s��x
-1.�W�[CF�r�q
-#�]�m�`�����i�`���ɶ�(����)
+07.6.14更新日誌
+1.增加CF字段
+#設置循環公告循環時間(分鐘)
 ANNOUNCETIME=30
-#�]�m�`�����i���|
+#設置循環公告路徑
 ANNOUNCEPATH=./loopannounce.txt
-#�W�u�H�ƭ��ơ]�O���I�^
+#上線人數倍數（記錄點）
 online=2
-2.�W�[7��\��
-3.�W�[CF�r�q
-#VIP �]�m�ӽв���һ��n��
+2.增加7轉功能
+3.增加CF字段
+#VIP 設置申請莊園所需聲望
 baseif=1000
 
-07.6.13��s��x
-1.�״_�w�s�����ɭP�������p
-2.�״_NPC��ͫ��O�Ĭ���D
-3.�״_���F����ͷ������D
-4.�״_�d�H���D
-5.�W�[CF�r�q
-#�H���i��}�W���I�A�i���t��(�]�m�o�Ӥ���,�H���̰��I=�����p�⪺���G+maxchar,�[�]����7��160�̰�10�I,maxchar=1,�H���̰��I=11)
+07.6.13更新日誌
+1.修復緩存不足導致當機情況
+2.修復NPC轉生指令衝突問題
+3.修復精靈王轉生當機問題
+4.修復卡人問題
+5.增加CF字段
+#人物可突破上限點，可為負數(設置這個之後,人物最高點=公式計算的結果+maxchar,架設本來7轉160最高10點,maxchar=1,人物最高點=11)
 maxchar=0
-#�Ȥ�ݬO�_��ܺ��t 1�������
+#客戶端是否顯示網速 1為不顯示
 ping=1
-#�O�_���\�Ҧ��a�ϧ��i�[��
+#是否允許所有地圖均可觀戰
 watcallmap=1
-#���\�[�Ԧa��
+#允許觀戰地圖
 watchmap1=2005
 watchmap2=
 watchmap3=
 watchmap4=
 watchmap5=
-#�T��ǰe�a��
+#禁止傳送地圖
 unwarpmap1=815
 unwarpmap2=8215
 unwarpmap3=103
 unwarpmap4=104
 unwarpmap5=
-#�̰�����(1-200)
+#最高等級(1-200)
 maxlevel=160
-#�ݭn�F��h����~��W�L140�F��̰�����
+#需要達到多少轉才能超過140達到最高等級
 transmaxlevel=7
-#�g������|
+#經驗文件路徑
 expfile=./data/exp.txt
 
-07.5.23��s��x
-1.�W�[GM���O
-[�K�X �n�� �㸹 �ƭ�*100]
-2.�ק�GM���O
-[�K�X announce ���e] �� [�K�X ���i ���e] �åB��o�e���i���H���W�h��
-[�K�X settrans �Ʀr �b�� ���Q] ���Q(0�����p���Q,1���p����Q,���Ѽƥi�H�����C�q�{��1)
-�Φ�GM���O�i�H������X���~�H
-�ҡG[gm settrans 6 jzgm1]6�෥�~�H627�I 
-�ҡG[gm settrans 6 jzgm1 0]6��H���I�Ƭ�422�I
-3.�W�[CF�r�q
-#�۩w�q�����ȺX�� �u�వ�@��������(�C����ͮɳ��|��ӥ��ȼаO�i���ˬd�p�G���A��"End"�]�N�O�w�����A�h���M���ӥ��Ȫ��A)
+07.5.23更新日誌
+1.增加GM指令
+[密碼 聲望 賬號 數值*100]
+2.修改GM指令
+[密碼 announce 內容] 為 [密碼 公告 內容] 並且把發送公告的人物名去掉
+[密碼 settrans 數字 帳號 紅利] 紅利(0為不計紅利,1為計算紅利,此參數可以忽略。默認為1)
+用此GM指令可以直接轉出極品人
+例：[gm settrans 6 jzgm1]6轉極品人627點 
+例：[gm settrans 6 jzgm1 0]6轉人物點數為422點
+3.增加CF字段
+#自定義的任務旗標 只能做一次的任務(每次轉生時都會對該任務標記進行檢查如果狀態為"End"也就是已完成，則不清除該任務狀態)
 endevent1=0
 endevent2=0
 endevent3=0
 endevent4=0
 endevent5=0
-#�۩w�q���b�i�椤�����ȺX��(�C����ͮɳ��|��ӥ��ȼаO�i���ˬd�p�G���A��"Now"�]�N�O���b�i�椤�A�h���M���ӥ��Ȫ��A)
+#自定義正在進行中的任務旗標(每次轉生時都會對該任務標記進行檢查如果狀態為"Now"也就是正在進行中，則不清除該任務狀態)
 nowevent1=0
 nowevent2=0
 nowevent3=0
 nowevent4=0
 nowevent5=0
-#�n���ɭn�R�������~ID(�p���ݭn�г]�m��0 �������ݭn��q�R���A�Ⱦ������~�ɨϥ�)
+#登陸時要刪除的物品ID(如不需要請設置為0 此項為需要批量刪除服務器中物品時使用)
 delitem1=0
 delitem2=0
 delitem3=0
 delitem4=0
 delitem5=0
-#�`�N �d��ID�ݩMenemybase1.txt�����۹��� �Ӥ��Oenemy1.txt�� �Ҧp����ID��304�ӫD353
-#�n���ɭn�R�����d��ID(�p���ݭn�г]�m��0 �������ݭn��q�R���A�Ⱦ������~�ɨϥ�)
+#注意 寵物ID需和enemybase1.txt中的相對應 而不是enemy1.txt中 例如機暴ID為304而非353
+#登陸時要刪除的寵物ID(如不需要請設置為0 此項為需要批量刪除服務器中物品時使用)
 delpet1=0
 delpet2=0
 delpet3=0
 delpet4=0
 delpet5=0
 
-07.5.22��s��x
-1.���saac���sĶ�Ҧ��AMYSQL��client�w�אּ�R�A�s���Aclient�w������5.0.41-0.i386(glibc 2.2.5)
-2.�u��acwk�sĶ�Ѽ�
+07.5.22更新日誌
+1.更改saac的編譯模式，MYSQL的client庫改為靜態連接，client庫版本為5.0.41-0.i386(glibc 2.2.5)
+2.優化acwk編譯參數
 
-07.5.18��s��x
-1.�״_BMM���O�����MM��BUG
-2.�ק�capfree.txt���榡
-#�ƶq
+07.5.18更新日誌
+1.修復BMM指令不能刷MM的BUG
+2.修改capfree.txt文件格式
+#數量
 linebuff=20
-#�i�H�]�m�ݭn�Y�عD��~�ஷ�����d��
-#enemybase1.txt���d���s��,�D��ID1,...,�D��ID15-�D��ID���]�m���Щ������g�_�h�|�X��
+#可以設置需要某種道具才能捕捉該寵物
+#enemybase1.txt的寵物編號,道具ID1,...,道具ID15-道具ID不設置的請忽略不寫否則會出錯
 524,2456
-#��l����
+#伊甸任務
 961,20219
 953,20223
 962,20222
 777,20253
 796,20247
-#����
+#金暴
 812,20259
 1105,1690,1691,1692
 8,1810
-#�����Y�T������
+#抓雙頭狼的限制
 145,2236
 146,2236
 
-3.���Ʋ���NPC�ɶ����
-4.�״_�Ȥ���M�d���
-5.�״_�[�J�a�ڮɶ�������ܿ��~���D
-6.�״_�n���d���ޯੱ���n����ܰ��D
-7.�����@�ɤH���ƾګO�s�覡
-8.�״_����[�K�X waeikickall]GM���O���ɭԧ�SAAC�]�𱼪�BUG
+3.美化莊園NPC時間顯示
+4.修復客戶端騎寵顯示
+5.修復加入家族時間限制顯示錯誤問題
+6.修復聲望寵物技能店的聲望顯示問題
+7.更改維護時人物數據保存方式
+8.修復執行[密碼 waeikickall]GM指令的時候把SAAC也踢掉的BUG
 
-07.5.17��s��x
-1.�W�[�|���ө�NPC���O:
-BMM:1/2 #������79���~MM
-BMM:1	#������1�N79���~MM
-BMM:2	#������2�N79���~MM
-BMM:1,2	#�H����1�B2�N79���~MM
-BMM:1*3,2*3	#�H����1�B2�N3�u79���~MM
-(�d��1-5�u)
-2.�ק����U��NPC�|���ܤ���ɭԤ~�i�H�U�Ԯ�
-3.�״_�a�ڲ���ԥi�H�i�W�L50�H��BUG
+07.5.17更新日誌
+1.增加會員商店NPC指令:
+BMM:1/2 #直接賣79極品MM
+BMM:1	#直接給1代79極品MM
+BMM:2	#直接給2代79極品MM
+BMM:1,2	#隨機給1、2代79極品MM
+BMM:1*3,2*3	#隨機給1、2代3只79極品MM
+(範圍1-5只)
+2.修改莊園下書NPC會提示什麼時候才可以下戰書
+3.修復家族莊園戰可以進超過50人的BUG
 
-07.5.16��s��x
-1.�״_�w�蠟�e���Ǫ������X��BUG
-2.�W�[GM���O[�K�X recapfree]�i��Ū��������]�m���
-3.�״_[�K�X petmake ���� �d��ID]GM���O�L�k�ɦ�140��BUG
-4.�W�[CF�r�q
-#�ھԩT�w�b�Y�Ӯɶ��~�i�H�}�l�U��
+07.5.16更新日誌
+1.修復針對之前那些版本的幾個BUG
+2.增加GM指令[密碼 recapfree]可重讀捕捉條件設置文件
+3.修復[密碼 petmake 等級 寵物ID]GM指令無法升至140的BUG
+4.增加CF字段
+#族戰固定在某個時間才可以開始下書
 HouseholdFightWarTime=18(1-24)
-#����ݸg���h�֮ɶ��~�X�Ԯ�(���p��)
+#莊園需經歷多少時間才出戰書(單位小時)
 HouseholdConfirmWarTime=6
-#�a�ڰh�X�A�[���ɶ�����(�p��)
+#家族退出再加的時間限制(小時)
 JOINFAMILYTIME=0
 
-07.5.15��s��x
-1.�W�[CF�r�q
-#�|���I�x�s�r�q�W �p�n����szoro���|���I�H���ƾڧ⦹���令 memberpoint
+07.5.15更新日誌
+1.增加CF字段
+#會員點儲存字段名 如要支持龍zoro的會員點人物數據把此項改成 memberpoint
 MEMBER=memberor
-#�C���`��������
+#每次循環的延遲
 SOCKETOUTTIME=50000
 
-07.5.14��s��x
-1.�ץ�GM���O[�K�X petlevelup �ż� ��m(1-5)]������d���ɯŨ�140��BUG�A�W�[�d����m�Ѽ�
-2.�ק�GMSV�����ɪ��ާ@ �ɶq�B�z�i��Τw���X�{��GMSV�������p�A�̤j�����קK�H���^�ɤνT�OLOG�����`��ɰO��
-3.�ק�GMSV���@�ɭԪ��H���ƾګO�s�覡�A�ѨM�^�װ��D
+07.5.14更新日誌
+1.修正GM指令[密碼 petlevelup 級數 位置(1-5)]不能把寵物升級到140的BUG，增加寵物位置參數
+2.修改GMSV關閉時的操作 盡量處理可能或已知出現的GMSV關閉情況，最大限度避免人物回檔及確保LOG的正常實時記錄
+3.修改GMSV維護時候的人物數據保存方式，解決回擋問題
 
-07.5.13��s��x
-1.�R���X�ӵL�Ϊ�LOG
-�H�U�Olog.cf���t�m�p�G���Q�O����LOG���ܴN���n�]�m
-�t�XSetup.cf�̭���
-#log�ɶ�
+07.5.13更新日誌
+1.刪除幾個無用的LOG
+以下是log.cf的配置如果不想記錄該LOG的話就不要設置
+配合Setup.cf裡面的
+#log時間
 loghour=24
-�o�̬O�H�p�ɬ����A24�p�ɼg�@��LOG
+這裡是以小時為單位，24小時寫一次LOG
 talklog=talk.log
 itemlog=item.log
 petlog=pet.log
@@ -239,60 +239,60 @@ speedlog=speed.log
 proc=proc.log
 fmpklog=fmpk.log
 gmlog=gm.log
-#������L	�_�_�p�� 
+#賭場輪盤	寶寶小豬 
 gamblelog=gamble.log
-#�S��
+#沒用
 #creatpetlog=
 #creatpetavglog=
 #loginlog=
 #pettranslog=
-#�W�[����ԳӭtLog
+#增加莊園戰勝負Log
 fmpkresultlog=fmpkresult.log
-#�s�W�a�ڭӤH�Ȧ�s��Log (���t�a�ڻȦ�)
+#新增家族個人銀行存取Log (不含家族銀行)
 bankstonelog=bankstone.log
 acmessagelog=acmessage.log
 pkcontendlog=pkcontend.log
-#�\�y
+#擺灘
 StreetVendorlog=StreetVendor.log
-#���F�l��
+#精靈召喚
 angellog=angel.log
-#�����T���M��LOG
+#雜項訊息專用LOG
 otherlog=other.log
-#�s����W�hLOG
+#新莊園規則LOG
 FMPKGetMoneylog=FMPKGetMoney.log
 FMFameShoplog=FMFameShop.log
 
-07.5.11��s��x
-1.�W�[CF�r�q
-#�۩w�q�M�d�\��
+07.5.11更新日誌
+1.增加CF字段
+#自定義騎寵功能
 Ridefile=./data/ride.txt
-�M�d�̦h��32�ءA�䤤RIDE_PET0-RIDE_PET11�w�g�q�{���i�ק�
-RIDE_PET12-RIDE_PET31�i�H�۩w�q
-ride.txt���e
-#�M�d�Ҫ��D��Ѽ�,�Q�M�d���ζHID,�M���᪺�H���ζHID,�M�d�����H���ζHID1�]0���Ҧ��H�����i�M�^,�M�d�����H���ζHID2�]0���Ҧ��H�����i�M�^.....�M�d�����H���ζHID12�]0���Ҧ��H�����i�M�^
-#�M����
+騎寵最多有32種，其中RIDE_PET0-RIDE_PET11已經默認不可修改
+RIDE_PET12-RIDE_PET31可以自定義
+ride.txt內容
+#騎寵證的道具參數,被騎寵物形象ID,騎乘後的人物形象ID,騎寵物的人物形象ID1（0為所有人物均可騎）,騎寵物的人物形象ID2（0為所有人物均可騎）.....騎寵物的人物形象ID12（0為所有人物均可騎）
+#騎黑雞
 RIDE_PET12,100904,100441,0
 
-2.�W�[GM���O[�K�X reride]�i��Ūride.txt
+2.增加GM指令[密碼 reride]可重讀ride.txt
 
-07.5.10��s��x
-1.�W�[���Ȥ�x�\��
+07.5.10更新日誌
+1.增加任務日誌功能
 
-07.5.9��s��x
-1.�W�[CF�r�q
-#MAXSOCKET=1�ɶ}�ҳ̤j�ǿ�Ҧ��A��0�ɶ}�ҳ̤p���ӼҦ��C���̤j�ǿ�Ҧ��}�ҫ�A�A�Ⱥݳ̤j�b�u�H�Ƭ�MAXPTSOCKET*MAXPTSOCKET +100���������CF���H�Ƴ]�m�Ѽ�
+07.5.9更新日誌
+1.增加CF字段
+#MAXSOCKET=1時開啟最大傳輸模式，為0時開啟最小消耗模式。當最大傳輸模式開啟後，服務端最大在線人數為MAXPTSOCKET*MAXPTSOCKET +100忽略掉原先CF的人數設置參數
 MAXSOCKET=1
-#�̤j�B�z�q(1-100)
+#最大處理量(1-100)
 MAXPSOCKET=100
 #(1-5)
 MAXPTSOCKET=5
-#�W�ɧP�_(���:�L�� 1000�L��=1�@�� 1000�@��=1��)
+#超時判斷(單位:微秒 1000微秒=1毫秒 1000毫秒=1秒)
 RECVSOCKETTIMEOUT=1000
-#RECV��Ū���W��-���ѼƸ򤧫e��sorecvlowat=22���Ҥ��Psorecvlowat�O�w��select����RECVBUFFLEN�h�O�w��recv��
+#RECV的讀取上限-此參數跟之前的sorecvlowat=22有所不同sorecvlowat是針對select的而RECVBUFFLEN則是針對recv的
 RECVBUFFLEN=128
 
-07.5.1��s��x
-1.�W�[NPC�\��
+07.5.1更新日誌
+1.增加NPC功能
 NPCTEMPLATE
 #NPC_GambleBank
 {
@@ -303,42 +303,42 @@ makeatnosee=1
 graphicname=100444
 functionset=NPC_FreePetSkill
 }
-��NPC�N�O���ӴN���F�ڹ�o�ӺN�O��NPC�W�[�F�@���n����d���ޯ઺�\��
+此NPC摸板本來就有了我對這個摸板的NPC增加了一個聲望學寵物技能的功能
 {
-start_msg:�ڬO���ԩҥ즷�d���ޯ�}�|���A��F�I�t�~�A���m���ޯ�u���������Q�O�ǲ߳�C
-main_msg:�n�Ǥ���ޯ�O�H
-nothing_msg:�n�F�D�D�D�D
-err_msg:�o���O���ӾǪ��@���
+start_msg:我是帖拉所伊朵寵物技能飼育員，對了！另外，捐獻的技能只能讓撲滿烏力學習喔。
+main_msg:要學什麼技能呢？
+nothing_msg:好了．．．．
+err_msg:這不是它該學的哦～～
 skill_rate:1.0
-#�n���2000=20�n��
+#聲望值2000=20聲望
 petskCostFame:2000,2000
 pet_skill:151,152,211,12,13,41,52
 }
-2.�ק�NPC�}�����P�_���O FREE:PET=89-195*2-2 �W�[�F�᭱��"-2"�Ѽƥi�H�P�_�d������ͼ�
-3.�W�[�F�M�����\��
-4.�W�[�ɮv�\��
+2.修改NPC腳本的判斷指令 FREE:PET=89-195*2-2 增加了後面的"-2"參數可以判斷寵物的轉生數
+3.增加了騎黑雞功能
+4.增加導師功能
 
-07.4.24��s��x
-1.�ץ��B���L�k�P�_�ӭt��BUG
-2.�ק����U�Ѯɶ��T�w�b18:00-23:00
+07.4.24更新日誌
+1.修正冰莊無法判斷勝負的BUG
+2.修改莊園下書時間固定在18:00-23:00
 
-07.4.22��s��x
-1.�״_�����O���n�X��b�B����BUG(DATA���O���IID�����~)
-2.�״_SAAC�]���n�����A���`�����H��BUG
-3.�״_GMSV�b�ª��alogout�P�s���alogon���ɭԾɭP���H���ƾګ��w�Q�ק�A�ӾɭP���¤H���d�u�����H��BUG
-4.�ק�socket�����A��i����o�e�Ҧ��A�קK�FI\O�ާ@��main�u�{���ݤ��������񪺮ɶ��A�q�Ӵ���main�u�{���B�z�Ĳv
-5.�bSAAC�U�Ыئ����"family/fm_pk_list.txt"�i�O�s�����ԦC���A�]�N�O�����|�]�����@�Ө걼�Ԯ�
+07.4.22更新日誌
+1.修復魚村記錄登出後在冰城的BUG(DATA的記錄點ID有錯誤)
+2.修復SAAC因為登陸狀態異常不能踢人的BUG
+3.修復GMSV在舊玩家logout與新玩家logon的時候導致的人物數據指針被修改，而導致的舊人物卡線不能踢人的BUG
+4.修改socket部分，改進報文發送模式，避免了I\O操作時main線程等待互斥鎖釋放的時間，從而提升main線程的處理效率
+5.在SAAC下創建此文件"family/fm_pk_list.txt"可保存莊園對戰列表，也就是說不會因為維護而刷掉戰書
 
-07.4.21��s��x
-1.�ק�GM���O[�K�X level ���� �b��]�i�[�b���Ѽ�
-2.�W�[�W�ɧP�_�����קKSOCKET��I/O�ާ@�y���u�{����ӥd��
-3.�w��GMSV��I/O�ާ@�i��վ�R���Q�νu�{�Ŷ��ɶ��h���Ʊ�
-4.�W�[CF�r�q
-#sorecvbuf���ܨC�Ӫ��a�s���������w�İϤj�p
+07.4.21更新日誌
+1.修改GM指令[密碼 level 等級 帳號]可加帳號參數
+2.增加超時判斷機制避免SOCKET的I/O操作造成線程阻塞而卡機
+3.針對GMSV的I/O操作進行調整充分利用線程空閒時間多做事情
+4.增加CF字段
+#sorecvbuf表示每個玩家連接的接收緩衝區大小
 sorecvbuf=81920
-#sorecvlowa���ܨC�Ӫ��a�s��Ū���U����
+#sorecvlowa表示每個玩家連接讀取下限制
 sorecvlowat=22
-5.�W�[VIP�ө�
+5.增加VIP商店
 template:
 
 NPCTEMPLATE
@@ -362,7 +362,7 @@ borncorner=83,80,83,80
 time=0
 createnum=1
 graphicname=16985
-name=VIP�D�㩱
+name=VIP道具店
 dir=4
 ignoreinvincible=1
 enemy=memberman|file:jznpc/vipshop/itemvip.arg
@@ -370,75 +370,75 @@ enemy=memberman|file:jznpc/vipshop/itemvip.arg
 
 arg:
 
-START_MSG:�o�̬OVIP�D��ө��A������ݭn�H
-MenuHead:�z���e���|���I�ơG
+START_MSG:這裡是VIP道具商店，有什麼需要？
+MenuHead:您當前的會員點數：
 15472
 {
-MenuStr:�X���� 18(�r��)     5�D
+MenuStr:合成爪 18(毒霧)     5￥
 FREE:LV>0&VIP>4
 SubMember:5
 AddItem:15112
 }
 
-07.4.16��s��x
-1.�קﳡ��GM���O�i�H�[�b���ѼƤ�p�s�y�d���B�D��A�]�m�H����O�������O
-2.�W�[[�K�X ��� �b��]���O����F����ͤ@��
-3.�״_2��SIGSEGV���~
-4.�״_�@�Ӹ귽������D
-5.�W�[�D��
-�n���,�n���,�i��o20000�I�n��,20000,,,,,,,ITEM_AddFame,,,,,,20798,24176,100,16,2,0,0,-1,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,1,1,0,0,,0,,0,,0,,0,,0
-�|���I��10�I,�|���I��10�I,�i��o�|���I��10�I,10,,,,,,,ITEM_AddMemberPoint,,,,,,20819,24176,100,16,2,0,0,-1,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,1,1,0,0,,0,,0,,0,,0,,0
-6.�W�[CF�r�q
-#�C�ŤɯŻݭn�g��� ��ڨC�Żݭn�g��=��l�C�Ÿg��/exp
+07.4.16更新日誌
+1.修改部分GM指令可以加帳號參數比如製造寵物、道具，設置人物能力等的指令
+2.增加[密碼 轉生 帳號]指令跟精靈王轉生一樣
+3.修復2個SIGSEGV錯誤
+4.修復一個資源死鎖問題
+5.增加道具
+聲望卷,聲望卷,可獲得20000點聲望,20000,,,,,,,ITEM_AddFame,,,,,,20798,24176,100,16,2,0,0,-1,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,1,1,0,0,,0,,0,,0,,0,,0
+會員點卷10點,會員點卷10點,可獲得會員點數10點,10,,,,,,,ITEM_AddMemberPoint,,,,,,20819,24176,100,16,2,0,0,-1,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,1,1,0,0,,0,,0,,0,,0,,0
+6.增加CF字段
+#每級升級需要經驗比 實際每級需要經驗=原始每級經驗/exp
 exp=1
-#�԰��g�筿�� ��ھ԰���o�g��=��l�g��*upexp
+#戰鬥經驗倍數 實際戰鬥獲得經驗=原始經驗*upexp
 upexp=6
-PS�G������í�w�ʥi�H���۷����A���L�t���٬O����t
-7.�u��SAAC
+PS：此版本穩定性可以說相當高，不過負載還是比較差
+7.優化SAAC
 
-07.4.11��s��x
-1.�W�[GM���O[�K�X ���@ ����]�����O�i�H��GF�@������٦��h�֤������@�������a���e�U�u
-2.��ﳡ�����s�޲z����A�t�ק�֡A��í�w�I�I
+07.4.11更新日誌
+1.增加GM指令[密碼 維護 分鐘]此指令可以跟GF一樣顯示還有多少分鐘維護提醒玩家提前下線
+2.更改部分內存管理機制，速度更快，更穩定！！
 
-07.4.10��s��x
-1.��{�ǰ�̷��X�i�楲�n�ˬd
-2.�u��GMSV �W�[���MMX SSE���O��
-3.�����w��`�������ܶq�i��վ�A��֦]�`���Ӷi�檺��̷��X�ˬd�N�X�A�W�[�D�`������Ĳv
+07.4.10更新日誌
+1.對程序堆棧溢出進行必要檢查
+2.優化GMSV 增加支持MMX SSE指令集
+3.全面針對循環局部變量進行調整，減少因循環而進行的堆棧溢出檢查代碼，增加主循環執行效率
 
-07.4.9��s��x
-1.�ק�SAAC�n���Ҧ��A���Ƶn���۰�T�H
-2.�W�[GM���O[�K�X BMM 1/2]�s�@���~79��MM
-3.�ק�GM���O[�K�X settrans �Ʀr �b��]�i�H���w�b��
+07.4.9更新日誌
+1.修改SAAC登陸模式，重複登陸自動T人
+2.增加GM指令[密碼 BMM 1/2]製作極品79級MM
+3.修改GM指令[密碼 settrans 數字 帳號]可以指定帳號
 
-07.4.7��s��x
-1.�W�[�B��
-2.�ק�GMSV�P�_�H���n��������
-3.�W�[2��8.0�M�d ù�h�J�p �M �v�d�|
+07.4.7更新日誌
+1.增加冰莊
+2.修改GMSV判斷人物登陸的條件
+3.增加2種8.0騎寵 羅多克雷 和 史卡魯
 
-07.4.6��s
-1.�ץ��ĦX�M�d��BUG
-2.�W�[CF�r�q
-#��_�M1��H�W�d 1���i�H 0�����i�H
+07.4.6更新
+1.修正融合騎寵的BUG
+2.增加CF字段
+#能否騎1轉以上寵 1為可以 0為不可以
 ridets=0
-#�Ыطs�H�e��
+#創建新人送錢
 gold=300000
-#�Ыطs�H�O�_�e�t�M�M�d 0�����e 1���e�Ѫ�+�p�s
+#創建新人是否送配套騎寵 0為不送 1為送老虎+雷龍
 getridepet=1
-#�Ыطs�H�e�d�]getridepet=1��pet3-pet4���ġ^
+#創建新人送寵（getridepet=1時pet3-pet4有效）
 pet1=
 pet2=
 pet3=
 pet4=
-#�Ұe�d������
+#所送寵的等級
 petlevel=1
 
-07.4.4��s��x
-1.�״_�@����L�Ĥ����骺BUG
-2.�ץ�CF�]�m����R���a�W�۹����D!
-3.�ק�ޯ�٫��M���m�٫����Ѽ�!
-4.�ק�SAAC��ACWK���q�H�ѨM�n�����u���D�]�Ȯɡ^
-5.�W�[CF�r�q
-#�Ыطs�H�e�D��
+07.4.4更新日誌
+1.修復一個鎖無效互斥體的BUG
+2.修正CF設置不能刪除地上石幣問題!
+3.修改技能戒指和熟練戒指的參數!
+4.修改SAAC跟ACWK的通信解決登陸忙線問題（暫時）
+5.增加CF字段
+#創建新人送道具
 item1=21032
 item2=21033
 item3=21034
@@ -455,34 +455,34 @@ item13=
 item14=
 item15=
 
-07.3.24��s��x
-1.����MTIO_LOOP��ƭ��g
-2.�X�z���t���nLOOP�B�z�ɶ�
-3.�R���X�ӨS�Ϊ�����
+07.3.24更新日誌
+1.完成MTIO_LOOP函數重寫
+2.合理分配次要LOOP處理時間
+3.刪除幾個沒用的時鐘
 
-07.3.23��s��x
-1.�ץ��X�Ӥ�í�w�]��
-2.����netloop���g
+07.3.23更新日誌
+1.修正幾個不穩定因素
+2.完成netloop重寫
 
-07.3.16��s��x
-1.�R���C30���b777�a�Ϩ��d��BUG
-2.���gnetloop�B�z�֤ߡA�}�����V�q�H�Ҧ�
+07.3.16更新日誌
+1.刪除每30秒在777地圖刷寵的BUG
+2.重寫netloop處理核心，開啟雙向通信模式
 
-07.3.10��s��x
-1.�ץ��X���D��᪺�D����ܿ��ð��D
+07.3.10更新日誌
+1.修正合成道具後的道具顯示錯亂問題
 
-07.3.9��s��x
-1.�ץ����N�ڪ���o�ܽШ�i�H�L�����Ҫ�BUG
-2.�R���L�Ψ�ơBNPC��
-3.�R��GM���O��IP����
+07.3.9更新日誌
+1.修正任意族長獲得邀請函可以無限做證的BUG
+2.刪除無用函數、NPC等
+3.刪除GM指令的IP限制
 
-07.3.8��s��x
-1.�ץ���|�B���e�|�B�e�R�v��NPC���~�ư��D
-2.�W�[8.0�d���ޯ�NPC�ʥ]���
-3.�W�[8.0�D��ʥ]���
-4.�ק�F�O���I�H�����
+07.3.8更新日誌
+1.修正醫院、美容院、占卜師等NPC的漢化問題
+2.增加8.0寵物技能NPC封包支持
+3.增加8.0道具封包支持
+4.修改了記錄點人數顯示
 
-07.3.6��s��x
-1.�R��ACWK�s��WGS�ˬd�Τ�n��
-2.�ק�MYSQL�\��A�i�H�qCF�]�m��������
-3.��GMSV�i���B�u��
+07.3.6更新日誌
+1.刪除ACWK連接WGS檢查用戶登陸
+2.修改MYSQL功能，可以從CF設置相關項目
+3.對GMSV進行初步優化

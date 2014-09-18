@@ -18,35 +18,35 @@ typedef struct tagLevelUpPattern
         int origin;
         int multi;
     }exptbl[3];
-    int     hpupminpoint;   /*  hp ¤Î¤¢¤¬¤ë   ÄãÃÍ*/
-    int     hpupmaxpoint;   /*  hp ¤Î¤¢¤¬¤ë   ÄãÃÍ*/
+    int     hpupminpoint;   /*  hp åŠä¸äº’æœˆ   æ–•è¥–*/
+    int     hpupmaxpoint;   /*  hp åŠä¸äº’æœˆ   æ–•è¥–*/
 
-    int     needexp;        /*    Í×¤Ê·Ğ¸³ÃÍ    */
+    int     needexp;        /*    é‚°å…ç…©è‘£è¥–    */
 #else
     int     uppoint[5];
 #endif
 }LevelUpPattern;
 
-/*====================½é´üÃÍ¡b¥ì¥Ö¥ë¥¢¥Ã¥×´Ø·¸====================*/
+/*====================è³¡æ¸è¥–ï½ä¼Šçš®ä¼™å¤±æ°¸çš¿æ¥®æº¢====================*/
 BOOL CHAR_getDefaultChar( Char*  nc, int imagenumber );
 
-/*====================Áõ    ¡b  Áü  ¹æÂØ¤¨´Ø·¸====================*/
+/*====================éš¸    ï½  é¢¶  å¯è´…å°¹æ¥®æº¢====================*/
 int CHAR_getNewImagenumberFromEquip( int basebaseimagenumber,
                                      ITEM_CATEGORY category );
-/*====================  Áü  ¹æ  »ú   ->   ¹æ´Ø·¸====================*/
+/*====================  é¢¶  å¯  å„‚   ->   å¯æ¥®æº¢====================*/
 void CHAR_initSeekGraphicNumberFromString();
 int CHAR_seekGraphicNumberFromString( char* string );
 
 
 
-/*====================¥­¥ã¥é¤Î½é´üÃÍ´Ø·¸====================*/
+/*====================å¹³ä¹“ä»¿åŠè³¡æ¸è¥–æ¥®æº¢====================*/
 BOOL CHAR_getInitElderPosition( Char* ch,int hometown);
 BOOL CHAR_getElderPosition( int elderindex, int* fl, int* x, int* y );
 
 void CHAR_setInitValues( Char* ch );
 
 
-/*====================  Å¨°Ì  ´Ø·¸====================*/
+/*====================  è¥¯åŒ  æ¥®æº¢====================*/
 typedef enum
 {
     CHAR_INVAREA,
@@ -63,13 +63,13 @@ BOOL CHAR_isAppearPosition( int floor, int *x, int *y);
 BOOL CHAR_isCannotDropArea( int floor , int x, int y );
 
 
-/* Ä¹  ´Ø·¸ */
+/* è´  æ¥®æº¢ */
 BOOL CHAR_ElderSetPosition( int elderindex ,int fl,int x ,int y);
 
 
 
 /*************************************************
-»ÃÄê¥ì¥Ù¥ë¥¢¥Ã¥×½è  
+é…µçˆ›ä¼ŠçŸ›ä¼™å¤±æ°¸çš¿è³ª  
 *************************************************/
 
 
@@ -86,8 +86,8 @@ int CHAR_PetLevelUp( int petindex );
 BOOL CHAR_checkFaceImageNumber( int imagenumber, int faceimagenumber);
 BOOL CHAR_checkPlayerImageNumber( int imagenumber);
 
-int CHAR_PetTakeLevelUp( int petindex, int lv);	//±j¨îÃdª«¤É¯Å
-int CHAR_PetTakeDrop( int petindex, int floor, int ox, int oy);	//±j¨î¥á±óÃdª«¤É¯Å
+int CHAR_PetTakeLevelUp( int petindex, int lv);	//å¼·åˆ¶å¯µç‰©å‡ç´š
+int CHAR_PetTakeDrop( int petindex, int floor, int ox, int oy);	//å¼·åˆ¶ä¸Ÿæ£„å¯µç‰©å‡ç´š
 
 #ifdef _NPC_FUSION
 int PETFUSION_FusionPetSub( int charaindex, int Subindex1, int Subindex2, int *work, int *skill);
@@ -106,7 +106,7 @@ int NPC_PetTransManGetAns( int total1, int total2, int LV, int rank);
 void CHAR_AutoChikulaStone( int charaindex, int Dflg);
 #endif
 
-#ifdef _STATUS_WATERWORD //¤ô¥@¬Éª¬ºA
+#ifdef _STATUS_WATERWORD //æ°´ä¸–ç•Œç‹€æ…‹
 void CHAR_CheckWaterStatus( int charaindex);
 #endif
 

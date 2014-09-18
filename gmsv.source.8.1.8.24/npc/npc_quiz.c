@@ -90,7 +90,7 @@ BOOL NPC_QuizInit( int meindex )
 
 	if( CHAR_getWorkInt( meindex, CHAR_WORK_QUIZNUM) > ( tbl[0] - 1)){
 		print(
-		 "%s¥@²Å¦X±ø¥ó,¶ê°équizªº°İÃD¼Æ(%d? ¤ñ¥XÃD¼Æ(%dÃD)¤£¨¬",
+		 "%sä¸–ç¬¦åˆæ¢ä»¶,åœ“åœˆquizçš„å•é¡Œæ•¸(%d? æ¯”å‡ºé¡Œæ•¸(%dé¡Œ)ä¸è¶³",
 			CHAR_getChar( meindex, CHAR_NAME),
 			(tbl[0]-1),
 			CHAR_getWorkInt( meindex, CHAR_WORK_QUIZNUM)
@@ -150,7 +150,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 		}
 		if(NPC_Util_GetStrFromStrWithDelim( argstr,"StartMsg",
 									token, sizeof( token)) == NULL){
-			print("%sªºStartMsg¤£¦s¦b", CHAR_getChar(meindex,CHAR_NAME));
+			print("%sçš„StartMsgä¸å­˜åœ¨", CHAR_getChar(meindex,CHAR_NAME));
 			return;
 		}
 		buttontype = WINDOW_BUTTONTYPE_YESNO;
@@ -184,9 +184,9 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 			}
 		
 		}else if(NPC_PlayerCheck( meindex, talker) == FALSE) {
-			/*--¿Í¿ô¥ª¡¼¥Ğ¡¼---*/
-			sprintf(token,"\n\n\n        ½Ğ,µyµ¥¤@¤U"
-						      "\n¡a¡a £±ÅÙ¤Ë¤½¤ó¤Ê¤ËÁê¼ê¤Ç¤­¤Ê¤¤¤«¤é"
+			/*--è«¦é†’å·¦â–¡ç”°â–¡---*/
+			sprintf(token,"\n\n\n        è«‹,ç¨ç­‰ä¸€ä¸‹"
+						      "\nï½›ï½› ã„ è˜¸åå…¬æ°å…åé¬æ¾åŒ¹äº”å…ä¸­äº•æ—¥"
 			);
 			buttontype = WINDOW_BUTTONTYPE_OK;
 			messagetype = WINDOW_MESSAGETYPE_MESSAGE;
@@ -196,14 +196,14 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 			if(NPC_Util_GetStrFromStrWithDelim( argstr,"EntryItem",
 									buf2, sizeof( buf2)) != NULL){
 				if(NPC_EntryItemDel( talker, buf2)	==FALSE){
-					print("¹D¨ã¨S¦³®ø¥¢(%s)",CHAR_getChar(meindex,CHAR_NAME));
+					print("é“å…·æ²’æœ‰æ¶ˆå¤±(%s)",CHAR_getChar(meindex,CHAR_NAME));
 					return;
 				}
 			}
 			if(NPC_Util_GetStrFromStrWithDelim( argstr,"EntryStone",
 									buf3, sizeof( buf3)) != NULL){
 				if(NPC_EntryStoneDel( talker, buf3)	==FALSE){
-					print("ª÷¿ú¨S¦³®ø¥¢(%s)",CHAR_getChar(meindex,CHAR_NAME));
+					print("é‡‘éŒ¢æ²’æœ‰æ¶ˆå¤±(%s)",CHAR_getChar(meindex,CHAR_NAME));
 					return;
 				}
 			}
@@ -217,11 +217,11 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 			print("GetArgstrErr:Quiz %s",CHAR_getChar( meindex, CHAR_NAME));
 		}
 
-		/*-- ¥¹¥¿¡¼¥È¥á¥Ã¥»¡¼¥¸ --*/
+		/*-- æ—¦æ­£â–¡ç„ä¸Ÿæ°¸æœ¬â–¡æ–¥ --*/
 		if(NPC_Util_GetStrFromStrWithDelim( argstr,"ItemFullMsg",
 									token, sizeof( token)) == NULL)
 		{
-			print("%sªºItemFullMsg¤£¦s¦b", CHAR_getChar(meindex,CHAR_NAME));
+			print("%sçš„ItemFullMsgä¸å­˜åœ¨", CHAR_getChar(meindex,CHAR_NAME));
 			return;
 		}
 		
@@ -231,7 +231,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 
 	  	break;
 	  case 2:
-  		/*--¥á¥¤¥ó--*/
+  		/*--ä¸Ÿå¥¶ä»¶--*/
   		{
 			int *tbl;
 			int point;
@@ -242,22 +242,22 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 			struct pl PLAYER;
 			
 			
-			/*--¥Ñ¡¼  ¥£¡¼¤Ë¤Ê¤Ã¤Æ¤Ê¤¤¤«--*/
+			/*--ç”±â–¡  å¥´â–¡åå…å‹»åŒ–å…ä¸­äº•--*/
 			if(NPC_QUIZPARTY_CHAECK(meindex,talker)==FALSE){
 				NPC_Quiz_selectWindow( meindex, talker, 4);
 			}
 
 			
 			
-			/*--²òÅú¼Ô  ¹æ¤ò  ¤ë--*/
+			/*--è¸è ¶æ¨Š  å¯æ¯›  æœˆ--*/
 			p_no = CHAR_getWorkInt( talker, CHAR_WORKSHOPRELEVANT);
 			point = CHAR_getWorkInt( meindex, CHAR_WORK_PLAYER1 + p_no);
 			pl_ptr = (int *)point;
 			
-			/*-- ¥á¥â¥ê¤Î    ¤ò¹½Â¤  ¤Ë¥³¥Ô¡¼ --*/
+			/*-- ä¸Ÿä¹’ä¼‰åŠ    æ¯›å­ç»  åæˆŠç–‹â–¡ --*/
 			memcpy(&PLAYER, pl_ptr, sizeof(struct pl));
 			
-			/*--Á´¤Æ¤Î  Âê¤¬½ª¤ï¤Ã¤¿¤Î¤Ç·ë²Ì¤ò  ¹ğ--*/
+			/*--èŸˆåŒ–åŠ  é–äº’è”½æ­¹å‹»å‡¶åŠåŒ¹ç‘›çµ†æ¯›  å±¢--*/
 			if(PLAYER.quizno
 			 == CHAR_getWorkInt( meindex, CHAR_WORK_QUIZNUM))
 			{
@@ -265,13 +265,13 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				int okflg;
 				char buf2[512];
 
-			  	/*-- arg¥Õ¥¡¥¤¥ë¤Î  ¤ß  ¤ß --*/
+			  	/*-- argç™½å¤®å¥¶ä¼™åŠ  å¿ƒ  å¿ƒ --*/
 				if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1))) == NULL)
 				{
 					print("GetArgstrErr:Quiz %s",CHAR_getChar( meindex, CHAR_NAME));
 				}
 
-				/*--Àµ²ò¿ô¤Ë±ş¤¸¤Æ¥¢¥¤  ¥à¤òÄÉ²Ã¤¹¤ë---*/
+				/*--æ‡‡è¸é†’åæ®ºå…ƒåŒ–å¤±å¥¶  ä¸æ¯›é¦¨ç¬›å…æœˆ---*/
 				if(NPC_Util_GetStrFromStrWithDelim( argstr, "GetItem", buf, sizeof( buf) )
 				!=NULL)
 				{
@@ -287,7 +287,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 					}
 				}
 
-				/*--Àµ²ò¿ô¤Ë±ş¤¸¤Æ¥¢¥¤  ¥à¤òÄÉ²Ã¤¹¤ë---*/
+				/*--æ‡‡è¸é†’åæ®ºå…ƒåŒ–å¤±å¥¶  ä¸æ¯›é¦¨ç¬›å…æœˆ---*/
 				if(NPC_Util_GetStrFromStrWithDelim( argstr, "Border", buf, sizeof( buf) )
 				!=NULL)
 				{
@@ -307,7 +307,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				}
 
 				
-				/*--Àµ²ò¿ô¤Ë±ş¤¸¤Æ¥ï¡¼¥×¤µ¤»¤ë---*/
+				/*--æ‡‡è¸é†’åæ®ºå…ƒåŒ–ä¼â–¡çš¿ä»Šå…­æœˆ---*/
 				if(NPC_Util_GetStrFromStrWithDelim( argstr, "Warp", buf, sizeof( buf) )
 				!=NULL)
 				{
@@ -327,13 +327,13 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 
 
 				
-				/*-- ¥¢¥Ù¥ì¡¼¥¸(  ¶Ñ)¤òµá¤á¤ë -*/
+				/*-- å¤±çŸ›ä¼Šâ–¡æ–¥(  å‰½)æ¯›è²æˆ¶æœˆ -*/
 				avg = (double)PLAYER.answer /
 					CHAR_getWorkInt( meindex, CHAR_WORK_QUIZNUM) * 100;
 #if 0
-				sprintf(token,"¡a¡a¡a¡a¡a¡a¡a"
-							"\n\n§Aªº¥¿½T¸Ñµª²v¬O %dÃD¤¤  %d ÃD "
-							"\n¥¿½T¤ñ²v %d ¤`"
+				sprintf(token,"ï½›ï½›ï½›ï½›ï½›ï½›ï½›"
+							"\n\nä½ çš„æ­£ç¢ºè§£ç­”ç‡æ˜¯ %dé¡Œä¸­  %d é¡Œ "
+							"\næ­£ç¢ºæ¯”ç‡ %d äº¡"
 							"\n\n%s",
 					CHAR_getWorkInt( meindex, CHAR_WORK_QUIZNUM),
 					PLAYER.answer,
@@ -342,17 +342,17 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				);
 #endif				
 				
-				/*--¥×¥ì¥¤¥ä¡¼¤Î¥ï¡¼¥¯    ¤ò½é´ü²½ -*/
+				/*--çš¿ä¼Šå¥¶ä¹©â–¡åŠä¼â–¡å¼    æ¯›è³¡æ¸ç¥­ -*/
 				CHAR_setWorkInt( meindex, CHAR_WORK_PLAYER1 + 
 							CHAR_getWorkInt( talker, CHAR_WORKSHOPRELEVANT) ,-1);
 	
-//				print("\n %s %d¶}©ñ",CHAR_getChar(talker,CHAR_NAME),(int)PLAYER.ptr);
+//				print("\n %s %dé–‹æ”¾",CHAR_getChar(talker,CHAR_NAME),(int)PLAYER.ptr);
 
-				/*--¥á¥â¥ê    ³«  --*/
+				/*--ä¸Ÿä¹’ä¼‰    é‡©  --*/
 				free(PLAYER.ptr);
 				
 #if 0				
-				/*-¤³¤³¤ÇÁ÷¿®¤¹¤ë--*/
+				/*-ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ--*/
 				lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE, 
 						WINDOW_BUTTONTYPE_OK, 
 						CHAR_WINDOWTYPE_QUIZ_START,
@@ -360,7 +360,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 						token);
 #endif
 
-				//Á´¤Æ¤Î½ª  ½è  ¤¬½ª¤ï¤Ã¤Æ¤«¤é¥ï¡¼¥×¤µ¤»¤ë¡e
+				//èŸˆåŒ–åŠè”½  è³ª  äº’è”½æ­¹å‹»åŒ–äº•æ—¥ä¼â–¡çš¿ä»Šå…­æœˆã€”
 				if(warp_flg != -1){
 					CHAR_warpToSpecificPoint(talker, floor, x, y);
 				}
@@ -368,27 +368,27 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				
 			}
 
-			/*--¤³¤Î      ¤ËÀßÄê¤µ¤ì¤Æ¤¤¤ë¾ò·ï¤Î  Âê  ¹æ¤ò  ¤­½Ğ¤¹--*/
+			/*--ä»‡åŠ      åæ¾€çˆ›ä»Šæœ¨åŒ–ä¸­æœˆæ©¢ç˜€åŠ  é–  å¯æ¯›  äº”è«‹å…--*/
 			tbl =  NPC_GetQuestion( meindex);
 			
 			
-			/*--  Âê¿ô¤Î¥Á¥§¥Ã¥¯ tbl[0]¤Ë¤Ï¾ò·ï¤ò  ¤¿¤·¤¿  Âê¿ô¤¬¤Ï¤¤¤Ã¤Æ¤¤¤ë --*/
+			/*--  é–é†’åŠæ°‘å°¼æ°¸å¼ tbl[0]ååæ©¢ç˜€æ¯›  å‡¶ä»„å‡¶  é–é†’äº’åä¸­å‹»åŒ–ä¸­æœˆ --*/
 			if( CHAR_getWorkInt( meindex, CHAR_WORK_QUIZNUM) > ( tbl[0] - 1))
 			{
-				/*--  Âê¤¬Â­¤ê¤Ê¤¤--*/
-				/*--¥á¥â¥ê    ³«  --*/
+				/*--  é–äº’ç°«æ›°å…ä¸­--*/
+				/*--ä¸Ÿä¹’ä¼‰    é‡©  --*/
 				free(PLAYER.ptr);
 				return ;
 			}
 
-			/*--  Âê¤ò      --*/
+			/*--  é–æ¯›      --*/
 			while(1){
 				loop++;
 				i = rand()%( tbl[0]);
 				if(i == 0) continue;
 				questionno = tbl[i];
 		
-				/*--½Å  ¥Á¥§¥Ã¥¯--*/
+				/*--è¤  æ°‘å°¼æ°¸å¼--*/
 				for( k = 0 ; k < OLDNO ; k++){
 					if(PLAYER.oldno[k] == questionno) {
 						loop = 0;
@@ -397,9 +397,9 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				}
 				if(k == OLDNO) break;
 				
-				/*--  ¸Â¥ë¡¼¥×  »ß--*/
+				/*--  èœƒä¼™â–¡çš¿  é…--*/
 				if(loop == 5000) {
-					print("°İÃD¤£¨¬i¥ş³¡­«ÂĞ¤Fj");
+					print("å•é¡Œä¸è¶³iå…¨éƒ¨é‡è¦†äº†j");
 				 	break;
 				}
 			}
@@ -409,7 +409,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 
 			PLAYER.quizno++;
 			
-			/*-- º£¤Ş¤Ç¤Î  Âê  ¹æ¤òµ­²±¤·¤Æ¶³¤¯--*/
+			/*-- æ¼†å¼•åŒ¹åŠ  é–  å¯æ¯›ç­ç››ä»„åŒ–é›²ä»--*/
 			PLAYER.oldno[p_old] = questionno;
 			p_old++;
 			CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTSEC, p_old);
@@ -417,14 +417,14 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 			strncpy( buf, Quiz[questionno].question, 
 							sizeof( Quiz[questionno].question));
 
-			/*--¥¯¥¤³N¤Î  Âê¤ÎÄ¹¤µ¤Ë¤è¤Ã¤Æ¡bÁª    ¤Î  ¼¨°Ì  ¤ò  ¤¨¤ë--*/
+			/*--å¼å¥¶è¡“åŠ  é–åŠè´ä»Šåæ–¹å‹»åŒ–ï½è–Š    åŠ  æ†åŒ  æ¯›  å°¹æœˆ--*/
 			if(strlen( buf) < 40) {
 				strcat( buf, "\n");
 			}else if(strlen( buf) > 79) {
 				len = 5;
 			}	
 
-			/*--Ã±¸ì¥Ş¥Ã¥Á--*/
+			/*--ç°½è³„ç©´æ°¸æ°‘--*/
 			if( Quiz[questionno].answertype == 4) {
 				
 				if(strlen( buf) < 40) {
@@ -435,11 +435,11 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 					strcat( buf,"\n");
 				}
 
-				/*--½ñ¤­  Âê--*/
-				sprintf( token,"   quiz ²Ä %d ÃD"
+				/*--è¸äº”  é–--*/
+				sprintf( token,"   quiz ç¬¬ %d é¡Œ"
 						  	"\n%s "
-				  			"\n¡õ¼g¦b³o¸Ì\n"
-				  			"  (¼g§¹½Ğ«ö¢İ¢Ù)",
+				  			"\nâ†“å¯«åœ¨é€™è£¡\n"
+				  			"  (å¯«å®Œè«‹æŒ‰ï¼¯ï¼«)",
 				  			PLAYER.quizno,
 				  			buf);
 
@@ -447,12 +447,12 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				messagetype = WINDOW_MESSAGETYPE_MESSAGEANDLINEINPUT;
 				windowno = CHAR_WINDOWTYPE_QUIZ_MAIN;
 
-				/*--¸½ºß¤Î¾õ¶·¤ò¥á¥â¥ê¤Ëµ­²±¤µ¤»¤Æ¶³¤¯--*/
+				/*--èœ‡ç®•åŠæ©‡é ˆæ¯›ä¸Ÿä¹’ä¼‰åç­ç››ä»Šå…­åŒ–é›²ä»--*/
 				memcpy(pl_ptr,&PLAYER,sizeof(struct pl));
 				
 				break;
 			
-			/*--¡a£³    Âê¡a--*/
+			/*--ï½›ã„¢    é–ï½›--*/
 			}else if( Quiz[questionno].answertype == 2) {
 				char work1[128];
 				char work2[128];
@@ -463,12 +463,12 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				ans = NPC_QuizRandAnswer(p_no,questionno,3, work1,work2,work3);
 				PLAYER.ansno = ans;
 
-				/*-- ¥¯¥¤³N    (£³     --*/
-				sprintf(token,"%d\n   quiz ²Ä %d ÃD"
+				/*-- å¼å¥¶è¡“    (ã„¢     --*/
+				sprintf(token,"%d\n   quiz ç¬¬ %d é¡Œ"
 						  	"\n%s "
-							"\n\n¢°¡D %s"
-							"\n¢±¡D %s"
-				  			"\n¢²¡D %s",
+							"\n\nï¼‘ï¼ %s"
+							"\nï¼’ï¼ %s"
+				  			"\nï¼“ï¼ %s",
 				  			len,
 				  			PLAYER.quizno,
 				  			buf,
@@ -477,7 +477,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				  			work3
 				);
 				
-			/*-- £²    Âê --*/
+			/*-- ã„¡    é– --*/
 			}else if( Quiz[questionno].answertype == 1){
 				char work1[128];
 				char work2[128];
@@ -487,11 +487,11 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 				ans = NPC_QuizRandAnswer(p_no,questionno,2, work1,work2,work3);
 				PLAYER.ansno = ans;
 
-				/*-- ¥¯¥¤³N    (£²     --*/
-				sprintf(token,"%d\n   quiz ²Ä %d ÃD"
+				/*-- å¼å¥¶è¡“    (ã„¡     --*/
+				sprintf(token,"%d\n   quiz ç¬¬ %d é¡Œ"
 							"\n%s "
-							"\n\n¢°¡D %s"
-							"\n¢±¡D %s",
+							"\n\nï¼‘ï¼ %s"
+							"\nï¼’ï¼ %s",
 							len,
 							PLAYER.quizno,
 							buf,
@@ -509,7 +509,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 		break;
 		
 	  case 4:
-		/*-- arg¥Õ¥¡¥¤¥ë¤Î  ¤ß  ¤ß --*/
+		/*-- argç™½å¤®å¥¶ä¼™åŠ  å¿ƒ  å¿ƒ --*/
 		if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1)))== NULL)
 		{
 			print("GetArgstrErr:Quiz %s",CHAR_getChar( meindex, CHAR_NAME));
@@ -527,7 +527,7 @@ static void NPC_Quiz_selectWindow( int meindex, int talker, int num)
 
 	}
 	 
-	/*-¤³¤³¤ÇÁ÷¿®¤¹¤ë--*/
+	/*-ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ--*/
 	lssproto_WN_send( fd, messagetype, 
 					buttontype, 
 					windowno,
@@ -603,7 +603,7 @@ void NPC_QuizWindowTalked( int meindex, int talkerindex,
 }
 
 /*
- *¥Ü¡¼¥À¡¼¥é¥¤¥ó¤Î¥Á¥§¥Ã¥¯
+ *ç¤ºâ–¡æ¯â–¡ä»¿å¥¶ä»¶åŠæ°‘å°¼æ°¸å¼
  */
 int NPC_QuizBorderLine(int ans ,char *buf)
 {
@@ -627,7 +627,7 @@ int NPC_QuizBorderLine(int ans ,char *buf)
 	return -1;
 }
 /*
- *¥Ü¡¼¥À¡¼¥é¥¤¥ó¤Î¥Á¥§¥Ã¥¯
+ *ç¤ºâ–¡æ¯â–¡ä»¿å¥¶ä»¶åŠæ°‘å°¼æ°¸å¼
  */
 int NPC_QuizWarpBorderLine(int ans ,char *buf)
 {
@@ -653,7 +653,7 @@ int NPC_QuizWarpBorderLine(int ans ,char *buf)
 
 
 /*
- *--¥¢¥¤  ¥à¤òÄÉ²Ã¤µ¤»¤ë
+ *--å¤±å¥¶  ä¸æ¯›é¦¨ç¬›ä»Šå…­æœˆ
  */
 BOOL NPC_QuizAddItem(int talker,char *buf)
 {
@@ -663,7 +663,7 @@ BOOL NPC_QuizAddItem(int talker,char *buf)
 	int itemindex;
 	char token[512];
 	
-	/*--  ¿ô¾Ş  ¤È¤·¤Æ¥¢¥¤  ¥à¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¤Ï¥é¥ó¥À¥à¤ÇÁª¤Ö--*/
+	/*--  é†’æ“  åˆä»„åŒ–å¤±å¥¶  ä¸äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­æœˆæ¨ºå¯§åä»¿ä»¶æ¯ä¸åŒ¹è–Šå°‘--*/
 	while(getStringFromIndexWithDelim(buf , "." , i, buf2, sizeof(buf2))
 	!= FALSE )
 	{
@@ -673,7 +673,7 @@ BOOL NPC_QuizAddItem(int talker,char *buf)
 	if(i == 1){
 		getStringFromIndexWithDelim(buf , "." , i, buf2, sizeof(buf2));
 	}else{
-		/*--¥é¥ó¥À¥à--*/
+		/*--ä»¿ä»¶æ¯ä¸--*/
 		i = (rand() % i)+1;
 		getStringFromIndexWithDelim(buf , "." , i, buf2, sizeof(buf2));
 	}
@@ -682,27 +682,27 @@ BOOL NPC_QuizAddItem(int talker,char *buf)
 
 	if(itemindex == -1) return FALSE;
 
-	/*¥¢¥¤  ¥à¤ÎÄÉ²Ã(  ÀÜ¥¢¥¤  ¥à  ¤Ë¤¤¤ì¤Æ¤·¤Ş¤¦  */
+	/*å¤±å¥¶  ä¸åŠé¦¨ç¬›(  æ¿¤å¤±å¥¶  ä¸  åä¸­æœ¨åŒ–ä»„å¼•ä¸¹  */
 	ret = CHAR_addItemSpecificItemIndex( talker, itemindex);
 	if( !CHAR_CHECKITEMINDEX( talker, ret) ){
 		print( "npc_quiz.c: additem error itemindex[%d]\n", itemindex);
 		ITEM_endExistItemsOne( itemindex);
 	
-		CHAR_talkToCli( talker, -1, "¹D¨ãÄæ¤wº¡", CHAR_COLORWHITE);
+		CHAR_talkToCli( talker, -1, "é“å…·æ¬„å·²æ»¿", CHAR_COLORWHITE);
 			
 		return FALSE;
 	}
 
 	if(itemindex != -1) {
 		LogItem(
-			CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+			CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 			CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 			itemindex,
 #else
-    		ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+    		ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-			"QuizAddItem(²qÁ¼->»â¨ìªº¹D¨ã)",
+			"QuizAddItem(çŒœè¬->é ˜åˆ°çš„é“å…·)",
 			CHAR_getInt( talker, CHAR_FLOOR),
 			CHAR_getInt( talker, CHAR_X ),
 			CHAR_getInt( talker, CHAR_Y ),
@@ -712,7 +712,7 @@ BOOL NPC_QuizAddItem(int talker,char *buf)
 		);
 	}
 	
-	sprintf(token,"®³¨ì%s¡C", ITEM_getChar( itemindex, ITEM_NAME));
+	sprintf(token,"æ‹¿åˆ°%sã€‚", ITEM_getChar( itemindex, ITEM_NAME));
 	CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 
 
@@ -848,7 +848,7 @@ int  NPC_QuizRandAnswer(int p_no,int q_no, int mode,
 }
 
 
-/*--¥×¥ì¥¤¥ä¡¼¤Î¥Á¥§¥Ã¥¯      £¸¿Í¤Ş¤Ç  --*/
+/*--çš¿ä¼Šå¥¶ä¹©â–¡åŠæ°‘å°¼æ°¸å¼      ã„§è«¦å¼•åŒ¹  --*/
 BOOL NPC_PlayerCheck(int meindex,int talker)
 	{
 	int i;
@@ -859,7 +859,7 @@ BOOL NPC_PlayerCheck(int meindex,int talker)
 
 	NPC_RealyCheack( meindex, talker);
 	
-	/*-- ¶õ¤­¤¬¤¢¤ë¤«¡ª --*/
+	/*-- å¡¢äº”äº’ä¸æœˆäº•ã€ --*/
 	for(i = 0 ; i < MEPLAYER ; i++){
 		if( (CHAR_getWorkInt( meindex, CHAR_WORK_PLAYER1 +i ) == -1))
 		{
@@ -870,25 +870,25 @@ BOOL NPC_PlayerCheck(int meindex,int talker)
 	if(i == MEPLAYER) return FALSE;
 
 
-	/*-- ¥á¥â¥ê³ÎÊİ --*/
+	/*-- ä¸Ÿä¹’ä¼‰å‰²å¿¡ --*/
 	if((ptr =(int *) calloc( 1,sizeof(struct pl)))  == NULL){
-        print("°O¾ĞÅéµLªk½T«O%s",CHAR_getChar(meindex,CHAR_NAME));
+        print("è¨˜æ†¶é«”ç„¡æ³•ç¢ºä¿%s",CHAR_getChar(meindex,CHAR_NAME));
     	return FALSE;
 	}
 
-    /*-- ¥İ¥¤¥ó¥¿¤Î¾ì½ê¤ò³Ğ¤¨¤Æ¶³¤¯??-*/
+    /*-- ç¦¾å¥¶ä»¶æ­£åŠæ¨ºèµ­æ¯›å‰µå°¹åŒ–é›²ä»??-*/
     Player.ptr = ptr;
-    Player.talkerindex = talker;	//npc¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹???
-	Player.quizno = 0;		//¸½ºß¤Î  Âê¿ô
-	Player.answer = 0;		//Àµ²ò¿ô
-	Player.ansno = 0;		//Åú¤¨¤Î  ¹æ¤ò³Ğ¤¨¤Æ¶³¤¯  Åú¤¨¤ò¥Ğ¥é¥Ğ¥é¤Ë½Ğ¤·¤¿ºİ¤Ë»ÈÍÑ)
+    Player.talkerindex = talker;	//npcåŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦???
+	Player.quizno = 0;		//èœ‡ç®•åŠ  é–é†’
+	Player.answer = 0;		//æ‡‡è¸é†’
+	Player.ansno = 0;		//è ¶å°¹åŠ  å¯æ¯›å‰µå°¹åŒ–é›²ä»  è ¶å°¹æ¯›ç”°ä»¿ç”°ä»¿åè«‹ä»„å‡¶ç«¯åéŠ€è¿•)
 
-	/*--½ĞÂêºÑ¤ß  Âê    ¤Î½é´ü²½--*/
+	/*--è«‹é–ç¢§å¿ƒ  é–    åŠè³¡æ¸ç¥­--*/
     for(k=0 ; k < OLDNO; k++) {
 		Player.oldno[k] = -1;
 	}
 
-	/*--¥á¥â¥ê¤ò¥³¥Ô¡¼--*/
+	/*--ä¸Ÿä¹’ä¼‰æ¯›æˆŠç–‹â–¡--*/
 	memcpy(ptr,&Player,sizeof(struct pl));
 
 
@@ -897,7 +897,7 @@ BOOL NPC_PlayerCheck(int meindex,int talker)
 	CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTTRD,0);
 
 
-	/*--¼«Ê¬¤Î²òÅú¼Ô  ¹æ¤ò³Ğ¤¨¤Æ¶³¤¯--*/
+	/*--æ†¤åŒåŠè¸è ¶æ¨Š  å¯æ¯›å‰µå°¹åŒ–é›²ä»--*/
 	CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANT, i);
 
 	k= (int)ptr;
@@ -928,7 +928,7 @@ int NPC_RealyCheack(int meindex,int talker)
 		okflg = FALSE;
 		if(point == -1) continue;
 
-		/*--²òÅú¼Ô  ¹æ¤ò  ¤ë--*/
+		/*--è¸è ¶æ¨Š  å¯æ¯›  æœˆ--*/
 		pl_ptr = (int *)point;
 			
 		memcpy(&PLAYER, pl_ptr, sizeof(struct pl));
@@ -947,7 +947,7 @@ int NPC_RealyCheack(int meindex,int talker)
 					if( OBJECT_getIndex( objindex) == talkerindex) {
 						if(talkerindex == talker) {
 							okflg = TRUE;
-//							print("\n %s %d¶}©ñ",CHAR_getChar(talker,CHAR_NAME),(int)PLAYER.ptr);
+//							print("\n %s %dé–‹æ”¾",CHAR_getChar(talker,CHAR_NAME),(int)PLAYER.ptr);
 							free(PLAYER.ptr);
 							CHAR_setWorkInt( meindex, CHAR_WORK_PLAYER1 + j,-1);
 						}else{
@@ -961,7 +961,7 @@ int NPC_RealyCheack(int meindex,int talker)
 		}
 
 		if(okflg ==FALSE){
-//			print("\n %s %d¶}©ñ",CHAR_getChar(talker,CHAR_NAME),(int)PLAYER.ptr);
+//			print("\n %s %dé–‹æ”¾",CHAR_getChar(talker,CHAR_NAME),(int)PLAYER.ptr);
 			free(PLAYER.ptr);
 			CHAR_setWorkInt( meindex, CHAR_WORK_PLAYER1 + j,-1);
 		}
@@ -1169,7 +1169,7 @@ int *NPC_GetQuestion(int meindex)
 	}
 }
 
-/*--¥¢¥¤  ¥à  ¤Î¶õ¤­¤Î¥Á¥§¥Ã¥¯--*/
+/*--å¤±å¥¶  ä¸  åŠå¡¢äº”åŠæ°‘å°¼æ°¸å¼--*/
 BOOL NPC_QuizItemFullCheck(int meindex,int talker)
 {
 	int i;
@@ -1179,7 +1179,7 @@ BOOL NPC_QuizItemFullCheck(int meindex,int talker)
 	char buf2[32];
 	
 		
-	/*--¥Á¥§¥Ã¥¯   Åö¤ËÁ´    ¤ë¤«¡ª-*/
+	/*--æ°‘å°¼æ°¸å¼   ç™²åèŸˆ    æœˆäº•ã€-*/
 	for( i = CHAR_STARTITEMARRAY ; i < CHAR_MAXITEMHAVE ; i++ ) {
 		itemindex = CHAR_getItemIndex( talker , i );
 		if( !ITEM_CHECKINDEX( itemindex) ) {
@@ -1187,13 +1187,13 @@ BOOL NPC_QuizItemFullCheck(int meindex,int talker)
 		 }
 	}
 
-	/*-- arg¥Õ¥¡¥¤¥ë¤Î  ¤ß  ¤ß --*/
+	/*-- argç™½å¤®å¥¶ä¼™åŠ  å¿ƒ  å¿ƒ --*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1)))== NULL)
 	{
 		print("GetArgstrErr:Quiz %s",CHAR_getChar( meindex, CHAR_NAME));
 	}
 
-	/*-- ¥¢¥¤  ¥à¤Î¥Á¥§¥Ã¥¯ --*/
+	/*-- å¤±å¥¶  ä¸åŠæ°‘å°¼æ°¸å¼ --*/
 	if(NPC_Util_GetStrFromStrWithDelim( argstr,"EntryItem",
 								buf2, sizeof( buf2)) != NULL)
 	{
@@ -1213,7 +1213,7 @@ BOOL NPC_QuizItemFullCheck(int meindex,int talker)
 
 
 /*
- *¶³¶â¤Î¥Á¥§¥Ã¥¯
+ *é›²å—¯åŠæ°‘å°¼æ°¸å¼
  */
 BOOL NPC_EntryStoneCheck(int talker,char *buf)
 {
@@ -1231,7 +1231,7 @@ BOOL NPC_EntryStoneCheck(int talker,char *buf)
 }
 
 /*
- *¶³¶â¤Îºï½ü
+ *é›²å—¯åŠç¶½è¼ª
  */
 BOOL NPC_EntryStoneDel(int talker,char *buf)
 {
@@ -1248,7 +1248,7 @@ BOOL NPC_EntryStoneDel(int talker,char *buf)
 		CHAR_DelGold( talker, cost );
 	}
 
-	sprintf( token, "%d ¥æ¥Xstone¡C", cost);
+	sprintf( token, "%d äº¤å‡ºstoneã€‚", cost);
 	CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 
 	CHAR_send_P_StatusString( talker, CHAR_P_STRING_GOLD);
@@ -1257,7 +1257,7 @@ BOOL NPC_EntryStoneDel(int talker,char *buf)
 
 
 /*
- *¥¢¥¤  ¥à¤òºï½ü¤¹¤ë
+ *å¤±å¥¶  ä¸æ¯›ç¶½è¼ªå…æœˆ
  */
 BOOL NPC_EntryItemDel(int talker,char *buf)
 {
@@ -1286,14 +1286,14 @@ BOOL NPC_EntryItemDel(int talker,char *buf)
 					if(itemno==id){
 						cnt++;
 						LogItem(
-							CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+							CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 							CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 							itemindex,
 #else
-							ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+							ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-							"QuizDelItem(²qÁ¼->¥æ¥Xªº¹D¨ã)",
+							"QuizDelItem(çŒœè¬->äº¤å‡ºçš„é“å…·)",
 							CHAR_getInt( talker, CHAR_FLOOR),
 							CHAR_getInt( talker, CHAR_X ),
  							CHAR_getInt( talker, CHAR_Y ),
@@ -1310,21 +1310,21 @@ BOOL NPC_EntryItemDel(int talker,char *buf)
 				}
 			}		
 		}else{
-			/*--Áª¤ó¤À  ¹æ¤Î¥¢¥¤  ¥à¤òÁª½Ğ---*/
+			/*--è–Šæ°åˆ†  å¯åŠå¤±å¥¶  ä¸æ¯›è–Šè«‹---*/
 			for( j = 0 ;  j < CHAR_MAXITEMHAVE ; j++){
 				itemindex = CHAR_getItemIndex( talker ,j);
 
 				if( ITEM_CHECKINDEX(itemindex) ){
 					if( atoi( buff3) == ITEM_getInt(itemindex,ITEM_ID)){
 						LogItem(
-							CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+							CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 							CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 							itemindex,
 #else
-							ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+							ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-							"QuizDelItem(²qÁ¼->»â¨ìªº¹D¨ã)",
+							"QuizDelItem(çŒœè¬->é ˜åˆ°çš„é“å…·)",
 							CHAR_getInt( talker,CHAR_FLOOR),
 							CHAR_getInt( talker,CHAR_X ),
 							CHAR_getInt( talker,CHAR_Y ),
@@ -1343,7 +1343,7 @@ BOOL NPC_EntryItemDel(int talker,char *buf)
 }
 
 /*
- *--¥¢¥¤  ¥à¤Î¥Á¥§¥Ã¥¯¤À¤±¤ò¹Ô¤¦
+ *--å¤±å¥¶  ä¸åŠæ°‘å°¼æ°¸å¼åˆ†ä»ƒæ¯›å¢Šä¸¹
  */
 BOOL NPC_EntryItemCheck(int talker,char *buf)
 {
@@ -1415,7 +1415,7 @@ BOOL NPC_EntryItemCheck(int talker,char *buf)
 }
 
 /*
- * ¥Ñ¡¼  ¥£¤«¤É¤¦¤«¤Î¥Á¥§¥Ã¥¯ 
+ * ç”±â–¡  å¥´äº•å‡ä¸¹äº•åŠæ°‘å°¼æ°¸å¼ 
  */
 BOOL NPC_QUIZPARTY_CHAECK(int meindex,int talker)
 {

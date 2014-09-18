@@ -8,8 +8,8 @@
 #include "pet_skill.h"
 
 struct B_AI_RESULT {
-	BATTLE_COM	command;		/* ²¿¤ò¤¹¤ë¤« */
-	int			target;			/* Ã¯¤Ë */
+	BATTLE_COM	command;		/* çª’æ¯›å…æœˆäº• */
+	int			target;			/* ç°¿å */
 };
 
 static int BATTLE_ai_normal( int, int, BATTLE_ENTRY *,struct B_AI_RESULT *);
@@ -38,7 +38,7 @@ int BATTLE_ai_all( int battleindex, int side, int turn)
 
 		mode = CHAR_getWorkInt( charaindex, CHAR_WORKTACTICS);
 		if( mode < 0 || mode >= arraysizeof( functbl)){
-			print( "BATTLE_ai_all ¤¤,¾Ô°«ÅŞ¿è¼Ò¦¡«Ü©_©Ç(%s)(%d)\n",
+			print( "BATTLE_ai_all ä¸­,æˆ°é¬¥é‚è¼¯æ¨¡å¼å¾ˆå¥‡æ€ª(%s)(%d)\n",
 				CHAR_getUseName( charaindex ), mode );
 			mode = 1;
 		}
@@ -107,22 +107,22 @@ int BATTLE_ai_one( int charaindex, int battleindex, int side, int turn)
 	struct B_AI_RESULT	result;
 	int		mode;
 
-	/* ¥Ñ¥é¥á¡¼¥¿¥Á¥§¥Ã¥¯ */
+	/* ç”±ä»¿ä¸Ÿâ–¡æ­£æ°‘å°¼æ°¸å¼ */
 	if( BATTLE_CHECKINDEX( battleindex ) == FALSE )return BATTLE_ERR_BATTLEINDEX;
 	if( BATTLE_CHECKSIDE( side ) == FALSE )return BATTLE_ERR_PARAM;
 	if( BATTLE_CHECKSIDE( side ^1) == FALSE )return BATTLE_ERR_PARAM;
 
-	/*     ¤Î¥µ¥¤¥É¶¦¹Ô¤¦ */
-	/* Å¨¥­¥ã¥é°Ê³°¤Ï  ¤±¤ë */
+	/*     åŠæ‰”å¥¶ç‰éš‹å¢Šä¸¹ */
+	/* è¥¯å¹³ä¹“ä»¿å‹•é™¸å  ä»ƒæœˆ */
 	if( BattleArray[battleindex].Side[side].type != BATTLE_S_TYPE_ENEMY ) return 0;
 
-	/*   ÂĞÂ¦¥µ¥¤¥É */
+	/*   è¦†ç¤æ‰”å¥¶ç‰ */
 	pEntry = BattleArray[battleindex].Side[side^1].Entry;
 
 	mode = CHAR_getWorkInt( charaindex, CHAR_WORKTACTICS);
-	/* ½è  ¤ò¿¶¤êÊ¬¤±¤ë */
+	/* è³ª  æ¯›è•Šæ›°åŒä»ƒæœˆ */
 	if( mode < 0 || mode >= arraysizeof( functbl)) return FALSE;
-	/* ½è  ¤ò¿¶¤êÊ¬¤±¤ë */
+	/* è³ª  æ¯›è•Šæ›°åŒä»ƒæœˆ */
 	if( functbl[mode] != NULL ) {
 		rc = functbl[mode]( turn, charaindex, pEntry, &result);
 	}
@@ -137,13 +137,13 @@ int BATTLE_ai_one( int charaindex, int battleindex, int side, int turn)
 	return TRUE;
 }
 
-/*   ÄÌ¤ËÁê¼ê¤ò·è¤á¤ë */
+/*   é¨·åé¬æ¾æ¯›ç‘æˆ¶æœˆ */
 
-#define B_AI_NORMAL_ATTACKOPTION	"at"	/*   ·â¥ª¥×¼³¥ç¥ó */
-#define B_AI_NORMAL_GUARDOPTION		"gu"	/*   ¸æ¥ª¥×¼³¥ç¥ó */
-#define B_AI_NORMAL_MAGICOPTION		"ma"	/* ¼ö½Ñ¥ª¥×¼³¥ç¥ó */
-#define B_AI_NORMAL_ESCAPEOPTION	"es"	/*   ¹²¤ë¥ª¥×¼³¥ç¥ó */
-#define B_AI_NORMAL_WAZAOPTION		"wa"	/*   ¥ª¥×¼³¥ç¥ó */
+#define B_AI_NORMAL_ATTACKOPTION	"at"	/*   çŒ¾å·¦çš¿æ’²äº¦ä»¶ */
+#define B_AI_NORMAL_GUARDOPTION		"gu"	/*   è±¢å·¦çš¿æ’²äº¦ä»¶ */
+#define B_AI_NORMAL_MAGICOPTION		"ma"	/* ç†±è«¸å·¦çš¿æ’²äº¦ä»¶ */
+#define B_AI_NORMAL_ESCAPEOPTION	"es"	/*   åƒ•æœˆå·¦çš¿æ’²äº¦ä»¶ */
+#define B_AI_NORMAL_WAZAOPTION		"wa"	/*   å·¦çš¿æ’²äº¦ä»¶ */
 #ifdef _ENEMY_ATTACK_AI
 #define B_AI_NORMAL_RANDAOPTION		"rn"
 #define B_AI_NORMAL_RANDOMOPTIONNUM         1
@@ -155,7 +155,7 @@ int BATTLE_ai_one( int charaindex, int battleindex, int side, int turn)
 #define	B_AI_NORMAL_ESCAPESUBOPTIONNUM		1
 #define	B_AI_NORMAL_WAZASUBOPTIONNUM		7
 
-/* ¥ª¥×¼³¥ç¥ó°ú¿ô¤Î  »ú¤ÎÄêµÁ */
+/* å·¦çš¿æ’²äº¦ä»¶å©é†’åŠ  å„‚åŠçˆ›è’ */
 #define	B_AI_NORMAL_TARGET_ALL			1
 #define	B_AI_NORMAL_TARGET_PLAYER		2
 #define	B_AI_NORMAL_TARGET_PET			3
@@ -203,11 +203,11 @@ static int BATTLE_ai_normal( int turn, int charaindex,
 							BATTLE_ENTRY *pEntry,
 							struct B_AI_RESULT *result)
 {
-	int		at[B_AI_NORMAL_ATTACKSUBOPTIONNUM] = { 0,0,0}; 		/*   ·â¥ª¥×¼³¥ç¥ó */
-	int		gu[B_AI_NORMAL_GUARDSUBOPTIONNUM] = {0}; 		/* ¥ª¥×¼³¥ç¥ó */
-	int		ma[B_AI_NORMAL_MAGICSUBOPTIONNUM] = {0}; 		/* ¥ª¥×¼³¥ç¥ó */
-	int		es[B_AI_NORMAL_ESCAPESUBOPTIONNUM] = {0}; 			/* ¥ª¥×¼³¥ç¥ó */
-	int		wa[B_AI_NORMAL_WAZASUBOPTIONNUM] = {0,0,0,0, 0,0,0};/* ¥ª¥×¼³¥ç¥ó */
+	int		at[B_AI_NORMAL_ATTACKSUBOPTIONNUM] = { 0,0,0}; 		/*   çŒ¾å·¦çš¿æ’²äº¦ä»¶ */
+	int		gu[B_AI_NORMAL_GUARDSUBOPTIONNUM] = {0}; 		/* å·¦çš¿æ’²äº¦ä»¶ */
+	int		ma[B_AI_NORMAL_MAGICSUBOPTIONNUM] = {0}; 		/* å·¦çš¿æ’²äº¦ä»¶ */
+	int		es[B_AI_NORMAL_ESCAPESUBOPTIONNUM] = {0}; 			/* å·¦çš¿æ’²äº¦ä»¶ */
+	int		wa[B_AI_NORMAL_WAZASUBOPTIONNUM] = {0,0,0,0, 0,0,0};/* å·¦çš¿æ’²äº¦ä»¶ */
 #ifdef _ENEMY_ATTACK_AI
     int		rn[B_AI_NORMAL_RANDOMOPTIONNUM] = {1};
 #endif
@@ -221,7 +221,7 @@ static int BATTLE_ai_normal( int turn, int charaindex,
 	char	buff2[256];
 
 	if( turn == 1 ) {
-		print( "À³¸Ó¨S³o¦^¨Æ¡C\n" );
+		print( "æ‡‰è©²æ²’é€™å›äº‹ã€‚\n" );
 		return FALSE;
 	}
 	if( NPC_Util_GetStrFromStrWithDelim( CHAR_getWorkChar( charaindex, CHAR_WORKBATTLE_TACTICSOPTION),
@@ -322,7 +322,7 @@ static int BATTLE_ai_normal( int turn, int charaindex,
 			if( wa[i] != 0 )break;
 		}
 		if( i >= B_AI_NORMAL_WAZASUBOPTIONNUM ){
-			print( "µL«ü©w¥ô¦óªº§ğÀ»¤è¦¡¡C\n" );
+			print( "ç„¡æŒ‡å®šä»»ä½•çš„æ”»æ“Šæ–¹å¼ã€‚\n" );
 			return FALSE;
 		}
 	}
@@ -513,7 +513,7 @@ static int BATTLE_ai_normal( int turn, int charaindex,
 				result->command = CHAR_getWorkInt( charaindex, CHAR_WORKBATTLECOM1 );
 				return TRUE;
 			}else{
-				//print( "¦¹¶µ§Ş¯à©|¥¼³]©w(%s):(%d)\n",
+				//print( "æ­¤é …æŠ€èƒ½å°šæœªè¨­å®š(%s):(%d)\n",
 				//	CHAR_getUseName( charaindex), mode - B_AI_WAZAMODE0 );
 				return FALSE;
 			}

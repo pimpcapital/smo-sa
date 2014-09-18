@@ -21,24 +21,24 @@
 
 #include "npc_raceman.h"
 
-/* ÀßÄê¤òÊİ  ¤¹¤ë¹½Â¤   */
+/* æ¾€çˆ›æ¯›å¿¡  å…æœˆå­ç»   */
 typedef struct tagConfig
 {
-    /*¥×¤Ò¥°¥é¥à  (¼«  Åª¤Ëµá¤á¤¿¤¤¤±¤É¤Ş¤ÀÂÌ  */
+    /*çš¿å¤«å¼˜ä»¿ä¸  (æ†¤  è®€åè²æˆ¶å‡¶ä¸­ä»ƒå‡å¼•åˆ†èŸ¯  */
     char    progname[8];
 
-    char    configfilename[32]; /* config¥Õ¥¡¥¤¥ë   */
-    unsigned char debuglevel;   /* ¥Ç¥Ğ¥Ã¥°¥ì¥Ù¥ë */
+    char    configfilename[32]; /* configç™½å¤®å¥¶ä¼™   */
+    unsigned char debuglevel;   /* çŠ¯ç”°æ°¸å¼˜ä¼ŠçŸ›ä¼™ */
 
-    unsigned int  usememoryunit;    /*¥á¥â¥ê¤Î¥æ¥Ë¥Ã¥È¥µ¥¤³N */
-    unsigned int  usememoryunitnum; /*¥á¥â¥ê¤Î¥æ¥Ë¥Ã¥È¿ô */
+    unsigned int  usememoryunit;    /*ä¸Ÿä¹’ä¼‰åŠäº¤ç“¦æ°¸ç„æ‰”å¥¶è¡“ */
+    unsigned int  usememoryunitnum; /*ä¸Ÿä¹’ä¼‰åŠäº¤ç“¦æ°¸ç„é†’ */
 
-    char    asname[32];         /*¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤Î  Á°*/
-    unsigned short  acservport; /*¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤Î¥İ¡¼¥È  */
-    char    acpasswd[32];       /*¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤Ø¤Î¥Ñ¥¹¥ï¡¼¥É*/
+    char    asname[32];         /*å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°åŠ  èŸ†*/
+    unsigned short  acservport; /*å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°åŠç¦¾â–¡ç„  */
+    char    acpasswd[32];       /*å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°å°ºåŠç”±æ—¦ä¼â–¡ç‰*/
     char    gsnamefromas[32];   /*
-                                 * ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤«¤é¸«¤¨¤ë
-                                 * ¥²¡¼¥à¥µ¡¼¥Ğ¤È¤·¤Æ¤Î  Á°
+                                 * å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°äº•æ—¥è‘¦å°¹æœˆ
+                                 * å¿…â–¡ä¸æ‰”â–¡ç”°åˆä»„åŒ–åŠ  èŸ†
                                  */
                                  
     // Arminius 7.24 manor pk
@@ -47,107 +47,107 @@ typedef struct tagConfig
     // Terry 2001/10/03
     char apid[32];      // service ap id
 		unsigned short apport;	//service ap port
-    int  looptime;	// ´X¬í«á³]©wÂ÷¶}
-    int  enableservice;	// ¬O§_¨Ï¥Î¥Û¾¹ªA°È­û¥\¯à
+    int  looptime;	// å¹¾ç§’å¾Œè¨­å®šé›¢é–‹
+    int  enableservice;	// æ˜¯å¦ä½¿ç”¨çŸ³å™¨æœå‹™å“¡åŠŸèƒ½
 #endif    
     unsigned short allowmanorpk;	// is this server allow manor pk
                                  
-    unsigned short port;        /* ¥µ¡¼¥Ğ¤ÎÂÔ¤Á¼õ¤±¥İ¡¼¥È */
+    unsigned short port;        /* æ‰”â–¡ç”°åŠè¬¹åˆ‡ç†¬ä»ƒç¦¾â–¡ç„ */
 	
-	int				servernumber;	/* ¥²¡¼¥à¥µ¡¼¥Ğ¤Î  ¹æ */
-	int				reuseaddr;	/* Address already used... ¤¬»ß¤Ş¤é¤Ê¤¤»ş¤Î¤¿¤á¤Ë */
-    int             do_nodelay;     /* TCP_NODELAY ¤Ë¤¹¤ë¤«¤É¤¦¤« */
-    int             log_write_time; /* ½ñ¤­¤³¤ß¤Ò¥°¤ò¤¹¤ë¤«¤É¤¦¤«¡e */
-    int             log_io_time;    /* I/OÁ´  ¤Î»ş´Ö¤Ï¤«¤ë¤«¤É¤¦¤«¡e */
-    int             log_game_time;  /* ¥²¡¼¥à¤Î½è  Á´  ¤Î»ş´Ö¤ò¤Ï¤«¤ë */
-    int             log_netloop_faster; /* netloop_faster ¤Î¤Ò¥° */
-	int				saacwritenum;	/* ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤Ø¤Î²¿¿Í  ¤Ëwrite¤¹¤ë¤« */
-	int				saacreadnum;	/* ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤«¤é¤Îdispatch ¤ò²¿²ó¤¹¤ë¤« */
+	int				servernumber;	/* å¿…â–¡ä¸æ‰”â–¡ç”°åŠ  å¯ */
+	int				reuseaddr;	/* Address already used... äº’é…å¼•æ—¥å…ä¸­å‡œåŠå‡¶æˆ¶å */
+    int             do_nodelay;     /* TCP_NODELAY åå…æœˆäº•å‡ä¸¹äº• */
+    int             log_write_time; /* è¸äº”ä»‡å¿ƒå¤«å¼˜æ¯›å…æœˆäº•å‡ä¸¹äº•ã€” */
+    int             log_io_time;    /* I/OèŸˆ  åŠå‡œæ£‰åäº•æœˆäº•å‡ä¸¹äº•ã€” */
+    int             log_game_time;  /* å¿…â–¡ä¸åŠè³ª  èŸˆ  åŠå‡œæ£‰æ¯›åäº•æœˆ */
+    int             log_netloop_faster; /* netloop_faster åŠå¤«å¼˜ */
+	int				saacwritenum;	/* å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°å°ºåŠçª’è«¦  åwriteå…æœˆäº• */
+	int				saacreadnum;	/* å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°äº•æ—¥åŠdispatch æ¯›çª’è¢å…æœˆäº• */
 
-    unsigned short fdnum;           /*¤É¤ì¤À¤±¥³¥Í¥¯¼³¥ç¥ó¤òÊİ  ¤¹¤ë¤« */
-    unsigned int   othercharnum;    /*  ¤½¤ÎÂ¾¤Î¥­¥ã¥é¤Î¿ô  */
+    unsigned short fdnum;           /*å‡æœ¨åˆ†ä»ƒæˆŠç”Ÿå¼æ’²äº¦ä»¶æ¯›å¿¡  å…æœˆäº• */
+    unsigned int   othercharnum;    /*  å…¬åŠè·åŠå¹³ä¹“ä»¿åŠé†’  */
 
-    unsigned int objnum;            /* ¥ª¥Ö¥¸¥§¥¯¥È¤Î    ¿ô*/
-    unsigned int   petcharnum;   	/* ¥Ú¥Ã¥È¤Î¿ô    */
-    unsigned int itemnum;           /* ¥¢¥¤  ¥à¤Î    ¿ô*/
-    unsigned int battlenum;         /* ¥Ğ¥È¥ë¤Î    */
+    unsigned int objnum;            /* å·¦çš®æ–¥å°¼å¼ç„åŠ    é†’*/
+    unsigned int   petcharnum;   	/* çŸ¢æ°¸ç„åŠé†’    */
+    unsigned int itemnum;           /* å¤±å¥¶  ä¸åŠ    é†’*/
+    unsigned int battlenum;         /* ç”°ç„ä¼™åŠ    */
 
-    char    topdir[64];         	/* ¥È¥Ã¥×¥Ç¥£¥ì¥¯¥È¥ê  */
+    char    topdir[64];         	/* ç„æ°¸çš¿çŠ¯å¥´ä¼Šå¼ç„ä¼‰  */
 
-    char    mapdir[64];         	/* ¥Ş¥Ã¥×¥Ç¥£¥ì¥¯¥È¥ê  */
-    char    maptilefile[64];    	/* ¥Ş¥Ã¥×ÀßÄê¥Õ¥¡¥¤¥ë  */
-    char    battlemapfile[64];    	/* ¥Ğ¥È¥ë¥Ş¥Ã¥×ÀßÄê¥Õ¥¡¥¤¥ë  */
-    char    itemfile[64];       	/* ¥¢¥¤  ¥àÀßÄê¥Õ¥¡¥¤¥ë  */
-    char    invfile[64];        	/*   Å¨ÀßÄê¥Õ¥¡¥¤¥ë  */
-    char    appearfile[64];     	/* ½Ğ¸½°Ì  ÀßÄê¥Õ¥¡¥¤¥ë  */
-	char	titlenamefile[64];		/* ¾Î¹æ¥Õ¥¡¥¤¥ë   */
-	char	titleconfigfile[64];	/* ¾Î¹æÀßÄê¥Õ¥¡¥¤¥ë   */
-	char	encountfile[64];		/* ¥¨¥ó¥«¥¦¥ó¥ÈÀßÄê¥Õ¥¡¥¤¥ë   */
-	char	enemybasefile[64];		/* Å¨´ğ  ÀßÄê¥Õ¥¡¥¤¥ë   */
-	char	enemyfile[64];			/* Å¨ÀßÄê¥Õ¥¡¥¤¥ë   */
-	char	groupfile[64];			/* ¥°¥ë¡¼¥×ÀßÄê¥Õ¥¡¥¤¥ë   */
-	char	magicfile[64];			/* ¼ö½ÑÀßÄê¥Õ¥¡¥¤¥ë   */
+    char    mapdir[64];         	/* ç©´æ°¸çš¿çŠ¯å¥´ä¼Šå¼ç„ä¼‰  */
+    char    maptilefile[64];    	/* ç©´æ°¸çš¿æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
+    char    battlemapfile[64];    	/* ç”°ç„ä¼™ç©´æ°¸çš¿æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
+    char    itemfile[64];       	/* å¤±å¥¶  ä¸æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
+    char    invfile[64];        	/*   è¥¯æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
+    char    appearfile[64];     	/* è«‹èœ‡åŒ  æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
+	char	titlenamefile[64];		/* æ†Šå¯ç™½å¤®å¥¶ä¼™   */
+	char	titleconfigfile[64];	/* æ†Šå¯æ¾€çˆ›ç™½å¤®å¥¶ä¼™   */
+	char	encountfile[64];		/* å·¨ä»¶å¸‚å®ƒä»¶ç„æ¾€çˆ›ç™½å¤®å¥¶ä¼™   */
+	char	enemybasefile[64];		/* è¥¯æ¹˜  æ¾€çˆ›ç™½å¤®å¥¶ä¼™   */
+	char	enemyfile[64];			/* è¥¯æ¾€çˆ›ç™½å¤®å¥¶ä¼™   */
+	char	groupfile[64];			/* å¼˜ä¼™â–¡çš¿æ¾€çˆ›ç™½å¤®å¥¶ä¼™   */
+	char	magicfile[64];			/* ç†±è«¸æ¾€çˆ›ç™½å¤®å¥¶ä¼™   */
 	        #ifdef __ATTACK_MAGIC
 
 
-        char    attmagicfile[64];       // §ğÀ»©Ê©G³N
+        char    attmagicfile[64];       // æ”»æ“Šæ€§å’’è¡“
 
         #endif
 
-	char	petskillfile[64];		/* ¥Ú¥Ã¥È  ¼ö½ÑÀßÄê¥Õ¥¡¥¤¥ë   */
-    char    itematomfile[64];       /* ¥¢¥¤  ¥à¤Îºà    ¥Õ¥¡¥¤¥ë */
-    char    effectfile[64];     	/* ±é½ĞÀßÄê¥Õ¥¡¥¤¥ë  */
-    char    quizfile[64];     		/* ¥¯¥¤³NÀßÄê¥Õ¥¡¥¤¥ë  */
+	char	petskillfile[64];		/* çŸ¢æ°¸ç„  ç†±è«¸æ¾€çˆ›ç™½å¤®å¥¶ä¼™   */
+    char    itematomfile[64];       /* å¤±å¥¶  ä¸åŠç®‹    ç™½å¤®å¥¶ä¼™ */
+    char    effectfile[64];     	/* æ¢¢è«‹æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
+    char    quizfile[64];     		/* å¼å¥¶è¡“æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
 
 
-    char    lsgenlog[64];       /*¥µ¡¼¥Ğ¤Îlsgen ¥¢¥¦¥È¥×¥Ã¥È¥Õ¥¡¥¤¥ë  */
+    char    lsgenlog[64];       /*æ‰”â–¡ç”°åŠlsgen å¤±å®ƒç„çš¿æ°¸ç„ç™½å¤®å¥¶ä¼™  */
 
-    char    storedir[64];       /*¥¹¥È¥¢¥Ç¥£¥ì¥¯¥È¥ê    */
-    char    npcdir[64];         /*NPC¤ÎÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤¯¥Ç¥£¥ì¥¯¥È¥ê   */
+    char    storedir[64];       /*æ—¦ç„å¤±çŠ¯å¥´ä¼Šå¼ç„ä¼‰    */
+    char    npcdir[64];         /*NPCåŠæ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  ä»çŠ¯å¥´ä¼Šå¼ç„ä¼‰   */
 
     char    logdir[64];         /*
-                                 * ¤Ò¥°¥Ç¥£¥ì¥¯¥È¥ê
+                                 * å¤«å¼˜çŠ¯å¥´ä¼Šå¼ç„ä¼‰
                                  */
     char    logconfname[64];    /*
-                                 * ¤Ò¥°ÀßÄê¥Õ¥¡¥¤¥ë  
+                                 * å¤«å¼˜æ¾€çˆ›ç™½å¤®å¥¶ä¼™  
                                  */
-    char	chatmagicpasswd[64];	/* ¥Á¥ã¥Ã¥È  Ë¡¥Ñ¥¹¥ï¡¼¥É */
+    char	chatmagicpasswd[64];	/* æ°‘ä¹“æ°¸ç„  èŠŠç”±æ—¦ä¼â–¡ç‰ */
 
 #ifdef _STORECHAR
     char	storechar[64];
 #endif
 	
-    unsigned int 	chatmagiccdkeycheck;	/* ¥Á¥ã¥Ã¥È  Ë¡¤ÇCDKEY¤ò¥Á¥§¥Ã¥¯¤¹¤ë¤« */
+    unsigned int 	chatmagiccdkeycheck;	/* æ°‘ä¹“æ°¸ç„  èŠŠåŒ¹CDKEYæ¯›æ°‘å°¼æ°¸å¼å…æœˆäº• */
     
-    unsigned int    filesearchnum;     /*¥Õ¥¡¥¤¥ë¤ò¸¡º÷¤Ç¤­¤ë¥Õ¥¡¥¤¥ë¤Î¿ô*/
-    unsigned int    npctemplatenum;     /*NPC¤Î  ¥ó¥×¥ì¡¼¥È¥Õ¥¡¥¤¥ë¤Î¿ô*/
-    unsigned int    npccreatenum;       /*NPC¤ÎÀ¸»º¥Õ¥¡¥¤¥ë¤Î¿ô*/
-    unsigned int    walksendinterval;   /* ¬¤¤¯¤Î¤òÁ÷¤ë´Ö³Ö */
-    unsigned int    CAsendinterval_ms;     /* CA¤òÁ÷¤ë´Ö³Ö (ms)*/
-    unsigned int    CDsendinterval_ms;     /* CD¤òÁ÷¤ë´Ö³Ö (ms)*/
-    unsigned int    Onelooptime_ms;     	/* 1¥ë¡¼¥×¤Ë¤«¤±¤ë»ş´Ö */
-	unsigned int	Petdeletetime;		/* ¥Ú¥Ã¥È¤¬¾Ã  ¤¹¤ë»ş´Ö */
-	unsigned int	Itemdeletetime;		/* ¥¢¥¤  ¥à¤¬¾Ã  ¤¹¤ë»ş´Ö */
-    /* ¤Ò¥°¥¤¥ó  ¤Î¥­¥ã¥é¤Î¥»¡¼¥Ö¤ò¤¹¤ë´Ö³Ö */
+    unsigned int    filesearchnum;     /*ç™½å¤®å¥¶ä¼™æ¯›è…¹ç¶¢åŒ¹äº”æœˆç™½å¤®å¥¶ä¼™åŠé†’*/
+    unsigned int    npctemplatenum;     /*NPCåŠ  ä»¶çš¿ä¼Šâ–¡ç„ç™½å¤®å¥¶ä¼™åŠé†’*/
+    unsigned int    npccreatenum;       /*NPCåŠæˆ²é£ç™½å¤®å¥¶ä¼™åŠé†’*/
+    unsigned int    walksendinterval;   /* æ´¶ä»åŠæ¯›éœœæœˆæ£‰å¥ */
+    unsigned int    CAsendinterval_ms;     /* CAæ¯›éœœæœˆæ£‰å¥ (ms)*/
+    unsigned int    CDsendinterval_ms;     /* CDæ¯›éœœæœˆæ£‰å¥ (ms)*/
+    unsigned int    Onelooptime_ms;     	/* 1ä¼™â–¡çš¿åäº•ä»ƒæœˆå‡œæ£‰ */
+	unsigned int	Petdeletetime;		/* çŸ¢æ°¸ç„äº’å£…  å…æœˆå‡œæ£‰ */
+	unsigned int	Itemdeletetime;		/* å¤±å¥¶  ä¸äº’å£…  å…æœˆå‡œæ£‰ */
+    /* å¤«å¼˜å¥¶ä»¶  åŠå¹³ä¹“ä»¿åŠæœ¬â–¡çš®æ¯›å…æœˆæ£‰å¥ */
     unsigned int    CharSavesendinterval;
     unsigned int    addressbookoffmsgnum;  /*
-                                            * ¥¢¥É¥ì¥¹¥Ö¥Ã¥¯¤Ë¥ª¥Õ¥é¥¤¥ó
-                                            * ¥á¥Ã¥»¡¼¥¸¤ò
-                                            * ²¿¥á¥Ã¥»¡¼¥¸»Ä¤»¤ë¤«
+                                            * å¤±ç‰ä¼Šæ—¦çš®æ°¸å¼åå·¦ç™½ä»¿å¥¶ä»¶
+                                            * ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›
+                                            * çª’ä¸Ÿæ°¸æœ¬â–¡æ–¥é…¸å…­æœˆäº•
                                             */
 
     unsigned int    protocolreadfrequency;  /*
-                                             * ¥×¤Ò¥È¥³¥ë¤ò²¿¥ß¥ê    
-                                             * ¤Ë  ¤à¤«
+                                             * çš¿å¤«ç„æˆŠä¼™æ¯›çª’ç«‹ä¼‰    
+                                             * å  æˆˆäº•
                                              */
     unsigned int    allowerrornum;          /*
-                                             * ¥¨¥é¡¼¤ò²¿¸Ä¤Ş¤Çµö¤¹¤«
+                                             * å·¨ä»¿â–¡æ¯›çª’èœŠå¼•åŒ¹è¢±å…äº•
                                              */
     unsigned int    loghour;          		/*
-                                             * ¤Ò¥°¤òÊİÂ¸¤¹¤ë»ş¹ï  ¡ª»ş  
+                                             * å¤«å¼˜æ¯›å¿¡ç¹¡å…æœˆå‡œå°  ã€å‡œ  
                                              */
     unsigned int    battledebugmsg;    		/*
-                                             * ¥Ğ¥È¥ë  ¤Î¥Ç¥Ğ¥Ã¥°¥á¥Ã¥»¡¼¥¸¤ò½Ğ¤¹¤«¡e£°¤Ê¤é½Ğ¤µ¤Ê¤¤
+                                             * ç”°ç„ä¼™  åŠçŠ¯ç”°æ°¸å¼˜ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›è«‹å…äº•ã€”ã„Ÿå…æ—¥è«‹ä»Šå…ä¸­
                                              */
     //ttom add this because the second had this                                         
     unsigned int    encodekey;              
@@ -156,11 +156,11 @@ typedef struct tagConfig
     unsigned int    ErrUserDownFlg;
     //ttom end
 #ifdef _GMRELOAD
-	char	gmsetfile[64];				/* GM±b¸¹¡BÅv­­³]©wÀÉ */
+	char	gmsetfile[64];				/* GMå¸³è™Ÿã€æ¬Šé™è¨­å®šæª” */
 #endif
 
 #ifdef _AUCTIONEER
-  char auctiondir[256];   // ©ç½æ¸ê®Æ¥Ø¿ı
+  char auctiondir[256];   // æ‹è³£è³‡æ–™ç›®éŒ„
 #endif
 #ifdef _BLACK_MARKET 
   char blackmarketfile[256];
@@ -174,7 +174,7 @@ typedef struct tagConfig
 	unsigned short  nsport;
 #endif
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 	char profession[64];
 #endif
 
@@ -251,23 +251,23 @@ typedef struct tagConfig
 Config config;
 
 /*
- *  ¥³¥ó¥Õ¥£¥°¥Õ¥¡¥¤¥ë¤ò  ¤à»ş¤Ë»È¤¦¹½Â¤  
- *  xxxx=yyyy ¤ß¤¿¤¤¤Ê¤Î¤ò  ¤à
+ *  æˆŠä»¶ç™½å¥´å¼˜ç™½å¤®å¥¶ä¼™æ¯›  æˆˆå‡œåéŠ€ä¸¹å­ç»  
+ *  xxxx=yyyy å¿ƒå‡¶ä¸­å…åŠæ¯›  æˆˆ
  */
 
 typedef struct tagReadConf
 {
-    char    name[32];       /*xxxx¤Ë¤¢¤¿¤ëÃÍ*/
+    char    name[32];       /*xxxxåä¸å‡¶æœˆè¥–*/
 
-    /*±­¤Î2¤Ä¤ÏNULL¤ò  ¤ì¤ë¤È²¿¤â½è  ¤·¤Ê¤¤*/
-    char  *charvalue;      /*yyyy¤ò¤½¤Î¤Ş¤ŞÂå  ¤¹¤ë»ş¤ÎÂå  Àè*/
-    size_t  charsize;       /*charvalue¤Î¥µ¥¤³N*/
+    /*æˆšåŠ2å‹¾åNULLæ¯›  æœ¨æœˆåˆçª’æ‰‹è³ª  ä»„å…ä¸­*/
+    char  *charvalue;      /*yyyyæ¯›å…¬åŠå¼•å¼•é†«  å…æœˆå‡œåŠé†«  ç‡®*/
+    size_t  charsize;       /*charvalueåŠæ‰”å¥¶è¡“*/
 
     /*
-     *     »Å  ¤È¤·¤Æ=¤Î  ¤¬ "ON"¤À¤Ã¤¿¤é intvalue ¤Ë¤Ï1¤òÂå  ¤¹¤ë
-     * ¤½¤ì°Ê³°¤Ï atoi ¤Î·ë²Ì
+     *     é…·  åˆä»„åŒ–=åŠ  äº’ "ON"åˆ†å‹»å‡¶æ—¥ intvalue åå1æ¯›é†«  å…æœˆ
+     * å…¬æœ¨å‹•é™¸å atoi åŠç‘›çµ†
      */
-    void*    value;       /*yyyy¤ò  ´¹¤¹¤ëÂå  ¤¹¤ë»ş¤ÎÂå  Àè*/
+    void*    value;       /*yyyyæ¯›  æ™¶å…æœˆé†«  å…æœˆå‡œåŠé†«  ç‡®*/
     CTYPE    valuetype;
 }ReadConf;
 
@@ -508,7 +508,7 @@ ReadConf readconf[]=
     { "nsport",		NULL, 0 , (void*)&config.nsport     ,SHORT},
 #endif
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
     { "profession",		config.profession, sizeof(config.profession) ,NULL , 0},
 #endif
 
@@ -868,7 +868,7 @@ BOOL LoadGMSet( char* filename )
 	while(1){
 		if (fgets(line, sizeof(line), fp) == NULL)	break;
 		chop(line);
-		//change ¨Ïgmset.txt¥i¥H¼W¥[µù¸Ñ*******
+		//change ä½¿gmset.txtå¯ä»¥å¢åŠ è¨»è§£*******
 		if( line[0] == '#' )
 			continue;
 		for( i=0; i<strlen(line); i++ ){
@@ -894,10 +894,10 @@ BOOL LoadGMSet( char* filename )
 #endif
 
 /*------------------------------------------------------------
- * ¥×¤Ò¥°¥é¥à  ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * çš¿å¤«å¼˜ä»¿ä¸  æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  cahr*
  ------------------------------------------------------------*/
 char* getProgname( void )
@@ -905,10 +905,10 @@ char* getProgname( void )
     return config.progname;
 }
 /*------------------------------------------------------------
- * configfilename ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * configfilename æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getConfigfilename( void )
@@ -916,11 +916,11 @@ char* getConfigfilename( void )
     return config.configfilename;
 }
 /*------------------------------------------------------------
- * configfilename ¤òÀßÄê¤¹¤ë¡e
- * °ú¿ô
- *  newv    char*   ¿·¤·¤¤ÃÍ
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * configfilename æ¯›æ¾€çˆ›å…æœˆã€”
+ * å©é†’
+ *  newv    char*   è•™ä»„ä¸­è¥–
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 void setConfigfilename( char* newv )
 {
@@ -929,10 +929,10 @@ void setConfigfilename( char* newv )
 }
 
 /*------------------------------------------------------------
- * ¥Ç¥Ğ¥Ã¥°¥ì¥Ù¥ë¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * çŠ¯ç”°æ°¸å¼˜ä¼ŠçŸ›ä¼™æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getDebuglevel( void )
@@ -940,11 +940,11 @@ unsigned int getDebuglevel( void )
     return config.debuglevel;
 }
 /*------------------------------------------------------------
- * ¥Ç¥Ğ¥Ã¥°¥ì¥Ù¥ë¤òÀßÄê¤¹¤ë
- * °ú¿ô
- *  newv    int     ¿·¤·¤¤ÃÍ
- * ÊÖ¤êÃÍ
- *  unsigned int    ÀÎ¤ÎÃÍ
+ * çŠ¯ç”°æ°¸å¼˜ä¼ŠçŸ›ä¼™æ¯›æ¾€çˆ›å…æœˆ
+ * å©é†’
+ *  newv    int     è•™ä»„ä¸­è¥–
+ * å¿’æ›°è¥–
+ *  unsigned int    æª£åŠè¥–
  ------------------------------------------------------------*/
 unsigned int setDebuglevel( unsigned int newv )
 {
@@ -954,10 +954,10 @@ unsigned int setDebuglevel( unsigned int newv )
     return old;
 }
 /*------------------------------------------------------------
- * memoryunit ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * memoryunit æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getMemoryunit( void )
@@ -965,10 +965,10 @@ unsigned int getMemoryunit( void )
     return config.usememoryunit;
 }
 /*------------------------------------------------------------
- * memoryunitnum ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * memoryunitnum æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getMemoryunitnum( void )
@@ -977,10 +977,10 @@ unsigned int getMemoryunitnum( void )
 }
 
 /*------------------------------------------------------------
- * ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤Î¥¢¥É¥ì¥¹¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°åŠå¤±ç‰ä¼Šæ—¦æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char*   getAccountservername( void )
@@ -988,10 +988,10 @@ char*   getAccountservername( void )
     return config.asname;
 }
 /*------------------------------------------------------------
- * ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤Î¥İ¡¼¥È¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°åŠç¦¾â–¡ç„æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned short
  ------------------------------------------------------------*/
 unsigned short   getAccountserverport( void )
@@ -999,10 +999,10 @@ unsigned short   getAccountserverport( void )
     return config.acservport;
 }
 /*------------------------------------------------------------
- * ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤Ø¤Î¥Ñ¥¹¥ï¡¼¥É¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°å°ºåŠç”±æ—¦ä¼â–¡ç‰æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned short
  ------------------------------------------------------------*/
 char*   getAccountserverpasswd( void )
@@ -1010,10 +1010,10 @@ char*   getAccountserverpasswd( void )
     return config.acpasswd;
 }
 /*------------------------------------------------------------
- * ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¤«¤é¸«¤¨¤ë¥²¡¼¥à¥µ¡¼¥Ğ¤È¤·¤Æ¤Î  Á°¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°äº•æ—¥è‘¦å°¹æœˆå¿…â–¡ä¸æ‰”â–¡ç”°åˆä»„åŒ–åŠ  èŸ†æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned short
  ------------------------------------------------------------*/
 char*   getGameservername( void )
@@ -1063,10 +1063,10 @@ unsigned short getPortnumber( void )
     return config.port;
 }
 /*------------------------------------------------------------
- * ¥²¡¼¥à¥µ¡¼¥Ğ¤Î  ¹æ   ¹æ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¿…â–¡ä¸æ‰”â–¡ç”°åŠ  å¯   å¯æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned short
  ------------------------------------------------------------*/
 int getServernumber( void )
@@ -1074,10 +1074,10 @@ int getServernumber( void )
     return config.servernumber;
 }
 /*------------------------------------------------------------
- * reuseaddr ¤ÎÃÍ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * reuseaddr åŠè¥–æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned short
  ------------------------------------------------------------*/
 int getReuseaddr( void )
@@ -1107,10 +1107,10 @@ int getLogNetloopFaster(void)
 }
 
 /*------------------------------------------------------------
- * saacwritenum ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * saacwritenum æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *   int
  ------------------------------------------------------------*/
 int getSaacwritenum( void )
@@ -1118,10 +1118,10 @@ int getSaacwritenum( void )
     return config.saacwritenum;
 }
 /*------------------------------------------------------------
- * saacwritenum ¤òÀßÄê¤¹¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * saacwritenum æ¯›æ¾€çˆ›å…æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *   int
  ------------------------------------------------------------*/
 void setSaacwritenum( int num )
@@ -1129,10 +1129,10 @@ void setSaacwritenum( int num )
     config.saacwritenum = num;
 }
 /*------------------------------------------------------------
- * saacreadnum ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * saacreadnum æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *   int
  ------------------------------------------------------------*/
 int getSaacreadnum( void )
@@ -1140,10 +1140,10 @@ int getSaacreadnum( void )
     return config.saacreadnum;
 }
 /*------------------------------------------------------------
- * saacreadnum ¤òÀßÄê¤¹¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * saacreadnum æ¯›æ¾€çˆ›å…æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *   int
  ------------------------------------------------------------*/
 void setSaacreadnum( int num )
@@ -1151,10 +1151,10 @@ void setSaacreadnum( int num )
     config.saacreadnum = num;
 }
 /*------------------------------------------------------------
- * fdnum ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * fdnum æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getFdnum( void )
@@ -1162,10 +1162,10 @@ unsigned int getFdnum( void )
     return config.fdnum;
 }
 /*------------------------------------------------------------
- * petcharanum ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * petcharanum æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getPetcharnum( void )
@@ -1175,10 +1175,10 @@ unsigned int getPetcharnum( void )
 
 
 /*------------------------------------------------------------
- * othercharnum ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * othercharnum æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getOtherscharnum( void )
@@ -1187,10 +1187,10 @@ unsigned int getOtherscharnum( void )
 }
 
 /*------------------------------------------------------------
- * objnum ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * objnum æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getObjnum( void )
@@ -1199,10 +1199,10 @@ unsigned int getObjnum( void )
 }
 
 /*------------------------------------------------------------
- * itemnum ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * itemnum æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getItemnum( void )
@@ -1212,10 +1212,10 @@ unsigned int getItemnum( void )
 
 
 /*------------------------------------------------------------
- * battlenum ¤ò  ¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * battlenum æ¯›  æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getBattlenum( void )
@@ -1225,10 +1225,10 @@ unsigned int getBattlenum( void )
 
 
 /*------------------------------------------------------------
- * topdir ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * topdir æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getTopdir( void )
@@ -1236,10 +1236,10 @@ char* getTopdir( void )
     return config.topdir;
 }
 /*------------------------------------------------------------
- * mapdir ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * mapdir æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getMapdir( void )
@@ -1247,10 +1247,10 @@ char* getMapdir( void )
     return config.mapdir;
 }
 /*------------------------------------------------------------
- * maptilefile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * maptilefile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getMaptilefile( void )
@@ -1258,10 +1258,10 @@ char* getMaptilefile( void )
     return config.maptilefile;
 }
 /*------------------------------------------------------------
- * battlemapfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * battlemapfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getBattleMapfile( void )
@@ -1269,10 +1269,10 @@ char* getBattleMapfile( void )
     return config.battlemapfile;
 }
 /*------------------------------------------------------------
- * itemfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * itemfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getItemfile( void )
@@ -1280,10 +1280,10 @@ char* getItemfile( void )
     return config.itemfile;
 }
 /*------------------------------------------------------------
- * invfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * invfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getInvfile( void )
@@ -1291,10 +1291,10 @@ char* getInvfile( void )
     return config.invfile;
 }
 /*------------------------------------------------------------
- * appearfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * appearfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getAppearfile( void )
@@ -1302,10 +1302,10 @@ char* getAppearfile( void )
     return config.appearfile;
 }
 /*------------------------------------------------------------
- * effectfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * effectfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getEffectfile( void )
@@ -1313,10 +1313,10 @@ char* getEffectfile( void )
     return config.effectfile;
 }
 /*------------------------------------------------------------
- * titlenamefile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * titlenamefile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getTitleNamefile( void )
@@ -1324,10 +1324,10 @@ char* getTitleNamefile( void )
     return config.titlenamefile;
 }
 /*------------------------------------------------------------
- * titleconfigfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * titleconfigfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getTitleConfigfile( void )
@@ -1335,10 +1335,10 @@ char* getTitleConfigfile( void )
     return config.titleconfigfile;
 }
 /*------------------------------------------------------------
- * encountfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * encountfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getEncountfile( void )
@@ -1346,10 +1346,10 @@ char* getEncountfile( void )
     return config.encountfile;
 }
 /*------------------------------------------------------------
- * enemyfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * enemyfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getEnemyfile( void )
@@ -1357,10 +1357,10 @@ char* getEnemyfile( void )
     return config.enemyfile;
 }
 /*------------------------------------------------------------
- * enemybasefile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * enemybasefile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getEnemyBasefile( void )
@@ -1368,10 +1368,10 @@ char* getEnemyBasefile( void )
     return config.enemybasefile;
 }
 /*------------------------------------------------------------
- * groupfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * groupfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getGroupfile( void )
@@ -1379,10 +1379,10 @@ char* getGroupfile( void )
     return config.groupfile;
 }
 /*------------------------------------------------------------
- * magicfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * magicfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getMagicfile( void )
@@ -1393,10 +1393,10 @@ char* getMagicfile( void )
 #ifdef __ATTACK_MAGIC
 
 /*------------------------------------------------------------
- * ¨ú±o§ğÀ»©Êªº©G³N
- * °Ñ¼Æ
+ * å–å¾—æ”»æ“Šæ€§çš„å’’è¡“
+ * åƒæ•¸
  * None
- * ªğ¦^­È
+ * è¿”å›å€¼
  * char*
  ------------------------------------------------------------*/
 char* getAttMagicfileName( void )
@@ -1412,7 +1412,7 @@ char* getPetskillfile( void )
     return config.petskillfile;
 }
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 char* getProfession( void )
 {
     return config.profession;
@@ -1438,10 +1438,10 @@ char* getQuizfile( void )
 }
 
 /*------------------------------------------------------------
- * lsgenlogfile ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * lsgenlogfile æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getLsgenlogfilename( void )
@@ -1463,10 +1463,10 @@ char* getGMSetfile( void )
 #endif
 
 /*------------------------------------------------------------
- * storedir ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * storedir æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getStoredir( void )
@@ -1490,10 +1490,10 @@ char* getAuctiondir(void)
 #endif
 
 /*------------------------------------------------------------
- * NPC ÍÑ¤Î¥Ç¥£¥ì¥¯¥È¥ê¤ò  ¤Æ¤¯¤ë´Ø¿ô
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * NPC è¿•åŠçŠ¯å¥´ä¼Šå¼ç„ä¼‰æ¯›  åŒ–ä»æœˆæ¥®é†’
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getNpcdir( void )
@@ -1501,10 +1501,10 @@ char* getNpcdir( void )
     return config.npcdir;
 }
 /*------------------------------------------------------------
- * ¤Ò¥°¥Ç¥£¥ì¥¯¥È¥ê¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¤«å¼˜çŠ¯å¥´ä¼Šå¼ç„ä¼‰æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getLogdir( void )
@@ -1513,10 +1513,10 @@ char* getLogdir( void )
 }
 
 /*------------------------------------------------------------
- * ¤Ò¥°ÀßÄê¥Õ¥¡¥¤¥ë  ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¤«å¼˜æ¾€çˆ›ç™½å¤®å¥¶ä¼™  æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getLogconffile( void )
@@ -1524,10 +1524,10 @@ char* getLogconffile( void )
     return config.logconfname;
 }
 /*------------------------------------------------------------
- * ¥Á¥ã¥Ã¥È  Ë¡¥Ñ¥¹¥ï¡¼¥É ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * æ°‘ä¹“æ°¸ç„  èŠŠç”±æ—¦ä¼â–¡ç‰ æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 char* getChatMagicPasswd( void )
@@ -1535,10 +1535,10 @@ char* getChatMagicPasswd( void )
     return config.chatmagicpasswd;
 }
 /*------------------------------------------------------------
- * ¥Ç¥Ğ¥Ã¥°¥Á¥ã¥Ã¥È  Ë¡¤Ç¤ÎCDKEY¥Á¥§¥Ã¥¯¤ò¤¹¤ë¤«¤É¤¦¤«¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * çŠ¯ç”°æ°¸å¼˜æ°‘ä¹“æ°¸ç„  èŠŠåŒ¹åŠCDKEYæ°‘å°¼æ°¸å¼æ¯›å…æœˆäº•å‡ä¸¹äº•æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  char*
  ------------------------------------------------------------*/
 unsigned getChatMagicCDKeyCheck( void )
@@ -1547,10 +1547,10 @@ unsigned getChatMagicCDKeyCheck( void )
 }
 
 /*------------------------------------------------------------
- * filesearchnum¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * filesearchnumæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getFilesearchnum( void )
@@ -1558,10 +1558,10 @@ unsigned int getFilesearchnum( void )
     return config.filesearchnum;
 }
 /*------------------------------------------------------------
- * npctemplatenum¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * npctemplatenumæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getNpctemplatenum( void )
@@ -1569,10 +1569,10 @@ unsigned int getNpctemplatenum( void )
     return config.npctemplatenum;
 }
 /*------------------------------------------------------------
- * npccreatenum¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * npccreatenumæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getNpccreatenum( void )
@@ -1581,10 +1581,10 @@ unsigned int getNpccreatenum( void )
 }
 
 /*------------------------------------------------------------
- * walksendinterval¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * walksendintervalæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getWalksendinterval( void )
@@ -1592,10 +1592,10 @@ unsigned int getWalksendinterval( void )
     return config.walksendinterval;
 }
 /*------------------------------------------------------------
- * walksendinterval¤ò¥»¥Ã¥È¤¹¤ë¡e
- * °ú¿ô
- *  unsigned int 	interval	»ş´Ö  ¥ß¥ê    
- * ÊÖ¤êÃÍ
+ * walksendintervalæ¯›æœ¬æ°¸ç„å…æœˆã€”
+ * å©é†’
+ *  unsigned int 	interval	å‡œæ£‰  ç«‹ä¼‰    
+ * å¿’æ›°è¥–
  *  void
  ------------------------------------------------------------*/
 void setWalksendinterval( unsigned int interval )
@@ -1603,10 +1603,10 @@ void setWalksendinterval( unsigned int interval )
     config.walksendinterval = interval;
 }
 /*------------------------------------------------------------
- * CAsendinterval¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * CAsendintervalæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getCAsendinterval_ms( void )
@@ -1614,10 +1614,10 @@ unsigned int getCAsendinterval_ms( void )
     return config.CAsendinterval_ms;
 }
 /*------------------------------------------------------------
- * CAsendinterval¤ò¥»¥Ã¥È¤¹¤ë¡e
- * °ú¿ô
+ * CAsendintervalæ¯›æœ¬æ°¸ç„å…æœˆã€”
+ * å©é†’
  *  unsigned int interval
- * ÊÖ¤êÃÍ
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 void setCAsendinterval_ms( unsigned int interval_ms )
@@ -1625,10 +1625,10 @@ void setCAsendinterval_ms( unsigned int interval_ms )
     config.CAsendinterval_ms = interval_ms;
 }
 /*------------------------------------------------------------
- * CDsendinterval¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * CDsendintervalæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getCDsendinterval_ms( void )
@@ -1636,10 +1636,10 @@ unsigned int getCDsendinterval_ms( void )
     return config.CDsendinterval_ms;
 }
 /*------------------------------------------------------------
- * CDsendinterval¤ò¥»¥Ã¥È¤¹¤ë¡e
- * °ú¿ô
+ * CDsendintervalæ¯›æœ¬æ°¸ç„å…æœˆã€”
+ * å©é†’
  *  interval		unsigned int
- * ÊÖ¤êÃÍ
+ * å¿’æ›°è¥–
  * void
  ------------------------------------------------------------*/
 void setCDsendinterval_ms( unsigned int interval_ms )
@@ -1647,10 +1647,10 @@ void setCDsendinterval_ms( unsigned int interval_ms )
 	config.CDsendinterval_ms = interval_ms;
 }
 /*------------------------------------------------------------
- * Onelooptime¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * Onelooptimeæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getOnelooptime_ms( void )
@@ -1658,10 +1658,10 @@ unsigned int getOnelooptime_ms( void )
     return config.Onelooptime_ms;
 }
 /*------------------------------------------------------------
- * Onelooptime¤ò¥»¥Ã¥È¤¹¤ë¡e
- * °ú¿ô
+ * Onelooptimeæ¯›æœ¬æ°¸ç„å…æœˆã€”
+ * å©é†’
  *  interval		unsigned int
- * ÊÖ¤êÃÍ
+ * å¿’æ›°è¥–
  * void
  ------------------------------------------------------------*/
 void setOnelooptime_ms( unsigned int interval_ms )
@@ -1669,10 +1669,10 @@ void setOnelooptime_ms( unsigned int interval_ms )
 	config.Onelooptime_ms = interval_ms;
 }
 /*------------------------------------------------------------
- * Petdeletetime¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * Petdeletetimeæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getPetdeletetime( void )
@@ -1680,10 +1680,10 @@ unsigned int getPetdeletetime( void )
     return config.Petdeletetime;
 }
 /*------------------------------------------------------------
- * Petdeletetime¤ò¥»¥Ã¥È¤¹¤ë¡e
- * °ú¿ô
+ * Petdeletetimeæ¯›æœ¬æ°¸ç„å…æœˆã€”
+ * å©é†’
  *  interval		unsigned int
- * ÊÖ¤êÃÍ
+ * å¿’æ›°è¥–
  * void
  ------------------------------------------------------------*/
 void setPetdeletetime( unsigned int interval )
@@ -1691,10 +1691,10 @@ void setPetdeletetime( unsigned int interval )
 	config.Petdeletetime = interval;
 }
 /*------------------------------------------------------------
- * Itemdeletetime¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * Itemdeletetimeæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getItemdeletetime( void )
@@ -1702,10 +1702,10 @@ unsigned int getItemdeletetime( void )
     return config.Itemdeletetime;
 }
 /*------------------------------------------------------------
- * Itemdeletetime¤ò¥»¥Ã¥È¤¹¤ë¡e
- * °ú¿ô
+ * Itemdeletetimeæ¯›æœ¬æ°¸ç„å…æœˆã€”
+ * å©é†’
  *  interval		unsigned int
- * ÊÖ¤êÃÍ
+ * å¿’æ›°è¥–
  * void
  ------------------------------------------------------------*/
 void setItemdeletetime( unsigned int interval )
@@ -1714,10 +1714,10 @@ void setItemdeletetime( unsigned int interval )
 }
 
 /*------------------------------------------------------------
- * CharSavesendinterval¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * CharSavesendintervalæ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getCharSavesendinterval( void )
@@ -1725,10 +1725,10 @@ unsigned int getCharSavesendinterval( void )
     return config.CharSavesendinterval;
 }
 /*------------------------------------------------------------
- * CharSavesendinterval¤ò¥»¥Ã¥È¤¹¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * CharSavesendintervalæ¯›æœ¬æ°¸ç„å…æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 void setCharSavesendinterval( unsigned int interval)
@@ -1737,10 +1737,10 @@ void setCharSavesendinterval( unsigned int interval)
 }
 
 /*------------------------------------------------------------
- * Addressbookoffmsgnum ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * Addressbookoffmsgnum æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getAddressbookoffmsgnum( void )
@@ -1748,10 +1748,10 @@ unsigned int getAddressbookoffmsgnum( void )
     return config.addressbookoffmsgnum;
 }
 /*------------------------------------------------------------
- * Protocolreadfrequency ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * Protocolreadfrequency æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getProtocolreadfrequency( void )
@@ -1760,10 +1760,10 @@ unsigned int getProtocolreadfrequency( void )
 }
 
 /*------------------------------------------------------------
- * Allowerrornum ¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * Allowerrornum æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getAllowerrornum( void )
@@ -1772,10 +1772,10 @@ unsigned int getAllowerrornum( void )
 }
 
 /*------------------------------------------------------------
- * ¤Ò¥°¤ò¼è  ¤¹¤ë»ş¹ï¤ò  ¤ë¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
+ * å¤«å¼˜æ¯›æ½¸  å…æœˆå‡œå°æ¯›  æœˆã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
  *  unsigned int
  ------------------------------------------------------------*/
 unsigned int getLogHour( void )
@@ -1784,22 +1784,22 @@ unsigned int getLogHour( void )
 }
 
 /*------------------------------------------------------------
- * ¥Ğ¥È¥ë  ¤Î¥Ç¥Ğ¥Ã¥°¥á¥Ã¥»¡¼¥¸¤ò½Ğ¤¹¤«¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
- *  unsigned int 1¤Ê¤é½Ğ¤¹
+ * ç”°ç„ä¼™  åŠçŠ¯ç”°æ°¸å¼˜ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›è«‹å…äº•ã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
+ *  unsigned int 1å…æ—¥è«‹å…
  ------------------------------------------------------------*/
 unsigned int getBattleDebugMsg( void )
 {
     return config.battledebugmsg;
 }
 /*------------------------------------------------------------
- * ¥Ğ¥È¥ë  ¤Î¥Ç¥Ğ¥Ã¥°¥á¥Ã¥»¡¼¥¸¤ò½Ğ¤¹¤«¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
- *  unsigned int 1¤Ê¤é½Ğ¤¹
+ * ç”°ç„ä¼™  åŠçŠ¯ç”°æ°¸å¼˜ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›è«‹å…äº•ã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
+ *  unsigned int 1å…æ—¥è«‹å…
  ------------------------------------------------------------*/
 void setBattleDebugMsg( unsigned int num )
 {
@@ -1809,87 +1809,87 @@ void setBattleDebugMsg( unsigned int num )
 
 
 /*
- * Config¤Î¥Ç¥Õ¥©¥ë¥ÈÃÍ¤ò·è¤á¤ë´Ø¿ô
- * °ú¿ô
- *  argv0   char*   ¥³¥Ş¥ó¥É¥é¥¤¥ó°ú¿ô¤Î  ½é
+ * ConfigåŠçŠ¯ç™½å·§ä¼™ç„è¥–æ¯›ç‘æˆ¶æœˆæ¥®é†’
+ * å©é†’
+ *  argv0   char*   æˆŠç©´ä»¶ç‰ä»¿å¥¶ä»¶å©é†’åŠ  è³¡
  */
 void  defaultConfig( char* argv0 )
 {
-    char* program;                  /* program  ¤òµá¤á¤ë¤Î¤Ë»È¤¦ */
+    char* program;                  /* program  æ¯›è²æˆ¶æœˆåŠåéŠ€ä¸¹ */
 
-    /* ¥Ç¥Õ¥©¥ë¥ÈÃÍ¤ò  ¤ì¤ë */
+    /* çŠ¯ç™½å·§ä¼™ç„è¥–æ¯›  æœ¨æœˆ */
 
-    /*¥×¤Ò¥°¥é¥à  */
+    /*çš¿å¤«å¼˜ä»¿ä¸  */
     program = rindex(argv0, '/');
     if (program == NULL)
         program = argv0;
     else
-        program++;   /* "/"¤Î±­¤«¤é¤Ë¤·¤¿¤¤¤Î¤Ç++¤¹¤ë*/
+        program++;   /* "/"åŠæˆšäº•æ—¥åä»„å‡¶ä¸­åŠåŒ¹++å…æœˆ*/
     strcpysafe( config.progname , sizeof( config.progname ) ,program );
 
-    /*ÀßÄê¥Õ¥¡¥¤¥ë  */
+    /*æ¾€çˆ›ç™½å¤®å¥¶ä¼™  */
     strcpysafe( config.configfilename,
                 sizeof( config.configfilename ),"setup.cf" );
 
 }
 
 /*
- * ÀßÄê¥Õ¥¡¥¤¥ë  ¤ò  ¤ó¤À  ¤Ç¤Î½è  ¤ò¹Ô¤¦¡e
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * æ¾€çˆ›ç™½å¤®å¥¶ä¼™  æ¯›  æ°åˆ†  åŒ¹åŠè³ª  æ¯›å¢Šä¸¹ã€”
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
+ *  å…ä»„
  */
 void lastConfig( void )
 {
     char    entry[256];
-    /*  ¥Ş¥Ã¥×¥Ç¥£¥ì¥¯¥È¥ê¤ÎÀßÄê    */
+    /*  ç©´æ°¸çš¿çŠ¯å¥´ä¼Šå¼ç„ä¼‰åŠæ¾€çˆ›    */
     snprintf(entry, sizeof(entry), "%s/%s", config.topdir, config.mapdir);
     strcpysafe(config.mapdir, sizeof(config.mapdir), entry);
 
-    /*  ¥Ş¥Ã¥×ÀßÄê¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*  ç©´æ°¸çš¿æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry),"%s/%s",
              config.topdir,config.maptilefile);
     strcpysafe(config.maptilefile, sizeof(config.maptilefile), entry);
 
-    /*  ¥Ğ¥È¥ë¥Ş¥Ã¥×ÀßÄê¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*  ç”°ç„ä¼™ç©´æ°¸çš¿æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry),"%s/%s",
              config.topdir,config.battlemapfile);
     strcpysafe(config.battlemapfile, sizeof(config.battlemapfile), entry);
 
-    /*  ¥¢¥¤  ¥àÀßÄê¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*  å¤±å¥¶  ä¸æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s", config.topdir,config.itemfile);
     strcpysafe(config.itemfile, sizeof(config.itemfile), entry);
 
-    /*    Å¨ÀßÄê¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*    è¥¯æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s", config.topdir,config.invfile);
     strcpysafe(config.invfile, sizeof(config.invfile), entry);
 
-    /*  ½Ğ¸½°Ì  ÀßÄê¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*  è«‹èœ‡åŒ  æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s", config.topdir,config.appearfile);
     strcpysafe(config.appearfile, sizeof(config.appearfile), entry);
 
-    /*  ±é½ĞÀßÄê¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*  æ¢¢è«‹æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s", config.topdir,config.effectfile);
     strcpysafe(config.effectfile, sizeof(config.effectfile), entry);
 
-    /*  ¥¯¥¤³NÀßÄê¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*  å¼å¥¶è¡“æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s", config.topdir,config.quizfile);
     strcpysafe(config.quizfile, sizeof(config.quizfile), entry);
 
-    /*  ¾Î¹æ  ¥Õ¥¡¥¤¥ë  ¤ÎÀßÄê    */
+    /*  æ†Šå¯  ç™½å¤®å¥¶ä¼™  åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s", config.topdir,config.titlenamefile);
     strcpysafe(config.titlenamefile, sizeof(config.titlenamefile), entry);
 
-    /*  lsgen ¥¢¥¦¥È¥×¥Ã¥È¥Õ¥¡¥¤¥ë      */
+    /*  lsgen å¤±å®ƒç„çš¿æ°¸ç„ç™½å¤®å¥¶ä¼™      */
     snprintf(entry,sizeof(entry),"%s/%s", config.topdir,config.lsgenlog);
     strcpysafe(config.lsgenlog, sizeof(config.lsgenlog), entry);
 
-    /*  ¥¹¥È¥¢¥Ç¥£¥ì¥¯¥È¥ê¤ÎÀßÄê    */
+    /*  æ—¦ç„å¤±çŠ¯å¥´ä¼Šå¼ç„ä¼‰åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s",config.topdir,config.storedir);
     strcpysafe(config.storedir, sizeof(config.storedir), entry);
 
-    /*  NPCÀßÄê¥È¥Ã¥×¥Ç¥£¥ì¥¯¥È¥ê¤ÎÀßÄê    */
+    /*  NPCæ¾€çˆ›ç„æ°¸çš¿çŠ¯å¥´ä¼Šå¼ç„ä¼‰åŠæ¾€çˆ›    */
     snprintf(entry,sizeof(entry), "%s/%s",config.topdir,config.npcdir);
     strcpysafe(config.npcdir, sizeof(config.npcdir), entry);
 
@@ -1903,13 +1903,13 @@ void lastConfig( void )
 
 
 /*
- * ¥İ¥¤¥ó¥¿¡¼¤ÈÅ¬ÀÚ¤Ê·¿¾ğ  ¤ò  ¤Ã¤ÆÂå  ¤ò¤¹¤ë´Ø¿ô
- * °ú¿ô
- *  to      void*   ÃÍ¤òÂå  ¤¹¤ë¥İ¥¤¥ó¥¿
- *  type    CTYPE   to¤Î·¿¤ò·è¤á¤ë
- *  value   double  to¤ËÂå  ¤¹¤ëÃÍ
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * ç¦¾å¥¶ä»¶æ­£â–¡åˆè´—æ¿ å…æ»‡æ¨¹  æ¯›  å‹»åŒ–é†«  æ¯›å…æœˆæ¥®é†’
+ * å©é†’
+ *  to      void*   è¥–æ¯›é†«  å…æœˆç¦¾å¥¶ä»¶æ­£
+ *  type    CTYPE   toåŠæ»‡æ¯›ç‘æˆ¶æœˆ
+ *  value   double  toåé†«  å…æœˆè¥–
+ * å¿’æ›°è¥–
+ *  å…ä»„
  */
 void substitutePointerFromType( void* to , CTYPE type ,double value)
 {
@@ -1931,23 +1931,23 @@ void substitutePointerFromType( void* to , CTYPE type ,double value)
 
 
 /*------------------------------------------------------------
- * ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤à
- * °ú¿ô
- *      filename            ¥Õ¥¡¥¤¥ë  
- * ÊÖ¤êÃÍ
- *      TRUE(1)     ©¨  
- *      FALSE(0)    ¼º      -> ¥Õ¥¡¥¤¥ë¤Î¥ª¡¼¥×¥ó¤Ë¼º  ¤·¤¿
+ * æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  æˆˆ
+ * å©é†’
+ *      filename            ç™½å¤®å¥¶ä¼™  
+ * å¿’æ›°è¥–
+ *      TRUE(1)     å²³  
+ *      FALSE(0)    æ’©      -> ç™½å¤®å¥¶ä¼™åŠå·¦â–¡çš¿ä»¶åæ’©  ä»„å‡¶
  ------------------------------------------------------------*/
 BOOL readconfigfile( char* filename )
 {
     FILE* f=NULL;
-    char linebuf[256];                  /* °ì¹Ô  ¤ß  ¤à¥Ğ¥Ã¥Õ¥¡ */
-    int linenum=0;                      /* ¹Ô¿ô¤ò¿ô¤¨¤ë */
-    char    realopenfilename[256];      /*    ºİ¤Ëopen ¤¹¤ë¥Õ¥¡¥¤¥ë  */
+    char linebuf[256];                  /* åŸŸå¢Š  å¿ƒ  æˆˆç”°æ°¸ç™½å¤® */
+    int linenum=0;                      /* å¢Šé†’æ¯›é†’å°¹æœˆ */
+    char    realopenfilename[256];      /*    ç«¯åopen å…æœˆç™½å¤®å¥¶ä¼™  */
 
     char    hostname[128];
 
-    /*  ¥Û¥¹¥È  ¤òµá¤á¤ë    */
+    /*  çŸ³æ—¦ç„  æ¯›è²æˆ¶æœˆ    */
     if( gethostname( hostname, sizeof(hostname) ) != -1 ){
         char*   initdot;
         initdot = index( hostname, '.' );
@@ -1956,25 +1956,25 @@ BOOL readconfigfile( char* filename )
         snprintf( realopenfilename, sizeof(realopenfilename),
                   "%s.%s" , filename, hostname);
 
-        /* ¥Õ¥¡¥¤¥ë¤Î¥ª¡¼¥×¥ó */
+        /* ç™½å¤®å¥¶ä¼™åŠå·¦â–¡çš¿ä»¶ */
         f=fopen( realopenfilename, "r" );
         if( f == NULL )
             print( "Can't open %s.  use %s instead\n", realopenfilename,
                    filename );
     }
     if( f == NULL ){
-        f=fopen( filename , "r" );          /* ¥Õ¥¡¥¤¥ë¤Î¥ª¡¼¥×¥ó */
+        f=fopen( filename , "r" );          /* ç™½å¤®å¥¶ä¼™åŠå·¦â–¡çš¿ä»¶ */
         if( f == NULL ){
             print( "Can't open %s\n", filename );
             return FALSE;
         }
     }
 
-    /* °ì¹Ô¤Å¤Ä  ¤ß  ¤à */
+    /* åŸŸå¢Šå‹¿å‹¾  å¿ƒ  æˆˆ */
     while( fgets( linebuf , sizeof( linebuf ), f ) ){
-        char firstToken[256];       /*1    ¤Î  »ú  */
-        int i;                      /*¥ë¡¼¥×  ¿ô*/
-        int ret;                    /*¥ê¥¿¡¼¥ó¥³¡¼¥É*/
+        char firstToken[256];       /*1    åŠ  å„‚  */
+        int i;                      /*ä¼™â–¡çš¿  é†’*/
+        int ret;                    /*ä¼‰æ­£â–¡ä»¶æˆŠâ–¡ç‰*/
 
         linenum ++;
 
@@ -1985,7 +1985,7 @@ BOOL readconfigfile( char* filename )
 
         chomp( linebuf );                    /* remove tail newline  */
 
-        /* delim "=" ¤Ç  ½é(1)¤Î¥È¡¼¥¯¥ó¤ò  ¤ë*/
+        /* delim "=" åŒ¹  è³¡(1)åŠç„â–¡å¼ä»¶æ¯›  æœˆ*/
         ret = getStringFromIndexWithDelim( linebuf , "=",  1, firstToken,
                                            sizeof(firstToken) );
         if( ret == FALSE ){
@@ -1994,17 +1994,17 @@ BOOL readconfigfile( char* filename )
             continue;
         }
 
-        /* readconf ¤Î¥µ¥¤³N¤Ç¥ë¡¼¥× */
-        char secondToken[256];      /*2    ¤Î  »ú  */
+        /* readconf åŠæ‰”å¥¶è¡“åŒ¹ä¼™â–¡çš¿ */
+        char secondToken[256];      /*2    åŠ  å„‚  */
         for( i = 0 ; i < arraysizeof( readconf ) ; i ++ ){
             if( strcmp( readconf[i].name ,firstToken ) == 0 ){
                 /* match */
-                /* delim "=" ¤Ç2    ¤Î¥È¡¼¥¯¥ó¤ò  ¤ë*/
+                /* delim "=" åŒ¹2    åŠç„â–¡å¼ä»¶æ¯›  æœˆ*/
                 ret = getStringFromIndexWithDelim( linebuf , "=" , 2
                                                    , secondToken ,
                                                    sizeof(secondToken) );
 
-                /* NULL  »ú¤«¤É¤¦¤«¤òÄ´¤Ù¤ë */
+                /* NULL  å„‚äº•å‡ä¸¹äº•æ¯›è­¬å±¯æœˆ */
                 if( ret == FALSE ){
                     print( "Find error at %s in line %d. Ignore",
                            filename , linenum);
@@ -2012,21 +2012,21 @@ BOOL readconfigfile( char* filename )
                 }
 
 
-                /*NULL¤À¤Ã¤¿¤éÂå  ¤·¤Ê¤¤*/
+                /*NULLåˆ†å‹»å‡¶æ—¥é†«  ä»„å…ä¸­*/
                 if( readconf[i].charvalue != NULL )
                     strcpysafe( readconf[i].charvalue
                                 ,readconf[i].charsize, secondToken);
 
-                /*NULL¤À¤Ã¤¿¤éÂå  ¤·¤Ê¤¤*/
+                /*NULLåˆ†å‹»å‡¶æ—¥é†«  ä»„å…ä¸­*/
                 if( readconf[i].value != NULL ) {
                     if( strcmp( "ON" ,secondToken ) == 0 ) {
-                        /*ON¤À¤Ã¤¿¤é1¤ò  ¤ì¤ë*/
+                        /*ONåˆ†å‹»å‡¶æ—¥1æ¯›  æœ¨æœˆ*/
                         substitutePointerFromType( readconf[i].value,
                                                    readconf[i].valuetype,
                                                    1.0);
 
                     }else if( strcmp( "OFF" ,secondToken ) == 0 ) {
-                        /*OFF¤À¤Ã¤¿¤é1¤ò  ¤ì¤ë*/
+                        /*OFFåˆ†å‹»å‡¶æ—¥1æ¯›  æœ¨æœˆ*/
                         substitutePointerFromType( readconf[i].value,
                                                    readconf[i].valuetype,
                                                    1.0);
@@ -2048,11 +2048,11 @@ BOOL readconfigfile( char* filename )
 }
 //ttom add this becaus the second had this function 
 /*------------------------------------------------------------
- * ¥¨¥ó¥³¡¼¥É¥­¡¼¤òÀßÄê¤¹¤ë
- * °ú¿ô
- *  ¤Ê¤·
- * ÊÖ¤êÃÍ
- *  unsigned int ¥­¡¼¤òÊÖ¤¹
+ * å·¨ä»¶æˆŠâ–¡ç‰å¹³â–¡æ¯›æ¾€çˆ›å…æœˆ
+ * å©é†’
+ *  å…ä»„
+ * å¿’æ›°è¥–
+ *  unsigned int å¹³â–¡æ¯›å¿’å…
 ------------------------------------------------------------*/
 unsigned int setEncodeKey( void )
 {
@@ -2060,11 +2060,11 @@ unsigned int setEncodeKey( void )
    return JENCODE_KEY;
 }
 /*------------------------------------------------------------
-* ¥¢¥«¥¦¥ó¥È¥µ¡¼¥Ğ¡¼¤Ë½ñ¤­  ¤à¥Ğ¥Ã¥Õ¥¡¤Î¥µ¥¤³N¤òÀßÄê¤¹¤ë
-* °ú¿ô
-*  ¤Ê¤·
-* ÊÖ¤êÃÍ
-*  unsigned int ¥­¡¼¤òÊÖ¤¹
+* å¤±å¸‚å®ƒä»¶ç„æ‰”â–¡ç”°â–¡åè¸äº”  æˆˆç”°æ°¸ç™½å¤®åŠæ‰”å¥¶è¡“æ¯›æ¾€çˆ›å…æœˆ
+* å©é†’
+*  å…ä»„
+* å¿’æ›°è¥–
+*  unsigned int å¹³â–¡æ¯›å¿’å…
 ------------------------------------------------------------*/
 unsigned int setAcWBSize( void )
 {
@@ -2168,7 +2168,7 @@ BOOL LoadMissionList( )
 		if (fgets(line, sizeof(line), fp) == NULL)	break;
 		print("\n %s ", line);
 		chop(line);
-		// ¥H#¬°µù¸Ñ*******
+		// ä»¥#ç‚ºè¨»è§£*******
 		if( line[0] == '#' )
 			continue;
 		for( i=0; i<strlen(line); i++ ){
@@ -2179,7 +2179,7 @@ BOOL LoadMissionList( )
 		}
 		//*************************************
 
-		//®æ¦¡ #¥ô°È½s¸¹,¥²­nµ¥¯Å,¥ô°È»¡©ú,¼ú«~ID,­­¨î®É¶¡(¤p®É)
+		//æ ¼å¼ #ä»»å‹™ç·¨è™Ÿ,å¿…è¦ç­‰ç´š,ä»»å‹™èªªæ˜,çå“ID,é™åˆ¶æ™‚é–“(å°æ™‚)
 		
 		getStringFromIndexWithDelim(line, ",", 1, token, sizeof(token));
 		if (strcmp(token, "") == 0)	break;
@@ -2225,7 +2225,7 @@ BOOL LoadMissionList( )
 
 BOOL LoadMissionCleanList( )
 {
-	// ®æ¦¡... ¨ÏªÌ,«iªÌ,¥ô°È,¼ú½à
+	// æ ¼å¼... ä½¿è€…,å‹‡è€…,ä»»å‹™,çè³
 	FILE* fp;
 	int	listindex =0;
 	int i = 0;
@@ -2245,7 +2245,7 @@ BOOL LoadMissionCleanList( )
 		if (fgets(line, sizeof(line), fp) == NULL)	break;
 		print("\n %s ", line);
 		chop(line);
-		// ¥H#¬°µù¸Ñ*******
+		// ä»¥#ç‚ºè¨»è§£*******
 		if( line[0] == '#' )
 			continue;
 		for( i=0; i<strlen(line); i++ ){
@@ -2317,7 +2317,7 @@ BOOL LoadJobdailyfile(void)
 		//print("\n %s ", line);
 		chop(line);
 
-		// #¬°µù¸Ñ
+		// #ç‚ºè¨»è§£
 		if( line[0] == '#' )
 			continue;
 		for( i=0; i<strlen(line); i++ ){
@@ -2338,7 +2338,7 @@ BOOL LoadJobdailyfile(void)
 		getStringFromIndexWithDelim(line, "|", 3, token, sizeof(token));
 		if (strcmp(token, "") == 0)	break;
 		if(strlen(token)>96){
-			print("¥ô°È»¡©ú¹Lªø:%d",strlen(token));
+			print("ä»»å‹™èªªæ˜éé•·:%d",strlen(token));
 			return FALSE;
 		}
 		strcpy( dailyfile[listindex].explain, token);
@@ -2387,7 +2387,7 @@ BOOL LoadRacepetfile(void)
 		if (fgets(line, sizeof(line), fp) == NULL)	break;		
 		chop(line);
 
-		// #¬°µù¸Ñ
+		// #ç‚ºè¨»è§£
 		if( line[0] == '#' )
 			continue;
 		for( i=0; i<strlen(line); i++ ){

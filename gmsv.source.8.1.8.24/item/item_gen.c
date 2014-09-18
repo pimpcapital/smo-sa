@@ -1,5 +1,5 @@
 /***********************************************
- * ¥¢¥¤  ¥à¹ç©¨¡ª
+ * å¤±å¥¶  ä¸å¯§å²³ã€
  **********************************************/
 #include "version.h"
 #include <stdio.h>
@@ -35,7 +35,7 @@
 
 static int ITEM_getTableNum( int num);
 
-/* ÁÇºà¤ÎÃÍ¤ÎMAXÃÍ */
+/* è±³ç®‹åŠè¥–åŠMAXè¥– */
 #define		ITEM_ATOMIND_MAX	1000
 // shan add
 #define         ITEM_ATOMIND_FM_MAX     4000
@@ -52,14 +52,14 @@ static int ITEM_getTableNum( int num);
 /***********************************************
  * (ITEM_GEN_RAND_MIN/1000) * ITEN_GEN_SEARCH_MIN 
  *  - (ITEM_GEN_RAND_MAX/1000) * ITEN_GEN_SEARCH_MAX
- * ¤³¤ì¤À¤±¤ÎÉı¤ÎÁÇºà¤Î  °Ï¤ò¼è¤ê¤¦¤ë»ö¤Ë¤Ê¤ë¡e
+ * ä»‡æœ¨åˆ†ä»ƒåŠæ±”åŠè±³ç®‹åŠ  å€æ¯›æ½¸æ›°ä¸¹æœˆå„€åå…æœˆã€”
  **********************************************/
 
-/* ÁÇºà¤ÎÃÍ    ¤Î¥é¥ó¥À¥àÉı¤Î  ¾¯¤È      £±£°£°£°Ê¬     */
+/* è±³ç®‹åŠè¥–    åŠä»¿ä»¶æ¯ä¸æ±”åŠ  åŠ‘åˆ      ã„ ã„Ÿã„Ÿã„ŸåŒ     */
 #define		ITEM_GEN_RAND_MIN		700
 #define		ITEM_GEN_RAND_MAX		1200
 
-/* ¥¢¥¤  ¥à¤ò¸¡º÷¤¹¤ëÁÇºà¤ÎÃÍ¤ÎÉı¤Î  ¾¯¤È    ¤Î    (double) */
+/* å¤±å¥¶  ä¸æ¯›è…¹ç¶¢å…æœˆè±³ç®‹åŠè¥–åŠæ±”åŠ  åŠ‘åˆ    åŠ    (double) */
 #define		ITEN_GEN_SEARCH_MIN		(0.7)
 #define		ITEN_GEN_SEARCH_MAX		(1.10)
 
@@ -87,9 +87,9 @@ static struct tagItemRandRangeTable {
 #define		ITEM_GEN_RATE	0.7
 
 static struct _tagItemRandRangeTableForItem {
-	int	num;			/* ÁÇºà¤Î³Æ¥é¥ó¥¯¤Î´ğ  ÃÍ */
-	int	minnum;			/* ¥é¥ó¥¯  ¼è¤ê¤¦¤ëÃÍ¤ÎMin */
-	int	maxnum;			/* ¥é¥ó¥¯  ¼è¤ê¤¦¤ëÃÍ¤ÎMAX  num +±­¤Î¥é¥ó¥¯¤Îº¹*ITEM_GEN_RATE) */
+	int	num;			/* è±³ç®‹åŠå‚™ä»¿ä»¶å¼åŠæ¹˜  è¥– */
+	int	minnum;			/* ä»¿ä»¶å¼  æ½¸æ›°ä¸¹æœˆè¥–åŠMin */
+	int	maxnum;			/* ä»¿ä»¶å¼  æ½¸æ›°ä¸¹æœˆè¥–åŠMAX  num +æˆšåŠä»¿ä»¶å¼åŠçŠ’*ITEM_GEN_RATE) */
 	double rate;		/*      maxnum / num*/
 }ItemRandTableForItem[] = {
 	{   10, 0,0,0 },
@@ -133,7 +133,7 @@ struct item_ingindtable {
 	int	num;
 };
 
-static int ITEM_getAtomIndexByName( char *nm ) // ±q¯À§÷¦WºÙ¨ú±o¯À§÷index
+static int ITEM_getAtomIndexByName( char *nm ) // å¾ç´ æåç¨±å–å¾—ç´ æindex
 {
 	int i;
 	unsigned int h = hashpjw( nm );
@@ -207,7 +207,7 @@ int ADD_ICACHE_INGRED( int ItemID)
 	int i, nk=0;
 
 	for( i=0; i<5; i++){
-		itemarg = ITEMTBL_getChar( ItemID, ITEM_INGNAME0+i);//¦¨¤À¦W
+		itemarg = ITEMTBL_getChar( ItemID, ITEM_INGNAME0+i);//æˆåˆ†å
 		if( itemarg == NULL ) continue;
 		if( itemarg[0] ){
 			icache[ItemID].ingind[nk] = ITEM_getAtomIndexByName( itemarg);
@@ -249,7 +249,7 @@ int ITEM_initItemIngCache( void )
 			if( icache[i].inguse == 0 ){
 				if( ITEMTBL_getInt( i, ITEM_CANMERGEFROM ) == TRUE ||
 					ITEMTBL_getInt( i, ITEM_CANMERGETO ) == TRUE ){
-					print( "¹D¨ã ¨S³]©w¦¨¥÷:%d %d %s\n",
+					print( "é“å…· æ²’è¨­å®šæˆä»½:%d %d %s\n",
 						i,
 						ITEMTBL_getInt( i, ITEM_ID),
 						ITEMTBL_getChar( i, ITEM_NAME) );
@@ -311,7 +311,7 @@ int ITEM_initItemIngCache( void )
 			if( k == 0 ){
 				if( ITEM_tbl[i].itm.data[ITEM_CANMERGEFROM] == TRUE || //new
 					ITEM_tbl[i].itm.data[ITEM_CANMERGETO] == TRUE){//new
-					print( "ID%d (%s)©|¥¼³]©w¦¨¤À\n",
+					print( "ID%d (%s)å°šæœªè¨­å®šæˆåˆ†\n",
 						   ITEM_tbl[i].itm.data[ITEM_ID], //new
 						   ITEM_tbl[i].itm.string[ITEM_NAME].string ); //new
 				}
@@ -380,8 +380,8 @@ int ITEM_initItemAtom( char *fn )
 		/* chop */
 		line[strlen(line)-1]=0;
 
-		/* º¸Ã¼¤Ë·ÏÅı¤Î  Á°¤¬    ¸ì¤Ç¤Ï¤¤¤Ã¤Æ¤¤¤Æ¡b
-		 ¤½¤ì¤À¤±¤¬  Í× */
+		/* çˆ¾ç¾¹åç…™è®“åŠ  èŸ†äº’    è³„åŒ¹åä¸­å‹»åŒ–ä¸­åŒ–ï½
+		 å…¬æœ¨åˆ†ä»ƒäº’  é‚° */
 		getStringFromIndexWithDelim( line, "," , 1 , tk, sizeof( tk ));
 		snprintf( item_atoms[count].name,
 				  sizeof( item_atoms[count].name ),
@@ -412,14 +412,14 @@ int ITEM_initItemAtom( char *fn )
 
 /*
   
-  Íğ¿ô¤Î¥ì¡¼¥È
+  å‰„é†’åŠä¼Šâ–¡ç„
 
-  base ¤¬ 100 ¤Ç min ¤¬ 0.7 ¤Ç max ¤¬ 1.3 ¤À¤Ã¤¿¤é¡b
-  70 ~ 130 ¤Ë¶Ñ°ì¤ËÊ¬  ¤¹¤ë¡e¤È¤ê¤¢¤¨¤º¶Ñ°ì¡e
-  ¶Ñ°ì¤¸¤ã¤Ê¤¯¤·¤¿¤ê¤¹¤ë¤«¤â¤·¤ì¤Ê¤¤¤Î¤Ç¡b
-  ¥¢¥¤  ¥à·´ÍÑ¥ë¡¼¥Á¥ó¤È¤·¤Æ¤³¤³¤ËÄêµÁ¤¹¤ë by ringo 1999Oct1 
-  1000Ê¬¤Îmin_rate,max_rate¤Ç°·¤¦¡e
-  double ¤äfloat ¤Ï¡f¤ä¤ä¤³¤·¤¤¤Î¤Ç»È¤ï¤Ê¤¤¡e
+  base äº’ 100 åŒ¹ min äº’ 0.7 åŒ¹ max äº’ 1.3 åˆ†å‹»å‡¶æ—¥ï½
+  70 ~ 130 åå‰½åŸŸååŒ  å…æœˆã€”åˆæ›°ä¸å°¹å…§å‰½åŸŸã€”
+  å‰½åŸŸå…ƒæ‰å…ä»ä»„å‡¶æ›°å…æœˆäº•æ‰‹ä»„æœ¨å…ä¸­åŠåŒ¹ï½
+  å¤±å¥¶  ä¸æ¯€è¿•ä¼™â–¡æ°‘ä»¶åˆä»„åŒ–ä»‡ä»‡åçˆ›è’å…æœˆ by ringo 1999Oct1 
+  1000åŒåŠmin_rate,max_rateåŒ¹å¥ä¸¹ã€”
+  double æ”¯float åã€•æ”¯æ”¯ä»‡ä»„ä¸­åŠåŒ¹éŠ€æ­¹å…ä¸­ã€”
  */
 static int
 ITEM_randRange( int base, int min_rate , int max_rate )
@@ -447,7 +447,7 @@ ITEM_randRange( int base, int min_rate , int max_rate )
 	if( range < 0 ) return 0;
 
 #ifdef _MERGE_LOG
-	print("\n ³Ì«á¤U­­:%d ³Ì«á¤W­­:%d ", minnum, minnum+range);
+	print("\n æœ€å¾Œä¸‹é™:%d æœ€å¾Œä¸Šé™:%d ", minnum, minnum+range);
 #endif
 
 	return minnum + RAND( 0, range);
@@ -462,10 +462,10 @@ static int cmprutine( double *p1, double *p2)
 	return 0;
 }
 /*
- * ¹â¤¤¤Î¤Ë¤¢¤ï¤»¤ë
- * ÊÖ¤êÃÍ¤Ï    ¤¬¤¤¤¯¤Ä¤Ë¤Ê¤Ã¤¿¤«¡e
- * ¹ç¤ï¤»¤ëÁ°¤Ë¡f¥½¡¼¥È¤·¤ÆÊÂ¤Ù¤Æ¡f
- * table¤Ë±è¤Ã¤¿    Ê¬¡fÂ­¤·¤Æ¤¤¤¯¡e
+ * å«–ä¸­åŠåä¸æ­¹å…­æœˆ
+ * å¿’æ›°è¥–å    äº’ä¸­ä»å‹¾åå…å‹»å‡¶äº•ã€”
+ * å¯§æ­¹å…­æœˆèŸ†åã€•æœ«â–¡ç„ä»„åŒ–å²ˆå±¯åŒ–ã€•
+ * tableåæ¢¯å‹»å‡¶    åŒã€•ç°«ä»„åŒ–ä¸­ä»ã€”
  */
 
 static void ITEM_simplify_atoms( struct item_ingindtable *inds, int num,
@@ -542,7 +542,7 @@ static void ITEM_simplify_atoms( struct item_ingindtable *inds, int num,
 		// shan add begin
 		if( petindex != -1 ){
 #ifdef _MERGE_NEW_8
-			/*if( alchemist ) { // ¨Ï¥Î¦uÅ@Ã~ºë  ®ÉµL¤W­­ // §ï:¬Ò¦³¤W­­
+			/*if( alchemist ) { // ä½¿ç”¨å®ˆè­·ç¸ç²¾  æ™‚ç„¡ä¸Šé™ // æ”¹:çš†æœ‰ä¸Šé™
 				if (CHAR_getInt(petindex, CHAR_PETFAMILY) == 1){
 					if( *( retvals + i) > ITEM_ATOMIND_FM_MAX ){
 						*( retvals + i) = ITEM_ATOMIND_FM_MAX;
@@ -554,7 +554,7 @@ static void ITEM_simplify_atoms( struct item_ingindtable *inds, int num,
 				}
 			}
 			else */
-			{ // «Dºë  ®É¦³¤W­­ 
+			{ // éç²¾  æ™‚æœ‰ä¸Šé™ 
 				if( *( retvals + i) > ITEM_ATOMIND_MAX ){ 
 					*( retvals + i) = ITEM_ATOMIND_MAX;
 				}
@@ -641,9 +641,9 @@ int PET_ADD_INGRED( int nm, int vl1, int vl2, int vl3,
 					int petindex, int petarray, int petid, int ingnum,
 					int *baseup, int *minadd, int *maxadd, int *fixatom )
 {
-	// ®a±Ú­×¥¿ ¦uÅ@Ã~®É¥Î
+	// å®¶æ—ä¿®æ­£ å®ˆè­·ç¸æ™‚ç”¨
 	int	PetLv[] = { 0, 77, 108, 145, 188, 237, 292, 353, 420, 493, 572};
-	// ®a±Ú(­Ó¤H)­×¥¿ «D¦uÅ@Ã~®É¥Î
+	// å®¶æ—(å€‹äºº)ä¿®æ­£ éå®ˆè­·ç¸æ™‚ç”¨
 	//int	PetLvPersonal[] = { 0, 77, 108, 145, 188, 237, 292, 353, 420, 493, 572};
 
 	if( strlen( ENEMYTEMP_getChar( petarray, nm)) != 0 ) {
@@ -667,12 +667,12 @@ int PET_ADD_INGRED( int nm, int vl1, int vl2, int vl3,
 			if( CHAR_getInt(petindex, CHAR_PETFAMILY) == 1 ) { 
 				if( CHAR_getInt( ownerindex, CHAR_FMLEADERFLAG) != FMMEMBER_LEADER) {
 					print("\n Pet Ownerindex Error");
-					CHAR_talkToCli( ownerindex, -1, "«D±Úªø¤£¯à¥Î¦uÅ@Ã~¥[¤u­ò¡I", CHAR_COLORYELLOW);
+					CHAR_talkToCli( ownerindex, -1, "éæ—é•·ä¸èƒ½ç”¨å®ˆè­·ç¸åŠ å·¥å”·ï¼", CHAR_COLORYELLOW);
 					return 2; // just return;
 				}
 				baseup[ingnum] = PetLv[getFmLv(ownerindex)];
 			}
-			else { // 8.0·s¼W
+			else { // 8.0æ–°å¢
 				baseup[ingnum] = PetLv[getFameLv(ownerindex)];
 			}
 		}
@@ -701,14 +701,14 @@ int PET_ADD_INGRED( int nm, int vl1, int vl2, int vl3,
 #endif
 
 /*
-  ¥Ú¥Ã¥È¤ÎID¤«¤é¡bÍğ¿ô¤Î½¤ÀµÀßÄê¤ò¼è¤ê¤À¤¹¡e
+  çŸ¢æ°¸ç„åŠIDäº•æ—¥ï½å‰„é†’åŠè†œæ‡‡æ¾€çˆ›æ¯›æ½¸æ›°åˆ†å…ã€”
 
-  int *fixuse : ÃÍ·ë²Ì°ú¿ô¡e    ¤Î    ¿ô¤ò¤È¤ê¡bÄêµÁ¿ô¤ò¤¤¤ì¤Æ¤«¤¨¤¹
+  int *fixuse : è¥–ç‘›çµ†å©é†’ã€”    åŠ    é†’æ¯›åˆæ›°ï½çˆ›è’é†’æ¯›ä¸­æœ¨åŒ–äº•å°¹å…
 
-  int *fixatom : ¤É¤ÎÁÇºà¤ËÂĞ¤¹¤ë½¤Àµ¤Ê¤Î¤«
-  int *baseup : ´ğ  ÃÍ¤Ë¤¿¤¤¤¹¤ë²Ã»»
-  int *minadd : ¤«¤±»»¤Î  ¾®¤Ë¤¿¤¤¤¹¤ë²Ã»»
-  int *maxadd : ¤«¤±»»¤Î    ¤Ë¤¿¤¤¤¹¤ë²Ã»»
+  int *fixatom : å‡åŠè±³ç®‹åè¦†å…æœˆè†œæ‡‡å…åŠäº•
+  int *baseup : æ¹˜  è¥–åå‡¶ä¸­å…æœˆç¬›é™
+  int *minadd : äº•ä»ƒé™åŠ  å‡åå‡¶ä¸­å…æœˆç¬›é™
+  int *maxadd : äº•ä»ƒé™åŠ    åå‡¶ä¸­å…æœˆç¬›é™
   
  */
 
@@ -753,11 +753,11 @@ ITEM_merge_getPetFix( int petid, int *fixuse, int *fixatom,
 	{
 		int ownerindex = CHAR_getWorkInt(petindex, CHAR_WORKPLAYERINDEX);
 		if( CHAR_getInt(petindex, CHAR_PETFAMILY) == 1 ) { 
-			print("\n ¨Ï¥Î¦uÅ@Ã~ ®a±ÚÁn±æ:%d ®a±Úµ¥¯Å:%d ®a±Ú­×¥¿:%d ",
+			print("\n ä½¿ç”¨å®ˆè­·ç¸ å®¶æ—è²æœ›:%d å®¶æ—ç­‰ç´š:%d å®¶æ—ä¿®æ­£:%d ",
 				CHAR_getWorkInt(ownerindex, CHAR_WORKFMDP), getFmLv(ownerindex), PetLv[getFmLv(ownerindex)]);
 		}
 		else {
-			print("\n «D¨Ï¥Î¦uÅ@Ã~ ­Ó¤HÁn±æ:%d ­Ó¤Hµ¥¯Å:%d ­Ó¤H­×¥¿:%d ",
+			print("\n éä½¿ç”¨å®ˆè­·ç¸ å€‹äººè²æœ›:%d å€‹äººç­‰ç´š:%d å€‹äººä¿®æ­£:%d ",
 				CHAR_getInt(ownerindex, CHAR_FAME), getFameLv(ownerindex), PetLv[getFameLv(ownerindex)]);
 		}
 	}
@@ -810,7 +810,7 @@ ITEM_merge_getPetFix( int petid, int *fixuse, int *fixatom,
 }
 
 /* 
- * ¤½¤Î    ¤¬¡f¹ç©¨¸µ¥¢¥¤  ¥à¤Ë¤¢¤Ã¤¿¤éFALSE¤òÊÖ¤¹
+ * å…¬åŠ    äº’ã€•å¯§å²³è‘­å¤±å¥¶  ä¸åä¸å‹»å‡¶æ—¥FALSEæ¯›å¿’å…
  */
 
 static BOOL ITEM_merge_checkitem( ITEM_Item *items, int itemsnum, int id)
@@ -851,7 +851,7 @@ static int ITEM_merge_with_retry( ITEM_Item *items,int itemsnum,
 		int		extractnum;
 		int		match = 0;
 		if( extractcnt >= ideal ) break;
-		// ­pºâ¦X¦¨¹D¨ãªº¥²¶·§÷®Æ¼Æ
+		// è¨ˆç®—åˆæˆé“å…·çš„å¿…é ˆææ–™æ•¸
 		for( extractnum = 0; extractnum < ideal; extractnum ++ ) {
 			if( r >= idel_num[ideal-1][extractnum] ) {
 				break;
@@ -865,17 +865,17 @@ static int ITEM_merge_with_retry( ITEM_Item *items,int itemsnum,
 		if( first ) {
 			int tablenum,ownerindex,familyLevel;
 			float toplimit;
-			for( i = 0; i < icache_num; i++ ){ //  ·j´M¥ş³¡ITEM
-				if( icache[i].use && icache[i].canmergeto) { // ¦pªG¬O¥i¦X¦¨ªºITEM
+			for( i = 0; i < icache_num; i++ ){ //  æœå°‹å…¨éƒ¨ITEM
+				if( icache[i].use && icache[i].canmergeto) { // å¦‚æœæ˜¯å¯åˆæˆçš„ITEM
 					icache[i].hitnum = 0;
-					for( j = 0; j < icache[i].inguse; j ++ ) { // ³o­ÓITEMªº§÷®Æ¼Æ
-						for( k = 0; k < ingnum ; k ++){ // ¦X¦¨ªº§÷®Æ¼Æ
-							if( icache[i].ingind[j] == ingindtable[k] ) { // §÷®Æ²Å¦X
-								if( searchtable == 0 ) { // ¹D¨ã¦X¦¨ªº¸Ü
-									tablenum = ITEM_getTableNum( ingtable[k]); // §÷®Æµ¥¯Å
+					for( j = 0; j < icache[i].inguse; j ++ ) { // é€™å€‹ITEMçš„ææ–™æ•¸
+						for( k = 0; k < ingnum ; k ++){ // åˆæˆçš„ææ–™æ•¸
+							if( icache[i].ingind[j] == ingindtable[k] ) { // ææ–™ç¬¦åˆ
+								if( searchtable == 0 ) { // é“å…·åˆæˆçš„è©±
+									tablenum = ITEM_getTableNum( ingtable[k]); // ææ–™ç­‰ç´š
 									// shan begin
 									if( petindex != -1){
-										if( CHAR_getInt(petindex, CHAR_PETFAMILY) == 1 ){ // ¦pªG¬O¦uÅ@Ã~ªº¸Ü
+										if( CHAR_getInt(petindex, CHAR_PETFAMILY) == 1 ){ // å¦‚æœæ˜¯å®ˆè­·ç¸çš„è©±
 											ownerindex = CHAR_getWorkInt(petindex, CHAR_WORKPLAYERINDEX);
 											familyLevel = getFmLv(ownerindex);
 											if (!CHAR_CHECKINDEX(ownerindex)){
@@ -890,17 +890,17 @@ static int ITEM_merge_with_retry( ITEM_Item *items,int itemsnum,
 												print("\n Pet Ownerindex Error");
 												return -1;
 											}
-											// »İ²Å¦X¤W¤U­­  
+											// éœ€ç¬¦åˆä¸Šä¸‹é™  
 											if( icache[i].ingval[j] <= ingtable[k]*ItemRandTableForItem[tablenum].rate &&
 												icache[i].ingval[j] >= ingtable[k]*(1/ItemRandTableForItem[tablenum].rate) &&
 												icache[i].ingval[j] <= ItemRandTableForItem[familyLevel+9].maxnum) {
 												icache[i].hitnum++;
 												break;
 											}
-										}else{ // «D¦uÅ@Ã~ªº¸Ü
+										}else{ // éå®ˆè­·ç¸çš„è©±
 											toplimit = ingtable[k]*ItemRandTableForItem[tablenum].rate;
 											if( toplimit > 1000) toplimit = 1000;
-											// »İ²Å¦X¤W¤U­­  
+											// éœ€ç¬¦åˆä¸Šä¸‹é™  
 											if( icache[i].ingval[j] <= toplimit &&
 												icache[i].ingval[j] >= ingtable[k]*(1/ItemRandTableForItem[tablenum].rate)){
 												icache[i].hitnum++;
@@ -909,7 +909,7 @@ static int ITEM_merge_with_retry( ITEM_Item *items,int itemsnum,
 										}
 									}
 									// shan end
-								}else { // ­¹ª«¦X¦¨ªº¸Ü
+								}else { // é£Ÿç‰©åˆæˆçš„è©±
 									// shan begin
 									if( CHAR_getInt(petindex, CHAR_PETFAMILY) == 1 ){
 										ownerindex = CHAR_getWorkInt(petindex, CHAR_WORKPLAYERINDEX);
@@ -949,7 +949,7 @@ static int ITEM_merge_with_retry( ITEM_Item *items,int itemsnum,
 							}
 						}
 					}
-					// ²Å¦Xªº§÷®Æ¼Æ¥²¶·¬Û¦P
+					// ç¬¦åˆçš„ææ–™æ•¸å¿…é ˆç›¸åŒ
 					if( icache[i].hitnum == icache[i].inguse &&	icache[i].hitnum == extractnum ){
 						if( ITEM_merge_checkitem(items,itemsnum,i)) {
 							matchid[match++] = i;
@@ -970,14 +970,14 @@ static int ITEM_merge_with_retry( ITEM_Item *items,int itemsnum,
 			}
 		}
 #ifdef _MERGE_LOG
-		print("\n ¥²¶·²Å¦Xªº§÷®Æ¼Æ(¶Ã¼Æ):%d \n", extractnum);
+		print("\n å¿…é ˆç¬¦åˆçš„ææ–™æ•¸(äº‚æ•¸):%d \n", extractnum);
 
 		{
 			int j;
 
 			for( j =0; j <ingnum; j++) {
 				tablenum = ITEM_getTableNum( ingtable[j]);
-				print(" [%s ¤U­­:%d ¤W­­:%d]",
+				print(" [%s ä¸‹é™:%d ä¸Šé™:%d]",
 						item_atoms[ ingindtable[j]].name,
 						(int)(ingtable[j]*(1/ItemRandTableForItem[tablenum].rate)),
 						(int)(ingtable[j]*ItemRandTableForItem[tablenum].rate) );
@@ -998,7 +998,7 @@ static int ITEM_merge_with_retry( ITEM_Item *items,int itemsnum,
 		
 		}
 		else {
-			print("\n ¥¢±Ñ­«¸Õ... ");
+			print("\n å¤±æ•—é‡è©¦... ");
 		}
 #endif
 		if( match > 0 ) {
@@ -1025,7 +1025,7 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 	struct item_ingindtable ingindtable[MAX_ITEM_ATOMS_SIZE];
 	int sortedingindtable[MAX_ITEM_ATOMS_SIZE];
 	int sortedingtable[MAX_ITEM_ATOMS_SIZE];
-	/* ¥Ú¥Ã¥È¤Ë¤è¤ë½¤ÀµÍÑ */
+	/* çŸ¢æ°¸ç„åæ–¹æœˆè†œæ‡‡è¿• */
 	int pet_fixatom[MAX_ITEM_ATOMS_SIZE];
 	int  pet_baseup[MAX_ITEM_ATOMS_SIZE];
 	int pet_minadd[MAX_ITEM_ATOMS_SIZE];
@@ -1036,11 +1036,11 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 	int nowtime;
 
 	nowtime = time( NULL);
-	// ¦pªG¦X¦¨«Ê¥]¹L©óÀWÁc...
+	// å¦‚æœåˆæˆå°åŒ…éæ–¼é »ç¹...
 	if( nowtime - CHAR_getWorkInt( charaindex, CHAR_WORKLASTMERGETIME) < 5+(num-2) ) {
 		CHAR_setWorkInt( charaindex, CHAR_WORKLASTMERGETIME, nowtime);
-		CHAR_talkToCli( charaindex, -1 ,"¦X¦¨®Æ²z¹L©óÀWÁc¡A¥ğ®§¤@¤U¤ñ¸û¦n³é¡C", CHAR_COLORRED);
-		print(" ¦X¦¨ÀWÁc ");
+		CHAR_talkToCli( charaindex, -1 ,"åˆæˆæ–™ç†éæ–¼é »ç¹ï¼Œä¼‘æ¯ä¸€ä¸‹æ¯”è¼ƒå¥½å–²ã€‚", CHAR_COLORRED);
+		print(" åˆæˆé »ç¹ ");
 		return items[RAND( 0, (num-1))].data[ITEM_ID];
 	}
 	CHAR_setWorkInt( charaindex, CHAR_WORKLASTMERGETIME, nowtime);
@@ -1055,7 +1055,7 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 	for(i=0; i<num ; i++ ){
 		if( !items[i].data[ITEM_CANMERGEFROM]) continue;
 		
-		// ¦pªG¦³­¹ª«»P¹D¨ãºUÂø«h¥¢±Ñ
+		// å¦‚æœæœ‰é£Ÿç‰©èˆ‡é“å…·æ‘»é›œå‰‡å¤±æ•—
 		if( item_type == -1 )
 			item_type = items[i].data[ITEM_TYPE];
 		else if( item_type == ITEM_DISH/*20*/ ){
@@ -1095,9 +1095,9 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 #ifdef _MERGE_LOG
 	{
 		int k,m;
-		//char mergech[][256] = {"¥Û","¤ì","°©","¤ú","¥Ö","½u","¨©´ß","´ß","§÷9","§÷10","§÷11","§÷12","§÷13","§÷14","§÷15","§÷16"};
+		//char mergech[][256] = {"çŸ³","æœ¨","éª¨","ç‰™","çš®","ç·š","è²æ®¼","æ®¼","æ9","æ10","æ11","æ12","æ13","æ14","æ15","æ16"};
 		for( k=0;k<5;k++)	{
-			print("\n merger(§÷®Æ): %d.[ %s,", k, /*mergech[ ingindtable[k].index]*/item_atoms[ ingindtable[k].index].name );
+			print("\n merger(ææ–™): %d.[ %s,", k, /*mergech[ ingindtable[k].index]*/item_atoms[ ingindtable[k].index].name );
 			for(m=0;m<5;m++)	{
 				print(" %f,", ingindtable[k].data[m]);
 			}
@@ -1112,10 +1112,10 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 #ifdef _MERGE_LOG
 	{
 		int k;
-		//char mergech[][256] = {"¥Û","¤ì","°©","¤ú","¥Ö","½u","¨©´ß","´ß","§÷9","§÷10","§÷11","§÷12","§÷13","§÷14","§÷15","§÷16"};
-		print("\n ­«½Æ§÷®Æ²V¦X«á...");
+		//char mergech[][256] = {"çŸ³","æœ¨","éª¨","ç‰™","çš®","ç·š","è²æ®¼","æ®¼","æ9","æ10","æ11","æ12","æ13","æ14","æ15","æ16"};
+		print("\n é‡è¤‡ææ–™æ··åˆå¾Œ...");
 		for( k=0;k<5;k++)	{
-			print("\n merger(§÷®Æ): %d.[ %s, %d]",
+			print("\n merger(ææ–™): %d.[ %s, %d]",
 				k, /*mergech[ sortedingindtable[k]]*/item_atoms[ sortedingindtable[k]].name, sortedingtable[k]);
 		}
 	}
@@ -1146,14 +1146,14 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 					if( fixedmax < 0 ) fixedmax = 0;
 #ifdef _MERGE_LOG
 					{
-						//char mergech[][256] = {"¥Û","¤ì","°©","¤ú","¥Ö","½u","¨©´ß","´ß","§÷9","§÷10","§÷11","§÷12","§÷13","§÷14","§÷15","§÷16"};
-						print("\n merger#(®³¤â§÷®Æ): ¼h¯Å:%d.[i:%d,j:%d] , [ %s, %d]",
+						//char mergech[][256] = {"çŸ³","æœ¨","éª¨","ç‰™","çš®","ç·š","è²æ®¼","æ®¼","æ9","æ10","æ11","æ12","æ13","æ14","æ15","æ16"};
+						print("\n merger#(æ‹¿æ‰‹ææ–™): å±¤ç´š:%d.[i:%d,j:%d] , [ %s, %d]",
 							tablenum, i, j,
 							/*mergech[ sortedingindtable[i]]*/item_atoms[ sortedingindtable[i]].name, sortedingtable[i]
 							);
 					}
 #endif
-					if( searchtable == 0 ) {//¦X¦¨
+					if( searchtable == 0 ) {//åˆæˆ
 						sortedingtable[i] = 
 #ifdef _MERGE_NEW_8	// 1st
 							ITEM_randRange( sortedingtable[i],
@@ -1168,7 +1168,7 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 							((ItemRandTableForItem[tablenum].rate*ITEM_MERGE_RANGEWIDTH_FORMAX) 
 							* (fixedmax/(double)ITEM_RANDRANGEDOM))*ITEM_RANDRANGEDOM );					    
 #endif
-					}else {//®Æ²z
+					}else {//æ–™ç†
 						sortedingtable[i] = 
 							ITEM_randRange( sortedingtable[i] + pet_baseup[j],
 							ItemRandTable[searchtable].randmin * ((double)fixedmin/ITEM_RANDRANGEDOM), 
@@ -1177,11 +1177,11 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 					break;
 				}
 			}
-			if( j == pet_fixuse ) { //¦p¸Ó¯À§÷¦¨¤À»PÃdª«¯S©Ê¤£²Å
+			if( j == pet_fixuse ) { //å¦‚è©²ç´ ææˆåˆ†èˆ‡å¯µç‰©ç‰¹æ€§ä¸ç¬¦
 #ifdef _MERGE_LOG
 				{
-					//char mergech[][256] = {"¥Û","¤ì","°©","¤ú","¥Ö","½u","¨©´ß","´ß","§÷9","§÷10","§÷11","§÷12","§÷13","§÷14","§÷15","§÷16"};
-					print("\n merger#(¤£®³¤â§÷®Æ): ¼h¯Å:%d.[i:%d,j:%d] , [ %s, %d] ®a±Ú­×¥¿=%d",
+					//char mergech[][256] = {"çŸ³","æœ¨","éª¨","ç‰™","çš®","ç·š","è²æ®¼","æ®¼","æ9","æ10","æ11","æ12","æ13","æ14","æ15","æ16"};
+					print("\n merger#(ä¸æ‹¿æ‰‹ææ–™): å±¤ç´š:%d.[i:%d,j:%d] , [ %s, %d] å®¶æ—ä¿®æ­£=%d",
 						tablenum, i, j,
 						/*mergech[ sortedingindtable[i]]*/item_atoms[ sortedingindtable[i]].name, sortedingtable[i], fm_fix
 						);
@@ -1261,9 +1261,9 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 #ifdef _MERGE_LOG
 		{
 			int k;
-			//char mergech[][256] = {"¥Û","¤ì","°©","¤ú","¥Ö","½u","¨©´ß","´ß","§÷9","§÷10","§÷11","§÷12","§÷13","§÷14","§÷15","§÷16"};
+			//char mergech[][256] = {"çŸ³","æœ¨","éª¨","ç‰™","çš®","ç·š","è²æ®¼","æ®¼","æ9","æ10","æ11","æ12","æ13","æ14","æ15","æ16"};
 			for( k=0;k<5;k++)	{
-				print("\n merger(Ãdª«¯à¤O°t¤W)(§÷®Æ): %d.[ %s, %d]",
+				print("\n merger(å¯µç‰©èƒ½åŠ›é…ä¸Š)(ææ–™): %d.[ %s, %d]",
 					k, /*mergech[ sortedingindtable[k]]*/item_atoms[ sortedingindtable[k]].name, sortedingtable[k]);
 			}
 		}
@@ -1306,7 +1306,7 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 									ITEMTBL_getInt( created, ITEM_INGVALUE3) +
 									ITEMTBL_getInt( created, ITEM_INGVALUE4);
 #ifndef _NEW_MANOR_LAW
-	#ifdef _PERSONAL_FAME	// Arminius: ®a±Ú­Ó¤HÁn±æ
+	#ifdef _PERSONAL_FAME	// Arminius: å®¶æ—å€‹äººè²æœ›
 								fooddp = sqrt(fooddp) * pow(2,kind_num-2) * RAND(0,6) / 200;
 	#else		                             
 								fooddp = sqrt(fooddp) * pow(2,kind_num-2) * RAND(0,6) / 100;
@@ -1314,7 +1314,7 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 								print("FoodDP: num->%d sumdp->%d", kind_num, fooddp);
 								sprintf(buf, "%d", fooddp);
 								
-	#ifdef _PERSONAL_FAME	// Arminius 8.30: ®a±Ú­Ó¤HÁn±æ
+	#ifdef _PERSONAL_FAME	// Arminius 8.30: å®¶æ—å€‹äººè²æœ›
 								CHAR_earnFame(ownerindex, fooddp);
 	#endif
 								
@@ -1351,14 +1351,14 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 									ITEMTBL_getInt( created, ITEM_INGVALUE3) +
 									ITEMTBL_getInt( created, ITEM_INGVALUE4);
 #ifndef _NEW_MANOR_LAW								
-	#ifdef _PERSONAL_FAME	// Arminius: ®a±Ú­Ó¤HÁn±æ
+	#ifdef _PERSONAL_FAME	// Arminius: å®¶æ—å€‹äººè²æœ›
 								syndp = syndp / 200;
 	#else
 								syndp = syndp / 100;
 	#endif
 								sprintf(buf, "%d", syndp);
 								
-	#ifdef _PERSONAL_FAME	// Arminius 8.30: ®a±Ú­Ó¤HÁn±æ
+	#ifdef _PERSONAL_FAME	// Arminius 8.30: å®¶æ—å€‹äººè²æœ›
 								CHAR_earnFame(ownerindex, syndp);
 	#endif
 								
@@ -1419,11 +1419,11 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 					else if( cTableLevel >= 6 ) adScore = 1;
 					else adScore = 0;
 					if( adScore > 0 ){
-					sprintf( buf1, "¦X¦¨®Æ²zµ¥¯Å¡G%d¡A¼W¥[ÁZ¤À¡G%d¡AÁ`¦@ÁZ¤À¡G%d¡C",
+					sprintf( buf1, "åˆæˆæ–™ç†ç­‰ç´šï¼š%dï¼Œå¢åŠ ç¸¾åˆ†ï¼š%dï¼Œç¸½å…±ç¸¾åˆ†ï¼š%dã€‚",
 					cTableLevel, adScore, Myscore+adScore);
 					CHAR_setInt( charaindex, CHAR_ABULLSCORE, Myscore+adScore);
 					}else{
-					sprintf( buf1, "¦X¦¨®Æ²zµ¥¯Å:%d¡A»İµ¥¯Å6¥H¤W¤~¥[¤À¡C",
+					sprintf( buf1, "åˆæˆæ–™ç†ç­‰ç´š:%dï¼Œéœ€ç­‰ç´š6ä»¥ä¸Šæ‰åŠ åˆ†ã€‚",
 					cTableLevel);
 					}
 					CHAR_talkToCli( charaindex, -1, buf1, CHAR_COLORYELLOW);
@@ -1440,8 +1440,8 @@ int ITEM_mergeItem( int charaindex, ITEM_Item *items, int num , int money, int p
 
 int ITEM_canDigest( ITEM_Item *itm )
 {
-	/* 1¸Ä  ¤Îºà  ¤Î  Á°¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤¿¤é1¡b
-	   ¤½¤¦¤Ç¤Ê¤¤¤Ê¤é0 */
+	/* 1èœŠ  åŠç®‹  åŠ  èŸ†äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­å‡¶æ—¥1ï½
+	   å…¬ä¸¹åŒ¹å…ä¸­å…æ—¥0 */
 	if( itm->string[ITEM_INGNAME0].string[0] ) return 1; else return 0;
 }
 
@@ -1486,7 +1486,7 @@ int ITEM_mergeItem_merge( int charaindex, int petid, char *data, int petindex, i
 	{
 		int emptyindex = CHAR_findEmptyItemBox( charaindex );
 		if( emptyindex == -1 ){
-			CHAR_talkToCli( charaindex, -1, "¦X¦¨®É¡A³Ì¤Ö»İªÅ¤@®æª««~Äæ¦ì¡I", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charaindex, -1, "åˆæˆæ™‚ï¼Œæœ€å°‘éœ€ç©ºä¸€æ ¼ç‰©å“æ¬„ä½ï¼", CHAR_COLORYELLOW);
 			return -1;
 		}
 	}
@@ -1506,14 +1506,14 @@ int ITEM_mergeItem_merge( int charaindex, int petid, char *data, int petindex, i
 				if( (code = ITEM_getChar( itemindex, ITEM_TYPECODE)) == NULL )	{
 					if( strcmp( code, "\0") )	{
 						char token[256];
-						snprintf( token, sizeof( token), "¦ü¥G¹ï%s¨S¦³¿³½ì¡C",
+						snprintf( token, sizeof( token), "ä¼¼ä¹å°%sæ²’æœ‰èˆˆè¶£ã€‚",
 							ITEM_getChar( itemindex, ITEM_NAME));
 						CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
 						return FALSE;
 					}
 				}
 #endif
-				if( ITEM_getmergeItemFromFromITEMtabl( ITEM_getInt( itemindex, ITEM_ID)) == TRUE ){ //ÀË¬d¬O§_¥i¦X¦¨
+				if( ITEM_getmergeItemFromFromITEMtabl( ITEM_getInt( itemindex, ITEM_ID)) == TRUE ){ //æª¢æŸ¥æ˜¯å¦å¯åˆæˆ
 					ITEM_Item *itm;
 					itm = ITEM_getItemPointer(itemindex);
 					if( itm !=  NULL ) {
@@ -1531,7 +1531,7 @@ int ITEM_mergeItem_merge( int charaindex, int petid, char *data, int petindex, i
 					}
 				}else {
 					char msgbuf[128];
-					snprintf( msgbuf, sizeof( msgbuf), "¦ü¥G¹ï%s¨S¦³¿³½ì¡C",
+					snprintf( msgbuf, sizeof( msgbuf), "ä¼¼ä¹å°%sæ²’æœ‰èˆˆè¶£ã€‚",
 						ITEM_getChar( itemindex, ITEM_NAME));
 					CHAR_talkToCli( charaindex, -1, msgbuf, CHAR_COLORWHITE);
 					
@@ -1551,7 +1551,7 @@ int ITEM_mergeItem_merge( int charaindex, int petid, char *data, int petindex, i
 		}
 		ret = ITEM_mergeItem( charaindex, items, cnt, 0, petid, randtable, petindex, alchemist);
 		if( ret == -10)
-			CHAR_talkToCli( charaindex, -1, "«Dªkªº¦X¦¨¤èªk", CHAR_COLORWHITE);
+			CHAR_talkToCli( charaindex, -1, "éæ³•çš„åˆæˆæ–¹æ³•", CHAR_COLORWHITE);
 		CHAR_setInt( charaindex, CHAR_MERGEITEMCOUNT,
 			CHAR_getInt( charaindex, CHAR_MERGEITEMCOUNT)+1);
 		
@@ -1567,14 +1567,14 @@ int ITEM_mergeItem_merge( int charaindex, int petid, char *data, int petindex, i
 #endif
 				CHAR_setItemIndex( charaindex, haveitemindexs[i], -1);
 				LogItem(
-					CHAR_getChar( charaindex, CHAR_NAME ), /* ¥­¥ã¥é   */
+					CHAR_getChar( charaindex, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 					CHAR_getChar( charaindex, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 					itemindexs[i],
 #else
-					ITEM_getInt( itemindexs[i], ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+					ITEM_getInt( itemindexs[i], ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-					"mergedel(¦X¦¨©Ò§R°£ªº¹D¨ã)",
+					"mergedel(åˆæˆæ‰€åˆªé™¤çš„é“å…·)",
 					CHAR_getInt( charaindex,CHAR_FLOOR),
 					CHAR_getInt( charaindex,CHAR_X ),
 					CHAR_getInt( charaindex,CHAR_Y ),
@@ -1620,26 +1620,26 @@ int ITEM_mergeItem_merge( int charaindex, int petid, char *data, int petindex, i
 								char argbuf[256];
 								int  arg1 = 0, arg2 = 0;						
 								if( ITEM_getInt( createitemindex, ITEM_TYPE) == 20){								
-									if( (p = strstr( ITEM_getChar(createitemindex, ITEM_ARGUMENT), "®ğ")) ){									
+									if( (p = strstr( ITEM_getChar(createitemindex, ITEM_ARGUMENT), "æ°£")) ){									
 										strcpy( argbuf, (p+2));
 										arg1 = atoi(argbuf);
 										arg1 = arg1 * FOOD_MP_RATE / 100;
 									}
-									if( (p = strstr( ITEM_getChar(createitemindex, ITEM_ARGUMENT), "Åé")) ){								
+									if( (p = strstr( ITEM_getChar(createitemindex, ITEM_ARGUMENT), "é«”")) ){								
 										strcpy( argbuf, (p+2));
 										arg2 = atoi(argbuf);
 										arg2 = arg2 * FOOD_HP_RATE / 100;
 									}
 									if( arg1 != 0 && arg2 != 0 ){								
-										sprintf( charbuf1, "®ğ%dÅé%d", arg1, arg2);								
+										sprintf( charbuf1, "æ°£%dé«”%d", arg1, arg2);								
 									}
 									else if( arg1 != 0){
-										sprintf( charbuf1, "®ğ%d", arg1);								
+										sprintf( charbuf1, "æ°£%d", arg1);								
 									}
 									else if( arg2 != 0){
-										sprintf( charbuf1, "Åé%d", arg2);								
+										sprintf( charbuf1, "é«”%d", arg2);								
 									}
-									sprintf( charbuf, "(®a±Ú®Æ²z)");
+									sprintf( charbuf, "(å®¶æ—æ–™ç†)");
 									strcpy( charbuf2, ITEM_getChar( createitemindex, ITEM_EFFECTSTRING));
 									strncat( charbuf2, charbuf, 10);
 									ITEM_setChar( createitemindex, ITEM_ARGUMENT, charbuf1);
@@ -1658,12 +1658,12 @@ int ITEM_mergeItem_merge( int charaindex, int petid, char *data, int petindex, i
 						LogItem(
 							CHAR_getChar( charaindex, CHAR_NAME ),
 							CHAR_getChar( charaindex, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 							createitemindex,
 #else
 							ITEM_getInt( createitemindex, ITEM_ID),
 #endif
-							"mergeadd(¦X¦¨¥X¨Óªº¹D¨ã)",
+							"mergeadd(åˆæˆå‡ºä¾†çš„é“å…·)",
 							CHAR_getInt( charaindex,CHAR_FLOOR),
 							CHAR_getInt( charaindex,CHAR_X ),
 							CHAR_getInt( charaindex,CHAR_Y ),
@@ -1701,7 +1701,7 @@ int PETSKILL_ITEM_inslay( int charindex, int inslayindex, int itemindex)
 	char buf1[256], buf2[256];
 	char codeTemp[][32]={ "NULL", "NULL", "NULL"};
 	char TypeName[][256]={
-		"§ğ", "¨¾", "±Ó", "HP", "MP", "©¯¹B", "¶Ë", "§l", "Å]ªkID"
+		"æ”»", "é˜²", "æ•", "HP", "MP", "å¹¸é‹", "å‚·", "å¸", "é­”æ³•ID"
 	};
 	int worktyp[] = {
 		ITEM_MODIFYATTACK, ITEM_MODIFYDEFENCE, ITEM_MODIFYQUICK,
@@ -1744,7 +1744,7 @@ int PETSKILL_ITEM_inslay( int charindex, int inslayindex, int itemindex)
 		break;
 	}
 	if( i == MAXCANINSLAY )	{
-		CHAR_talkToCli( charindex, -1, "ªZ¾¹©Î¨¾¨ã¤w¸gÆ^º¡¤F¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charindex, -1, "æ­¦å™¨æˆ–é˜²å…·å·²ç¶“é‘²æ»¿äº†ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 	memset( buf2, 0, sizeof( buf2));
@@ -1766,7 +1766,7 @@ int PETSKILL_ITEM_inslay( int charindex, int inslayindex, int itemindex)
 		char *magicname;
 
 		
-		if( ITEM_getInt( itemindex, ITEM_MAGICID) > 0 )	{	//Å]ªk ID
+		if( ITEM_getInt( itemindex, ITEM_MAGICID) > 0 )	{	//é­”æ³• ID
 			int magicid,mp;
 			magicid = ITEM_getInt( itemindex, ITEM_MAGICID);
 			ITEM_setInt( inslayindex, ITEM_MAGICID, magicid);
@@ -1780,14 +1780,14 @@ int PETSKILL_ITEM_inslay( int charindex, int inslayindex, int itemindex)
 			}
 		}
 
-		if( (funstr = ITEM_getChar( itemindex, ITEM_ARGUMENT)) != NULL )	{ //°Ñ¼Æ
+		if( (funstr = ITEM_getChar( itemindex, ITEM_ARGUMENT)) != NULL )	{ //åƒæ•¸
 			ITEM_setChar( inslayindex, ITEM_ARGUMENT, "\0");
 			ITEM_setChar( inslayindex, ITEM_ARGUMENT, funstr);
 		}
 
 
 		memset( Mname, 0, sizeof( Mname));
-		if( ITEM_getInt( inslayindex, ITEM_MAGICID) > 0 )	{	//¨ú±oÅ]ªk¦WºÙ
+		if( ITEM_getInt( inslayindex, ITEM_MAGICID) > 0 )	{	//å–å¾—é­”æ³•åç¨±
 			int marray = MAGIC_getMagicArray( ITEM_getInt( inslayindex, ITEM_MAGICID));
 			if( marray != -1 ){
 				if( (magicname = MAGIC_getChar( marray, MAGIC_NAME)) != NULL ){
@@ -1847,7 +1847,7 @@ int PETSKILL_ITEM_FixItem( int charindex, int fixindex, int *itemindex)
 		if( ITEM_ARG != NULL && !strcmp( ITEM_ARG, "FIXITEMALL") ){
 		}else{
 #endif
-			CHAR_talkToCli( charindex, -1, "§÷®Æ¤£²Å", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charindex, -1, "ææ–™ä¸ç¬¦", CHAR_COLORYELLOW);
 			return FALSE;
 #ifdef _ITEM_FIXALLBASE
 		}
@@ -1858,13 +1858,13 @@ int PETSKILL_ITEM_FixItem( int charindex, int fixindex, int *itemindex)
 	maxcrushes = ITEM_getInt( fixindex, ITEM_MAXDAMAGECRUSHE);
 	if( crushes >= (maxcrushes*0.80) )	{
 		char buff[256];
-		sprintf( buff, "%s¨Ã¨S¦³·lÃa¨ì»İ­n­×´_¡C", ITEM_getChar( fixindex, ITEM_NAME));
+		sprintf( buff, "%sä¸¦æ²’æœ‰æå£åˆ°éœ€è¦ä¿®å¾©ã€‚", ITEM_getChar( fixindex, ITEM_NAME));
 		CHAR_talkToCli( charindex, -1, buff, CHAR_COLORYELLOW);
 		return FALSE;
 	}else	{
 		char *buf1;
 		if( maxcrushes < 500 ){
-			CHAR_talkToCli( charindex, -1, "¦¹ª««~¤w¤£¯à­×´_", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charindex, -1, "æ­¤ç‰©å“å·²ä¸èƒ½ä¿®å¾©", CHAR_COLORYELLOW);
 			return FALSE;
 		}
 		if( crushes <= 0 ) return FALSE;
@@ -1872,7 +1872,7 @@ int PETSKILL_ITEM_FixItem( int charindex, int fixindex, int *itemindex)
 		crushes = maxcrushes;
 		ITEM_setInt( fixindex, ITEM_DAMAGECRUSHE, crushes);
 		ITEM_setInt( fixindex, ITEM_MAXDAMAGECRUSHE, maxcrushes);
-		//­×¥¿¦WºÙ
+		//ä¿®æ­£åç¨±
 		buf1 = ITEM_getChar( fixindex, ITEM_SECRETNAME);
 		if( strstr( buf1, "(") != 0 )	{
 			char buf5[256];

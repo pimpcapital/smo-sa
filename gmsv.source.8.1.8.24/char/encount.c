@@ -15,23 +15,23 @@
 #include "encount.h"
 #include "enemy.h"
 
-#ifdef _ADD_ENCOUNT           // WON ADD ¼W¥[¼Ä¾D¹JÄ²µo­×¥ó
+#ifdef _ADD_ENCOUNT           // WON ADD å¢åŠ æ•µé­é‡è§¸ç™¼ä¿®ä»¶
 #include "encount.h"
 #endif
 
-/* ¥¨¥ó¥«¥¦¥ó¥È´Ø  ¤Î¥½¡¼¥¹ */
+/* å·¨ä»¶å¸‚å®ƒä»¶ç„æ¥®  åŠæœ«â–¡æ—¦ */
 
-#ifndef _ADD_ENCOUNT           // WON ADD ¼W¥[¼Ä¾D¹JÄ²µo­×¥ó
+#ifndef _ADD_ENCOUNT           // WON ADD å¢åŠ æ•µé­é‡è§¸ç™¼ä¿®ä»¶
 typedef struct tagENCOUNT_Table
 {
     int                 index;
     int                 floor;
-    int                 encountprob_min;                /* ¥¨¥ó¥«¥¦¥ó¥È³Î   */
-    int                 encountprob_max;                /* ¥¨¥ó¥«¥¦¥ó¥È³Î   */
-    int                 enemymaxnum;        /* ¤É¤ì¤À¤±Å¨¤òºî¤ë¤« */
+    int                 encountprob_min;                /* å·¨ä»¶å¸‚å®ƒä»¶ç„å‰²   */
+    int                 encountprob_max;                /* å·¨ä»¶å¸‚å®ƒä»¶ç„å‰²   */
+    int                 enemymaxnum;        /* å‡æœ¨åˆ†ä»ƒè¥¯æ¯›ç¶œæœˆäº• */
     int                 zorder;
-    int                 groupid[ENCOUNT_GROUPMAXNUM];       /* ¥°¥ë¡¼¥×No */
-    int                 createprob[ENCOUNT_GROUPMAXNUM];    /* ¤½¤Î¥°¥ë¡¼¥×¤Î½Ğ¸½   */
+    int                 groupid[ENCOUNT_GROUPMAXNUM];       /* å¼˜ä¼™â–¡çš¿No */
+    int                 createprob[ENCOUNT_GROUPMAXNUM];    /* å…¬åŠå¼˜ä¼™â–¡çš¿åŠè«‹èœ‡   */
     RECT                rect;
 }ENCOUNT_Table;
 ENCOUNT_Table           *ENCOUNT_table;
@@ -47,12 +47,12 @@ static INLINE BOOL ENCOUNT_CHECKENCOUNTTABLEARRAY( int array)
 }
 
 /*------------------------------------------------------------
- * ¥¨¥ó¥«¥¦¥ó¥ÈÀßÄê¤Î½é´ü²½¤ò¤¹¤ë¡e
- * °ú¿ô
- *  filename        char*       ÀßÄê¥Õ¥¡¥¤¥ë  
- * ÊÖ¤êÃÍ
- *  ©¨      TRUE(1)
- *  ¼º      FALSE(0)
+ * å·¨ä»¶å¸‚å®ƒä»¶ç„æ¾€çˆ›åŠè³¡æ¸ç¥­æ¯›å…æœˆã€”
+ * å©é†’
+ *  filename        char*       æ¾€çˆ›ç™½å¤®å¥¶ä¼™  
+ * å¿’æ›°è¥–
+ *  å²³      TRUE(1)
+ *  æ’©      FALSE(0)
  *------------------------------------------------------------*/
 BOOL ENCOUNT_initEncount( char* filename )
 {
@@ -69,7 +69,7 @@ BOOL ENCOUNT_initEncount( char* filename )
 
     ENCOUNT_encountnum=0;
 
-    /*  ¤Ş¤º  ¸ú¤Ê¹Ô¤¬²¿¹Ô¤¢¤ë¤«¤É¤¦¤«Ä´¤Ù¤ë    */
+    /*  å¼•å…§  èº²å…å¢Šäº’çª’å¢Šä¸æœˆäº•å‡ä¸¹äº•è­¬å±¯æœˆ    */
     while( fgets( line, sizeof( line ), f ) ){
         linenum ++;
         if( line[0] == '#' )continue;        /* comment */
@@ -94,7 +94,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         return FALSE;
     }
 
-    /* ½é´ü²½ */
+    /* è³¡æ¸ç¥­ */
 {
     int     i,j;
     for( i = 0; i < ENCOUNT_encountnum; i ++ ) {
@@ -112,7 +112,7 @@ BOOL ENCOUNT_initEncount( char* filename )
             ENCOUNT_table[i].groupid[j] = -1;
             ENCOUNT_table[i].createprob[j] = -1;
         }
-#ifdef _ADD_ENCOUNT           // WON ADD ¼W¥[¼Ä¾D¹JÄ²µo­×¥ó
+#ifdef _ADD_ENCOUNT           // WON ADD å¢åŠ æ•µé­é‡è§¸ç™¼ä¿®ä»¶
 		ENCOUNT_table[i].event_now = -1;
 		ENCOUNT_table[i].event_end = -1;
 		ENCOUNT_table[i].enemy_group = -1;
@@ -120,7 +120,7 @@ BOOL ENCOUNT_initEncount( char* filename )
     }
 }
 
-    /*  ¤Ş¤¿  ¤ß  ¤¹    */
+    /*  å¼•å‡¶  å¿ƒ  å…    */
     linenum = 0;
     while( fgets( line, sizeof( line ), f ) ){
         linenum ++;
@@ -128,10 +128,10 @@ BOOL ENCOUNT_initEncount( char* filename )
         if( line[0] == '\n' )continue;       /* none    */
         chomp( line );
 
-        /*  ¹Ô¤òÀ°·Á¤¹¤ë    */
-        /*  ¤Ş¤º tab ¤ò " " ¤Ë  ¤­´¹¤¨¤ë    */
+        /*  å¢Šæ¯›å¹«æº¥å…æœˆ    */
+        /*  å¼•å…§ tab æ¯› " " å  äº”æ™¶å°¹æœˆ    */
         replaceString( line, '\t' , ' ' );
-        /* Àè  ¤Î¥¹¥Ú¡¼¥¹¤ò¼è¤ë¡e*/
+        /* ç‡®  åŠæ—¦çŸ¢â–¡æ—¦æ¯›æ½¸æœˆã€”*/
 {
         int     i;
         char    buf[256];
@@ -151,7 +151,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         int     x1,x2,y1,y2;
 		int		j;
         
-        /*   ÅÙ¤á¤Î¥ë¡¼¥×¤Ë  ¤Ã¤¿»ş¤Î°Ù¤Î½é´ü²½ */
+        /*   è˜¸æˆ¶åŠä¼™â–¡çš¿å  å‹»å‡¶å‡œåŠå•ƒåŠè³¡æ¸ç¥­ */
         ENCOUNT_table[encount_readlen].index = -1;
         ENCOUNT_table[encount_readlen].floor = 0;
         ENCOUNT_table[encount_readlen].encountprob_min = 1;
@@ -166,14 +166,14 @@ BOOL ENCOUNT_initEncount( char* filename )
             ENCOUNT_table[encount_readlen].groupid[j] = -1;
             ENCOUNT_table[encount_readlen].createprob[j] = -1;
         }
-#ifdef _ADD_ENCOUNT           // WON ADD ¼W¥[¼Ä¾D¹JÄ²µo­×¥ó
+#ifdef _ADD_ENCOUNT           // WON ADD å¢åŠ æ•µé­é‡è§¸ç™¼ä¿®ä»¶
 		ENCOUNT_table[encount_readlen].event_now = -1;
 		ENCOUNT_table[encount_readlen].event_end = -1;
 		ENCOUNT_table[encount_readlen].enemy_group = -1;
 #endif
 
 
-        /*  ¤Ò¤È¤Ä¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  å¤«åˆå‹¾æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",1,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -182,7 +182,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         }
         ENCOUNT_table[encount_readlen].index = atoi(token);
         
-        /*  2¤Ä¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  2å‹¾æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",2,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -191,7 +191,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         }
         ENCOUNT_table[encount_readlen].floor = atoi(token);
 
-        /*  3¤Ä¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  3å‹¾æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",3,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -200,7 +200,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         }
         x1 = atoi(token);
 
-        /*  4¤Ä¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  4å‹¾æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",4,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -209,7 +209,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         }
         y1= atoi(token);
         
-        /*  5¤Ä¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  5å‹¾æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",5,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -219,7 +219,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         
         x2 = atoi(token);
         
-        /*  6¤Ä¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  6å‹¾æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",6,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -233,7 +233,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         ENCOUNT_table[encount_readlen].rect.y      = min(y1,y2);
         ENCOUNT_table[encount_readlen].rect.height = max(y1,y2) - min(y1,y2);
 
-        /*  7¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  7æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",7,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -242,7 +242,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         }
         ENCOUNT_table[encount_readlen].encountprob_min = atoi(token);
 
-        /*  8¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  8æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",8,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -255,13 +255,13 @@ BOOL ENCOUNT_initEncount( char* filename )
 		int		a,b;
 		a = ENCOUNT_table[encount_readlen].encountprob_min;
 		b = ENCOUNT_table[encount_readlen].encountprob_max;
-		/*   ¾®¤ÎÄ´À° */
+		/*   å‡åŠè­¬å¹« */
         ENCOUNT_table[encount_readlen].encountprob_min 
         	= min( a,b);
         ENCOUNT_table[encount_readlen].encountprob_max 
         	= max( a,b);
 }
-        /*  9¤Ä¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  9å‹¾æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",9,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -270,14 +270,14 @@ BOOL ENCOUNT_initEncount( char* filename )
         }
         {
             int maxnum = atoi( token);
-            /* ¿ô¤ÎÀµÅöÀ­¤Î¥Á¥§¥Ã¥¯ */
+            /* é†’åŠæ‡‡ç™²å¶ºåŠæ°‘å°¼æ°¸å¼ */
             if( maxnum < 1 || maxnum > ENCOUNT_ENEMYMAXCREATENUM ) {
                 fprint("createnum error file:%s line:%d\n",filename,linenum);
                 continue;
             }
             ENCOUNT_table[encount_readlen].enemymaxnum = maxnum;
         }
-        /*  10¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  10æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         ret = getStringFromIndexWithDelim( line,",",10,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -287,7 +287,7 @@ BOOL ENCOUNT_initEncount( char* filename )
         ENCOUNT_table[encount_readlen].zorder = atoi(token);
         #define		CREATEPROB_TOKEN	11
         
-        /*  11  31¤á¤Î¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+        /*  11  31æˆ¶åŠç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
         {
             int     i;
             
@@ -310,18 +310,18 @@ BOOL ENCOUNT_initEncount( char* filename )
                 }
             }
 
-            /* ½Å  ¥Á¥§¥Ã¥¯ */
+            /* è¤  æ°‘å°¼æ°¸å¼ */
             if( checkRedundancy( ENCOUNT_table[encount_readlen].groupid, 
             			arraysizeof( ENCOUNT_table[encount_readlen].groupid)))
             {
-            	fprint( "error:¹Î¶¤­«½Æfile:%s line:%d\n", 
+            	fprint( "error:åœ˜éšŠé‡è¤‡file:%s line:%d\n", 
             				filename,linenum);
             	continue;
             }
         }
 
 
-#ifdef _ADD_ENCOUNT           // WON ADD ¼W¥[¼Ä¾D¹JÄ²µo­×¥ó
+#ifdef _ADD_ENCOUNT           // WON ADD å¢åŠ æ•µé­é‡è§¸ç™¼ä¿®ä»¶
         ret = getStringFromIndexWithDelim( line,",",31,token,
                                            sizeof(token));
         if( ret==FALSE ){
@@ -376,7 +376,7 @@ BOOL ENCOUNT_initEncount( char* filename )
     return TRUE;
 }
 /*------------------------------------------------------------------------
- * ¥¨¥ó¥«¥¦¥ó¥ÈÀßÄê¥Õ¥¡¥¤¥ë  ¤ß  ¤·
+ * å·¨ä»¶å¸‚å®ƒä»¶ç„æ¾€çˆ›ç™½å¤®å¥¶ä¼™  å¿ƒ  ä»„
  *-----------------------------------------------------------------------*/
 BOOL ENCOUNT_reinitEncount( void )
 {
@@ -385,15 +385,15 @@ BOOL ENCOUNT_reinitEncount( void )
 }
 
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤ÎENCOUNT_table¤ÎÅº»ú¤òÄ´¤Ù¤ë¡e
- * zorder¤Î¿ô»ú¤ò¸«¤ÆÍ¥Àè½ç°Ì¤Î¹â¤¤  ¤ò¼è  ¤¹¤ë¡e
- * °ú¿ô
- *  floor       int     ¥Õ¤Ò¥¢ID
- *  x           int     xºÂ  
- *  y           int     yºÂ  
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      Åº»ú
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠENCOUNT_tableåŠé©•å„‚æ¯›è­¬å±¯æœˆã€”
+ * zorderåŠé†’å„‚æ¯›è‘¦åŒ–ç©¸ç‡®è³œåŒåŠå«–ä¸­  æ¯›æ½¸  å…æœˆã€”
+ * å©é†’
+ *  floor       int     ç™½å¤«å¤±ID
+ *  x           int     xç”„  
+ *  y           int     yç”„  
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      é©•å„‚
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getEncountAreaArray( int floor, int x, int y)
 {
@@ -405,8 +405,8 @@ int ENCOUNT_getEncountAreaArray( int floor, int x, int y)
                 int curZorder = ENCOUNT_getZorderFromArray(i);
                 if( curZorder >0) {
                     if( index != -1 ) {
-                        /* Í¥Àè½ç°Ì¤òÄ´¤Ù¤ë */
-                        /*   ¤­¤¤  Í¥Àè */
+                        /* ç©¸ç‡®è³œåŒæ¯›è­¬å±¯æœˆ */
+                        /*   äº”ä¸­  ç©¸ç‡® */
                         if(  curZorder > ENCOUNT_getZorderFromArray(index)) {
                             index = i;
                         }
@@ -422,14 +422,14 @@ int ENCOUNT_getEncountAreaArray( int floor, int x, int y)
 }
 
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤Î¥¨¥ó¥«¥¦¥ó¥È³Î  ¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  floor       int     ¥Õ¤Ò¥¢ID
- *  x           int     xºÂ  
- *  y           int     yºÂ  
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å¤Î³Î  
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠå·¨ä»¶å¸‚å®ƒä»¶ç„å‰²  æ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  floor       int     ç™½å¤«å¤±ID
+ *  x           int     xç”„  
+ *  y           int     yç”„  
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰åŠå‰²  
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getEncountPercentMin( int charaindex, int floor , int x, int y )
 {
@@ -438,7 +438,7 @@ int ENCOUNT_getEncountPercentMin( int charaindex, int floor , int x, int y )
     ret = ENCOUNT_getEncountAreaArray( floor, x, y);
     if( ret != -1 ) {
         ret = ENCOUNT_table[ret].encountprob_min;
-		/* ¥È¥Ø¤Ò¥¹¸ú²Ì¤ò¤Ä¤±¤ë */
+		/* ç„ç›®å¤«æ—¦èº²çµ†æ¯›å‹¾ä»ƒæœˆ */
 		if( CHAR_getWorkInt( charaindex, CHAR_WORK_TOHELOS_COUNT) > 0 ) {
 			ret = ceil( ret * 
 				((100 + CHAR_getWorkInt( charaindex, CHAR_WORK_TOHELOS_CUTRATE)) 
@@ -450,14 +450,14 @@ int ENCOUNT_getEncountPercentMin( int charaindex, int floor , int x, int y )
     return ret;
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤Î¥¨¥ó¥«¥¦¥ó¥È³Î  ¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  floor       int     ¥Õ¤Ò¥¢ID
- *  x           int     xºÂ  
- *  y           int     yºÂ  
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å¤Î³Î  
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠå·¨ä»¶å¸‚å®ƒä»¶ç„å‰²  æ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  floor       int     ç™½å¤«å¤±ID
+ *  x           int     xç”„  
+ *  y           int     yç”„  
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰åŠå‰²  
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getEncountPercentMax( int charaindex, int floor , int x, int y )
 {
@@ -466,7 +466,7 @@ int ENCOUNT_getEncountPercentMax( int charaindex, int floor , int x, int y )
     ret = ENCOUNT_getEncountAreaArray( floor, x, y);
     if( ret != -1 ) {
         ret = ENCOUNT_table[ret].encountprob_max;
-		/* ¥È¥Ø¤Ò¥¹¸ú²Ì¤ò¤Ä¤±¤ë */
+		/* ç„ç›®å¤«æ—¦èº²çµ†æ¯›å‹¾ä»ƒæœˆ */
 		if( CHAR_getWorkInt( charaindex, CHAR_WORK_TOHELOS_COUNT) > 0 ) {
 			ret = ceil( ret * 
 				((100 + CHAR_getWorkInt( charaindex, CHAR_WORK_TOHELOS_CUTRATE)) 
@@ -478,14 +478,14 @@ int ENCOUNT_getEncountPercentMax( int charaindex, int floor , int x, int y )
     return ret;
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤ÎÅ¨À¸©¨MAX¿ô¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  floor       int     ¥Õ¤Ò¥¢ID
- *  x           int     xºÂ  
- *  y           int     yºÂ  
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å¤Î³Î  
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠè¥¯æˆ²å²³MAXé†’æ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  floor       int     ç™½å¤«å¤±ID
+ *  x           int     xç”„  
+ *  y           int     yç”„  
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰åŠå‰²  
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getCreateEnemyMaxNum( int floor , int x, int y )
 {
@@ -498,14 +498,14 @@ int ENCOUNT_getCreateEnemyMaxNum( int floor , int x, int y )
     return ret;
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤Î¥¨¥ó¥«¥¦¥ó¥È¥Õ¥£¡¼¥ë¥É¤Îindex¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  floor       int     ¥Õ¤Ò¥¢ID
- *  x           int     xºÂ  
- *  y           int     yºÂ  
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠå·¨ä»¶å¸‚å®ƒä»¶ç„ç™½å¥´â–¡ä¼™ç‰åŠindexæ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  floor       int     ç™½å¤«å¤±ID
+ *  x           int     xç”„  
+ *  y           int     yç”„  
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getEncountIndex( int floor , int x, int y )
 {
@@ -518,12 +518,12 @@ int ENCOUNT_getEncountIndex( int floor , int x, int y )
     return ret;
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤Î¥¨¥ó¥«¥¦¥ó¥È¥Õ¥£¡¼¥ë¥É¤Îindex¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  array           int     ENCOUNTTABLE¤ÎÅº»ú
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠå·¨ä»¶å¸‚å®ƒä»¶ç„ç™½å¥´â–¡ä¼™ç‰åŠindexæ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  array           int     ENCOUNTTABLEåŠé©•å„‚
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getEncountIndexFromArray( int array )
 {
@@ -531,12 +531,12 @@ int ENCOUNT_getEncountIndexFromArray( int array )
     return ENCOUNT_table[array].index;
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤Î¥¨¥ó¥«¥¦¥ó¥È³Î  ¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  array           int     ENCOUNTTABLE¤ÎÅº»ú
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠå·¨ä»¶å¸‚å®ƒä»¶ç„å‰²  æ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  array           int     ENCOUNTTABLEåŠé©•å„‚
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getEncountPercentFromArray( int array )
 {
@@ -544,12 +544,12 @@ int ENCOUNT_getEncountPercentFromArray( int array )
     return ENCOUNT_table[array].encountprob_min;
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿ºÂ  ¤ÎÅ¨À¸©¨MAX¿ô¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  array           int     ENCOUNTTABLE¤ÎÅº»ú
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶ç”„  åŠè¥¯æˆ²å²³MAXé†’æ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  array           int     ENCOUNTTABLEåŠé©•å„‚
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getCreateEnemyMaxNumFromArray( int array )
 {
@@ -557,12 +557,12 @@ int ENCOUNT_getCreateEnemyMaxNumFromArray( int array )
     return ENCOUNT_table[array].enemymaxnum;
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿Åº»ú¤Î¥°¥ë¡¼¥×  ¹æ¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  array           int     ENCOUNTTABLE¤ÎÅº»ú
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶é©•å„‚åŠå¼˜ä¼™â–¡çš¿  å¯æ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  array           int     ENCOUNTTABLEåŠé©•å„‚
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getGroupIdFromArray( int array, int grouparray )
 {
@@ -570,12 +570,12 @@ int ENCOUNT_getGroupIdFromArray( int array, int grouparray )
     return ENCOUNT_table[array].groupid[grouparray];
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿Åº»ú¤Î¥°¥ë¡¼¥×¤Î½Ğ¸½  ¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  array           int     ENCOUNTTABLE¤ÎÅº»ú
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶é©•å„‚åŠå¼˜ä¼™â–¡çš¿åŠè«‹èœ‡  æ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  array           int     ENCOUNTTABLEåŠé©•å„‚
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getGroupProbFromArray( int array, int grouparray )
 {
@@ -583,12 +583,12 @@ int ENCOUNT_getGroupProbFromArray( int array, int grouparray )
     return ENCOUNT_table[array].createprob[grouparray];
 }
 /*------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿Åº»ú¤ÎÍ¥Àè½ç°Ì¤òÄ´¤Ù¤ë¡e
- * °ú¿ô
- *  array           int     ENCOUNTTABLE¤ÎÅº»ú
- * ÊÖ¤êÃÍ
- *  Àµ¾ï      £°°Ê¾å
- *  ¼è  ¼º    -1
+ * éš™çˆ›ä»Šæœ¨å‡¶é©•å„‚åŠç©¸ç‡®è³œåŒæ¯›è­¬å±¯æœˆã€”
+ * å©é†’
+ *  array           int     ENCOUNTTABLEåŠé©•å„‚
+ * å¿’æ›°è¥–
+ *  æ‡‡æ©˜      ã„Ÿå‹•æ›‰
+ *  æ½¸  æ’©    -1
  ------------------------------------------------------------*/
 int ENCOUNT_getZorderFromArray( int array )
 {

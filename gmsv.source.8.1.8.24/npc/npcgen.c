@@ -21,29 +21,29 @@ typedef struct tagNPC_searchPoint
 }NPC_searchPoint;
 
 
-/*  ²¿²óNPC¤òºî¤ë¤« */
+/*  çª’è¢NPCæ¯›ç¶œæœˆäº• */
 #define NPC_CREATECHALLENGETIME    1
-int all_nosee = 0;		/* £±¤Î»ş¡aÁ´¤Æ¤ÎÅ¨¤ò no_see ¤Ë */
-int all_nobody = 0;		/* £±¤Î»ş¡aÁ´¤Æ¤ÎÅ¨¤ò no_body ¤Ë */
-int one_loop_born = 1;	/* £±¥ë¡¼¥×¤Ç  ¹âÀ¸¤ß½Ğ¤¹¿ô oneloop_born */
+int all_nosee = 0;		/* ã„ åŠå‡œï½›èŸˆåŒ–åŠè¥¯æ¯› no_see å */
+int all_nobody = 0;		/* ã„ åŠå‡œï½›èŸˆåŒ–åŠè¥¯æ¯› no_body å */
+int one_loop_born = 1;	/* ã„ ä¼™â–¡çš¿åŒ¹  å«–æˆ²å¿ƒè«‹å…é†’ oneloop_born */
 
 /*------------------------------------------------------------
- * Å¨¤ò¤¦¤ß¤À¤¹¾ì½ê¤ò·èÄê¤¹¤ë
- * °ú¿ô
- *  cr      NPC_Create*         ºÂ  ¤ÎÉı¤¬·è¤Ã¤Æ¤¤¤ëNPC_Create¤Î¥İ¥¤¥ó¥¿
- *  nobody  int                 1 ¤Î»ş¤ÏÃ¯¤â¤¤¤Ê¤¤»ş¤Ë¤Ä¤¯¤ë
- *                                          (Ã¯¤«¤¤¤Æ¤âºî¤ë)
- *                              0 ¤Î»ş¤ÏÃ¯¤â¤¤¤Ê¤¤»ş¤Ïºî¤é¤Ê¤¤¡e
- *                                          (Ã¯¤«¤¤¤¿»ş¤Î¤ßºî¤ë)
- *  nosee   int                 1 ¤Î»ş¤Ï¥×¥ì¥¤¥ä¡¼¤Î»ë³¦¤Î  ¤Ç¤âºî¤ë¡e
- *                              0 ¤Î»ş¤Ï¥×¥ì¥¤¥ä¡¼¤Î»ë³¦¤Î³°¤Çºî¤ë¡e
- *  point   NPC_searchPoint*    ½Ğ¸½¤µ¤»¤ë¾ì½ê¤òÂå  ¤¹¤ë
- *  isflying    BOOL              ¤ó¤Ç¤¤¤ë¤«¤É¤¦¤«¡e  ¤ó¤Ç¤¤¤ë¤Ê¤é TRUE ¤Ç
- *                                  ½Ğ¸½°Ì  ¤ó¤Î¤Î¥Ş¥Ã¥×¤È¤ÎÅö¤ê  Äê
- *                                  ¤ò¤·¤Ê¤¯¤Ê¤ë
- * ÊÖ¤êÃÍ
- *  ºî¤ì¤ë»ş¤Ï  TRUE
- *  ºî¤ì¤Ê¤¤»ş¤Ï  FALSE
+ * è¥¯æ¯›ä¸¹å¿ƒåˆ†å…æ¨ºèµ­æ¯›ç‘çˆ›å…æœˆ
+ * å©é†’
+ *  cr      NPC_Create*         ç”„  åŠæ±”äº’ç‘å‹»åŒ–ä¸­æœˆNPC_CreateåŠç¦¾å¥¶ä»¶æ­£
+ *  nobody  int                 1 åŠå‡œåç°¿æ‰‹ä¸­å…ä¸­å‡œåå‹¾ä»æœˆ
+ *                                          (ç°¿äº•ä¸­åŒ–æ‰‹ç¶œæœˆ)
+ *                              0 åŠå‡œåç°¿æ‰‹ä¸­å…ä¸­å‡œåç¶œæ—¥å…ä¸­ã€”
+ *                                          (ç°¿äº•ä¸­å‡¶å‡œåŠå¿ƒç¶œæœˆ)
+ *  nosee   int                 1 åŠå‡œåçš¿ä¼Šå¥¶ä¹©â–¡åŠéª°é‡µåŠ  åŒ¹æ‰‹ç¶œæœˆã€”
+ *                              0 åŠå‡œåçš¿ä¼Šå¥¶ä¹©â–¡åŠéª°é‡µåŠé™¸åŒ¹ç¶œæœˆã€”
+ *  point   NPC_searchPoint*    è«‹èœ‡ä»Šå…­æœˆæ¨ºèµ­æ¯›é†«  å…æœˆ
+ *  isflying    BOOL              æ°åŒ¹ä¸­æœˆäº•å‡ä¸¹äº•ã€”  æ°åŒ¹ä¸­æœˆå…æ—¥ TRUE åŒ¹
+ *                                  è«‹èœ‡åŒ  æ°åŠåŠç©´æ°¸çš¿åˆåŠç™²æ›°  çˆ›
+ *                                  æ¯›ä»„å…ä»å…æœˆ
+ * å¿’æ›°è¥–
+ *  ç¶œæœ¨æœˆå‡œå  TRUE
+ *  ç¶œæœ¨å…ä¸­å‡œå  FALSE
  ------------------------------------------------------------*/
 static BOOL NPC_searchCreatePoint( NPC_Create* cr,int  nobody,int nosee,
                             NPC_searchPoint* point, BOOL isflying )
@@ -97,7 +97,7 @@ static BOOL NPC_searchCreatePoint( NPC_Create* cr,int  nobody,int nosee,
         if( width == 0 ){
             return FALSE;
         }else{
-            /*  ºÂ  ·è¤áÂÇ¤Á¤Ê¤Î¤Ç  */
+            /*  ç”„  ç‘æˆ¶è—‰åˆ‡å…åŠåŒ¹  */
             crx = startpoint%width + x;
             cry = startpoint/width + y;
         }
@@ -181,12 +181,12 @@ static NPC_Correspondfunction   correspondfunction[]={
 #endif
 };
 /*------------------------------------------------------------
- * ´Ø¿ô¥³¥Ô¡¼¤¹¤ë
- * °ú¿ô
- *  ch      Char*           ¥­¥ã¥é¥Ç¡¼¥¿
- *  temp    NPC_template*     ¥ó¥×¥ì¡¼¥È¤Î¥İ¥¤¥ó¥¿¡¼
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * æ¥®é†’æˆŠç–‹â–¡å…æœˆ
+ * å©é†’
+ *  ch      Char*           å¹³ä¹“ä»¿çŠ¯â–¡æ­£
+ *  temp    NPC_template*     ä»¶çš¿ä¼Šâ–¡ç„åŠç¦¾å¥¶ä»¶æ­£â–¡
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 static void NPC_copyFunction( Char* ch, NPC_Template*   temp )
 {
@@ -355,7 +355,7 @@ void NPC_generateLoop( BOOL checkall )
     int     i,j;
     int    CreateOk=0;
     int enemynum ;
-    static int  createcount = 0;        /* create¤Î²¿    ¤«¤éÄ©Àï¤¹¤ë¤« */
+    static int  createcount = 0;        /* createåŠçª’    äº•æ—¥è—ºçˆµå…æœˆäº• */
     static struct timeval _store_npc_generateloop_time;
 	if( checkall == FALSE) {
 	    if( time_diff_us( NowTime, _store_npc_generateloop_time ) < (1000*1000)){

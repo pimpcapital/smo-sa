@@ -15,10 +15,10 @@
 #include "family.h"
 #include "errno.h"
 
-#define FMWARPMAN_INIT_LOOPTIME		600	// 0.1¬í
-#define FMWARPMAN_FREE_LOOPTIME		9000	// 1.5¬í
-#define FMWARPMAN_BUSY_LOOPTIME		3000	// 0.5¬í
-#define FMWARPMAN_WAIT_LOOPTIME		18000	// 3¬í
+#define FMWARPMAN_INIT_LOOPTIME		600	// 0.1ç§’
+#define FMWARPMAN_FREE_LOOPTIME		9000	// 1.5ç§’
+#define FMWARPMAN_BUSY_LOOPTIME		3000	// 0.5ç§’
+#define FMWARPMAN_WAIT_LOOPTIME		18000	// 3ç§’
 #define FMWARPMAN_CLEANPLACE		59
 //#define FMWARPMAN_CLEANPLACE		9
 #define	TRUE	1
@@ -65,7 +65,7 @@ void CHECK_FMPknumInFloor( int meindex)
 	int fmpks_pos;
 
 	fmpks_pos = CHAR_getWorkInt(meindex, NPC_WORK_ID) * MAX_SCHEDULE;
-	// Nuke 20040920: Bug fix ²ø¶é¤H¼Æº¡®É­nÀË¬dÁ`¤H¼Æ
+	// Nuke 20040920: Bug fix èŠåœ’äººæ•¸æ»¿æ™‚è¦æª¢æŸ¥ç¸½äººæ•¸
 	//print("<<%d %d>>",fmpks_pos,MAX_SCHEDULEMAN);
 	//if( fmpks_pos < 0 || fmpks_pos >= MAX_SCHEDULEMAN ) return;
 	if( fmpks_pos < 0 || fmpks_pos >= MAX_SCHEDULEMAN * MAX_SCHEDULE ) return;
@@ -140,7 +140,7 @@ BOOL NPC_FMWarpManInit( int meindex )
 		return FALSE;
 	}
 
-	/*--¥¿¥¤¥×ÀßÄê--*/
+	/*--æ­£å¥¶çš¿æ¾€çˆ›--*/
 	CHAR_setInt(meindex, CHAR_LOOPINTERVAL, FMWARPMAN_INIT_LOOPTIME);
    	CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEWARPMAN );
 	CHAR_setWorkInt(meindex, NPC_WORK_MODEFLAG, NPC_STATEINIT);
@@ -189,19 +189,19 @@ void NPC_FMWarpManLoop(int meindex)
 	struct tm *tm2;
 	int fmpks_pos = CHAR_getWorkInt(meindex, NPC_WORK_ID) * MAX_SCHEDULE;
 	int floor = CHAR_getWorkInt(meindex, NPC_WORK_WARPFLOOR);
-#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 	int i;
 	int playernum = CHAR_getPlayerMaxNum();
 #endif
 	
-	// WON ADD ­×¥¿snprintf·|¾É­P·í¾÷ªºbug
+	// WON ADD ä¿®æ­£snprintfæœƒå°è‡´ç•¶æ©Ÿçš„bug
 	if( (tm2=localtime((time_t *)&NowTime.tv_sec) ) == NULL ){
 		print("\n won ==> time err !! ");
 		return;
 	}
 	memcpy(&tm1, localtime((time_t *)&NowTime.tv_sec), sizeof(tm1));
 	
-#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 	{
 		static int next_time[5] = {10,20,30,40,50}, flag[5] = {0};
 		int now_time = time(NULL);
@@ -224,7 +224,7 @@ void NPC_FMWarpManLoop(int meindex)
 					char msg[128] = {0};
 					int pk_min = fmpks[fmpks_pos + i ].prepare_time;
 					 
-					sprintf(msg, "[%s] VS [%s] ©ó(%d:%d) ¦b³õ¦a %d ¶}¥´", 				
+					sprintf(msg, "[%s] VS [%s] æ–¼(%d:%d) åœ¨å ´åœ° %d é–‹æ‰“", 				
 									fmpks[ fmpks_pos + i ].host_name,
 									fmpks[ fmpks_pos + i ].guest_name,
 									tm1.tm_hour + i, pk_min,  
@@ -252,16 +252,16 @@ void NPC_FMWarpManLoop(int meindex)
 	}
 	if (CHAR_getWorkInt(meindex, NPC_WORK_MODEFLAG) == NPC_STATEFREE)
 	{
-		// ¨ú±o¥Ø«e¨t²Î®É¶¡¡A­Y¥Ø«e®É¶¡ >= ·Ç³Æ®É¶¡«h³]©w¢Ğ¢ã¢á¢çª¬ºA
+		// å–å¾—ç›®å‰ç³»çµ±æ™‚é–“ï¼Œè‹¥ç›®å‰æ™‚é–“ >= æº–å‚™æ™‚é–“å‰‡è¨­å®šï¼¢ï¼µï¼³ï¼¹ç‹€æ…‹
 		
 		if (tm1.tm_min > CHAR_getWorkInt(meindex, NPC_WORK_TALKFLAG)
 			&& tm1.tm_min == 0)
 		{
-			// ³qª¾¦¨­û¶i³õ
+			// é€šçŸ¥æˆå“¡é€²å ´
 			if (fmpks[fmpks_pos].flag == FMPKS_FLAG_SCHEDULED)
 				NPC_talkToFloor(CHAR_getInt(meindex, CHAR_FLOOR),
 				fmpks[fmpks_pos].host_index,
-				fmpks[fmpks_pos].guest_index, "¥i¥H·Ç³Æ¶i³õ¤F¡I");
+				fmpks[fmpks_pos].guest_index, "å¯ä»¥æº–å‚™é€²å ´äº†ï¼");
 			CHAR_setWorkInt(meindex, NPC_WORK_TALKFLAG, tm1.tm_min);
 		}
 		if ((fmpks[fmpks_pos].prepare_time > 0) && (fmpks[fmpks_pos].flag == FMPKS_FLAG_SCHEDULED))
@@ -279,7 +279,7 @@ void NPC_FMWarpManLoop(int meindex)
 			{
 				
 				NPC_talkToFloor(floor, fmpks[fmpks_pos].host_index,
-					fmpks[fmpks_pos].guest_index, "¶}¾ÔÃ¹¡ã¡I¡I");
+					fmpks[fmpks_pos].guest_index, "é–‹æˆ°ç¾…ï½ï¼ï¼");
 				CHAR_setWorkInt(meindex, NPC_WORK_MODEFLAG, NPC_STATEBUSY);
 				CHAR_setInt(meindex, CHAR_LOOPINTERVAL, FMWARPMAN_BUSY_LOOPTIME);
 				NPC_FMBATTLESET(floor, fmpks[fmpks_pos].host_index,
@@ -288,7 +288,7 @@ void NPC_FMWarpManLoop(int meindex)
 				print("\n won ==> set fmwaperman state busy !!");
 				
 				
-#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 				{
 					int num1 = 0, num2 = 0;
 					int winflag = 0;
@@ -303,11 +303,11 @@ void NPC_FMWarpManLoop(int meindex)
 							CHAR_getInt(meindex, CHAR_FLOOR),
 							CHAR_getInt(meindex, CHAR_X),
 							CHAR_getInt(meindex, CHAR_Y));
-						NPC_talkToFloor( floor,  -1, fmpks[fmpks_pos].guest_index, "¦]¥¼º¡¤G¤Q¤H¦ÓÂ÷³õ" );
-#ifdef _DEATH_FAMILY_STRUCT		// WON ADD ®a±Ú¾Ô¦s©ñ³Ó­t¸ê®Æ
+						NPC_talkToFloor( floor,  -1, fmpks[fmpks_pos].guest_index, "å› æœªæ»¿äºŒåäººè€Œé›¢å ´" );
+#ifdef _DEATH_FAMILY_STRUCT		// WON ADD å®¶æ—æˆ°å­˜æ”¾å‹è² è³‡æ–™
 						{
 							char out[256];
-							sprintf( out, "[%s](%d) ¦]¥¼º¡¤G¤Q¤H±óÅv",  fmpks[fmpks_pos].guest_name, num2 );
+							sprintf( out, "[%s](%d) å› æœªæ»¿äºŒåäººæ£„æ¬Š",  fmpks[fmpks_pos].guest_name, num2 );
 							saacproto_FM_PK_STRUCT_send( acfd, out );
 						}
 #endif
@@ -319,11 +319,11 @@ void NPC_FMWarpManLoop(int meindex)
 							CHAR_getInt(meindex, CHAR_FLOOR),
 							CHAR_getInt(meindex, CHAR_X),
 							CHAR_getInt(meindex, CHAR_Y));
-						NPC_talkToFloor( floor,  fmpks[fmpks_pos].host_index, -1, "¦]¥¼º¡¤G¤Q¤H¦ÓÂ÷³õ" );
-#ifdef _DEATH_FAMILY_STRUCT		// WON ADD ®a±Ú¾Ô¦s©ñ³Ó­t¸ê®Æ
+						NPC_talkToFloor( floor,  fmpks[fmpks_pos].host_index, -1, "å› æœªæ»¿äºŒåäººè€Œé›¢å ´" );
+#ifdef _DEATH_FAMILY_STRUCT		// WON ADD å®¶æ—æˆ°å­˜æ”¾å‹è² è³‡æ–™
 						{
 							char out[256];
-							sprintf( out, "[%s](%d) ¦]¥¼º¡¤G¤Q¤H±óÅv",  fmpks[fmpks_pos].host_name/* .host_index*/, num1 );
+							sprintf( out, "[%s](%d) å› æœªæ»¿äºŒåäººæ£„æ¬Š",  fmpks[fmpks_pos].host_name/* .host_index*/, num1 );
 							saacproto_FM_PK_STRUCT_send( acfd, out );
 						}
 #endif		
@@ -338,46 +338,46 @@ void NPC_FMWarpManLoop(int meindex)
 				CHAR_setWorkInt(meindex, NPC_WORK_TIMEFLAG, tm1.tm_min);
 				clock = ((fmpks[fmpks_pos].dueltime % 100) + fmpks[fmpks_pos].prepare_time) - tm1.tm_min;
 				if (clock >= 60)	clock = clock - 60;
-				sprintf(buf, "¶ZÂ÷¹ï¾Ô®É¶¡ÁÙ³Ñ¤U¡G%4d¤ÀÄÁ", clock);
+				sprintf(buf, "è·é›¢å°æˆ°æ™‚é–“é‚„å‰©ä¸‹ï¼š%4dåˆ†é˜", clock);
 				NPC_talkToFloor(floor, fmpks[fmpks_pos].host_index,
 					fmpks[fmpks_pos].guest_index, buf);
 			}
 		}
 	}else if (CHAR_getWorkInt(meindex, NPC_WORK_MODEFLAG) == NPC_STATEBUSY){
-		// ÀË¬d³õ¤º¤H¼Æ¡B§PÂ_³Ó­t
+		// æª¢æŸ¥å ´å…§äººæ•¸ã€åˆ¤æ–·å‹è² 
 		int num1 = 0, num2 = 0;
 		int winflag = 0;
 		int floor = CHAR_getWorkInt(meindex, NPC_WORK_WARPFLOOR);
 		int meid = CHAR_getWorkInt(meindex, NPC_WORK_ID);
 		
 		print("\n won ==> check_winner : npc_meid(%d)", meid );
-		//Àò±oÂù¤èª±®a¦b³õ¤H¼Æ
+		//ç²å¾—é›™æ–¹ç©å®¶åœ¨å ´äººæ•¸
 		NPC_GetPKFMNum(floor, fmpks[fmpks_pos].host_index,
 			fmpks[fmpks_pos].guest_index, &num1, &num2);
-		//¶}±Ò©Ò¦³¦b²ø¶é¾Ô°«¹Ï¼hªºª±®aªº¢Ş¢Ùª¬ºA
+		//é–‹å•Ÿæ‰€æœ‰åœ¨èŠåœ’æˆ°é¬¥åœ–å±¤çš„ç©å®¶çš„ï¼°ï¼«ç‹€æ…‹
 		NPC_FMBATTLESET(floor, fmpks[fmpks_pos].host_index,
 			fmpks[fmpks_pos].guest_index, 1);
-		//ÀË¬dª±®a¾Ô±ÑÂ÷³õ
+		//æª¢æŸ¥ç©å®¶æˆ°æ•—é›¢å ´
 		CheckLeavePK(meindex, floor, fmpks[fmpks_pos].host_index,
 			fmpks[fmpks_pos].guest_index);
 		#ifdef _JZ_MANORTES
-		print("\n ¥D¶¤¡G%d|%d¡A«È¶¤¡G%d|%d¡ANPC_ID¡G%d¡A¹Ï¼h¡G%d¡C", num1, fmpks[fmpks_pos].host_index,
+		print("\n ä¸»éšŠï¼š%d|%dï¼Œå®¢éšŠï¼š%d|%dï¼ŒNPC_IDï¼š%dï¼Œåœ–å±¤ï¼š%dã€‚", num1, fmpks[fmpks_pos].host_index,
 					num2,fmpks[fmpks_pos].guest_index,meindex,floor);
 		#endif
 		if (meid > MANORNUM){
 			if (tm1.tm_min == FMWARPMAN_CLEANPLACE){
-				// §PÂ_³Ó­t¡BWARPÂ÷³õ¡B³]©w¢Ü¢Ş¢Ñª¬ºA
+				// åˆ¤æ–·å‹è² ã€WARPé›¢å ´ã€è¨­å®šï¼®ï¼°ï¼£ç‹€æ…‹
 				NPC_BattleOut(fmpks[fmpks_pos].host_index, fmpks[fmpks_pos].guest_index);
 				NPC_FMBATTLESET(floor, fmpks[fmpks_pos].host_index,
 					fmpks[fmpks_pos].guest_index, -1);
-				if (fmpks[fmpks_pos].win == 0){// ¥Í¦s¾Ô
+				if (fmpks[fmpks_pos].win == 0){// ç”Ÿå­˜æˆ°
 					if (num1 > num2)
 						winflag = 1;
 					else if(num1 < num2)
 						winflag = 2;
 					else
 						winflag = 3;
-				}else if (fmpks[fmpks_pos].win == 1){ // ¥´­¸¾Ô
+				}else if (fmpks[fmpks_pos].win == 1){ // æ‰“é£›æˆ°
 					if ((CHAR_getWorkInt(meindex, NPC_WORK_FMNUMI) - num1) < (CHAR_getWorkInt(meindex, NPC_WORK_FMNUMII) - num2))
 						winflag = 1;
 					else if ((CHAR_getWorkInt(meindex, NPC_WORK_FMNUMI) - num1) > (CHAR_getWorkInt(meindex, NPC_WORK_FMNUMII) - num2))
@@ -398,7 +398,7 @@ void NPC_FMWarpManLoop(int meindex)
 #ifdef _MANOR_PKRULE      
 			if(meid > MANORNUM){
 #endif
-#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 				{
 					int i, win_index = -1, loser_index = -1;
 					char *win_name, *loser_name, msg[256] = {0}, token[256] = {0};
@@ -430,14 +430,14 @@ void NPC_FMWarpManLoop(int meindex)
 					memcpy( &tm1, localtime( (time_t *)&NowTime.tv_sec), sizeof( tm1));
 					
 					if(winflag == 1 || winflag == 2){
-						sprintf( msg, "[%s](%d)¤H ³Ó [%s](%d)¤H", win_name, n1, loser_name, n2 );
-						sprintf( token, "¾Ôªp¼½³ø¡G %s", msg );
+						sprintf( msg, "[%s](%d)äºº å‹ [%s](%d)äºº", win_name, n1, loser_name, n2 );
+						sprintf( token, "æˆ°æ³æ’­å ±ï¼š %s", msg );
 					}else if( winflag == 3 ){				
-						sprintf( msg, "[%s] ¥­¤â [%s]", win_name, loser_name );
-						sprintf( token, "¾Ôªp¼½³ø¡G %s", msg );
+						sprintf( msg, "[%s] å¹³æ‰‹ [%s]", win_name, loser_name );
+						sprintf( token, "æˆ°æ³æ’­å ±ï¼š %s", msg );
 					}
 					
-#ifdef _DEATH_FAMILY_STRUCT		// WON ADD ®a±Ú¾Ô¦s©ñ³Ó­t¸ê®Æ
+#ifdef _DEATH_FAMILY_STRUCT		// WON ADD å®¶æ—æˆ°å­˜æ”¾å‹è² è³‡æ–™
 					{
 						char out[256] = {0};
 						sprintf( out, "%d/%d/%d:%d %s", tm1.tm_mon+1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min, msg );
@@ -459,7 +459,7 @@ void NPC_FMWarpManLoop(int meindex)
 					*/
 				}
 #else
-				// ¬y®ö®a±Úpk ¹LÁn±æ
+				// æµæµªå®¶æ—pk éè²æœ›
 				if (winflag == 1){	 		 
 					saacproto_ACFixFMPK_send(acfd,
 						fmpks[fmpks_pos].host_name,
@@ -501,7 +501,7 @@ void NPC_FMWarpManLoop(int meindex)
 							fmpks[fmpks_pos].guest_name,
 							fmpks[fmpks_pos].guest_index + 1,
 							fmpks[fmpks_pos].guest_index, meid);
-						//Syu ¼W¥[²ø¶é¾Ô³Ó­tLog
+						//Syu å¢åŠ èŠåœ’æˆ°å‹è² Log
 						Logfmpk(
 							fmpks[fmpks_pos].host_name,
 							fmpks[fmpks_pos].host_index,
@@ -510,19 +510,19 @@ void NPC_FMWarpManLoop(int meindex)
 							fmpks[fmpks_pos].guest_index,
 							num2, token, "", "", 2);
 #ifdef _NEW_MANOR_LAW
-						// ­ì®a±Ú¦u¦í¤F²ø¶é,®a±Ú¦¨­û¥i±o¨ì¥Û¹ô
+						// åŸå®¶æ—å®ˆä½äº†èŠåœ’,å®¶æ—æˆå“¡å¯å¾—åˆ°çŸ³å¹£
 						iFmIndex1 = fmpks[fmpks_pos].host_index;
 						for(i=0;i<FAMILY_MAXMEMBER;i++){
 							iCharindex = familyMemberIndex[iFmIndex1][i];
-							// ­Y¦b½u¤W¤~µ¹¿ú
+							// è‹¥åœ¨ç·šä¸Šæ‰çµ¦éŒ¢
 							if(iCharindex >= 0 && CHAR_getCharUse(iCharindex)){
-								// Àò±oª÷¿ú = ­Ó¤H®ğ¶Õ * 5000
+								// ç²å¾—é‡‘éŒ¢ = å€‹äººæ°£å‹¢ * 5000
 								int iAddGold = ((float)CHAR_getInt(iCharindex,CHAR_MOMENTUM)/100.0f) * 5000.0f;
 								int iGold = CHAR_getInt(iCharindex,CHAR_BANKGOLD),iMaxGold;
-								// ¥ı©ñ¤J­Ó¤H»È¦æ
+								// å…ˆæ”¾å…¥å€‹äººéŠ€è¡Œ
 								if(iGold + iAddGold > CHAR_MAXBANKGOLDHAVE){
 									CHAR_setInt(iCharindex,CHAR_BANKGOLD,CHAR_MAXBANKGOLDHAVE);
-									// ­Ó¤H»È¦æ©ñ¤£¤U¤F,©ñ¨ì­Ó¤H¨­¤W
+									// å€‹äººéŠ€è¡Œæ”¾ä¸ä¸‹äº†,æ”¾åˆ°å€‹äººèº«ä¸Š
 									iAddGold = iGold + iAddGold - CHAR_MAXBANKGOLDHAVE;
 									iGold = CHAR_getInt(iCharindex,CHAR_GOLD);
 									iMaxGold = CHAR_getMaxHaveGold(iCharindex);
@@ -540,7 +540,7 @@ void NPC_FMWarpManLoop(int meindex)
 																	CHAR_getChar(iCharindex,CHAR_NAME),
 																	CHAR_getInt(iCharindex,CHAR_MOMENTUM),iAddGold,1);
 								}
-								CHAR_talkToCli(iCharindex,-1,"¨¯­W¤F!¦uÅ@¦í²ø¶éªº¼úª÷¤w¶×¤J§Aªº­Ó¤H»È¦æ",CHAR_COLORRED);
+								CHAR_talkToCli(iCharindex,-1,"è¾›è‹¦äº†!å®ˆè­·ä½èŠåœ’çš„çé‡‘å·²åŒ¯å…¥ä½ çš„å€‹äººéŠ€è¡Œ",CHAR_COLORRED);
 							}
 						}
 #endif
@@ -557,7 +557,7 @@ void NPC_FMWarpManLoop(int meindex)
 							fmpks[fmpks_pos].host_name,
 							fmpks[fmpks_pos].host_index + 1,
 							fmpks[fmpks_pos].host_index, meid);
-						//Syu ¼W¥[²ø¶é¾Ô³Ó­tLog
+						//Syu å¢åŠ èŠåœ’æˆ°å‹è² Log
 						Logfmpk(
 							fmpks[fmpks_pos].guest_name,
 							fmpks[fmpks_pos].guest_index,
@@ -570,20 +570,20 @@ void NPC_FMWarpManLoop(int meindex)
 					CHAR_setInt(meindex, CHAR_LOOPINTERVAL, FMWARPMAN_FREE_LOOPTIME);
 					print("FMWarpMan State:%d\n", CHAR_getWorkInt(meindex, NPC_WORK_MODEFLAG));
 #ifdef _NEW_MANOR_LAW
-					// Âù¤èªº­Ó¤H¤Î®a±Ú®ğ¶Õ³£­nÂk¹s
+					// é›™æ–¹çš„å€‹äººåŠå®¶æ—æ°£å‹¢éƒ½è¦æ­¸é›¶
 					iFmIndex1 = fmpks[fmpks_pos].host_index;
 					iFmIndex2 = fmpks[fmpks_pos].guest_index;
 					for(i=0;i<FAMILY_MAXMEMBER;i++){
 						iCharindex = familyMemberIndex[iFmIndex1][i];
-						// ­Y¦³¦b½u¤W«h²M°£,¤£¦b½u¤Wªº¦bµn¤J¹CÀ¸®É²M°£
+						// è‹¥æœ‰åœ¨ç·šä¸Šå‰‡æ¸…é™¤,ä¸åœ¨ç·šä¸Šçš„åœ¨ç™»å…¥éŠæˆ²æ™‚æ¸…é™¤
 						if(iCharindex >= 0 && CHAR_getCharUse(iCharindex)){
 							CHAR_setInt(iCharindex,CHAR_MOMENTUM,0);
-							CHAR_talkToCli(iCharindex,-1,"²ø¶é¾Ô«á­Ó¤H¤Î®a±Ú®ğ¶ÕÂk¹s",CHAR_COLORRED);
+							CHAR_talkToCli(iCharindex,-1,"èŠåœ’æˆ°å¾Œå€‹äººåŠå®¶æ—æ°£å‹¢æ­¸é›¶",CHAR_COLORRED);
 						}
 						iCharindex = familyMemberIndex[iFmIndex2][i];
 						if(iCharindex >= 0 && CHAR_getCharUse(iCharindex)){
 							CHAR_setInt(iCharindex,CHAR_MOMENTUM,0);
-							CHAR_talkToCli(iCharindex,-1,"²ø¶é¾Ô«á­Ó¤H¤Î®a±Ú®ğ¶ÕÂk¹s",CHAR_COLORRED);
+							CHAR_talkToCli(iCharindex,-1,"èŠåœ’æˆ°å¾Œå€‹äººåŠå®¶æ—æ°£å‹¢æ­¸é›¶",CHAR_COLORRED);
 						}
 					}
 #endif
@@ -612,7 +612,7 @@ void NPC_FMWarpManLoop(int meindex)
 					
 					fmpks[fmpks_pos + 1].flag = FMPKS_FLAG_MANOR_BATTLEEND;
 				NPC_talkToFloor(floor, fmpks[fmpks_pos].host_index,
-         	fmpks[fmpks_pos].guest_index, "Âù¤è¥­¤â¡A¤£¤À³Ó­t¡I¡I");
+         	fmpks[fmpks_pos].guest_index, "é›™æ–¹å¹³æ‰‹ï¼Œä¸åˆ†å‹è² ï¼ï¼");
 				NPC_WarpFamily(floor, fmpks[fmpks_pos].host_index,
          	fmpks[fmpks_pos].guest_index,
          	CHAR_getInt(meindex, CHAR_FLOOR),
@@ -634,7 +634,7 @@ void NPC_FMWarpManLoop(int meindex)
 			 // shan add
 			 NPC_FMBATTLESET(floor, fmpks[fmpks_pos].host_index, fmpks[fmpks_pos].guest_index, -1);
 			 CHAR_setInt(meindex, CHAR_LOOPINTERVAL, FMWARPMAN_FREE_LOOPTIME);
-			 // ±N fmwarpman ªì©l¤Æ
+			 // å°‡ fmwarpman åˆå§‹åŒ–
 			 CHAR_setWorkInt(meindex, NPC_WORK_FMNUMI, 0);
 			 CHAR_setWorkInt(meindex, NPC_WORK_FMNUMII, 0);
 			 CHAR_setWorkInt(meindex, NPC_WORK_TIMEFLAG, 0);
@@ -680,7 +680,7 @@ void NPC_FMWarpManWindowTalked( int meindex, int talkerindex,
 			return;
 		}
 	}else{
-		CHAR_talkToCli( talkerindex, meindex, "§A¨Ã«D¹ï¾ÔÂù¤è©ÒÄİ¥ô¤@®a±Ú¦¨­û¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( talkerindex, meindex, "ä½ ä¸¦éå°æˆ°é›™æ–¹æ‰€å±¬ä»»ä¸€å®¶æ—æˆå“¡ï¼", CHAR_COLORYELLOW);
 		return;
 	}
 	getStringFromIndexWithDelim(buf,",",1,buff2,sizeof(buff2));
@@ -697,12 +697,12 @@ void NPC_FMWarpManWindowTalked( int meindex, int talkerindex,
 			CHECK_FMPknumInFloor( meindex);
 			if (CHAR_getWorkInt(meindex, NPC_WORK_FMNUMI) > (fmpks[fmpks_pos].max_player - 1)){
 				lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
-					WINDOW_BUTTONTYPE_OK, -1, -1, makeEscapeString("\n¤w¸g¤£¯à¦A¶i¥hÃ¹¡ã¡I\n®a±Ú¶i³õ¤H¼Æ¤w¸g¨ì¹F³]©w¤W­­¤F¡I", buff2, sizeof(buff2)));
+					WINDOW_BUTTONTYPE_OK, -1, -1, makeEscapeString("\nå·²ç¶“ä¸èƒ½å†é€²å»ç¾…ï½ï¼\nå®¶æ—é€²å ´äººæ•¸å·²ç¶“åˆ°é”è¨­å®šä¸Šé™äº†ï¼", buff2, sizeof(buff2)));
 				return;
 			}
 			if( CHAR_getWorkInt( talkerindex, CHAR_WORKBATTLEMODE) != BATTLE_CHARMODE_NONE) return;
 			if(CHAR_getWorkInt(talkerindex, CHAR_WORKPARTYMODE) != CHAR_PARTY_NONE){
-				CHAR_talkToCli( talkerindex, meindex, "½Ğ¸Ñ´²¹Î¶¤¡I", CHAR_COLORYELLOW);
+				CHAR_talkToCli( talkerindex, meindex, "è«‹è§£æ•£åœ˜éšŠï¼", CHAR_COLORYELLOW);
 				return;
 			}
 
@@ -716,7 +716,7 @@ void NPC_FMWarpManWindowTalked( int meindex, int talkerindex,
 			     		int tmpnum2 = CHAR_getWorkInt(meindex, NPC_WORK_FMNUMII) + 1;
 				   		CHAR_setWorkInt(meindex, NPC_WORK_FMNUMII, tmpnum2);
 						}else{
-							CHAR_talkToCli( talkerindex, meindex, "§A¨Ã«D¹ï¾ÔÂù¤è©ÒÄİ¥ô¤@®a±Ú¦¨­û¡I", CHAR_COLORYELLOW);
+							CHAR_talkToCli( talkerindex, meindex, "ä½ ä¸¦éå°æˆ°é›™æ–¹æ‰€å±¬ä»»ä¸€å®¶æ—æˆå“¡ï¼", CHAR_COLORYELLOW);
 						}
 	         	CHAR_setWorkInt(talkerindex, CHAR_WORKFMPKFLAG, 1);
 		       	CHAR_setWorkInt(talkerindex, CHAR_WORKFMMANINDEX, meindex);
@@ -752,12 +752,12 @@ void NPC_FMWarpManWindowTalked( int meindex, int talkerindex,
 						memcpy(&tm1, localtime((time_t *)&NowTime.tv_sec), sizeof(tm1));
 						clock = ((fmpks[fmpks_pos].dueltime % 100) + fmpks[fmpks_pos].prepare_time) - tm1.tm_min;
 						if (clock >= 60)	clock = clock - 60;
-						sprintf(tmpbuf, "\n½Ğµ¥­ÔÂù¤è·Ç³Æ§¹²¦«á¦A¶}¾Ô¡I"
-							"\n¾Ô°«®É½Ğ¤£­nÀH·Nµn¥X©ÎÂ÷¶}¡C"
-							"\nÄ¹±o³Ó§Qªº®a±Ú¤]½Ğ¥ıµy«á¤@¤U¡A"
-							"\nµ¥«İµô§Pªº«Å§G«á¦AÂ÷³õ¡I"
-							"\nÁÂÁÂ±zªº¦X§@¡I"
-							"\n¶ZÂ÷¹ï¾Ô®É¶¡ÁÙ³Ñ¤U¡G%4d¤ÀÄÁ",
+						sprintf(tmpbuf, "\nè«‹ç­‰å€™é›™æ–¹æº–å‚™å®Œç•¢å¾Œå†é–‹æˆ°ï¼"
+							"\næˆ°é¬¥æ™‚è«‹ä¸è¦éš¨æ„ç™»å‡ºæˆ–é›¢é–‹ã€‚"
+							"\nè´å¾—å‹åˆ©çš„å®¶æ—ä¹Ÿè«‹å…ˆç¨å¾Œä¸€ä¸‹ï¼Œ"
+							"\nç­‰å¾…è£åˆ¤çš„å®£ä½ˆå¾Œå†é›¢å ´ï¼"
+							"\nè¬è¬æ‚¨çš„åˆä½œï¼"
+							"\nè·é›¢å°æˆ°æ™‚é–“é‚„å‰©ä¸‹ï¼š%4dåˆ†é˜",
 							clock);
 						lssproto_WN_send(fd, 
 			         	WINDOW_MESSAGETYPE_MESSAGE, WINDOW_BUTTONTYPE_OK,
@@ -796,18 +796,18 @@ void NPC_ERR_FMDiSP(int meindex,int talker,int errNO)
 	}
 	
 	if(errNO==1){
-		/*--¥Ñ¡¼  ¥£¡¼¤Ç  ¤·¤«¤±¤¿--*/
+		/*--ç”±â–¡  å¥´â–¡åŒ¹  ä»„äº•ä»ƒå‡¶--*/
 		if(NPC_Util_GetStrFromStrWithDelim( npcarg, "PartyMsg",token, sizeof( token))==NULL) {
-			/*--ÀßÄê¤µ¤ì¤Æ¤Ê¤±¤ì¤Ğ¡b²¼¤Î¥á¥Ã¥»¡¼¥¸¤ò»È¤¦--*/
-			sprintf(token, "\n\nµLªk¥[¤J¹Î¶¤¡A½Ğ¥ı¸Ñ´²¹Î¶¤¡I");
+			/*--æ¾€çˆ›ä»Šæœ¨åŒ–å…ä»ƒæœ¨å£¬ï½ç¥¨åŠä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›éŠ€ä¸¹--*/
+			sprintf(token, "\n\nç„¡æ³•åŠ å…¥åœ˜éšŠï¼Œè«‹å…ˆè§£æ•£åœ˜éšŠï¼");
 		}
 
 		if(CHAR_getWorkInt(talker,CHAR_WORKPARTYMODE)==CHAR_PARTY_CLIENT){
 					
 		}else{
 			
-		/*--¥ê¡¼¥À¡¼¤¬  ¤·¤«¤±¤¿¾ì¹ç¤Î¤ß--*/
-		/*--¥Ñ¡¼  ¥£¡¼Á´°÷¤Ë¥á¥Ã¥»¡¼¥¸¤ò½Ğ¤¹--*/		
+		/*--ä¼‰â–¡æ¯â–¡äº’  ä»„äº•ä»ƒå‡¶æ¨ºå¯§åŠå¿ƒ--*/
+		/*--ç”±â–¡  å¥´â–¡èŸˆå¤ åä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›è«‹å…--*/		
 		for( i=0 ; i < CHAR_PARTYMAX ;i++)
 		{
 			otherindex=CHAR_getWorkInt(talker,CHAR_WORKPARTYINDEX1+i);
@@ -815,7 +815,7 @@ void NPC_ERR_FMDiSP(int meindex,int talker,int errNO)
 			if(otherindex != -1){
 				 fd = getfdFromCharaIndex( otherindex);
 
-				/*-¤³¤³¤ÇÁ÷¿®¤¹¤ë--*/
+				/*-ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ--*/
 				lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 							WINDOW_BUTTONTYPE_OK,
 							CHAR_WINDOWTYPE_WINDOWWARPMAN_ERR, 
@@ -827,14 +827,14 @@ void NPC_ERR_FMDiSP(int meindex,int talker,int errNO)
 		}
 	
 	}else if (errNO==2){
-		/*--¶â¤¬¤¿¤ê¤Ê¤¤¤Ç¤¹¡e--*/
+		/*--å—¯äº’å‡¶æ›°å…ä¸­åŒ¹å…ã€”--*/
 		if(NPC_Util_GetStrFromStrWithDelim( npcarg, "MoneyMsg", token, sizeof( token))==NULL){
-			/*--¶³¶â¤¬Â­¤ê¤Ê¤¤¤Î¤Ë¡bÀßÄê¤µ¤ì¤Æ¤Ê¤«¤Ã¤¿¤é¡b²¼¤Î¥á¥Ã¥»¡¼¥¸¤ò  ¤ï¤ê¤Ë½Ğ¤¹--*/
-			sprintf(token,"\n\nª÷¿ú¦ü¥G¤£¨¬­ò¡A½Ğ¦s¦n¿ú«á¦A¹L¨Ó¡C");
+			/*--é›²å—¯äº’ç°«æ›°å…ä¸­åŠåï½æ¾€çˆ›ä»Šæœ¨åŒ–å…äº•å‹»å‡¶æ—¥ï½ç¥¨åŠä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›  æ­¹æ›°åè«‹å…--*/
+			sprintf(token,"\n\né‡‘éŒ¢ä¼¼ä¹ä¸è¶³å”·ï¼Œè«‹å­˜å¥½éŒ¢å¾Œå†éä¾†ã€‚");
 			}
 		}
 
-		/*-¤³¤³¤ÇÁ÷¿®¤¹¤ë--*/
+		/*-ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ--*/
 		lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 						WINDOW_BUTTONTYPE_OK,
 						CHAR_WINDOWTYPE_WINDOWWARPMAN_ERR, 
@@ -863,7 +863,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 		print("GetArgStrErr");
 		return ;
 	}
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤Î  ¤Ë¥Õ¤Ò¥¢¿Í¿ô¤¬»ØÄê¤µ¤ì¤Æ¤¤¤ë¤«¤µ¤ì¤Æ¤¤¤ì¤Ğ¥Õ¤Ò¥¢¿Í¿ô¤Î³ä¤ê½Ğ¤·*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™åŠ  åç™½å¤«å¤±è«¦é†’äº’éš™çˆ›ä»Šæœ¨åŒ–ä¸­æœˆäº•ä»Šæœ¨åŒ–ä¸­æœ¨å£¬ç™½å¤«å¤±è«¦é†’åŠå–ƒæ›°è«‹ä»„*/
 	if(strstr(npcarg,"%4d")!=NULL){
 		NPC_Util_GetStrFromStrWithDelim( npcarg, "WARP1", buf, sizeof( buf));
 		getStringFromIndexWithDelim(buf,",",1,buf3,sizeof(buf3));
@@ -883,7 +883,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 			if ((fmpks[fmpks_pos].host_index != -1)
 		      && (CHAR_getWorkInt(toindex, CHAR_WORKFMINDEXI) == fmpks[fmpks_pos].host_index))
 			{
-				// WON ADD ­×¥¿®a±Úpk³õªº¬ù¾Ô°İÃD
+				// WON ADD ä¿®æ­£å®¶æ—pkå ´çš„ç´„æˆ°å•é¡Œ
 				
 				if(fmpks[fmpks_pos].flag == -1)		return;
 				
@@ -892,7 +892,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 				{
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 						WINDOW_BUTTONTYPE_OK, -1, -1,
-						makeEscapeString("\n³o³õ¾Ô°«¹ï¤è¦n¹³ÁÙ¨S¦P·N©O¡I\n¤U¦¸½Ğ°O±o¥ıÁÜ¬ù¹ï¤è«á¦A¨Óµn°O§a¡ã", token, sizeof(token)));
+						makeEscapeString("\né€™å ´æˆ°é¬¥å°æ–¹å¥½åƒé‚„æ²’åŒæ„å‘¢ï¼\nä¸‹æ¬¡è«‹è¨˜å¾—å…ˆé‚€ç´„å°æ–¹å¾Œå†ä¾†ç™»è¨˜å§ï½", token, sizeof(token)));
 					return;
 				}
 #ifdef _FMVER21		   	
@@ -902,7 +902,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 #endif		   	
 				{	
 					char	tmpbuf[256];
-					sprintf(tmpbuf, "\n§AÁÙ¨S¦³¥¿¦¡¥[¤J%s®a±Ú¡A©Ò¥H¤£¯à¶i³õ¡I", fmpks[fmpks_pos].host_name);
+					sprintf(tmpbuf, "\nä½ é‚„æ²’æœ‰æ­£å¼åŠ å…¥%så®¶æ—ï¼Œæ‰€ä»¥ä¸èƒ½é€²å ´ï¼", fmpks[fmpks_pos].host_name);
 					lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
 						WINDOW_BUTTONTYPE_OK, -1, -1,
 						makeEscapeString(tmpbuf, token, sizeof(token)));
@@ -912,14 +912,14 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 				CHECK_FMPknumInFloor( meindex);
 				if (CHAR_getWorkInt(meindex, NPC_WORK_FMNUMI) > (fmpks[fmpks_pos].max_player - 1)){
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
-						WINDOW_BUTTONTYPE_OK, -1, -1, makeEscapeString("\n¤w¸g¤£¯à¦A¶i¥hÃ¹¡ã¡I\n®a±Ú¶i³õ¤H¼Æ¤w¸g¨ì¹F³]©w¤W­­¤F¡I", token, sizeof(token)));
+						WINDOW_BUTTONTYPE_OK, -1, -1, makeEscapeString("\nå·²ç¶“ä¸èƒ½å†é€²å»ç¾…ï½ï¼\nå®¶æ—é€²å ´äººæ•¸å·²ç¶“åˆ°é”è¨­å®šä¸Šé™äº†ï¼", token, sizeof(token)));
 					return;
 				}
 			}
 			else if ((fmpks[fmpks_pos].guest_index != -1)
 		      && (CHAR_getWorkInt(toindex, CHAR_WORKFMINDEXI) == fmpks[fmpks_pos].guest_index))
 			{
-				// WON ADD ­×¥¿®a±Úpk³õªº¬ù¾Ô°İÃD
+				// WON ADD ä¿®æ­£å®¶æ—pkå ´çš„ç´„æˆ°å•é¡Œ
 				
 				if(fmpks[fmpks_pos].flag == -1)		return;
 				
@@ -928,7 +928,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 				{
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 						WINDOW_BUTTONTYPE_OK, -1, -1,
-						makeEscapeString("\n³o³õ¾Ô°«§A¦n¹³ÁÙ¨S¦P·N©O¡I\n¤U¦¸½Ğ°O±o´£¦­¨Ó¸ò§Ú½T»{¡ã", token, sizeof(token)));
+						makeEscapeString("\né€™å ´æˆ°é¬¥ä½ å¥½åƒé‚„æ²’åŒæ„å‘¢ï¼\nä¸‹æ¬¡è«‹è¨˜å¾—ææ—©ä¾†è·Ÿæˆ‘ç¢ºèªï½", token, sizeof(token)));
 					return;
 				}
 #ifdef _FMVER21		   	
@@ -938,7 +938,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 #endif		   	
 				{
 					char	tmpbuf[256];
-					sprintf(tmpbuf, "\n§AÁÙ¨S¦³¥¿¦¡¥[¤J%s®a±Ú¡A©Ò¥H¤£¯à¶i³õ¡I", fmpks[fmpks_pos].guest_name);
+					sprintf(tmpbuf, "\nä½ é‚„æ²’æœ‰æ­£å¼åŠ å…¥%så®¶æ—ï¼Œæ‰€ä»¥ä¸èƒ½é€²å ´ï¼", fmpks[fmpks_pos].guest_name);
 					lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
 						WINDOW_BUTTONTYPE_OK, -1, -1,
 						makeEscapeString(tmpbuf, token, sizeof(token)));
@@ -949,7 +949,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 				if( CHAR_getWorkInt( meindex, NPC_WORK_FMNUMII) > (fmpks[fmpks_pos].max_player - 1)){
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 						WINDOW_BUTTONTYPE_OK, -1, -1,
-						makeEscapeString("¤w¸g¤£¯à¦A¶i¥hÃ¹¡ã¡I\n®a±Ú¶i³õ¤H¼Æ¤w¸g¨ì¹F³]©w¤W­­¤F¡I", token, sizeof(token)));
+						makeEscapeString("å·²ç¶“ä¸èƒ½å†é€²å»ç¾…ï½ï¼\nå®¶æ—é€²å ´äººæ•¸å·²ç¶“åˆ°é”è¨­å®šä¸Šé™äº†ï¼", token, sizeof(token)));
 					return;
 				}
 			}
@@ -988,7 +988,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 			sprintf(token, buf2, fmpks[fmpks_pos].guest_name, fmpks[fmpks_pos].host_name);
 		}
 	}
-	else if (CHAR_getWorkInt(meindex, NPC_WORK_MODEFLAG) == NPC_STATEBUSY) // ¨â®a±Ú¾Ô°«¤¤
+	else if (CHAR_getWorkInt(meindex, NPC_WORK_MODEFLAG) == NPC_STATEBUSY) // å…©å®¶æ—æˆ°é¬¥ä¸­
 	{
 		if (((CHAR_getWorkInt(toindex, CHAR_WORKFMINDEXI) == fmpks[fmpks_pos].host_index)
 			&& (strcmp(CHAR_getChar(toindex, CHAR_FMNAME), fmpks[fmpks_pos].host_name) == 0))
@@ -1024,7 +1024,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 		CONNECT_set_pass(fd, FALSE);
 		CONNECT_set_first_warp(fd, FALSE);
 	}
-	else if (CHAR_getWorkInt(meindex, NPC_WORK_MODEFLAG) == NPC_STATEWAIT) // ¨â®a±Ú¾Ô°«µ²§ô
+	else if (CHAR_getWorkInt(meindex, NPC_WORK_MODEFLAG) == NPC_STATEWAIT) // å…©å®¶æ—æˆ°é¬¥çµæŸ
 	{
 		if (((CHAR_getWorkInt(toindex, CHAR_WORKFMINDEXI) == fmpks[fmpks_pos].host_index)
 			&& (strcmp(CHAR_getChar(toindex, CHAR_FMNAME), fmpks[fmpks_pos].host_name) == 0))
@@ -1041,8 +1041,8 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 				fmpks[fmpks_pos].guest_index,
 				&num1, &num2);
 			if (strcmp(CHAR_getWorkChar(meindex, NPC_WORK_WINFMNAME), "") == 0)
-				sprintf(tmpbuf, "Âù¤è¥­¤â¡I");
-			else sprintf(tmpbuf, "%sÀò³Ó¤F¡I¡I", CHAR_getWorkChar(meindex, NPC_WORK_WINFMNAME));
+				sprintf(tmpbuf, "é›™æ–¹å¹³æ‰‹ï¼");
+			else sprintf(tmpbuf, "%sç²å‹äº†ï¼ï¼", CHAR_getWorkChar(meindex, NPC_WORK_WINFMNAME));
 			sprintf(token, buf2,  fmpks[fmpks_pos].guest_name,
 				fmpks[fmpks_pos].host_name, tmpbuf);
 		} else if ((((CHAR_getWorkInt(toindex, CHAR_WORKFMINDEXI) == fmpks[fmpks_pos + 1].host_index)
@@ -1062,7 +1062,7 @@ static void NPC_FMWarpMan_selectWindow( int meindex, int toindex, int num,int se
 		CONNECT_set_pass(fd, FALSE);
 		CONNECT_set_first_warp(fd, FALSE);
 	}
-	/*-¤³¤³¤ÇÁ÷¿®¤¹¤ë--*/
+	/*-ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ--*/
 	lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 		WINDOW_BUTTONTYPE_YESNO,
 		CHAR_WINDOWTYPE_WINDOWWARPMAN_MAIN, 
@@ -1077,7 +1077,7 @@ int NPC_FMFloorUse(int floor)
 	int	players = 0;
 	int     playernum = CHAR_getPlayerMaxNum();
 
-	/* ¥×¥ì¥¤¥ä¡¼¥Á¥§¥Ã¥¯ */
+	/* çš¿ä¼Šå¥¶ä¹©â–¡æ°‘å°¼æ°¸å¼ */
 	for( i=0 ; i< playernum ; i++ ){
 		if( CHAR_getCharUse(i) == FALSE )continue;
 			if(CHAR_getInt(i,CHAR_FLOOR)==floor){
@@ -1093,7 +1093,7 @@ void NPC_GetPKFMNum(int floor, int index1, int index2, int *num1, int *num2)
 
 	*num1 = 0; *num2 = 0;
 
-	/* ¥×¥ì¥¤¥ä¡¼¥Á¥§¥Ã¥¯ */
+	/* çš¿ä¼Šå¥¶ä¹©â–¡æ°‘å°¼æ°¸å¼ */
 	for (i = 0 ; i < FAMILY_MAXMEMBER; i++ ){
 		charindex = familyMemberIndex[ index1][i];
 		if( CHAR_getCharUse( charindex) ){
@@ -1264,7 +1264,7 @@ void CheckLeavePK(int npcindex, int floor, int index1, int index2)
 	            CHAR_setWorkInt(charindex, CHAR_WORKWARPCHECK, FALSE);
 	            CHAR_setWorkInt(charindex, CHAR_WORKBATTLEFLAG, FALSE);
 	            CHAR_warpToSpecificPoint(charindex, fl, x, y);
-	            CHAR_talkToCli(charindex, -1, "¾Ô±ÑÂ÷³õ", CHAR_COLORRED);
+	            CHAR_talkToCli(charindex, -1, "æˆ°æ•—é›¢å ´", CHAR_COLORRED);
 	         }
 	      }
 	   }else
@@ -1278,7 +1278,7 @@ void CheckLeavePK(int npcindex, int floor, int index1, int index2)
 	            CHAR_setWorkInt(charindex, CHAR_WORKWARPCHECK, FALSE);
 	            CHAR_setWorkInt(charindex, CHAR_WORKBATTLEFLAG, FALSE);
 	            CHAR_warpToSpecificPoint(charindex, fl, x, y);
-	            CHAR_talkToCli(charindex, -1, "¾Ô±ÑÂ÷³õ", CHAR_COLORRED);
+	            CHAR_talkToCli(charindex, -1, "æˆ°æ•—é›¢å ´", CHAR_COLORRED);
 	         }
 	      }
 	   }else

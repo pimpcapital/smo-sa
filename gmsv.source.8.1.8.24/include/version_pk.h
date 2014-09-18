@@ -1,9 +1,9 @@
 #ifndef _PKSERVER_VERSION_H_
 #define _PKSERVER_VERSION_H_
 
-//#define _PKSEVER_VER				// (╓ё╔i╤}) ╦С╛P╗tpk╕Ь╙A╬╧
+//#define _PKSEVER_VER				// (Д╦█Е▐╞И√▀) Х╥╗Ф≤÷ГЁ╩pkД╪╨Ф°█Е≥╗
 
-//аи╣{
-//╠ф╕W
-//©n╓ю╜p╨Б
+//ХЁ╫Г╗▀
+//Ф▌▓Е░█
+//Г╘█Е┬├Х╗┬Г╝≈
 #endif

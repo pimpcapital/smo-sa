@@ -65,7 +65,7 @@ enum {
 };
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_ExChangeManInit( int meindex )
 {
@@ -85,17 +85,17 @@ BOOL NPC_ExChangeManInit( int meindex )
 	int nameflg=0;
 	int itemno;
 	char *ret;
-	char sendbuf[2][10]={"µLªk¶Ç°e¡C","¥i¥H¶Ç°e¡C"};
-	char droplogbuf[2][10]={"¨S®ø¥¢¡C","®ø¥¢¤F¡C"};
+	char sendbuf[2][10]={"ç„¡æ³•å‚³é€ã€‚","å¯ä»¥å‚³é€ã€‚"};
+	char droplogbuf[2][10]={"æ²’æ¶ˆå¤±ã€‚","æ¶ˆå¤±äº†ã€‚"};
 	int flg=0;
 #endif			
 
 
-	/*--NPC¤Î¥¿¥¤¥×¤ò¥»¥Ã¥È¤¹¤ë--*/
+	/*--NPCåŠæ­£å¥¶çš¿æ¯›æœ¬æ°¸ç„å…æœˆ--*/
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEEVENT );
 
 
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤ß  ¤ß--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  å¿ƒ  å¿ƒ--*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1))) == NULL) {
 		print("NPC_ExChange.c TypeCheck: GetArgStrErr\n");
 		print("NPCName=%s\n", CHAR_getChar( meindex ,CHAR_NAME));
@@ -103,17 +103,17 @@ BOOL NPC_ExChangeManInit( int meindex )
 	}
 
 	i = 1;
-	/*--¥¤¥Ù¥ó¥ÈNPC¤¬°·¤¦¥¢¥¤  ¥à¤ò¥Á¥§¥Ã¥¯¤¹¤ë--*/
-	/*--¥Á¥§¥Ã¥¯¹à  ¡b  ¤È¤·¤Æ¾Ã¤¨¤ë¤«¡ª¡b¥Ú¥Ã¥È¥á¡¼¥ë¤ÇÁ÷¤ì¤ë¤«¡ª--*/
+	/*--å¥¶çŸ›ä»¶ç„NPCäº’å¥ä¸¹å¤±å¥¶  ä¸æ¯›æ°‘å°¼æ°¸å¼å…æœˆ--*/
+	/*--æ°‘å°¼æ°¸å¼å«©  ï½  åˆä»„åŒ–å£…å°¹æœˆäº•ã€ï½çŸ¢æ°¸ç„ä¸Ÿâ–¡ä¼™åŒ¹éœœæœ¨æœˆäº•ã€--*/
 	while(getStringFromIndexWithDelim( argstr ,"EventEnd" ,i ,buf ,sizeof(buf))
 	!= FALSE)
 	{
 		i++;
-		/*--¤³¤³¤Ç½ñ¤«¤ì¤Æ¤¤¤ë¤Î¤Ï¡b¥ï¡¼¥Ë¥ó¥°¤ò½Ğ¤¹-*/
+		/*--ä»‡ä»‡åŒ¹è¸äº•æœ¨åŒ–ä¸­æœˆåŠåï½ä¼â–¡ç“¦ä»¶å¼˜æ¯›è«‹å…-*/
 		if(strstr( buf,"GetItem") != NULL) {
 			if(strstr( buf,"ItemFullMsg") == NULL) {
 				NPC_Util_GetStrFromStrWithDelim(buf,"EventNo",buf4,sizeof(buf4));
-				print("\n### EventNo=%d %s:ItemFullMsg ²æÂ÷###",
+				print("\n### EventNo=%d %s:ItemFullMsg è„«é›¢###",
 				atoi( buf4),
 				CHAR_getChar( meindex, CHAR_NAME));
 			}
@@ -122,7 +122,7 @@ BOOL NPC_ExChangeManInit( int meindex )
 		if(strstr( buf,"GetPet") != NULL) {
 			if(strstr( buf,"PetFullMsg") == NULL) {
 				NPC_Util_GetStrFromStrWithDelim(buf,"EventNo",buf4,sizeof(buf4));
-				print("\n### ventNo=%d %s:PetFullMsg ²æÂ÷ ###",
+				print("\n### ventNo=%d %s:PetFullMsg è„«é›¢ ###",
 				atoi(buf4),
 				CHAR_getChar(meindex,CHAR_NAME));
 			}
@@ -131,7 +131,7 @@ BOOL NPC_ExChangeManInit( int meindex )
 		if(strstr( buf,"GetEgg") != NULL) {
 			if(strstr( buf,"PetFullMsg") == NULL) {
 				NPC_Util_GetStrFromStrWithDelim(buf,"EventNo",buf4,sizeof(buf4));
-				print("\n### ventNo=%d %s:PetFullMsg ²æÂ÷ ###",
+				print("\n### ventNo=%d %s:PetFullMsg è„«é›¢ ###",
 				atoi(buf4),
 				CHAR_getChar(meindex,CHAR_NAME));
 			}
@@ -140,7 +140,7 @@ BOOL NPC_ExChangeManInit( int meindex )
 		if(strstr( buf,"GetStone") != NULL){
 			if(strstr( buf,"StoneFullMsg") == NULL){
 				NPC_Util_GetStrFromStrWithDelim(buf,"EventNo",buf4,sizeof(buf4));
-				print("\n### EventNo=%d %s:StonFullMsg ²æÂ÷ ###",
+				print("\n### EventNo=%d %s:StonFullMsg è„«é›¢ ###",
 				atoi( buf4),
 				CHAR_getChar( meindex, CHAR_NAME));
 			}
@@ -149,7 +149,7 @@ BOOL NPC_ExChangeManInit( int meindex )
 		if(strstr( buf,"DelStone") != NULL) {
 			if(strstr( buf,"StoneLessMsg") == NULL) {
 				NPC_Util_GetStrFromStrWithDelim(buf,"EventNo",buf4,sizeof(buf4));
-				print("\n### EventNo=%d %s:StoneLessMsg ²æÂ÷ ###",
+				print("\n### EventNo=%d %s:StoneLessMsg è„«é›¢ ###",
 				atoi(buf4),
 				CHAR_getChar(meindex,CHAR_NAME));
 			}
@@ -160,13 +160,13 @@ BOOL NPC_ExChangeManInit( int meindex )
 	i = 1;
 
 #if 0
-	/*--¥¤¥Ù¥ó¥ÈNPC¤¬°·¤¦¥¢¥¤  ¥à¤ò¥Á¥§¥Ã¥¯¤¹¤ë--*/
-	/*--¥Á¥§¥Ã¥¯¹à  ¡b  ¤È¤·¤Æ¾Ã¤¨¤ë¤«¡ª¡b¥Ú¥Ã¥È¥á¡¼¥ë¤ÇÁ÷¤ì¤ë¤«¡ª--*/
+	/*--å¥¶çŸ›ä»¶ç„NPCäº’å¥ä¸¹å¤±å¥¶  ä¸æ¯›æ°‘å°¼æ°¸å¼å…æœˆ--*/
+	/*--æ°‘å°¼æ°¸å¼å«©  ï½  åˆä»„åŒ–å£…å°¹æœˆäº•ã€ï½çŸ¢æ°¸ç„ä¸Ÿâ–¡ä¼™åŒ¹éœœæœ¨æœˆäº•ã€--*/
 	while(getStringFromIndexWithDelim( argstr ,"EventEnd" ,i ,buf ,sizeof(buf))
 	!=FALSE)
 	{
 		i++;
-		/*--¤³¤³¤Ç½ñ¤«¤ì¤Æ¤¤¤ë¤Î¤Ï¡b¥ï¡¼¥Ë¥ó¥°¤ò½Ğ¤¹-*/
+		/*--ä»‡ä»‡åŒ¹è¸äº•æœ¨åŒ–ä¸­æœˆåŠåï½ä¼â–¡ç“¦ä»¶å¼˜æ¯›è«‹å…-*/
 		if(NPC_Util_GetStrFromStrWithDelim( buf,"GetItem", buf2,sizeof( buf2)) 
 		!=NULL)
 		{
@@ -180,7 +180,7 @@ BOOL NPC_ExChangeManInit( int meindex )
 					getStringFromIndexWithDelim( buf3 ,"*" ,1, buf4 ,sizeof(buf4));
 					itemno = atoi(buf4);
 				}else{
-					/*--¥¢¥¤  ¥à¥Ê¥ó¥Ğ¡¼¥²¥Ã¥È--*/
+					/*--å¤±å¥¶  ä¸ç“œä»¶ç”°â–¡å¿…æ°¸ç„--*/
 					itemno = atoi(buf3);
 				}
 				
@@ -229,7 +229,7 @@ BOOL NPC_ExChangeManInit( int meindex )
 
 }
 
-/*--      ¤Î°Ü  --*/
+/*--      åŠå•–  --*/
 BOOL NPC_EventWarpNpc(int meindex,char *buf)
 {
 	char token[32];
@@ -239,7 +239,7 @@ BOOL NPC_EventWarpNpc(int meindex,char *buf)
 	int cnt;
 	int dcnt = 1;
 
-	/*--¸½ºß¤Î¥ï¡¼¥×¤Î½ç  --*/
+	/*--èœ‡ç®•åŠä¼â–¡çš¿åŠè³œ  --*/
 	cnt = CHAR_getWorkInt(meindex,CHAR_WORK_EVENTWARP);
 	while(getStringFromIndexWithDelim(buf,",", dcnt,buf2,sizeof(buf2) )
 	 !=FALSE ){
@@ -281,33 +281,33 @@ BOOL NPC_EventWarpNpc(int meindex,char *buf)
 
 
 /*********************************
-*   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+*   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_ExChangeManTalked( int meindex , int talkerindex , char *szMes ,int color )
 {
-	/* ¥×¥ì¥¤¥ä¡¼¤ËÂĞ¤·¤Æ¤À¤±  ±ş¤¹¤ë */
+	/* çš¿ä¼Šå¥¶ä¹©â–¡åè¦†ä»„åŒ–åˆ†ä»ƒ  æ®ºå…æœˆ */
     if( CHAR_getInt( talkerindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) {
     	return;
     }
 
-	/*--  ¤ÎÁ°¤Ë¤¤¤ë¤«¤É¤¦¤«¡ª--*/
+	/*--  åŠèŸ†åä¸­æœˆäº•å‡ä¸¹äº•ã€--*/
 	if(NPC_Util_isFaceToFace( meindex ,talkerindex ,2) == FALSE) {
-		/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+		/* ã„ å¼˜ä¼‰æ°¸ç‰å‹•  åŠå¿ƒ */
 		if(NPC_Util_isFaceToChara(talkerindex,meindex,1 ) == FALSE) return;
 	}
 	
-	/*--¥×¥ì¥¤¥ä¡¼¤Î¥ï¡¼¥¯    ¤ò½é´ü²½--*/
+	/*--çš¿ä¼Šå¥¶ä¹©â–¡åŠä¼â–¡å¼    æ¯›è³¡æ¸ç¥­--*/
 	CHAR_setWorkInt( talkerindex ,CHAR_WORKSHOPRELEVANT, 0);
 	CHAR_setWorkInt( talkerindex ,CHAR_WORKSHOPRELEVANTSEC, 0);
 	CHAR_setWorkInt( talkerindex ,CHAR_WORKSHOPRELEVANTTRD, 0);
 
-	/*--¥¿¥¤¥×  ¤ËÊ¬¤±¤ë--*/
+	/*--æ­£å¥¶çš¿  ååŒä»ƒæœˆ--*/
 	NPC_TypeCheck( meindex, talkerindex, szMes);
 
 }
 
 /*------------------------------------------------------------
- *ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤ß  ¤ß¡b¾ò·ï¤¬¤¢¤Ã¤¿¥¿¥¤¥×¤Î½è  ¤ò¤¹¤ë
+ *æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  å¿ƒ  å¿ƒï½æ©¢ç˜€äº’ä¸å‹»å‡¶æ­£å¥¶çš¿åŠè³ª  æ¯›å…æœˆ
  *-------------------------------------------------------------*/
 BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 {
@@ -320,21 +320,21 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 	int EvNo;
 	int evch;
 	
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤ß  ¤ß--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  å¿ƒ  å¿ƒ--*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1))) == NULL) {
 		print("NPC_ExChange.c TypeCheck: GetArgStrErr\n");
 		print("NPCName=%s\n", CHAR_getChar(meindex,CHAR_NAME));
 		return FALSE;
 	}
 
-	/*-- ÀßÄê¥Õ¥¡¥¤¥ë¤òÊ¬³ä¤¹¤ë --*/
+	/*-- æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›åŒå–ƒå…æœˆ --*/
 	while(getStringFromIndexWithDelim( argstr,"EventEnd",i,buf,sizeof( buf))
 	!= FALSE){
 		i++;
 		CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANT, 0);
 		CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTSEC, 0);
 
-		/*-- ¥¤¥Ù¥ó¥È¥Ê¥ó¥Ğ¡¼¤ò¥²¥Ã¥È --*/
+		/*-- å¥¶çŸ›ä»¶ç„ç“œä»¶ç”°â–¡æ¯›å¿…æ°¸ç„ --*/
 		if(NPC_Util_GetStrFromStrWithDelim(buf,"EventNo",
 								buf2, sizeof( buf2) ) == NULL) continue;
 
@@ -344,17 +344,17 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 			EvNo = atoi( buf2);
 		}
 
-		/*-- ¥Õ¥é¥°¥Á¥§¥Ã¥¯¤ò¹Ô¤¦¡e¤¹¤Ç¤Ë¥¤¥Ù¥ó¥È¤¬½ª  ¤·¤Æ¤¤¤ë¾ì¹ç¤Ï±­¤Ø --*/
+		/*-- ç™½ä»¿å¼˜æ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹ã€”å…åŒ¹åå¥¶çŸ›ä»¶ç„äº’è”½  ä»„åŒ–ä¸­æœˆæ¨ºå¯§åæˆšå°º --*/
 		if(NPC_EventCheckFlg( talker, EvNo) == TRUE) continue;
 
-		/*--¥­¡¼¥ï¡¼¥É¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+		/*--å¹³â–¡ä¼â–¡ç‰åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 		if(NPC_Util_GetStrFromStrWithDelim( buf,"KeyWord", buf2,sizeof( buf2) ) 
 		 != NULL){
 			if(strcmp( szMes, buf2) != 0) continue;
 			CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANT, i);
 		}
 
-		/*--¥Ú¥Ã¥È¤Î  Á°¤Î¥Á¥§¥Ã¥¯¤¬  ¤Ã¤Æ¤ë¤«¤ò¥Á¥§¥Ã¥¯--*/
+		/*--çŸ¢æ°¸ç„åŠ  èŸ†åŠæ°‘å°¼æ°¸å¼äº’  å‹»åŒ–æœˆäº•æ¯›æ°‘å°¼æ°¸å¼--*/
 		if(NPC_Util_GetStrFromStrWithDelim( buf,"Pet_Name", buf2,sizeof( buf2)) != NULL){
 			CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTSEC, 1);
 		}
@@ -366,7 +366,7 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 					NPC_RequestMain( meindex, talker, buf);
 					return TRUE;
 				}else if( strstr( buf2, "ACCEPT") != NULL) {
-					/*-°Í  ¤ò¼õ¤±¤È¤ë  --*/
+					/*-åŒ™  æ¯›ç†¬ä»ƒåˆæœˆ  --*/
 					NPC_AcceptMain( meindex, talker, buf);
 					return TRUE;
 					
@@ -407,7 +407,7 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 							}
 						}
 #ifdef _ANGEL_SUMMON
-						// §¹¦¨¥l³ê¥ô°È
+						// å®Œæˆå¬å–šä»»å‹™
 						if( NPC_Util_GetStrFromStrWithDelim( buf, "MISSIONOVER",
 							buf2, sizeof( buf2)) != NULL)
 						{
@@ -422,20 +422,20 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 							{
 								char msg[1024];
 								
-								print(" ====§¹¦¨¥l³ê¥ô°È==== ");
+								print(" ====å®Œæˆå¬å–šä»»å‹™==== ");
 
 								CHAR_setInt( talker, CHAR_HEROCNT, 
 									CHAR_getInt( talker, CHAR_HEROCNT)+1 );
 								getMissionNameInfo( talker, nameinfo);
 								saacproto_ACMissionTable_send( acfd, MISSION_HERO_COMPLETE, 4, nameinfo, "");
-								sprintf( msg, " §¹¦¨¥ô°È i:%d m:%d %s ", mindex, mission, nameinfo);
+								sprintf( msg, " å®Œæˆä»»å‹™ i:%d m:%d %s ", mindex, mission, nameinfo);
 								print( msg);
 								LogAngel( msg );
 							}
 							
 						}
 						
-						// ²M°£¥l³ê¥ô°È
+						// æ¸…é™¤å¬å–šä»»å‹™
 						if( NPC_Util_GetStrFromStrWithDelim( buf, "MISSIONCLEAN",
 							buf2, sizeof( buf2)) != NULL)
 						{
@@ -453,7 +453,7 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 								getMissionNameInfo( talker, nameinfo);
 								saacproto_ACMissionTable_send( acfd, mindex, 3, nameinfo, "");
 
-								sprintf( msg, " ©ñ±ó¥ô°È i:%d m:%d %s ", mindex, mission, nameinfo);
+								sprintf( msg, " æ”¾æ£„ä»»å‹™ i:%d m:%d %s ", mindex, mission, nameinfo);
 								print( msg);
 								LogAngel( msg );
 							}
@@ -464,7 +464,7 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 					}else if(NPC_Util_GetStrFromStrWithDelim(buf, "NomalWindowMsg",
 						token, sizeof( token) )
 						!=NULL) {
-						/*--¥¦¥¤¥ó¥É¥¦¤Ç¥á¥Ã¥»¡¼¥¸¤òÊÖ¤¹--*/
+						/*--å®ƒå¥¶ä»¶ç‰å®ƒåŒ¹ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›å¿’å…--*/
 						int fd = getfdFromCharaIndex( talker);
 #ifdef _NEWEVENT
 						if(NPC_Util_GetStrFromStrWithDelim(buf, "NomalWindowMsg1",
@@ -495,7 +495,7 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 									NPC_EventSetFlg( talker, atoi( buf3));
 								}
 							}
-							//¥¤¥Ù¥ó¥È¥Õ¥é¥°¤ò¾Ã¤¹
+							//å¥¶çŸ›ä»¶ç„ç™½ä»¿å¼˜æ¯›å£…å…
 							if( NPC_Util_GetStrFromStrWithDelim( buf, "CleanFlg",
 								buf2, sizeof( buf2)) != NULL) {
 								char buf3[16];
@@ -509,7 +509,7 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 								}
 							}
 #ifdef _ANGEL_SUMMON
-							// §¹¦¨¥l³ê¥ô°È
+							// å®Œæˆå¬å–šä»»å‹™
 							if( NPC_Util_GetStrFromStrWithDelim( buf, "MISSIONOVER",
 								buf2, sizeof( buf2)) != NULL)
 							{
@@ -524,20 +524,20 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 								{
 									char msg[1024];
 									
-									print(" ====§¹¦¨¥l³ê¥ô°È==== ");
+									print(" ====å®Œæˆå¬å–šä»»å‹™==== ");
 
 									CHAR_setInt( talker, CHAR_HEROCNT, 
 										CHAR_getInt( talker, CHAR_HEROCNT)+1 );
 									getMissionNameInfo( talker, nameinfo);
 									saacproto_ACMissionTable_send( acfd, MISSION_HERO_COMPLETE, 4, nameinfo, "");
-									sprintf( msg, " §¹¦¨¥ô°È i:%d m:%d %s ", mindex, mission, nameinfo);
+									sprintf( msg, " å®Œæˆä»»å‹™ i:%d m:%d %s ", mindex, mission, nameinfo);
 									print( msg);
 									LogAngel( msg );
 								}
 								
 							}
 							
-							// ²M°£¥l³ê¥ô°È
+							// æ¸…é™¤å¬å–šä»»å‹™
 							if( NPC_Util_GetStrFromStrWithDelim( buf, "MISSIONCLEAN",
 								buf2, sizeof( buf2)) != NULL)
 							{
@@ -550,7 +550,7 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 								
 								if( mission == missiontable[mindex].mission )
 								{
-									print(" ====²M°£¥l³ê¥ô°È==== ");
+									print(" ====æ¸…é™¤å¬å–šä»»å‹™==== ");
 									
 									getMissionNameInfo( talker, nameinfo);
 									saacproto_ACMissionTable_send( acfd, mindex, 3, nameinfo, "");
@@ -597,31 +597,31 @@ BOOL NPC_TypeCheck(int meindex,int talker,char *szMes)
 
 
 /*-----------------------------------
- *¥¿¥¤¥×  ¤Ë½è  ¤òÊ¬¤±¤ë
+ *æ­£å¥¶çš¿  åè³ª  æ¯›åŒä»ƒæœˆ
  ------------------------------------*/
 static void NPC_ExChangeMan_selectWindow( int meindex, int talker,int num)
 {
 
 	switch( num) {
-		/*--¥ê¥¯¥¨¥¹¥È·¿--*/
+		/*--ä¼‰å¼å·¨æ—¦ç„æ»‡--*/
 		  case 0:
-		  /*-¥¤¥Ù¥ó¥È  ¤Ê¤Î¤Ç¡b¥¤¥Ù¥ó¥È¤ò»ß¤á¤ë¤«¤É¤¦¤«¤ò  ¤¦--*/
+		  /*-å¥¶çŸ›ä»¶ç„  å…åŠåŒ¹ï½å¥¶çŸ›ä»¶ç„æ¯›é…æˆ¶æœˆäº•å‡ä¸¹äº•æ¯›  ä¸¹--*/
 		  	NPC_MsgDisp( meindex, talker, 0);
 			break;
 
 		  case 1:
-		  /*--¿·µ¬¤Ë¥¤¥Ù¥ó¥È¹Ô¤¦--*/
+		  /*--è•™ç­‹åå¥¶çŸ›ä»¶ç„å¢Šä¸¹--*/
 	  		NPC_MsgDisp( meindex, talker, 5);
 		  	break;
 
-			/*--¥¢¥¯¥»¥×¥È·¿--*/
+			/*--å¤±å¼æœ¬çš¿ç„æ»‡--*/
 		  case 2:
-			/*--¼õ¤±¼è¤ê--*/
+			/*--ç†¬ä»ƒæ½¸æ›°--*/
 			NPC_MsgDisp( meindex, talker, 6);
 			break;
 
 		  case 3:
-			/*--¼õ¤±¼è¤ê--*/
+			/*--ç†¬ä»ƒæ½¸æ›°--*/
 			NPC_MsgDisp( meindex, talker, 11);
 			break;
 	}
@@ -629,14 +629,14 @@ static void NPC_ExChangeMan_selectWindow( int meindex, int talker,int num)
 }
 
 /*-------------------------------------
- *¥¤¥Ù¥ó¥È¤ò°Í  ¤¹¤ë½è  ¤Î¥á¥¤¥ó
+ *å¥¶çŸ›ä»¶ç„æ¯›åŒ™  å…æœˆè³ª  åŠä¸Ÿå¥¶ä»¶
  --------------------------------------*/
 void NPC_RequestMain(int meindex,int talker,char *buf)
 {
 	int shiftbit;
 	char buf2[128];
 		
-	/*--¥¤¥Ù¥ó¥È¥Ê¥ó¥Ğ¡¼¤ò¥²¥Ã¥È--*/
+	/*--å¥¶çŸ›ä»¶ç„ç“œä»¶ç”°â–¡æ¯›å¿…æ°¸ç„--*/
 	NPC_Util_GetStrFromStrWithDelim( buf,"EventNo", buf2,sizeof( buf2) );
 	shiftbit = atoi( buf2);
 
@@ -648,7 +648,7 @@ void NPC_RequestMain(int meindex,int talker,char *buf)
 }
 
 /*---------------------------------------
- * ¥¤¥Ù¥ó¥È½ª  ¤Î¥á¥¤¥ó
+ * å¥¶çŸ›ä»¶ç„è”½  åŠä¸Ÿå¥¶ä»¶
  ----------------------------------------*/
 void NPC_AcceptMain(int meindex,int  talker ,char *buf)
 {
@@ -657,7 +657,7 @@ void NPC_AcceptMain(int meindex,int  talker ,char *buf)
 }
 
 /*----------------------------------------
- *  ¥Õ¥é¥°¤ò¥¯¥ê¥¢¤¹¤ë°Ù¤Î¥á¥¤¥ó
+ *  ç™½ä»¿å¼˜æ¯›å¼ä¼‰å¤±å…æœˆå•ƒåŠä¸Ÿå¥¶ä»¶
  ----------------------------------------*/
 void NPC_CleanMain(int meindex,int talker,char *buf)
 {
@@ -665,12 +665,12 @@ void NPC_CleanMain(int meindex,int talker,char *buf)
 }
 
 /*-----------------------------------------
-¥¯¥é¥¤¥¢¥ó¥È¤«¤éÊÖ¤Ã¤Æ¤­¤¿»ş¤Ë¸Æ¤Ó½Ğ¤µ¤ì¤ë¡e
+å¼ä»¿å¥¶å¤±ä»¶ç„äº•æ—¥å¿’å‹»åŒ–äº”å‡¶å‡œåè£Ÿå¤ªè«‹ä»Šæœ¨æœˆã€”
 -------------------------------------------*/
 void NPC_ExChangeManWindowTalked( int meindex, int talkerindex, 
 								int seqno, int select, char *data)
 {
-	/*--       ¤Î¤Ş¤ï¤ê¤Ë¤¤¤Ê¤¤¤È¤­¤Ï½ª   --*/
+	/*--       åŠå¼•æ­¹æ›°åä¸­å…ä¸­åˆäº”åè”½   --*/
 	if( NPC_Util_CharDistance( talkerindex, meindex ) > 2) {
 		return;
 	}
@@ -678,7 +678,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 
 	switch( seqno) {
 
-		/*--¥Õ¥é¥°¤ò¾Ã¤¹»ş¤Î¥¦¥¤¥ó¥É¥¦--*/
+		/*--ç™½ä»¿å¼˜æ¯›å£…å…å‡œåŠå®ƒå¥¶ä»¶ç‰å®ƒ--*/
 	  case CHAR_WINDOWTYPE_WINDOWEVENT_CLEANMSG:
 		if( select == WINDOW_BUTTONTYPE_YES) {
 			NPC_MsgDisp( meindex, talkerindex, 12);
@@ -702,7 +702,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 	  case CHAR_WINDOWTYPE_WINDOWEVENT_STARTMSG:
 		break;
 #endif
-		/*--¥ê¥¯¥¨¥¹¥È¤Î¤¢¤ê¤¬¤È¤¦¥á¥Ã¥»¡¼¥¸--*/
+		/*--ä¼‰å¼å·¨æ—¦ç„åŠä¸æ›°äº’åˆä¸¹ä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 	  case CHAR_WINDOWTYPE_WINDOWEVENT_REQTHANK:
 			if(select == WINDOW_BUTTONTYPE_NEXT) {
 				 CHAR_setWorkInt(talkerindex,CHAR_WORKSHOPRELEVANTTRD,
@@ -715,7 +715,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 			}
 		break;
 		
-		/*--¥¢¥¯¥»¥×¥È¤Î¤¢¤ê¤¬¤È¤¦¥á¥Ã¥»¡¼¥¸--*/
+		/*--å¤±å¼æœ¬çš¿ç„åŠä¸æ›°äº’åˆä¸¹ä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 	  case CHAR_WINDOWTYPE_WINDOWEVENT_ACCTHANK:
 			if(select == WINDOW_BUTTONTYPE_NEXT) {
 				 CHAR_setWorkInt(talkerindex,CHAR_WORKSHOPRELEVANTTRD,
@@ -728,7 +728,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 			}
 		break;
 
-		/*--¸½ºß¤Î¥¤¥Ù¥ó¥È¤ò»ß¤á¤ë¤«--*/
+		/*--èœ‡ç®•åŠå¥¶çŸ›ä»¶ç„æ¯›é…æˆ¶æœˆäº•--*/
 	  case CHAR_WINDOWTYPE_WINDOWEVENT_NOWEVENT:
 		if(select == WINDOW_BUTTONTYPE_YES) {
 			NPC_MsgDisp( meindex, talkerindex, 7);
@@ -737,7 +737,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 		}
 		break;
 		
-		/*--¥ê¥¯¥¨¥¹¥È¤Î¥á¥¤¥ó¥¦¥¤¥ó¥É¥¦--*/
+		/*--ä¼‰å¼å·¨æ—¦ç„åŠä¸Ÿå¥¶ä»¶å®ƒå¥¶ä»¶ç‰å®ƒ--*/
 	  case CHAR_WINDOWTYPE_WINDOWEVENT_REQMAINMSG:
 		if(select == WINDOW_BUTTONTYPE_YES) {
 			CHAR_setWorkInt(talkerindex,CHAR_WORKSHOPRELEVANTTRD,0);
@@ -755,7 +755,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 		}
 		break;
 
-		/*--¼õ¤±¼è¤ê¤Î¥á¥¤¥ó¤Î¥¦¥¤¥ó¥É¥¦--*/
+		/*--ç†¬ä»ƒæ½¸æ›°åŠä¸Ÿå¥¶ä»¶åŠå®ƒå¥¶ä»¶ç‰å®ƒ--*/
 	  case CHAR_WINDOWTYPE_WINDOWEVENT_ACCMAINMSG:
 		if(select == WINDOW_BUTTONTYPE_YES) {
 			CHAR_setWorkInt(talkerindex,CHAR_WORKSHOPRELEVANTTRD,0);
@@ -792,7 +792,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 		  }
 		  break;
 #endif
-		/*--¥Ú¥Ã¥È¤Î  ¤òÍ¿¤¨¤ë¥¦¥¤¥ó¥É¥¦--*/
+		/*--çŸ¢æ°¸ç„åŠ  æ¯›èŠ¨å°¹æœˆå®ƒå¥¶ä»¶ç‰å®ƒ--*/
 	  case CHAR_WINDOWTYPE_WINDOWPETSKILLSHOP:
 			if(CHAR_getWorkInt( talkerindex ,CHAR_WORKSHOPRELEVANTTRD) ==0) {
 				NPC_EventPetSkill( meindex, talkerindex, data);
@@ -807,7 +807,7 @@ void NPC_ExChangeManWindowTalked( int meindex, int talkerindex,
 
 
 /*-------------------------
- *  ¾ò·ï¤ò¤ß¤¿¤·¤Æ¤¤¤ë¤«
+ *  æ©¢ç˜€æ¯›å¿ƒå‡¶ä»„åŒ–ä¸­æœˆäº•
  --------------------------*/
 int NPC_ExChangeManEventCheck( int meindex, int talker, char *buff1)
 {
@@ -819,12 +819,12 @@ int NPC_ExChangeManEventCheck( int meindex, int talker, char *buff1)
 	
 	NPC_Util_GetStrFromStrWithDelim( buff1, "EVENT", buf, sizeof( buf));
 
-	/*-- EVENt¤Î¾ò·ï¤ò½ç  ¤Ë¸«¤Æ¤¤¤¯ --*/
+	/*-- EVENtåŠæ©¢ç˜€æ¯›è³œ  åè‘¦åŒ–ä¸­ä» --*/
 	while( getStringFromIndexWithDelim(buf, ",", i, buff2,sizeof( buff2))
 	 !=FALSE )
 	{
 		i++;
-		/*-- "&"¤¬¤¢¤ë¤Î¤Ç  ¿ô¾ò·ï --*/
+		/*-- "&"äº’ä¸æœˆåŠåŒ¹  é†’æ©¢ç˜€ --*/
 		if(strstr( buff2, "&")!=NULL){
 			j = 1;
 			loop = 0;
@@ -843,7 +843,7 @@ int NPC_ExChangeManEventCheck( int meindex, int talker, char *buff1)
 				i--;
 				return i;
 			}
-		/*--¾ò·ï¤¬¤Ò¤È¤Ä--*/
+		/*--æ©¢ç˜€äº’å¤«åˆå‹¾--*/
 		}else{
 			if(NPC_EventBigSmallCheck( meindex, talker, buff2) == TRUE) {
 				i--;
@@ -858,7 +858,7 @@ int NPC_ExChangeManEventCheck( int meindex, int talker, char *buff1)
 }
 
 /*---------------------------------
- *   ¾®µ­¹æ¥Á¥§¥Ã¥¯
+ *   å‡ç­å¯æ°‘å°¼æ°¸å¼
  --------------------------------*/
 BOOL NPC_EventBigSmallCheck(int meindex,int talker, char* buf)
 {
@@ -866,7 +866,7 @@ BOOL NPC_EventBigSmallCheck(int meindex,int talker, char* buf)
 	char buff2[128];
 	int kosuu;
 	
-	/*--¥Ú¥Ã¥È¤Î¥Á¥§¥Ã¥¯¤¬¤Ï¤¤¤Ã¤Æ¤¤¤ë¾ì¹ç¤Ï°ìÃ¶PET¾ò·ï¤ò¥Á¥§¥Ã¥¯¤¹¤ë --*/
+	/*--çŸ¢æ°¸ç„åŠæ°‘å°¼æ°¸å¼äº’åä¸­å‹»åŒ–ä¸­æœˆæ¨ºå¯§ååŸŸç¹¹PETæ©¢ç˜€æ¯›æ°‘å°¼æ°¸å¼å…æœˆ --*/
 	if(strstr( buf, "PET") != NULL) {
 		if(strstr( buf, "EV") != NULL) {
 			if(NPC_PetLvCheck( meindex, talker, buf, 1) != FALSE) return TRUE;
@@ -876,7 +876,7 @@ BOOL NPC_EventBigSmallCheck(int meindex,int talker, char* buf)
 		return FALSE;
 	}
 
-	/*--°Ê²¼¤Ï¡b  ÄÌ¤Îµ­¹æ¥Á¥§¥Ã¥¯ --*/
+	/*--å‹•ç¥¨åï½  é¨·åŠç­å¯æ°‘å°¼æ°¸å¼ --*/
 	if(strstr( buf, "<") != NULL) {
 		getStringFromIndexWithDelim( buf, "<", 2, buff2, sizeof( buff2));
 		kosuu = atoi( buff2);
@@ -925,26 +925,26 @@ BOOL NPC_EventBigSmallCheck(int meindex,int talker, char* buf)
 
 
 /*-----------------------------------
- * ¹à  ¤ò  ¤¿¤·¤Æ¤¤¤ë¤«¤Î¥Á¥§¥Ã¥¯
+ * å«©  æ¯›  å‡¶ä»„åŒ–ä¸­æœˆäº•åŠæ°‘å°¼æ°¸å¼
  *-----------------------------------*/
 BOOL NPC_EventFreeIfCheck(int meindex,int talker,char* buf,int kosuu,int flg)
 {
 
-	/*--¥ì¥Ù¥ë¥Á¥§¥Ã¥¯--*/
+	/*--ä¼ŠçŸ›ä¼™æ°‘å°¼æ°¸å¼--*/
 	if(strcmp( buf, "LV") == 0) {
 		if(NPC_EventLevelCheck( meindex, talker, kosuu, flg) == TRUE) {
 			return TRUE;
 		}
 	}
 
-	/*--¥¢¥¤  ¥à¥Á¥§¥Ã¥¯--*/
+	/*--å¤±å¥¶  ä¸æ°‘å°¼æ°¸å¼--*/
 	if(strcmp( buf, "ITEM") == 0) {
 		if(NPC_EventItemCheck( meindex, talker, kosuu, flg) == TRUE) {
 			return TRUE;
 		}
 	}
 
-	/*--½ª  ¥¤¥Ù¥ó¥È¥Á¥§¥Ã¥¯--*/
+	/*--è”½  å¥¶çŸ›ä»¶ç„æ°‘å°¼æ°¸å¼--*/
 	if(strcmp( buf, "ENDEV") == 0) {
 		if(NPC_ENDEventNoCheck( meindex, talker, kosuu, flg) == TRUE) {
 			return TRUE;
@@ -969,7 +969,7 @@ BOOL NPC_EventFreeIfCheck(int meindex,int talker,char* buf,int kosuu,int flg)
 		}
 	}
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 	if(strcmp(buf,"CLASS")==0){
 		if(NPC_ActionClassCheck(meindex,talker,kosuu,flg)==TRUE)
 				return TRUE;
@@ -1040,9 +1040,9 @@ BOOL NPC_EventFreeIfCheck(int meindex,int talker,char* buf,int kosuu,int flg)
 
 #endif
 #ifdef _NPC_EXCHANGEMANTRANS
-	//§PÂ_Âà¥Í
+	//åˆ¤æ–·è½‰ç”Ÿ
 	{
-		//print("\n§PÂ_Âà¥Í");
+		//print("\nåˆ¤æ–·è½‰ç”Ÿ");
 		if(strcmp(buf,"TRANS")==0){
 			int mytrans;
 			mytrans = CHAR_getInt(talker,CHAR_TRANSMIGRATION);
@@ -1052,7 +1052,7 @@ BOOL NPC_EventFreeIfCheck(int meindex,int talker,char* buf,int kosuu,int flg)
 	}
 #endif
 #ifdef _PROSK99
-	if(strstr( buf, "PROSK" ) != NULL) {//PROSK99>16 Â¾§Şµ¥¯Å¤j©óµ¥©ó99%ªº¼Æ¶q­n¶W¹L16­Ó
+	if(strstr( buf, "PROSK" ) != NULL) {//PROSK99>16 è·æŠ€ç­‰ç´šå¤§æ–¼ç­‰æ–¼99%çš„æ•¸é‡è¦è¶…é16å€‹
 		char *p=NULL;
 		int i,level=0,count=0;
 		CHAR_HaveSkill *pSkil;
@@ -1088,7 +1088,7 @@ BOOL NPC_EventFreeIfCheck(int meindex,int talker,char* buf,int kosuu,int flg)
 }
 
 /*--------------------------------
- *  ¥Ú¥Ã¥È¤Î¥ì¥Ù¥ë¤ò¥Á¥§¥Ã¥¯¤¹¤ë
+ *  çŸ¢æ°¸ç„åŠä¼ŠçŸ›ä¼™æ¯›æ°‘å°¼æ°¸å¼å…æœˆ
  ---------------------------------*/
 BOOL NPC_PetLvCheck(int meindex,int talker,char *buf,int mode)
 {
@@ -1108,7 +1108,7 @@ BOOL NPC_PetLvCheck(int meindex,int talker,char *buf,int mode)
 	int loop;
 	int pettran=-1;
 
-	/*--»ØÄê¤µ¤ì¤¿¥Ú¥Ã¥È¤Î¥Ê¥ó¥Ğ¡¼  ID)¤ò¼è  --*/
+	/*--éš™çˆ›ä»Šæœ¨å‡¶çŸ¢æ°¸ç„åŠç“œä»¶ç”°â–¡  ID)æ¯›æ½¸  --*/
 	getStringFromIndexWithDelim( buf, "-", 2, buff2, sizeof( buff2));
 	if(strstr(buff2,"*") != NULL) {
 		getStringFromIndexWithDelim( buff2, "*", 1, buf3, sizeof( buf3));
@@ -1125,7 +1125,7 @@ BOOL NPC_PetLvCheck(int meindex,int talker,char *buf,int mode)
 		{
 			pettran = atoi( buff2);
 		}
-	/*--¥Ú¥Ã¥È  ¤¬³«¤¤¤Æ¤¤¤ë¤«¤Î¥Á¥§¥Ã¥¯--*/
+	/*--çŸ¢æ°¸ç„  äº’é‡©ä¸­åŒ–ä¸­æœˆäº•åŠæ°‘å°¼æ°¸å¼--*/
 	for(i=0; i < CHAR_MAXPETHAVE ; i++) {
 		if(loop == cnt) return TRUE;
 		
@@ -1136,14 +1136,14 @@ BOOL NPC_PetLvCheck(int meindex,int talker,char *buf,int mode)
 				if(pettran!=CHAR_getInt( petindex, CHAR_TRANSMIGRATION))
 					continue;
 			}
-		/*--¥Ú¥Ã¥È¤ÎID¤ò¼è  ¤·¤Æ¤¤¤¯--*/
+		/*--çŸ¢æ°¸ç„åŠIDæ¯›æ½¸  ä»„åŒ–ä¸­ä»--*/
 		baseno = CHAR_getInt( petindex, CHAR_PETID);
 
-		/* ¥Ú¥Ã¥È¤ÎID¤È¡b¸½ºß¤Î¥â¡¼¥É¤òÄ´¤Ù¤ë */
+		/* çŸ¢æ°¸ç„åŠIDåˆï½èœ‡ç®•åŠä¹’â–¡ç‰æ¯›è­¬å±¯æœˆ */
 		if( (baseno == petno) && (CHAR_getInt( petindex, CHAR_ENDEVENT)
 		 == mode))
 		 {
-			/*--¥ì¥Ù¥ë¤ò¥Á¥§¥Ã¥¯¤¹¤ë--*/
+			/*--ä¼ŠçŸ›ä¼™æ¯›æ°‘å°¼æ°¸å¼å…æœˆ--*/
 			mypetlevel = CHAR_getInt( petindex, CHAR_LV);
 			getStringFromIndexWithDelim( buf, "-", 1, buff2, sizeof( buff2));
 
@@ -1161,11 +1161,11 @@ BOOL NPC_PetLvCheck(int meindex,int talker,char *buf,int mode)
 			petlevel = atoi( buf3);
 
 			if(NPC_EventBigSmallLastCheck( petlevel, mypetlevel, flg) == TRUE) {
-				/*--¥Ú¥Ã¥È¤Î  Á°¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤¿¤é  Á°¤Î¥Á¥§¥Ã¥¯  ¤ë--*/
+				/*--çŸ¢æ°¸ç„åŠ  èŸ†äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­å‡¶æ—¥  èŸ†åŠæ°‘å°¼æ°¸å¼  æœˆ--*/
 				if(CHAR_getWorkInt(talker,CHAR_WORKSHOPRELEVANTSEC)==1) {
 					char *usename;
 					
-					/*--ÀßÄê¥Õ¥¡¥¤¥ë¤Î  ¤ß  ¤ß--*/
+					/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™åŠ  å¿ƒ  å¿ƒ--*/
 					if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1))) == NULL) {
 						print("PetLevel:GetArgStrErr");
 						return FALSE;
@@ -1197,7 +1197,7 @@ BOOL NPC_PetLvCheck(int meindex,int talker,char *buf,int mode)
 
 
 /*--------------------------------
- *  ¥Ú¥Ã¥È¤Î¥ì¥Ù¥ë¤ò¥Á¥§¥Ã¥¯¤¹¤ë
+ *  çŸ¢æ°¸ç„åŠä¼ŠçŸ›ä¼™æ¯›æ°‘å°¼æ°¸å¼å…æœˆ
  ---------------------------------*/
 int NPC_PetLvCheckType2(int petindex,int meindex,int talker,char *buf,int mode)
 {
@@ -1212,7 +1212,7 @@ int NPC_PetLvCheckType2(int petindex,int meindex,int talker,char *buf,int mode)
 	int mypetlevel = 0;
 	char name[512];
 	
-	/*--»ØÄê¤µ¤ì¤¿¥Ú¥Ã¥È¤Î¥Ê¥ó¥Ğ¡¼  ID)¤ò¼è  --*/
+	/*--éš™çˆ›ä»Šæœ¨å‡¶çŸ¢æ°¸ç„åŠç“œä»¶ç”°â–¡  ID)æ¯›æ½¸  --*/
 	getStringFromIndexWithDelim( buf, "-", 2, buff2, sizeof( buff2));
 	if(strstr(buff2,"*") != NULL) {
 		getStringFromIndexWithDelim( buff2, "*", 1, buf3, sizeof( buf3));
@@ -1222,14 +1222,14 @@ int NPC_PetLvCheckType2(int petindex,int meindex,int talker,char *buf,int mode)
 	}
 
 	
-	/*--¥Ú¥Ã¥È¤ÎID¤ò¼è  ¤·¤Æ¤¤¤¯--*/
+	/*--çŸ¢æ°¸ç„åŠIDæ¯›æ½¸  ä»„åŒ–ä¸­ä»--*/
 	baseno = CHAR_getInt( petindex, CHAR_PETID);
 
-	/*--¥Ú¥Ã¥È¤ÎID¤È¡b¸½ºß¤Î¥â¡¼¥É¤òÄ´¤Ù¤ë--*/
+	/*--çŸ¢æ°¸ç„åŠIDåˆï½èœ‡ç®•åŠä¹’â–¡ç‰æ¯›è­¬å±¯æœˆ--*/
 	if( (baseno == petno) && (CHAR_getInt( petindex, CHAR_ENDEVENT)
 	 == mode))
 	{
-		/*--¥ì¥Ù¥ë¤ò¥Á¥§¥Ã¥¯¤¹¤ë--*/
+		/*--ä¼ŠçŸ›ä¼™æ¯›æ°‘å°¼æ°¸å¼å…æœˆ--*/
 		mypetlevel=CHAR_getInt( petindex, CHAR_LV);
 		getStringFromIndexWithDelim( buf, "-", 1,buff2,sizeof(buff2));
 
@@ -1250,11 +1250,11 @@ int NPC_PetLvCheckType2(int petindex,int meindex,int talker,char *buf,int mode)
 		if(NPC_EventBigSmallLastCheck( petlevel, mypetlevel, flg)
 		 == TRUE)
 		{
-			/*--¥Ú¥Ã¥È¤Î  Á°¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤¿¤é  Á°¤Î¥Á¥§¥Ã¥¯  ¤ë--*/
+			/*--çŸ¢æ°¸ç„åŠ  èŸ†äº’æ¾€çˆ›ä»Šæœ¨åŒ–ä¸­å‡¶æ—¥  èŸ†åŠæ°‘å°¼æ°¸å¼  æœˆ--*/
 			if(CHAR_getWorkInt(talker,CHAR_WORKSHOPRELEVANTSEC) == 1) {
 				char *usename;
 
-				/*--ÀßÄê¥Õ¥¡¥¤¥ë¤Î  ¤ß  ¤ß--*/
+				/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™åŠ  å¿ƒ  å¿ƒ--*/
 				if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1))) == NULL) {
 					print("PetLevel:GetArgStrErr");
 					return FALSE;
@@ -1280,7 +1280,7 @@ int NPC_PetLvCheckType2(int petindex,int meindex,int talker,char *buf,int mode)
 }
 
 /*------------------------
- *½Ğ  ÅÀ¤Î¥Á¥§¥Ã¥¯
+ *è«‹  é°¾åŠæ°‘å°¼æ°¸å¼
  --------------------------*/
 BOOL NPC_SavePointCheck(int meindex,int talker,int shiftbit,int flg)
 {
@@ -1298,7 +1298,7 @@ BOOL NPC_SavePointCheck(int meindex,int talker,int shiftbit,int flg)
 }
 
 /*------------------------
- *¥¤¥á¡¼¥¸¤Î¥Á¥§¥Ã¥¯
+ *å¥¶ä¸Ÿâ–¡æ–¥åŠæ°‘å°¼æ°¸å¼
  --------------------------*/
 BOOL NPC_ImageCheck(int meindex,int talker,int kosuu,int flg)
 {
@@ -1315,7 +1315,7 @@ BOOL NPC_ImageCheck(int meindex,int talker,int kosuu,int flg)
 
 
 /*-----------------------------------------
- * »ş´Ö¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦(¤¢¤¤¤Ş¤¤»ş´Ö)
+ * å‡œæ£‰åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹(ä¸ä¸­å¼•ä¸­å‡œæ£‰)
  ------------------------------------------*/
 BOOL NPC_TiemCheck(int meindex,int talker,int time,int flg)
 {
@@ -1333,7 +1333,7 @@ BOOL NPC_TiemCheck(int meindex,int talker,int time,int flg)
 }
 
 /*------------------------------
- *--Item¤ò¥Á¥§¥Ã¥¯				
+ *--Itemæ¯›æ°‘å°¼æ°¸å¼				
  -------------------------------*/
 BOOL NPC_EventItemCheck(int meindex,int talker,int itemNo,int flg)
 {
@@ -1341,7 +1341,7 @@ BOOL NPC_EventItemCheck(int meindex,int talker,int itemNo,int flg)
 	int itemindex = -1;
 	int id;
 
-	//Change fix ¤£ÀË¬d¬ïÀ¹¦b¨­¤Wªº¹D¨ã
+	//Change fix ä¸æª¢æŸ¥ç©¿æˆ´åœ¨èº«ä¸Šçš„é“å…·
 	for( i = CHAR_STARTITEMARRAY ; i < CHAR_MAXITEMHAVE ; i++ ) {
 
 		itemindex=CHAR_getItemIndex( talker , i );
@@ -1366,7 +1366,7 @@ BOOL NPC_EventItemCheck(int meindex,int talker,int itemNo,int flg)
 
 
 /*------------------------------
- * level¤ò¥Á¥§¥Ã¥¯				
+ * levelæ¯›æ°‘å°¼æ°¸å¼				
  -------------------------------*/
 BOOL NPC_EventLevelCheck(int meindex,int talker,int level,int flg)
 {
@@ -1388,7 +1388,7 @@ BOOL NPC_EventLevelCheck(int meindex,int talker,int level,int flg)
 
 
 /*------------------------------
- * ENDEventNo¤ò¥Á¥§¥Ã¥¯
+ * ENDEventNoæ¯›æ°‘å°¼æ°¸å¼
  -------------------------------*/
 BOOL NPC_ENDEventNoCheck(int meindex,int talker,int shiftbit,int flg)
 {
@@ -1404,7 +1404,7 @@ BOOL NPC_ENDEventNoCheck(int meindex,int talker,int shiftbit,int flg)
 
 
 /*------------------------------
- * NOWEventNo¤ò¥Á¥§¥Ã¥¯
+ * NOWEventNoæ¯›æ°‘å°¼æ°¸å¼
  -------------------------------*/
 BOOL NPC_NOWEventNoCheck(int meindex,int talker,int shiftbit,int flg)
 {
@@ -1418,7 +1418,7 @@ BOOL NPC_NOWEventNoCheck(int meindex,int talker,int shiftbit,int flg)
 }
 
 /*---------------------------------------
- *    ½ª¥Á¥§¥Ã¥¯
+ *    è”½æ°‘å°¼æ°¸å¼
  --------------------------------------*/
 BOOL NPC_EventBigSmallLastCheck(int point1,int mypoint,int flg)
 {
@@ -1445,7 +1445,7 @@ BOOL NPC_EventBigSmallLastCheck(int point1,int mypoint,int flg)
 
 
 /*---------------------------------
- *¥á¥Ã¥»¡¼¥¸¤ò½Ğ  ¤¹¤ë
+ *ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›è«‹  å…æœˆ
  *----------------------------------*/
 #ifdef _CHANNEL_MODIFY
 extern int *piOccChannelMember;
@@ -1488,14 +1488,14 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		getStringFromIndexWithDelim( argstr, "EventEnd", pwork, buf,sizeof( buf));
 		
 	}else{
-		/*ÀßÄê¥Õ¥¡¥¤¥ë¤òÊ¬³ä¤¹¤ë*/
+		/*æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›åŒå–ƒå…æœˆ*/
 		while(getStringFromIndexWithDelim( argstr, "EventEnd", i, buf, sizeof(buf))
 		 != FALSE)
 		{
 			i++;
 			CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTSEC, 0);
 			
-			/*--¥¤¥Ù¥ó¥È¥Ê¥ó¥Ğ¡¼¤ò¥²¥Ã¥È--*/
+			/*--å¥¶çŸ›ä»¶ç„ç“œä»¶ç”°â–¡æ¯›å¿…æ°¸ç„--*/
 			NPC_Util_GetStrFromStrWithDelim( buf, "EventNo", buf2, sizeof( buf2));
 			if(strstr( buf2, "-1") != 0) {
 				EvNo = -1;
@@ -1504,17 +1504,17 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 			}
 			EvNo = atoi( buf2);
 
-			/*--¥Õ¥é¥°¥Á¥§¥Ã¥¯¤ò¹Ô¤¦¡e¤¹¤Ç¤Ë¡b¤³¤Î¥¤¥Ù¥ó¥È¤¬½ª  ¤·¤Æ¤¤¤ë¾ì¹ç¤Ï±­¤Ø--*/
+			/*--ç™½ä»¿å¼˜æ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹ã€”å…åŒ¹åï½ä»‡åŠå¥¶çŸ›ä»¶ç„äº’è”½  ä»„åŒ–ä¸­æœˆæ¨ºå¯§åæˆšå°º--*/
 			if(NPC_EventCheckFlg( talker, EvNo) == TRUE) continue;
 
-			/*--¥­¡¼¥ï¡¼¥É¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+			/*--å¹³â–¡ä¼â–¡ç‰åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 			if(NPC_Util_GetStrFromStrWithDelim( buf,"Pet_Name", buf2,sizeof( buf2)) 
 			 != NULL )
 			{
 				CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTSEC, 1);
 			}
 
-			/*--¥­¡¼¥ï¡¼¥É¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+			/*--å¹³â–¡ä¼â–¡ç‰åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 			if(NPC_Util_GetStrFromStrWithDelim( buf,"KeyWord", buf2,sizeof( buf2) ) 
 			 != NULL)
 			{
@@ -1525,7 +1525,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 
 			if(evch != -1) {
 
-			/*--¥¤¥Ù¥ó¥È¾ò·ï¤Î¥Á¥§¥Ã¥¯--*/
+			/*--å¥¶çŸ›ä»¶ç„æ©¢ç˜€åŠæ°‘å°¼æ°¸å¼--*/
 		//	if(NPC_ExChangeManEventCheck( meindex, talker, buf) == TRUE) {
 				break;
 			}
@@ -1536,7 +1536,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 	
 	switch( num) {
 		  case 0:
-			/*¸½ºß¤Î¥¤¥Ù¥ó¥È¤ò»ß¤á¤ë¤«¤É¤¦¤«¤ò  ¤¯¥á¥Ã¥»¡¼¥¸--*/
+			/*èœ‡ç®•åŠå¥¶çŸ›ä»¶ç„æ¯›é…æˆ¶æœˆäº•å‡ä¸¹äº•æ¯›  ä»ä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "StopMsg", 
 												buf2, sizeof( buf2) )
 			 != NULL)
@@ -1548,7 +1548,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 		
 		  case 1:
-		  	/*--¤ä¤á¤ë¤«¤É¤¦¤«¤ò  ¤¤¤¿¤µ¤¤¤ÎNO¤òÅú¤¨¤¿¾ì¹ç¤Î¥á¥Ã¥»¡¼¥¸--*/
+		  	/*--æ”¯æˆ¶æœˆäº•å‡ä¸¹äº•æ¯›  ä¸­å‡¶ä»Šä¸­åŠNOæ¯›è ¶å°¹å‡¶æ¨ºå¯§åŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "NoStopMsg",
 												 buf2, sizeof( buf2))
 			 != NULL)
@@ -1559,20 +1559,20 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 		
 		  case 7:
-			/*--¸½ºß¤Î¥¤¥Ù¥ó¥È¤ò»ß¤á¤¿¤È¤­¤Î¥á¥Ã¥»¡¼¥¸--*/
+			/*--èœ‡ç®•åŠå¥¶çŸ›ä»¶ç„æ¯›é…æˆ¶å‡¶åˆäº”åŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "EndStopMsg",
 												 buf2, sizeof( buf2))
 			 != NULL)
 			{
 				strcpysafe( token, sizeof( buf2), buf2);
 			
-				/*--¥¤¥Ù¥ó¥È  ¤ò  ¤Ã¤Æ¤¤¤¿¾ì¹ç¤Ï¾Ãµî--*/
+				/*--å¥¶çŸ›ä»¶ç„  æ¯›  å‹»åŒ–ä¸­å‡¶æ¨ºå¯§åå£…è›”--*/
 				NPC_EventAdd( meindex, talker, 1);
 			
-				/*--¥Õ¥é¥°¤ò¾Ã¤¹--*/
+				/*--ç™½ä»¿å¼˜æ¯›å£…å…--*/
 				NPC_NowEventSetFlgCls( talker, EvNo);
 			
-				/*--ÃÇ¤Ã¤¿¤Î¤Ç¡b    ¤ò¤µ¹²¤¿--*/
+				/*--è …å‹»å‡¶åŠåŒ¹ï½    æ¯›ä»Šåƒ•å‡¶--*/
 				if(CHAR_getInt( talker, CHAR_CHARM) > 0) {
 					CHAR_setInt( talker, CHAR_CHARM, CHAR_getInt(talker,CHAR_CHARM) -1);
 					CHAR_complianceParameter( talker );
@@ -1583,13 +1583,13 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 		
 		  case 2:
-				/*--¤¢¤ê¤¬¤È¤¦¥á¥Ã¥»¡¼¥¸--*/
+				/*--ä¸æ›°äº’åˆä¸¹ä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 				if( NPC_Util_GetStrFromStrWithDelim( buf, "ThanksMsg",
 													 buf2, sizeof( buf2) )
 				 != NULL)
 				{
 					strcpysafe( token,sizeof( buf2), buf2);
-					/*--¥¤¥Ù¥ó¥È  ¥Õ¥é¥°¤ò¥»¥Ã¥È--*/
+					/*--å¥¶çŸ›ä»¶ç„  ç™½ä»¿å¼˜æ¯›æœ¬æ°¸ç„--*/
 					if(NPC_EventAdd(meindex, talker, 0) != FALSE) {
 						NPC_NowEventSetFlg( talker, EvNo);
 					}
@@ -1645,9 +1645,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					NPC_EventWarpNpc(meindex,token2);
 				}
 
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, "ThanksMsg2") != NULL) {
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_REQTHANK,
@@ -1671,10 +1671,10 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 						strcpysafe( token,sizeof( buf2), buf2);
 					}
 
-					/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+					/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 					if(strstr( buf, "ThanksMsg2") != NULL) {
 					
-						/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+						/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 						lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 									WINDOW_BUTTONTYPE_NEXT,
 									CHAR_WINDOWTYPE_WINDOWEVENT_REQTHANK,
@@ -1696,10 +1696,10 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					sprintf( tmp, "ThanksMsg%d", work);
 	
 	
-					/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+					/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 					if(strstr( buf, tmp) != NULL) {
 						
-						/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+						/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 						lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 									WINDOW_BUTTONTYPE_NEXT,
 									CHAR_WINDOWTYPE_WINDOWEVENT_REQTHANK,
@@ -1718,13 +1718,13 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 
 		  case 25:
-			  /*--¤¢¤ê¤¬¤È¤¦¥á¥Ã¥»¡¼¥¸--*/
+			  /*--ä¸æ›°äº’åˆä¸¹ä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "ThanksMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
 			{
 				strcpysafe( token,sizeof( buf2), buf2);
-				/*--¥¤¥Ù¥ó¥È  ¥Õ¥é¥°¤ò¥»¥Ã¥È--*/
+				/*--å¥¶çŸ›ä»¶ç„  ç™½ä»¿å¼˜æ¯›æœ¬æ°¸ç„--*/
 				if(NPC_EventAdd(meindex, talker, 2) != FALSE) {
 					NPC_NowEventSetFlg( talker, EvNo);
 				}
@@ -1733,7 +1733,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 
 
 		  case 3:
-			/*--  ÄÌ¤Î¥á¥Ã¥»¡¼¥¸--*/
+			/*--  é¨·åŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "NomalMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -1743,7 +1743,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 
 		  case 4:
-		  	/*--¥¢¥¤  ¥à¤¬¤¤¤Ã¤Ñ¤¤¤Î»ş¤Î¥á¥Ã¥»¡¼¥¸--*/
+		  	/*--å¤±å¥¶  ä¸äº’ä¸­å‹»å¤©ä¸­åŠå‡œåŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "ItemFullMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -1753,7 +1753,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 
 		case 5:
-			/*--°Í  ¤ò¤¹¤ëºİ¤Î¥á¥¤¥ó¤Î¥á¥Ã¥»¡¼¥¸--*/
+			/*--åŒ™  æ¯›å…æœˆç«¯åŠä¸Ÿå¥¶ä»¶åŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 				if( NPC_Util_GetStrFromStrWithDelim( buf, "RequestMsg",
 													 buf2, sizeof( buf2) )
 				 != NULL)
@@ -1781,9 +1781,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 				work = work + ( i * 100);
 				CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTTRD, work);
 
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, "RequestMsg2") != NULL) {
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_REQMAINMSG,
@@ -1806,9 +1806,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 						strcpysafe( token, sizeof( buf2), buf2);
 					}
 
-					/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+					/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 					if(strstr( buf, "RequestMsg2") != NULL){
-						/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+						/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 						lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 									WINDOW_BUTTONTYPE_NEXT,
 									CHAR_WINDOWTYPE_WINDOWEVENT_REQMAINMSG,
@@ -1827,10 +1827,10 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					}
 					work++;
 					sprintf( tmp, "RequestMsg%d", work);
-					/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+					/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 					if(strstr( buf, tmp) != NULL) {
 						
-						/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+						/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 						lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 									WINDOW_BUTTONTYPE_NEXT,
 									CHAR_WINDOWTYPE_WINDOWEVENT_REQMAINMSG,
@@ -1850,8 +1850,8 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 
 
 		  case 6:
-			  //print(" 6_µªÀ³? ");
-			/*--¼õ¤±¼è¤ê¤Îºİ¤Î¥á¥¤¥ó¤Î¥á¥Ã¥»¡¼¥¸--*/
+			  //print(" 6_ç­”æ‡‰? ");
+			/*--ç†¬ä»ƒæ½¸æ›°åŠç«¯åŠä¸Ÿå¥¶ä»¶åŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "AcceptMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -1877,9 +1877,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 			work = work + ( i * 100);
 			CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTTRD, work);
 
-			/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+			/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 			if(strstr( buf, "AcceptMsg2") != NULL) {
-				/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+				/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 				lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 							WINDOW_BUTTONTYPE_NEXT,
 							CHAR_WINDOWTYPE_WINDOWEVENT_ACCMAINMSG,
@@ -1891,7 +1891,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 
 
 	   case 66:
-		   //print(" 66_µªÀ³? ");
+		   //print(" 66_ç­”æ‡‰? ");
 			work = CHAR_getWorkInt( talker, CHAR_WORKSHOPRELEVANTTRD);
 			work = work % 100;
 
@@ -1903,9 +1903,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					strcpysafe( token,sizeof( buf2), buf2);
 				}
 
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, "AcceptMsg2") != NULL) {
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_ACCMAINMSG,
@@ -1923,10 +1923,10 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 				}
 				work++;
 				sprintf( tmp, "AcceptMsg%d", work);
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, tmp) != NULL) {
 					
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_ACCMAINMSG,
@@ -1945,14 +1945,14 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 
 		case 8:
-				//print(" 8_µªÀ³? ");
+				//print(" 8_ç­”æ‡‰? ");
 			
 				if( NPC_Util_GetStrFromStrWithDelim( buf, "ThanksMsg",
 													buf2, sizeof( buf2) )
 				 != NULL)
 				{
 					strcpysafe( token, sizeof( buf2), buf2);
-					/*--¥¤¥Ù¥ó¥È  ¥Õ¥é¥°¤ò¥»¥Ã¥È--*/
+					/*--å¥¶çŸ›ä»¶ç„  ç™½ä»¿å¼˜æ¯›æœ¬æ°¸ç„--*/
 					if(NPC_AcceptDel( meindex, talker,0) == FALSE){
 						return ;
 					}
@@ -1978,7 +1978,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 						buf2, sizeof( buf2))
 						!=NULL)
 					{
-						/*--¤³¤³¤Ş¤Ç  ¤¿¤é¡b    ¤ò¾å¹²¤ë---*/
+						/*--ä»‡ä»‡å¼•åŒ¹  å‡¶æ—¥ï½    æ¯›æ›‰åƒ•æœˆ---*/
 						if( CHAR_getInt( talker, CHAR_CHARM) < 100 && EvNo > 0 ){
 							if(CHAR_getInt( talker, CHAR_CHARM) + atoi(buf2) > 100){
 								CHAR_setInt( talker, CHAR_CHARM,100);
@@ -2012,31 +2012,31 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					}
 					
 					
-					// Robin add ²M°£Â¾·~
+					// Robin add æ¸…é™¤è·æ¥­
 					if( NPC_Util_GetStrFromStrWithDelim( buf, "PROFESSION",
 						buf2, sizeof( buf2)) != NULL)
 					{
 						int p_class = atoi( buf2);
 						//Change fix 2004/07/05
-						for( i=0; i<CHAR_STARTITEMARRAY; i++){ //ÀË¬d¸Ë³Æ¤¤¹D¨ã
+						for( i=0; i<CHAR_STARTITEMARRAY; i++){ //æª¢æŸ¥è£å‚™ä¸­é“å…·
 							if( ITEM_CHECKINDEX( CHAR_getItemIndex( talker , i ) )){
 								if( CHAR_getInt( talker, PROFESSION_CLASS ) != 0
 									&& CHAR_getInt( talker, PROFESSION_CLASS ) != ITEM_getInt( CHAR_getItemIndex( talker , i ), ITEM_NEEDPROFESSION) 
 									&& ITEM_getInt( CHAR_getItemIndex( talker , i ), ITEM_NEEDPROFESSION) > 0 ){
 									p_class = 1;
-									CHAR_talkToCli( talker, -1, "½Ğ¥ı§âÂ¾·~¸Ë³Æ³q³q¨ø¤U¡I", CHAR_COLORWHITE);
+									CHAR_talkToCli( talker, -1, "è«‹å…ˆæŠŠè·æ¥­è£å‚™é€šé€šå¸ä¸‹ï¼", CHAR_COLORWHITE);
 									break;
 								}
 							}
 						}
 						if( p_class == 0)
 						{
-							print(" ====²M°£Â¾·~==== ");
+							print(" ====æ¸…é™¤è·æ¥­==== ");
 							
-							// ÁÙ­ìÂI¼Æ	
+							// é‚„åŸé»æ•¸	
 							//if( PROFESSION_RESTORE_POINT( talker ) != 1 )	return FALSE;
 							
-							// ³]©wÂ¾·~Âk¹s
+							// è¨­å®šè·æ¥­æ­¸é›¶
 							CHAR_setInt( talker, PROFESSION_CLASS, p_class );	
 #ifdef _CHANNEL_MODIFY
 							if(CHAR_getInt(talker,PROFESSION_CLASS) > 0){
@@ -2050,26 +2050,26 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 							}
 #endif
 							
-							// ³]©wÂ¾·~µ¥¯Å 0
+							// è¨­å®šè·æ¥­ç­‰ç´š 0
 							CHAR_setInt( talker, PROFESSION_LEVEL, 0 );
 							
-							// §Ş¯àÂI¼ÆÂk¹s
+							// æŠ€èƒ½é»æ•¸æ­¸é›¶
 							CHAR_setInt(talker, PROFESSION_SKILL_POINT, 0 );
 							
-							// ÁÙ­ì§Ü©Ê
+							// é‚„åŸæŠ—æ€§
 							for( i=0; i<3; i++ )
 								CHAR_setInt( talker, PROFESSION_FIRE_R+i, /*CHAR_getInt( toindex, PROFESSION_FIRE_R+i) + value*/0 );
 							
-							// ÁÙ­ì§Å®vMP¤W­­
+							// é‚„åŸå·«å¸«MPä¸Šé™
 							CHAR_setInt( talker , CHAR_MAXMP , 100 );
 							
-							// §R°£©Ò¦³§Ş¯à
+							// åˆªé™¤æ‰€æœ‰æŠ€èƒ½
 							CHAR_CHAT_DEBUG_delsk( talker, "all" );
 							
 							// ?? Andy add
 							CHAR_setInt( talker , ATTACHPILE, 0);
 							
-							// ²M°£¥ô°ÈºX¼Ğ
+							// æ¸…é™¤ä»»å‹™æ——æ¨™
 							NPC_NowEndEventSetFlgCls( talker, 145);
 							NPC_NowEndEventSetFlgCls( talker, 146);
 							NPC_NowEndEventSetFlgCls( talker, 147);					
@@ -2083,7 +2083,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					}
 
 #ifdef _ANGEL_SUMMON
-					// §¹¦¨¥l³ê¥ô°È
+					// å®Œæˆå¬å–šä»»å‹™
 					if( NPC_Util_GetStrFromStrWithDelim( buf, "MISSIONOVER",
 						buf2, sizeof( buf2)) != NULL)
 					{
@@ -2098,20 +2098,20 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 						{
 							char msg[1024];
 							
-							print(" ====§¹¦¨¥l³ê¥ô°È==== ");
+							print(" ====å®Œæˆå¬å–šä»»å‹™==== ");
 
 							CHAR_setInt( talker, CHAR_HEROCNT, 
 								CHAR_getInt( talker, CHAR_HEROCNT)+1 );
 							getMissionNameInfo( talker, nameinfo);
 							saacproto_ACMissionTable_send( acfd, MISSION_HERO_COMPLETE, 4, nameinfo, "");
-							sprintf( msg, " §¹¦¨¥ô°È i:%d m:%d %s ", mindex, mission, nameinfo);
+							sprintf( msg, " å®Œæˆä»»å‹™ i:%d m:%d %s ", mindex, mission, nameinfo);
 							print( msg);
 							LogAngel( msg );
 						}
 						
 					}
 
-					// ²M°£¥l³ê¥ô°È
+					// æ¸…é™¤å¬å–šä»»å‹™
 					if( NPC_Util_GetStrFromStrWithDelim( buf, "MISSIONCLEAN",
 						buf2, sizeof( buf2)) != NULL)
 					{
@@ -2124,7 +2124,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 
 						if( mission == missiontable[mindex].mission )
 						{
-							print(" ====²M°£¥l³ê¥ô°È==== ");
+							print(" ====æ¸…é™¤å¬å–šä»»å‹™==== ");
 
 							getMissionNameInfo( talker, nameinfo);
 							saacproto_ACMissionTable_send( acfd, mindex, 3, nameinfo, "");
@@ -2143,11 +2143,11 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					!= NULL){
 						NPC_EventWarpNpc(meindex,token2);
 				}
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 #ifdef _NEWEVENT
 #else
 				if(strstr( buf, "ThanksMsg2") != NULL){
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_ACCTHANK,
@@ -2160,7 +2160,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 
 #ifdef _NEWEVENT
 		case 81:
-			//print(" 81_µªÀ³? ");
+			//print(" 81_ç­”æ‡‰? ");
 
 			work = CHAR_getWorkInt( talker, CHAR_WORKSHOPRELEVANTTRD);
 			work = work % 100;
@@ -2227,9 +2227,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 					strcpysafe( token,sizeof( buf2), buf2);
 				}
 
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, "ThanksMsg2") != NULL){
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_ACCTHANK,
@@ -2250,10 +2250,10 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 				work++;
 				sprintf( tmp, "ThanksMsg%d", work);
 
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, tmp) != NULL) {
 						
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_ACCTHANK,
@@ -2272,15 +2272,15 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 			break;
 
 		case 88:
-			/*--¥¢¥¯¥»¥×¥È¤Î--*/
-			/*--¤¢¤ê¤¬¤È¤¦¥á¥Ã¥»¡¼¥¸--*/
-			/*--¥Ú¥Ã¥È¤Î  ÍÑ--*/
+			/*--å¤±å¼æœ¬çš¿ç„åŠ--*/
+			/*--ä¸æ›°äº’åˆä¸¹ä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
+			/*--çŸ¢æ°¸ç„åŠ  è¿•--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "ThanksMsg",
 												buf2, sizeof( buf2) )
 			 != NULL)
 			{
 				strcpysafe( token, sizeof( buf2), buf2);
-				/*--¥¤¥Ù¥ó¥È  ¥Õ¥é¥°¤ò¥»¥Ã¥È--*/
+				/*--å¥¶çŸ›ä»¶ç„  ç™½ä»¿å¼˜æ¯›æœ¬æ°¸ç„--*/
 				if(NPC_AcceptDel( meindex, talker,1) == FALSE){
 					return ;
 				}
@@ -2307,7 +2307,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 													buf2, sizeof( buf2))
 				!=NULL)
 				{
-					/*--¤³¤³¤Ş¤Ç  ¤¿¤é¡b    ¤ò¾å¹²¤ë---*/
+					/*--ä»‡ä»‡å¼•åŒ¹  å‡¶æ—¥ï½    æ¯›æ›‰åƒ•æœˆ---*/
 					if( CHAR_getInt( talker, CHAR_CHARM) < 100 && EvNo > 0 ){
 						if(CHAR_getInt( talker, CHAR_CHARM) + atoi(buf2) > 100){
 							CHAR_setInt( talker, CHAR_CHARM,100);
@@ -2340,9 +2340,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 			work = work + ( i * 100);
 			CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTTRD, work);
 
-			/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+			/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 			if(strstr( buf, "NomalWindowMsg2") != NULL) {
-				/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+				/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 				lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 							WINDOW_BUTTONTYPE_NEXT,
 							CHAR_WINDOWTYPE_WINDOWEVENT_STARTMSG,
@@ -2364,9 +2364,9 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 									 buf2, sizeof( buf2) ) != NULL)
 					strcpysafe( token,sizeof( buf2), buf2);
 
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, "NomalWindowMsg2") != NULL) {
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_STARTMSG,
@@ -2384,10 +2384,10 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 				}
 				work++;
 				sprintf( tmp, "NomalWindowMsg%d", work);
-				/*--±­¥Ú¡¼¥¸¤¬¤¢¤ë¾ì¹ç¤Ï¥Ü¥¿¥ó¤è¥¦¥¤¥ó¥É¥¦¤Î¥¿¥¤¥×¤ò¤«¤¨¤ë--*/
+				/*--æˆšçŸ¢â–¡æ–¥äº’ä¸æœˆæ¨ºå¯§åç¤ºæ­£ä»¶æ–¹å®ƒå¥¶ä»¶ç‰å®ƒåŠæ­£å¥¶çš¿æ¯›äº•å°¹æœˆ--*/
 				if(strstr( buf, tmp) != NULL) {
 					
-					/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+					/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 					lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE,
 								WINDOW_BUTTONTYPE_NEXT,
 								CHAR_WINDOWTYPE_WINDOWEVENT_STARTMSG,
@@ -2397,10 +2397,10 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 				}else{
 					int fd = getfdFromCharaIndex( talker);
 					char token2[14*50];
-					/*--¤³¤³¤Ç¡b¥¢¥¤  ¥à¤Ê¤É¤ÎÄÉ²Ã¤ò¹Ô¤¦--*/
+					/*--ä»‡ä»‡åŒ¹ï½å¤±å¥¶  ä¸å…å‡åŠé¦¨ç¬›æ¯›å¢Šä¸¹--*/
 					if(NPC_AcceptDel( meindex, talker,0) == FALSE) return;
 	
-					/*¥Õ¥é¥°¤ò¥»¥Ã¥È¤·¤Æ¤¤¤ì¤Ğ¡b¥»¥Ã¥È¤¹¤ë--*/
+					/*ç™½ä»¿å¼˜æ¯›æœ¬æ°¸ç„ä»„åŒ–ä¸­æœ¨å£¬ï½æœ¬æ°¸ç„å…æœˆ--*/
 					if( EvNo != -1) NPC_NowEventSetFlg( talker, EvNo);
 						
 					if(NPC_Util_GetStrFromStrWithDelim( buf,"NpcWarp",
@@ -2408,7 +2408,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 								NPC_EventWarpNpc(meindex,token2);
 					}
 					
-					//¥Õ¥é¥°¤ò  ¤Æ¤ë
+					//ç™½ä»¿å¼˜æ¯›  åŒ–æœˆ
 					if(NPC_Util_GetStrFromStrWithDelim( buf, "EndSetFlg", 
 										buf2, sizeof( buf2) )!=NULL)
 					{
@@ -2424,7 +2424,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 							NPC_EventSetFlg( talker, atoi( buf3));
 						}
 					}
-					//¥¤¥Ù¥ó¥È¥Õ¥é¥°¤ò¾Ã¤¹
+					//å¥¶çŸ›ä»¶ç„ç™½ä»¿å¼˜æ¯›å£…å…
 					if( NPC_Util_GetStrFromStrWithDelim( buf, "CleanFlg",
 							 buf2, sizeof( buf2)) != NULL) {
 						 	char buf3[16];
@@ -2451,7 +2451,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 #endif
 		  case 10:
 			  
-			/*--¥Ú¥Ã¥È¤¬¤¤¤Ã¤Ñ¤¤¤Î»ş¤Î¥á¥Ã¥»¡¼¥¸--*/
+			/*--çŸ¢æ°¸ç„äº’ä¸­å‹»å¤©ä¸­åŠå‡œåŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "PetFullMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -2466,7 +2466,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 
 	  case 11:
-			/*--¥Õ¥é¥°¤ò¾Ã¤¹¤È¤­¤Î¥á¥Ã¥»¡¼¥¸--*/
+			/*--ç™½ä»¿å¼˜æ¯›å£…å…åˆäº”åŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "CleanMainMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -2477,7 +2477,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 			}
 		break;
 	  case 12:
-			/*--¥Õ¥é¥°¤ò¾Ã¤·¤¿  ¤Î¥Ã¥»¡¼¥¸--*/
+			/*--ç™½ä»¿å¼˜æ¯›å£…ä»„å‡¶  åŠæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "CleanFlgMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -2498,7 +2498,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 
 	  case 13:
-			/*--¶³¶â¤¬¤¤¤Ã¤Ñ¤¤¤Î¥á¥Ã¥»¡¼¥¸--*/
+			/*--é›²å—¯äº’ä¸­å‹»å¤©ä¸­åŠä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 			if( NPC_Util_GetStrFromStrWithDelim( buf, "StoneFullMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -2508,7 +2508,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 		
 		 case 14:
-			/*--¶³¶â¤¬¤¿¤ê¤Ê¤¤¥á¥Ã¥»¡¼¥¸--*/
+			/*--é›²å—¯äº’å‡¶æ›°å…ä¸­ä¸Ÿæ°¸æœ¬â–¡æ–¥--*/
 					if( NPC_Util_GetStrFromStrWithDelim( buf, "StoneLessMsg",
 												 buf2, sizeof( buf2) )
 			 != NULL)
@@ -2518,7 +2518,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 		break;
 	}
 
-	/*¤³¤³¤ÇÁ÷¿®¤¹¤ë*/
+	/*ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ*/
 #ifdef _NEWEVENT
 	if(num != 8)
 #endif
@@ -2531,7 +2531,7 @@ void NPC_MsgDisp(int meindex,int talker,int num)
 }
 
 /*--------------------------------------
- *¥¤¥Ù¥ó¥ÈÍÑ¤Î¥¢¥¤  ¥à¤òÄÉ²Ã¤¹¤ë
+ *å¥¶çŸ›ä»¶ç„è¿•åŠå¤±å¥¶  ä¸æ¯›é¦¨ç¬›å…æœˆ
  ---------------------------------------*/
 BOOL NPC_EventAdd(int meindex,int talker,int mode)
 {
@@ -2548,20 +2548,20 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 	int evcnt;
 	int b_flg = 0;
 
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë  ¤Ë½ñ¤¤¤Æ¤¢¤ë¾ò·ï¤ò  ¤¿¤·¤Æ¤¤¤ë¤â¤Î¤ò  ¤­½Ğ¤¹--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åè¸ä¸­åŒ–ä¸æœˆæ©¢ç˜€æ¯›  å‡¶ä»„åŒ–ä¸­æœˆæ‰‹åŠæ¯›  äº”è«‹å…--*/
 	evcnt = NPC_EventFile( meindex, talker, buff);
 
 	if(evcnt == -1) return FALSE;
 
 //	if(NPC_EventFile( meindex, talker, buff) == FALSE) return FALSE;
 
-	/*--¥¢¥¤  ¥à¤Î¿ô¤ò¥Á¥§¥Ã¥¯--*/
+	/*--å¤±å¥¶  ä¸åŠé†’æ¯›æ°‘å°¼æ°¸å¼--*/
 	if(NPC_ItemFullCheck( meindex, talker, buff, mode, evcnt) == FALSE){
 		NPC_MsgDisp( meindex, talker, 4);
 		return FALSE;
 	}
 
-	/*--¶³¶â¥Á¥§¥Ã¥¯¤Ë  ¤ë--*/
+	/*--é›²å—¯æ°‘å°¼æ°¸å¼å  æœˆ--*/
 	if(NPC_Util_GetStrFromStrWithDelim( buff, "DelStone", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -2576,7 +2576,7 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 	}
 
 
-	/*--¥Ú¥Ã¥È¤Î  ¤òÄÉ²Ã¤¹¤ë--*/
+	/*--çŸ¢æ°¸ç„åŠ  æ¯›é¦¨ç¬›å…æœˆ--*/
 	if((NPC_Util_GetStrFromStrWithDelim( buff, "pet_skill", buff2, sizeof( buff2) )
 	 !=NULL) && mode == 0 ){
 		if(mode == 0) {
@@ -2588,7 +2588,7 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 	
 	if(mode == 2) mode = 0;
 	
-	/*--¥Ú¥Ã¥È¤òÄÉ²Ã¤¹¤ë---*/
+	/*--çŸ¢æ°¸ç„æ¯›é¦¨ç¬›å…æœˆ---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buff, "GetPet", buff2, sizeof( buff2) )
 	 !=NULL)
 	{	
@@ -2602,7 +2602,7 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 		}
 	}
 
-	// Robin add ±qNPC¨úÃdª«³J
+	// Robin add å¾NPCå–å¯µç‰©è›‹
 	if(NPC_Util_GetStrFromStrWithDelim( buff, "GetEgg", buff2, sizeof( buff2) )
 	 !=NULL)
 	{	
@@ -2648,7 +2648,7 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 		}
 	}
 
-	/*--¶³¶â¤ò¼è¤ë---*/
+	/*--é›²å—¯æ¯›æ½¸æœˆ---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buff, "DelStone", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -2659,14 +2659,14 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 
 		CHAR_setInt(talker,CHAR_GOLD,CHAR_getInt( talker, CHAR_GOLD) - stone);
 
-		/*--¥Ñ¥é¥á¡¼¥¿Á÷¤ê--*/
+		/*--ç”±ä»¿ä¸Ÿâ–¡æ­£éœœæ›°--*/
 		CHAR_send_P_StatusString( talker, CHAR_P_STRING_GOLD);
-		sprintf(token, "¥I¥X%dªºstone¡C", stone);
+		sprintf(token, "ä»˜å‡º%dçš„stoneã€‚", stone);
 		CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 	}
 
 
-	/*--¥é¥ó¥À¥à¥¢¥¤  ¥à---*/
+	/*--ä»¿ä»¶æ¯ä¸å¤±å¥¶  ä¸---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buff, "GetRandItem", buf, sizeof( buf) ) != NULL ){
 		j=1;
 		while( getStringFromIndexWithDelim( buf , "," , j, buff2, sizeof( buff2)) != FALSE ){
@@ -2677,11 +2677,11 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 	}
 
 
-	/*--  ÄÌ¤Î¥¢¥¤  ¥à¥²¥Ã¥È--*/
+	/*--  é¨·åŠå¤±å¥¶  ä¸å¿…æ°¸ç„--*/
 	if(NPC_Util_GetStrFromStrWithDelim( buff, "GetItem", buf, sizeof( buf)) != NULL ){
 		if(mode == 0) {
 			j = 1;
-			/*--²¿¸Ä¤Î¥¢¥¤  ¥à¤ò  ¤¹¤«¡ª--*/
+			/*--çª’èœŠåŠå¤±å¥¶  ä¸æ¯›  å…äº•ã€--*/
 			while(getStringFromIndexWithDelim( buf, "," , j, buff2, sizeof(buff2)) !=FALSE ){
 				j++;
 			}
@@ -2718,14 +2718,14 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 	if( (NPC_Util_GetStrFromStrWithDelim( buff, "GetRandItem", buf, sizeof( buf) )
 		!=NULL) && (rand_flg == 0) && mode == 0 )
 	{	
-		/*--¥Á¥§¥Ã¥¯   Åö¤ËÁ´    ¤ë¤«¡ª-*/
+		/*--æ°‘å°¼æ°¸å¼   ç™²åèŸˆ    æœˆäº•ã€-*/
 		for( i = CHAR_STARTITEMARRAY ; i < CHAR_MAXITEMHAVE ; i++ ){
 			itemindex=CHAR_getItemIndex( talker , i );
 			if( !ITEM_CHECKINDEX( itemindex) ){
 				kosuucnt++;
 			 }
 		}
-		/*--¶õ¤­¤¬¤¢¤ë¤«¤É¤¦¤«--*/
+		/*--å¡¢äº”äº’ä¸æœˆäº•å‡ä¸¹äº•--*/
 		if( kosuucnt == 0 ){
 			NPC_MsgDisp( meindex, talker, 4);
 			return FALSE;
@@ -2788,12 +2788,12 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 						if(NPC_EventDelPet( meindex, talker,i) == FALSE) return FALSE;
 						
 						petcnt++;
-						/*--»ØÄê¸Ä¿ôÊ¬¤Î¥Ú¥Ã¥È¤ò¾Ã¤·¤¿¤«¤É¤¦¤«¡ª--*/
+						/*--éš™çˆ›èœŠé†’åŒåŠçŸ¢æ°¸ç„æ¯›å£…ä»„å‡¶äº•å‡ä¸¹äº•ã€--*/
 						if(cnt == petcnt) break;
 
 					}
 				}else{
-					/*--¥Ú¥Ã¥È¤òºï½ü¤¹¤ë¿ô¤ò»ØÄê¤·¤Æ¤Ê¤¤¤Î¤Ç³ºÅö¥Ú¥Ã¥È¤òÁ´¤Æ¾Ã¤¹--*/
+					/*--çŸ¢æ°¸ç„æ¯›ç¶½è¼ªå…æœˆé†’æ¯›éš™çˆ›ä»„åŒ–å…ä¸­åŠåŒ¹ç«Ÿç™²çŸ¢æ°¸ç„æ¯›èŸˆåŒ–å£…å…--*/
 
 					int petindex;
 
@@ -2818,12 +2818,12 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 			}
 		
 		}else{
-			/*--¤â¤¦1ÅÙ¡b¥Ú¥Ã¥È¤ò  ¤Ã¤Æ¤¤¤ë¤«¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+			/*--æ‰‹ä¸¹1è˜¸ï½çŸ¢æ°¸ç„æ¯›  å‹»åŒ–ä¸­æœˆäº•åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 			while(getStringFromIndexWithDelim( buff2, ",", j, work, sizeof( work))
 			!=FALSE)
 			{
 				j++;
-				/*--¥Ú¥Ã¥È¤Î¥Á¥§¥Ã¥¯¤¬¤Ï¤¤¤Ã¤Æ¤¤¤ë¾ì¹ç¤Ï°ìÃ¶PET¾ò·ï¤ò¥Á¥§¥Ã¥¯¤¹¤ë --*/
+				/*--çŸ¢æ°¸ç„åŠæ°‘å°¼æ°¸å¼äº’åä¸­å‹»åŒ–ä¸­æœˆæ¨ºå¯§ååŸŸç¹¹PETæ©¢ç˜€æ¯›æ°‘å°¼æ°¸å¼å…æœˆ --*/
 				if(strstr( work, "PET") != NULL) {
 					if(strstr( work, "EV") != NULL) {
 						if(NPC_PetLvCheck( meindex, talker, work, 1) == FALSE) return FALSE;
@@ -2864,11 +2864,11 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 						if(NPC_EventDelPet( meindex, talker,i) == FALSE) return FALSE;
 						
 						petcnt++;
-						/*--»ØÄê¸Ä¿ôÊ¬¤Î¥Ú¥Ã¥È¤ò¾Ã¤·¤¿¤«¤É¤¦¤«¡ª--*/
+						/*--éš™çˆ›èœŠé†’åŒåŠçŸ¢æ°¸ç„æ¯›å£…ä»„å‡¶äº•å‡ä¸¹äº•ã€--*/
 						if(cnt == petcnt) break;
 					}
 				}else{
-					/*--¥Ú¥Ã¥È¤òºï½ü¤¹¤ë¿ô¤ò»ØÄê¤·¤Æ¤Ê¤¤¤Î¤Ç³ºÅö¥Ú¥Ã¥È¤òÁ´¤Æ¾Ã¤¹--*/
+					/*--çŸ¢æ°¸ç„æ¯›ç¶½è¼ªå…æœˆé†’æ¯›éš™çˆ›ä»„åŒ–å…ä¸­åŠåŒ¹ç«Ÿç™²çŸ¢æ°¸ç„æ¯›èŸˆåŒ–å£…å…--*/
 
 					int petindex;
 
@@ -2899,7 +2899,7 @@ BOOL NPC_EventAdd(int meindex,int talker,int mode)
 
 
 /*--------------------------------------
- *¥é¥ó¥À¥à¤Ç¥¢¥¤  ¥à¤ò¥²¥Ã¥È¤µ¤»¤ë
+ *ä»¿ä»¶æ¯ä¸åŒ¹å¤±å¥¶  ä¸æ¯›å¿…æ°¸ç„ä»Šå…­æœˆ
  ------------------------------------ */
 BOOL NPC_RandItemGet(int meidex,int talker,int rand_j,char *buf)
 {
@@ -2910,7 +2910,7 @@ BOOL NPC_RandItemGet(int meidex,int talker,int rand_j,char *buf)
 	char token[128];
 
 	if(rand_j == 0) {
-		print("Event:¥Ñ©ó¢¯ªº¤¶¤J¡A¥X²{¿ù»~¡C");
+		print("Event:ç”±æ–¼ï¼çš„ä»‹å…¥ï¼Œå‡ºç¾éŒ¯èª¤ã€‚");
  		return FALSE;
  	}
  	
@@ -2923,7 +2923,7 @@ BOOL NPC_RandItemGet(int meidex,int talker,int rand_j,char *buf)
 
 	if(itemindex == -1) return FALSE;
 	
-	/*¥¢¥¤  ¥à¤ÎÄÉ²Ã(  ÀÜ¥¢¥¤  ¥à  ¤Ë¤¤¤ì¤Æ¤·¤Ş¤¦  */
+	/*å¤±å¥¶  ä¸åŠé¦¨ç¬›(  æ¿¤å¤±å¥¶  ä¸  åä¸­æœ¨åŒ–ä»„å¼•ä¸¹  */
 	ret = CHAR_addItemSpecificItemIndex( talker, itemindex);
 	if( ret < 0 || ret >= CHAR_MAXITEMHAVE ) {
 		print( "npc_exchangeman.c: additem error itemindex[%d]\n", itemindex);
@@ -2933,14 +2933,14 @@ BOOL NPC_RandItemGet(int meidex,int talker,int rand_j,char *buf)
 
 	if(itemindex != -1) {
 		LogItem(
-			CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+			CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 			CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 			itemindex,
 #else
-			ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+			ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-			"EventAddItem(¥ô°È»İ¨D©Ò±o¨ìªº¹D¨ã)",
+			"EventAddItem(ä»»å‹™éœ€æ±‚æ‰€å¾—åˆ°çš„é“å…·)",
 			CHAR_getInt( talker,CHAR_FLOOR),
 			CHAR_getInt( talker,CHAR_X ),
  			CHAR_getInt( talker,CHAR_Y ),
@@ -2950,7 +2950,7 @@ BOOL NPC_RandItemGet(int meidex,int talker,int rand_j,char *buf)
 		);
 	}
 					
-	sprintf(token,"¦¬¤U¤F%s",ITEM_getChar( itemindex, ITEM_NAME));
+	sprintf(token,"æ”¶ä¸‹äº†%s",ITEM_getChar( itemindex, ITEM_NAME));
 	CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 
 	CHAR_sendItemDataOne( talker, ret);
@@ -2960,7 +2960,7 @@ BOOL NPC_RandItemGet(int meidex,int talker,int rand_j,char *buf)
 
 
 /*----------------------------------------------------
- * ¥¤¥Ù¥ó¥È
+ * å¥¶çŸ›ä»¶ç„
  ----------------------------------------------------*/
 BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 {
@@ -2974,16 +2974,16 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 	evcnt = NPC_EventFile( meindex, talker, buf);
 	if(evcnt == -1) return FALSE;
 
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë  ¤Ë¤«¤«¤ì¤Æ¤¤¤ë¾ò·ï¤ò  ¤¿¤·¤Æ¤¤¤ë¤â¤Î¤ò  ¤­½Ğ¤¹--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åäº•äº•æœ¨åŒ–ä¸­æœˆæ©¢ç˜€æ¯›  å‡¶ä»„åŒ–ä¸­æœˆæ‰‹åŠæ¯›  äº”è«‹å…--*/
 //	if(NPC_EventFile(meindex,talker,buf)==FALSE) return FALSE;
 
-	/*--¥¢¥¤  ¥à¤Î¿ô¤ò¥Á¥§¥Ã¥¯--*/
+	/*--å¤±å¥¶  ä¸åŠé†’æ¯›æ°‘å°¼æ°¸å¼--*/
 	if(NPC_ItemFullCheck( meindex, talker, buf, mode, evcnt) == FALSE){
 		NPC_MsgDisp( meindex, talker, 4);
 		return FALSE;
 	}
 	
-	/*--¶³¶â¥Á¥§¥Ã¥¯¤Ë  ¤ë--*/
+	/*--é›²å—¯æ°‘å°¼æ°¸å¼å  æœˆ--*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "DelStone", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -2997,7 +2997,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 	}
 
 
-	/*--¶³¶â¥Á¥§¥Ã¥¯¤Ë  ¤ë--*/
+	/*--é›²å—¯æ°‘å°¼æ°¸å¼å  æœˆ--*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "GetStone", buff2, sizeof( buff2) )!=NULL){
 		int stone;
 		stone = atoi(buff2);
@@ -3009,7 +3009,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 	}
 
 
-	/*--¥Ú¥Ã¥È¤Î  ¤òÄÉ²Ã¤¹¤ë--*/
+	/*--çŸ¢æ°¸ç„åŠ  æ¯›é¦¨ç¬›å…æœˆ--*/
 	if((NPC_Util_GetStrFromStrWithDelim( buf, "pet_skill", buff2, sizeof( buff2) )
 	 !=NULL) && mode == 0 ){
 		if(mode == 0){
@@ -3019,7 +3019,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 		}
 	}
 
-	/*--¥Ú¥Ã¥È¤ò¾Ã¤¹---*/
+	/*--çŸ¢æ°¸ç„æ¯›å£…å…---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "DelPet", buff2, sizeof( buff2) ) != NULL) {
 		char buf4[32];
 		char buf5[256];
@@ -3032,13 +3032,13 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 			getStringFromIndexWithDelim( buf5, ",",evcnt , buff2, sizeof( buff2));
 		
 		
-			/*--¤â¤¦1ÅÙ¡b¥Ú¥Ã¥È¤ò  ¤Ã¤Æ¤¤¤ë¤«¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+			/*--æ‰‹ä¸¹1è˜¸ï½çŸ¢æ°¸ç„æ¯›  å‹»åŒ–ä¸­æœˆäº•åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 			while(getStringFromIndexWithDelim( buff2, "&", j, work, sizeof( work))
 			!=FALSE)
 			{
 				j++;
 				
-				/*--¥Ú¥Ã¥È¤Î¥Á¥§¥Ã¥¯¤¬¤Ï¤¤¤Ã¤Æ¤¤¤ë¾ì¹ç¤Ï°ìÃ¶PET¾ò·ï¤ò¥Á¥§¥Ã¥¯¤¹¤ë --*/
+				/*--çŸ¢æ°¸ç„åŠæ°‘å°¼æ°¸å¼äº’åä¸­å‹»åŒ–ä¸­æœˆæ¨ºå¯§ååŸŸç¹¹PETæ©¢ç˜€æ¯›æ°‘å°¼æ°¸å¼å…æœˆ --*/
 				if(strstr( work, "PET") != NULL) {
 					if(strstr( work, "EV") != NULL) {
 						if(NPC_PetLvCheck( meindex, talker, work, 1) == FALSE) return FALSE;
@@ -3085,12 +3085,12 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 						if(NPC_EventDelPet( meindex, talker,i) == FALSE) return FALSE;
 						
 						petcnt++;
-						/*--»ØÄê¸Ä¿ôÊ¬¤Î¥Ú¥Ã¥È¤ò¾Ã¤·¤¿¤«¤É¤¦¤«¡ª--*/
+						/*--éš™çˆ›èœŠé†’åŒåŠçŸ¢æ°¸ç„æ¯›å£…ä»„å‡¶äº•å‡ä¸¹äº•ã€--*/
 						if(cnt == petcnt) break;
 
 					}
 				}else{
-					/*--¥Ú¥Ã¥È¤òºï½ü¤¹¤ë¿ô¤ò»ØÄê¤·¤Æ¤Ê¤¤¤Î¤Ç³ºÅö¥Ú¥Ã¥È¤òÁ´¤Æ¾Ã¤¹--*/
+					/*--çŸ¢æ°¸ç„æ¯›ç¶½è¼ªå…æœˆé†’æ¯›éš™çˆ›ä»„åŒ–å…ä¸­åŠåŒ¹ç«Ÿç™²çŸ¢æ°¸ç„æ¯›èŸˆåŒ–å£…å…--*/
 
 					int petindex;
 
@@ -3118,12 +3118,12 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 		
 		}else{
 		
-			/*--¤â¤¦1ÅÙ¡b¥Ú¥Ã¥È¤ò  ¤Ã¤Æ¤¤¤ë¤«¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+			/*--æ‰‹ä¸¹1è˜¸ï½çŸ¢æ°¸ç„æ¯›  å‹»åŒ–ä¸­æœˆäº•åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 			while(getStringFromIndexWithDelim( buff2, ",", j, work, sizeof( work))
 			!=FALSE)
 			{
 				j++;
-				/*--¥Ú¥Ã¥È¤Î¥Á¥§¥Ã¥¯¤¬¤Ï¤¤¤Ã¤Æ¤¤¤ë¾ì¹ç¤Ï°ìÃ¶PET¾ò·ï¤ò¥Á¥§¥Ã¥¯¤¹¤ë --*/
+				/*--çŸ¢æ°¸ç„åŠæ°‘å°¼æ°¸å¼äº’åä¸­å‹»åŒ–ä¸­æœˆæ¨ºå¯§ååŸŸç¹¹PETæ©¢ç˜€æ¯›æ°‘å°¼æ°¸å¼å…æœˆ --*/
 				if(strstr( work, "PET") != NULL) {
 					if(strstr( work, "EV") != NULL) {
 						if(NPC_PetLvCheck( meindex, talker, work, 1) == FALSE) return FALSE;
@@ -3168,12 +3168,12 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 						if(NPC_EventDelPet( meindex, talker,i) == FALSE) return FALSE;
 						
 						petcnt++;
-						/*--»ØÄê¸Ä¿ôÊ¬¤Î¥Ú¥Ã¥È¤ò¾Ã¤·¤¿¤«¤É¤¦¤«¡ª--*/
+						/*--éš™çˆ›èœŠé†’åŒåŠçŸ¢æ°¸ç„æ¯›å£…ä»„å‡¶äº•å‡ä¸¹äº•ã€--*/
 						if(cnt == petcnt) break;
 
 					}
 				}else{
-					/*--¥Ú¥Ã¥È¤òºï½ü¤¹¤ë¿ô¤ò»ØÄê¤·¤Æ¤Ê¤¤¤Î¤Ç³ºÅö¥Ú¥Ã¥È¤òÁ´¤Æ¾Ã¤¹--*/
+					/*--çŸ¢æ°¸ç„æ¯›ç¶½è¼ªå…æœˆé†’æ¯›éš™çˆ›ä»„åŒ–å…ä¸­åŠåŒ¹ç«Ÿç™²çŸ¢æ°¸ç„æ¯›èŸˆåŒ–å£…å…--*/
 
 					int petindex;
 
@@ -3203,7 +3203,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 	
 
 
-	/*--¶³¶â¤ò¤¢¹²¤ë---*/
+	/*--é›²å—¯æ¯›ä¸åƒ•æœˆ---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "GetStone", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -3212,15 +3212,15 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 
 		stone = atoi(buff2);
 		CHAR_setInt(talker,CHAR_GOLD,CHAR_getInt( talker, CHAR_GOLD) + stone);
-		/*--¥Ñ¥é¥á¡¼¥¿Á÷¤ê--*/
+		/*--ç”±ä»¿ä¸Ÿâ–¡æ­£éœœæ›°--*/
 		CHAR_send_P_StatusString( talker, CHAR_P_STRING_GOLD);
 	
-		sprintf( token,"±o¨ì%dªºstone", stone);
+		sprintf( token,"å¾—åˆ°%dçš„stone", stone);
 		CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 	}
 
 
-	/*--¥Ú¥Ã¥È¤òÄÉ²Ã¤¹¤ë---*/
+	/*--çŸ¢æ°¸ç„æ¯›é¦¨ç¬›å…æœˆ---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "GetPet", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -3259,7 +3259,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 	}
 #endif
 	
-	// Robin add ±qNPC¨úÃdª«³J
+	// Robin add å¾NPCå–å¯µç‰©è›‹
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "GetEgg", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -3270,7 +3270,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 		}
 	}
 
-	/*--¥¢¥¤  ¥à¤ò¾Ã¤¹--*/
+	/*--å¤±å¥¶  ä¸æ¯›å£…å…--*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "DelItem", buff2, sizeof( buff2) )	!= NULL){
 		if(strstr(buff2,"EVDEL") != NULL){
 			char work[256];
@@ -3301,7 +3301,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 	}
 
 
-	/*--¶³¶â¤ò¼è¤ë---*/
+	/*--é›²å—¯æ¯›æ½¸æœˆ---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "DelStone", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -3311,14 +3311,14 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 		stone = NPC_EventGetCost( meindex, talker, buff2);
 
 		CHAR_setInt(talker,CHAR_GOLD,CHAR_getInt( talker, CHAR_GOLD) - stone);
-		/*--¥Ñ¥é¥á¡¼¥¿Á÷¤ê--*/
+		/*--ç”±ä»¿ä¸Ÿâ–¡æ­£éœœæ›°--*/
 		CHAR_send_P_StatusString( talker, CHAR_P_STRING_GOLD);
-		sprintf( token, "¥I¥X%dªºstone¡C", stone);
+		sprintf( token, "ä»˜å‡º%dçš„stoneã€‚", stone);
 		CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 	}
 
 
-	/*--¥é¥ó¥À¥à¥¢¥¤  ¥à¤òÄÉ²Ã¤¹¤ë---*/
+	/*--ä»¿ä»¶æ¯ä¸å¤±å¥¶  ä¸æ¯›é¦¨ç¬›å…æœˆ---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "GetRandItem", buff2, sizeof( buff2) )
 	!=NULL)
 	{
@@ -3334,14 +3334,14 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 	}
 
 
-	/*--¥¢¥¤  ¥à¤òÄÉ²Ã¤¹¤ë---*/
+	/*--å¤±å¥¶  ä¸æ¯›é¦¨ç¬›å…æœˆ---*/
 	if(NPC_Util_GetStrFromStrWithDelim( buf, "GetItem", buff2, sizeof( buff2) )
 	!=NULL)
 	{
 		 NPC_EventAddItem( meindex, talker, buff2);
 	}
 
-	/*--¥Ñ¥é¥á¡¼¥¿¤ÎÁ÷¿®--*/
+	/*--ç”±ä»¿ä¸Ÿâ–¡æ­£åŠéœœè€¨--*/
 	CHAR_complianceParameter( talker );
 	CHAR_send_P_StatusString( talker ,
 					CHAR_P_STRING_ATK|CHAR_P_STRING_DEF|
@@ -3356,7 +3356,7 @@ BOOL NPC_AcceptDel(int meindex,int talker,int mode )
 
 
 /*--------------------------
- * ¥¤¥Ù¥ó¥È¥Ú¥Ã¥È¤òºï½ü
+ * å¥¶çŸ›ä»¶ç„çŸ¢æ°¸ç„æ¯›ç¶½è¼ª
  ---------------------------*/
 BOOL NPC_EventDelPet(int  meindex,int  talker, int petsel)
 {
@@ -3374,7 +3374,7 @@ BOOL NPC_EventDelPet(int  meindex,int  talker, int petsel)
 
 	if( CHAR_getInt( talker, CHAR_RIDEPET) == petsel ) {
 
-		//CHAR_talkToCli( talker, -1, "ÃM­¼¤¤ªºÃdª«µLªk¥æ¥X¡I", CHAR_COLORYELLOW );
+		//CHAR_talkToCli( talker, -1, "é¨ä¹˜ä¸­çš„å¯µç‰©ç„¡æ³•äº¤å‡ºï¼", CHAR_COLORYELLOW );
     	//return	FALSE;
 
 		CHAR_setInt( talker, CHAR_RIDEPET, -1);
@@ -3385,27 +3385,27 @@ BOOL NPC_EventDelPet(int  meindex,int  talker, int petsel)
 	}
 	print(" EventDelPet ");
 
-	/*--¤½¤Î¥­¥ã¥é¤¬Àï    ¤Ê¤é¡b¥Ú¥Ã¥È¤ò¤¦¤é¤º½ª  --*/
+	/*--å…¬åŠå¹³ä¹“ä»¿äº’çˆµ    å…æ—¥ï½çŸ¢æ°¸ç„æ¯›ä¸¹æ—¥å…§è”½  --*/
 	if( CHAR_getWorkInt( CONNECT_getCharaindex( fd),
    	                     CHAR_WORKBATTLEMODE) != BATTLE_CHARMODE_NONE) return FALSE;
-	/*--¤½¤Î¥Ú¥Ã¥È¤¬¥Ğ¥È¥ë¤«¤É¤¦¤«¤Î¥Á¥§¥Ã¥¯--*/
+	/*--å…¬åŠçŸ¢æ°¸ç„äº’ç”°ç„ä¼™äº•å‡ä¸¹äº•åŠæ°‘å°¼æ°¸å¼--*/
 	defpet = CHAR_getInt( talker, CHAR_DEFAULTPET);
 	if(defpet == petsel){
 		CHAR_setInt( talker, CHAR_DEFAULTPET, -1);
 		lssproto_KS_send( fd, -1, TRUE);
 	}
 
-	snprintf( msgbuf,sizeof( msgbuf), "¥æ¥X%s¡C",
+	snprintf( msgbuf,sizeof( msgbuf), "äº¤å‡º%sã€‚",
 									CHAR_getChar( petindex, CHAR_NAME));
 	CHAR_talkToCli( talker, -1, msgbuf,  CHAR_COLORWHITE);
 
-	// ¥Ú¥Ã¥È¤ò¼ê  ¤·¤¿¤Ò¥°
+	// çŸ¢æ°¸ç„æ¯›æ¾  ä»„å‡¶å¤«å¼˜
 	LogPet(
-		CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+		CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 		CHAR_getChar( talker, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"EvnetDell(¥ô°È§R°£)",
+		"EvnetDell(ä»»å‹™åˆªé™¤)",
 		CHAR_getInt( talker,CHAR_FLOOR),
 		CHAR_getInt( talker,CHAR_X ),
 		CHAR_getInt( talker,CHAR_Y ),
@@ -3413,13 +3413,13 @@ BOOL NPC_EventDelPet(int  meindex,int  talker, int petsel)
 	);
 
 
-	/*   ¤Á  ¤«¤é¾Ã¤¹ */
+	/*   åˆ‡  äº•æ—¥å£…å… */
 	CHAR_setCharPet( talker, petsel, -1);
 
 	CHAR_endCharOneArray( petindex );
 
 	snprintf( szPet, sizeof( szPet ), "K%d", petsel);
-	// ¿·¤·¤¤¥Ú¥Ã¥È¥¹  ¡¼¥¿¥¹Á÷¤ê¤Ä¤±¤ë
+	// è•™ä»„ä¸­çŸ¢æ°¸ç„æ—¦  â–¡æ­£æ—¦éœœæ›°å‹¾ä»ƒæœˆ
 	CHAR_sendStatusString( talker, szPet );
 
 	return TRUE;
@@ -3428,7 +3428,7 @@ BOOL NPC_EventDelPet(int  meindex,int  talker, int petsel)
 
 
 /*----------------------------
- *  ¥Ú¥Ã¥È¤òÄÉ²Ã¤¹¤ë
+ *  çŸ¢æ°¸ç„æ¯›é¦¨ç¬›å…æœˆ
  ------------------------------*/
 BOOL NPC_EventAddPet(int meindex, int talker, char *buff2,int mode)
 {
@@ -3439,7 +3439,7 @@ BOOL NPC_EventAddPet(int meindex, int talker, char *buff2,int mode)
 	int	i;
 	int petindex;
 
-	/*--¥Ú¥Ã¥È  ¤¬³«¤¤¤Æ¤¤¤ë¤«¤Î¥Á¥§¥Ã¥¯--*/
+	/*--çŸ¢æ°¸ç„  äº’é‡©ä¸­åŒ–ä¸­æœˆäº•åŠæ°‘å°¼æ°¸å¼--*/
 	for( i = 0 ;i < CHAR_MAXPETHAVE ; i++) {
 		petindex = CHAR_getCharPet( talker, i);
 		if( petindex == -1  )  break;
@@ -3448,7 +3448,7 @@ BOOL NPC_EventAddPet(int meindex, int talker, char *buff2,int mode)
 	if(i == CHAR_MAXPETHAVE) return FALSE;
 
 
-	/* °ú¿ô¤ÎID¤«¤éindex¤ò¼è   */
+	/* å©é†’åŠIDäº•æ—¥indexæ¯›æ½¸   */
 	if(strstr(buff2,",") != NULL){
 		char buf2[16];
 		while(getStringFromIndexWithDelim( buff2, ",", i, buf2, sizeof( buf2))
@@ -3491,17 +3491,17 @@ BOOL NPC_EventAddPet(int meindex, int talker, char *buff2,int mode)
 
 	snprintf( msgbuf, sizeof( msgbuf ), "W%d", i );
 	CHAR_sendStatusString( talker, msgbuf );
-	snprintf( msgbuf,sizeof( msgbuf), "®³¨ì%s¡C",
+	snprintf( msgbuf,sizeof( msgbuf), "æ‹¿åˆ°%sã€‚",
 								CHAR_getChar(petindex,CHAR_NAME));
 	CHAR_talkToCli( talker, -1, msgbuf,  CHAR_COLORWHITE);
 
-	// ¥Ú¥Ã¥È¤ò¼ê¤Ë  ¤ì¤¿¤Ò¥°
+	// çŸ¢æ°¸ç„æ¯›æ¾å  æœ¨å‡¶å¤«å¼˜
 	LogPet(
-		CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+		CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 		CHAR_getChar( talker, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"EventGet(¥ô°È±o¨ì)",
+		"EventGet(ä»»å‹™å¾—åˆ°)",
 		CHAR_getInt( talker,CHAR_FLOOR),
 		CHAR_getInt( talker,CHAR_X ),
 		CHAR_getInt( talker,CHAR_Y ),
@@ -3511,7 +3511,7 @@ BOOL NPC_EventAddPet(int meindex, int talker, char *buff2,int mode)
 
 
 	if(mode == 0) {
-		/*--¥¤¥Ù¥ó¥ÈÍÑ¤Î¥Ú¥Ã¥È--*/
+		/*--å¥¶çŸ›ä»¶ç„è¿•åŠçŸ¢æ°¸ç„--*/
 		CHAR_setInt( petindex, CHAR_ENDEVENT, 1);
 	}
 
@@ -3519,7 +3519,7 @@ BOOL NPC_EventAddPet(int meindex, int talker, char *buff2,int mode)
 
 }
 
-// Robin add NPCµ¹Ãdª«³J
+// Robin add NPCçµ¦å¯µç‰©è›‹
 BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 {
 	int	ret;
@@ -3533,9 +3533,9 @@ BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 	char buf2[32];
 	char buf3[32];
 
-	print("\n µ¹³J°Õ!!:%s ", buff2);
+	print("\n çµ¦è›‹å•¦!!:%s ", buff2);
 
-	/*--¥Ú¥Ã¥È  ¤¬³«¤¤¤Æ¤¤¤ë¤«¤Î¥Á¥§¥Ã¥¯--*/
+	/*--çŸ¢æ°¸ç„  äº’é‡©ä¸­åŒ–ä¸­æœˆäº•åŠæ°‘å°¼æ°¸å¼--*/
 	for( i = 0 ;i < CHAR_MAXPETHAVE ; i++) {
 		petindex = CHAR_getCharPet( talker, i);
 		if( petindex == -1  )  break;
@@ -3547,8 +3547,8 @@ BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 	}
 
 
-	/* °ú¿ô¤ÎID¤«¤éindex¤ò¼è   */
-	if(strstr(buff2,",") != NULL){ // ¬O§_¬°ÀH¾÷µ¹»P
+	/* å©é†’åŠIDäº•æ—¥indexæ¯›æ½¸   */
+	if(strstr(buff2,",") != NULL){ // æ˜¯å¦ç‚ºéš¨æ©Ÿçµ¦èˆ‡
 		while(getStringFromIndexWithDelim( buff2, ",", i, buf2, sizeof( buf2))
 		!= FALSE) {
 			i++;
@@ -3562,14 +3562,14 @@ BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 	}
 
 	getStringFromIndexWithDelim( buf2, ";", 1, buf3, sizeof( buf3));
-	enemyid = atoi( buf3); // Ãdª«³JID
+	enemyid = atoi( buf3); // å¯µç‰©è›‹ID
 	getStringFromIndexWithDelim( buf2, ";", 2, buf3, sizeof( buf3));
-	petid = atoi( buf3); // ¹å¥XªºÃdª«ID
+	petid = atoi( buf3); // å­µå‡ºçš„å¯µç‰©ID
 	getStringFromIndexWithDelim( buf2, ";", 3, buf3, sizeof( buf3));
-	raise = atoi( buf3); //   ¾i¦¸¼Æ
+	raise = atoi( buf3); //   é¤Šæ¬¡æ•¸
 
 
-	// ±NenemyidÂà¦¨enemybaseid
+	// å°‡enemyidè½‰æˆenemybaseid
 	enemynum = ENEMY_getEnemyNum();
 	for( i = 0; i < enemynum; i ++ ) {
 		if( ENEMY_getInt( i, ENEMY_ID) == petid) {
@@ -3611,7 +3611,7 @@ BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 		return FALSE;
 	}
 
-	// ³]¬°Ãdª«³J
+	// è¨­ç‚ºå¯µç‰©è›‹
 	CHAR_setInt( petindex, CHAR_FUSIONBEIT, 1);
 	CHAR_setInt( petindex, CHAR_FUSIONCODE, -1);
 	CHAR_setInt( petindex, CHAR_FUSIONRAISE, raise);
@@ -3624,17 +3624,17 @@ BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 
 	snprintf( msgbuf, sizeof( msgbuf ), "W%d", i );
 	CHAR_sendStatusString( talker, msgbuf );
-	snprintf( msgbuf,sizeof( msgbuf), "®³¨ì%s¡C",
+	snprintf( msgbuf,sizeof( msgbuf), "æ‹¿åˆ°%sã€‚",
 								CHAR_getChar(petindex,CHAR_NAME));
 	CHAR_talkToCli( talker, -1, msgbuf,  CHAR_COLORWHITE);
 
-	// ¥Ú¥Ã¥È¤ò¼ê¤Ë  ¤ì¤¿¤Ò¥°
+	// çŸ¢æ°¸ç„æ¯›æ¾å  æœ¨å‡¶å¤«å¼˜
 	LogPet(
-		CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+		CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 		CHAR_getChar( talker, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"EventGetEgg(¥ô°È±o¨ì)",
+		"EventGetEgg(ä»»å‹™å¾—åˆ°)",
 		CHAR_getInt( talker,CHAR_FLOOR),
 		CHAR_getInt( talker,CHAR_X ),
 		CHAR_getInt( talker,CHAR_Y ),
@@ -3644,7 +3644,7 @@ BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 
 
 	if(mode == 0) {
-		/*--¥¤¥Ù¥ó¥ÈÍÑ¤Î¥Ú¥Ã¥È--*/
+		/*--å¥¶çŸ›ä»¶ç„è¿•åŠçŸ¢æ°¸ç„--*/
 		CHAR_setInt( petindex, CHAR_ENDEVENT, 1);
 	}
 
@@ -3654,7 +3654,7 @@ BOOL NPC_EventAddEgg(int meindex, int talker, char *buff2,int mode)
 
 
 /*---------------------------
- *  ¥¤¥Ù¥ó¥È  ¤òºï½ü¤¹¤ë
+ *  å¥¶çŸ›ä»¶ç„  æ¯›ç¶½è¼ªå…æœˆ
  -----------------------------**/
 BOOL NPC_EventDelItem(int meindex,int talker,char *buf,int breakflg)
 {
@@ -3681,7 +3681,7 @@ BOOL NPC_EventDelItem(int meindex,int talker,char *buf,int breakflg)
 			kosuu = atoi( buf2);
 	 
 			if( breakflg != 1 )
-                NPC_ActionDoPileDelItem( talker, itemno, kosuu);//¦³°ïÅ|ªº³B²z
+                NPC_ActionDoPileDelItem( talker, itemno, kosuu);//æœ‰å †ç–Šçš„è™•ç†
             else{
 			    for( i =0 ; i < CHAR_MAXITEMHAVE ; i++ ){
 				    itemindex = CHAR_getItemIndex( talker , i );
@@ -3690,14 +3690,14 @@ BOOL NPC_EventDelItem(int meindex,int talker,char *buf,int breakflg)
 					    if(itemno == id) {
 						    cnt++;
 						    LogItem(
-							CHAR_getChar( talker, CHAR_NAME ), // ¥­¥ã¥é   
+							CHAR_getChar( talker, CHAR_NAME ), // å¹³ä¹“ä»¿   
 							CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 							itemindex,
 #else
-							ITEM_getInt( itemindex, ITEM_ID),  // ¥¢¥¤  ¥à  ¹æ 
+							ITEM_getInt( itemindex, ITEM_ID),  // å¤±å¥¶  ä¸  å¯ 
 #endif
-							"EventDelItem(¥ô°È»İ¨D©Ò¦¬¦^ªº¹D¨ã)",
+							"EventDelItem(ä»»å‹™éœ€æ±‚æ‰€æ”¶å›çš„é“å…·)",
 							CHAR_getInt( talker, CHAR_FLOOR),
 							CHAR_getInt( talker, CHAR_X ),
  							CHAR_getInt( talker, CHAR_Y ),
@@ -3707,13 +3707,13 @@ BOOL NPC_EventDelItem(int meindex,int talker,char *buf,int breakflg)
 	     					);
 	 
 		    				if(breakflg == 1){
-			    			    sprintf(token,"%s Ãa¤F",ITEM_getChar( itemindex, ITEM_NAME));
+			    			    sprintf(token,"%s å£äº†",ITEM_getChar( itemindex, ITEM_NAME));
 							    CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 							}else{
-							    sprintf(token,"¥æ¥X%s",ITEM_getChar( itemindex, ITEM_NAME));
+							    sprintf(token,"äº¤å‡º%s",ITEM_getChar( itemindex, ITEM_NAME));
 							    CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 							}
-						    //--¥¢¥¤  ¥à¤òËõ»¦--
+						    //--å¤±å¥¶  ä¸æ¯›å«èªš--
 						    CHAR_setItemIndex( talker, i ,-1);
 						    ITEM_endExistItemsOne(itemindex);
 						    CHAR_sendItemDataOne( talker, i);
@@ -3727,21 +3727,21 @@ BOOL NPC_EventDelItem(int meindex,int talker,char *buf,int breakflg)
 			}
 		}
 		else{
-			/*--Áª¤ó¤À  ¹æ¤Î¥¢¥¤  ¥à¤òÁª½Ğ---*/
+			/*--è–Šæ°åˆ†  å¯åŠå¤±å¥¶  ä¸æ¯›è–Šè«‹---*/
 			for( j = 0 ;  j < CHAR_MAXITEMHAVE ; j++){
 				itemindex = CHAR_getItemIndex( talker ,j);
 
 				if( ITEM_CHECKINDEX( itemindex)){
 					if( atoi( buff3) == ITEM_getInt( itemindex, ITEM_ID)) {
 						LogItem(
-							CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+							CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 							CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 							itemindex,
 #else
-							ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+							ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-							"EventDelItem(¥ô°È»İ¨D©Ò¦¬¦^ªº¹D¨ã)",
+							"EventDelItem(ä»»å‹™éœ€æ±‚æ‰€æ”¶å›çš„é“å…·)",
 							CHAR_getInt( talker,CHAR_FLOOR),
 							CHAR_getInt( talker,CHAR_X ),
 							CHAR_getInt( talker,CHAR_Y ),
@@ -3750,17 +3750,17 @@ BOOL NPC_EventDelItem(int meindex,int talker,char *buf,int breakflg)
 							ITEM_getInt( itemindex, ITEM_ID)
 						);
 						if(breakflg == 1){
-								sprintf(token,"%s Ãa¤F",ITEM_getChar( itemindex, ITEM_NAME));
+								sprintf(token,"%s å£äº†",ITEM_getChar( itemindex, ITEM_NAME));
 							CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 						}else{
-							sprintf( token, "¥æ¥X%s¡C", 
+							sprintf( token, "äº¤å‡º%sã€‚", 
 											ITEM_getChar( itemindex, ITEM_NAME));
 							CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 						}
-						/*--¥¢¥¤  ¥à¤òËõ»¦--*/
+						/*--å¤±å¥¶  ä¸æ¯›å«èªš--*/
 						CHAR_setItemIndex( talker, j ,-1);
 						ITEM_endExistItemsOne( itemindex);
-						/*--¥Ñ¥é¥á¡¼¥¿Á÷¿®--*/
+						/*--ç”±ä»¿ä¸Ÿâ–¡æ­£éœœè€¨--*/
 						CHAR_sendItemDataOne( talker, j);
 					}
 				}
@@ -3819,14 +3819,14 @@ BOOL NPC_EventDelItemEVDEL(int meindex,int talker,char *buf,char *nbuf,int break
 					if(itemno == id) {
 						cnt++;
 						LogItem(
-							CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+							CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 							CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 							itemindex,
 #else
-							ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+							ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-							"EventDelItem(¥ô°È»İ¨D©Ò¦¬¦^ªº¹D¨ã)",
+							"EventDelItem(ä»»å‹™éœ€æ±‚æ‰€æ”¶å›çš„é“å…·)",
 							CHAR_getInt( talker, CHAR_FLOOR),
 							CHAR_getInt( talker, CHAR_X ),
  							CHAR_getInt( talker, CHAR_Y ),
@@ -3835,10 +3835,10 @@ BOOL NPC_EventDelItemEVDEL(int meindex,int talker,char *buf,char *nbuf,int break
 							ITEM_getInt( itemindex, ITEM_ID)
 						);
 						if(breakflg == 1){
-							sprintf(token,"%s Ãa¤F",ITEM_getChar( itemindex, ITEM_NAME));
+							sprintf(token,"%s å£äº†",ITEM_getChar( itemindex, ITEM_NAME));
 							CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 						}else{
-							sprintf(token,"¥æ¥X%s",ITEM_getChar( itemindex, ITEM_NAME));
+							sprintf(token,"äº¤å‡º%s",ITEM_getChar( itemindex, ITEM_NAME));
 							CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 						}
 						CHAR_setItemIndex( talker, i ,-1);
@@ -3876,14 +3876,14 @@ BOOL NPC_EventDelItemEVDEL(int meindex,int talker,char *buf,char *nbuf,int break
 				if( ITEM_CHECKINDEX( itemindex)){
 					if( atoi( buff3) == ITEM_getInt( itemindex, ITEM_ID)) {
 						LogItem(
-							CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+							CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 							CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 							itemindex,
 #else
-							ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+							ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-							"EventDelItem(¥ô°È»İ¨D©Ò¦¬¦^ªº¹D¨ã)",
+							"EventDelItem(ä»»å‹™éœ€æ±‚æ‰€æ”¶å›çš„é“å…·)",
 							CHAR_getInt( talker,CHAR_FLOOR),
 							CHAR_getInt( talker,CHAR_X ),
 							CHAR_getInt( talker,CHAR_Y ),
@@ -3892,10 +3892,10 @@ BOOL NPC_EventDelItemEVDEL(int meindex,int talker,char *buf,char *nbuf,int break
 							ITEM_getInt( itemindex, ITEM_ID)
 						);
 						if(breakflg == 1){
-							sprintf(token,"%s Ãa¤F",ITEM_getChar( itemindex, ITEM_NAME));
+							sprintf(token,"%s å£äº†",ITEM_getChar( itemindex, ITEM_NAME));
 							CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 						}else{
-							sprintf( token, "¥æ¥X%s¡C", 
+							sprintf( token, "äº¤å‡º%sã€‚", 
 										ITEM_getChar( itemindex, ITEM_NAME));
 							CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 						}
@@ -3914,7 +3914,7 @@ BOOL NPC_EventDelItemEVDEL(int meindex,int talker,char *buf,char *nbuf,int break
 
 
 /*----------------------
- * ¥¤¥Ù¥ó¥È  ¤òÄÉ²Ã]
+ * å¥¶çŸ›ä»¶ç„  æ¯›é¦¨ç¬›]
  -----------------------*/
 BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 {
@@ -3946,7 +3946,7 @@ BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 	
 				if(itemindex == -1) return FALSE;
 	
-				/*¥¢¥¤  ¥à¤ÎÄÉ²Ã(  ÀÜ¥¢¥¤  ¥à  ¤Ë¤¤¤ì¤Æ¤·¤Ş¤¦  */
+				/*å¤±å¥¶  ä¸åŠé¦¨ç¬›(  æ¿¤å¤±å¥¶  ä¸  åä¸­æœ¨åŒ–ä»„å¼•ä¸¹  */
 				ret = CHAR_addItemSpecificItemIndex( talker, itemindex);
 				if( ret < 0 || ret >= CHAR_MAXITEMHAVE ) {
 				    print("npc_exchange:ACCEPTadditem error itemindex[%d]\n",itemindex);
@@ -3956,14 +3956,14 @@ BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 
 				if(itemindex != -1) {
 					LogItem(
-						CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+						CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 						CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 						itemindex,
 #else
-	    				ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+	    				ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-						"EventAddItem(¥ô°È»İ¨D©Ò±o¨ìªº¹D¨ã)",
+						"EventAddItem(ä»»å‹™éœ€æ±‚æ‰€å¾—åˆ°çš„é“å…·)",
 						CHAR_getInt( talker, CHAR_FLOOR),
 						CHAR_getInt( talker, CHAR_X ),
 						CHAR_getInt( talker, CHAR_Y ),
@@ -3972,7 +3972,7 @@ BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 						ITEM_getInt( itemindex, ITEM_ID)
 					);
 				}
-				sprintf( token, "®³¨ì%s¡C", ITEM_getChar( itemindex, ITEM_NAME));
+				sprintf( token, "æ‹¿åˆ°%sã€‚", ITEM_getChar( itemindex, ITEM_NAME));
 				CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 
 				CHAR_sendItemDataOne( talker, ret);
@@ -3982,7 +3982,7 @@ BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 	
 			if(itemindex == -1) return FALSE;
 
-			/*¥¢¥¤  ¥à¤ÎÄÉ²Ã(  ÀÜ¥¢¥¤  ¥à  ¤Ë¤¤¤ì¤Æ¤·¤Ş¤¦  */
+			/*å¤±å¥¶  ä¸åŠé¦¨ç¬›(  æ¿¤å¤±å¥¶  ä¸  åä¸­æœ¨åŒ–ä»„å¼•ä¸¹  */
 			ret = CHAR_addItemSpecificItemIndex( talker, itemindex);
 			if( ret < 0 || ret >= CHAR_MAXITEMHAVE ) {
 				print( "npc_exchange.c: ACCEPTadditem error itemindex[%d]\n", itemindex);
@@ -3992,14 +3992,14 @@ BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 
 			if(itemindex != -1) {
 				LogItem(
-				CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+				CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 				CHAR_getChar( talker, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 				itemindex,
 #else
-	       		ITEM_getInt( itemindex, ITEM_ID),  /* ¥¢¥¤  ¥à  ¹æ */
+	       		ITEM_getInt( itemindex, ITEM_ID),  /* å¤±å¥¶  ä¸  å¯ */
 #endif
-				"EventAddItem(¥ô°È»İ¨D©Ò±o¨ìªº¹D¨ã)",
+				"EventAddItem(ä»»å‹™éœ€æ±‚æ‰€å¾—åˆ°çš„é“å…·)",
 				CHAR_getInt( talker, CHAR_FLOOR),
 				CHAR_getInt( talker, CHAR_X ),
  				CHAR_getInt( talker, CHAR_Y ),
@@ -4008,7 +4008,7 @@ BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 				ITEM_getInt( itemindex, ITEM_ID)
 			);
 			}
-			sprintf(token,"®³¨ì%s¡C", ITEM_getChar( itemindex, ITEM_NAME));
+			sprintf(token,"æ‹¿åˆ°%sã€‚", ITEM_getChar( itemindex, ITEM_NAME));
 			CHAR_talkToCli( talker, -1, token, CHAR_COLORWHITE);
 
 			CHAR_sendItemDataOne( talker, ret);
@@ -4020,7 +4020,7 @@ BOOL NPC_EventAddItem(int meindex,int talker,char *buf)
 
 
 /*---------------------------------
- *¾ò·ï¤ò  ¤¿¤·¤Æ¤¤¤ë¤Î¤ò  ¤­½Ğ¤¹
+ *æ©¢ç˜€æ¯›  å‡¶ä»„åŒ–ä¸­æœˆåŠæ¯›  äº”è«‹å…
  ------------- ---------------------*/
 int NPC_EventFile(int meindex,int talker,char *arg)
 {
@@ -4033,33 +4033,33 @@ int NPC_EventFile(int meindex,int talker,char *arg)
 	int EvNo=0;
 	int evch;
 	
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤ß  ¤à--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  å¿ƒ  æˆˆ--*/
 	if((argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof(argstr1))) == NULL) {
 
 		print("GetArgStrErr");
 		return -1;
 	}
 
-	/*ÀßÄê¥Õ¥¡¥¤¥ë¤òÊ¬³ä¤¹¤ë*/
+	/*æ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›åŒå–ƒå…æœˆ*/
 	while(getStringFromIndexWithDelim( argstr, "EventEnd", i, buf,sizeof( buf))
 	!= FALSE)
 	{
 		CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTSEC, 0);
 		i++;
-		/*--¥¤¥Ù¥ó¥È¥Ê¥ó¥Ğ¡¼¤ò¥²¥Ã¥È--*/
+		/*--å¥¶çŸ›ä»¶ç„ç“œä»¶ç”°â–¡æ¯›å¿…æ°¸ç„--*/
 		NPC_Util_GetStrFromStrWithDelim( buf, "EventNo", buff2,sizeof( buff2) );
 		EvNo = atoi( buff2);
 
-		/*--¥Õ¥é¥°¥Á¥§¥Ã¥¯¤ò¹Ô¤¦¡e¤¹¤Ç¤Ë¡b¤³¤Î¥¤¥Ù¥ó¥È¤¬½ª  ¤·¤Æ¤¤¤ë¾ì¹ç¤Ï±­¤Ø--*/
+		/*--ç™½ä»¿å¼˜æ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹ã€”å…åŒ¹åï½ä»‡åŠå¥¶çŸ›ä»¶ç„äº’è”½  ä»„åŒ–ä¸­æœˆæ¨ºå¯§åæˆšå°º--*/
 		if(NPC_EventCheckFlg( talker, EvNo) == TRUE) continue;
 
-		/*--¥­¡¼¥ï¡¼¥É¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+		/*--å¹³â–¡ä¼â–¡ç‰åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 		if(NPC_Util_GetStrFromStrWithDelim( buf,"Pet_Name", buff2,sizeof( buff2) ) 
 		 != NULL)
 		{
 			CHAR_setWorkInt( talker, CHAR_WORKSHOPRELEVANTSEC, 1);
 		}
-		/*--¥­¡¼¥ï¡¼¥É¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦--*/
+		/*--å¹³â–¡ä¼â–¡ç‰åŠæ°‘å°¼æ°¸å¼æ¯›å¢Šä¸¹--*/
 		if(NPC_Util_GetStrFromStrWithDelim( buf,"KeyWord", buff2,sizeof( buff2) ) 
 		 != NULL)
 		{
@@ -4069,7 +4069,7 @@ int NPC_EventFile(int meindex,int talker,char *arg)
 		evch = NPC_ExChangeManEventCheck( meindex, talker, buf);
 
 		if(evch != -1) {
-		/*--¥¤¥Ù¥ó¥È¾ò·ï¤Î¥Á¥§¥Ã¥¯--*/
+		/*--å¥¶çŸ›ä»¶ç„æ©¢ç˜€åŠæ°‘å°¼æ°¸å¼--*/
 //		if(NPC_ExChangeManEventCheck( meindex, talker, buf) == TRUE) {
 			strcpysafe(arg, sizeof( buf) ,buf);
 			return evch;
@@ -4082,7 +4082,7 @@ int NPC_EventFile(int meindex,int talker,char *arg)
 
 
 /*---------------------------------
- * ¥¢¥¤  ¥à¤Î¥Á¥§¥Ã¥¯¤À¤±¤ò¹Ô¤¦
+ * å¤±å¥¶  ä¸åŠæ°‘å°¼æ°¸å¼åˆ†ä»ƒæ¯›å¢Šä¸¹
  -----------------------------------*/
 BOOL NPC_EventReduce(int meindex,int talker,char *buf)
 {
@@ -4107,7 +4107,7 @@ BOOL NPC_EventReduce(int meindex,int talker,char *buf)
 		if( ITEM_CHECKINDEX( itemindex) ){
 			id = ITEM_getInt( itemindex ,ITEM_ID);
 			if(itemno == id){
-				//change add ¼W¥[¹ï°ïÅ|ªº§PÂ_
+				//change add å¢åŠ å°å †ç–Šçš„åˆ¤æ–·
 				int pilenum = ITEM_getInt( itemindex, ITEM_USEPILENUMS);
 				if( pilenum )
 					cnt+=pilenum;
@@ -4126,7 +4126,7 @@ BOOL NPC_EventReduce(int meindex,int talker,char *buf)
 }
 
 /*----------------------------------
- *¥Ú¥Ã¥È¤Ë¥¹¥­¥ë¤ò³Ğ¤¨¤µ¤»¤ë
+ *çŸ¢æ°¸ç„åæ—¦å¹³ä¼™æ¯›å‰µå°¹ä»Šå…­æœˆ
  ----------------------------------*/
 void NPC_EventPetSkill( int meindex, int talker, char *data)
 {
@@ -4152,15 +4152,15 @@ void NPC_EventPetSkill( int meindex, int talker, char *data)
 
 	if(evcnt == -1) return;
 
-	/*--ÀßÄê¥Õ¥¡¥¤¥ë  ¤Ë¹á¤«k¥ì  ¤¤¤ë¾ò·ï¤ò  ¤¿¤·¤Æ¤¤¤ë¤â¤Î¤ò  ¤­½Ğ¤¹--*/
+	/*--æ¾€çˆ›ç™½å¤®å¥¶ä¼™  åå«—äº•kä¼Š  ä¸­æœˆæ©¢ç˜€æ¯›  å‡¶ä»„åŒ–ä¸­æœˆæ‰‹åŠæ¯›  äº”è«‹å…--*/
 //	if(NPC_EventFile( meindex, talker, argstr) == FALSE) return ;
 
-	/*¥¯¥é¥¤¥¢¥ó¥È¤«¤éÊÖ¤Ã¤Æ¤¯¤ë¥Ç¡¼¥¿--*/
-	/*¤É¤Î  ¤ò¤¨¤é¤ó¤À¤«¡ª(Áª    ¹æ)  ¤É¤Î¥Ú¥Ã¥È¤«¡ª(Áª    ¹æ)  
-	¤É¤Î¥¹¤Ò¥Ã¥È¤«¡ª(Áª    ¹æ)  ÃÍÃÊ*/
+	/*å¼ä»¿å¥¶å¤±ä»¶ç„äº•æ—¥å¿’å‹»åŒ–ä»æœˆçŠ¯â–¡æ­£--*/
+	/*å‡åŠ  æ¯›å°¹æ—¥æ°åˆ†äº•ã€(è–Š    å¯)  å‡åŠçŸ¢æ°¸ç„äº•ã€(è–Š    å¯)  
+	å‡åŠæ—¦å¤«æ°¸ç„äº•ã€(è–Š    å¯)  è¥–èŸ¾*/
 	makeStringFromEscaped( data);
 
-	/*--¥Ç¡¼¥¿¤Î¿¶¤êÊ¬¤±--*/
+	/*--çŠ¯â–¡æ­£åŠè•Šæ›°åŒä»ƒ--*/
 	getStringFromIndexWithDelim( data, "|", 1, buf, sizeof( buf));
 	skill = atoi( buf);
 	getStringFromIndexWithDelim( data, "|", 2, buf, sizeof( buf));
@@ -4170,7 +4170,7 @@ void NPC_EventPetSkill( int meindex, int talker, char *data)
 	getStringFromIndexWithDelim( data, "|", 4, buf, sizeof( buf));
 	cost = atoi( buf);
 
-	/*--¥¹¥­¥ë    ¤ò¥²¥Ã¥È¤¹¤ë--*/
+	/*--æ—¦å¹³ä¼™    æ¯›å¿…æ°¸ç„å…æœˆ--*/
 	if( NPC_Util_GetStrFromStrWithDelim( argstr, "pet_skill", 
 									msg, sizeof( msg)) != NULL) 
 	{
@@ -4187,19 +4187,19 @@ void NPC_EventPetSkill( int meindex, int talker, char *data)
 		return;
 	}
 
-	/*--¤½¤Î¥­¥ã¥é¤¬Àï    ¤Ê¤é¡b¥Ú¥Ã¥È¤ò¤¦¤é¤º½ª  --*/
+	/*--å…¬åŠå¹³ä¹“ä»¿äº’çˆµ    å…æ—¥ï½çŸ¢æ°¸ç„æ¯›ä¸¹æ—¥å…§è”½  --*/
 	if( CHAR_getWorkInt( CONNECT_getCharaindex( fd),
                          CHAR_WORKBATTLEMODE) != BATTLE_CHARMODE_NONE) return ;
 
-	/*--¥Ú¥Ã¥È¤Ë  ¤ò³Ğ¤¨¤µ¤»¤ë--*/
+	/*--çŸ¢æ°¸ç„å  æ¯›å‰µå°¹ä»Šå…­æœˆ--*/
 	CHAR_setPetSkill( petindex, slot, skillID);
 			
-	/*--¶³¶â¤ò¸º¤é¤¹--*/
+	/*--é›²å—¯æ¯›è›¹æ—¥å…--*/
 	CHAR_setInt( talker, CHAR_GOLD, (CHAR_getInt( talker, CHAR_GOLD) - cost));
 
 	snprintf( msgbuf, sizeof( msgbuf ), "W%d",pet-1);
 
-	// ¿·¤·¤¤¥Ú¥Ã¥È¤Î  ¥Ç¡¼¥¿¤òÁ÷¤ê¤Ä¤±¤ë
+	// è•™ä»„ä¸­çŸ¢æ°¸ç„åŠ  çŠ¯â–¡æ­£æ¯›éœœæ›°å‹¾ä»ƒæœˆ
 	CHAR_sendStatusString( talker, msgbuf );
 			
 	CHAR_sendStatusString( talker, "P");
@@ -4208,7 +4208,7 @@ void NPC_EventPetSkill( int meindex, int talker, char *data)
 
 
 /*----------------------------------------
- *  ¥¢¥¤  ¥à¤¬¤¤¤Ã¤Ñ¤¤¤«¤É¤¦¤«¤Î¥Á¥§¥Ã¥¯
+ *  å¤±å¥¶  ä¸äº’ä¸­å‹»å¤©ä¸­äº•å‡ä¸¹äº•åŠæ°‘å°¼æ°¸å¼
 ----------- ------------------------------*/
 BOOL NPC_ItemFullCheck(int meindex,int talker,char *buf,int mode,int evcnt)
 {
@@ -4411,7 +4411,7 @@ BOOL NPC_EventBMM(int meindex, int talker, char *buff2,int mode)
 	}
 
   if( i == CHAR_MAXPETHAVE )      {
-		snprintf( msgbuf,sizeof( msgbuf), "Ãdª«¤wº¡¡I¡I");
+		snprintf( msgbuf,sizeof( msgbuf), "å¯µç‰©å·²æ»¿ï¼ï¼");
 		CHAR_talkToCli( talker, -1, msgbuf,  CHAR_COLORYELLOW);
 		return FALSE;
 	}
@@ -4468,7 +4468,7 @@ BOOL NPC_EventBMM(int meindex, int talker, char *buff2,int mode)
 				if( level < 0 ) level = 0;
 				if( level > 0 ){
 					int k;
-					for( k = 1; k < level; k ++ ){	//¤É¯Å
+					for( k = 1; k < level; k ++ ){	//å‡ç´š
 						CHAR_PetLevelUp( ret );
 						CHAR_PetAddVariableAi( ret, AI_FIX_PETLEVELUP );
 						CHAR_setInt( ret, CHAR_LV, CHAR_getInt( ret, CHAR_LV) +1 );
@@ -4479,7 +4479,7 @@ BOOL NPC_EventBMM(int meindex, int talker, char *buff2,int mode)
 			snprintf( msgbuf, sizeof( msgbuf ), "W%d", i );
 			CHAR_sendStatusString( talker, msgbuf );
 		}
-		snprintf( msgbuf,sizeof( msgbuf), "Àò±o79¯ÅMM %d ¥u\n",mmnum,randmm);
+		snprintf( msgbuf,sizeof( msgbuf), "ç²å¾—79ç´šMM %d åª\n",mmnum,randmm);
 		CHAR_talkToCli( talker, -1, msgbuf,  CHAR_COLORYELLOW);
 	}
 }
@@ -4493,7 +4493,7 @@ BOOL NPC_EventTrans(int meindex, int talker, char *buff2)
 	transtemp = CHAR_getInt(	talker, CHAR_TRANSMIGRATION)+1;
 	
 	if( transtemp > _JZ_TRANSX){
-		CHAR_talkToCli( talker, -1,"µLªk¦AÂà¥Í¤F", CHAR_COLORWHITE);
+		CHAR_talkToCli( talker, -1,"ç„¡æ³•å†è½‰ç”Ÿäº†", CHAR_COLORWHITE);
 		return FALSE;
 	}
 
@@ -4508,9 +4508,9 @@ BOOL NPC_EventTrans(int meindex, int talker, char *buff2)
   CHAR_Skillupsend( talker );
   CHAR_setInt( talker , CHAR_BASEIMAGENUMBER , CHAR_getInt( talker , CHAR_BASEBASEIMAGENUMBER) );
 	LogTensei(
-		CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+		CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 		CHAR_getChar( talker, CHAR_CDKEY),
-		"Tensei(«DºëÆF¤ıNPCÂà¥Í)",
+		"Tensei(éç²¾éˆç‹NPCè½‰ç”Ÿ)",
 		work[0],
 		CHAR_getInt(talker,CHAR_TRANSMIGRATION),
 		work[1],
@@ -4519,11 +4519,11 @@ BOOL NPC_EventTrans(int meindex, int talker, char *buff2)
 		work[2],work[3],work[4],work[5],
 		work[6],work[7],work[8],work[9]
 	);
-	//­pºâ¤Hª«¯à¤O
+	//è¨ˆç®—äººç‰©èƒ½åŠ›
 	CHAR_complianceParameter( talker );
 	CHAR_setInt(talker, CHAR_HP, CHAR_getWorkInt(talker, CHAR_WORKMAXHP) );
 	CHAR_setInt(talker,CHAR_LASTTALKELDER, NPC_StartpointCheck(0,talker));
-	//§ó·s«È¤áºİ
+	//æ›´æ–°å®¢æˆ¶ç«¯
 	CHAR_sendStatusString( talker, "P" );
 	CHAR_sendCToArroundCharacter( CHAR_getWorkInt( talker, CHAR_WORKOBJINDEX ));
 }

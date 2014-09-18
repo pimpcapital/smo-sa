@@ -10,14 +10,14 @@
 typedef struct
 {
     int use;
-    BOOL online;					/* Áê¼ê¥­¥ã¥é¤¬¥µ¡¼¥Ğ  ¤Ë¤¤¤¿¤éTRUE,
-                                		¤½¤¦¤Ç¤Ê¤«¤Ã¤¿¤éFALSE */
-    int level;               		/* Áê¼ê¥­¥ã¥é¤Î¥ì¥Ù¥ë */
+    BOOL online;					/* é¬æ¾å¹³ä¹“ä»¿äº’æ‰”â–¡ç”°  åä¸­å‡¶æ—¥TRUE,
+                                		å…¬ä¸¹åŒ¹å…äº•å‹»å‡¶æ—¥FALSE */
+    int level;               		/* é¬æ¾å¹³ä¹“ä»¿åŠä¼ŠçŸ›ä¼™ */
 	int	duelpoint;					/* duelpoint*/
-    int graphicsno;					/* Áê¼ê¥­¥ã¥é¤Î  Áü  ¹æ */
-    char cdkey[CDKEYLEN];			/* CD ¥Ê¥ó¥Ğ¡¼ */
-    char charname[CHARNAMELEN];		/* Áê¼ê¥­¥ã¥é¤Î  Á° */
-	int transmigration;             /* Å¾À¸²ó¿ô */
+    int graphicsno;					/* é¬æ¾å¹³ä¹“ä»¿åŠ  é¢¶  å¯ */
+    char cdkey[CDKEYLEN];			/* CD ç“œä»¶ç”°â–¡ */
+    char charname[CHARNAMELEN];		/* é¬æ¾å¹³ä¹“ä»¿åŠ  èŸ† */
+	int transmigration;             /* é±‰æˆ²è¢é†’ */
 	
 } ADDRESSBOOK_entry;
 

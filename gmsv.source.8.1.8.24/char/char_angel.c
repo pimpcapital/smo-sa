@@ -47,8 +47,8 @@ struct MissionInfo missionlist[MAXMISSION];
 int mission_num =0;
 struct MissionTable missiontable[MAXMISSIONTABLE];
 
-//#define ANGELITEM 2884 //20701	//¨ÏªÌªº«Hª« ¹D¨ã½s¸¹
-//#define HEROITEM 2885 //20702	//«iªÌªº«Hª« ¹D¨ã½s¸¹
+//#define ANGELITEM 2884 //20701	//ä½¿è€…çš„ä¿¡ç‰© é“å…·ç·¨è™Ÿ
+//#define HEROITEM 2885 //20702	//å‹‡è€…çš„ä¿¡ç‰© é“å…·ç·¨è™Ÿ
 
 extern int AngelReady;
 
@@ -154,7 +154,7 @@ void addAngelData( int angelindex, int heroindex, int mission, int flag)
 //void selectAngel( int charaindex)
 void selectAngel( int charaindex, int heroindex, int mission, int gm_cmd)
 {
-	// gm_cmd ªí¥Ü¬O§_¥ÑGM«ü¥O²£¥Í, 
+	// gm_cmd è¡¨ç¤ºæ˜¯å¦ç”±GMæŒ‡ä»¤ç”¢ç”Ÿ, 
 
 	//int heroindex =-1;
 	int findindex, startindex;
@@ -165,36 +165,36 @@ void selectAngel( int charaindex, int heroindex, int mission, int gm_cmd)
 	if( AngelReady <= 0 && gm_cmd == FALSE)
 		return;
 
-	sprintf( msg, " ¨ÏªÌ¸ê®æÀË¬d: %s %s ", CHAR_getChar( charaindex, CHAR_CDKEY), CHAR_getChar( charaindex, CHAR_NAME));
+	sprintf( msg, " ä½¿è€…è³‡æ ¼æª¢æŸ¥: %s %s ", CHAR_getChar( charaindex, CHAR_CDKEY), CHAR_getChar( charaindex, CHAR_NAME));
 	//print( msg);
 	LogAngel( msg);
 
-	// ¤Ñ¨Ï±ø¥óÀË¬d
+	// å¤©ä½¿æ¢ä»¶æª¢æŸ¥
 	if( gm_cmd == FALSE )
 	{
-		if( checkIfAngel( charaindex) != -1) // ¬O§_¤Ñ¨Ï©Î«iªÌ
+		if( checkIfAngel( charaindex) != -1) // æ˜¯å¦å¤©ä½¿æˆ–å‹‡è€…
 		{
-			//print(" ANGEL¤w¸g¬O¤Ñ¨Ï©Î«iªÌ¤F ");
+			//print(" ANGELå·²ç¶“æ˜¯å¤©ä½¿æˆ–å‹‡è€…äº† ");
 			return;
 		}
 		
 		if( CHAR_getInt( charaindex, CHAR_LV) < 30 || !NPC_EventCheckFlg( charaindex, 4 ) )
 		{
-			//print(" ANGEL¸ê®æ¤£²Å ");
+			//print(" ANGELè³‡æ ¼ä¸ç¬¦ ");
 			return;
 		}
 		
 		srand( time(NULL));
-		if( rand()%3 == 0 )	// ¤Ñ¨Ïªº¾÷²v 2/3
+		if( rand()%3 == 0 )	// å¤©ä½¿çš„æ©Ÿç‡ 2/3
 		{
-			//print(" ANGEL¾÷²vÀË¬d¤£³q¹L ");
+			//print(" ANGELæ©Ÿç‡æª¢æŸ¥ä¸é€šé ");
 			return;
 		}
 	}
-	//print(" ANGEL¨M©w ");
+	//print(" ANGELæ±ºå®š ");
 
 	
-	// ¬D¿ï«iªÌ
+	// æŒ‘é¸å‹‡è€…
 	if( heroindex == -1 )
 	{
 		//heroindex = -1;
@@ -207,28 +207,28 @@ void selectAngel( int charaindex, int heroindex, int mission, int gm_cmd)
 			if( !CHAR_CHECKINDEX( findindex) ) continue;
 			if( CHAR_getInt( findindex, CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) continue;
 			if( findindex == charaindex ) continue;
-			if( checkIfAngel( findindex) != -1)	continue; // ¬O§_¤Ñ¨Ï©Î«iªÌ
-			if( CHAR_getInt( findindex, CHAR_LV) < 80 || !NPC_EventCheckFlg( findindex, 4 ) ) continue; // «iªÌªº±ø¥ó
-			if( rand()%3 == 0 )	continue; // «iªÌªº¾÷²v 2/3
+			if( checkIfAngel( findindex) != -1)	continue; // æ˜¯å¦å¤©ä½¿æˆ–å‹‡è€…
+			if( CHAR_getInt( findindex, CHAR_LV) < 80 || !NPC_EventCheckFlg( findindex, 4 ) ) continue; // å‹‡è€…çš„æ¢ä»¶
+			if( rand()%3 == 0 )	continue; // å‹‡è€…çš„æ©Ÿç‡ 2/3
 			
 			heroindex = findindex;
 			
-			//print(" ANGEL«iªÌ¨M©w ");
+			//print(" ANGELå‹‡è€…æ±ºå®š ");
 			
 			break;
 		}
 		if( heroindex < 0) {
-			//sprintf( msg, " ¨S¦³§ä¨ì«iªÌ¤H¿ï!! ");
+			//sprintf( msg, " æ²’æœ‰æ‰¾åˆ°å‹‡è€…äººé¸!! ");
 			//print( msg);
 			//LogAngel( msg);
 			return;
 		}
 	}
 
-	// ¨M©w¥ô°È
+	// æ±ºå®šä»»å‹™
 	if( mission == -1 )
 	{
-		int mlist[MAXMISSION]; // ²Å¦X±ø¥óªº¥ô°È¦Cªí
+		int mlist[MAXMISSION]; // ç¬¦åˆæ¢ä»¶çš„ä»»å‹™åˆ—è¡¨
 		char eventlist[1024];
 		char buf[64];
 		int i, j, mindex =0;
@@ -239,13 +239,13 @@ void selectAngel( int charaindex, int heroindex, int mission, int gm_cmd)
 			if( missionlist[i].id <= 0) continue;
 			if( CHAR_getInt( heroindex, CHAR_LV) < missionlist[i].level )
 				continue;
-			strcpy( eventlist, missionlist[i].eventflag); // ÀË¬d¥²­nºX¼Ğ
+			strcpy( eventlist, missionlist[i].eventflag); // æª¢æŸ¥å¿…è¦æ——æ¨™
 			j =0;
 			while(1) {
 				j++;
 				if( getStringFromIndexWithDelim( eventlist, ";", j, buf, sizeof(buf)) == FALSE )
 					break;
-				if( buf[0] != '!') { // ¥²­nºX¼Ğ©Î¸T¤îºX¼Ğ
+				if( buf[0] != '!') { // å¿…è¦æ——æ¨™æˆ–ç¦æ­¢æ——æ¨™
 					if( !NPC_EventCheckFlg( heroindex, atoi(buf) )) {
 						checked = FALSE;
 						break;
@@ -265,7 +265,7 @@ void selectAngel( int charaindex, int heroindex, int mission, int gm_cmd)
 			}
 		}
 		if( mindex <= 0 ) {
-			//sprintf( msg, " §ä¤£¨ì¦X¾Aªº¥ô°È ");
+			//sprintf( msg, " æ‰¾ä¸åˆ°åˆé©çš„ä»»å‹™ ");
 			//print( msg);
 			//LogAngel( msg);
 			return;
@@ -275,20 +275,20 @@ void selectAngel( int charaindex, int heroindex, int mission, int gm_cmd)
 	}
 
 
-	addAngelData( charaindex, heroindex, mission, MISSION_WAIT_ANSWER); // ¶Ç¨ìAC
+	addAngelData( charaindex, heroindex, mission, MISSION_WAIT_ANSWER); // å‚³åˆ°AC
 
-	// ²M°£ºX¼Ğ event8 224~255 ¬°ºëÆF¥l³ê±M¥Î
+	// æ¸…é™¤æ——æ¨™ event8 224~255 ç‚ºç²¾éˆå¬å–šå°ˆç”¨
 	CHAR_setInt( charaindex, CHAR_NOWEVENT8, 0);
 	CHAR_setInt( charaindex, CHAR_ENDEVENT8, 0);
 	CHAR_setInt( heroindex, CHAR_NOWEVENT8, 0);
 	CHAR_setInt( heroindex, CHAR_ENDEVENT8, 0);
 
 	if( gm_cmd == FALSE )
-		AngelReady = 0; // ²M°£¯ÊÃB
+		AngelReady = 0; // æ¸…é™¤ç¼ºé¡
 	
 	{
-		sprintf( msg, " ²£¥Í %s ¤Ñ¨Ï­Ô¸É: %s %s Lv:%d «iªÌ­Ô¸É: %s %s Lv:%d ¥ô°È:%d ci=%d hi=%d ",
-				gm_cmd ? ("(GM«ü¥O)") : (" "),
+		sprintf( msg, " ç”¢ç”Ÿ %s å¤©ä½¿å€™è£œ: %s %s Lv:%d å‹‡è€…å€™è£œ: %s %s Lv:%d ä»»å‹™:%d ci=%d hi=%d ",
+				gm_cmd ? ("(GMæŒ‡ä»¤)") : (" "),
 				CHAR_getChar( charaindex, CHAR_CDKEY), CHAR_getChar( charaindex, CHAR_NAME), CHAR_getInt( charaindex, CHAR_LV),
 				CHAR_getChar( heroindex, CHAR_CDKEY), CHAR_getChar( heroindex, CHAR_NAME), CHAR_getInt( heroindex, CHAR_LV),
 				mission, charaindex, heroindex);
@@ -315,14 +315,14 @@ int AngelCreate( int angelindex)
 
 	if( !CHAR_CHECKINDEX( angelindex))	return FALSE;
 
-	print(" ¤Ñ¨ÏµªÀ³¤F!! ");
+	print(" å¤©ä½¿ç­”æ‡‰äº†!! ");
 	
 	mindex = checkIfAngel( angelindex);
 	if( mindex == -1 || missiontable[mindex].flag == MISSION_TIMEOVER ) {
-		//print("\n ANGEL¿ù»~!!Table¹O®É©ÎµL¸ê®Æ??:%d ", angelindex );
-		CHAR_talkToCli( angelindex, -1, "«Ü©êºp¡A§A¤Ó±ß¦^µª¡A¤w¸g¹O®É¤F¡C", CHAR_COLORYELLOW);
+		//print("\n ANGELéŒ¯èª¤!!Tableé€¾æ™‚æˆ–ç„¡è³‡æ–™??:%d ", angelindex );
+		CHAR_talkToCli( angelindex, -1, "å¾ˆæŠ±æ­‰ï¼Œä½ å¤ªæ™šå›ç­”ï¼Œå·²ç¶“é€¾æ™‚äº†ã€‚", CHAR_COLORYELLOW);
 		
-		sprintf( msgbuf, " ¦^µª¹O®É©ÎµL¸ê®Æ i:%d ¨ÏªÌ:%s %s ", mindex, CHAR_getChar( angelindex, CHAR_CDKEY), CHAR_getChar( angelindex, CHAR_NAME));
+		sprintf( msgbuf, " å›ç­”é€¾æ™‚æˆ–ç„¡è³‡æ–™ i:%d ä½¿è€…:%s %s ", mindex, CHAR_getChar( angelindex, CHAR_CDKEY), CHAR_getChar( angelindex, CHAR_NAME));
 		print( msgbuf);
 		LogAngel( msgbuf);
 		
@@ -330,12 +330,12 @@ int AngelCreate( int angelindex)
 	}
 
 	if( missiontable[mindex].flag != MISSION_WAIT_ANSWER ) {
-		print(" ºX¼Ğ¤£²Å:%d ", missiontable[mindex].flag);
+		print(" æ——æ¨™ä¸ç¬¦:%d ", missiontable[mindex].flag);
 		return FALSE;
 	}
 
 	if( CHAR_findEmptyItemBoxNo( angelindex ) < 2 ){
-		CHAR_talkToCli( angelindex, -1, "ªÅ¶¡Äæ¦ì¤£¨¬¡C¦Ü¤Ö­n¦³¨â­ÓªÅ¹D¨ãÄæ¦ì¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( angelindex, -1, "ç©ºé–“æ¬„ä½ä¸è¶³ã€‚è‡³å°‘è¦æœ‰å…©å€‹ç©ºé“å…·æ¬„ä½ã€‚", CHAR_COLORYELLOW);
 		return TRUE;
 	}
 
@@ -344,7 +344,7 @@ int AngelCreate( int angelindex)
 	angeltokenindex = ITEM_makeItemAndRegist( ANGELITEM );
 	if( angeltokenindex != -1 ){
 		/*if( ITEM_getInt( angeltokenindex, ITEM_TYPE) != ITEM_ANGELTOKEN) {
-			print(" »s§@¨ÏªÌ«Hª«¥¢±Ñ ");
+			print(" è£½ä½œä½¿è€…ä¿¡ç‰©å¤±æ•— ");
 			ITEM_endExistItemsOne( angeltokenindex);
 			return;
 		}*/
@@ -357,8 +357,8 @@ int AngelCreate( int angelindex)
 		//sprintf( msgbuf, "%s(%s)", ITEM_getChar( angeltokenindex, ITEM_NAME), CHAR_getChar( angelindex, CHAR_NAME ) );
 		//ITEM_setChar( angeltokenindex, ITEM_NAME, msgbuf);
 		//ITEM_setChar( angeltokenindex, ITEM_SECRETNAME, msgbuf);
-		//sprintf( msgbuf, "³o¬O¨ÏªÌ %s »P«iªÌ %s ±MÄİªº«Hª«", CHAR_getChar( angelindex, CHAR_NAME), heroname );
-		sprintf( msgbuf, "ºëÆF¨ÏªÌ %s ªº«Hª«¡A¸Ë³Æ«á¤£¹J¼Ä¡C", CHAR_getChar( angelindex, CHAR_NAME) );
+		//sprintf( msgbuf, "é€™æ˜¯ä½¿è€… %s èˆ‡å‹‡è€… %s å°ˆå±¬çš„ä¿¡ç‰©", CHAR_getChar( angelindex, CHAR_NAME), heroname );
+		sprintf( msgbuf, "ç²¾éˆä½¿è€… %s çš„ä¿¡ç‰©ï¼Œè£å‚™å¾Œä¸é‡æ•µã€‚", CHAR_getChar( angelindex, CHAR_NAME) );
 		ITEM_setChar( angeltokenindex, ITEM_EFFECTSTRING, msgbuf);
 
 		emptyitem1 = CHAR_addItemSpecificItemIndex( angelindex, angeltokenindex);
@@ -367,23 +367,23 @@ int AngelCreate( int angelindex)
 			CHAR_getChar( angelindex, CHAR_NAME ),
 			CHAR_getChar( angelindex, CHAR_CDKEY ),
 			angeltokenindex,
-			"AddItem(»s§@¹D¨ã ¨ÏªÌ«Hª«)",
+			"AddItem(è£½ä½œé“å…· ä½¿è€…ä¿¡ç‰©)",
 			CHAR_getInt( angelindex,CHAR_FLOOR),
 			CHAR_getInt( angelindex,CHAR_X ),
 			CHAR_getInt( angelindex,CHAR_Y ),
 			ITEM_getChar( angeltokenindex, ITEM_UNIQUECODE),
 			ITEM_getChar( angeltokenindex, ITEM_NAME),
 			ITEM_getInt( angeltokenindex, ITEM_ID) );
-		CHAR_talkToCli( angelindex, -1,"±o¨ì¨ÏªÌªº«Hª«¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( angelindex, -1,"å¾—åˆ°ä½¿è€…çš„ä¿¡ç‰©ã€‚", CHAR_COLORYELLOW);
 	}else{
-		print("»s§@¨ÏªÌªº«Hª«¥¢±Ñ¡C" );
+		print("è£½ä½œä½¿è€…çš„ä¿¡ç‰©å¤±æ•—ã€‚" );
 		return FALSE;
 	}
 
 	herotokenindex = ITEM_makeItemAndRegist( HEROITEM );
 	if( herotokenindex != -1 ){
 		/*if( ITEM_getInt( herotokenindex, ITEM_TYPE) != ITEM_HEROTOKEN) {
-			print(" »s§@«iªÌ«Hª«¥¢±Ñ ");
+			print(" è£½ä½œå‹‡è€…ä¿¡ç‰©å¤±æ•— ");
 			ITEM_endExistItemsOne( herotokenindex);
 			ITEM_endExistItemsOne( angeltokenindex);
 			CHAR_sendItemDataOne( angelindex, emptyitem1);
@@ -397,8 +397,8 @@ int AngelCreate( int angelindex)
 		//sprintf( msgbuf, "%s(%s)", ITEM_getChar( herotokenindex, ITEM_NAME), heroname );
 		//ITEM_setChar( herotokenindex, ITEM_NAME, msgbuf);
 		//ITEM_setChar( herotokenindex, ITEM_SECRETNAME, msgbuf);
-		//sprintf( msgbuf, "³o¬O«iªÌ %s »P¨ÏªÌ %s ±MÄİªº«Hª«", heroname, CHAR_getChar( angelindex, CHAR_NAME) );
-		sprintf( msgbuf, "«iªÌ %s ªº«Hª«¡A¨ÏªÌ¨Ï¥Î¥i¶Ç°e¦Ü«iªÌ¨­Ãä¡C", heroname );
+		//sprintf( msgbuf, "é€™æ˜¯å‹‡è€… %s èˆ‡ä½¿è€… %s å°ˆå±¬çš„ä¿¡ç‰©", heroname, CHAR_getChar( angelindex, CHAR_NAME) );
+		sprintf( msgbuf, "å‹‡è€… %s çš„ä¿¡ç‰©ï¼Œä½¿è€…ä½¿ç”¨å¯å‚³é€è‡³å‹‡è€…èº«é‚Šã€‚", heroname );
 		ITEM_setChar( herotokenindex, ITEM_EFFECTSTRING, msgbuf);
 
 		emptyitem2 = CHAR_addItemSpecificItemIndex( angelindex, herotokenindex);
@@ -407,33 +407,33 @@ int AngelCreate( int angelindex)
 			CHAR_getChar( angelindex, CHAR_NAME ),
 			CHAR_getChar( angelindex, CHAR_CDKEY ),
 			herotokenindex,
-			"AddItem(»s§@¹D¨ã «iªÌ«Hª«)",
+			"AddItem(è£½ä½œé“å…· å‹‡è€…ä¿¡ç‰©)",
 			CHAR_getInt( angelindex,CHAR_FLOOR),
 			CHAR_getInt( angelindex,CHAR_X ),
 			CHAR_getInt( angelindex,CHAR_Y ),
 			ITEM_getChar( herotokenindex, ITEM_UNIQUECODE),
 			ITEM_getChar( herotokenindex, ITEM_NAME),
 			ITEM_getInt( herotokenindex, ITEM_ID) );
-		CHAR_talkToCli( angelindex, -1,"±o¨ì«iªÌªº«Hª«¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( angelindex, -1,"å¾—åˆ°å‹‡è€…çš„ä¿¡ç‰©ã€‚", CHAR_COLORYELLOW);
 	}else{
-		print("»s§@«iªÌªº«Hª«¥¢±Ñ¡C" );
+		print("è£½ä½œå‹‡è€…çš„ä¿¡ç‰©å¤±æ•—ã€‚" );
 		ITEM_endExistItemsOne( angeltokenindex);
 		CHAR_sendItemDataOne( angelindex, emptyitem1);
 		return FALSE;
 	}
 
-	// §ó·s¦ÜAC Server
+	// æ›´æ–°è‡³AC Server
 	//sprintf( nameinfo, "%s:%s", CHAR_getChar( angelindex, CHAR_CDKEY), CHAR_getChar( angelindex, CHAR_NAME ) );
 	sprintf( msgbuf, "%s|%d", missiontable[mindex].angelinfo, missionlist[missiontable[mindex].mission].limittime );
 	saacproto_ACMissionTable_send( acfd, MISSION_DOING, 4, msgbuf, "");
 
-	//CHAR_talkToCli( angelindex, -1, "¤Ñ¤§Án¡G«D±`·PÁÂ§AµªÀ³À°¦£¡A¨º§Ú´N±N«Hª«¥æµ¹§A¤F¡A½Ğ±N«iªÌªº«Hª«Âà¥æµ¹«iªÌ¡C", CHAR_COLORYELLOW);
+	//CHAR_talkToCli( angelindex, -1, "å¤©ä¹‹è²ï¼šéå¸¸æ„Ÿè¬ä½ ç­”æ‡‰å¹«å¿™ï¼Œé‚£æˆ‘å°±å°‡ä¿¡ç‰©äº¤çµ¦ä½ äº†ï¼Œè«‹å°‡å‹‡è€…çš„ä¿¡ç‰©è½‰äº¤çµ¦å‹‡è€…ã€‚", CHAR_COLORYELLOW);
 
 	lssproto_WN_send( getfdFromCharaIndex(angelindex), WINDOW_MESSAGETYPE_MESSAGE, 
 			WINDOW_BUTTONTYPE_YES, -1, -1,
-			"«D±`·PÁÂ§AµªÀ³À°¦£¡A¨º§Ú´N±N«Hª«¥æµ¹§A¤F¡A½Ğ±N«iªÌªº«Hª«Âà¥æµ¹«iªÌ¡C");
+			"éå¸¸æ„Ÿè¬ä½ ç­”æ‡‰å¹«å¿™ï¼Œé‚£æˆ‘å°±å°‡ä¿¡ç‰©äº¤çµ¦ä½ äº†ï¼Œè«‹å°‡å‹‡è€…çš„ä¿¡ç‰©è½‰äº¤çµ¦å‹‡è€…ã€‚");
 
-	sprintf( msgbuf, " ¨ÏªÌµªÀ³À°¦£¤F i:%d ¨ÏªÌ:%s «iªÌ:%s ci=%d ", mindex, missiontable[mindex].angelinfo, missiontable[mindex].heroinfo, angelindex);
+	sprintf( msgbuf, " ä½¿è€…ç­”æ‡‰å¹«å¿™äº† i:%d ä½¿è€…:%s å‹‡è€…:%s ci=%d ", mindex, missiontable[mindex].angelinfo, missiontable[mindex].heroinfo, angelindex);
 	print( msgbuf);
 	LogAngel( msgbuf);
 
@@ -441,7 +441,7 @@ int AngelCreate( int angelindex)
 }
 
 
-// ¨Ï¥Î¨ÏªÌ«Hª«®É
+// ä½¿ç”¨ä½¿è€…ä¿¡ç‰©æ™‚
 void Use_AngelToken( int charaindex, int toindex, int haveitemindex )
 {
 	int itemindex;
@@ -450,7 +450,7 @@ void Use_AngelToken( int charaindex, int toindex, int haveitemindex )
 	char msg[1024];
 	char tokenbuf[64];
 
-	print(" ¨Ï¥Î¨ÏªÌ«Hª« ");
+	print(" ä½¿ç”¨ä½¿è€…ä¿¡ç‰© ");
 	
 	if( !CHAR_CHECKINDEX( charaindex) )	return;
 	itemindex = CHAR_getItemIndex( charaindex, haveitemindex);
@@ -462,19 +462,19 @@ void Use_AngelToken( int charaindex, int toindex, int haveitemindex )
 
 	if( mindex == -1 || 
 		( strcmp( nameinfo, ITEM_getChar( itemindex, ITEM_ANGELINFO)) && strcmp( nameinfo, ITEM_getChar( itemindex, ITEM_HEROINFO)) ) ) {
-		// ¸ô¤H¥Ò¨Ï¥Î®É
-		CHAR_talkToCli( charaindex, -1, "³o¨Ã¤£¬OÄİ©ó§Aªº«Hª«¡A¤£¥iÀH«K¨Ï¥Î³á¡C", CHAR_COLORRED);
+		// è·¯äººç”²ä½¿ç”¨æ™‚
+		CHAR_talkToCli( charaindex, -1, "é€™ä¸¦ä¸æ˜¯å±¬æ–¼ä½ çš„ä¿¡ç‰©ï¼Œä¸å¯éš¨ä¾¿ä½¿ç”¨å–”ã€‚", CHAR_COLORRED);
 		return;
 	}
 
 	if( strcmp( ITEM_getChar( itemindex, ITEM_ANGELINFO), missiontable[mindex].angelinfo)
 		|| strcmp( ITEM_getChar( itemindex, ITEM_HEROINFO), missiontable[mindex].heroinfo) ) {
 
-		CHAR_talkToCli( charaindex, -1, "³o¬OµL¥Îªº«Hª«¡AÁÙ¬O¥á±¼§a¡C", CHAR_COLORRED);
+		CHAR_talkToCli( charaindex, -1, "é€™æ˜¯ç„¡ç”¨çš„ä¿¡ç‰©ï¼Œé‚„æ˜¯ä¸Ÿæ‰å§ã€‚", CHAR_COLORRED);
 		return;
 	}
 
-	if( !strcmp( nameinfo, missiontable[mindex].angelinfo) ) { // ¨ÏªÌ¨Ï¥Î®É
+	if( !strcmp( nameinfo, missiontable[mindex].angelinfo) ) { // ä½¿è€…ä½¿ç”¨æ™‚
 
 		int lefttime, hour, min;
 		lefttime = missiontable[mindex].time + missiontable[mindex].limittime*60*60 - (int)time(NULL);
@@ -482,34 +482,34 @@ void Use_AngelToken( int charaindex, int toindex, int haveitemindex )
 		min = (lefttime % (60*60)) / 60;
 
 		if( missiontable[mindex].flag == MISSION_DOING ) {
-			// Åã¥Ü¥ô°È¸ê®Æ
+			// é¡¯ç¤ºä»»å‹™è³‡æ–™
 			getStringFromIndexWithDelim( missiontable[mindex].heroinfo, ":", 2, tokenbuf, sizeof(tokenbuf));
-			sprintf( msg, "§Aªº¨Ï©R¬O±N«iªÌªº«Hª«¥æµ¹ %s ¡A%s¡A®É¶¡ÁÙ³Ñ¾l%d¤p®É%d¤À¡C",
+			sprintf( msg, "ä½ çš„ä½¿å‘½æ˜¯å°‡å‹‡è€…çš„ä¿¡ç‰©äº¤çµ¦ %s ï¼Œ%sï¼Œæ™‚é–“é‚„å‰©é¤˜%då°æ™‚%dåˆ†ã€‚",
 				tokenbuf, missionlist[missiontable[mindex].mission].detail, hour, min);
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 		}
 		else if( missiontable[mindex].flag == MISSION_HERO_COMPLETE ) {
-			// ¥i¥H¥h»â¼ú¤F
+			// å¯ä»¥å»é ˜çäº†
 			getStringFromIndexWithDelim( missiontable[mindex].heroinfo, ":", 2, tokenbuf, sizeof(tokenbuf));
-			sprintf( msg, "«iªÌ %s ªº¨Ï©R¤w¸g§¹¦¨¤F¡A§A¥i¥H¥h»â¼ú¤F¡A®É¶¡ÁÙ³Ñ¾l%d¤p®É%d¤À¡C",
+			sprintf( msg, "å‹‡è€… %s çš„ä½¿å‘½å·²ç¶“å®Œæˆäº†ï¼Œä½ å¯ä»¥å»é ˜çäº†ï¼Œæ™‚é–“é‚„å‰©é¤˜%då°æ™‚%dåˆ†ã€‚",
 				tokenbuf, hour, min);
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 		}
 		else if( missiontable[mindex].flag == MISSION_TIMEOVER ) {
-			// ®É¶¡¶W¹L¤F
-			sprintf( msg, "«Ü¥i±¤¡A¨ÏªÌ©M«iªÌ¨Ã¨S¦³¦b®É­­¤º§¹¦¨¨Ï©R¡A¤U¦¸¦A¥[ªo§a¡C");
+			// æ™‚é–“è¶…éäº†
+			sprintf( msg, "å¾ˆå¯æƒœï¼Œä½¿è€…å’Œå‹‡è€…ä¸¦æ²’æœ‰åœ¨æ™‚é™å…§å®Œæˆä½¿å‘½ï¼Œä¸‹æ¬¡å†åŠ æ²¹å§ã€‚");
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 		}
 		return;
 	}
-	else if( !strcmp( nameinfo, missiontable[mindex].heroinfo) ) { // «iªÌ¨Ï¥Î®É
-		// ¶Ç°e¦Ü¨ÏªÌ¨­®Ç
+	else if( !strcmp( nameinfo, missiontable[mindex].heroinfo) ) { // å‹‡è€…ä½¿ç”¨æ™‚
+		// å‚³é€è‡³ä½¿è€…èº«æ—
 		int maxchar, i;
 		char cdkey[64], name[64];
 		int fl =0, fx =0, fy =0;
 
 		if( checkUnlawWarpFloor( CHAR_getInt( charaindex, CHAR_FLOOR) ) ) {
-				CHAR_talkToCli( charaindex, -1, "§A©Ò¦bªº¦a¤èµLªk¶Ç°e¡C", CHAR_COLORYELLOW );
+				CHAR_talkToCli( charaindex, -1, "ä½ æ‰€åœ¨çš„åœ°æ–¹ç„¡æ³•å‚³é€ã€‚", CHAR_COLORYELLOW );
 				return;
 		}
 
@@ -529,7 +529,7 @@ void Use_AngelToken( int charaindex, int toindex, int haveitemindex )
 			fy = CHAR_getInt( i, CHAR_Y);
 
 			if( checkUnlawWarpFloor( fl) ) {
-				CHAR_talkToCli( charaindex, -1, "¹ï¹³©Ò¦bªº¦a¤èµLªk¶Ç°e¡C", CHAR_COLORYELLOW );
+				CHAR_talkToCli( charaindex, -1, "å°åƒæ‰€åœ¨çš„åœ°æ–¹ç„¡æ³•å‚³é€ã€‚", CHAR_COLORYELLOW );
 				return;
 			}
 
@@ -537,19 +537,19 @@ void Use_AngelToken( int charaindex, int toindex, int haveitemindex )
 		}
 		if( fl <= 0 )
 		{
-			sprintf( msg, "¨ÏªÌ %s ¥Ø«e¤£¦b½u¤W©Î¤£¦b¥»¦øªA¾¹¤W¡C", name);
+			sprintf( msg, "ä½¿è€… %s ç›®å‰ä¸åœ¨ç·šä¸Šæˆ–ä¸åœ¨æœ¬ä¼ºæœå™¨ä¸Šã€‚", name);
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 			return;
 		}
 		
-		sprintf( msg, "¶Ç°e¦Ü¨ÏªÌ %s ¨­Ãä¡C", name);
+		sprintf( msg, "å‚³é€è‡³ä½¿è€… %s èº«é‚Šã€‚", name);
 		CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORYELLOW);
 		CHAR_warpToSpecificPoint( charaindex, fl, fx, fy);
 	}
 
 }
 
-// ¨Ï¥Î«iªÌ«Hª«®É
+// ä½¿ç”¨å‹‡è€…ä¿¡ç‰©æ™‚
 void Use_HeroToken( int charaindex, int toindex, int haveitemindex )
 {
 	int itemindex;
@@ -557,7 +557,7 @@ void Use_HeroToken( int charaindex, int toindex, int haveitemindex )
 	char nameinfo[64];
 	char msg[1024];
 
-	print(" ¨Ï¥Î«iªÌ«Hª« ");
+	print(" ä½¿ç”¨å‹‡è€…ä¿¡ç‰© ");
 
 	if( !CHAR_CHECKINDEX( charaindex) )	return;
 	itemindex = CHAR_getItemIndex( charaindex, haveitemindex);
@@ -569,20 +569,20 @@ void Use_HeroToken( int charaindex, int toindex, int haveitemindex )
 
 	if( mindex == -1 ||
 		( strcmp( nameinfo, ITEM_getChar( itemindex, ITEM_ANGELINFO)) && strcmp( nameinfo, ITEM_getChar( itemindex, ITEM_HEROINFO)) ) ) {
-		// ¸ô¤H¥Ò¨Ï¥Î®É
-		CHAR_talkToCli( charaindex, -1, "³o¨Ã¤£¬OÄİ©ó§Aªº«Hª«¡A¤£¥iÀH«K¨Ï¥Î³á¡C", CHAR_COLORRED);
+		// è·¯äººç”²ä½¿ç”¨æ™‚
+		CHAR_talkToCli( charaindex, -1, "é€™ä¸¦ä¸æ˜¯å±¬æ–¼ä½ çš„ä¿¡ç‰©ï¼Œä¸å¯éš¨ä¾¿ä½¿ç”¨å–”ã€‚", CHAR_COLORRED);
 		return;
 	}
 
 	if(  strcmp( ITEM_getChar( itemindex, ITEM_ANGELINFO), missiontable[mindex].angelinfo)
 		|| strcmp( ITEM_getChar( itemindex, ITEM_HEROINFO), missiontable[mindex].heroinfo) ){
 
-		CHAR_talkToCli( charaindex, -1, "³o¬OµL¥Îªº«Hª«¡AÁÙ¬O¥á±¼§a¡C", CHAR_COLORRED);
+		CHAR_talkToCli( charaindex, -1, "é€™æ˜¯ç„¡ç”¨çš„ä¿¡ç‰©ï¼Œé‚„æ˜¯ä¸Ÿæ‰å§ã€‚", CHAR_COLORRED);
 		return;
 	}
 
 
-	if( !strcmp( nameinfo, missiontable[mindex].heroinfo) ) { // «iªÌ¨Ï¥Î®É
+	if( !strcmp( nameinfo, missiontable[mindex].heroinfo) ) { // å‹‡è€…ä½¿ç”¨æ™‚
 
 		int lefttime, hour, min;
 		lefttime = missiontable[mindex].time + missiontable[mindex].limittime*60*60 - (int)time(NULL);
@@ -590,44 +590,44 @@ void Use_HeroToken( int charaindex, int toindex, int haveitemindex )
 		min = (lefttime % (60*60)) / 60;
 
 		if( missiontable[mindex].flag == MISSION_DOING ) {
-			// Åã¥Ü¥ô°È¸ê®Æ
-			sprintf( msg, "§Aªº¨Ï©R¬O %s¡A®É¶¡ÁÙ³Ñ¾l%d¤p®É%d¤À¡C",
+			// é¡¯ç¤ºä»»å‹™è³‡æ–™
+			sprintf( msg, "ä½ çš„ä½¿å‘½æ˜¯ %sï¼Œæ™‚é–“é‚„å‰©é¤˜%då°æ™‚%dåˆ†ã€‚",
 				missionlist[missiontable[mindex].mission].detail, hour, min);
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 		}
 		else if( missiontable[mindex].flag == MISSION_HERO_COMPLETE ) {
-			// ¥i¥H¥h»â¼ú¤F
-			sprintf( msg, "§Aªº¨Ï©R¤w¸g§¹¦¨¤F¡A¥i¥H¥h»â¼ú¤F¡A®É¶¡ÁÙ³Ñ¾l%d¤p®É%d¤À¡C",
+			// å¯ä»¥å»é ˜çäº†
+			sprintf( msg, "ä½ çš„ä½¿å‘½å·²ç¶“å®Œæˆäº†ï¼Œå¯ä»¥å»é ˜çäº†ï¼Œæ™‚é–“é‚„å‰©é¤˜%då°æ™‚%dåˆ†ã€‚",
 				hour, min);
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 		}
 		else if( missiontable[mindex].flag == MISSION_TIMEOVER ) {
-			// ®É¶¡¶W¹L¤F
-			sprintf( msg, "«Ü¥i±¤¡A¨ÏªÌ©M«iªÌ¨Ã¨S¦³¦b®É­­¤º§¹¦¨¨Ï©R¡A¤U¦¸¦A¥[ªo§a¡C");
+			// æ™‚é–“è¶…éäº†
+			sprintf( msg, "å¾ˆå¯æƒœï¼Œä½¿è€…å’Œå‹‡è€…ä¸¦æ²’æœ‰åœ¨æ™‚é™å…§å®Œæˆä½¿å‘½ï¼Œä¸‹æ¬¡å†åŠ æ²¹å§ã€‚");
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 		}
 		return;
 
 	}
-	else if( !strcmp( nameinfo, missiontable[mindex].angelinfo) ) { // ¨ÏªÌ¨Ï¥Î®É
-		// ¶Ç°e¦Ü«iªÌ¨­®Ç
+	else if( !strcmp( nameinfo, missiontable[mindex].angelinfo) ) { // ä½¿è€…ä½¿ç”¨æ™‚
+		// å‚³é€è‡³å‹‡è€…èº«æ—
 		int maxchar, i;
 		char cdkey[64], name[64];
 		int fl =0, fx =0, fy =0;
 
 		if( CHAR_getWorkInt( charaindex, CHAR_WORKPARTYMODE) != CHAR_PARTY_NONE ) {
-				CHAR_talkToCli( charaindex, -1, "²Õ¶¤¤¤µLªk¶Ç°e¡C", CHAR_COLORYELLOW );
+				CHAR_talkToCli( charaindex, -1, "çµ„éšŠä¸­ç„¡æ³•å‚³é€ã€‚", CHAR_COLORYELLOW );
 				return;
 		}
 		
 		if( checkUnlawWarpFloor( CHAR_getInt( charaindex, CHAR_FLOOR) ) ) {
-				CHAR_talkToCli( charaindex, -1, "§A©Ò¦bªº¦a¤èµLªk¶Ç°e¡C", CHAR_COLORYELLOW );
+				CHAR_talkToCli( charaindex, -1, "ä½ æ‰€åœ¨çš„åœ°æ–¹ç„¡æ³•å‚³é€ã€‚", CHAR_COLORYELLOW );
 				return;
 		}
 
 		//if( CHAR_CheckInItemForWares( charaindex, 0) == FALSE ){
 		if( CheckDropatLogout( charaindex) == TRUE ) {
-			CHAR_talkToCli( charaindex, -1, "Äâ±aµn¥X«á®ø¥¢ªº¹D¨ã®ÉµLªk¨Ï¥Î¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charaindex, -1, "æ”œå¸¶ç™»å‡ºå¾Œæ¶ˆå¤±çš„é“å…·æ™‚ç„¡æ³•ä½¿ç”¨ã€‚", CHAR_COLORYELLOW);
 			return;
 		}
 
@@ -647,7 +647,7 @@ void Use_HeroToken( int charaindex, int toindex, int haveitemindex )
 			fy = CHAR_getInt( i, CHAR_Y);
 
 			if( checkUnlawWarpFloor( fl) ) {
-				CHAR_talkToCli( charaindex, -1, "¹ï¹³©Ò¦bªº¦a¤èµLªk¶Ç°e¹L¥h¡C", CHAR_COLORYELLOW );
+				CHAR_talkToCli( charaindex, -1, "å°åƒæ‰€åœ¨çš„åœ°æ–¹ç„¡æ³•å‚³é€éå»ã€‚", CHAR_COLORYELLOW );
 				return;
 			}
 
@@ -655,18 +655,18 @@ void Use_HeroToken( int charaindex, int toindex, int haveitemindex )
 		}
 		if( fl <= 0 )
 		{
-			sprintf( msg, "«iªÌ %s ¥Ø«e¤£¦b½u¤W©Î¤£¦b¥»¦øªA¾¹¤W¡C", name);
+			sprintf( msg, "å‹‡è€… %s ç›®å‰ä¸åœ¨ç·šä¸Šæˆ–ä¸åœ¨æœ¬ä¼ºæœå™¨ä¸Šã€‚", name);
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORRED);
 			return;
 		}
 		
-		sprintf( msg, "¶Ç°e¦Ü«iªÌ %s ¨­Ãä¡C", name);
+		sprintf( msg, "å‚³é€è‡³å‹‡è€… %s èº«é‚Šã€‚", name);
 		CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORYELLOW);
 		CHAR_warpToSpecificPoint( charaindex, fl, fx, fy);
 
 	}
-	else { // ¸ô¤H¥Ò¨Ï¥Î®É
-		CHAR_talkToCli( charaindex, -1, "³o¨Ã¤£¬OÄİ©ó§Aªº«Hª«¡A¤£¥iÀH«K¨Ï¥Î³á¡C", CHAR_COLORRED);
+	else { // è·¯äººç”²ä½¿ç”¨æ™‚
+		CHAR_talkToCli( charaindex, -1, "é€™ä¸¦ä¸æ˜¯å±¬æ–¼ä½ çš„ä¿¡ç‰©ï¼Œä¸å¯éš¨ä¾¿ä½¿ç”¨å–”ã€‚", CHAR_COLORRED);
 		return;
 	}
 

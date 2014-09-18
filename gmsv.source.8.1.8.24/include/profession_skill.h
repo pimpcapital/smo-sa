@@ -1,60 +1,60 @@
 #include "version.h"
 
-#ifdef _PROFESSION_SKILL			// WON ADD �H��¾�~�ޯ�
+#ifdef _PROFESSION_SKILL			// WON ADD 人物職業技能
 #include "common.h"
 #include "util.h"
 #include "skill.h"
 
-#define PROFESSION_MAX_LEVEL 26			// ¾�~���ŤW��  26��
-#define PROFESSION_SKILL_MAX_LEVEL 100 	// �ޯ൥�ŤW�� 100��
+#define PROFESSION_MAX_LEVEL 26			// 職業等級上限  26級
+#define PROFESSION_SKILL_MAX_LEVEL 100 	// 技能等級上限 100級
 #ifdef _75_TEST
-#define PROFESSION_SKILL_ADD_POINT 100   // �ɯ��˩w�q�L�A�W�[�g���
+#define PROFESSION_SKILL_ADD_POINT 100   // 升級檢定通過，增加經驗值
 #else
-#define PROFESSION_SKILL_ADD_POINT 1   // �ɯ��˩w�q�L�A�W�[�g���
+#define PROFESSION_SKILL_ADD_POINT 1   // 升級檢定通過，增加經驗值
 #endif
-// ¾�~�O
+// 職業別
 typedef enum
 {
-	PROFESSION_CLASS_NONE=0,					// �L¾�~
-	PROFESSION_CLASS_FIGHTER,					// �i�h
-	PROFESSION_CLASS_WIZARD,					// �Ův
-	PROFESSION_CLASS_HUNTER,					// �y�H
+	PROFESSION_CLASS_NONE=0,					// 無職業
+	PROFESSION_CLASS_FIGHTER,					// 勇士
+	PROFESSION_CLASS_WIZARD,					// 巫師
+	PROFESSION_CLASS_HUNTER,					// 獵人
 	PROFESSION_CLASS_NUM,
 }PROFESSION_CLASS_TYPE;
 
 typedef enum
 {
-	PROFESSION_SKILL_NAME,						// �ޯ�W��
-	PROFESSION_SKILL_TXT,						// ����
-	PROFESSION_SKILL_FUNCNAME,					// �ϥΨ��
-	PROFESSION_SKILL_OPTION,					// ��ưѼ�
+	PROFESSION_SKILL_NAME,						// 技能名稱
+	PROFESSION_SKILL_TXT,						// 說明
+	PROFESSION_SKILL_FUNCNAME,					// 使用函數
+	PROFESSION_SKILL_OPTION,					// 函數參數
 	PROFESSION_SKILL_DATACHARNUM,
 }PROFESSION_SKILL_DATACHAR;
 
 
 typedef enum
 {
-	PROFESSION_SKILL_ID,						// �ޯ�s��
-	PROFESSION_SKILL_PROFESSION_CLASS,			// ¾�~
-	PROFESSION_SKILL_TARGET,					// �ؼк���
-	PROFESSION_SKILL_COST_MP,					// �ӶOMP
-	PROFESSION_SKILL_USE_FLAG,					// �ϥκX��
-	PROFESSION_SKILL_KIND,						// �ޯ����
-	PROFESSION_SKILL_ICON,						// ICON�ϸ�
-	PROFESSION_SKILL_IMG_1,						// �����e�ϸ�(���𪬺A)
-	PROFESSION_SKILL_IMG_2,						// �����ϸ�(������)	
-	PROFESSION_SKILL_COST,						// �ʶR���B
-	PROFESSION_SKILL_FIX_VALUE,					// �ɯŭץ��ƭ�
+	PROFESSION_SKILL_ID,						// 技能編號
+	PROFESSION_SKILL_PROFESSION_CLASS,			// 職業
+	PROFESSION_SKILL_TARGET,					// 目標種類
+	PROFESSION_SKILL_COST_MP,					// 耗費MP
+	PROFESSION_SKILL_USE_FLAG,					// 使用旗標
+	PROFESSION_SKILL_KIND,						// 技能種類
+	PROFESSION_SKILL_ICON,						// ICON圖號
+	PROFESSION_SKILL_IMG_1,						// 攻擊前圖號(集氣狀態)
+	PROFESSION_SKILL_IMG_2,						// 攻擊圖號(攻擊中)	
+	PROFESSION_SKILL_COST,						// 購買金額
+	PROFESSION_SKILL_FIX_VALUE,					// 升級修正數值
 	
-	//������ǲߥH�U�ҳ]�w�ޯ�P���m�ק��F��ɤ~�i�H�ǲߥ��ޯ�
-	PROFESSION_SKILL_LIMIT1,					// ���קޯ� 1 �s��
-	PROFESSION_SKILL_PERCENT1,					// ���קޯ��������m��% 1
-	PROFESSION_SKILL_LIMIT2,					// ���קޯ� 2 �s��
-	PROFESSION_SKILL_PERCENT2,					// ���קޯ��������m��% 2
-	PROFESSION_SKILL_LIMIT3,					// ���קޯ� 3 �s��
-	PROFESSION_SKILL_PERCENT3,					// ���קޯ��������m��% 3
-	PROFESSION_SKILL_LIMIT4,					// ���קޯ� 4 �s��
-	PROFESSION_SKILL_PERCENT4,					// ���קޯ��������m��% 4
+	//角色先學習以下所設定技能與熟練度均達到時才可以學習本技能
+	PROFESSION_SKILL_LIMIT1,					// 必修技能 1 編號
+	PROFESSION_SKILL_PERCENT1,					// 必修技能應有熟練度% 1
+	PROFESSION_SKILL_LIMIT2,					// 必修技能 2 編號
+	PROFESSION_SKILL_PERCENT2,					// 必修技能應有熟練度% 2
+	PROFESSION_SKILL_LIMIT3,					// 必修技能 3 編號
+	PROFESSION_SKILL_PERCENT3,					// 必修技能應有熟練度% 3
+	PROFESSION_SKILL_LIMIT4,					// 必修技能 4 編號
+	PROFESSION_SKILL_PERCENT4,					// 必修技能應有熟練度% 4
 	PROFESSION_SKILL_DATAINTNUM,
 }PROFESSION_SKILL_DATAINT;
 
@@ -94,7 +94,7 @@ int PROFESSION_SKILL_DEC_COST_MP( int charaindex, int skill, int Pskillid, int s
 int PROFESSION_SKILL_ADDSK( int charaindex, int skill, int level );
 
 //----------------------------------------------------------------------------
-// ¾�~�ޯ�
+// 職業技能
 void profession_common_fun( int charaindex, int toNo, int skill_level, int array, int com1 );
 int PROFESSION_brust( int charaindex, int toindex, int array, char *data, int skill_level );
 int PROFESSION_chain_atk( int charaindex, int toindex, int array, char *data, int skill_level );

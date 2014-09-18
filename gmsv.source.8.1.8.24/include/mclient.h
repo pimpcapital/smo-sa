@@ -20,11 +20,11 @@
 
 #define MPROTO_TYPE_SEND		1016
 
-#ifdef _GM_WARP_PLAYER				// WON ∂«∞e™±Æa
+#ifdef _GM_WARP_PLAYER				// WON ÂÇ≥ÈÄÅÁé©ÂÆ∂
 #define MPROTO_WARP_RECV		1017
 #endif
 
-#ifdef _RECAL_ASK_PLAYER			// WON ≠n®D§H™´∏ÍÆ∆
+#ifdef _RECAL_ASK_PLAYER			// WON Ë¶ÅÊ±Ç‰∫∫Áâ©Ë≥áÊñô
 #define MPROTO_RECALL_PLAYER_RECV			1018
 #define MPROTO_RECALL_PLAYER_SEND			1019
 #define MPROTO_RECALL_BACKUP_RECV			1020
@@ -33,15 +33,15 @@
 #define MPROTO_RECALL_BACKUP_OK_SEND		1023
 #endif
 
-#ifdef _RECAL_SEND_COUNT		// WON ∂«∞eGS∏Í∞T 
+#ifdef _RECAL_SEND_COUNT		// WON ÂÇ≥ÈÄÅGSË≥áË®ä 
 #define MPROTO_RECALL_COUNT_SEND			1024
 #endif
 
-#ifdef _RECAL_SERVER_OFF			// WON MSERVER √ˆ≥¨ GS
+#ifdef _RECAL_SERVER_OFF			// WON MSERVER ÈóúÈñâ GS
 #define MPROTO_RECALL_SERVER_OFF_RECV		1025			
 #endif
 
-#ifdef _GSERVER_RUNTIME //∂«∞eGSERVER∞ı¶Ê¶h§÷Æ…∂°µπMSERVER
+#ifdef _GSERVER_RUNTIME //ÂÇ≥ÈÄÅGSERVERÂü∑Ë°åÂ§öÂ∞ëÊôÇÈñìÁµ¶MSERVER
 #define MPROTO_RECALL_GSERVER_RUNTIME       1026
 #endif
 
@@ -61,17 +61,17 @@ int connectmServer(char* hostname,unsigned short port);
 void mproto_Type_Send( int fd, int playernum, int itemuse);
 
 
-#ifdef _GM_WARP_PLAYER				// WON ∂«∞e™±Æa
+#ifdef _GM_WARP_PLAYER				// WON ÂÇ≥ÈÄÅÁé©ÂÆ∂
 void mproto_WARP_Recv(int fd,char* uid,int userfdid,int floor, int x, int y);
 #endif
 
-#ifdef _RECAL_ASK_PLAYER			// WON ≠n®D§H™´∏ÍÆ∆
+#ifdef _RECAL_ASK_PLAYER			// WON Ë¶ÅÊ±Ç‰∫∫Áâ©Ë≥áÊñô
 void mproto_RECALL_ASK_PLAYER_Recv(int fd, char *uid, int userfdid, int GmCliId, char *id, int char_num, int date, int backup_flag);
 void mproto_RECALL_BACKUP_PLAYER_Recv(int fd, char *uid, int userfdid, int GmCliId, char *id, int char_num, int date, char *char_data, int backup_flag);
 #endif
 
 
-#ifdef _RECAL_SEND_COUNT		// WON ∂«∞eGS∏Í∞T 
+#ifdef _RECAL_SEND_COUNT		// WON ÂÇ≥ÈÄÅGSË≥áË®ä 
 void recal_get_count();
 #endif
 

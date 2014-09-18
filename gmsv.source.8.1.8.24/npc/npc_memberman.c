@@ -14,7 +14,7 @@
 #include "handletime.h"
 #include "npc_eventaction.h"
 
-//ØS¶a±q§—∞Û∞™¡~´ı®§®”™∫"∂«∞eÆv"
+//ÁâπÂú∞ÂæûÂ§©Â†ÇÈ´òËñ™ÊåñËßí‰æÜÁöÑ"ÂÇ≥ÈÄÅÂ∏´"
 #ifdef _TRANSER_MAN
 enum {
 	WINDOW_START=2,
@@ -88,7 +88,7 @@ void NPC_MemberManWindowTalked( int meindex, int talkerindex, int seqno,
 		NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_SELECT, atoi( data));
 		break;
 	case CHAR_WINDOWTYPE_MEMBER_NEXT:
-		if( select == WINDOW_BUTTONTYPE_NEXT ){						//§U§@≠∂
+		if( select == WINDOW_BUTTONTYPE_NEXT ){						//‰∏ã‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT, atoi( data));
 			return;
 		}else if ( select == WINDOW_BUTTONTYPE_CANCEL ){	//CANCEL
@@ -97,10 +97,10 @@ void NPC_MemberManWindowTalked( int meindex, int talkerindex, int seqno,
 		NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_WARP, atoi( data));
 		break;
 	case CHAR_WINDOWTYPE_MEMBER_NEXT1:
-		if( select == WINDOW_BUTTONTYPE_NEXT ){						//§U§@≠∂
+		if( select == WINDOW_BUTTONTYPE_NEXT ){						//‰∏ã‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT1, atoi( data));
 			return;
-		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//§W§@≠∂
+		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//‰∏ä‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_SELECT, atoi( data));
 			return;
 		}else if ( select == WINDOW_BUTTONTYPE_CANCEL ){	//CANCEL
@@ -109,10 +109,10 @@ void NPC_MemberManWindowTalked( int meindex, int talkerindex, int seqno,
 		NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_WARP, atoi( data)+7);
 		break;
 	case CHAR_WINDOWTYPE_MEMBER_NEXT2:
-		if( select == WINDOW_BUTTONTYPE_NEXT ){						//§U§@≠∂
+		if( select == WINDOW_BUTTONTYPE_NEXT ){						//‰∏ã‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT2, atoi( data));
 			return;
-		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//§W§@≠∂
+		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//‰∏ä‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT, atoi( data));
 			return;
 		}else if ( select == WINDOW_BUTTONTYPE_CANCEL ){	//CANCEL
@@ -121,10 +121,10 @@ void NPC_MemberManWindowTalked( int meindex, int talkerindex, int seqno,
 		NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_WARP, atoi( data)+14);
 		break;
 	case CHAR_WINDOWTYPE_MEMBER_NEXT3:
-		if( select == WINDOW_BUTTONTYPE_NEXT ){						//§U§@≠∂
+		if( select == WINDOW_BUTTONTYPE_NEXT ){						//‰∏ã‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT3, atoi( data));
 			return;
-		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//§W§@≠∂
+		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//‰∏ä‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT1, atoi( data));
 			return;
 		}else if ( select == WINDOW_BUTTONTYPE_CANCEL ){	//CANCEL
@@ -133,10 +133,10 @@ void NPC_MemberManWindowTalked( int meindex, int talkerindex, int seqno,
 		NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_WARP, atoi( data)+21);
 		break;
 	case CHAR_WINDOWTYPE_MEMBER_NEXT4:
-		if( select == WINDOW_BUTTONTYPE_NEXT ){						//§U§@≠∂
+		if( select == WINDOW_BUTTONTYPE_NEXT ){						//‰∏ã‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT4, atoi( data));
 			return;
-		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//§W§@≠∂
+		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//‰∏ä‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT2, atoi( data));
 			return;
 		}else if ( select == WINDOW_BUTTONTYPE_CANCEL ){	//CANCEL
@@ -145,10 +145,10 @@ void NPC_MemberManWindowTalked( int meindex, int talkerindex, int seqno,
 		NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_WARP, atoi( data)+28);
 		break;
 	case CHAR_WINDOWTYPE_MEMBER_NEXT5:
-		if( select == WINDOW_BUTTONTYPE_NEXT ){						//§U§@≠∂
+		if( select == WINDOW_BUTTONTYPE_NEXT ){						//‰∏ã‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT5, atoi( data));
 			return;
-		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//§W§@≠∂
+		}else if ( select == WINDOW_BUTTONTYPE_PREV ){		//‰∏ä‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT3, atoi( data));
 			return;
 		}else if ( select == WINDOW_BUTTONTYPE_CANCEL ){	//CANCEL
@@ -157,7 +157,7 @@ void NPC_MemberManWindowTalked( int meindex, int talkerindex, int seqno,
 		NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_WARP, atoi( data)+35);
 		break;
 	case NPC_TRANSERMAN_WARP:
-		if ( select == WINDOW_BUTTONTYPE_PREV ){		//§W§@≠∂
+		if ( select == WINDOW_BUTTONTYPE_PREV ){		//‰∏ä‰∏ÄÈ†Å
 			NPC_MemberMan_selectWindow( meindex, talkerindex, WINDOW_NEXT4, atoi( data));
 			return;
 		}else if ( select == WINDOW_BUTTONTYPE_CANCEL ){	//CANCEL

@@ -7,21 +7,21 @@
 #include "lssproto_serv.h"
 #include "npc_charm.h"
 
-//    Âå¤ò  ¤¯·×»»¼°¤Ï
+//    é†«æ¯›  ä»ç…Œé™æ‘¯å
 
-//¥ì¥Ù¥ë¡ö        ¡ö  ¸½ºß¤Î    /          
+//ä¼ŠçŸ›ä¼™â†        â†  èœ‡ç®•åŠ    /          
 
-//²óÉü¬¤¤Ï¡a£µ¤Ç¤¹¡e
+//è¢æ±Šæ´¶åï½›ã„¤åŒ¹å…ã€”
 /*
-#define RATE  4		//¥ì¡¼¥È¡ª
-#define CHARMHEAL 5 //    ¤Î²óÉü¬¤
-#define WARU	3	//    ¤ò³ä¤ëÃÍ
+#define RATE  4		//ä¼Šâ–¡ç„ã€
+#define CHARMHEAL 5 //    åŠè¢æ±Šæ´¶
+#define WARU	3	//    æ¯›å–ƒæœˆè¥–
 
 */
 
-#define RATE  10	//¥ì¡¼¥È¡ª
-#define CHARMHEAL 5 //    ¤Î²óÉü¬¤
-#define WARU	3	//    ¤ò³ä¤ëÃÍ
+#define RATE  10	//ä¼Šâ–¡ç„ã€
+#define CHARMHEAL 5 //    åŠè¢æ±Šæ´¶
+#define WARU	3	//    æ¯›å–ƒæœˆè¥–
 
 
 static void NPC_Charm_selectWindow( int meindex, int toindex, int num);
@@ -30,11 +30,11 @@ void NPC_CharmUp(int meindex,int talker);
 
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_CharmInit( int meindex )
 {
-	/*--¥­¥ã¥é¤Î¥¿¥¤¥×¤òÀßÄê--*/
+	/*--å¹³ä¹“ä»¿åŠæ­£å¥¶çš¿æ¯›æ¾€çˆ›--*/
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPECHARM );
 	return TRUE;
 
@@ -42,20 +42,20 @@ BOOL NPC_CharmInit( int meindex )
 
 
 /*********************************
-*   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+*   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_CharmTalked( int meindex , int talkerindex , char *szMes ,int color )
 {
 
-    /* ¥×¥ì¥¤¥ä¡¼¤ËÂĞ¤·¤Æ¤À¤±  ±ş¤¹¤ë */
+    /* çš¿ä¼Šå¥¶ä¹©â–¡åè¦†ä»„åŒ–åˆ†ä»ƒ  æ®ºå…æœˆ */
     if( CHAR_getInt( talkerindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER )
     {
     	return;
     }
 	
-	/*--  ¤ÎÁ°¤Ë¤¤¤ë¤«¤É¤¦¤«¡ª--*/
+	/*--  åŠèŸ†åä¸­æœˆäº•å‡ä¸¹äº•ã€--*/
 	if(NPC_Util_isFaceToFace( meindex ,talkerindex , 2) == FALSE) {
-		/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+		/* ã„ å¼˜ä¼‰æ°¸ç‰å‹•  åŠå¿ƒ */
 		if(NPC_Util_isFaceToChara( talkerindex, meindex, 1) == FALSE) return;
 	}
 
@@ -64,7 +64,7 @@ void NPC_CharmTalked( int meindex , int talkerindex , char *szMes ,int color )
 
 
 /*
- * ³Æ½è  ¤ËÊ¬¤±¤ë
+ * å‚™è³ª  ååŒä»ƒæœˆ
  */
 static void NPC_Charm_selectWindow( int meindex, int toindex, int num)
 {
@@ -78,17 +78,17 @@ static void NPC_Charm_selectWindow( int meindex, int toindex, int num)
 	int cost = 0;
 	int chartype;
 	
-	/*--¥¦¥¤¥ó¥É¥¦¥¿¥¤¥×¥á¥Ã¥»¡¼¥¸¤¬¤ª¤ª¤¤¤Î¤ÇÀè¤ËÀßÄê--*/
+	/*--å®ƒå¥¶ä»¶ç‰å®ƒæ­£å¥¶çš¿ä¸Ÿæ°¸æœ¬â–¡æ–¥äº’äº‘äº‘ä¸­åŠåŒ¹ç‡®åæ¾€çˆ›--*/
   	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 
 	switch( num) {
 	  case 0:
-  		/*--Áª      --*/
-		sprintf(token,"4\n          = = ¬ü®e®v = = "
-				     "\n\n   Åwªï¥úÁ{¡A¤µ¤Ñ­n°µ¤°»ò©O¡H"
+  		/*--è–Š      --*/
+		sprintf(token,"4\n          = = ç¾å®¹å¸« = = "
+				     "\n\n   æ­¡è¿å…‰è‡¨ï¼Œä»Šå¤©è¦åšä»€éº¼å‘¢ï¼Ÿ"
 				  "\n "
-				  "\n\n        ¡m  µ¹§Ú¾y¤O  ¡n "
-				  "\n\n        ¡m ¤°»ò¤]¤£°µ ¡n "
+				  "\n\n        ã€Š  çµ¦æˆ‘é­…åŠ›  ã€‹ "
+				  "\n\n        ã€Š ä»€éº¼ä¹Ÿä¸åš ã€‹ "
 		);
 
 	  	buttontype = WINDOW_BUTTONTYPE_NONE;
@@ -99,17 +99,17 @@ static void NPC_Charm_selectWindow( int meindex, int toindex, int num)
 	case 1:
 		cost = NPC_CharmCost( meindex, toindex);
 		if(cost == -1){
-			sprintf(token,"             = = ¬ü®e®v = =  "
-				      "\n\n        §Aªº¾y¤O¯u¬O§¹¬ü"
-				      "\n\n      ½Ğ¥Ã»·«O«ù§Aªº¾y¤O­ò¡C"
+			sprintf(token,"             = = ç¾å®¹å¸« = =  "
+				      "\n\n        ä½ çš„é­…åŠ›çœŸæ˜¯å®Œç¾"
+				      "\n\n      è«‹æ°¸é ä¿æŒä½ çš„é­…åŠ›å”·ã€‚"
 			);
 		  	buttontype = WINDOW_BUTTONTYPE_OK;
 		}else{
-			sprintf(token,"             = = ¬ü®e®v = =  "
+			sprintf(token,"             = = ç¾å®¹å¸« = =  "
 				 	    "\n"
-					  "\n\n ­n±N§Aªº¾y¤O¤W¤É¤­ÂIªº¸Ü"
-					  "\n        »İ­n%6dªºstone­ò¡I"
-						"\n\n      §Y¨Ï³o¼Ë¤]¥i¥H¶Ü¡H",cost
+					  "\n\n è¦å°‡ä½ çš„é­…åŠ›ä¸Šå‡äº”é»çš„è©±"
+					  "\n        éœ€è¦%6dçš„stoneå”·ï¼"
+						"\n\n      å³ä½¿é€™æ¨£ä¹Ÿå¯ä»¥å—ï¼Ÿ",cost
 			);
 		  	buttontype = WINDOW_BUTTONTYPE_YESNO;
 
@@ -124,49 +124,49 @@ static void NPC_Charm_selectWindow( int meindex, int toindex, int num)
 		chartype = CHAR_getInt( toindex, CHAR_IMAGETYPE);
 		
 		if(cost > CHAR_getInt( toindex, CHAR_GOLD)) {
-			sprintf(token,"             = = ¬ü®e®v = =  "
-					  "\n\n     «u§r!§Aªº¿ú¤£°÷­ò¡I"
-				        "\n        ¥ı¥h¦s¦n¿ú¤U¦¸¦A¨Ó§a¡I"
+			sprintf(token,"             = = ç¾å®¹å¸« = =  "
+					  "\n\n     å“å‘€!ä½ çš„éŒ¢ä¸å¤ å”·ï¼"
+				        "\n        å…ˆå»å­˜å¥½éŒ¢ä¸‹æ¬¡å†ä¾†å§ï¼"
 			);
 
 		}else{
 			NPC_CharmUp( meindex, toindex);
 
-			/*--¥­¥ã¥é¤Î¥¿¥¤¥×¤Ë¤è¤Ã¤Æ¥á¥Ã¥»¡¼¥¸¤ò  ¤¨¤Æ¤ß¤¿--*/
+			/*--å¹³ä¹“ä»¿åŠæ­£å¥¶çš¿åæ–¹å‹»åŒ–ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›  å°¹åŒ–å¿ƒå‡¶--*/
 			switch( chartype) {
 			  case CHAR_IMAGETYPE_GIRL:
-				sprintf(token,"             = = ¬ü®e®v = =  "
-					  "\n\n   ¶â,³o¼Ë§Aªº¾y¤O´N¤W¤ÉÃ¹¡I"
-					  "\n\n      ·U¨Ó·U¥i·R¤F©O¡I"
+				sprintf(token,"             = = ç¾å®¹å¸« = =  "
+					  "\n\n   å—¯,é€™æ¨£ä½ çš„é­…åŠ›å°±ä¸Šå‡ç¾…ï¼"
+					  "\n\n      æ„ˆä¾†æ„ˆå¯æ„›äº†å‘¢ï¼"
 				);
 
 				break;
 			  case CHAR_IMAGETYPE_BOY:
-				sprintf(token,"             = = ¬ü®e®v = =  "
-					  "\n\n   ¶â,³o¼Ë§Aªº¾y¤O´N¤W¤ÉÃ¹¡I"
-					  "\n\n    ¬O¤£¬O¤ñ­è¤~­n«Ó¦h¤F©O¡H"
+				sprintf(token,"             = = ç¾å®¹å¸« = =  "
+					  "\n\n   å—¯,é€™æ¨£ä½ çš„é­…åŠ›å°±ä¸Šå‡ç¾…ï¼"
+					  "\n\n    æ˜¯ä¸æ˜¯æ¯”å‰›æ‰è¦å¸¥å¤šäº†å‘¢ï¼Ÿ"
 				);
 			  	break;
 			  	
 			  case CHAR_IMAGETYPE_CHILDBOY:
 			  case CHAR_IMAGETYPE_CHILDGIRL:
-				sprintf(token,"             = = ¬ü®e®v = =  "
-					  "\n\n   ¶â,³o¼Ë§Aªº¾y¤O´N¤W¤ÉÃ¹¡I"
-					  "\n\n      ¯uªºÅÜ±o¦n¥i·R­ò¡I"
+				sprintf(token,"             = = ç¾å®¹å¸« = =  "
+					  "\n\n   å—¯,é€™æ¨£ä½ çš„é­…åŠ›å°±ä¸Šå‡ç¾…ï¼"
+					  "\n\n      çœŸçš„è®Šå¾—å¥½å¯æ„›å”·ï¼"
 				);
 			 	break;
 			 	
 			   case CHAR_IMAGETYPE_MAN:
-				sprintf(token,"             = = ¬ü®e®v = =  "
-					  "\n\n   ¶â,³o¼Ë§Aªº¾y¤O´N¤W¤ÉÃ¹¡I"
-					  "\n\n       ÅÜ±o§ó»Å¤F©O¡I"
+				sprintf(token,"             = = ç¾å®¹å¸« = =  "
+					  "\n\n   å—¯,é€™æ¨£ä½ çš„é­…åŠ›å°±ä¸Šå‡ç¾…ï¼"
+					  "\n\n       è®Šå¾—æ›´é…·äº†å‘¢ï¼"
 				);
 			 	break;
 			 	
 			   case CHAR_IMAGETYPE_WOMAN:
-				sprintf(token,"             = = ¬ü®e®v = =  "
-				  "\n\n   ¶â,³o¼Ë§Aªº¾y¤O´N¤W¤ÉÃ¹¡I"
-				  "\n\n    ¥i¯u¬OÅÜ±o·U¨Ó·U¬ü¤F©O¡I"
+				sprintf(token,"             = = ç¾å®¹å¸« = =  "
+				  "\n\n   å—¯,é€™æ¨£ä½ çš„é­…åŠ›å°±ä¸Šå‡ç¾…ï¼"
+				  "\n\n    å¯çœŸæ˜¯è®Šå¾—æ„ˆä¾†æ„ˆç¾äº†å‘¢ï¼"
 				);
 			 	break;
 			 
@@ -180,7 +180,7 @@ static void NPC_Charm_selectWindow( int meindex, int toindex, int num)
 	}
 	
 	makeEscapeString( token, escapedname, sizeof( escapedname));
-	/*-¤³¤³¤ÇÁ÷¿®¤¹¤ë--*/
+	/*-ä»‡ä»‡åŒ¹éœœè€¨å…æœˆ--*/
 	lssproto_WN_send( fd, windowtype, 
 					buttontype, 
 					windowno,
@@ -191,7 +191,7 @@ static void NPC_Charm_selectWindow( int meindex, int toindex, int num)
 
 
 /*-----------------------------------------
-¥¯¥é¥¤¥¢¥ó¥È¤«¤éÊÖ¤Ã¤Æ¤­¤¿»ş¤Ë¸Æ¤Ó½Ğ¤µ¤ì¤ë¡e
+å¼ä»¿å¥¶å¤±ä»¶ç„äº•æ—¥å¿’å‹»åŒ–äº”å‡¶å‡œåè£Ÿå¤ªè«‹ä»Šæœ¨æœˆã€”
 -------------------------------------------*/
 void NPC_CharmWindowTalked( int meindex, int talkerindex, 
 								int seqno, int select, char *data)
@@ -224,36 +224,36 @@ void NPC_CharmUp(int meindex,int talker)
 	int petindex;
 	char petsend[64];	
 
-	/*--¶³¶â¤ò¸º¤é¤·¤Ş¤·¤ç¤¦--*/
+	/*--é›²å—¯æ¯›è›¹æ—¥ä»„å¼•ä»„æ–¤ä¸¹--*/
 	cost = NPC_CharmCost( meindex, talker);
 	CHAR_setInt( talker, CHAR_GOLD,
 			CHAR_getInt( talker, CHAR_GOLD) - cost);
 	CHAR_send_P_StatusString( talker, CHAR_P_STRING_GOLD);
 
-	/*--    ¤¬£±£°£°°Ê¾å¤Ë¤Ê¤ë¾ì¹ç¤Ï¶¯°ú¤Ë£±£°£°¤Ë¤¹¤ë--*/
+	/*--    äº’ã„ ã„Ÿã„Ÿå‹•æ›‰åå…æœˆæ¨ºå¯§åé›„å©åã„ ã„Ÿã„Ÿåå…æœˆ--*/
 	if(CHAR_getInt( talker, CHAR_CHARM) + CHARMHEAL >= 100) {
 		CHAR_setInt( talker, CHAR_CHARM, 100);
 	}else{
-		/*--    ¤ò¥»¥Ã¥È--*/
+		/*--    æ¯›æœ¬æ°¸ç„--*/
 		CHAR_setInt(talker, CHAR_CHARM,
 	 			(CHAR_getInt( talker, CHAR_CHARM) + CHARMHEAL));
 	}
 	
-	/*--¥¹  ¡¼¥¿¥¹¤Î¹¹¿·--*/
+	/*--æ—¦  â–¡æ­£æ—¦åŠå‡³è•™--*/
 	CHAR_complianceParameter( talker );
 	CHAR_send_P_StatusString( talker, CHAR_P_STRING_CHARM);
 
 
-	/*--¥Ú¥Ã¥È¤Î¥Ñ¥é¥á¡¼¥¿¤ò¹¹¿·--*/
+	/*--çŸ¢æ°¸ç„åŠç”±ä»¿ä¸Ÿâ–¡æ­£æ¯›å‡³è•™--*/
 	for( i = 0 ; i < CHAR_MAXPETHAVE ; i++){
     	petindex = CHAR_getCharPet( talker, i);
 
 		if( petindex == -1  )  continue;
 
-	   /*  ¥­¥ã¥é¤Î    ¥Á¥§¥Ã¥¯    */
+	   /*  å¹³ä¹“ä»¿åŠ    æ°‘å°¼æ°¸å¼    */
 		if( !CHAR_CHECKINDEX( talker ) )  continue;
 
-		/*--¥Ñ¥é¥á¡¼¥¿Ä´À°--*/
+		/*--ç”±ä»¿ä¸Ÿâ–¡æ­£è­¬å¹«--*/
 		CHAR_complianceParameter( petindex );
 		sprintf( petsend, "K%d", i );
 		CHAR_sendStatusString( talker , petsend );
@@ -261,7 +261,7 @@ void NPC_CharmUp(int meindex,int talker)
 }
 
 
-/*--¶³¶â¤Î·×»»--*/
+/*--é›²å—¯åŠç…Œé™--*/
 int NPC_CharmCost(int meindex,int talker)
 {
 	int cost;
@@ -277,7 +277,7 @@ int NPC_CharmCost(int meindex,int talker)
 	
 	if(charm <= 1) charm = WARU;
 	
-	/*-- ·×»»¼° --*/
+	/*-- ç…Œé™æ‘¯ --*/
 	cost = level * RATE * (charm / WARU) * (trans+1);
 
 	return cost;

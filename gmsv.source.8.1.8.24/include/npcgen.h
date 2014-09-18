@@ -4,9 +4,9 @@
 
 void NPC_generateLoop( BOOL FlgInit );
 
-EXTERN int all_nosee;		/* ё╠╓н╩Ч║aа╢╓ф╓не╗╓Р no_see ╓к */
-EXTERN int all_nobody;		/* ё╠╓н╩Ч║aа╢╓ф╓не╗╓Р no_body ╓к */
-EXTERN int one_loop_born;	/* ё╠╔К║╪╔в╓г  ╧Бю╦╓ъ╫п╓╧©Т oneloop_born */
+EXTERN int all_nosee;		/* Ц└═Е▐┼Е┤°О╫⌡Х÷┬Е▄√Е▐┼Х╔╞Ф╞⌡ no_see Е█· */
+EXTERN int all_nobody;		/* Ц└═Е▐┼Е┤°О╫⌡Х÷┬Е▄√Е▐┼Х╔╞Ф╞⌡ no_body Е█· */
+EXTERN int one_loop_born;	/* Ц└═Д╪≥Б√║Г ©Е▄╧  Е╚√Ф┬╡Е©┐Х╚▀Е┘│И├▓ oneloop_born */
 
 //char	pu_npcarg[NPC_UTIL_GETARGSTR_BUFSIZE];
 

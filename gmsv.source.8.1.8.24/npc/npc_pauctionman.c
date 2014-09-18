@@ -15,7 +15,7 @@
 #include "npc_pauctionman.h"
 #include "saacproto_cli.h"
 
-//©ç½æ¤ı andy
+//æ‹è³£ç‹ andy
 #ifdef _PAUCTION_MAN
 enum {
 	WINDOW_START=5,
@@ -154,7 +154,7 @@ static void NPC_Pauctionman_selectWindow( int meindex, int toindex, int num, int
 	}
 
 	if( Action_PartyCheck( meindex, toindex) == FALSE)	{
-		CHAR_talkToCli( toindex, meindex, "½Ğ¤@­Ó¤@­Ó¨Ó¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, meindex, "è«‹ä¸€å€‹ä¸€å€‹ä¾†ï¼", CHAR_COLORYELLOW);
 		return;
 	}
 
@@ -391,8 +391,8 @@ BOOL NPC_PAItemShop_BuyDo( int meindex, int toindex, char *npcarg, int select)
 	cost=ITEM_getInt( itemindex, ITEM_COST);
 	if( CHAR_DelGold( toindex, cost) == 0 ) return FALSE;
 
-	//¶×¾ã¸ê®Æ
-	saacproto_ACItemAuction_send( acfd, ITEM_getChar( itemindex, ITEM_NAME), "TEST¼K¼K¼K",
+	//åŒ¯æ•´è³‡æ–™
+	saacproto_ACItemAuction_send( acfd, ITEM_getChar( itemindex, ITEM_NAME), "TESTå˜¿å˜¿å˜¿",
 		ITEM_getInt( itemindex, ITEM_ID), ret,AUCTION_DEL);
 
 	ti = CHAR_addItemSpecificItemIndex( toindex, itemindex);
@@ -402,7 +402,7 @@ BOOL NPC_PAItemShop_BuyDo( int meindex, int toindex, char *npcarg, int select)
 		return FALSE;
 	}
 	CHAR_sendItemDataOne( toindex, ti);
-	sprintf( token,"®³¨ì%s",ITEM_getChar( itemindex, ITEM_NAME));
+	sprintf( token,"æ‹¿åˆ°%s",ITEM_getChar( itemindex, ITEM_NAME));
 	CHAR_talkToCli( toindex, -1, token, CHAR_COLORYELLOW);
 
 	return TRUE;
@@ -413,12 +413,12 @@ BOOL NPC_PAItemShop_SellDo( int meindex, int toindex, char *npcarg, int select)
 	int itemindex = CHAR_getItemIndex( toindex , select );
 	if( ITEM_CHECKINDEX( itemindex) ){
 		int cost = ITEM_getInt( itemindex, ITEM_COST);
-		saacproto_ACItemAuction_send( acfd, ITEM_getChar( itemindex, ITEM_NAME), "TEST¼K¼K¼K",
+		saacproto_ACItemAuction_send( acfd, ITEM_getChar( itemindex, ITEM_NAME), "TESTå˜¿å˜¿å˜¿",
 			ITEM_getInt( itemindex, ITEM_ID), 0/*ret*/,AUCTION_ADD);
 		CHAR_DelItem( toindex, select);
 		CHAR_AddGold( toindex, cost);	
 	}else	{
-		CHAR_talkToCli( toindex, -1, "¨S¦³³o¼Ëª««~¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "æ²’æœ‰é€™æ¨£ç‰©å“ï¼", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 	return TRUE;

@@ -5,22 +5,22 @@
 
 typedef enum
 {
-	PETSKILL_FIELD_ALL,			/* ¤¹¤Ù¤Æ¤Î¾ì½ê¤Ç»È¤¨¤ë */
-	PETSKILL_FIELD_BATTLE,				/* Àï    ¤Î¤ß */
-	PETSKILL_FIELD_MAP,				/* ÄÌ¾ï¥Ş¥Ã¥×¾å¤Î¤ß */
+	PETSKILL_FIELD_ALL,			/* å…å±¯åŒ–åŠæ¨ºèµ­åŒ¹éŠ€å°¹æœˆ */
+	PETSKILL_FIELD_BATTLE,				/* çˆµ    åŠå¿ƒ */
+	PETSKILL_FIELD_MAP,				/* é¨·æ©˜ç©´æ°¸çš¿æ›‰åŠå¿ƒ */
 
 }PETSKILL_FIELDTYPE;
 
 typedef enum
 {
-	PETSKILL_TARGET_MYSELF,		/* ¼«Ê¬¤Î¤ß */
-	PETSKILL_TARGET_OTHER,			/* Â¾¤Î¿Í  ¼«Ê¬´Ş¤à) */
-	PETSKILL_TARGET_ALLMYSIDE,		/*     Á´   */
-	PETSKILL_TARGET_ALLOTHERSIDE,	/* Áê¼êÂ¦Á´   */
-	PETSKILL_TARGET_ALL,			/* Á´¤Æ */
-	PETSKILL_TARGET_NONE,			/* Ã¯¤âÁª  ½Ğ  ¤Ê¤¤¡e  ¸æ¤ä¤¿¤á¤Î»ş */
-	PETSKILL_TARGET_OTHERWITHOUTMYSELF,/* Â¾¤Î¿Í  ¼«Ê¬´Ş¤Ş¤Ê¤¤) */
-	PETSKILL_TARGET_WITHOUTMYSELFANDPET,  /* ¼«Ê¬¤È¥Ú¥Ã¥È°Ê³° */
+	PETSKILL_TARGET_MYSELF,		/* æ†¤åŒåŠå¿ƒ */
+	PETSKILL_TARGET_OTHER,			/* è·åŠè«¦  æ†¤åŒæ®–æˆˆ) */
+	PETSKILL_TARGET_ALLMYSIDE,		/*     èŸˆ   */
+	PETSKILL_TARGET_ALLOTHERSIDE,	/* é¬æ¾ç¤èŸˆ   */
+	PETSKILL_TARGET_ALL,			/* èŸˆåŒ– */
+	PETSKILL_TARGET_NONE,			/* ç°¿æ‰‹è–Š  è«‹  å…ä¸­ã€”  è±¢æ”¯å‡¶æˆ¶åŠå‡œ */
+	PETSKILL_TARGET_OTHERWITHOUTMYSELF,/* è·åŠè«¦  æ†¤åŒæ®–å¼•å…ä¸­) */
+	PETSKILL_TARGET_WITHOUTMYSELFANDPET,  /* æ†¤åŒåˆçŸ¢æ°¸ç„å‹•é™¸ */
 }PETSKILL_TARGETTYPE;
 
 typedef enum
@@ -39,12 +39,12 @@ typedef enum
 typedef enum
 {
 	PETSKILL_NAME,					/*      */
-	PETSKILL_COMMENT,				/* ¥³¥á¥ó¥È*/
-	PETSKILL_FUNCNAME,				/* ´Ø¿ô   */
-	PETSKILL_OPTION,				/* ¥ª¥×¼³¥ç¥ó */
+	PETSKILL_COMMENT,				/* æˆŠä¸Ÿä»¶ç„*/
+	PETSKILL_FUNCNAME,				/* æ¥®é†’   */
+	PETSKILL_OPTION,				/* å·¦çš¿æ’²äº¦ä»¶ */
 #ifdef _CFREE_petskill
-	PETSKILL_FREE,					/*±ø¥ó*/
-	PETSKILL_KINDCODE,				/*ºØÃş½X*/
+	PETSKILL_FREE,					/*æ¢ä»¶*/
+	PETSKILL_KINDCODE,				/*ç¨®é¡ç¢¼*/
 #endif
 
 	PETSKILL_DATACHARNUM,
@@ -96,16 +96,16 @@ int PETSKILL_ChargeAttack(
 );
 
 
-#define PETSKILL_ID_GBREAK		0	// ¥¬¡¼¥É¥Ö¥ì¥¤¥¯
-#define PETSKILL_ID_RENZOKU		1	//   Â³  ·â
-#define PETSKILL_ID_GUARDIAN	2	// Ãé¸¤¥Ï¥Á¸ø
-#define PETSKILL_ID_CHARGE		3	// ¥Á¥ã¡¼¥¸  ·â
-#define PETSKILL_ID_ICHIGEKI	100	// °ì·â  »¦
-#define PETSKILL_ID_POWERBALANCE 110	//     ¤Î¿Ø
+#define PETSKILL_ID_GBREAK		0	// å¸ƒâ–¡ç‰çš®ä¼Šå¥¶å¼
+#define PETSKILL_ID_RENZOKU		1	//   ç³§  çŒ¾
+#define PETSKILL_ID_GUARDIAN	2	// é‘èˆ…ç”©æ°‘è·¤
+#define PETSKILL_ID_CHARGE		3	// æ°‘ä¹“â–¡æ–¥  çŒ¾
+#define PETSKILL_ID_ICHIGEKI	100	// åŸŸçŒ¾  èªš
+#define PETSKILL_ID_POWERBALANCE 110	//     åŠè«·
 
 //**********************************************************************
 //
-//  ÀĞ  -- Â¾¿Í¤ò¼é¤ê¤Ê¤¬¤é  ·â
+//  æª—  -- è·è«¦æ¯›æ½®æ›°å…äº’æ—¥  çŒ¾
 //
 int PETSKILL_Guardian(
 	int charaindex,
@@ -125,7 +125,7 @@ int PETSKILL_PowerBalance(
 
 //**********************************************************************
 //
-//  ÀĞ  -- ¶¯  ¤À¤¬²ó  ¤µ¤ì¤ë³Î  ¤¬¹â¤¤
+//  æª—  -- é›„  åˆ†äº’è¢  ä»Šæœ¨æœˆå‰²  äº’å«–ä¸­
 //
 int PETSKILL_Mighty(
 	int charaindex,
@@ -139,7 +139,7 @@ int PETSKILL_Mighty(
 
 //**********************************************************************
 //
-//  ÀĞ  -- ¥¹  ¡¼¥¿¥¹°Û¾ï  ·â
+//  æª—  -- æ—¦  â–¡æ­£æ—¦å”±æ©˜  çŒ¾
 //
 int PETSKILL_StatusChange(
 	int charaindex,
@@ -154,7 +154,7 @@ int PETSKILL_StatusChange(
 
 //*******************************************************
 //
-// ÀĞ  -- ÄÌ¾ï  ·â
+// æª—  -- é¨·æ©˜  çŒ¾
 //
 int PETSKILL_NormalAttack(
 	int charaindex,
@@ -168,7 +168,7 @@ int PETSKILL_NormalAttack(
 
 //*******************************************************
 //
-// ÀĞ  -- ÄÌ¾ï  ¸æ
+// æª—  -- é¨·æ©˜  è±¢
 //
 int PETSKILL_NormalGuard(
 	int charaindex,
@@ -181,7 +181,7 @@ int PETSKILL_NormalGuard(
 //*******************************************************
 
 //*******************************************************
-// ÀĞ  -- ÂÔµ¡(²¿¤â¤·¤Ê¤¤)
+// æª—  -- è¬¹çª—(çª’æ‰‹ä»„å…ä¸­)
 //
 int PETSKILL_None(
 	int charaindex,
@@ -194,7 +194,7 @@ int PETSKILL_None(
 //*******************************************************
 
 //*******************************************************
-// ÀĞ  -- ¼Mµå°ì½µ(±£¤ì¤Æ£±¥¿¡¼¥ó  ¤ËÁê¼ê¤Î    ¤«¤é  ·â)
+// æª—  -- å˜©è„åŸŸè”¥(æ‚µæœ¨åŒ–ã„ æ­£â–¡ä»¶  åé¬æ¾åŠ    äº•æ—¥  çŒ¾)
 //
 int PETSKILL_EarthRound(
 	int charaindex,
@@ -207,7 +207,7 @@ int PETSKILL_EarthRound(
 //*******************************************************
 
 //*******************************************************
-// ÀĞ  -- ¥¬¡¼¥É¥Ö¥ì¥¤¥¯
+// æª—  -- å¸ƒâ–¡ç‰çš®ä¼Šå¥¶å¼
 //
 int PETSKILL_GuardBreak(
 	int charaindex,
@@ -217,7 +217,7 @@ int PETSKILL_GuardBreak(
 
 );
 ///////////////////////////////////////////
-#ifdef _SKILL_GUARDBREAK2//¯}°£¨¾¿m2 vincent add 2002/05/20
+#ifdef _SKILL_GUARDBREAK2//ç ´é™¤é˜²ç¦¦2 vincent add 2002/05/20
 int PETSKILL_GuardBreak2(
 	int charaindex,
 	int toNo,
@@ -229,7 +229,7 @@ int PETSKILL_GuardBreak2(
 //
 //*******************************************************
 //*******************************************************
-// ÀĞ  --     ¤ì
+// æª—  --     æœ¨
 //
 int PETSKILL_Abduct(
 	int charaindex,
@@ -241,7 +241,7 @@ int PETSKILL_Abduct(
 //
 //*******************************************************
 //*******************************************************
-// ÀĞ  --   ¤à
+// æª—  --   æˆˆ
 int PETSKILL_Steal(
 	int charaindex,
 	int toNo,
@@ -280,7 +280,7 @@ int PETSKILL_Fixitem(
 );
 #endif
 
-// ÀĞ  -- ¥¢¥¤  ¥à¹ç©¨
+// æª—  -- å¤±å¥¶  ä¸å¯§å²³
 //
 int PETSKILL_Merge(
 	int charaindex,
@@ -293,7 +293,7 @@ int PETSKILL_Merge(
 //*******************************************************
 
 //*******************************************************
-// ÀĞ  -- ¥Î¡¼¥¬¡¼¥É
+// æª—  -- ç”¨â–¡å¸ƒâ–¡ç‰
 //
 int PETSKILL_NoGuard(
 	int charaindex,
@@ -361,7 +361,7 @@ int PETSKILL_Refresh(
 );
 #endif
 
-#ifdef _SKILL_WEAKEN  //vincentÃd§Ş:µê®z
+#ifdef _SKILL_WEAKEN  //vincentå¯µæŠ€:è™›å¼±
 int PETSKILL_Weaken(
 	int charaindex,
 	int toindex,
@@ -370,7 +370,7 @@ int PETSKILL_Weaken(
 );
 #endif
 
-#ifdef _SKILL_DEEPPOISON  //vincentÃd§Ş:¼@¬r 
+#ifdef _SKILL_DEEPPOISON  //vincentå¯µæŠ€:åŠ‡æ¯’ 
 int PETSKILL_Deeppoison(
 	int charaindex,
 	int toindex,
@@ -379,7 +379,7 @@ int PETSKILL_Deeppoison(
 );
 #endif
 
-#ifdef _SKILL_BARRIER  //vincentÃd§Ş:Å]»Ù
+#ifdef _SKILL_BARRIER  //vincentå¯µæŠ€:é­”éšœ
 int PETSKILL_Barrier(
 	int charaindex,
 	int toindex,
@@ -388,7 +388,7 @@ int PETSKILL_Barrier(
 );
 #endif
 
-#ifdef _SKILL_NOCAST  //vincentÃd§Ş:¨IÀq
+#ifdef _SKILL_NOCAST  //vincentå¯µæŠ€:æ²‰é»˜
 int PETSKILL_Nocast(
 	int charaindex,
 	int toindex,
@@ -397,7 +397,7 @@ int PETSKILL_Nocast(
 );
 #endif
 
-#ifdef _SKILL_ROAR //vincentÃd§Ş:¤j§q
+#ifdef _SKILL_ROAR //vincentå¯µæŠ€:å¤§å¼
 int PETSKILL_Roar(
 	int charaindex,
 	int toindex,
@@ -431,7 +431,7 @@ int PETSKILL_BattleTimid( int charaindex, int toNo, int array, char *data );
 int PETSKILL_2BattleTimid( int charaindex, int toNo, int array, char *data );
 #endif
 #ifdef _PETSKILL_ANTINTER
-int PETSKILL_AntInter(int charaindex, int toindex, int array, char* data);		// Ãdª«§Ş¯à¾Ô°«¼Ò²Õ
+int PETSKILL_AntInter(int charaindex, int toindex, int array, char* data);		// å¯µç‰©æŠ€èƒ½æˆ°é¬¥æ¨¡çµ„
 #endif
 
 #ifdef _PETSKILL_PROPERTY
@@ -450,7 +450,7 @@ int PETSKILL_Lighttakeed( int charaindex, int toNo, int array, char *data );
 int PETSKILL_AttackCrazed( int charaindex, int toNo, int array, char *data );
 #endif
 
-#ifdef _SHOOTCHESTNUT	// Syu ADD Ãd§Ş¡G¥á®ß¤l
+#ifdef _SHOOTCHESTNUT	// Syu ADD å¯µæŠ€ï¼šä¸Ÿæ —å­
 int PETSKILL_AttackShoot( int charaindex, int toNo, int array, char *data );
 #endif
 
@@ -483,11 +483,11 @@ int PETSKILL_Mdfyattack( int charaindex, int toNo, int array, char *data );
 int	PETSKILL_MagicStatusChange( int charaindex, int toindex, int array, char *data );
 #endif
 
-#ifdef _PET_SKILL_SARS				// WON ADD ¬r·Ù½¯©µ
+#ifdef _PET_SKILL_SARS				// WON ADD æ¯’ç…è”“å»¶
 int PETSKILL_Sars( int charaindex, int toNo, int array, char *data );
 #endif
 
-#ifdef _SONIC_ATTACK				// WON ADD ­µªi§ğÀ»
+#ifdef _SONIC_ATTACK				// WON ADD éŸ³æ³¢æ”»æ“Š
 int PETSKILL_Sonic( int charaindex, int toNo, int array, char *data );
 #endif
 #ifdef _PETSKILL_REGRET
@@ -498,7 +498,7 @@ int PETSKILL_Regret( int charaindex, int toNo, int array, char *data );
 int PETSKILL_Gyrate( int charaindex, int toNo, int array, char *data );
 #endif
 
-#ifdef _PETSKILL_ACUPUNCTURE //°w¨ë¥~¥Ö
+#ifdef _PETSKILL_ACUPUNCTURE //é‡åˆºå¤–çš®
 int PETSKILL_Acupuncture( int charaindex, int toNo, int array, char *data );
 #endif
 
@@ -514,7 +514,7 @@ int PETSKILL_Hector( int charaindex, int toNo, int array, char *data );
 int PETSKILL_Firekill( int charaindex, int toNo, int array, char *data );
 #endif
 
-#ifdef _PETSKILL_DAMAGETOHP   //·t¤ë¨g¯T(¶İ¦å§ŞªºÅÜÅé) 
+#ifdef _PETSKILL_DAMAGETOHP   //æš—æœˆç‹‚ç‹¼(å—œè¡€æŠ€çš„è®Šé«”) 
 int PETSKILL_DamageToHp2( int charaindex, int toNo, int array, char *data );
 #endif
 
@@ -535,12 +535,12 @@ int PETSKILL_Combined(int charaindex, int toNo, int array, char* data);
 #endif
 
 #ifdef _PETSKILL_LER
-int PETSKILL_BatFly(int charaindex, int toNo, int array, char* data);					// ¹pº¸§Ş - ¸s½»¥|Â«
-int PETSKILL_DivideAttack(int charaindex, int toNo, int array, char* data);		// ¹pº¸§Ş - ¤À¨­¦aµõ
+int PETSKILL_BatFly(int charaindex, int toNo, int array, char* data);					// é›·çˆ¾æŠ€ - ç¾¤è å››ç«„
+int PETSKILL_DivideAttack(int charaindex, int toNo, int array, char* data);		// é›·çˆ¾æŠ€ - åˆ†èº«åœ°è£‚
 #endif
 
 #ifdef _PETSKILL_BATTLE_MODEL
-int PETSKILL_BattleModel(int charaindex, int toindex, int array, char* data);		// Ãdª«§Ş¯à¾Ô°«¼Ò²Õ
+int PETSKILL_BattleModel(int charaindex, int toindex, int array, char* data);		// å¯µç‰©æŠ€èƒ½æˆ°é¬¥æ¨¡çµ„
 #endif
 
 #endif

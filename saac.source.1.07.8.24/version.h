@@ -1,165 +1,165 @@
 #ifndef __VERSION_H__
 #define __VERSION_H__
 
-//#define _SA80ITEM			//¡]¤£¥i¶}¡^¦N¥J ADD ¥Î©ó¤Á´«7.5»P8.0ªº¹D¨ã«Ê¥]¤ä«ù
-#define _SASQL1				//¡]¥i¶}¡^¦N¥J ­×§ï ¼Æ¾Ú®wÅçÃÒ
-//#define _ID_PASSW_AVOID	//Â¶¹L±b¸¹ÅçÃÒ
-//#define _DEBUG_JZ_		//¡]¥i¶}¡^¦N¥J ADD ½Õ¸Õ¥Î
+//#define _SA80ITEM			//ï¼ˆä¸å¯é–‹ï¼‰å‰ä»” ADD ç”¨æ–¼åˆ‡æ›7.5èˆ‡8.0çš„é“å…·å°åŒ…æ”¯æŒ
+#define _SASQL1				//ï¼ˆå¯é–‹ï¼‰å‰ä»” ä¿®æ”¹ æ•¸æ“šåº«é©—è­‰
+//#define _ID_PASSW_AVOID	//ç¹žéŽå¸³è™Ÿé©—è­‰
+//#define _DEBUG_JZ_		//ï¼ˆå¯é–‹ï¼‰å‰ä»” ADD èª¿è©¦ç”¨
 #ifdef _DEBUG_JZ_
-#define _SAAC_SERVI "SMO v1.07.8.24 For Linux Debug Marking By SMO§Þ³N¤p²Õ-¦N¥J"
+#define _SAAC_SERVI "SMO v1.07.8.24 For Linux Debug Marking By SMOæŠ€è¡“å°çµ„-å‰ä»”"
 #else
-#define _SAAC_SERVI "SMO v1.07.8.24 For Linux By SMO§Þ³N¤p²Õ-¦N¥J"
+#define _SAAC_SERVI "SMO v1.07.8.24 For Linux By SMOæŠ€è¡“å°çµ„-å‰ä»”"
 #endif
-/* ½Ð±N±±¨î±M®×ªº definition ©ñ¦b³o­ÓÀÉ®×
- * µM«áÂÇ¥Ñ remark/unmark ¨Ó¶}Ãö¥\¯à
+/* è«‹å°‡æŽ§åˆ¶å°ˆæ¡ˆçš„ definition æ”¾åœ¨é€™å€‹æª”æ¡ˆ
+ * ç„¶å¾Œè—‰ç”± remark/unmark ä¾†é–‹é—œåŠŸèƒ½
  */
 
 /* -------------------------------------------------------------------
- * ±M®×¡G±Ú¤HÂ¾°È»P®a±Ú¥\¯à¸É¥R
- * ¤H­û¡G¤p·ì¡B«Û¾±¡B§Ó°¶¡B¤p¥Á
- * »¡©ú¡G
+ * å°ˆæ¡ˆï¼šæ—äººè·å‹™èˆ‡å®¶æ—åŠŸèƒ½è£œå……
+ * äººå“¡ï¼šå°ç‘œã€å½¥å‹³ã€å¿—å‰ã€å°æ°‘
+ * èªªæ˜Žï¼š
  */
-#define _LEADERFLAG_VER		// ¶â¡B£°¡B³o­Ó.... (¥i¶}©ñ)
-#define __FAMILY			//  (¥i¶}©ñ)
-#define _PERSONAL_FAME		// Arminius 8.30 ®a±Ú­Ó¤HÁn±æ  (¥i¶}©ñ)
-#define _FMVER21			// CoolFish: ®a±Ú±ÚªøÂ¾°È¥N²z¤H 2001/8/30 (¥i¶}©ñ)
-#define MEMBER_100			// CoolFish: ®a±Ú¤H¼Æ¤W­­ 2001/9/3 (¥i¶}©ñ)
-#define _EVERYONE_RIDE		// CoolFish: ÃMÃd¥­¥Á¤Æ®a±Úª÷ÃB¤W­­ 2001/9/24 (¥i¶}©ñ)
+#define _LEADERFLAG_VER		// å—¯ã€ã„Ÿã€é€™å€‹.... (å¯é–‹æ”¾)
+#define __FAMILY			//  (å¯é–‹æ”¾)
+#define _PERSONAL_FAME		// Arminius 8.30 å®¶æ—å€‹äººè²æœ›  (å¯é–‹æ”¾)
+#define _FMVER21			// CoolFish: å®¶æ—æ—é•·è·å‹™ä»£ç†äºº 2001/8/30 (å¯é–‹æ”¾)
+#define MEMBER_100			// CoolFish: å®¶æ—äººæ•¸ä¸Šé™ 2001/9/3 (å¯é–‹æ”¾)
+#define _EVERYONE_RIDE		// CoolFish: é¨Žå¯µå¹³æ°‘åŒ–å®¶æ—é‡‘é¡ä¸Šé™ 2001/9/24 (å¯é–‹æ”¾)
 
 /* -------------------------------------------------------------------
- * ±M®×¡G·í¾÷¤£¦^®Ò¤§¤Hª«¸ê®Æ¦sÀÉ¤è¦¡­×¥¿
- * ¤H­û¡G¤p·ì¡B«Û¾±
- * »¡©ú¡G­×¥¿¤Hª«¸ê®Æ¦sÀÉ¤è¦¡
+ * å°ˆæ¡ˆï¼šç•¶æ©Ÿä¸å›žæœ”ä¹‹äººç‰©è³‡æ–™å­˜æª”æ–¹å¼ä¿®æ­£
+ * äººå“¡ï¼šå°ç‘œã€å½¥å‹³
+ * èªªæ˜Žï¼šä¿®æ­£äººç‰©è³‡æ–™å­˜æª”æ–¹å¼
  */
-#define _NewSave		// CoolFish: 2001/10/16 (¥i¶}©ñ)
+#define _NewSave		// CoolFish: 2001/10/16 (å¯é–‹æ”¾)
 
 /* -------------------------------------------------------------------
- * ±M®×¡G¬P²y¦X¨Ö
- * ¤H­û¡Gªü¥Á¡B«Û¾±¡B¤p·ì
- * »¡©ú¡G
+ * å°ˆæ¡ˆï¼šæ˜Ÿçƒåˆä½µ
+ * äººå“¡ï¼šé˜¿æ°‘ã€å½¥å‹³ã€å°ç‘œ
+ * èªªæ˜Žï¼š
  */
-// #define _RELOGIN		// CoolFish: ­«½Æµn¤J¾÷¨î 2001/10/29 (¤£¥i¶}©ñ)
+// #define _RELOGIN		// CoolFish: é‡è¤‡ç™»å…¥æ©Ÿåˆ¶ 2001/10/29 (ä¸å¯é–‹æ”¾)
 
 /* -------------------------------------------------------------------
- * ±M®×¡G¥ì¨l¤j³°
- * ¤H­û¡G«Û»¨¡Bªü¥Á¡B¤p·ì
- * »¡©ú¡G¤u´Á 1/15
+ * å°ˆæ¡ˆï¼šä¼Šç”¸å¤§é™¸
+ * äººå“¡ï¼šå½¥è±ªã€é˜¿æ°‘ã€å°ç‘œ
+ * èªªæ˜Žï¼šå·¥æœŸ 1/15
  */
-//#define _AUCTIONEER // Arminius 1.10 ©ç½æ©± (¥ì¨l¤j³°)
+//#define _AUCTIONEER // Arminius 1.10 æ‹è³£åº— (ä¼Šç”¸å¤§é™¸)
 
 /* -------------------------------------------------------------------
- * ±M®×¡G®a±Ú¢Ð¢ã¢Õ­×¥¿
- * ¤H­û¡G¤p·ì
- * »¡©ú¡G
+ * å°ˆæ¡ˆï¼šå®¶æ—ï¼¢ï¼µï¼§ä¿®æ­£
+ * äººå“¡ï¼šå°ç‘œ
+ * èªªæ˜Žï¼š
  */
-#define _LEADERFUNCHECK	// CoolFish: 2002/02/06 ±Úªø¥\¯à¿ù»~¡BÁIÅý¿ù»~­×¥¿(¥i¶}©ñ)
+#define _LEADERFUNCHECK	// CoolFish: 2002/02/06 æ—é•·åŠŸèƒ½éŒ¯èª¤ã€ç¦ªè®“éŒ¯èª¤ä¿®æ­£(å¯é–‹æ”¾)
 
 /* -------------------------------------------------------------------
- * ±M®×¡G¸ó¬P²y½ð¤H
- * ¤H­û¡G«Û»¨
- * »¡©ú¡G
+ * å°ˆæ¡ˆï¼šè·¨æ˜Ÿçƒè¸¢äºº
+ * äººå“¡ï¼šå½¥è±ª
+ * èªªæ˜Žï¼š
  */
-#define _WAEI_KICK				// (¥i¶}©ñ)(¥_¨Ê¤£¥²¶})
-#define _FIX_WORKS				// (¥i¶}©ñ)(¥_¨Ê¤£¥²¶}) wk­×§ï
+#define _WAEI_KICK				// (å¯é–‹æ”¾)(åŒ—äº¬ä¸å¿…é–‹)
+#define _FIX_WORKS				// (å¯é–‹æ”¾)(åŒ—äº¬ä¸å¿…é–‹) wkä¿®æ”¹
 
-//#define _DELAY_UNLOCK			// (¤£¥i¶}) ANDY
-//#define _LOCK_SERVER			// (¤£¥i¶})
-//#define _TEST_LOCKSERVER		// (¤£¥i¶})
-//#define _NO_DOUBLECHECK		// (¤£¥i¶})
-//#define _PAUCTION_MAN			// (¤£¥i¶}) ±H½æ
+//#define _DELAY_UNLOCK			// (ä¸å¯é–‹) ANDY
+//#define _LOCK_SERVER			// (ä¸å¯é–‹)
+//#define _TEST_LOCKSERVER		// (ä¸å¯é–‹)
+//#define _NO_DOUBLECHECK		// (ä¸å¯é–‹)
+//#define _PAUCTION_MAN			// (ä¸å¯é–‹) å¯„è³£
 /* -------------------------------------------------------------------
- * ±M®×¡G¤E¤j²ø¶é(4.0)
- * ¤H­û¡G§Ó©ô	
- * »¡©ú¡G
+ * å°ˆæ¡ˆï¼šä¹å¤§èŽŠåœ’(4.0)
+ * äººå“¡ï¼šå¿—æ—º	
+ * èªªæ˜Žï¼š
  */
-#define _FIX_10_FMPOINT			//¡]¥i¶}©ñ¡^¦N¥JADD ¦B²ø
-#define _FIX_9_FMPOINT			// (¥i¶}©ñ) WON ADD ¤E¤j²ø¶é
-#define _FIX_LEADER_ERR			// (¥i¶}©ñ) WON ADD ­×¥¿±Úªø°ÝÃD
-#define _REMOVE_FM_LOG          // (¥i¶}©ñ) WON ADD ²¾°£¤£¥²­nªº®a±Ú LOG
-//#define _ADD_FAMILY_TAX		// (¤£¥i¶}) WON ADD ¼W¥[²ø¶éµ|¦¬
+#define _FIX_10_FMPOINT			//ï¼ˆå¯é–‹æ”¾ï¼‰å‰ä»”ADD å†°èŽŠ
+#define _FIX_9_FMPOINT			// (å¯é–‹æ”¾) WON ADD ä¹å¤§èŽŠåœ’
+#define _FIX_LEADER_ERR			// (å¯é–‹æ”¾) WON ADD ä¿®æ­£æ—é•·å•é¡Œ
+#define _REMOVE_FM_LOG          // (å¯é–‹æ”¾) WON ADD ç§»é™¤ä¸å¿…è¦çš„å®¶æ— LOG
+//#define _ADD_FAMILY_TAX		// (ä¸å¯é–‹) WON ADD å¢žåŠ èŽŠåœ’ç¨…æ”¶
 
 
 /* -------------------------------------------------------------------
- * ±M®×¡G½T»{²ø¶é¬D¾Ô±Æµ{
- * ¤H­û¡G¦°¸Û	
- * »¡©ú¡G¥ÑAC¤Ufamily¥Ø¿ý¸ÌfmscheduleÀÉ²Î¤@¼s¼½¦U²ø¶é¬D¾Ô±Æµ{ 
+ * å°ˆæ¡ˆï¼šç¢ºèªèŽŠåœ’æŒ‘æˆ°æŽ’ç¨‹
+ * äººå“¡ï¼šæ—­èª 	
+ * èªªæ˜Žï¼šç”±ACä¸‹familyç›®éŒ„è£¡fmscheduleæª”çµ±ä¸€å»£æ’­å„èŽŠåœ’æŒ‘æˆ°æŽ’ç¨‹ 
 */
-//#define _CHECKFMSCHEDULE	    // (¤£¥i¶}) Syu ADD ³z¹LAC½T»{®a±Ú¬D¾Ô±Æµ{
-//#define _FAMILYBANKSTONELOG   // (¤£¥i¶}) Syu ADD ·s¼W®a±Ú»È¦æ¦s¨úLog
-//#define _FIXFMASSIGN		    // (¤£¥i¶}) Syu ADD ­×¥¿®a±Ú¤@¦Ê¤HµLªk«ü¬£¡B²¾°£ªø¦Ñ	
+//#define _CHECKFMSCHEDULE	    // (ä¸å¯é–‹) Syu ADD é€éŽACç¢ºèªå®¶æ—æŒ‘æˆ°æŽ’ç¨‹
+//#define _FAMILYBANKSTONELOG   // (ä¸å¯é–‹) Syu ADD æ–°å¢žå®¶æ—éŠ€è¡Œå­˜å–Log
+//#define _FIXFMASSIGN		    // (ä¸å¯é–‹) Syu ADD ä¿®æ­£å®¶æ—ä¸€ç™¾äººç„¡æ³•æŒ‡æ´¾ã€ç§»é™¤é•·è€	
 
 
 /* -------------------------------------------------------------------
- * ±M®×¡G¥Û¾¹6.0
- * ¤H­û¡G
- * »¡©ú¡G
+ * å°ˆæ¡ˆï¼šçŸ³å™¨6.0
+ * äººå“¡ï¼š
+ * èªªæ˜Žï¼š
  */
-#define _SEND_EFFECT		    // (¥i¶}©ñ) WON ADD °e¤U³·¡B¤U«Bµ¥¯S®Ä
-//#define _NEW_PLAYERGOLD		// (¤£¥i¶}) ANDY ·s±b¸¹µ¹¿ú
-//#define _BAD_PLAYER           // (¤£¥i¶}) WON ADD °eÃaª±®a¥hÃö
+#define _SEND_EFFECT		    // (å¯é–‹æ”¾) WON ADD é€ä¸‹é›ªã€ä¸‹é›¨ç­‰ç‰¹æ•ˆ
+//#define _NEW_PLAYERGOLD		// (ä¸å¯é–‹) ANDY æ–°å¸³è™Ÿçµ¦éŒ¢
+//#define _BAD_PLAYER           // (ä¸å¯é–‹) WON ADD é€å£žçŽ©å®¶åŽ»é—œ
 
 // -------------------------------------------------------------------
-#define _AC_SEND_FM_PK			// (¥i¶}©ñ) WON ADD ²ø¶é¹ï¾Ô¦CªíÀx¦s¦bAC
-#define _ACFMPK_LIST			// (¥i¶}©ñ) ANDY ²ø¶é¹ï¾Ô¦Cªí
-#define _CK_ONLINE_PLAYER_COUNT	// (¥i¶}©ñ) WON ADD ­pºâ½u¤W¤H¼Æ
+#define _AC_SEND_FM_PK			// (å¯é–‹æ”¾) WON ADD èŽŠåœ’å°æˆ°åˆ—è¡¨å„²å­˜åœ¨AC
+#define _ACFMPK_LIST			// (å¯é–‹æ”¾) ANDY èŽŠåœ’å°æˆ°åˆ—è¡¨
+#define _CK_ONLINE_PLAYER_COUNT	// (å¯é–‹æ”¾) WON ADD è¨ˆç®—ç·šä¸Šäººæ•¸
 
 /* -------------------------------------------------------------------
- * ±M®×¡G¥Û¾¹7.0
- * ¤H­û¡G
- * »¡©ú¡G
+ * å°ˆæ¡ˆï¼šçŸ³å™¨7.0
+ * äººå“¡ï¼š
+ * èªªæ˜Žï¼š
  */
-#define _ALLDOMAN				// (¥i¶}©ñ) Syu ADD ±Æ¦æº]NPC
-#define _CHAR_POOLITEM			// (¥i¶}©ñ) ANDY ¦@¥Î­Ü®w
-#define _CHAR_POOLPET			// (¥i¶}©ñ) Robin ¦@¥ÎÃdª«­Ü®w
-//#define _FIX_ALLDOMAN			// (¤£¥i¶}) ANDY
+#define _ALLDOMAN				// (å¯é–‹æ”¾) Syu ADD æŽ’è¡Œæ¦œNPC
+#define _CHAR_POOLITEM			// (å¯é–‹æ”¾) ANDY å…±ç”¨å€‰åº«
+#define _CHAR_POOLPET			// (å¯é–‹æ”¾) Robin å…±ç”¨å¯µç‰©å€‰åº«
+//#define _FIX_ALLDOMAN			// (ä¸å¯é–‹) ANDY
 // -------------------------------------------------------------------
-// ·s¥\¯à¡G«ÈªA¤½§i¨t²Î
-#define _GM_BROADCAST				// (¥i¶}©ñ) WON ADD «ÈªA¤½§i¨t²Î
-
-// -------------------------------------------------------------------
-// ·s¥\¯à¡GGM±KÀW¥\¯àÂX¥R
-//#define _RECAL_BACKUP_PLAYER		// (¥i¶}©ñ (¼È®É¥ýÃö°_¨Ó) ) WON ¦^·¹¥\¯à (¥_¨Ê&Áú°ê¤£¥²¶})
-//#define _UNIVERSE_CHATROOM			// (¤£¥i¶}) ANDY ¥þ¬P¨t²á¤Ñ
+// æ–°åŠŸèƒ½ï¼šå®¢æœå…¬å‘Šç³»çµ±
+#define _GM_BROADCAST				// (å¯é–‹æ”¾) WON ADD å®¢æœå…¬å‘Šç³»çµ±
 
 // -------------------------------------------------------------------
-// ·s¥\¯à¡G­×§ïWORKER(·s¥I¶O¾÷¨î)
-#define _FIX_MESSAGE				// (¥i¶}) WON ADD ­×§ïWORKER«Ê¥]¤º®e (¥_¨Ê&Áú°ê¤£¥²¶})
-#define _WORKER_AUTO_LOGOUT		// (¥i¶}) WON ADD GSÂ_½u¦Û°Ê°eLOGOUTµ¹WORKER
-
-//#define _DEFEND_NEWUSERS			// (¤£¥i¶}) ANDY ¦Ñ¤â±a·s¤â
-//#define _CHECK_BADFILES			// (¤£¥i¶}) ANDY §PÂ_Ãa¾×
-//#define _AC_UNLOCK_GS_PLAYER		// (¤£¥i¶}) WON ADD ¦Û°ÊUNLOCK
-//#define _ACFMPK_NOFREE			// (¤£¥i¶}) ANDY ®a±ÚµL±ø¥ó
+// æ–°åŠŸèƒ½ï¼šGMå¯†é »åŠŸèƒ½æ“´å……
+//#define _RECAL_BACKUP_PLAYER		// (å¯é–‹æ”¾ (æš«æ™‚å…ˆé—œèµ·ä¾†) ) WON å›žæº¯åŠŸèƒ½ (åŒ—äº¬&éŸ“åœ‹ä¸å¿…é–‹)
+//#define _UNIVERSE_CHATROOM			// (ä¸å¯é–‹) ANDY å…¨æ˜Ÿç³»èŠå¤©
 
 // -------------------------------------------------------------------
-// ·s¥\¯à¡G¸ó¬P¨tpk¦øªA¾¹
-//#define _OACSTRUCT_TCP			// (¤£¥i¶}) ANDY ¸ó¬P¨t¨ú±o¤Hª«¦Cªí
-//#define _TCPIP_UTIL				// (¤£¥i¶}) ANDY TCPIP
-//#define _DEATH_CONTEND			// (¤£¥i¶}) ANDY ¦º°«
-//#define _DEATH_FAMILY_LOGIN_CHECK	// (¤£¥i¶}) WON ADD ®a±Ú¾Ôµn¤JÀË¬d
-//#define _DEATH_FAMILY_GM_COMMAND	// (¤£¥i¶}) WON ADD ®a±Ú¾ÔGM«ü¥O
-//#define _DEATH_FAMILY_STRUCT		// (¤£¥i¶}) WON ADD ®a±Ú¾Ô¦s©ñ³Ó­t¸ê®Æ
+// æ–°åŠŸèƒ½ï¼šä¿®æ”¹WORKER(æ–°ä»˜è²»æ©Ÿåˆ¶)
+#define _FIX_MESSAGE				// (å¯é–‹) WON ADD ä¿®æ”¹WORKERå°åŒ…å…§å®¹ (åŒ—äº¬&éŸ“åœ‹ä¸å¿…é–‹)
+#define _WORKER_AUTO_LOGOUT		// (å¯é–‹) WON ADD GSæ–·ç·šè‡ªå‹•é€LOGOUTçµ¦WORKER
 
-//#define _CHANGEGALAXY	// Robin 2003/10/27 ¬P¨t²¾¥Á
+//#define _DEFEND_NEWUSERS			// (ä¸å¯é–‹) ANDY è€æ‰‹å¸¶æ–°æ‰‹
+//#define _CHECK_BADFILES			// (ä¸å¯é–‹) ANDY åˆ¤æ–·å£žæ“‹
+//#define _AC_UNLOCK_GS_PLAYER		// (ä¸å¯é–‹) WON ADD è‡ªå‹•UNLOCK
+//#define _ACFMPK_NOFREE			// (ä¸å¯é–‹) ANDY å®¶æ—ç„¡æ¢ä»¶
 
-#define _TIMEOUTKICK // Robin 2003/11/07 ®É¬q¨î¦Û°Ê½ð¤H
+// -------------------------------------------------------------------
+// æ–°åŠŸèƒ½ï¼šè·¨æ˜Ÿç³»pkä¼ºæœå™¨
+//#define _OACSTRUCT_TCP			// (ä¸å¯é–‹) ANDY è·¨æ˜Ÿç³»å–å¾—äººç‰©åˆ—è¡¨
+//#define _TCPIP_UTIL				// (ä¸å¯é–‹) ANDY TCPIP
+//#define _DEATH_CONTEND			// (ä¸å¯é–‹) ANDY æ­»é¬¥
+//#define _DEATH_FAMILY_LOGIN_CHECK	// (ä¸å¯é–‹) WON ADD å®¶æ—æˆ°ç™»å…¥æª¢æŸ¥
+//#define _DEATH_FAMILY_GM_COMMAND	// (ä¸å¯é–‹) WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
+//#define _DEATH_FAMILY_STRUCT		// (ä¸å¯é–‹) WON ADD å®¶æ—æˆ°å­˜æ”¾å‹è² è³‡æ–™
 
-//#define _UNLOCKPOOL		// Robin 2003/12/12  Logout¼È¦s°Ï
+//#define _CHANGEGALAXY	// Robin 2003/10/27 æ˜Ÿç³»ç§»æ°‘
 
-#define _KILLDEADWORKER // Robin 2004/02/ ¥Îsigusr1²M°£©Ò¦³Worker ¦bunlock.arg¥['K'
+#define _TIMEOUTKICK // Robin 2003/11/07 æ™‚æ®µåˆ¶è‡ªå‹•è¸¢äºº
 
-#define _SLEEP_CHAR		// Robin 2004/02/12	¬¡ÅD¤Hª«»P«D¬¡ÅD¤Hª«¤À¶}Àx¦s
+//#define _UNLOCKPOOL		// Robin 2003/12/12  Logoutæš«å­˜å€
+
+#define _KILLDEADWORKER // Robin 2004/02/ ç”¨sigusr1æ¸…é™¤æ‰€æœ‰Worker åœ¨unlock.argåŠ 'K'
+
+#define _SLEEP_CHAR		// Robin 2004/02/12	æ´»èºäººç‰©èˆ‡éžæ´»èºäººç‰©åˆ†é–‹å„²å­˜
 
 #endif
 
 // Terry define start -------------------------------------------------------------------
-#define _FM_MODIFY				// ®a±Ú¥\¯à­×§ï
-#define _CHANNEL_MODIFY		// ÀW¹D¥\¯à¾ã¦X
-#define _NEW_MANOR_LAW		// ·s²ø¶é³W«h
-#define _LOCK_ADD_NAME		// LockNode ¼W¥[¦W¦rÄæ¦ì(¥¼¶}©ñ)
-#define _TEACHER_SYSTEM   // ¾É®v¨t²Î(¥¼¶}©ñ)
+#define _FM_MODIFY				// å®¶æ—åŠŸèƒ½ä¿®æ”¹
+#define _CHANNEL_MODIFY		// é »é“åŠŸèƒ½æ•´åˆ
+#define _NEW_MANOR_LAW		// æ–°èŽŠåœ’è¦å‰‡
+#define _LOCK_ADD_NAME		// LockNode å¢žåŠ åå­—æ¬„ä½(æœªé–‹æ”¾)
+#define _TEACHER_SYSTEM   // å°Žå¸«ç³»çµ±(æœªé–‹æ”¾)
 // Terry define end   -------------------------------------------------------------------
 
-#define _ANGEL_SUMMON	// Robin ºëÆFªº¥l³ê
-//#define _SASQL //Change ¥Û¾¹¸ê®Æ®w (¤£¥i¶})
-#define _RACEMAN		// cyg ÂyÃd¤j·|
+#define _ANGEL_SUMMON	// Robin ç²¾éˆçš„å¬å–š
+//#define _SASQL //Change çŸ³å™¨è³‡æ–™åº« (ä¸å¯é–‹)
+#define _RACEMAN		// cyg çµå¯µå¤§æœƒ

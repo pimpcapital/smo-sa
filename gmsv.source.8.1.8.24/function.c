@@ -136,7 +136,7 @@
 #include "npc_petfusion.h"
 #endif
 
-#ifdef _ALLDOMAN // (¤£¥i¶}) Syu ADD ±Æ¦æº]NPC
+#ifdef _ALLDOMAN // (ä¸å¯é–‹) Syu ADD æ’è¡Œæ¦œNPC
 #include "npc_alldoman.h"
 #endif
 
@@ -144,7 +144,7 @@
 #include "npc_welfare.h"
 #endif
 
-#ifdef _NPC_WELFARE_2				// WON ADD Â¾·~NPC-2
+#ifdef _NPC_WELFARE_2				// WON ADD è·æ¥­NPC-2
 #include "npc_welfare2.h"
 #endif
 
@@ -168,8 +168,8 @@ typedef struct tagCorrespondStringAndFunctionTable
 static CorrespondStringAndFunctionTable
 correspondStringAndFunctionTable[]=
 {
-    /* °Ê²¼¤Ï¥µ¡¼¥Ğ¡¼    ¥³¡¼¥É¤ÇÄêµÁ¤µ¤ì¤Æ¤¤¤ë´Ø¿ô¤À¡eNPC¤â¤³¤ì
-     ¤ò¤Ä¤«¤¦¤È¤­¤¬¤¢¤ë*/
+    /* å‹•ç¥¨åæ‰”â–¡ç”°â–¡    æˆŠâ–¡ç‰åŒ¹çˆ›è’ä»Šæœ¨åŒ–ä¸­æœˆæ¥®é†’åˆ†ã€”NPCæ‰‹ä»‡æœ¨
+     æ¯›å‹¾äº•ä¸¹åˆäº”äº’ä¸æœˆ*/
     { {"core_PreWalk"},  			CHAR_allprewalk,   		0 },
     { {"core_PostWalk"},  			CHAR_allpostwalk,  		0 },
     { {"core_Loop"},				CHAR_loopFunc, 			0 },
@@ -178,7 +178,7 @@ correspondStringAndFunctionTable[]=
     { {"core_PlayerTalked"},		CHAR_playerTalkedfunc, 	0 },
 
 
-    /* °Ê²¼¤Ï¥¢¥¤  ¥à¤ò»È¤¦¤È¤­ÍÑ¤Î´Ø¿ô¤À¡e */
+    /* å‹•ç¥¨åå¤±å¥¶  ä¸æ¯›éŠ€ä¸¹åˆäº”è¿•åŠæ¥®é†’åˆ†ã€” */
     { {"MedicineInit"},   			ITEM_MedicineInit, 		0 },
     { {"MedicineUsed"},   			ITEM_MedicineUsed, 		0 },
     { {"SandClockDetach"},			ITEM_SandClockDetach, 	0 },
@@ -236,13 +236,13 @@ correspondStringAndFunctionTable[]=
 #ifdef _ITEM_FIRECRACKER	//Terry add 2001/12/21
 		{ {"ITEM_firecracker"}, ITEM_firecracker, 0 },
 #endif
-#ifdef _ITEM_CRACKER	//vincent ©Ô¬¶
+#ifdef _ITEM_CRACKER	//vincent æ‹‰ç‚®
 		{ {"ITEM_Cracker"}, ITEM_Cracker, 0 },
 #endif
-#ifdef _ITEM_ADDEXP	//vincent ¸gÅç´£¤É
+#ifdef _ITEM_ADDEXP	//vincent ç¶“é©—æå‡
 		{ {"ITEM_Addexp"}, ITEM_Addexp, 0 },
 #endif
-#ifdef _ITEM_REFRESH //vincent ¸Ñ°£²§±`ª¬ºA¹D¨ã
+#ifdef _ITEM_REFRESH //vincent è§£é™¤ç•°å¸¸ç‹€æ…‹é“å…·
 		{ {"ITEM_Refresh"}, ITEM_Refresh, 0 },
 #endif
 #ifdef _JZ_NEW_ITEM1
@@ -299,7 +299,7 @@ correspondStringAndFunctionTable[]=
 #ifdef _DEATH_CONTENDWATCH
 	{ {"ITEM_useWatchBattle"}, ITEM_useWatchBattle, 0 },
 #endif
-#ifdef _FEV_ADD_NEW_ITEM			// FEV ADD ¼W¥[´_¬¡¦uºë
+#ifdef _FEV_ADD_NEW_ITEM			// FEV ADD å¢åŠ å¾©æ´»å®ˆç²¾
 	{ {"ITEM_ResAndDef"} ,   ITEM_ResAndDef,        0 },
 #endif
 
@@ -328,7 +328,7 @@ correspondStringAndFunctionTable[]=
 	{ {"ITEM_MagicReResist"}, ITEM_MagicReResist, 0 },
 #endif
 
-#ifdef _MAGIC_RESIST_EQUIT			// WON ADD Â¾·~§Ü©Ê¸Ë³Æ    
+#ifdef _MAGIC_RESIST_EQUIT			// WON ADD è·æ¥­æŠ—æ€§è£å‚™    
 	{ {"ITEM_P_MagicEquitWear"},		ITEM_P_MagicEquitWear, 0 },
 	{ {"ITEM_P_MagicEquitReWear"},	ITEM_P_MagicEquitReWear, 0 },
 #endif
@@ -412,24 +412,24 @@ correspondStringAndFunctionTable[]=
 	{ {"NPCEnemyLoop"},				NPC_NPCEnemyLoop,		0 },
     { {"NPCEnemyWindowTalked"}, 	NPC_NPCEnemyWindowTalked, 0 },
 
-    /* ¥¢¥¯¼³¥ç¥ó·¯ */
+    /* å¤±å¼æ’²äº¦ä»¶æ¥ */
     { {"ActionInit"} ,				NPC_ActionInit ,		0 },
     { {"ActionTalked"} ,			NPC_ActionTalked ,		0 },
     { {"ActionWatch"} ,				NPC_ActionWatch ,		0 },
 
-    /* ¥¦¥£¥ó¥É¥¦·¯ */
+    /* å®ƒå¥´ä»¶ç‰å®ƒæ¥ */
     { {"WindowmanInit"} , 			NPC_WindowmanInit ,		0 },
     { {"WindowmanTalked"} , 		NPC_WindowmanTalked ,	0 },
     { {"WindowmanLooked"}, 			NPC_WindowmanLooked,	0 },
     { {"WindowmanWindowTalked"}, 	NPC_WindowmanWindowTalked, 0 },
 
-    /* ¥¦¥£¥ó¥É¥¦¥Ò¡¼¥é¡¼ */
+    /* å®ƒå¥´ä»¶ç‰å®ƒç”²â–¡ä»¿â–¡ */
     { {"WindowHealerInit"} , 		NPC_WindowHealerInit ,	0 },
     { {"WindowHealerTalked"} , 		NPC_WindowHealerTalked,	0 },
     { {"WindowHealerLooked"} , 		NPC_WindowHealerLooked,	0 },
     { {"WindowHealerWindowTalked"}, NPC_WindowHealerWindowTalked, 0 },
 
-	/* ¥¢¥¤  ¥à²° */
+	/* å¤±å¥¶  ä¸ç›’ */
     { {"ItemShopInit"} ,			NPC_ItemShopInit ,		0 },
     { {"ItemShopTalked"} ,			NPC_ItemShopTalked ,	0 },
     { {"ItemShopWindowTalked"},		NPC_ItemShopWindowTalked, 0 },
@@ -439,31 +439,31 @@ correspondStringAndFunctionTable[]=
     { {"SysinfoLoop"},				NPC_SysinfoLoop,		0 },
     { {"SysinfoTalked"} ,			NPC_SysinfoTalked ,		0 },
 
-    /* Duel¥é¥ó¥­¥ó¥°  ¼¨NPC */
+    /* Duelä»¿ä»¶å¹³ä»¶å¼˜  æ†NPC */
     { {"DuelrankingInit"} ,			NPC_DuelrankingInit ,	0 },
     { {"DuelrankingLooked"},		NPC_DuelrankingLooked,	0 },
     { {"DuelrankingWindowTalked"}, 	NPC_DuelrankingWindowTalked, 0 },
 #ifdef _DEATH_CONTEND
 	{ {"Duelrankingloop"}, 	NPC_Duelrankingloop, 0 },
 #endif
-    /* ¥¦¥£¥ó¥É¥¦¥Ú¥Ã¥È¤Î  ²° */
+    /* å®ƒå¥´ä»¶ç‰å®ƒçŸ¢æ°¸ç„åŠ  ç›’ */
     { {"PetSkillShopInit"} ,		NPC_PetSkillShopInit ,	0 },
     { {"PetSkillShopTalked"} ,		NPC_PetSkillShopTalked,	0 },
     { {"PetSkillShopLooked"} ,		NPC_PetSkillShopLooked,	0 },
     { {"PetSkillShopWindowTalked"},	NPC_PetSkillShopWindowTalked, 0 },
 
-    /* ¥¦¥£¥ó¥É¥¦¥Ú¥Ã¥È  ¤¤¼è¤ê²° */
+    /* å®ƒå¥´ä»¶ç‰å®ƒçŸ¢æ°¸ç„  ä¸­æ½¸æ›°ç›’ */
     { {"PetShopInit"} ,				NPC_PetShopInit, 		0 },
     { {"PetShopTalked"} ,			NPC_PetShopTalked,		0 },
     { {"PetShopLooked"} ,			NPC_PetShopLooked,		0 },
     { {"PetShopWindowTalked"},		NPC_PetShopWindowTalked,0 },
 
-    /* ´Ç   */
+    /* æ£—   */
     { {"SignBoardInit"} ,			NPC_SignBoardInit,		0 },
     { {"SignBoardLooked"} ,			NPC_SignBoardLooked,	0 },
     { {"SignBoardWindowTalked"},	NPC_SignBoardWindowTalked, 0 },
 
-    /*¥ï¡¼¥×¥Ş¥ó */
+    /*ä¼â–¡çš¿ç©´ä»¶ */
     { {"WarpManInit"},				NPC_WarpManInit,		0 },
     { {"WarpManTalked"},			NPC_WarpManTalked,		0 },
 	{ {"WarpManWatch"},				NPC_WarpManWatch,		0 },
@@ -471,42 +471,42 @@ correspondStringAndFunctionTable[]=
     { {"WarpManWindowTalked"},		NPC_WarpManWindowTalked,0 },
 
 
-    /*¥¤¥Ù¥ó¥È·¯  exchangeman) */
+    /*å¥¶çŸ›ä»¶ç„æ¥  exchangeman) */
     { {"ExChangeManInit"},				NPC_ExChangeManInit,		0 },
     { {"ExChangeManTalked"},			NPC_ExChangeManTalked,		0 },
     { {"ExChangeManWindowTalked"},		NPC_ExChangeManWindowTalked,0 },
 
-    /*¥¿¥¤¥à¥Ş¥ó */
+    /*æ­£å¥¶ä¸ç©´ä»¶ */
     { {"TimeManInit"},				NPC_TimeManInit,		0 },
     { {"TimeManTalked"},			NPC_TimeManTalked,		0 },
     { {"TimeManWatch"} ,			NPC_TimeManWatch ,		0 },
 
-    /* ¥Ü¥Ç¥£¥é¥ó¥²¡¼¥¸ */
+    /* ç¤ºçŠ¯å¥´ä»¿ä»¶å¿…â–¡æ–¥ */
     { {"BodyLanInit"},				NPC_BodyLanInit,		0 },
     { {"BodyLanTalked"},			NPC_BodyLanTalked,		0 },
     { {"BodyLanWatch"} ,			NPC_BodyLanWatch ,		0 },
     { {"BodyLanWindowTalked"} ,		NPC_BodyLanWindowTalked,0 },
 
-    /* ¥Ş¥¤¥¯ */
+    /* ç©´å¥¶å¼ */
     { {"MicInit"},				NPC_MicInit,		0 },
     { {"MicTalked"},			NPC_MicTalked,		0 },
 
-    /* ¥é¥Ã¥­¡¼¥Ş¥ó */
+    /* ä»¿æ°¸å¹³â–¡ç©´ä»¶ */
     { {"LuckyManInit"} , 		NPC_LuckyManInit ,	0 },
     { {"LuckyManTalked"} , 		NPC_LuckyManTalked,	0 },
     { {"LuckyManWindowTalked"}, NPC_LuckyManWindowTalked, 0 },
 
-    /* ·¯ */
+    /* æ¥ */
     { {"BusInit"} ,				NPC_BusInit ,		0 },
     { {"BusTalked"} ,			NPC_BusTalked ,		0 },
     { {"BusLoop"} ,				NPC_BusLoop ,		0 },
 
-    /* ¥[¬ü¯èªÅ */      // Arminius 7.7 Airplane
+    /* åŠ ç¾èˆªç©º */      // Arminius 7.7 Airplane
     { {"AirInit"} ,     NPC_AirInit ,           0 },
     { {"AirTalked"} ,   NPC_AirTalked ,         0 },
     { {"AirLoop"} ,     NPC_AirLoop ,           0 },
 
-    /*         ·¯ */
+    /*         æ¥ */
     { {"CharmInit"} , 		NPC_CharmInit ,	0 },
     { {"CharmTalked"} , 		NPC_CharmTalked,	0 },
     { {"CharmWindowTalked"}, NPC_CharmWindowTalked, 0 },
@@ -521,17 +521,17 @@ correspondStringAndFunctionTable[]=
     { {"QuizWindowTalked"}, NPC_QuizWindowTalked, 0 },
 	
 
-    /* ¤Á¤§¤Ã¤¯¤Ş¤ó */
+    /* åˆ‡ä¹‹å‹»ä»å¼•æ° */
     { {"CheckManInit"} , 		NPC_CheckManInit ,	0 },
     { {"CheckManTalked"} , 		NPC_CheckManTalked,	0 },
     { {"CheckManWindowTalked"}, NPC_CheckManWindowTalked, 0 },
 
-    /* ¤¸¤ã¤ó¤±¤ó·¯ */
+    /* å…ƒæ‰æ°ä»ƒæ°æ¥ */
     { {"JankenInit"} , 		NPC_JankenInit ,	0 },
     { {"JankenTalked"} , 		NPC_JankenTalked,	0 },
     { {"JankenWindowTalked"}, NPC_JankenWindowTalked, 0 },
 
-    /* Å¾À¸¿Í */
+    /* é±‰æˆ²è«¦ */
     { {"TransmigrationInit"} , 		NPC_TransmigrationInit ,	0 },
     { {"TransmigrationTalked"} , 		NPC_TransmigrationTalked,	0 },
     { {"TransmigrationWindowTalked"}, NPC_TransmigrationWindowTalked, 0 },
@@ -589,14 +589,14 @@ correspondStringAndFunctionTable[]=
     { {"FmLetterWindowTalked"}, NPC_FmLetterWindowTalked, 0 },
 #ifdef _SERVICE    
     // Terry 2001/08/31
-    // ¥Û¾¹ªA°È­û StoneServiceMan
+    // çŸ³å™¨æœå‹™å“¡ StoneServiceMan
     { {"StoneServiceManInit"},         NPC_StoneServiceManInit,0},
     { {"StoneServiceManLoop"},         NPC_StoneServiceManLoop,0},
     { {"StoneServiceManTalked"},       NPC_StoneServiceManTalked,0},
     { {"StoneServiceManWindowTalked"}, NPC_StoneServiceManWindowTalked,0},
 #endif 
 
-#ifdef _GAMBLE_BANK	//»È¦æ
+#ifdef _GAMBLE_BANK	//éŠ€è¡Œ
 	{ {"GambleBankInit"},			NPC_GambleBankInit, 0},
 	{ {"GambleBankLoop"},			NPC_GambleBankLoop,0},
     { {"GambleBankTalked"},			NPC_GambleBankTalked,0},
@@ -609,7 +609,7 @@ correspondStringAndFunctionTable[]=
 #ifdef _ITEM_EDITBASES
 	{ {"ITEM_useFusionEditBase"}, ITEM_useFusionEditBase, 0},
 #endif
-#ifdef _GAMBLE_ROULETTE //½ä³õ½ü½L
+#ifdef _GAMBLE_ROULETTE //è³­å ´è¼ªç›¤
 	{ {"GambleRouletteInit"},			NPC_Gamble_RouletteInit, 0},
 	{ {"GambleRouletteLoop"},			NPC_Gamble_RouletteLoop, 0},
     { {"GambleRouletteTalked"},		NPC_Gamble_RouletteTalked, 0},
@@ -672,7 +672,7 @@ correspondStringAndFunctionTable[]=
     { {"FreePetSkillWindowTalked"},	NPC_FreePetSkillShopWindowTalked, 0 },
 #endif
 
-#ifdef _PETRACE // Ãdª«Äv³t
+#ifdef _PETRACE // å¯µç‰©ç«¶é€Ÿ
 	{ {"PetRaceMasterInit"},			NPC_PetRaceMasterInit, 0},
 	{ {"PetRaceMasterLoop"},			NPC_PetRaceMasterLoop, 0},
     { {"PetRaceMasterTalked"},		NPC_PetRaceMasterTalked, 0},
@@ -710,7 +710,7 @@ correspondStringAndFunctionTable[]=
 	{ {"BlackMarketWindowTalked"},	   NPC_BlackMarketWindowTalked, 0},
 #endif
 
-#ifdef _ALLDOMAN   // (¤£¥i¶}) Syu ADD ±Æ¦æº]NPC
+#ifdef _ALLDOMAN   // (ä¸å¯é–‹) Syu ADD æ’è¡Œæ¦œNPC
     { {"AlldomanInit"} ,                        NPC_AlldomanInit,        0 },
     { {"AlldomanTalked"} ,                      NPC_AlldomanTalked ,     0 },
     { {"AlldomanWindowTalked"},                 NPC_AlldomanWindowTalked , 0},
@@ -722,7 +722,7 @@ correspondStringAndFunctionTable[]=
     { {"WelfareWindowTalked"},                 NPC_WelfareWindowTalked , 0},
 #endif
 
-#ifdef _NPC_WELFARE_2				// WON ADD Â¾·~NPC-2
+#ifdef _NPC_WELFARE_2				// WON ADD è·æ¥­NPC-2
     { {"WelfareInit2"} ,                        NPC_WelfareInit2,        0 },
     { {"WelfareTalked2"} ,                      NPC_WelfareTalked2,     0 },
     { {"WelfareWindowTalked2"},                 NPC_WelfareWindowTalked2, 0},

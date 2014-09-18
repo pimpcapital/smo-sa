@@ -164,16 +164,16 @@ char*   makeStringFromEscaped( char* src )
         if( src[i] == '\\' ){
             int j;
 
-            /*  ±­¤Î  »ú¤Ë¹Ô¤¯  */
+            /*  æˆšåŠ  å„‚åå¢Šä»  */
             i++;
             for( j = 0; j<sizeof(escapeChar)/sizeof(escapeChar[0]); j++){
                 if( escapeChar[j].escapedchar == src[i] ){
-                    /*  ±­¤¬¥¨¥¹¥±¡¼¥×¥­¥ã¥é¤À  */
+                    /*  æˆšäº’å·¨æ—¦å¼—â–¡çš¿å¹³ä¹“ä»¿åˆ†  */
                     src[searchindex++] = escapeChar[j].escapechar;
                     goto NEXT;
                 }
             }
-            /*  ¥¨¥é¡¼¤ä¤±¤É¤½¤Î¤Ş¤Ş¥³¥Ô¡¼¤·¤Æ¶³¤¯  */
+            /*  å·¨ä»¿â–¡æ”¯ä»ƒå‡å…¬åŠå¼•å¼•æˆŠç–‹â–¡ä»„åŒ–é›²ä»  */
             src[searchindex++] = src[i];
         }else{
             src[searchindex++] = src[i];
@@ -219,7 +219,7 @@ char *   makeEscapeString( char* src , char* dest, int sizeofdest)
 				dest[destindex+1] = escapechar;
 				destindex+=2;
 				dirty=TRUE;
-				continue;       /*  ±­¤Î  »ú¤Ë¿Ê¤à  */
+				continue;       /*  æˆšåŠ  å„‚åè¤¡æˆˆ  */
 			}else{
 				dest[destindex] = '\0';
 				return dest;
@@ -245,14 +245,14 @@ char *   makeEscapeString1( char* src , char* dest, int sizeofdest)
         int     j;
         char    escapechar='\0';
         if( destindex + 1 >= sizeofdest )
-            /*  '\0'Ê¬¤¬Â­¤ê¤Ê¤¤¤Î¤Ç¤³¤³¤Ç½ª¤ê   */
+            /*  '\0'åŒäº’ç°«æ›°å…ä¸­åŠåŒ¹ä»‡ä»‡åŒ¹è”½æ›°   */
             break;
 
-	/*	// Á´³Ñ¤Î£±¥Ğ¥¤¥È  ¤«¤É¤¦¤«¤ò¥Á¥§¥Ã¥¯
+	/*	// èŸˆå‰©åŠã„ ç”°å¥¶ç„  äº•å‡ä¸¹äº•æ¯›æ°‘å°¼æ°¸å¼
 		if( IS_2BYTEWORD( src[i] ) ){
-			// Á´³Ñ¤À¡e¤½¤Î¾ì¹ç¤Ï£±¥Ğ¥¤¥ÈÍ¾Ê¬¤Ë¿Ê¤Ş¤»¤ë¡e
-			// ¤¿¤À¤·£±¥Ğ¥¤¥È¤·¤«¤Ê¤¤¾ì¹ç¤Ï¤½¤¦¤·¤Ê¤¤
-			// ¤½¤Î¤Ş¤Ş£²¥Ğ¥¤¥ÈÅ¾Á÷
+			// èŸˆå‰©åˆ†ã€”å…¬åŠæ¨ºå¯§åã„ ç”°å¥¶ç„èŠ´åŒåè¤¡å¼•å…­æœˆã€”
+			// å‡¶åˆ†ä»„ã„ ç”°å¥¶ç„ä»„äº•å…ä¸­æ¨ºå¯§åå…¬ä¸¹ä»„å…ä¸­
+			// å…¬åŠå¼•å¼•ã„¡ç”°å¥¶ç„é±‰éœœ
 	        if( destindex + 2 >= sizeofdest )break;
 
             dest[destindex] = src[i];
@@ -270,17 +270,17 @@ char *   makeEscapeString1( char* src , char* dest, int sizeofdest)
             }
 
         if( dirty == TRUE ){
-            /*  ¥¨¥¹¥±¡¼¥×¤¹¤ë  »ú¤À    */
+            /*  å·¨æ—¦å¼—â–¡çš¿å…æœˆ  å„‚åˆ†    */
             if( destindex + 2 < sizeofdest ){
-                /*  +2 ¤È¤¤¤¦¤Î¤Ï¡b '\\' ¤È 'n'¤Î»ö¤À   */
-                /*  »Ä¤ê  »ú¤Ï½½Ê¬¤À    */
+                /*  +2 åˆä¸­ä¸¹åŠåï½ '\\' åˆ 'n'åŠå„€åˆ†   */
+                /*  é…¸æ›°  å„‚åè¸åŒåˆ†    */
                 dest[destindex] = '\\';
                 dest[destindex+1] = escapechar;
                 destindex+=2;
                 dirty=TRUE;
-                continue;       /*  ±­¤Î  »ú¤Ë¿Ê¤à  */
+                continue;       /*  æˆšåŠ  å„‚åè¤¡æˆˆ  */
             }else{
-                /*  »Ä¤ê¥Ğ¥Ã¥Õ¥¡¤¬ÉÔÂ­¤·¤Æ¤¤¤ë  */
+                /*  é…¸æ›°ç”°æ°¸ç™½å¤®äº’å°•ç°«ä»„åŒ–ä¸­æœˆ  */
                 dest[destindex] = '\0';
                 return dest;
             }
@@ -299,7 +299,7 @@ char *   makeEscapeString1( char* src , char* dest, int sizeofdest)
 
 
 
-/* ÃÙ¤¤strcatsafe¡e¥Ğ¥Ã¥Õ¥¡¤¬¤¢¤Õ¤ì¤ë¾ì¹ç¤Ï²¿¤â¤·¤Ê¤¤¡e */
+/* è´Šä¸­strcatsafeã€”ç”°æ°¸ç™½å¤®äº’ä¸å­”æœ¨æœˆæ¨ºå¯§åçª’æ‰‹ä»„å…ä¸­ã€” */
 int
 strcatsafe( char *dest, int destlen , char *append )
 {

@@ -68,7 +68,7 @@ void DEFEND_resetUserForList()
 	for( i=0; i<DEFEND_MAXLISTS; i++)	{
 		memset( DEFENDUserList[ i].cdkey, 0, sizeof( DEFENDUserList[ i].cdkey) );
 		memset( DEFENDUserList[ i].name, 0, sizeof( DEFENDUserList[ i].name) );
-		DEFENDUserList[ i].defnums = 0;	//¦¸¼Æ
+		DEFENDUserList[ i].defnums = 0;	//æ¬¡æ•¸
 		DEFENDUserList[ i].type = 0;
 		DEFENDUserList[ i].score = 0;
 		DEFENDUserList[ i].use = 0;
@@ -82,7 +82,7 @@ void DEFEND_copyOneUserForList( int si, int pi)
 		DEFENDUserList[ pi].cdkey, sizeof( DEFENDUserList[ si].cdkey) );
 	memcpy( DEFENDUserList[ si].name,
 		DEFENDUserList[ pi].name, sizeof( DEFENDUserList[ si].name) );
-	DEFENDUserList[ si].defnums = DEFENDUserList[ pi].defnums;	//¦¸¼Æ
+	DEFENDUserList[ si].defnums = DEFENDUserList[ pi].defnums;	//æ¬¡æ•¸
 	DEFENDUserList[ si].type = DEFENDUserList[ pi].type;
 	DEFENDUserList[ si].score = DEFENDUserList[ pi].score;
 	DEFENDUserList[ si].use = DEFENDUserList[ pi].use;
@@ -92,7 +92,7 @@ void DEFEND_delOneUserForList( int si)
 {
 	memset( DEFENDUserList[ si].cdkey, 0, sizeof( DEFENDUserList[ si].cdkey) );
 	memset( DEFENDUserList[ si].name, 0, sizeof( DEFENDUserList[ si].name) );
-	DEFENDUserList[ si].defnums = 0;	//¦¸¼Æ
+	DEFENDUserList[ si].defnums = 0;	//æ¬¡æ•¸
 	DEFENDUserList[ si].type = 0;
 	DEFENDUserList[ si].score = 0;
 	DEFENDUserList[ si].use = 0;
@@ -102,7 +102,7 @@ int DEFEND_addUserForList( char *cdkey, char *name, int score, int nums, int typ
 	int ti=-1;
 	int i,j;
 	if( cdkey == NULL ) return -1;
-	//²MªÅ¬Û¦P±b¸¹&¦WºÙ
+	//æ¸…ç©ºç›¸åŒå¸³è™Ÿ&åç¨±
 	for( i=0; i<DEFEND_MAXLISTS; i++){
 		if( DEFEND_getUse( i) <= 0 ) continue;
 		if( !strcmp( DEFENDUserList[ i].cdkey, cdkey) && 
@@ -135,7 +135,7 @@ int DEFEND_addUserForList( char *cdkey, char *name, int score, int nums, int typ
 
 	memcpy( DEFENDUserList[ ti].cdkey, cdkey, sizeof( DEFENDUserList[ ti].cdkey) );
 	memcpy( DEFENDUserList[ ti].name, name, sizeof( DEFENDUserList[ ti].name) );
-	DEFENDUserList[ ti].defnums = nums;	//¦¸¼Æ
+	DEFENDUserList[ ti].defnums = nums;	//æ¬¡æ•¸
 	DEFENDUserList[ ti].type = type;
 	DEFENDUserList[ ti].score = score;
 	DEFENDUserList[ ti].use = 1;

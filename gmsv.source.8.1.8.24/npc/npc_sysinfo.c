@@ -26,9 +26,9 @@ sysinfo By Kawata
 
 #define		NPC_SYSINFO_SHUTDOWNLIMIT_DEFAULT	5
 
-#define		NPC_SYSINFO_SHUTDOWN_MSG		"¦A¹L %d ¤ÀÄÁ«á¡A§Y¶}©l¶i¦æserver¨t²ÎºûÅ@¡C½Ğ´£«e¤U½uÁ×§K¦^ÀÉ¡C"
+#define		NPC_SYSINFO_SHUTDOWN_MSG		"å†é %d åˆ†é˜å¾Œï¼Œå³é–‹å§‹é€²è¡Œserverç³»çµ±ç¶­è­·ã€‚è«‹æå‰ä¸‹ç·šé¿å…å›æª”ã€‚"
 
-#define		NPC_SYSINFO_SHUTDOWN_MSG_COMP	"server¤wÃö³¬¡C"
+#define		NPC_SYSINFO_SHUTDOWN_MSG_COMP	"serverå·²é—œé–‰ã€‚"
 enum {
 	CHAR_WORK_MODE        		= CHAR_NPCWORKINT1,
 	CHAR_WORK_TIME	    		= CHAR_NPCWORKINT2,
@@ -79,7 +79,7 @@ enum{
 	NPC_SYSINFO_MSG_DENYACCEPT,
 	NPC_SYSINFO_MSG_CLOSEALLSOCKETS,
 
-	/* ¿ù²¬ÄÉ²Ã */
+	/* éŒ¯ç—Šé¦¨ç¬› */
 	NPC_SYSINFO_ALL_NOSEE,
 	NPC_SYSINFO_ALL_NOBODY,
 	NPC_SYSINFO_MOVE_NUM,
@@ -102,8 +102,8 @@ typedef struct {
 }NPC_Sysinfo_Msg;
 
 static NPC_Sysinfo_Msg		msgtable[] = {
-	{ "def_msg",			"§Ú¾Ö¦³©M¥ş¥@¬Éªº¤H»¡¸Üªº¯à¤O¡C" },
-	{ "shutdown_msg",		"²{¦b¶}©l­n¶i¦æserver¨t²ÎºûÅ@½ĞºÉ³tlogout¡I¡I"},
+	{ "def_msg",			"æˆ‘æ“æœ‰å’Œå…¨ä¸–ç•Œçš„äººèªªè©±çš„èƒ½åŠ›ã€‚" },
+	{ "shutdown_msg",		"ç¾åœ¨é–‹å§‹è¦é€²è¡Œserverç³»çµ±ç¶­è­·è«‹ç›¡é€Ÿlogoutï¼ï¼"},
 };
 enum{
 	NPC_SYSINFO_ARG_DEF_MSG,
@@ -124,7 +124,7 @@ static void NPC_Sysinfo_Msg_SendMsg( int meindex, int tindex, char *msg);
 static void NPC_Sysinfo_Msg_Shutdown( int meindex, int tindex, char *msg);
 static void NPC_Sysinfo_Msg_Msgcol( int meindex, int tindex, char *msg);
 
-/* ¿ù²¬ÄÉ²Ã */
+/* éŒ¯ç—Šé¦¨ç¬› */
 static void NPC_Sysinfo_All_NoBody( int meindex, int tindex, char *msg);
 static void NPC_Sysinfo_All_NoSee( int meindex, int tindex, char *msg);
 
@@ -181,7 +181,7 @@ static FUNC		functbl[] = {
     NPC_Sysinfo_Msg_allowAccept,
     NPC_Sysinfo_Msg_denyAccept,
     NPC_Sysinfo_Msg_closeallsockets,
-	/* ¿ù²¬ÄÉ²Ã */
+	/* éŒ¯ç—Šé¦¨ç¬› */
     NPC_Sysinfo_All_NoSee,
     NPC_Sysinfo_All_NoBody,
     NPC_Sysinfo_Move_Num,
@@ -198,7 +198,7 @@ static FUNC		functbl[] = {
 };
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_SysinfoInit( int meindex )
 {
@@ -211,7 +211,7 @@ BOOL NPC_SysinfoInit( int meindex )
 
 	CHAR_setWorkInt( meindex, CHAR_WORK_MODE, 0);
 
-	/* ¥Ñ¥¹¥ï¡¼¥É¥»¥Ã¥È */
+	/* ç”±æ—¦ä¼â–¡ç‰æœ¬æ°¸ç„ */
 	if( NPC_Util_GetStrFromStrWithDelim( argstr, "passwd", buff, sizeof( buff))
 		== NULL)
 	{
@@ -224,7 +224,7 @@ BOOL NPC_SysinfoInit( int meindex )
 	if( tmp == -1 ) tmp = NPC_SYSINFO_TIMELIMIT_DEFAULT;
 	CHAR_setWorkInt( meindex, CHAR_WORK_TIMELIMIT, tmp);
 
-    /* ¥á¥Ã¥»¡¼¥¸¤Î¿§¼è   */
+    /* ä¸Ÿæ°¸æœ¬â–¡æ–¥åŠç¸‰æ½¸   */
 	tmp = NPC_Util_GetNumFromStrWithDelim( argstr, "msg_col");
 	if( tmp < CHAR_COLORRED || tmp > CHAR_COLORWHITE )
 		tmp = CHAR_COLORYELLOW;
@@ -240,16 +240,16 @@ BOOL NPC_SysinfoInit( int meindex )
 }
 
 /*********************************
-* Loop½è  
+* Loopè³ª  
 **********************************/
 void NPC_SysinfoLoop( int meindex )
 {
 	int		shuttime;
 	if( CHAR_getWorkInt( meindex, CHAR_WORK_MODE) == 1) {
 		int		oldtime;
-		/* »ş´Ö¤ò¿Ê¤á¤ë */
+		/* å‡œæ£‰æ¯›è¤¡æˆ¶æœˆ */
 		oldtime = CHAR_getWorkInt( meindex, CHAR_WORK_TIME);
-		/* À©¸Â»ş´Ö¥ª¡¼¥Ğ¡¼¤ÇÄÌ¾ï¥â¡¼¥É¤Ø */
+		/* å­ºèœƒå‡œæ£‰å·¦â–¡ç”°â–¡åŒ¹é¨·æ©˜ä¹’â–¡ç‰å°º */
 		if( NowTime.tv_sec - oldtime >
 			CHAR_getWorkInt( meindex, CHAR_WORK_TIMELIMIT))
 		{
@@ -258,14 +258,14 @@ void NPC_SysinfoLoop( int meindex )
 		}
 	}
 	shuttime = CHAR_getWorkInt( meindex, CHAR_WORK_SHUTDOWNTIME);
-	/* shutdown»ş´Ö¥Á¥§¥Ã¥¯ */
+	/* shutdownå‡œæ£‰æ°‘å°¼æ°¸å¼ */
 	if( shuttime > 0 ) {
 		int diff,limit,hun;
 
 		diff = NowTime.tv_sec - shuttime;
 		limit = CHAR_getWorkInt( meindex, CHAR_WORK_SHUTDOWNLIMIT);
 		hun = limit - (diff/60);
-		/* £±Ê¬¶³¤­¤Ë¥á¥Ã¥»¡¼¥¸ */
+		/* ã„ åŒé›²äº”åä¸Ÿæ°¸æœ¬â–¡æ–¥ */
 		if( hun != CHAR_getWorkInt( meindex, CHAR_WORK_SHUTDOWNDSPTIME)){
 			char	buff[256];
 			if( hun != 0 ) {
@@ -285,7 +285,7 @@ void NPC_SysinfoLoop( int meindex )
 	}
 }
 /*********************************
-*   ¤«¤±¤é¤ì¤¿»ş¤Î½è  
+*   äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
 **********************************/
 void NPC_SysinfoTalked( int meindex, int tindex, char *msg, int color)
 {
@@ -298,7 +298,7 @@ void NPC_SysinfoTalked( int meindex, int tindex, char *msg, int color)
 	msgwk = calloc( 1, sizeof(char)*len);
 	buff = calloc( 1, sizeof(char)*len);
 	strcpy( msgwk, msg);
-	/* ¥¹¥Ú¡¼¥¹¤ò¤Ş¤È¤á¤ë */
+	/* æ—¦çŸ¢â–¡æ—¦æ¯›å¼•åˆæˆ¶æœˆ */
 	deleteSequentChar( msgwk, " ");
 	if( CHAR_getWorkInt( meindex, CHAR_WORK_MODE) == 0 ) {
 		msgno = 0;
@@ -315,10 +315,10 @@ void NPC_SysinfoTalked( int meindex, int tindex, char *msg, int color)
 					CHAR_setWorkInt( meindex, CHAR_WORK_PLAYER, tindex);
 					CHAR_setWorkInt( meindex, CHAR_WORK_TIME, NowTime.tv_sec);
 					CHAR_talkToCli( tindex, meindex,
-								"¤w²¾¨ì«ü¥O¼Ò¦¡¡C«ö¤Uhelp§Y·|¥X²{»¡©úÀÉ¡C",
+								"å·²ç§»åˆ°æŒ‡ä»¤æ¨¡å¼ã€‚æŒ‰ä¸‹helpå³æœƒå‡ºç¾èªªæ˜æª”ã€‚",
 								CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 					CHAR_talkToCli( tindex, meindex,
-								"¥i¥H¦benemystate ¤¤ÁA¸Ñ¼Ä¤Hªº²£¥Í©M¦æ°Ê¼Æ¡C",
+								"å¯ä»¥åœ¨enemystate ä¸­ç­è§£æ•µäººçš„ç”¢ç”Ÿå’Œè¡Œå‹•æ•¸ã€‚",
 								CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 
 				}
@@ -329,10 +329,10 @@ void NPC_SysinfoTalked( int meindex, int tindex, char *msg, int color)
 		}
 	}
 	else {
-		/* ¥³¥Ş¥ó¥É¥â¡¼¥É¤Ë¤·¤¿¿Í¤·¤«½è  ¤Ç¤­¤Ê¤¤ */
+		/* æˆŠç©´ä»¶ç‰ä¹’â–¡ç‰åä»„å‡¶è«¦ä»„äº•è³ª  åŒ¹äº”å…ä¸­ */
 		if( tindex == CHAR_getWorkInt( meindex, CHAR_WORK_PLAYER)) {
 			int		i;
-			/* ¤½¤ì¤¾¤ì½è  ¿¶¤êÊ¬¤± */
+			/* å…¬æœ¨å†—æœ¨è³ª  è•Šæ›°åŒä»ƒ */
 			for( i = NPC_SYSINFO_MSG_ENDINFO; i < NPC_SYSINFO_MSG_NUM; i ++ ) {
 				if( strncmp( msgwk, cmd_msg[i].msg, strlen( cmd_msg[i].msg)) == 0) {
 					if( functbl[i] != NULL ) {
@@ -351,19 +351,19 @@ void NPC_SysinfoTalked( int meindex, int tindex, char *msg, int color)
 	free( buff);
 }
 /*------------------------------------------------------------------------
- * ÄÌ¾ï¥â¡¼¥É¤Ø
+ * é¨·æ©˜ä¹’â–¡ç‰å°º
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_EndInfo( int meindex, int tindex, char *msg)
 {
 	CHAR_setWorkInt( meindex, CHAR_WORK_MODE, 0);
 	CHAR_setWorkInt( meindex, CHAR_WORK_PLAYER, -1);
 	CHAR_talkToCli( tindex, meindex,
-					"¤w²¾¨ì¤@¯ë¼Ò¦¡",
+					"å·²ç§»åˆ°ä¸€èˆ¬æ¨¡å¼",
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 
 }
 /*------------------------------------------------------------------------
- * HELP¥á¥Ã¥»¡¼¥¸
+ * HELPä¸Ÿæ°¸æœ¬â–¡æ–¥
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_Help( int meindex, int tindex, char *msg)
 {
@@ -372,22 +372,22 @@ static void NPC_Sysinfo_Msg_Help( int meindex, int tindex, char *msg)
 		char	str[512];
 	}SYSINFO_MSGWK;
 	SYSINFO_MSGWK	msgwk[] = {
-	{ "«ü¥OHELP"},
-	{ "help                  ¦¹¶µ°T®§¡C"},
-	{ "player                ªí¥Ü²{¦bLOGINªºª±®a¤H¼Æ¡C"},
-	{ "list                  °T®§¤@Äı¡C"},
-	{ "send number          ¡unumber¡v ¬O¼Æ­È¡C«ü©w°T®§ªº¸¹½X«á±N¸Ó°T®§¤º®e¶Ç°eµ¹¥ş³¡ªºª±®a¡C"},
-	{ "sendmsg msgs          msgs¬°·Q¶Ç°eªº°T®§¡C¦bsend ¤§«áªÅ¤@®æ¡A§Y¥i±N¤§«áªº¤å³¹°e«Hµ¹¥ş³¡ªºª±®a¡C"},
-	{ "shutdown min          min ¥Nªí¤À¡C"},
-	{ "msgcol col            ³]©w¶Ç°eµ¹ª±®a°T®§ªºÃC¦â¡CÃC¦âªº«ü©w¦³red,green,yellow,blue,purple,cyan,white¡C"},
-	{ "sysinfo               ¨t²Îª¬ºA"},
-	{ "info                  ª±®aª¬ºA"},
-	{ "endinfo               ¦^´_´¶³qªºª¬ºA¡C"},
-	{ "denyaccept            µLªk±µ¨üCLIENTºİªº±µÄò¡C"},
-	{ "allowaccept           ±µ¨üCLIENTºİªº±µÄò¡C"},
-	{ "closeallsockets       ±j­¢ÅıCLIENTºİLOGOUT¡C¦b¤º³¡¹ê¦ædenyaccept¡C"},
-	{ "titlerestart          ¦A¦¸Åª¨úºÙ¸¹¦Wªº³]©w¡C"},
-	{ "enemystate            »¡©úNPCªºª¬ªp¡C"},
+	{ "æŒ‡ä»¤HELP"},
+	{ "help                  æ­¤é …è¨Šæ¯ã€‚"},
+	{ "player                è¡¨ç¤ºç¾åœ¨LOGINçš„ç©å®¶äººæ•¸ã€‚"},
+	{ "list                  è¨Šæ¯ä¸€è¦½ã€‚"},
+	{ "send number          ã€Œnumberã€ æ˜¯æ•¸å€¼ã€‚æŒ‡å®šè¨Šæ¯çš„è™Ÿç¢¼å¾Œå°‡è©²è¨Šæ¯å…§å®¹å‚³é€çµ¦å…¨éƒ¨çš„ç©å®¶ã€‚"},
+	{ "sendmsg msgs          msgsç‚ºæƒ³å‚³é€çš„è¨Šæ¯ã€‚åœ¨send ä¹‹å¾Œç©ºä¸€æ ¼ï¼Œå³å¯å°‡ä¹‹å¾Œçš„æ–‡ç« é€ä¿¡çµ¦å…¨éƒ¨çš„ç©å®¶ã€‚"},
+	{ "shutdown min          min ä»£è¡¨åˆ†ã€‚"},
+	{ "msgcol col            è¨­å®šå‚³é€çµ¦ç©å®¶è¨Šæ¯çš„é¡è‰²ã€‚é¡è‰²çš„æŒ‡å®šæœ‰red,green,yellow,blue,purple,cyan,whiteã€‚"},
+	{ "sysinfo               ç³»çµ±ç‹€æ…‹"},
+	{ "info                  ç©å®¶ç‹€æ…‹"},
+	{ "endinfo               å›å¾©æ™®é€šçš„ç‹€æ…‹ã€‚"},
+	{ "denyaccept            ç„¡æ³•æ¥å—CLIENTç«¯çš„æ¥çºŒã€‚"},
+	{ "allowaccept           æ¥å—CLIENTç«¯çš„æ¥çºŒã€‚"},
+	{ "closeallsockets       å¼·è¿«è®“CLIENTç«¯LOGOUTã€‚åœ¨å…§éƒ¨å¯¦è¡Œdenyacceptã€‚"},
+	{ "titlerestart          å†æ¬¡è®€å–ç¨±è™Ÿåçš„è¨­å®šã€‚"},
+	{ "enemystate            èªªæ˜NPCçš„ç‹€æ³ã€‚"},
 	{ ""},
 	};
 
@@ -397,7 +397,7 @@ static void NPC_Sysinfo_Msg_Help( int meindex, int tindex, char *msg)
 	}
 }
 /*------------------------------------------------------------------------
- * ¥×¥ì¥¤¥ä¡¼¤Î¿ô¤òÄ´¤Ù¤ë
+ * çš¿ä¼Šå¥¶ä¹©â–¡åŠé†’æ¯›è­¬å±¯æœˆ
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_Player( int meindex, int tindex, char *msg)
 {
@@ -411,13 +411,13 @@ static void NPC_Sysinfo_Msg_Player( int meindex, int tindex, char *msg)
         	}
         }
 	}
-	snprintf( buff, sizeof( buff), "ª±®a¦³%d¤H¡C", cnt);
+	snprintf( buff, sizeof( buff), "ç©å®¶æœ‰%däººã€‚", cnt);
 	CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 
 }
 /*------------------------------------------------------------------------
- * ¥á¥Ã¥»¡¼¥¸¥ê¥¹¥È¤ò  ¼¨¤¹¤ë
+ * ä¸Ÿæ°¸æœ¬â–¡æ–¥ä¼‰æ—¦ç„æ¯›  æ†å…æœˆ
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_List( int meindex, int tindex, char *msg)
 {
@@ -437,7 +437,7 @@ static void NPC_Sysinfo_Msg_List( int meindex, int tindex, char *msg)
 	}
 }
 /*------------------------------------------------------------------------
- * ¥á¥Ã¥»¡¼¥¸  ¹æ¤«¤é¥á¥Ã¥»¡¼¥¸¤òÁ÷¿®¤¹¤ë
+ * ä¸Ÿæ°¸æœ¬â–¡æ–¥  å¯äº•æ—¥ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›éœœè€¨å…æœˆ
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_SendNo( int meindex, int tindex, char *msg)
 {
@@ -458,7 +458,7 @@ static void NPC_Sysinfo_Msg_SendNo( int meindex, int tindex, char *msg)
 	}
 }
 /*------------------------------------------------------------------------
- * »ØÄê¤µ¤ì¤¿¥á¥Ã¥»¡¼¥¸  »ú  ¤òÁ÷¿®¤¹¤ë
+ * éš™çˆ›ä»Šæœ¨å‡¶ä¸Ÿæ°¸æœ¬â–¡æ–¥  å„‚  æ¯›éœœè€¨å…æœˆ
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_SendMsg( int meindex, int tindex, char *msg)
 {
@@ -470,7 +470,7 @@ static void NPC_Sysinfo_Msg_SendMsg( int meindex, int tindex, char *msg)
 	}
 }
 /*------------------------------------------------------------------------
- * ¥á¥Ã¥»¡¼¥¸¥«¥é¡¼¤ò  ¹¹¤¹¤ë
+ * ä¸Ÿæ°¸æœ¬â–¡æ–¥å¸‚ä»¿â–¡æ¯›  å‡³å…æœˆ
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_Msgcol( int meindex, int tindex, char *msg)
 {
@@ -495,7 +495,7 @@ static void NPC_Sysinfo_Msg_Msgcol( int meindex, int tindex, char *msg)
 		for( i = 0; i < 7; i ++ ) {
 			if( strstr( buff, colset[i].str) != NULL ) {
 				CHAR_setWorkInt( meindex, CHAR_WORK_MSGCOLOR, colset[i].color);
-				CHAR_talkToCli( tindex, meindex, "¤w§ïÅÜ°T®§ªºÃC¦â¡C",
+				CHAR_talkToCli( tindex, meindex, "å·²æ”¹è®Šè¨Šæ¯çš„é¡è‰²ã€‚",
 								CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 				break;
 			}
@@ -503,7 +503,7 @@ static void NPC_Sysinfo_Msg_Msgcol( int meindex, int tindex, char *msg)
 	}
 }
 /*------------------------------------------------------------------------
- * °ú¿ô¤«¤é¥á¥Ã¥»¡¼¥¸¤ò¼è  ¤¹¤ë
+ * å©é†’äº•æ—¥ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›æ½¸  å…æœˆ
  *----------------------------------------------------------------------*/
 static char *NPC_Sysinfo_GetMsg( int meindex, char *msgindexstr,
 								char *out,int outlen, int num )
@@ -535,18 +535,18 @@ static char *NPC_Sysinfo_GetMsg( int meindex, char *msgindexstr,
 	return( cret);
 }
 /*------------------------------------------------------------------------
- * shutdown¥á¥Ã¥»¡¼¥¸½è  
+ * shutdownä¸Ÿæ°¸æœ¬â–¡æ–¥è³ª  
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_Msg_Shutdown( int meindex, int tindex, char *msg)
 {
 	char	buff[10];
 	int		hun;
 
-	/*   ½é¤Î¥á¥Ã¥»¡¼¥¸Á÷¿® */
+	/*   è³¡åŠä¸Ÿæ°¸æœ¬â–¡æ–¥éœœè€¨ */
 	NPC_Sysinfo_SendMsg( meindex, tindex, NPC_SYSINFO_ARG_SHUTDOWN_MSG);
-	/* »ş´Ö¥»¥Ã¥È */
+	/* å‡œæ£‰æœ¬æ°¸ç„ */
 	CHAR_setWorkInt( meindex, CHAR_WORK_SHUTDOWNTIME, NowTime.tv_sec);
-	/* À©¸Â»ş´Ö¼è   */
+	/* å­ºèœƒå‡œæ£‰æ½¸   */
 	if( getStringFromIndexWithDelim( msg, " ", 2, buff, sizeof( buff)) == TRUE )
 	{
 		hun = atoi( buff);
@@ -563,7 +563,7 @@ static void NPC_Sysinfo_Msg_Shutdown( int meindex, int tindex, char *msg)
 	CHAR_setWorkInt( meindex, CHAR_WORK_SHUTDOWNDSPTIME,0);
 }
 /*------------------------------------------------------------------------
- * ¥á¥Ã¥»¡¼¥¸¤òÁ÷¤ë  °ú¿ô¤«¤é¥á¥Ã¥»¡¼¥¸¤ò¼è    
+ * ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›éœœæœˆ  å©é†’äº•æ—¥ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›æ½¸    
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_SendMsg( int meindex, int pindex, int tblnum)
 {
@@ -583,7 +583,7 @@ static void NPC_Sysinfo_SendMsg( int meindex, int pindex, int tblnum)
 	}
 }
 /*------------------------------------------------------------------------
- * Á´¤Æ¤Î¿Í¤Ë¥á¥Ã¥»¡¼¥¸¤òÁ÷¤ë¡e
+ * èŸˆåŒ–åŠè«¦åä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›éœœæœˆã€”
  *----------------------------------------------------------------------*/
 static void NPC_Sysinfo_SendMsgToAll( int meindex, char *msg)
 {
@@ -600,96 +600,96 @@ static void NPC_Sysinfo_SendMsgToAll( int meindex, char *msg)
 
 
 
-/* Á´Å¨¥­¥ã¥é¤ò NO_SEE ¤Ë¤¹¤ë¤«¤É¤¦¤« */
+/* èŸˆè¥¯å¹³ä¹“ä»¿æ¯› NO_SEE åå…æœˆäº•å‡ä¸¹äº• */
 static void NPC_Sysinfo_All_NoSee( int meindex, int tindex, char *msg ){
 	char	buff[256];
 
 	buff[0] = buff[1] = 0;
-	/* À©¸Â»ş´Ö¼è   */
+	/* å­ºèœƒå‡œæ£‰æ½¸   */
 	if( getStringFromIndexWithDelim( msg, " ", 2, buff, sizeof( buff)) == TRUE )
 	{
-		/*     ¤Ë¤¹¤ë¾ì¹ç */
+		/*     åå…æœˆæ¨ºå¯§ */
 		if( strncmp( buff, "on", strlen( buff ) ) == 0 ){
 			all_nosee = 1;
-			snprintf( buff, sizeof( buff), "¤w¶}±Òall_nosee ¡C" );
+			snprintf( buff, sizeof( buff), "å·²é–‹å•Ÿall_nosee ã€‚" );
 			CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 		}else
-		/*     ¤Ë¤¹¤ë¾ì¹ç */
+		/*     åå…æœˆæ¨ºå¯§ */
 		if( strncmp( buff, "off", strlen( buff ) ) == 0 ){
 			all_nosee = 0;
-			snprintf( buff, sizeof( buff), "¤wÃö³¬all_nosee ¡C" );
+			snprintf( buff, sizeof( buff), "å·²é—œé–‰all_nosee ã€‚" );
 			CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 		}
 	}else
 	if( all_nosee == 0 ){
-		snprintf( buff, sizeof( buff), "all_noseeÃö³¬µÛ¡C" );
+		snprintf( buff, sizeof( buff), "all_noseeé—œé–‰è‘—ã€‚" );
 		CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}else{
-		snprintf( buff, sizeof( buff), "all_nosee¶}±ÒµÛ¡C" );
+		snprintf( buff, sizeof( buff), "all_noseeé–‹å•Ÿè‘—ã€‚" );
 			CHAR_talkToCli( tindex, meindex, buff,
 			CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}
 }
 
-/* Á´Å¨¥­¥ã¥é¤ò NO_BODY ¤Ë¤¹¤ë¤«¤É¤¦¤« */
+/* èŸˆè¥¯å¹³ä¹“ä»¿æ¯› NO_BODY åå…æœˆäº•å‡ä¸¹äº• */
 static void NPC_Sysinfo_All_NoBody( int meindex, int tindex, char *msg ){
 	char	buff[256];
 
 	buff[0] = buff[1] = 0;
-	/* À©¸Â»ş´Ö¼è   */
+	/* å­ºèœƒå‡œæ£‰æ½¸   */
 	if( getStringFromIndexWithDelim( msg, " ", 2, buff, sizeof( buff)) == TRUE )
 	{
-		/*     ¤Ë¤¹¤ë¾ì¹ç */
+		/*     åå…æœˆæ¨ºå¯§ */
 		if( strncmp( buff, "on", strlen( buff ) ) == 0 ){
 			all_nobody = 1;
-			snprintf( buff, sizeof( buff), "¤w¶}±Òall_nobody ¡C" );
+			snprintf( buff, sizeof( buff), "å·²é–‹å•Ÿall_nobody ã€‚" );
 			CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 		}else
-		/*     ¤Ë¤¹¤ë¾ì¹ç */
+		/*     åå…æœˆæ¨ºå¯§ */
 		if( strncmp( buff, "off", strlen( buff ) ) == 0 ){
 			all_nobody = 0;
-			snprintf( buff, sizeof( buff), "¤wÃö³¬all_nobody ¡C" );
+			snprintf( buff, sizeof( buff), "å·²é—œé–‰all_nobody ã€‚" );
 			CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 		}
 	}else
 	if( all_nobody == 0 ){
-		snprintf( buff, sizeof( buff), "all_nobody Ãö³¬µÛ¡C" );
+		snprintf( buff, sizeof( buff), "all_nobody é—œé–‰è‘—ã€‚" );
 		CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}else{
-		snprintf( buff, sizeof( buff), "all_nobody ¶}±ÒµÛ¡C" );
+		snprintf( buff, sizeof( buff), "all_nobody é–‹å•Ÿè‘—ã€‚" );
 		CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}
 }
 
 
-/* Á´Å¨¥­¥ã¥é¤ò £±¥ë¡¼¥×¤Ç²¿    ºî¤µ¤»¤ë¤«¡ª */
+/* èŸˆè¥¯å¹³ä¹“ä»¿æ¯› ã„ ä¼™â–¡çš¿åŒ¹çª’    ç¶œä»Šå…­æœˆäº•ã€ */
 static void NPC_Sysinfo_Move_Num( int meindex, int tindex, char *msg ){
 	char	buff[256];
 	int		work;
 	buff[0] = buff[1] = 0;
 
-	/* À©¸Â»ş´Ö¼è   */
+	/* å­ºèœƒå‡œæ£‰æ½¸   */
 	if( getStringFromIndexWithDelim( msg, " ", 2, buff, sizeof( buff)) == TRUE )
 	{
 		work = atoi( buff );
 		if( work <= 0 ) {
-			work = 1000; /* Å¬Åö */
+			work = 1000; /* è´—ç™² */
 		}
-		/*   »ş¤Ë¤³¤ì¤À¤±  ¤«¤·¤Ş¤¹ */
+		/*   å‡œåä»‡æœ¨åˆ†ä»ƒ  äº•ä»„å¼•å… */
 		EnemyMoveNum = work;
-		snprintf( buff, sizeof( buff), "Åı¼Ä¤H¦P®É%d°Ê§@¡C",
+		snprintf( buff, sizeof( buff), "è®“æ•µäººåŒæ™‚%då‹•ä½œã€‚",
 			EnemyMoveNum );
 		CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}else{
-		snprintf( buff, sizeof( buff), "²{¦b¼Ä¤H¦P®É¦b¶i¦æ%d°Ê§@¡C",
+		snprintf( buff, sizeof( buff), "ç¾åœ¨æ•µäººåŒæ™‚åœ¨é€²è¡Œ%då‹•ä½œã€‚",
 			EnemyMoveNum );
 		CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
@@ -698,27 +698,27 @@ static void NPC_Sysinfo_Move_Num( int meindex, int tindex, char *msg ){
 
 
 
-/* Å¨¥­¥ã¥é¤ò£±¥ë¡¼¥×¤Ç²¿    ¹âÀ¸¤ß½Ğ¤¹¤« */
+/* è¥¯å¹³ä¹“ä»¿æ¯›ã„ ä¼™â–¡çš¿åŒ¹çª’    å«–æˆ²å¿ƒè«‹å…äº• */
 static void NPC_Sysinfo_Born_Num( int meindex, int tindex, char *msg ){
 	char	buff[256];
 	int		work;
 	buff[0] = buff[1] = 0;
 
-	/* À©¸Â»ş´Ö¼è   */
+	/* å­ºèœƒå‡œæ£‰æ½¸   */
 	if( getStringFromIndexWithDelim( msg, " ", 2, buff, sizeof( buff)) == TRUE )
 	{
 		work = atoi( buff );
 		if( work <= 0 ) {
-			work = 2; /* Å¬Åö */
+			work = 2; /* è´—ç™² */
 		}
-		/*   »ş¤Ë¤³¤ì¤À¤±À¸¤ß½Ğ¤·¤Ş¤¹ */
+		/*   å‡œåä»‡æœ¨åˆ†ä»ƒæˆ²å¿ƒè«‹ä»„å¼•å… */
 		one_loop_born = work;
-		snprintf( buff, sizeof( buff), "¼Ä¤H¦P®É¬£¥X³Ì°ªªº%d¡C",
+		snprintf( buff, sizeof( buff), "æ•µäººåŒæ™‚æ´¾å‡ºæœ€é«˜çš„%dã€‚",
 			one_loop_born );
 		CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}else{
-		snprintf( buff, sizeof( buff), "²{¦b¼Ä¤H¦P®É¬£¥X³Ì°ªªº%d¡C",
+		snprintf( buff, sizeof( buff), "ç¾åœ¨æ•µäººåŒæ™‚æ´¾å‡ºæœ€é«˜çš„%dã€‚",
 			one_loop_born );
 		CHAR_talkToCli( tindex, meindex, buff,
 					CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
@@ -727,36 +727,36 @@ static void NPC_Sysinfo_Born_Num( int meindex, int tindex, char *msg ){
 
 
 
-/* ¸½ºß¤Î  ¥­¥­¥ã¥é¾õÂÖ¤ò¸«¤ë */
+/* èœ‡ç®•åŠ  å¹³å¹³ä¹“ä»¿æ©‡è¬«æ¯›è‘¦æœˆ */
 static void NPC_Sysinfo_Enemy_State( int meindex, int tindex, char *msg ){
 	char	buff[256];
 
 	if( all_nobody == 0 ){
-		snprintf( buff, sizeof( buff), "allnobody Ãö³¬µÛ¡C" );
+		snprintf( buff, sizeof( buff), "allnobody é—œé–‰è‘—ã€‚" );
 		CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}else{
-		snprintf( buff, sizeof( buff), "allnobody ¶}±ÒµÛ¡C" );
+		snprintf( buff, sizeof( buff), "allnobody é–‹å•Ÿè‘—ã€‚" );
 		CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}
 	if( all_nosee == 0 ){
-		snprintf( buff, sizeof( buff), "allnosee Ãö³¬µÛ¡C" );
+		snprintf( buff, sizeof( buff), "allnosee é—œé–‰è‘—ã€‚" );
 		CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}else{
-		snprintf( buff, sizeof( buff), "allnosee ¶}±ÒµÛ¡C" );
+		snprintf( buff, sizeof( buff), "allnosee é–‹å•Ÿè‘—ã€‚" );
 		CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	}
 	snprintf( buff, sizeof( buff),
-              "bornnum ²{¦b¼Ä¤H¦P®É¬£¥X³Ì°ªªº%d¡C",
+              "bornnum ç¾åœ¨æ•µäººåŒæ™‚æ´¾å‡ºæœ€é«˜çš„%dã€‚",
               one_loop_born );
 	CHAR_talkToCli( tindex, meindex, buff,
 				CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 
 	snprintf( buff, sizeof( buff),
-              "movenum ²{¦b¼Ä¤H¦P®É¦b¶i¦æ%d°Ê§@¡C",
+              "movenum ç¾åœ¨æ•µäººåŒæ™‚åœ¨é€²è¡Œ%då‹•ä½œã€‚",
               EnemyMoveNum );
 	CHAR_talkToCli( tindex, meindex, buff,
 			CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
@@ -774,7 +774,7 @@ static void NPC_Sysinfo_SetWalkTime( int meindex, int tindex, char *msg)
 			setWalksendinterval( (unsigned)interval);
 		}
 	}
-	snprintf( msgbuf, sizeof(msgbuf),"WalkInterval = %d   ¬í",getWalksendinterval());
+	snprintf( msgbuf, sizeof(msgbuf),"WalkInterval = %d   ç§’",getWalksendinterval());
 	CHAR_talkToCli( tindex, meindex, msgbuf,
 			CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
 	
@@ -790,7 +790,7 @@ static void NPC_Sysinfo_SetCATime( int meindex, int tindex, char *msg)
 			setCAsendinterval_ms( (unsigned)interval);
 		}
 	}
-	snprintf( msgbuf, sizeof(msgbuf),"CAsendInterval = %d   ¬í",
+	snprintf( msgbuf, sizeof(msgbuf),"CAsendInterval = %d   ç§’",
               getCAsendinterval_ms());
 	CHAR_talkToCli( tindex, meindex, msgbuf,
 			CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
@@ -806,7 +806,7 @@ static void NPC_Sysinfo_SetCDTime( int meindex, int tindex, char *msg)
 			setCDsendinterval_ms( (unsigned)interval);
 		}
 	}
-	snprintf( msgbuf, sizeof(msgbuf),"CDsendInterval = %d   ¬í",
+	snprintf( msgbuf, sizeof(msgbuf),"CDsendInterval = %d   ç§’",
               getCDsendinterval_ms());
 	CHAR_talkToCli( tindex, meindex, msgbuf,
 			CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
@@ -822,7 +822,7 @@ static void NPC_Sysinfo_SetOneloop( int meindex, int tindex, char *msg)
 			setOnelooptime_ms( (unsigned)interval);
 		}
 	}
-	snprintf( msgbuf, sizeof(msgbuf),"Onelooptime = %d   ¬í",
+	snprintf( msgbuf, sizeof(msgbuf),"Onelooptime = %d   ç§’",
               getOnelooptime_ms());
 	CHAR_talkToCli( tindex, meindex, msgbuf,
 			CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));
@@ -834,10 +834,10 @@ static void NPC_Sysinfo_TitleRestart( int meindex, int tindex, char *msg)
 	
 	rc = TITLE_reinitTitleName();
 	if( rc) {
-		snprintf( msgbuf, sizeof(msgbuf),"Åª¨ú§¹²¦¡C" );
+		snprintf( msgbuf, sizeof(msgbuf),"è®€å–å®Œç•¢ã€‚" );
 	}
 	else {
-		snprintf( msgbuf, sizeof(msgbuf),"µo¥ÍERROR¡C" );
+		snprintf( msgbuf, sizeof(msgbuf),"ç™¼ç”ŸERRORã€‚" );
 	}
 	CHAR_talkToCli( tindex, meindex, msgbuf,
 			CHAR_getWorkInt( meindex, CHAR_WORK_MSGCOLOR));

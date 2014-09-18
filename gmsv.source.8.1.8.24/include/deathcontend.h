@@ -2,14 +2,14 @@
 
 #ifdef _DEATH_CONTEND
 
-//¹Î¶¤¤Hª«¦W³æ
+//åœ˜éšŠäººç‰©åå–®
 typedef struct 
 {
 	int use;
 	char cdkey[64];
 	char name[64];
 }PkTeamMans;
-//¾Ô°«¬ö¿ı
+//æˆ°é¬¥ç´€éŒ„
 typedef struct 
 {
 	int use;
@@ -17,26 +17,26 @@ typedef struct
 	int flg;	//0 1
 }BattleHistorys;
 
-#define MAXTEAMMANNUM 5		//¶¤¥î³Ì°ª¤H¼Æ
-#define MAXBATTLENUM 100	//¶¤¥î³Ì°ª¾Ô°«¬ö¿ı
+#define MAXTEAMMANNUM 5		//éšŠä¼æœ€é«˜äººæ•¸
+#define MAXBATTLENUM 100	//éšŠä¼æœ€é«˜æˆ°é¬¥ç´€éŒ„
 #define MAXTEAMNUM 1000
 
-#define DEFMAXBATTLENUM 50 //³Ì°ª¨M°«³õ¦¸
+#define DEFMAXBATTLENUM 50 //æœ€é«˜æ±ºé¬¥å ´æ¬¡
 #define DEFWINSCORE 90
 #define DEFLOSERATE 0.4
-//¨M°«°ÑÁÉ¶¤¥îinfo
+//æ±ºé¬¥åƒè³½éšŠä¼info
 typedef struct _tagPkTeamLists
 {
 	int use;					//flg
-	int teamnum;				//¶¤¥î§Ç¸¹
-	char teamname[64];			//¶¤¥î¦WºÙ
-	char pathdir[64];			//¶¤¥î¸ê®Æ¥Ø¿ı
-	char leadercdkey[64];		//¶¤ªøCDKEY
-	int win;					//³Ó
-	int lost;					//­t
-	int battleplay;				//Á`³õ¦¸
+	int teamnum;				//éšŠä¼åºè™Ÿ
+	char teamname[64];			//éšŠä¼åç¨±
+	char pathdir[64];			//éšŠä¼è³‡æ–™ç›®éŒ„
+	char leadercdkey[64];		//éšŠé•·CDKEY
+	int win;					//å‹
+	int lost;					//è² 
+	int battleplay;				//ç¸½å ´æ¬¡
 	int score;
-	int inside;					//¿ı¨úºX¼Ğ
+	int inside;					//éŒ„å–æ——æ¨™
 	int read;
 	PkTeamMans MyTeamMans[MAXTEAMMANNUM];
 	BattleHistorys BHistory[MAXBATTLENUM];
@@ -63,33 +63,33 @@ typedef struct _tagPKProcedureRow
 }PKProcedures;
 
 enum{
-	PKTYPE_NONE=0,		//µL
-	PKTYPE_WAIT,		//µ¥«İ¨ä¥L¶¤¥î¥[¤J
-	PKTYPE_STANDBY,		//·Ç³Æ¹ï¾Ôµ¥«İ®É¶¡
-	PKTYPE_PK,			//¹ï¾Ô¤¤
+	PKTYPE_NONE=0,		//ç„¡
+	PKTYPE_WAIT,		//ç­‰å¾…å…¶ä»–éšŠä¼åŠ å…¥
+	PKTYPE_STANDBY,		//æº–å‚™å°æˆ°ç­‰å¾…æ™‚é–“
+	PKTYPE_PK,			//å°æˆ°ä¸­
 };
 
 void del_rn( char *s );
-void PKLIST_ResetOneTeamMan( int ti ); //­«¸m¶¤­û¦W³æ
-void PKLIST_ResetOneBHistory( int ti ); //­«¸m¹ï¾Ô¦W³æ
-void PKLIST_ResetOnePkTeamList( int ti ); //­«¸m°ÑÁÉ¶¤¥î¸ê®Æ
-int PKLIST_InitPkTeamList( int teamnum ); //­«¸m
+void PKLIST_ResetOneTeamMan( int ti ); //é‡ç½®éšŠå“¡åå–®
+void PKLIST_ResetOneBHistory( int ti ); //é‡ç½®å°æˆ°åå–®
+void PKLIST_ResetOnePkTeamList( int ti ); //é‡ç½®åƒè³½éšŠä¼è³‡æ–™
+int PKLIST_InitPkTeamList( int teamnum ); //é‡ç½®
 
 int PKLIST_GetPkTeamListArray( int teamnum, char *cdkey);
 int PKLIST_GetPkTeamListArrayFromNum( int teamnum);
-//½T»{­«½Æ¬ù¾Ô
+//ç¢ºèªé‡è¤‡ç´„æˆ°
 BOOL PKLIST_CHECKPkTeamSame( int teamnum, int charaindex, char *cdkey, int toteamnum );
-//½T»{¹ï¾Ô³õ¼Æ
+//ç¢ºèªå°æˆ°å ´æ•¸
 int PKLIST_CHECKPkTeamNew( int teamnum, int charaindex, char *cdkey );
 
 //LOAD DATA
 BOOL PKLIST_LoadPkTeamListDataSub( int ti, char *data);
 BOOL PKLIST_LoadPkTeamListDataMyTeamMans( int ti, char *data);
 BOOL PKLIST_LoadPkTeamListDataBHistory( int ti, char *data);
-//BOOL PKLIST_LoadPkTeamListData( char *data); //³B²zac°e¨Óªº pklist
-BOOL PKLIST_LoadPkTeamListData(void); // §ï¦¨ÅªÀÉ
+//BOOL PKLIST_LoadPkTeamListData( char *data); //è™•ç†acé€ä¾†çš„ pklist
+BOOL PKLIST_LoadPkTeamListData(void); // æ”¹æˆè®€æª”
 void PKLIST_SavePkTeamListData(void);
-void PKLIST_LoadInitPkTeamListData(void);	// Åª¨ú³Ì­ì©lªº°ÑÁÉ¦W³æ
+void PKLIST_LoadInitPkTeamListData(void);	// è®€å–æœ€åŸå§‹çš„åƒè³½åå–®
 void PKLIST_UpData(char *mycdkey,char *tocdkey,int menum,int tonum,int winer,int flg);
 int PKLIST_GetOneBHistory( int ti );
 int PKLIST_SetOneBHistory( int ti, int hi, int use, int teamnum, int flg );
@@ -117,7 +117,7 @@ void PKLIST_CheckPKProcedures_PKTYPEWAIT( int ti);
 void PKLIST_CheckPKProcedures_PKTYPESTANDBY( int ti);
 */
 
-//ÁÉµ{
+//è³½ç¨‹
 void PKLIST_DelPKProcedures( int ti, int side, int type);
 BOOL PKLIST_CheckPklistInServerMap( int ti, int side);
 BOOL PKLIST_CheckPKSameTeam( int charaindex );
@@ -133,7 +133,7 @@ void PKLIST_LOCKTeam( int menum);
 void PKLIST_UNLOCKTeam( int menum);
 void PKLIST_Sort_PKListSort( void);
 
-//¥¿¦¡ÁÉ
+//æ­£å¼è³½
 typedef struct _tagArrangeBattle
 {
 	int use;
@@ -162,23 +162,23 @@ void ABATTLE_ShowBattlefromFl( int ti, int fl);
 ArrangeBattleC *ArrangeBattleC_getNew( void);
 
 
-BOOL ABATTLE_InsertBattle( ArrangeBattleC *aB); //±Æ¤JÁÉµ{
-void ABATTLE_EnterBattle( ArrangeBattleC *aB); //¤J³ò
-void ABATTLE_EliminateBattlefromFl( ArrangeBattleC *aB);//­ç°£
+BOOL ABATTLE_InsertBattle( ArrangeBattleC *aB); //æ’å…¥è³½ç¨‹
+void ABATTLE_EnterBattle( ArrangeBattleC *aB); //å…¥åœ
+void ABATTLE_EliminateBattlefromFl( ArrangeBattleC *aB);//å‰”é™¤
 
-BOOL ABATTLE_CheckInABattle( int ti);//½T»{ÁÉµ{¾Ô°«ª¬ºA ¥]§t®É¶¡
-int ABATTLE_FindBattlefromFl( int ti, int fl); //§ä´M¥i¥[¤JÁÉµ{¶¤¥î²Õ¦X
+BOOL ABATTLE_CheckInABattle( int ti);//ç¢ºèªè³½ç¨‹æˆ°é¬¥ç‹€æ…‹ åŒ…å«æ™‚é–“
+int ABATTLE_FindBattlefromFl( int ti, int fl); //æ‰¾å°‹å¯åŠ å…¥è³½ç¨‹éšŠä¼çµ„åˆ
 
-void ABATTLE_CheckBattlefromFl(int charindex, int ti,int battleindex); //½T»{¼h¦¸¬O§_§¹¦¨ ¥B ±Æ¸mÁÉµ{
-int ABATTLE_CheckBattlefromFl_sub(int charindex, int ti, int fl,int battleindex); //½T»{¼h¦¸¬O§_§¹¦¨
+void ABATTLE_CheckBattlefromFl(int charindex, int ti,int battleindex); //ç¢ºèªå±¤æ¬¡æ˜¯å¦å®Œæˆ ä¸” æ’ç½®è³½ç¨‹
+int ABATTLE_CheckBattlefromFl_sub(int charindex, int ti, int fl,int battleindex); //ç¢ºèªå±¤æ¬¡æ˜¯å¦å®Œæˆ
 
 
-ArrangeBattleC *ABATTLE_getInBattle( int teamnum); //¨ú±oÁÉµ{head form teamnum
+ArrangeBattleC *ABATTLE_getInBattle( int teamnum); //å–å¾—è³½ç¨‹head form teamnum
 
-void ABATTLE_MakeInABattleString( void); //»s§@ÁÉµ{¦r¦ê
+void ABATTLE_MakeInABattleString( void); //è£½ä½œè³½ç¨‹å­—ä¸²
 
 BOOL PKLIST_GetABattlelistDataString( int ti, int *tindex, int *stime,
-									 char *buf1, char *buf2, char *buf3, int flg);//¨ú±oÁÉµ{¦r¦ê
+									 char *buf1, char *buf2, char *buf3, int flg);//å–å¾—è³½ç¨‹å­—ä¸²
 
 ArrangeBattleC *ArrangeBattleC_getInBattleArray( int ti);
 

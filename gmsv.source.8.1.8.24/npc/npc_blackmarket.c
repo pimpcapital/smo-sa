@@ -21,7 +21,7 @@ void NPC_BlackMarketTalked( int meindex, int talker, char *msg, int color)
 	if(CHAR_getInt( talker, CHAR_WHICHTYPE)!=CHAR_TYPEPLAYER) return;    
     if(NPC_Util_isFaceToFace( talker, meindex, 1)!=TRUE) return;
 		
-	sprintf( tBuf, "¼K¼K¡D¡D¡D¡D\n¦b§Ú³oÃä¦³¦U¦¡¦U¼ËªºªZ¾¹¡B¨¾¨ã¤Î¹D¨ã¡A§A·Q­n¸ò§Ú¥æ´«¶Ü¡H´«¦n¤F¥i´N¤£¯à¤Ï®¬³á¡ã");
+	sprintf( tBuf, "å˜¿å˜¿ï¼ï¼ï¼ï¼\nåœ¨æˆ‘é€™é‚Šæœ‰å„å¼å„æ¨£çš„æ­¦å™¨ã€é˜²å…·åŠé“å…·ï¼Œä½ æƒ³è¦è·Ÿæˆ‘äº¤æ›å—ï¼Ÿæ›å¥½äº†å¯å°±ä¸èƒ½åæ‚”å–”ï½");
 
 	lssproto_WN_send(getfdFromCharaIndex( talker), 
 	                 WINDOW_MESSAGETYPE_MESSAGE,

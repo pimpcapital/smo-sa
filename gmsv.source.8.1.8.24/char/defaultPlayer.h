@@ -2,7 +2,7 @@
 
 static Char    player=
 {
-    FALSE,      /*  use     ¡¼¡¼¡¼¡¼¡¼¡¼*/
+    FALSE,      /*  use     â–¡â–¡â–¡â–¡â–¡â–¡*/
     {
 		0,		/*  CHAR_DATAPLACENUMBER */
         0,      /*  CHAR_BASEIMAGENUMBER */
@@ -11,7 +11,7 @@ static Char    player=
         0,      /*  CHAR_FLOOR  */
         0,      /*  CHAR_X */
         0,      /*  CHAR_Y  */
-        5,      /*  CHAR_DIR 12ºß¡¼0¡¼ºß¯É¥ó¡¼¡¼ */
+        5,      /*  CHAR_DIR 12ç®•â–¡0â–¡ç®•ç´›ä»¶â–¡â–¡ */
         1,      /*  CHAR_LV  */
         0,      /*  CHAR_GOLD    */
         1,      /*  CHAR_HP  */
@@ -27,10 +27,10 @@ static Char    player=
     	0,		/*  CHAR_CHARM	*/
     	0,		/*  CHAR_LUCK	*/
 
-		0,		/* ©s¾Û©Ô */
-		0,		/* «±¾Û©Ô */
-		0,		/* ´Ý¾Û©Ô */
-		0,		/* ·V¾Û©Ô */
+		0,		/* å­Ÿæ“„æ‹‰ */
+		0,		/* åž®æ“„æ‹‰ */
+		0,		/* æ®˜æ“„æ‹‰ */
+		0,		/* æ…Žæ“„æ‹‰ */
 
 		0,		/* CHAR_SLOT*/
 		0,		/* CHAR_CRITIAL */
@@ -122,19 +122,19 @@ static Char    player=
 //#endif
 
 		0,	//CHAR_SILENT,				/* char shutup time */    
-		0,	//    CHAR_FMINDEX,				// ²£¾À index
+		0,	//    CHAR_FMINDEX,				// ç”¢å£ index
 		0,	//    CHAR_FMLEADERFLAG,			
-								/* ²£¾À£Küz¶PºN
-    							 * FMMEMBER_NONE	:¡é£V“¡’Í¡¼•z²£¾À
-    							 * FMMEMBER_APPLY	:¡¼¥s“¡’Í²£¾À¡¼
-    							 * FMMEMBER_LEADER	:¾Àú¹
-    							 * FMMEMBER_MEMBER	:’Ãý«£Küz
-    							 * FMMEMBER_ELDER	:ú¹£l    
-    							 * FMMEMBER_INVITE	:¨B“·			// ¬JüÈ¡¼¡¼
-    							 * FMMEMBER_BAILEE	:Äî¥zú¹			// ¬JüÈ¡¼¡¼
-    							 * FMMEMBER_VICELEADER  :®Ã¾Àú¹		// ¬JüÈ¡¼¡¼
+								/* ç”¢å£Î˜ïš¬è³€æ‘¸
+    							 * FMMEMBER_NONE	:âŠ¿Î¤î­‰î«˜â–¡î±¾ç”¢å£
+    							 * FMMEMBER_APPLY	:â–¡å«î­‰î«˜ç”¢å£â–¡
+    							 * FMMEMBER_LEADER	:å£ï–
+    							 * FMMEMBER_MEMBER	:î«ŽÂ©å’¯Kïš¬
+    							 * FMMEMBER_ELDER	:ï–Ï    
+    							 * FMMEMBER_INVITE	:æ­¥î­Ÿ			// æ—¢ï›˜â–¡â–¡
+    							 * FMMEMBER_BAILEE	:ç™©å­ï–			// æ—¢ï›˜â–¡â–¡
+    							 * FMMEMBER_VICELEADER  :æŒå£ï–		// æ—¢ï›˜â–¡â–¡
     							*/
-		0,	//    CHAR_FMSPRITE,		// ²£¾À”\¡¼¥°ÆA
+		0,	//    CHAR_FMSPRITE,		// ç”¢å£î¯ƒâ–¡å¼˜è‰·
 
 		0,	//    CHAR_BANKGOLD,
 		0,	//    CHAR_RIDEPET,
@@ -145,11 +145,11 @@ static Char    player=
 #endif
  		0,	//   CHAR_LIMITLEVEL,
 #ifdef _PET_FUSION
-		0,	//	CHAR_FUSIONCODE,		//úJ¶PÚñÚò
-		0,	//	CHAR_FUSIONINDEX,		//ºÀ¡¼Ð\úJÚñ¸¡
-		0,	//	CHAR_FUSIONRAISE,		//Å¢ãl£[­p
-		0,	//	CHAR_FUSIONBEIT,		//Ð\Í|ê¾§¨
-		0,	//	CHAR_FUSIONTIMELIMIT,	//Å¢ãlüÈ¤B
+		0,	//	CHAR_FUSIONCODE,		//ï•‚è³€çµªçµ
+		0,	//	CHAR_FUSIONINDEX,		//ç‘°â–¡èƒï•‚çµªè…¹
+		0,	//	CHAR_FUSIONRAISE,		//ç± ç·„Î©è¨ˆ
+		0,	//	CHAR_FUSIONBEIT,		//èƒçŸ¹ç¯¨å¤¾
+		0,	//	CHAR_FUSIONTIMELIMIT,	//ç± ç·„ï›˜ä¸
 #endif
 
 #ifdef _DEATH_CONTEND
@@ -157,7 +157,7 @@ static Char    player=
 		0,	//	CHAR_PKLISTLEADER,
 #endif
 
-#ifdef _PERSONAL_FAME	// Arminius 8.30: ²£¾ÀüR’ËÖô¿ë
+#ifdef _PERSONAL_FAME	// Arminius 8.30: ç”¢å£ïš„î«–ç¾è¾¨
 		0,	//    CHAR_FAME,
 #endif
 #ifdef _JZ_NEW_ADDMEMBERPOINT
@@ -168,36 +168,36 @@ static Char    player=
 #endif
  
 #ifdef __ATTACK_MAGIC
-		0,	//		CHAR_EARTH_EXP,						// úP²£úY”HÛUÚu°Å½uúö
-		0,	//		CHAR_WATER_EXP,						// úP²£úY•VÛUÚu°Å½uúö
-		0,	//		CHAR_FIRE_EXP,						// úP²£úY•WÛUÚu°Å½uúö
-		0,	//		CHAR_WIND_EXP,						// úP²£úYûõÛUÚu°Å½uúö
-		0,	//		CHAR_EARTH_RESIST,					// úP²£úY”HÛUÚu¡¼¢t
-		0,	//		CHAR_WATER_RESIST,					// úP²£úY•VÛUÚu¡¼¢t
-		0,	//		CHAR_FIRE_RESIST,					// úP²£úY•WÛUÚu¡¼¢t
-		0,	//		CHAR_WIND_RESIST,					// úP²£úYûõÛUÚu¡¼¢t
-		0,	//		CHAR_EARTH_ATTMAGIC_EXP,			// úP²£úY”HÛUÚu°Å½uúö©_¼QüG
-		0,	//		CHAR_WATER_ATTMAGIC_EXP,			// úP²£úY•VÛUÚu°Å½uúö©_¼QüG
-		0,	//		CHAR_FIRE_ATTMAGIC_EXP,				// úP²£úY•WÛUÚu°Å½uúö©_¼QüG
-		0,	//		CHAR_WIND_ATTMAGIC_EXP,				// úP²£úYûõÛUÚu°Å½uúö©_¼QüG
-		0,	//	 	CHAR_EARTH_DEFMAGIC_EXP,			// úP²£úY”HÛUÚu¡¼¢t©_¼QüG
-		0,	//		CHAR_WATER_DEFMAGIC_EXP,			// úP²£úY•VÛUÚu¡¼¢t©_¼QüG
-		0,	//		CHAR_FIRE_DEFMAGIC_EXP,				// úP²£úY•WÛUÚu¡¼¢t©_¼QüG
-		0,	//		CHAR_WIND_DEFMAGIC_EXP,				// úP²£úYûõÛUÚu¡¼¢t©_¼QüG
+		0,	//		CHAR_EARTH_EXP,						// ï•ˆç”¢ï•‘î®¯è‡¸çŒ­å‰ªç·šï—Œ
+		0,	//		CHAR_WATER_EXP,						// ï•ˆç”¢ï•‘î±šè‡¸çŒ­å‰ªç·šï—Œ
+		0,	//		CHAR_FIRE_EXP,						// ï•ˆç”¢ï•‘î±›è‡¸çŒ­å‰ªç·šï—Œ
+		0,	//		CHAR_WIND_EXP,						// ï•ˆç”¢ï•‘ï™¨è‡¸çŒ­å‰ªç·šï—Œ
+		0,	//		CHAR_EARTH_RESIST,					// ï•ˆç”¢ï•‘î®¯è‡¸çŒ­â–¡â”¤
+		0,	//		CHAR_WATER_RESIST,					// ï•ˆç”¢ï•‘î±šè‡¸çŒ­â–¡â”¤
+		0,	//		CHAR_FIRE_RESIST,					// ï•ˆç”¢ï•‘î±›è‡¸çŒ­â–¡â”¤
+		0,	//		CHAR_WIND_RESIST,					// ï•ˆç”¢ï•‘ï™¨è‡¸çŒ­â–¡â”¤
+		0,	//		CHAR_EARTH_ATTMAGIC_EXP,			// ï•ˆç”¢ï•‘î®¯è‡¸çŒ­å‰ªç·šï—Œå¥‡å™´ï™¹
+		0,	//		CHAR_WATER_ATTMAGIC_EXP,			// ï•ˆç”¢ï•‘î±šè‡¸çŒ­å‰ªç·šï—Œå¥‡å™´ï™¹
+		0,	//		CHAR_FIRE_ATTMAGIC_EXP,				// ï•ˆç”¢ï•‘î±›è‡¸çŒ­å‰ªç·šï—Œå¥‡å™´ï™¹
+		0,	//		CHAR_WIND_ATTMAGIC_EXP,				// ï•ˆç”¢ï•‘ï™¨è‡¸çŒ­å‰ªç·šï—Œå¥‡å™´ï™¹
+		0,	//	 	CHAR_EARTH_DEFMAGIC_EXP,			// ï•ˆç”¢ï•‘î®¯è‡¸çŒ­â–¡â”¤å¥‡å™´ï™¹
+		0,	//		CHAR_WATER_DEFMAGIC_EXP,			// ï•ˆç”¢ï•‘î±šè‡¸çŒ­â–¡â”¤å¥‡å™´ï™¹
+		0,	//		CHAR_FIRE_DEFMAGIC_EXP,				// ï•ˆç”¢ï•‘î±›è‡¸çŒ­â–¡â”¤å¥‡å™´ï™¹
+		0,	//		CHAR_WIND_DEFMAGIC_EXP,				// ï•ˆç”¢ï•‘ï™¨è‡¸çŒ­â–¡â”¤å¥‡å™´ï™¹
 #endif
 
 
 #ifdef _GAMBLE_BANK
-		0,	//		CHAR_PERSONAGOLD,	//§ÙªìüR’Ë½À¡o
+		0,	//		CHAR_PERSONAGOLD,	//æˆ’åˆïš„î«–è—ï¸½
 #endif
 #ifdef _DROPSTAKENEW
-		0,	//		CHAR_GAMBLENUM,		//§ÙªìíÚ¡¼
+		0,	//		CHAR_GAMBLENUM,		//æˆ’åˆç¸©â–¡
 #endif
-#ifdef _ADD_ACTION          //npc¯¹”©
+#ifdef _ADD_ACTION          //npcç¬†î¯®
 		0,	//		CHAR_ACTIONSTYLE,
 #endif
 #ifdef _AUCTIONEER
-		0,	//		CHAR_AUCGOLD,		// ¢qªã¢s²³
+		0,	//		CHAR_AUCGOLD,		// â”¼èŠ¥â”¬çœ¾
 #endif
 #ifdef _PET_EVOLUTION
 		0,	//		CHAR_EVOLUTIONBASEVTL,
@@ -218,34 +218,34 @@ static Char    player=
 #endif
 
 #ifdef _FAMILYBANKSTONELOG
-		0,	//		CHAR_FMBANKGOLD, //²£¾À½À¡o”ZùO
+		0,	//		CHAR_FMBANKGOLD, //ç”¢å£è—ï¸½î¯èº¥
 #endif
 
 #ifdef _FM_JOINLIMIT
 		0,	//		CHAR_FMTIMELIMIT,
 #endif
 
-#ifdef _CHAR_PROFESSION			// WON ADD ’ËúJ¼®ò§
-		0,	//		PROFESSION_CLASS,			// ¼®ò§”¸
-		0,	//		PROFESSION_LEVEL,			// ¼®ò§³æýc
-//		0,	//		PROFESSION_EXP,				// ¼®ò§©_¼QüG
-		0,	//		PROFESSION_SKILL_POINT,		// ¡¼ý~íå­p
-		0,	//		ATTACHPILE,					// ´²“¡À°ÛX
-		0,	//		PROFESSION_FIRE_P,			// •W°Å½uúö
-		0,	//		PROFESSION_ICE_P,			// “è°Å½uúö		
-		0,	//		PROFESSION_THUNDER_P,		// ¡¼°Å½uúö
-		0,	//		PROFESSION_FIRE_R,			// •W¡¼¢t
-		0,	//		PROFESSION_ICE_R,			// “è¡¼¢t	
-		0,	//		PROFESSION_THUNDER_R,		// ¡¼¡¼¢t
+#ifdef _CHAR_PROFESSION			// WON ADD î«–ï•‚æˆ®ç©¨
+		0,	//		PROFESSION_CLASS,			// æˆ®ç©¨î¯½
+		0,	//		PROFESSION_LEVEL,			// æˆ®ç©¨å–®Â©c
+//		0,	//		PROFESSION_EXP,				// æˆ®ç©¨å¥‡å™´ï™¹
+		0,	//		PROFESSION_SKILL_POINT,		// â–¡Â©~ç¿´è¨ˆ
+		0,	//		ATTACHPILE,					// æ•£î­‰å¹«èˆ¼
+		0,	//		PROFESSION_FIRE_P,			// î±›å‰ªç·šï—Œ
+		0,	//		PROFESSION_ICE_P,			// î®å‰ªç·šï—Œ		
+		0,	//		PROFESSION_THUNDER_P,		// â–¡å‰ªç·šï—Œ
+		0,	//		PROFESSION_FIRE_R,			// î±›â–¡â”¤
+		0,	//		PROFESSION_ICE_R,			// î®â–¡â”¤	
+		0,	//		PROFESSION_THUNDER_R,		// â–¡â–¡â”¤
 #endif
-#ifdef _ALLDOMAN // (¡¼“¯¡¼) Syu ADD ¹G¡oöýNPC
+#ifdef _ALLDOMAN // (â–¡î­—â–¡) Syu ADD é€¼ï¸½ç±›NPC
 		0,	//		CHAR_HEROFLOOR, 
 #endif
 #ifdef _PETSKILL_BECOMEPIG
 		-1,	//		CHAR_BECOMEPIG,
 		100250, //CHAR_BECOMEPIG_BBI
 #endif
-		0,	//		CHAR_LASTLEAVETIME, // Robin add µ{ûA¿f¡¼üÈ¤B
+		0,	//		CHAR_LASTLEAVETIME, // Robin add ç¨‹ï—–çžžâ–¡ï›˜ä¸
 
 #ifdef _NEW_MANOR_LAW
 		0,	//		CHAR_MOMENTUM,
@@ -257,12 +257,12 @@ static Char    player=
 #endif
 
 #ifdef _ANGEL_SUMMON
-		0,	//		CHAR_HEROCNT, // ¡¼£KÍiúk¡¼¥zúY£[­p
+		0,	//		CHAR_HEROCNT, // â–¡Î˜çŽ¦ï•£â–¡å­ï•‘Î©è¨ˆ
 #endif
 
 #ifdef _RACEMAN
-		0,	//		CHAR_CHECKIN,	//Ð\úJÖv”ÈÏ÷Â~
-		0,	//		CHAR_CATCHCNT,  //ÛGÐ\£[­p
+		0,	//		CHAR_CHECKIN,	//èƒï•‚çŒî°ç¥…ç™˜
+		0,	//		CHAR_CATCHCNT,  //èèƒÎ©è¨ˆ
 		0,
 		0,
 		0,

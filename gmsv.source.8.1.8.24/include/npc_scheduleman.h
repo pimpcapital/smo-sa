@@ -3,65 +3,65 @@
 
 #define CHARNAME_MAX	32
 
-// ³Ì¤j scheduleman ¼Æ¶q
+// æœ€å¤§ scheduleman æ•¸é‡
 #ifdef _FAMILY_MANORNUM_CHANGE
 #define MAX_SCHEDULEMAN	20
 #else
 #define MAX_SCHEDULEMAN	12
 #endif
 
-// ¨C¤@­Ó scheduleman ±±ºŞªº schedule ¼Æ¶q
+// æ¯ä¸€å€‹ scheduleman æ§ç®¡çš„ schedule æ•¸é‡
 #define MAX_SCHEDULE	24
 
-// schedule ¦Cªíªº¤@­¶©Ò¯à¦C¥Xªº³Ì¤j¼Æ¶q
+// schedule åˆ—è¡¨çš„ä¸€é æ‰€èƒ½åˆ—å‡ºçš„æœ€å¤§æ•¸é‡
 #define MAXSCHEDULEINONEWINDOW	4
 
-// family ¦Cªíªº¤@­¶©Ò¯à¦C¥Xªº³Ì¤j¼Æ¶q
+// family åˆ—è¡¨çš„ä¸€é æ‰€èƒ½åˆ—å‡ºçš„æœ€å¤§æ•¸é‡
 #define MAXFAMILYINONEWINDOW	8
 
-// ¨C¤@­Ó scheduleman ©Ò¨Ï¥Îªº schedule Àx¦s¦ì¸m
-// ¹ïÀ³¦b fmpks ªº ID*MAX_SCHEDULE ¤W (ID=0~MAX_SCHEDULEMAN-1)
-// ID ¬O¼g¦b data/npc ¤¤«ü©wµ¹ "id:" ªº­È
+// æ¯ä¸€å€‹ scheduleman æ‰€ä½¿ç”¨çš„ schedule å„²å­˜ä½ç½®
+// å°æ‡‰åœ¨ fmpks çš„ ID*MAX_SCHEDULE ä¸Š (ID=0~MAX_SCHEDULEMAN-1)
+// ID æ˜¯å¯«åœ¨ data/npc ä¸­æŒ‡å®šçµ¦ "id:" çš„å€¼
 
-// dueltime = (¹j¤Ñ?10000:0) + (¤p®É*100)
+// dueltime = (éš”å¤©?10000:0) + (å°æ™‚*100)
 
 typedef struct tagFamilyPKSchedule {
-	int	dueltime;	// ¤ñÁÉ®É¨è
-	int	host_index;	// ¥D¶¤®a±Ú
-	char host_name[CHARNAME_MAX];	// ¥D¶¤®a±Ú¦WºÙ
-	int	guest_index;	// «È¶¤®a±Ú
-	char guest_name[CHARNAME_MAX];	// «È¶¤®a±Ú¦WºÙ
-	int	prepare_time;	// ·Ç³Æ®É¶¡ (1~40 ¤ÀÄÁ)
-	int	max_player;	// ³Ì¤j¥X³õ¤H¼Æ (1~®a±Ú¤H¼Æ¤W­­)
-	int	flag;		// ª¬ºA
-	int	win;		// ³Ó§Q±ø¥ó³]©w
-	int	challenge_timeout;	// ¬D¾Ô®É­­
-	int	setting_timeout;	// ³]©wª¬ºAªº timeout
+	int	dueltime;	// æ¯”è³½æ™‚åˆ»
+	int	host_index;	// ä¸»éšŠå®¶æ—
+	char host_name[CHARNAME_MAX];	// ä¸»éšŠå®¶æ—åç¨±
+	int	guest_index;	// å®¢éšŠå®¶æ—
+	char guest_name[CHARNAME_MAX];	// å®¢éšŠå®¶æ—åç¨±
+	int	prepare_time;	// æº–å‚™æ™‚é–“ (1~40 åˆ†é˜)
+	int	max_player;	// æœ€å¤§å‡ºå ´äººæ•¸ (1~å®¶æ—äººæ•¸ä¸Šé™)
+	int	flag;		// ç‹€æ…‹
+	int	win;		// å‹åˆ©æ¢ä»¶è¨­å®š
+	int	challenge_timeout;	// æŒ‘æˆ°æ™‚é™
+	int	setting_timeout;	// è¨­å®šç‹€æ…‹çš„ timeout
 	char gmsv_name[256];
 } FamilyPKSchedule;
 
-// ¬ö¿ı¦b FamilyPKSchedule (fmpks) ªº flag ­È
-#define FMPKS_FLAG_NONE		-1	// ¨S¦³¥ô¦ó±Æµ{
-#define FMPKS_FLAG_CHALLENGE	0	// µ¥«İ«È¶¤¦P·N¤¤
-#define FMPKS_FLAG_SETTING	1	// ¥D¶¤¥¿¦b³]©w±Æµ{ (¨ú®ø®ÉÅÜ¦¨ NONE)
-#define FMPKS_FLAG_CONFIRMING	2	// «È¶¤¥¿¦b¦P·N¤¤
-#define FMPKS_FLAG_SCHEDULED	3	// ¤w¸g±Æ¦n±Æµ{¡A©|¥¼¶}¥´
-#define FMPKS_FLAG_DUEL		4	// ¶}¥´¤¤
-#define FMPKS_FLAG_HOSTWIN	5	// ¥D¶¤³Ó
-#define FMPKS_FLAG_GUESTWIN	6	// «È¶¤³Ó
-#define FMPKS_FLAG_MANOR_BATTLEBEGIN	7	// ²ø¶é¬D¾Ô ¾Ô°«¤¤
-#define FMPKS_FLAG_MANOR_PREPARE	8	// ²ø¶é¬D¾Ô ·Ç³Æ¤¤
-#define FMPKS_FLAG_MANOR_PEACE	9	// ²ø¶é¬D¾Ô ¥ğ¾Ô¤¤
-#define FMPKS_FLAG_MANOR_OTHERPLANET	10	// ²ø¶é¬D¾Ô ¦b§Oªº¬P²y¨M¾Ô
-#define FMPKS_FLAG_MANOR_BATTLEEND	11	// ²ø¶é¬D¾Ô ¾Ô°«µ²§ô
-#define FMPKS_FLAG_MANOR_PEACE_SAVE	12	// ±N²ø¶é¬D¾Ô¦sÀÉ
-#define FMPKS_FLAG_MANOR_READYTOFIGHT	13	// (GM: manorpk) ¥ş¬P¨tÅÜ¦¨¥i¬ù¾Ôª¬ºA
-#define FMPKS_FLAG_MANOR_CLEANFLAG	14	// (GM: manorpk) ¥»¬P²y²M°£ª¬ºA
+// ç´€éŒ„åœ¨ FamilyPKSchedule (fmpks) çš„ flag å€¼
+#define FMPKS_FLAG_NONE		-1	// æ²’æœ‰ä»»ä½•æ’ç¨‹
+#define FMPKS_FLAG_CHALLENGE	0	// ç­‰å¾…å®¢éšŠåŒæ„ä¸­
+#define FMPKS_FLAG_SETTING	1	// ä¸»éšŠæ­£åœ¨è¨­å®šæ’ç¨‹ (å–æ¶ˆæ™‚è®Šæˆ NONE)
+#define FMPKS_FLAG_CONFIRMING	2	// å®¢éšŠæ­£åœ¨åŒæ„ä¸­
+#define FMPKS_FLAG_SCHEDULED	3	// å·²ç¶“æ’å¥½æ’ç¨‹ï¼Œå°šæœªé–‹æ‰“
+#define FMPKS_FLAG_DUEL		4	// é–‹æ‰“ä¸­
+#define FMPKS_FLAG_HOSTWIN	5	// ä¸»éšŠå‹
+#define FMPKS_FLAG_GUESTWIN	6	// å®¢éšŠå‹
+#define FMPKS_FLAG_MANOR_BATTLEBEGIN	7	// èŠåœ’æŒ‘æˆ° æˆ°é¬¥ä¸­
+#define FMPKS_FLAG_MANOR_PREPARE	8	// èŠåœ’æŒ‘æˆ° æº–å‚™ä¸­
+#define FMPKS_FLAG_MANOR_PEACE	9	// èŠåœ’æŒ‘æˆ° ä¼‘æˆ°ä¸­
+#define FMPKS_FLAG_MANOR_OTHERPLANET	10	// èŠåœ’æŒ‘æˆ° åœ¨åˆ¥çš„æ˜Ÿçƒæ±ºæˆ°
+#define FMPKS_FLAG_MANOR_BATTLEEND	11	// èŠåœ’æŒ‘æˆ° æˆ°é¬¥çµæŸ
+#define FMPKS_FLAG_MANOR_PEACE_SAVE	12	// å°‡èŠåœ’æŒ‘æˆ°å­˜æª”
+#define FMPKS_FLAG_MANOR_READYTOFIGHT	13	// (GM: manorpk) å…¨æ˜Ÿç³»è®Šæˆå¯ç´„æˆ°ç‹€æ…‹
+#define FMPKS_FLAG_MANOR_CLEANFLAG	14	// (GM: manorpk) æœ¬æ˜Ÿçƒæ¸…é™¤ç‹€æ…‹
 #ifdef _NEW_MANOR_LAW
-#define FMPKS_FLAG_WAIT		15	// ¶i¤J¬D¾Ô´Á,¤w°O¿ı®a±Ú®ğ¶Õ,µ¥«İ¬D¾Ô±Æµ{
+#define FMPKS_FLAG_WAIT		15	// é€²å…¥æŒ‘æˆ°æœŸ,å·²è¨˜éŒ„å®¶æ—æ°£å‹¢,ç­‰å¾…æŒ‘æˆ°æ’ç¨‹
 #endif
 
-// ¶Çµ¹ client ªº flag
+// å‚³çµ¦ client çš„ flag
 #define FLAG_NONE	-1
 #define FLAG_MODIFY	0
 #define FLAG_ACCEPT	1

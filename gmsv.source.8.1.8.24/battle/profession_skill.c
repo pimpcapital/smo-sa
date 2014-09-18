@@ -1,7 +1,7 @@
 #include "version.h"
 
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -28,87 +28,87 @@ typedef struct tagProfessionskill_skillFunctionTable
 
 static PROFESSION_SKILL_skillFunctionTable PROFESSION_SKILL_functbl[] = {
 
-// §Å®v§Ş¯à
-	{ "PROFESSION_VOLCANO_SPRINGS", PROFESSION_volcano_springs, 0 },	// ¤õ¤s¬u
-	{ "PROFESSION_FIRE_BALL",		PROFESSION_fire_ball,		0 },	// ¤õ¬P²y
-	{ "PROFESSION_FIRE_SPEAR",		PROFESSION_fire_spear,		0 },	// ¤õÀsºj
-	{ "PROFESSION_SUMMON_THUNDER",  PROFESSION_summon_thunder,  0 },	// ¥l¹p³N
-	{ "PROFESSION_CURRENT",			PROFESSION_current,			0 },	// ¹q¬y³N
-	{ "PROFESSION_STORM",			PROFESSION_storm,			0 },	// ¼É­·«B
-	{ "PROFESSION_ICE_ARROW",		PROFESSION_ice_arrow,		0 },	// ¦B½b³N
-	{ "PROFESSION_ICE_CRACK",		PROFESSION_ice_crack,		0 },	// ¦BÃz³N
-	{ "PROFESSION_ICE_MIRROR",		PROFESSION_ice_mirror,		0 },	// ¦BÃè³N
-	{ "PROFESSION_DOOM",			PROFESSION_doom,			0 },	// ¥@¬É¥½¤é
-	{ "PROFESSION_BLOOD",			PROFESSION_blood,			0 },	// ¶İ¦å¦¨©Ê
-	{ "PROFESSION_BLOOD_WORMS",		PROFESSION_blood_worms,		0 },	// ¶İ¦åÅÛ
-	{ "PROFESSION_SIGN",			PROFESSION_sign,			0 },	// ¤@°w¨£¦å
-	{ "PROFESSION_FIRE_ENCLOSE",	PROFESSION_fire_enclose,	0 },	// ¤õªşÅé
-	{ "PROFESSION_ICE_ENCLOSE",		PROFESSION_ice_eclose,		0 },	// ¦BªşÅé
-	{ "PROFESSION_THUNDER_ENCLOSE",	PROFESSION_thunder_enclose, 0 },	// ¹pªşÅé
-	{ "PROFESSION_FIRE_PRACTICE",	PROFESSION_fire_practice,	0 },	// ¤õÅ]ªk¼ô½m«×
-	{ "PROFESSION_ICE_PRACTICE",	PROFESSION_ice_practice,	0 },	// ¦BÅ]ªk¼ô½m«×
-	{ "PROFESSION_THUNDER_PRACTICE",PROFESSION_thunder_practice,0 },	// ¹pÅ]ªk¼ô½m«×
-	{ "PROFESSION_ENCLOSE",			PROFESSION_enclose,			0 },	// ªş¨­³N
-	{ "PROFESSION_TRANSPOSE",		PROFESSION_transpose,		0 },	// ²¾§Î´«¦ì
-//	{ "PROFESSION_ALCHEMY",			PROFESSION_alchemy,			0 },	// ·Òª÷³N
+// å·«å¸«æŠ€èƒ½
+	{ "PROFESSION_VOLCANO_SPRINGS", PROFESSION_volcano_springs, 0 },	// ç«å±±æ³‰
+	{ "PROFESSION_FIRE_BALL",		PROFESSION_fire_ball,		0 },	// ç«æ˜Ÿçƒ
+	{ "PROFESSION_FIRE_SPEAR",		PROFESSION_fire_spear,		0 },	// ç«é¾æ§
+	{ "PROFESSION_SUMMON_THUNDER",  PROFESSION_summon_thunder,  0 },	// å¬é›·è¡“
+	{ "PROFESSION_CURRENT",			PROFESSION_current,			0 },	// é›»æµè¡“
+	{ "PROFESSION_STORM",			PROFESSION_storm,			0 },	// æš´é¢¨é›¨
+	{ "PROFESSION_ICE_ARROW",		PROFESSION_ice_arrow,		0 },	// å†°ç®­è¡“
+	{ "PROFESSION_ICE_CRACK",		PROFESSION_ice_crack,		0 },	// å†°çˆ†è¡“
+	{ "PROFESSION_ICE_MIRROR",		PROFESSION_ice_mirror,		0 },	// å†°é¡è¡“
+	{ "PROFESSION_DOOM",			PROFESSION_doom,			0 },	// ä¸–ç•Œæœ«æ—¥
+	{ "PROFESSION_BLOOD",			PROFESSION_blood,			0 },	// å—œè¡€æˆæ€§
+	{ "PROFESSION_BLOOD_WORMS",		PROFESSION_blood_worms,		0 },	// å—œè¡€è ±
+	{ "PROFESSION_SIGN",			PROFESSION_sign,			0 },	// ä¸€é‡è¦‹è¡€
+	{ "PROFESSION_FIRE_ENCLOSE",	PROFESSION_fire_enclose,	0 },	// ç«é™„é«”
+	{ "PROFESSION_ICE_ENCLOSE",		PROFESSION_ice_eclose,		0 },	// å†°é™„é«”
+	{ "PROFESSION_THUNDER_ENCLOSE",	PROFESSION_thunder_enclose, 0 },	// é›·é™„é«”
+	{ "PROFESSION_FIRE_PRACTICE",	PROFESSION_fire_practice,	0 },	// ç«é­”æ³•ç†Ÿç·´åº¦
+	{ "PROFESSION_ICE_PRACTICE",	PROFESSION_ice_practice,	0 },	// å†°é­”æ³•ç†Ÿç·´åº¦
+	{ "PROFESSION_THUNDER_PRACTICE",PROFESSION_thunder_practice,0 },	// é›·é­”æ³•ç†Ÿç·´åº¦
+	{ "PROFESSION_ENCLOSE",			PROFESSION_enclose,			0 },	// é™„èº«è¡“
+	{ "PROFESSION_TRANSPOSE",		PROFESSION_transpose,		0 },	// ç§»å½¢æ›ä½
+//	{ "PROFESSION_ALCHEMY",			PROFESSION_alchemy,			0 },	// ç…‰é‡‘è¡“
 
-// «i¤h§Ş¯à
-	{ "PROFESSION_CHAIN_ATK",		PROFESSION_chain_atk,		0 },	// ³sÀô§ğÀ»
-	{ "PROFESSION_AVOID",			PROFESSION_avoid,			0 },	// °jÁ×
-	{ "PROFESSION_WEAPON_FOCUS",	PROFESSION_weapon_focus,	0 },	// ªZ¾¹±Mºë	
-	{ "PROFESSION_REBACK",			PROFESSION_reback,			0 },	// ª¬ºA¦^´_
-	{ "PROFESSION_BRUST",			PROFESSION_brust,			0 },	// ÃzÀ»
-	{ "PROFESSION_CHAIN_ATK_2",		PROFESSION_chain_atk_2,		0 },	// Âù­«§ğÀ»
-	{ "PROFESSION_SCAPEGOAT",		PROFESSION_scapegoat,		0 },	// ±Ë¤w¬°¤Í
-	{ "PROFESSION_ENRAGE",			PROFESSION_enrage,			0 },	// ¿E¤Æ§ğÀ»
-	{ "PROFESSION_ENERGY_COLLECT",	PROFESSION_energy_collect,	0 },	// ¯à¶q»E¶°
-	{ "PROFESSION_FOCUS",			PROFESSION_focus,			0 },	// ±Mª`¾Ô°«
-	{ "PROFESSION_SHIELD_ATTACK",	PROFESSION_shield_attack,	0 },	// ¬ŞÀ»
-	{ "PROFESSION_DUAL_WEAPON",		PROFESSION_dual_weapon,		0 },	// ¤G¤M¬y	
-	{ "PROFESSION_DEFLECT",			PROFESSION_deflect,			0 },	// ®æÀÉ
-	{ "PROFESSION_THROUGH_ATTACK",	PROFESSION_through_attack,	0 },	// ³e¬ï§ğÀ»
-	{ "PROFESSION_CAVALRY",			PROFESSION_cavalry,			0 },	// ®yÃM§ğÀ»
-	{ "PROFESSION_DEAD_ATTACK",		PROFESSION_dead_attack,		0 },	// Ãx¦º§ğÀ»
-	{ "PROFESSION_CONVOLUTE",		PROFESSION_convolute,		0 },	// °j±Û§ğÀ»
-	{ "PROFESSION_CHAOS",			PROFESSION_chaos,			0 },	// ²V¶Ã§ğÀ»
+// å‹‡å£«æŠ€èƒ½
+	{ "PROFESSION_CHAIN_ATK",		PROFESSION_chain_atk,		0 },	// é€£ç’°æ”»æ“Š
+	{ "PROFESSION_AVOID",			PROFESSION_avoid,			0 },	// è¿´é¿
+	{ "PROFESSION_WEAPON_FOCUS",	PROFESSION_weapon_focus,	0 },	// æ­¦å™¨å°ˆç²¾	
+	{ "PROFESSION_REBACK",			PROFESSION_reback,			0 },	// ç‹€æ…‹å›å¾©
+	{ "PROFESSION_BRUST",			PROFESSION_brust,			0 },	// çˆ†æ“Š
+	{ "PROFESSION_CHAIN_ATK_2",		PROFESSION_chain_atk_2,		0 },	// é›™é‡æ”»æ“Š
+	{ "PROFESSION_SCAPEGOAT",		PROFESSION_scapegoat,		0 },	// æ¨å·²ç‚ºå‹
+	{ "PROFESSION_ENRAGE",			PROFESSION_enrage,			0 },	// æ¿€åŒ–æ”»æ“Š
+	{ "PROFESSION_ENERGY_COLLECT",	PROFESSION_energy_collect,	0 },	// èƒ½é‡èšé›†
+	{ "PROFESSION_FOCUS",			PROFESSION_focus,			0 },	// å°ˆæ³¨æˆ°é¬¥
+	{ "PROFESSION_SHIELD_ATTACK",	PROFESSION_shield_attack,	0 },	// ç›¾æ“Š
+	{ "PROFESSION_DUAL_WEAPON",		PROFESSION_dual_weapon,		0 },	// äºŒåˆ€æµ	
+	{ "PROFESSION_DEFLECT",			PROFESSION_deflect,			0 },	// æ ¼æª”
+	{ "PROFESSION_THROUGH_ATTACK",	PROFESSION_through_attack,	0 },	// è²«ç©¿æ”»æ“Š
+	{ "PROFESSION_CAVALRY",			PROFESSION_cavalry,			0 },	// åº§é¨æ”»æ“Š
+	{ "PROFESSION_DEAD_ATTACK",		PROFESSION_dead_attack,		0 },	// ç€•æ­»æ”»æ“Š
+	{ "PROFESSION_CONVOLUTE",		PROFESSION_convolute,		0 },	// è¿´æ—‹æ”»æ“Š
+	{ "PROFESSION_CHAOS",			PROFESSION_chaos,			0 },	// æ··äº‚æ”»æ“Š
 
-// Ây¤H
-	{ "PROFESSION_TRACK",			PROFESSION_track,			0 },	// °l´M¼ÄÂÜ
-	{ "PROFESSION_ESCAPE",			PROFESSION_escape,			0 },	// °jÁ×¾Ô°«
-	{ "PROFESSION_DOCILE",			PROFESSION_docile,			0 },	// ¹¥¥ñÃdª«
-	{ "PROFESSION_TRAP",			PROFESSION_trap,			0 },	// ³´¨À
-	{ "PROFESSION_ENRAGE_PET",		PROFESSION_enrage_pet,		0 },	// ¿E«ãÃdª«
-	{ "PROFESSION_DRAGNET",			PROFESSION_dragnet,			0 },	// ¤ÑÃ¹¦aºô
-	{ "PROFESSION_ENTWINE",			PROFESSION_entwine,			0 },	// ¾ğ®ÚÄñÂ¶
-	{ "PROFESSION_AUTARKY",			PROFESSION_autarky,			0 },	// ¦Ûµ¹¦Û¨¬
-	{ "PROFESSION_PLUNDER",			PROFESSION_plunder,			0 },	//   Åé±°¹Ü
-	{ "PROFESSION_TOXIN_WEAPON",	PROFESSION_toxin_weapon,	0 },	// ¬r¯ÀªZ¾¹
-	{ "PROFESSION_RESIST_FIRE",		PROFESSION_resist_fire,		0 },	// ¤õ§Ü©Ê
-	{ "PROFESSION_RESIST_ICE",		PROFESSION_resist_ice,		0 },	// ¦B§Ü©Ê
-	{ "PROFESSION_RESIST_THUNDER",	PROFESSION_resist_thunder,	0 },	// ¹p§Ü©Ê
+// çµäºº
+	{ "PROFESSION_TRACK",			PROFESSION_track,			0 },	// è¿½å°‹æ•µè¹¤
+	{ "PROFESSION_ESCAPE",			PROFESSION_escape,			0 },	// è¿´é¿æˆ°é¬¥
+	{ "PROFESSION_DOCILE",			PROFESSION_docile,			0 },	// é¦´ä¼å¯µç‰©
+	{ "PROFESSION_TRAP",			PROFESSION_trap,			0 },	// é™·é˜±
+	{ "PROFESSION_ENRAGE_PET",		PROFESSION_enrage_pet,		0 },	// æ¿€æ€’å¯µç‰©
+	{ "PROFESSION_DRAGNET",			PROFESSION_dragnet,			0 },	// å¤©ç¾…åœ°ç¶²
+	{ "PROFESSION_ENTWINE",			PROFESSION_entwine,			0 },	// æ¨¹æ ¹çºç¹
+	{ "PROFESSION_AUTARKY",			PROFESSION_autarky,			0 },	// è‡ªçµ¦è‡ªè¶³
+	{ "PROFESSION_PLUNDER",			PROFESSION_plunder,			0 },	//   é«”æ å¥ª
+	{ "PROFESSION_TOXIN_WEAPON",	PROFESSION_toxin_weapon,	0 },	// æ¯’ç´ æ­¦å™¨
+	{ "PROFESSION_RESIST_FIRE",		PROFESSION_resist_fire,		0 },	// ç«æŠ—æ€§
+	{ "PROFESSION_RESIST_ICE",		PROFESSION_resist_ice,		0 },	// å†°æŠ—æ€§
+	{ "PROFESSION_RESIST_THUNDER",	PROFESSION_resist_thunder,	0 },	// é›·æŠ—æ€§
 #ifdef _PROFESSION_ADDSKILL
-    { "PROFESSION_RESIST_F_I_T",    PROFESSION_resist_f_i_t,    0 },    // ¦ÛµM«Â¯à
-	{ "PROFESSION_CALL_NATURE",     PROFESSION_call_nature,     0 },    // ¸¹¥l¦ÛµM
-	{ "PROFESSION_BOUNDARY",        PROFESSION_boundary,     0 },       // ¥|Äİ©Êµ²¬É
+    { "PROFESSION_RESIST_F_I_T",    PROFESSION_resist_f_i_t,    0 },    // è‡ªç„¶å¨èƒ½
+	{ "PROFESSION_CALL_NATURE",     PROFESSION_call_nature,     0 },    // è™Ÿå¬è‡ªç„¶
+	{ "PROFESSION_BOUNDARY",        PROFESSION_boundary,     0 },       // å››å±¬æ€§çµç•Œ
 #endif
-	{ "PROFESSION_G_RESIST_FIRE",	PROFESSION_g_resist_fire,	0 },	// ¹ÎÅé¤õ§Ü©Ê
-	{ "PROFESSION_G_RESIST_ICE",	PROFESSION_g_resist_ice,	0 },	// ¹ÎÅé¦B§Ü©Ê
-	{ "PROFESSION_G_RESIST_THUNDER",PROFESSION_g_resist_thunder,0 },	// ¹ÎÅé¹p§Ü©Ê
-	{ "PROFESSION_ATTACK_WEAK",		PROFESSION_attack_weak,		0 },	// ®zÂI§ğÀ»
-	{ "PROFESSION_INSTIGATE",		PROFESSION_instigate,		0 },	// ¬D¼·
-	{ "PROFESSION_OBLIVION",		PROFESSION_oblivion,		0 },	// ¿ò§Ñ
+	{ "PROFESSION_G_RESIST_FIRE",	PROFESSION_g_resist_fire,	0 },	// åœ˜é«”ç«æŠ—æ€§
+	{ "PROFESSION_G_RESIST_ICE",	PROFESSION_g_resist_ice,	0 },	// åœ˜é«”å†°æŠ—æ€§
+	{ "PROFESSION_G_RESIST_THUNDER",PROFESSION_g_resist_thunder,0 },	// åœ˜é«”é›·æŠ—æ€§
+	{ "PROFESSION_ATTACK_WEAK",		PROFESSION_attack_weak,		0 },	// å¼±é»æ”»æ“Š
+	{ "PROFESSION_INSTIGATE",		PROFESSION_instigate,		0 },	// æŒ‘æ’¥
+	{ "PROFESSION_OBLIVION",		PROFESSION_oblivion,		0 },	// éºå¿˜
 
-// ¦@¦P§Ş¯à
-	{ "PROFESSION_FULL_MP",			PROFESSION_full_mp,			0 },	// ®ğ¤O¥R¨K
-	{ "PROFESSION_STRONG_BACK",		PROFESSION_strong_back,		0 },	// ­t­«¼W¥[
-	{ "PROFESSION_STRENGTHEN",		PROFESSION_strengthen,		0 },	// ¦Û§Ú±j¤Æ
+// å…±åŒæŠ€èƒ½
+	{ "PROFESSION_FULL_MP",			PROFESSION_full_mp,			0 },	// æ°£åŠ›å……æ²›
+	{ "PROFESSION_STRONG_BACK",		PROFESSION_strong_back,		0 },	// è² é‡å¢åŠ 
+	{ "PROFESSION_STRENGTHEN",		PROFESSION_strengthen,		0 },	// è‡ªæˆ‘å¼·åŒ–
 
 };
 
 
-static int profession_skill_num;				// Â¾·~§Ş¯àÁ`¼Æ
+static int profession_skill_num;				// è·æ¥­æŠ€èƒ½ç¸½æ•¸
 
-// ±N profession.txt ¸ü¤J
+// å°‡ profession.txt è¼‰å…¥
 BOOL PROFESSION_initSkill( char *filename)
 {
 
@@ -136,7 +136,7 @@ BOOL PROFESSION_initSkill( char *filename)
         if( line[0] == '\n' )continue;
         chomp( line );
         profession_skill_num++;
-#ifdef _PROSKILL_OPTIMUM // Robin ¨ú¥X³Ì¤jÂ¾§ŞID
+#ifdef _PROSKILL_OPTIMUM // Robin å–å‡ºæœ€å¤§è·æŠ€ID
 		if( getStringFromIndexWithDelim( line, ",", 
 				PROFESSION_SKILL_DATACHARNUM+PROFESSION_SKILL_ID+1,
 				token, sizeof(token)) == FALSE )
@@ -151,9 +151,9 @@ BOOL PROFESSION_initSkill( char *filename)
         return FALSE;
     }
 
-#ifdef _PROSKILL_OPTIMUM // Â¾§ŞTable¼Æ¬° ³Ì¤j§Ş¯àID +1
+#ifdef _PROSKILL_OPTIMUM // è·æŠ€Tableæ•¸ç‚º æœ€å¤§æŠ€èƒ½ID +1
 	profession_skill_num = max_skillid +1;
-	print("\n ³Ì¤jÂ¾§ŞID = %d\n", max_skillid);
+	print("\n æœ€å¤§è·æŠ€ID = %d\n", max_skillid);
 #endif
 
 	PROFESSION_skill = allocateMemory( sizeof(struct tagProfessionkill) * profession_skill_num + 1 );
@@ -201,7 +201,7 @@ BOOL PROFESSION_initSkill( char *filename)
 			char    token[256];
 			int     ret;
 
-#ifdef _PROSKILL_OPTIMUM // Åª¨ú¥»¦æÂ¾§ŞªºID, ª½±µ¥HÂ¾§ŞID·íTable index
+#ifdef _PROSKILL_OPTIMUM // è®€å–æœ¬è¡Œè·æŠ€çš„ID, ç›´æ¥ä»¥è·æŠ€IDç•¶Table index
 			ret = getStringFromIndexWithDelim( line, ",", PROFESSION_SKILL_DATACHARNUM+PROFESSION_SKILL_ID+1, token, sizeof(token));
 			if( ret==FALSE ){
 				fprint("Syntax Error file:%s line:%d\n",filename,linenum);
@@ -246,7 +246,7 @@ BOOL PROFESSION_initSkill( char *filename)
 }
 
 
-// ­«·s¸ü¤J profession.txt
+// é‡æ–°è¼‰å…¥ profession.txt
 void rePROFESSION_initSkill()
 {
 	freeMemory( PROFESSION_skill );
@@ -312,12 +312,12 @@ int PROFESSION_SKILL_getskillNum( void)
 
 int PROFESSION_SKILL_getskillArray( int skillid)
 {
-#ifdef _PROSKILL_OPTIMUM // ¬d¸ßÂ¾§ŞID§ï¬°°}¦C¦¡
+#ifdef _PROSKILL_OPTIMUM // æŸ¥è©¢è·æŠ€IDæ”¹ç‚ºé™£åˆ—å¼
 	if( skillid >= 0 && skillid < profession_skill_num )
 		return PROFESSION_skill[skillid].data[PROFESSION_SKILL_ID];
 #else
 	int		i;
-	for( i = 0; i <= profession_skill_num; i ++ ) { // «İÀu¤Æ
+	for( i = 0; i <= profession_skill_num; i ++ ) { // å¾…å„ªåŒ–
 		if( PROFESSION_skill[i].data[PROFESSION_SKILL_ID] == skillid ) 
 			return i;
 	}
@@ -357,7 +357,7 @@ int _PROFESSION_SKILL_GetArray( char *file, int line, int charaindex, int skill 
 
 /*----------------------------------------------------------------------*/
 
-// ¨Ï¥ÎÂ¾·~§Ş¯à
+// ä½¿ç”¨è·æ¥­æŠ€èƒ½
 int PROFESSION_SKILL_Use( int charaindex, int skill, int toNo, char *data )
 {
 	int		Pskillid, skillid;
@@ -370,38 +370,38 @@ int PROFESSION_SKILL_Use( int charaindex, int skill, int toNo, char *data )
 	Pskillid = PROFESSION_SKILL_getskillArray( skillid);
 	//print("\n skillid:%d Pskillid:%d ", skillid, Pskillid); // Robin log
 	if( Pskillid == -1 ) {
-		printf("\n §ï«Ê¥]??§ä¤£¨ì¸ÓÂ¾§Ş! ");
+		printf("\n æ”¹å°åŒ…??æ‰¾ä¸åˆ°è©²è·æŠ€! ");
 		return ret;
 	}
 
-#ifdef _PROSKILL_OPTIMUM	// Robin fix ÀË¬dÂ¾·~¬O§_¬Û²Å
+#ifdef _PROSKILL_OPTIMUM	// Robin fix æª¢æŸ¥è·æ¥­æ˜¯å¦ç›¸ç¬¦
 	char_pskill = CHAR_getInt( charaindex, PROFESSION_CLASS );
 	profession_skill = PROFESSION_SKILL_getInt( Pskillid, PROFESSION_SKILL_PROFESSION_CLASS);
 	if( (char_pskill <=0) || (char_pskill != profession_skill) ) {
-		print("\n §ï«Ê¥]??Â¾§ŞªºÂ¾·~¤£¥¿½T!:%d:%d ", char_pskill, profession_skill);
+		print("\n æ”¹å°åŒ…??è·æŠ€çš„è·æ¥­ä¸æ­£ç¢º!:%d:%d ", char_pskill, profession_skill);
 		return ret;
 	}
 #endif
 
-	// §ä´M¹ïÀ³ function
+	// æ‰¾å°‹å°æ‡‰ function
 	func = PROFESSION_SKILL_getskillFuncPointer( PROFESSION_SKILL_getChar( Pskillid, PROFESSION_SKILL_FUNCNAME) );
 
-	// §PÂ_¬O§_¬°¤Hª«
+	// åˆ¤æ–·æ˜¯å¦ç‚ºäººç‰©
 	if( CHAR_getInt( charaindex, CHAR_WHICHTYPE) != CHAR_TYPEPLAYER )	return ret;
 
 
 	if( func ){
-		// ¤Hª«§Ş¯àµ¥¯Å
+		// äººç‰©æŠ€èƒ½ç­‰ç´š
 		hskill = CHAR_getCharHaveSkill( charaindex, skill );
 		skill_level = SKILL_getInt( &hskill->skill, SKILL_LEVEL);
 	
-		// ¯Ó·l MP 
+		// è€—æ MP 
 		if( PROFESSION_SKILL_DEC_COST_MP( charaindex, skill, Pskillid, skill_level ) != 1 )	{
-			print("\n Error:Â¾§ŞMP:%d:%d:%d ", skill, Pskillid, skill_level);
+			print("\n Error:è·æŠ€MP:%d:%d:%d ", skill, Pskillid, skill_level);
 			return ret;
 		}
 
-		// ¨Ï¥ÎÂ¾·~§Ş¯à
+		// ä½¿ç”¨è·æ¥­æŠ€èƒ½
 		ret = func( charaindex, toNo, Pskillid, data, skill_level );
 		if( ret == -1 ){
 			int rands = rand()%10;
@@ -410,21 +410,21 @@ int PROFESSION_SKILL_Use( int charaindex, int skill, int toNo, char *data )
 			if( rands > 5 ) return ret;
 		}
 
-		if( Pskillid == 57 //¿E«ãÃdª« ¿ïÃdª«¤~¦³¸gÅç­È
+		if( Pskillid == 57 //æ¿€æ€’å¯µç‰© é¸å¯µç‰©æ‰æœ‰ç¶“é©—å€¼
 			&& CHAR_getInt( BATTLE_No2Index( CHAR_getWorkInt( charaindex, CHAR_WORKBATTLEINDEX ), toNo ), CHAR_WHICHTYPE) != CHAR_TYPEPET ) 
 			return ret;
 
-		// ¤@¯ë§Ş¯à¤É¯Å
+		// ä¸€èˆ¬æŠ€èƒ½å‡ç´š
 		PROFESSION_NORMAL_SKILL_LEVLE_UP( &hskill->skill, Pskillid, charaindex );
 	}
 	else {
-		print("\n ¿ù»~!§ä¤£¨ìÂ¾§Şfunc ");
+		print("\n éŒ¯èª¤!æ‰¾ä¸åˆ°è·æŠ€func ");
 	}
 
 	return ret;
 }
 
-// ¯S®í§Ş¯à¤É¯Å
+// ç‰¹æ®ŠæŠ€èƒ½å‡ç´š
 void PROFESSION_SKILL_LVEVEL_UP( int charaindex, char *name )
 {
 	int skill=-1;
@@ -434,12 +434,12 @@ void PROFESSION_SKILL_LVEVEL_UP( int charaindex, char *name )
 
 	for( i=0; i<CHAR_SKILLMAXHAVE; i++ ){
 			
-		// §Ş¯àID
+		// æŠ€èƒ½ID
 		skillid = CHAR_getCharSkill( charaindex, i);
 		Pskillid = PROFESSION_SKILL_getskillArray( skillid);		
 		if( Pskillid < 0 ) continue;
 
-		// §Ş¯à¦WºÙ
+		// æŠ€èƒ½åç¨±
 		skill_name = PROFESSION_SKILL_getChar( Pskillid, PROFESSION_SKILL_FUNCNAME);
 		if( skill_name == NULL ) continue;
 			
@@ -454,16 +454,16 @@ void PROFESSION_SKILL_LVEVEL_UP( int charaindex, char *name )
 	Pskillid = PROFESSION_SKILL_getskillArray( skillid);
 	if( Pskillid == -1 )	return;
 
-	// ¤Hª«§Ş¯àµ¥¯Å
+	// äººç‰©æŠ€èƒ½ç­‰ç´š
 	hskill = CHAR_getCharHaveSkill( charaindex, skill );
 	
-	// ¤@¯ë§Ş¯à¤É¯Å
+	// ä¸€èˆ¬æŠ€èƒ½å‡ç´š
 	PROFESSION_NORMAL_SKILL_LEVLE_UP( &hskill->skill, Pskillid, charaindex );
 
 	return;
 }
 
-// ¤G¤M¬y§Ş¯à¤É¯Å
+// äºŒåˆ€æµæŠ€èƒ½å‡ç´š
 void PROFESSION_SKILL_DUAL_WEAPON_LVEVEL_UP( int charaindex, char *name )
 {
 	int skill=-1, arm = 0, shield = 0;
@@ -471,7 +471,7 @@ void PROFESSION_SKILL_DUAL_WEAPON_LVEVEL_UP( int charaindex, char *name )
 	char *skill_name;
 	CHAR_HaveSkill* hskill;
 
-	// ÀË¬d¥ª¥k¤â¸Ë³Æ
+	// æª¢æŸ¥å·¦å³æ‰‹è£å‚™
 	for( i = 0 ; i < CHAR_EQUIPPLACENUM ; i ++ ){
 		int id = CHAR_getItemIndex(charaindex,i);
 		if( ITEM_CHECKINDEX(id) ){
@@ -484,12 +484,12 @@ void PROFESSION_SKILL_DUAL_WEAPON_LVEVEL_UP( int charaindex, char *name )
 
 	for( i=0; i<CHAR_SKILLMAXHAVE; i++ ){
 		
-		// §Ş¯àID
+		// æŠ€èƒ½ID
 		skillid = CHAR_getCharSkill( charaindex, i);
 		Pskillid = PROFESSION_SKILL_getskillArray( skillid);		
 		if( Pskillid < 0 ) continue;
 
-		// §Ş¯à¦WºÙ
+		// æŠ€èƒ½åç¨±
 		skill_name = PROFESSION_SKILL_getChar( Pskillid, PROFESSION_SKILL_FUNCNAME);
 		if( skill_name == NULL ) continue;
 			
@@ -504,17 +504,17 @@ void PROFESSION_SKILL_DUAL_WEAPON_LVEVEL_UP( int charaindex, char *name )
 	Pskillid = PROFESSION_SKILL_getskillArray( skillid);
 	if( Pskillid == -1 )	return;
 
-	// ¤Hª«§Ş¯àµ¥¯Å
+	// äººç‰©æŠ€èƒ½ç­‰ç´š
 	hskill = CHAR_getCharHaveSkill( charaindex, skill );
 	
-	// ¤@¯ë§Ş¯à¤É¯Å
+	// ä¸€èˆ¬æŠ€èƒ½å‡ç´š
 	PROFESSION_NORMAL_SKILL_LEVLE_UP( &hskill->skill, Pskillid, charaindex );
 
 	return;
 }
 
 
-// ªZ¾¹±Mºë§Ş¯à¤É¯Å
+// æ­¦å™¨å°ˆç²¾æŠ€èƒ½å‡ç´š
 void PROFESSION_SKILL_WEAPON_FOCUS_LVEVEL_UP( int charaindex, char *name )
 {
 	int skill = -1;
@@ -524,39 +524,39 @@ void PROFESSION_SKILL_WEAPON_FOCUS_LVEVEL_UP( int charaindex, char *name )
 	CHAR_HaveSkill* hskill;
 
 	memset( diff, -1, sizeof(diff) );
-	// ¸Ë³ÆªZ¾¹
+	// è£å‚™æ­¦å™¨
 	WeaponType = BATTLE_GetWepon( charaindex );
 
 	switch( WeaponType ){
 		case ITEM_AXE:		
-			sprintf( diff, "©ò" ); break;
+			sprintf( diff, "æ–§" ); break;
 		case ITEM_CLUB:		
-			sprintf( diff, "´Ò" ); break;
+			sprintf( diff, "æ£" ); break;
 		case ITEM_SPEAR:	
-			sprintf( diff, "ºj" ); break;
+			sprintf( diff, "æ§" ); break;
 		case ITEM_BOW:		
-			sprintf( diff, "¤}" ); break;
-		case ITEM_BOOMERANG:	// °j±Û¼Ğ	
-			sprintf( diff, "Ãğ" ); break;
-		case ITEM_BOUNDTHROW:	// §ëÂY©òÀY
-			sprintf( diff, "§ë" ); break;
-		case ITEM_BREAKTHROW:	// §ëÂY¥Û
-			sprintf( diff, "¥Û" ); break;
+			sprintf( diff, "å¼“" ); break;
+		case ITEM_BOOMERANG:	// è¿´æ—‹æ¨™	
+			sprintf( diff, "é¢" ); break;
+		case ITEM_BOUNDTHROW:	// æŠ•æ“²æ–§é ­
+			sprintf( diff, "æŠ•" ); break;
+		case ITEM_BREAKTHROW:	// æŠ•æ“²çŸ³
+			sprintf( diff, "çŸ³" ); break;
 		default: 
-			sprintf( diff, "µL" ); break;
+			sprintf( diff, "ç„¡" ); break;
 	}
 
 	for( i=0; i<CHAR_SKILLMAXHAVE; i++ ){
-		// §Ş¯àID
+		// æŠ€èƒ½ID
 		skillid = CHAR_getCharSkill( charaindex, i);
 		Pskillid = PROFESSION_SKILL_getskillArray( skillid);		
 		if( Pskillid < 0 ) continue;
 
-		// §Ş¯à¦WºÙ
+		// æŠ€èƒ½åç¨±
 		skill_name = PROFESSION_SKILL_getChar( Pskillid, PROFESSION_SKILL_FUNCNAME);
 		if( skill_name == NULL ) continue;
 	
-		// §Ş¯à°Ñ¼Æ
+		// æŠ€èƒ½åƒæ•¸
 		pszOption = PROFESSION_SKILL_getChar( Pskillid, PROFESSION_SKILL_OPTION);
 		if( pszOption == NULL ) continue;
 		
@@ -573,16 +573,16 @@ void PROFESSION_SKILL_WEAPON_FOCUS_LVEVEL_UP( int charaindex, char *name )
 	Pskillid = PROFESSION_SKILL_getskillArray( skillid);
 	if( Pskillid == -1 )	return;
 
-	// ¤Hª«§Ş¯àµ¥¯Å
+	// äººç‰©æŠ€èƒ½ç­‰ç´š
 	hskill = CHAR_getCharHaveSkill( charaindex, skill );
 	
-	// ¤@¯ë§Ş¯à¤É¯Å
+	// ä¸€èˆ¬æŠ€èƒ½å‡ç´š
 	PROFESSION_NORMAL_SKILL_LEVLE_UP( &hskill->skill, Pskillid, charaindex );
 
 	return;
 }
 
-// ¯Ó·l MP 
+// è€—æ MP 
 int PROFESSION_SKILL_DEC_COST_MP( int charaindex, int skill, int Pskillid, int skill_level )
 {	
 	
@@ -591,22 +591,22 @@ int PROFESSION_SKILL_DEC_COST_MP( int charaindex, int skill, int Pskillid, int s
 		int old_mp = CHAR_getInt( charaindex, CHAR_MP );
 		int mp=0;
 			
-		// ¨ú¥X¯Ó·l MP 
+		// å–å‡ºè€—æ MP 
 		if( (dec_mp = PROFESSION_MAGIC_COST_MP( charaindex, skill )) == -1 )
 			dec_mp = PROFESSION_SKILL_getInt( Pskillid, PROFESSION_SKILL_COST_MP );
 
-		// ÀË¬d MP¶q			
+		// æª¢æŸ¥ MPé‡			
 		if( old_mp < dec_mp ) return -1;
 		
-		// ¶İ¦å¦¨©Ê 
+		// å—œè¡€æˆæ€§ 
 		if( Pskillid != 11 
 #ifdef _PROFESSION_ADDSKILL
-		//	&& Pskillid != 2 //°w°w¬Û¹ï¤£¦© MP
+		//	&& Pskillid != 2 //é‡é‡ç›¸å°ä¸æ‰£ MP
 #endif
 			)
 			if( dec_mp <= 0 ) return -1;
 		
-		// ¦©±¼¤Hª« MP
+		// æ‰£æ‰äººç‰© MP
 		mp = old_mp - dec_mp;
 		if( mp < 0 ) mp = 0;
 		CHAR_setInt( charaindex , CHAR_MP , mp );
@@ -620,26 +620,26 @@ int PROFESSION_SKILL_DEC_COST_MP( int charaindex, int skill, int Pskillid, int s
 
 
 
-// ¤@¯ë§Ş¯à¤É¯Å
+// ä¸€èˆ¬æŠ€èƒ½å‡ç´š
 void PROFESSION_NORMAL_SKILL_LEVLE_UP(Skill *skill, int Pskillid, int charaindex )
 {
 	int skill_level = 0, up_fix_value = 0;
 	int rand_num = RAND( 0, 10000 ), rand_num2 = 0;
 	
-	// §Ş¯àµ¥¯Å¨ì¹F¤W­­¤£¤É¯Å
+	// æŠ€èƒ½ç­‰ç´šåˆ°é”ä¸Šé™ä¸å‡ç´š
 	skill_level = SKILL_getRealInt( skill, SKILL_LEVEL);
 	if( skill_level >= PROFESSION_SKILL_MAX_LEVEL * 100 ) return;
 
-	// ¤É¯Å­×¥¿¼Æ­È
+	// å‡ç´šä¿®æ­£æ•¸å€¼
 	up_fix_value = PROFESSION_SKILL_getInt( Pskillid, PROFESSION_SKILL_FIX_VALUE) * 100;
 	rand_num2 = RAND( 0, up_fix_value);
 
-	// ¤É¯ÅÀË©w
+	// å‡ç´šæª¢å®š
 #ifdef _75_TEST
 #else
 	if( rand_num > skill_level + rand_num2){
 #endif	
-		// ¼W¥[¼ô½m«×
+		// å¢åŠ ç†Ÿç·´åº¦
 		skill_level += PROFESSION_SKILL_ADD_POINT;	
 #ifdef _75_TEST
 		if( skill_level > 10000 )
@@ -649,12 +649,12 @@ void PROFESSION_NORMAL_SKILL_LEVLE_UP(Skill *skill, int Pskillid, int charaindex
 
 		if( ( skill_level % 100 ) == 0 ){
 			char msg[256];
-			sprintf( msg, "%s§Ş¯à¼ô½m«×¤W¤É¬°%d", 	PROFESSION_SKILL_getChar( Pskillid, PROFESSION_SKILL_NAME), skill_level/100 );
+			sprintf( msg, "%sæŠ€èƒ½ç†Ÿç·´åº¦ä¸Šå‡ç‚º%d", 	PROFESSION_SKILL_getChar( Pskillid, PROFESSION_SKILL_NAME), skill_level/100 );
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORYELLOW);
 			CHAR_sendStatusString( charaindex , "S");	
 			
 		
-			// Â¾·~¸gÅç­È¼W¥[		
+			// è·æ¥­ç¶“é©—å€¼å¢åŠ 		
 			PROFESSION_LEVEL_CHECK_UP( charaindex );
 		}
 #ifdef _75_TEST
@@ -672,18 +672,18 @@ void PROFESSION_LEVEL_CHECK_UP( int charaindex )
 	int next_level_need_point = 9999999;
 	CHAR_HaveSkill* hskill;
 
-	// ¤U¤@¯ÅÂ¾·~¤É¯ÅÂI¼Æ
+	// ä¸‹ä¸€ç´šè·æ¥­å‡ç´šé»æ•¸
 	next_level_need_point = old_level * 70 * 100;
 
 	for( i=0; i<CHAR_SKILLMAXHAVE; i++ ){
 		int skillID = -1;
 
-		// §Ş¯àµ¥¯Å
+		// æŠ€èƒ½ç­‰ç´š
 		hskill = CHAR_getCharHaveSkill( charaindex, i );
 		skillID = SKILL_getInt( &hskill->skill, SKILL_IDENTITY);
 		if( skillID <= 0 ) continue;
 
-		// ¦@³q§Ş¯à¼ô½m«× 50
+		// å…±é€šæŠ€èƒ½ç†Ÿç·´åº¦ 50
 		if( (skillID == 63) || (skillID == 64) || (skillID == 65) ){
 			skill_level_add = 50*100;	
 		}else{
@@ -695,7 +695,7 @@ void PROFESSION_LEVEL_CHECK_UP( int charaindex )
 	
 	//print("\n LEVEL_CHECK_UP ==> skill_level_sum(%d) next_level_need_point(%d)", skill_level_sum, next_level_need_point );
 
-	// §Ş¯à¼ô½m«×¹F¨ì¤U¤@¯ÅÂ¾·~¤É¯ÅÂI¼Æ®É¡AÂ¾·~µ¥¯Å¼W¥[
+	// æŠ€èƒ½ç†Ÿç·´åº¦é”åˆ°ä¸‹ä¸€ç´šè·æ¥­å‡ç´šé»æ•¸æ™‚ï¼Œè·æ¥­ç­‰ç´šå¢åŠ 
 	if(  skill_level_sum >= next_level_need_point ){
 		int old_skill_point = CHAR_getInt( charaindex, PROFESSION_SKILL_POINT );
 		int next_skill_point = old_skill_point+1;
@@ -709,12 +709,12 @@ void PROFESSION_LEVEL_CHECK_UP( int charaindex )
 		
 		CHAR_sendCToArroundCharacter( CHAR_getWorkInt( charaindex , CHAR_WORKOBJINDEX ));
 
-		sprintf( msg, "Â¾·~µ¥¯Å¤W¤É¬°%d¯Å¡A§Ş¯àÂI¼Æ¤W¤É¢°ÂI", old_level + 1 );
+		sprintf( msg, "è·æ¥­ç­‰ç´šä¸Šå‡ç‚º%dç´šï¼ŒæŠ€èƒ½é»æ•¸ä¸Šå‡ï¼‘é»", old_level + 1 );
 		CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORYELLOW);
 	}
 }
 
-// ¼W¥[§Ş¯à
+// å¢åŠ æŠ€èƒ½
 int PROFESSION_SKILL_ADDSK( int charaindex, int skill, int level )
 {
 	int i;
@@ -730,7 +730,7 @@ int PROFESSION_SKILL_ADDSK( int charaindex, int skill, int level )
 		pSkil = CHAR_getCharHaveSkill( charaindex, i );
 		skill_id = SKILL_getInt( &pSkil->skill, SKILL_IDENTITY);
 		if( skill == skill_id && skill_id != -1 ){
-			CHAR_talkToCli(charaindex,-1, "§A¤w¸g¾Ç²ß¹L¦¹§Ş¯à", CHAR_COLORYELLOW);
+			CHAR_talkToCli(charaindex,-1, "ä½ å·²ç¶“å­¸ç¿’éæ­¤æŠ€èƒ½", CHAR_COLORYELLOW);
 			return -1;
 		}
 
@@ -739,7 +739,7 @@ int PROFESSION_SKILL_ADDSK( int charaindex, int skill, int level )
 		break;
 	}
 	if( i >= CHAR_SKILLMAXHAVE ){
-		CHAR_talkToCli(charaindex,-1, "§Ş¯à¼Æ¶q¤w¹F¤W­­", CHAR_COLORYELLOW);
+		CHAR_talkToCli(charaindex,-1, "æŠ€èƒ½æ•¸é‡å·²é”ä¸Šé™", CHAR_COLORYELLOW);
 		return -1;
 	}else{
 		level *= 100;
@@ -785,146 +785,146 @@ void profession_common_fun( int charaindex, int toNo, int skill_level, int array
 }
 
 /*----------------------------------------------------------------------*/
-// ¥H¤U¬°Â¾·~§Ş¯à
+// ä»¥ä¸‹ç‚ºè·æ¥­æŠ€èƒ½
 
-// §Å®v§Ş¯à-¤õ¤s¬u
+// å·«å¸«æŠ€èƒ½-ç«å±±æ³‰
 int PROFESSION_volcano_springs( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_VOLCANO_SPRINGS );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¤õ¬P²y
+// å·«å¸«æŠ€èƒ½-ç«æ˜Ÿçƒ
 int PROFESSION_fire_ball( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_FIRE_BALL );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¤õÀsºj
+// å·«å¸«æŠ€èƒ½-ç«é¾æ§
 int PROFESSION_fire_spear( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_FIRE_SPEAR );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¥l¹p³N
+// å·«å¸«æŠ€èƒ½-å¬é›·è¡“
 int PROFESSION_summon_thunder( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_SUMMON_THUNDER );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¹q¬y³N
+// å·«å¸«æŠ€èƒ½-é›»æµè¡“
 int PROFESSION_current( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_CURRENT );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¼É­·«B
+// å·«å¸«æŠ€èƒ½-æš´é¢¨é›¨
 int PROFESSION_storm( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_STORM );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¦B½b³N
+// å·«å¸«æŠ€èƒ½-å†°ç®­è¡“
 int PROFESSION_ice_arrow( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ICE_ARROW );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¦BÃz³N
+// å·«å¸«æŠ€èƒ½-å†°çˆ†è¡“
 int PROFESSION_ice_crack( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ICE_CRACK );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¦BÃè³N
+// å·«å¸«æŠ€èƒ½-å†°é¡è¡“
 int PROFESSION_ice_mirror( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ICE_MIRROR );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¥@¬É¥½¤é
+// å·«å¸«æŠ€èƒ½-ä¸–ç•Œæœ«æ—¥
 int PROFESSION_doom( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_DOOM );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¶İ¦å¦¨©Ê
+// å·«å¸«æŠ€èƒ½-å—œè¡€æˆæ€§
 int PROFESSION_blood( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_BLOOD );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¶İ¦åÅÛ
+// å·«å¸«æŠ€èƒ½-å—œè¡€è ±
 int PROFESSION_blood_worms( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_BLOOD_WORMS );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¤@°w¨£¦å
+// å·«å¸«æŠ€èƒ½-ä¸€é‡è¦‹è¡€
 int PROFESSION_sign( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_SIGN );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¤õªşÅé
+// å·«å¸«æŠ€èƒ½-ç«é™„é«”
 int PROFESSION_fire_enclose( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_FIRE_ENCLOSE );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¦BªşÅé
+// å·«å¸«æŠ€èƒ½-å†°é™„é«”
 int PROFESSION_ice_eclose( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ICE_ENCLOSE );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¹pªşÅé
+// å·«å¸«æŠ€èƒ½-é›·é™„é«”
 int PROFESSION_thunder_enclose( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_THUNDER_ENCLOSE );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¤õÅ]ªk¼ô½m«×
+// å·«å¸«æŠ€èƒ½-ç«é­”æ³•ç†Ÿç·´åº¦
 int PROFESSION_fire_practice( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¦BÅ]ªk¼ô½m«×
+// å·«å¸«æŠ€èƒ½-å†°é­”æ³•ç†Ÿç·´åº¦
 int PROFESSION_ice_practice( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-¹pÅ]ªk¼ô½m«×
+// å·«å¸«æŠ€èƒ½-é›·é­”æ³•ç†Ÿç·´åº¦
 int PROFESSION_thunder_practice( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-ªş¨­³N
+// å·«å¸«æŠ€èƒ½-é™„èº«è¡“
 int PROFESSION_enclose( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ENCLOSE );		
 	return TRUE;
 }
 
-// §Å®v§Ş¯à-²¾§Î´«¦ì
+// å·«å¸«æŠ€èƒ½-ç§»å½¢æ›ä½
 int PROFESSION_transpose( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_TRANSPOSE );		
@@ -934,131 +934,131 @@ int PROFESSION_transpose( int charaindex, int toNo, int array, char *data, int s
 
 /*----------------------------------------------------------------------*/
 
-// «i¤h§Ş¯à-ÃzÀ»
+// å‹‡å£«æŠ€èƒ½-çˆ†æ“Š
 int PROFESSION_brust( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_BRUST );
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-³sÀô§ğÀ»
+// å‹‡å£«æŠ€èƒ½-é€£ç’°æ”»æ“Š
 int PROFESSION_chain_atk( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_CHAIN_ATK );
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-°jÁ×
+// å‹‡å£«æŠ€èƒ½-è¿´é¿
 int PROFESSION_avoid( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_AVOID );
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-¸É¦å
+// å‹‡å£«æŠ€èƒ½-è£œè¡€
 int PROFESSION_recovery( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_RECOVERY );
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-ªZ¾¹±Mºë
+// å‹‡å£«æŠ€èƒ½-æ­¦å™¨å°ˆç²¾
 int PROFESSION_weapon_focus( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-ª¬ºA¦^´_
+// å‹‡å£«æŠ€èƒ½-ç‹€æ…‹å›å¾©
 int PROFESSION_reback( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_REBACK );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-Âù­«§ğÀ»
+// å‹‡å£«æŠ€èƒ½-é›™é‡æ”»æ“Š
 int PROFESSION_chain_atk_2( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_CHAIN_ATK_2 );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-±Ë¤w¬°¤Í
+// å‹‡å£«æŠ€èƒ½-æ¨å·²ç‚ºå‹
 int PROFESSION_scapegoat( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_SCAPEGOAT );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-¿E¤Æ§ğÀ»
+// å‹‡å£«æŠ€èƒ½-æ¿€åŒ–æ”»æ“Š
 int PROFESSION_enrage( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ENRAGE );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-¯à¶q»E¶°
+// å‹‡å£«æŠ€èƒ½-èƒ½é‡èšé›†
 int PROFESSION_energy_collect( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_COLLECT );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-±Mª`¾Ô°«
+// å‹‡å£«æŠ€èƒ½-å°ˆæ³¨æˆ°é¬¥
 int PROFESSION_focus( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_FOCUS );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-¬ŞÀ»
+// å‹‡å£«æŠ€èƒ½-ç›¾æ“Š
 int PROFESSION_shield_attack( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_SHIELD_ATTACK );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-¤G¤M¬y
+// å‹‡å£«æŠ€èƒ½-äºŒåˆ€æµ
 int PROFESSION_dual_weapon( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-®æÀÉ
+// å‹‡å£«æŠ€èƒ½-æ ¼æª”
 int PROFESSION_deflect( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_DEFLECT );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-³e¬ï§ğÀ»
+// å‹‡å£«æŠ€èƒ½-è²«ç©¿æ”»æ“Š
 int PROFESSION_through_attack( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_THROUGH_ATTACK );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-®yÃM§ğÀ»
+// å‹‡å£«æŠ€èƒ½-åº§é¨æ”»æ“Š
 int PROFESSION_cavalry( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_CAVALRY );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-Ãx¦º§ğÀ»
+// å‹‡å£«æŠ€èƒ½-ç€•æ­»æ”»æ“Š
 int PROFESSION_dead_attack( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_DEAD_ATTACK );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-°j±Û§ğÀ»
+// å‹‡å£«æŠ€èƒ½-è¿´æ—‹æ”»æ“Š
 int PROFESSION_convolute( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_CONVOLUTE );		
 	return TRUE;
 }
 
-// «i¤h§Ş¯à-²V¶Ã§ğÀ»
+// å‹‡å£«æŠ€èƒ½-æ··äº‚æ”»æ“Š
 int PROFESSION_chaos( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_CHAOS );		
@@ -1067,76 +1067,76 @@ int PROFESSION_chaos( int charaindex, int toNo, int array, char *data, int skill
 
 /*----------------------------------------------------------------------*/
 
-// Ây¤H§Ş¯à-³´¨À
+// çµäººæŠ€èƒ½-é™·é˜±
 int PROFESSION_trap( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_TRAP );		
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¹¥¥ñÃdª«
+// çµäººæŠ€èƒ½-é¦´ä¼å¯µç‰©
 int PROFESSION_docile( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_DOCILE );		
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¿E«ãÃdª«
+// çµäººæŠ€èƒ½-æ¿€æ€’å¯µç‰©
 int PROFESSION_enrage_pet( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ENRAGE_PET );		
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¤ÑÃ¹¦aºô
+// çµäººæŠ€èƒ½-å¤©ç¾…åœ°ç¶²
 int PROFESSION_dragnet( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_DRAGNET );		
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¾ğ®ÚÄñÂ¶
+// çµäººæŠ€èƒ½-æ¨¹æ ¹çºç¹
 int PROFESSION_entwine( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ENTWINE );		
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¦Ûµ¹¦Û¨¬
+// çµäººæŠ€èƒ½-è‡ªçµ¦è‡ªè¶³
 int PROFESSION_autarky( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-  Åé±°¹Ü
+// çµäººæŠ€èƒ½-  é«”æ å¥ª
 int PROFESSION_plunder( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_PLUNDER );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¬r¯ÀªZ¾¹
+// çµäººæŠ€èƒ½-æ¯’ç´ æ­¦å™¨
 int PROFESSION_toxin_weapon( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_TOXIN_WEAPON );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¤õ§Ü©Ê´£¤É
+// çµäººæŠ€èƒ½-ç«æŠ—æ€§æå‡
 int PROFESSION_resist_fire( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_RESIST_FIRE );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¦B§Ü©Ê´£¤É
+// çµäººæŠ€èƒ½-å†°æŠ—æ€§æå‡
 int PROFESSION_resist_ice( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_RESIST_ICE );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¹p§Ü©Ê´£¤É
+// çµäººæŠ€èƒ½-é›·æŠ—æ€§æå‡
 int PROFESSION_resist_thunder( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_RESIST_THUNDER );	
@@ -1144,19 +1144,19 @@ int PROFESSION_resist_thunder( int charaindex, int toNo, int array, char *data, 
 }
 
 #ifdef _PROFESSION_ADDSKILL
-// Ây¤H§Ş¯à-¦ÛµM«Â¯à
+// çµäººæŠ€èƒ½-è‡ªç„¶å¨èƒ½
 int PROFESSION_resist_f_i_t( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_RESIST_F_I_T );	
 	return TRUE;
 }
-// Ây¤H§Ş¯à-¸¹¥l¦ÛµM
+// çµäººæŠ€èƒ½-è™Ÿå¬è‡ªç„¶
 int PROFESSION_call_nature( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_CALL_NATURE );	
 	return TRUE;
 }
-// Ây¤H§Ş¯à-¥|Äİ©Êµ²¬É
+// çµäººæŠ€èƒ½-å››å±¬æ€§çµç•Œ
 int PROFESSION_boundary( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_BOUNDARY );	
@@ -1164,42 +1164,42 @@ int PROFESSION_boundary( int charaindex, int toNo, int array, char *data, int sk
 }
 #endif
 
-// Ây¤H§Ş¯à-¹ÎÅé¤õ§Ü©Ê´£¤É
+// çµäººæŠ€èƒ½-åœ˜é«”ç«æŠ—æ€§æå‡
 int PROFESSION_g_resist_fire( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_G_RESIST_FIRE );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¹ÎÅé¦B§Ü©Ê´£¤É
+// çµäººæŠ€èƒ½-åœ˜é«”å†°æŠ—æ€§æå‡
 int PROFESSION_g_resist_ice( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_G_RESIST_ICE );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¹ÎÅé¹p§Ü©Ê´£¤É
+// çµäººæŠ€èƒ½-åœ˜é«”é›·æŠ—æ€§æå‡
 int PROFESSION_g_resist_thunder( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_G_RESIST_THUNDER );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-®zÂI§ğÀ»
+// çµäººæŠ€èƒ½-å¼±é»æ”»æ“Š
 int PROFESSION_attack_weak( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_ATTACK_WEAK );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¬D¼·
+// çµäººæŠ€èƒ½-æŒ‘æ’¥
 int PROFESSION_instigate( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_INSTIGATE );	
 	return TRUE;
 }
 
-// Ây¤H§Ş¯à-¿ò§Ñ
+// çµäººæŠ€èƒ½-éºå¿˜
 int PROFESSION_oblivion( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	profession_common_fun( charaindex, toNo, skill_level, array, BATTLE_COM_S_OBLIVION );	
@@ -1208,9 +1208,9 @@ int PROFESSION_oblivion( int charaindex, int toNo, int array, char *data, int sk
 
 
 /*----------------------------------------------------------------------*/
-// «D¾Ô°«§Ş¯à
+// éæˆ°é¬¥æŠ€èƒ½
 
-// Ây¤H§Ş¯à-°l´M¼ÄÂÜ
+// çµäººæŠ€èƒ½-è¿½å°‹æ•µè¹¤
 int PROFESSION_track( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	char *pszP = NULL, *pszOption = NULL, msg[20];
@@ -1221,18 +1221,18 @@ int PROFESSION_track( int charaindex, int toNo, int array, char *data, int skill
 		ret = -1;
 	}
 
-	// §Ş¯àªº°Ñ¼Æ
+	// æŠ€èƒ½çš„åƒæ•¸
 	pszOption = PROFESSION_SKILL_getChar( array, PROFESSION_SKILL_OPTION);
 
-	// §Ş¯àµ¥¯Å rate
-	if( (pszP = strstr( pszOption, "­¿%" ) ) != NULL )	sscanf( pszP+3, "%d", &rate );
+	// æŠ€èƒ½ç­‰ç´š rate
+	if( (pszP = strstr( pszOption, "å€%" ) ) != NULL )	sscanf( pszP+3, "%d", &rate );
 	per = skill_level * rate;
 
-	// ·Ç³Æ´Áªº°Êµe
+	// æº–å‚™æœŸçš„å‹•ç•«
 	img1 = PROFESSION_SKILL_getInt( array, PROFESSION_SKILL_IMG_1 );
 
 	CHAR_setWorkInt( charaindex, CHAR_ENCOUNT_FIX, per);		
-	CHAR_talkToCli( charaindex, -1, "¹J¼Ä²v¤W¤É",  CHAR_COLORRED);
+	CHAR_talkToCli( charaindex, -1, "é‡æ•µç‡ä¸Šå‡",  CHAR_COLORRED);
 	CHAR_setWorkInt( charaindex, CHAR_ENCOUNT_NUM, (int)time(NULL) + (60 * 3) );
 
 	sprintf( msg, "%d", img1);
@@ -1241,7 +1241,7 @@ int PROFESSION_track( int charaindex, int toNo, int array, char *data, int skill
 	return ret;
 }
 
-// Ây¤H§Ş¯à-°jÁ×¾Ô°«
+// çµäººæŠ€èƒ½-è¿´é¿æˆ°é¬¥
 int PROFESSION_escape( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	char *pszP = NULL, *pszOption = NULL, msg[20];
@@ -1252,18 +1252,18 @@ int PROFESSION_escape( int charaindex, int toNo, int array, char *data, int skil
 		ret = -1;
 	}
 
-	// §Ş¯àªº°Ñ¼Æ
+	// æŠ€èƒ½çš„åƒæ•¸
 	pszOption = PROFESSION_SKILL_getChar( array, PROFESSION_SKILL_OPTION);
 
-	// §Ş¯àµ¥¯Å rate
-	if( (pszP = strstr( pszOption, "­¿%" ) ) != NULL )	sscanf( pszP+3, "%d", &rate );
+	// æŠ€èƒ½ç­‰ç´š rate
+	if( (pszP = strstr( pszOption, "å€%" ) ) != NULL )	sscanf( pszP+3, "%d", &rate );
 	per = skill_level * rate;
 
-	// ·Ç³Æ´Áªº°Êµe
+	// æº–å‚™æœŸçš„å‹•ç•«
 	img1 = PROFESSION_SKILL_getInt( array, PROFESSION_SKILL_IMG_1 );
 
 	CHAR_setWorkInt( charaindex, CHAR_ENCOUNT_FIX, (-1) * per);
-	CHAR_talkToCli( charaindex, -1, "¹J¼Ä²v¤U­°",  CHAR_COLORGREEN);
+	CHAR_talkToCli( charaindex, -1, "é‡æ•µç‡ä¸‹é™",  CHAR_COLORGREEN);
 
 	CHAR_setWorkInt( charaindex, CHAR_ENCOUNT_NUM, (int)time(NULL) + (60 * 3) );
 
@@ -1275,17 +1275,17 @@ int PROFESSION_escape( int charaindex, int toNo, int array, char *data, int skil
 
 
 
-// ¦@¦P§Ş¯à-®ğ¤O¥R¨K
+// å…±åŒæŠ€èƒ½-æ°£åŠ›å……æ²›
 int PROFESSION_full_mp( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
-// ¦@¦P§Ş¯à-­t­«¼W¥[
+// å…±åŒæŠ€èƒ½-è² é‡å¢åŠ 
 int PROFESSION_strong_back( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;
 }
-// ¦@¦P§Ş¯à-¦Û§Ú±j¤Æ
+// å…±åŒæŠ€èƒ½-è‡ªæˆ‘å¼·åŒ–
 int PROFESSION_strengthen( int charaindex, int toNo, int array, char *data, int skill_level )
 {
 	return TRUE;

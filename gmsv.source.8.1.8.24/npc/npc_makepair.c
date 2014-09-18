@@ -22,12 +22,12 @@ PairMenu PairList[2][MAXPAIRNUMS];
 enum {
 	WINDOW_START=10,
 	WINDOW_USER,
-	WINDOW_SELECT,	//¤ß²z´úÅç
-	WINDOW_PAIR,	//°t¹ï§ä¹ï¶H
+	WINDOW_SELECT,	//å¿ƒç†æ¸¬é©—
+	WINDOW_PAIR,	//é…å°æ‰¾å°è±¡
 	WINDOW_PAIROK,
 	WINDOW_PAIRNO,
-	WINDOW_WARP,	//¸õÅD
-	WINDOW_END,		//µ²§ô
+	WINDOW_WARP,	//è·³èº
+	WINDOW_END,		//çµæŸ
 	WINDOW_TALKSTART=20,
 	WINDOW_TALKSELECT,
 	WINDOW_TALKPAIR,
@@ -93,7 +93,7 @@ void NPC_MakePairManTalked( int meindex, int talkerindex, char *msg, int color )
 	}
 #ifdef _ITEM_CHECKWARES
 	if( CHAR_CheckInItemForWares( talkerindex, 0) == FALSE ){
-		CHAR_talkToCli( talkerindex, meindex, "µLªkªA°ÈÄâ±a³fª«ªº¤H¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( talkerindex, meindex, "ç„¡æ³•æœå‹™æ”œå¸¶è²¨ç‰©çš„äººï¼", CHAR_COLORYELLOW);
 		return;
 	}
 #endif
@@ -112,7 +112,7 @@ static void NPC_MakePair_selectWindow( int meindex, int toindex, int num,int sel
 	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 
 	if( Action_PartyCheck( meindex, toindex) == FALSE)	{
-		CHAR_talkToCli( toindex, meindex, "½Ğ¤@­Ó¤@­Ó¨Ó¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, meindex, "è«‹ä¸€å€‹ä¸€å€‹ä¾†ï¼", CHAR_COLORYELLOW);
 		return;
 	}
 
@@ -129,7 +129,7 @@ static void NPC_MakePair_selectWindow( int meindex, int toindex, int num,int sel
 			char buf1[256];
 			if( NPC_Util_GetStrFromStrWithDelim( npcarg, "FREE", buf1, sizeof( buf1) ) != NULL)	{
 				if( NPC_ActionPassCheck( meindex, toindex, buf1) == FALSE ){
-					CHAR_talkToCli( toindex, meindex, "±ø¥ó¤£¨¬¡I", CHAR_COLORYELLOW);
+					CHAR_talkToCli( toindex, meindex, "æ¢ä»¶ä¸è¶³ï¼", CHAR_COLORYELLOW);
 					return;
 				}
 			}
@@ -148,13 +148,13 @@ static void NPC_MakePair_selectWindow( int meindex, int toindex, int num,int sel
 		{
 			int male=0, female=0;
 			CheckPairUsers( &male, &female);
-			sprintf( token, "¥Ø«eµn¿ı«æ´M§ä¹ï¶Hªº¤H¼Æ¬°¡G\n¨k¥Í¬° %d¡A¤k¥Í¬° %d¡C\n¥Ø«e°t¹ï¤w¦³ %d¹ï¡C",
+			sprintf( token, "ç›®å‰ç™»éŒ„æ€¥å°‹æ‰¾å°è±¡çš„äººæ•¸ç‚ºï¼š\nç”·ç”Ÿç‚º %dï¼Œå¥³ç”Ÿç‚º %dã€‚\nç›®å‰é…å°å·²æœ‰ %då°ã€‚",
 				male, female, CHAR_getWorkInt( meindex, NPC_WORK_PAIRTEAMS));
 			buttontype = WINDOW_BUTTONTYPE_OKCANCEL;
 			windowno = WINDOW_RETURN;
 		}
 		break;
-	case WINDOW_SELECT://¤ß²z´úÅç
+	case WINDOW_SELECT://å¿ƒç†æ¸¬é©—
 		{
 			int title = CHAR_getWorkInt( toindex, CHAR_WORKSHOPRELEVANT);
 			int type;
@@ -174,12 +174,12 @@ static void NPC_MakePair_selectWindow( int meindex, int toindex, int num,int sel
 		{
 			if( CHAR_getWorkInt( toindex, CHAR_MYPAIRFLG) > 0){
 				CHAR_setWorkInt( toindex, CHAR_MYPAIRINDEX, -1);
-				sprintf( token, "¨ú®ø«e¤@¦¸ªºÁÜ½Ğ¡C");
+				sprintf( token, "å–æ¶ˆå‰ä¸€æ¬¡çš„é‚€è«‹ã€‚");
 			}else	{
 				char buf1[256];
 				if( NPC_Util_GetStrFromStrWithDelim( npcarg, "FREE", buf1, sizeof( buf1) ) != NULL)	{
 					if( NPC_ActionPassCheck( meindex, toindex, buf1) == FALSE ){
-						CHAR_talkToCli( toindex, meindex, "±ø¥ó¤£¨¬¡I", CHAR_COLORYELLOW);
+						CHAR_talkToCli( toindex, meindex, "æ¢ä»¶ä¸è¶³ï¼", CHAR_COLORYELLOW);
 						return;
 					}
 				}
@@ -189,25 +189,25 @@ static void NPC_MakePair_selectWindow( int meindex, int toindex, int num,int sel
 			windowno = WINDOW_TALKEND;
 		}
 		break;
-	case WINDOW_PAIROK:	//¦P·N
+	case WINDOW_PAIROK:	//åŒæ„
 		if( CHAR_getWorkInt( toindex, CHAR_MYPAIRFLG) > 0){
 			int forindex = CHAR_getWorkInt( toindex, CHAR_MYPAIRINDEX);
 			NPC_PairUserAndWarp( meindex, toindex, forindex, npcarg);
 		}
 		return;
-	case WINDOW_PAIRNO://¤£¦P·N
+	case WINDOW_PAIRNO://ä¸åŒæ„
 		{
 			int forindex = CHAR_getWorkInt( toindex, CHAR_MYPAIRINDEX);
 			if( CHAR_CHECKINDEX( forindex) ){
 				if( CHAR_getWorkInt( forindex, CHAR_MYPAIRFLG) > 0 ){
-					CHAR_talkToCli( forindex, meindex, "¹ï¤è©Úµ´ÁÜ½Ğ¡C", CHAR_COLORYELLOW);
+					CHAR_talkToCli( forindex, meindex, "å°æ–¹æ‹’çµ•é‚€è«‹ã€‚", CHAR_COLORYELLOW);
 					CHAR_setWorkInt( forindex, CHAR_MYPAIRINDEX, -1);
 					CHAR_setWorkInt( forindex, CHAR_MYPAIRFLG, -1);
 				}
 			}
 			CHAR_setWorkInt( toindex, CHAR_MYPAIRINDEX, -1);
 			CHAR_setWorkInt( toindex, CHAR_MYPAIRFLG, -1);
-			CHAR_talkToCli( toindex, meindex, "©Úµ´¹ï¤èÁÜ½Ğ¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( toindex, meindex, "æ‹’çµ•å°æ–¹é‚€è«‹ã€‚", CHAR_COLORYELLOW);
 			return;
 		}
 		break;
@@ -239,13 +239,13 @@ void NPC_MakePairManWindowTalked( int meindex, int talkerindex, int seqno, int s
 			if( select == WINDOW_BUTTONTYPE_CANCEL || select == WINDOW_BUTTONTYPE_NO)
 				return;
 			switch( choose){
-			case 1://¬d¤H¼Æ
+			case 1://æŸ¥äººæ•¸
 				NPC_MakePair_selectWindow( meindex, talkerindex, WINDOW_USER, 0);
 				break;
-			case 2://°t¹ï
+			case 2://é…å°
 				NPC_MakePair_selectWindow( meindex, talkerindex, WINDOW_PAIR, 0);
 				break;
-			case 3://¤ß²z´úÅç
+			case 3://å¿ƒç†æ¸¬é©—
 				NPC_MakePair_selectWindow( meindex, talkerindex, WINDOW_SELECT, 0);
 				break;
 			}
@@ -261,7 +261,7 @@ void NPC_MakePairManWindowTalked( int meindex, int talkerindex, int seqno, int s
 			NPC_MakePair_selectWindow( meindex, talkerindex, WINDOW_SELECT, select);
 		}
 		break;
-	case WINDOW_TALKPAIR://°t¹ïÁÜ½Ğ¦^ÂĞ
+	case WINDOW_TALKPAIR://é…å°é‚€è«‹å›è¦†
 		if( select == WINDOW_BUTTONTYPE_CANCEL || select == WINDOW_BUTTONTYPE_NO){
 			NPC_MakePair_selectWindow( meindex, talkerindex, WINDOW_PAIRNO, 0);
 		}else	{
@@ -355,7 +355,7 @@ BOOL NPC_PairForage( int meindex, int toindex, char *arg, char *token)
 			PairList[Psex][i].forindex = -1;
 			continue;
 		}
-		sprintf( token, "§Aªº°t¹ï¹ï¹³¬°¡G %s\n¤w°e¥XÁÜ½Ğ¡A½Ğµ¥­Ô¹ï¤è¦^À³¡C", name);
+		sprintf( token, "ä½ çš„é…å°å°åƒç‚ºï¼š %s\nå·²é€å‡ºé‚€è«‹ï¼Œè«‹ç­‰å€™å°æ–¹å›æ‡‰ã€‚", name);
 		if( NPC_Util_GetStrFromStrWithDelim( arg, "InviteMsg", buf1, sizeof( buf1) ) == NULL){
 			break;
 		}
@@ -368,7 +368,7 @@ BOOL NPC_PairForage( int meindex, int toindex, char *arg, char *token)
 		CHAR_setWorkInt( PairList[Psex][i].pindex, CHAR_MYPAIRINDEX, toindex);
 
 		name = CHAR_getChar( toindex, CHAR_NAME);
-		sprintf( buf, "%s¡G\nª±®a%s\n%s", CHAR_getChar( meindex, CHAR_NAME),name, buf1);
+		sprintf( buf, "%sï¼š\nç©å®¶%s\n%s", CHAR_getChar( meindex, CHAR_NAME),name, buf1);
 		lssproto_WN_send( fd, WINDOW_MESSAGETYPE_MESSAGE, WINDOW_BUTTONTYPE_OKCANCEL, WINDOW_TALKPAIR,
 				CHAR_getWorkInt( meindex, CHAR_WORKOBJINDEX), buf);
 		break;
@@ -377,7 +377,7 @@ BOOL NPC_PairForage( int meindex, int toindex, char *arg, char *token)
 		if( NPC_Util_GetStrFromStrWithDelim( arg, "NoPairMsg", buf1, sizeof( buf1) ) != NULL){
 			sprintf( token, "%s",buf1);
 		}else	{
-			sprintf( token, "¨S¦³§ä¨ì¹ï¶H¡C");
+			sprintf( token, "æ²’æœ‰æ‰¾åˆ°å°è±¡ã€‚");
 		}
 		if( CHAR_getWorkInt( toindex, CHAR_MYPAIRFLG) <= 0 )	{
 			NPC_PairRegister( toindex);
@@ -411,7 +411,7 @@ BOOL NPC_PairRegister( int toindex)
 			PairList[Psex][space].pindex = toindex;
 			PairList[Psex][space].code = CHAR_getWorkInt( toindex, CHAR_MYPAIRCODE);
 
-			CHAR_talkToCli( toindex, -1, "·s¼W¦Ü°t¹ï¦W³æ¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( toindex, -1, "æ–°å¢è‡³é…å°åå–®ã€‚", CHAR_COLORYELLOW);
 			return TRUE;
 		}
 	}
@@ -442,8 +442,8 @@ void NPC_PairUserAndWarp( int meindex, int toindex, int forindex, char *arg)
 		if( getStringFromIndexWithDelim( buf1,",",3,buf2,sizeof( buf2)) != FALSE )
 			y = atoi( buf2);
 	}
-	CHAR_DischargePartyNoMsg( toindex);//¸Ñ´²¹Î¶¤
-	CHAR_DischargePartyNoMsg( forindex);//¸Ñ´²¹Î¶¤
+	CHAR_DischargePartyNoMsg( toindex);//è§£æ•£åœ˜éšŠ
+	CHAR_DischargePartyNoMsg( forindex);//è§£æ•£åœ˜éšŠ
 	if( MAP_IsValidCoordinate( fl, x, y) != FALSE ){
 		CHAR_warpToSpecificPoint( toindex, fl, x, y);
 		CHAR_warpToSpecificPoint( forindex, fl, x, y);
@@ -481,7 +481,7 @@ int NPC_getPairCode( int toindex)
 		char buf1[256];
 		int itemindex = CHAR_getItemIndex( toindex, i);
 		if( !ITEM_CHECKINDEX( itemindex) ) continue;
-		arg = ITEM_getChar(itemindex, ITEM_ARGUMENT );// ©Ê§O|­Ó©Ê½s¸¹|FLG
+		arg = ITEM_getChar(itemindex, ITEM_ARGUMENT );// æ€§åˆ¥|å€‹æ€§ç·¨è™Ÿ|FLG
 		if( arg == NULL )continue;
 		if( NPC_Util_GetStrFromStrWithDelim( arg, "PAIRCODE", buf1, sizeof( buf1) ) == NULL) continue;
 		code = atoi( buf1);
@@ -517,7 +517,7 @@ int NPC_getTitleMsg( int meindex, int toindex, char *arg, char *token, int title
 
 	if( getStringFromIndexWithDelim( arg, "PSYCHOMETRICS", 2, buf, sizeof( buf)) == FALSE )
 		return -1;
-	//¨ú±o¤U¤@ÃD
+	//å–å¾—ä¸‹ä¸€é¡Œ
 	if( getStringFromIndexWithDelim( buf , "}", title, buf1, sizeof( buf1)) == FALSE )
 		return FALSE;
 	if( NPC_Util_GetStrFromStrWithDelim( buf1, "TITLEMSG", buf2, sizeof( buf2 )) == NULL){
@@ -525,11 +525,11 @@ int NPC_getTitleMsg( int meindex, int toindex, char *arg, char *token, int title
 			return -1;
 		}
 		if( NPC_ActionPassCheck( meindex, toindex, buf2) == FALSE )	{
-			CHAR_talkToCli( toindex, meindex, "±ø¥ó¤£¨¬", CHAR_COLORYELLOW);
+			CHAR_talkToCli( toindex, meindex, "æ¢ä»¶ä¸è¶³", CHAR_COLORYELLOW);
 			return -1;
 		}
 		if( Action_RunDoEventAction( meindex, toindex, buf1) == FALSE ){
-			CHAR_talkToCli( toindex, meindex, "±ø¥ó¤£¨¬", CHAR_COLORYELLOW);
+			CHAR_talkToCli( toindex, meindex, "æ¢ä»¶ä¸è¶³", CHAR_COLORYELLOW);
 			return -1;
 		}
 		if( NPC_Util_GetStrFromStrWithDelim( buf1, "ENDMSG", buf2, sizeof( buf2 )) == NULL){

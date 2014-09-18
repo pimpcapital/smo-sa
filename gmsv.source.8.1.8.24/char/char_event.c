@@ -54,7 +54,7 @@ void CHAR_allpostwalk( int index )
 BOOL CHAR_makeCADefaultString( int objindex,char* buf,int buflen, int act )
 {
 	char	objindexbuf[64];
-    /*  ¥Á¥§¥Ã¥¯    */
+    /*  æ°‘å°¼æ°¸å¼    */
     if( CHECKOBJECT(objindex) == FALSE )    return FALSE;
     if( OBJECT_getType(objindex) != OBJTYPE_CHARA ) return FALSE;
     snprintf( buf,buflen,"%s|%d|%d|%d|%d",
@@ -260,8 +260,8 @@ void CHAR_sendWallDamage( int charaindex,int x, int y, int damage )
 
 static struct ParamShow
 {
-    int     paramindex;     /*  ¥Ñ¥é¥á¡¼¥¿¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹    */
-    char*   offmessage;     /*    ¤Ã¤¿»ş¤Î¥á¥Ã¥»¡¼¥¸  »ú      */
+    int     paramindex;     /*  ç”±ä»¿ä¸Ÿâ–¡æ­£åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦    */
+    char*   offmessage;     /*    å‹»å‡¶å‡œåŠä¸Ÿæ°¸æœ¬â–¡æ–¥  å„‚      */
 }pShow[]={
     {CHAR_PARALYSIS,    CHAR_RECOVERPARALYSISSTRING},
     {CHAR_SLEEP,      CHAR_RECOVERSILENCESTRING},
@@ -513,9 +513,9 @@ void CHAR_playerTalkedfunc( int charaindex, int talkindex,char* message, int col
     if( (channel>-1) && (fmindex>0) ){
 		if( channel == 0 ){
 #ifndef _CHANNEL_MODIFY
-			snprintf( lastbuf,sizeof(lastbuf),"P|[±Ú]%s",
+			snprintf( lastbuf,sizeof(lastbuf),"P|[æ—]%s",
 #else
-			snprintf( lastbuf,sizeof(lastbuf),"P|F|[±Ú]%s",
+			snprintf( lastbuf,sizeof(lastbuf),"P|F|[æ—]%s",
 #endif
 				makeEscapeString( CHAR_appendNameAndTitle(talkindex, message, mesgbuf,sizeof(mesgbuf)),
 				escapebuf,sizeof(escapebuf) ));
@@ -526,9 +526,9 @@ void CHAR_playerTalkedfunc( int charaindex, int talkindex,char* message, int col
 		else if( channel == FAMILY_MAXCHANNEL && CHAR_getInt( talkindex, CHAR_FMLEADERFLAG ) == 1 ){
 #endif
 #ifndef _CHANNEL_MODIFY
-			snprintf( lastbuf,sizeof(lastbuf),"P|[±Úªø¼s¼½]%s",
+			snprintf( lastbuf,sizeof(lastbuf),"P|[æ—é•·å»£æ’­]%s",
 #else
-			snprintf( lastbuf,sizeof(lastbuf),"P|F|[±Úªø¼s¼½]%s",
+			snprintf( lastbuf,sizeof(lastbuf),"P|F|[æ—é•·å»£æ’­]%s",
 #endif
 				makeEscapeString(CHAR_appendNameAndTitle(talkindex, message,mesgbuf,sizeof(mesgbuf)),
 				escapebuf,sizeof(escapebuf) ));
@@ -540,7 +540,7 @@ void CHAR_playerTalkedfunc( int charaindex, int talkindex,char* message, int col
 	}else{
 #ifdef _CHANNEL_MODIFY
 		if(CHAR_getFlg(talkindex,CHAR_ISPARTYCHAT) && (CHAR_getWorkInt(talkindex,CHAR_WORKPARTYMODE) != CHAR_PARTY_NONE))
-				snprintf( lastbuf,sizeof(lastbuf),"P|T|[¶¤]%s",
+				snprintf( lastbuf,sizeof(lastbuf),"P|T|[éšŠ]%s",
 				makeEscapeString(CHAR_appendNameAndTitle(talkindex, message,mesgbuf,sizeof(mesgbuf)),
 				escapebuf,sizeof(escapebuf) ));
 		else

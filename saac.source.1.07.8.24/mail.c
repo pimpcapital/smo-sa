@@ -318,10 +318,10 @@ void flushMail( int fd,
         }
     }
 
-    /*   ºİ¤ËÁ÷¿®¤¹¤ë */
+    /*   ç«¯åéœœè€¨å…æœˆ */
     for(i=0;i< flush_i; i++ ){
-        /* flush ¤Î¾ì¹ç¤Ï¡bflush¤òÁ÷¿®¤·¤Æ¤­¤¿¥²¡¼¥à¥µ¡¼¥Ğ¡¼¤Ë
-           ÂĞ¤·¤Æ¤À¤±Á÷¿®¤¹¤ì¤Ğ¤¤¤¤ */
+        /* flush åŠæ¨ºå¯§åï½flushæ¯›éœœè€¨ä»„åŒ–äº”å‡¶å¿…â–¡ä¸æ‰”â–¡ç”°â–¡å
+           è¦†ä»„åŒ–åˆ†ä»ƒéœœè€¨å…æœ¨å£¬ä¸­ä¸­ */
         saacproto_Message_send( fd,
                                 mailbuf[flush_index[i]].id_from,
                                 mailbuf[flush_index[i]].charname_from,
@@ -348,7 +348,7 @@ expireMail()
     char id_charname[1000];
     time_t now=time(NULL);
     
-    /* 1²ó¤Îflush ¤ÇÁ÷¿®¤¹¤ë    ¿ô */
+    /* 1è¢åŠflush åŒ¹éœœè€¨å…æœˆ    é†’ */
 #define MAX_FLUSH_MAIL 1024
     int flush_index[MAX_FLUSH_MAIL];
     int flush_i=0;
@@ -363,7 +363,7 @@ expireMail()
         }
     }
 
-    /*   ºİ¤ËÁ÷¿®¤¹¤ë */
+    /*   ç«¯åéœœè€¨å…æœˆ */
     for(i=0;i< flush_i; i++ ){
         
         snprintf( id_charname, sizeof( id_charname), "%s_%s", 

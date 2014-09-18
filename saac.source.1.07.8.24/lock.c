@@ -4,7 +4,7 @@
 #include "main.h"
 #include "char.h"
 
-#ifdef _WORKER_AUTO_LOGOUT     // WON ADD GSÂ_½u¦Û°Ê°eLOGOUTµ¹WORKER
+#ifdef _WORKER_AUTO_LOGOUT     // WON ADD GSæ–·ç·šè‡ªå‹•é€LOGOUTçµ¦WORKER
 #include "recv.h"
 #endif
 
@@ -110,7 +110,7 @@ int DeleteMemLock(int entry, char *cdkey, int *process)
 	while (ln!=NULL) {
 		if( ln->use != 0) {
 #ifdef _CHANGEGALAXY
-			if( !strcmp( ln->cdkey, cdkey ) && strcmp( ln->server, "²¾¥Á") ) break;
+			if( !strcmp( ln->cdkey, cdkey ) && strcmp( ln->server, "ç§»æ°‘") ) break;
 #else
 			if( strcmp( ln->cdkey, cdkey ) == 0 ) break;
 #endif
@@ -150,7 +150,7 @@ void DeleteMemLockServer(char *sname)
 }
 
 
-#ifdef _WORKER_AUTO_LOGOUT     // WON ADD GSÂ_½u¦Û°Ê°eLOGOUTµ¹WORKER
+#ifdef _WORKER_AUTO_LOGOUT     // WON ADD GSæ–·ç·šè‡ªå‹•é€LOGOUTçµ¦WORKER
 void Worker_auto_logout(int ti, char *sname)
 {
   int i;
@@ -193,8 +193,8 @@ int isMemLocked(int entry, char *cdkey)
 	while (ln!=NULL) {
 		if (ln->use != 0) {
 			if (strcmp(ln->cdkey, cdkey)==0) {
-				if( !strcmp(ln->server, "¬P¨t²¾¥Á"))
-					log(" ¬P¨t²¾¥Á¤¤ ");
+				if( !strcmp(ln->server, "æ˜Ÿç³»ç§»æ°‘"))
+					log(" æ˜Ÿç³»ç§»æ°‘ä¸­ ");
 				break;
 			}
 		}
@@ -265,7 +265,7 @@ int DeleteGalaxyChangeLock( void)
 
 		while (ln!=NULL) {
 			if( ln->use != 0) {
-				if( strcmp( ln->server, "¬P¨t²¾¥Á" ) == 0 ) {
+				if( strcmp( ln->server, "æ˜Ÿç³»ç§»æ°‘" ) == 0 ) {
 					ln->use=0;
 					memset( ln->cdkey, 0, sizeof( ln->cdkey) );
 					memset( ln->server, 0, sizeof( ln->server) );
@@ -298,8 +298,8 @@ int isChangeGalaxyLocked( char *cdkey)
 
 	while (ln!=NULL) {
 		if (ln->use != 0) {
-			if( !strcmp(ln->cdkey, cdkey) && !strcmp(ln->server, "¬P¨t²¾¥Á") ) {
-					log(" ¬P¨t²¾¥Á¤¤ ");
+			if( !strcmp(ln->cdkey, cdkey) && !strcmp(ln->server, "æ˜Ÿç³»ç§»æ°‘") ) {
+					log(" æ˜Ÿç³»ç§»æ°‘ä¸­ ");
 				break;
 			}
 		}
@@ -319,7 +319,7 @@ int ChangeMemDeadline(int entry, char *cdkey, char *deadline)
 	while (ln!=NULL) {
 		if (ln->use != 0) {
 			if (strcmp(ln->cdkey, cdkey)==0) {
-				log(" ­×§ïDeadline ");
+				log(" ä¿®æ”¹Deadline ");
 				strcpy( ln->deadline, deadline);
 				break;
 			}
@@ -338,7 +338,7 @@ void UnlockPoolProc( void)
 	int cleanCount =0;
 
 
-	if( sys_time < lastcheck + 3 ) // ¨Cxx¬íÀË¬d
+	if( sys_time < lastcheck + 3 ) // æ¯xxç§’æª¢æŸ¥
 		return;
 	lastcheck = sys_time;
 
@@ -379,12 +379,12 @@ void UnlockPoolProc( void)
 
 			cleanCount++;
 
-			//if( cleanCount >=30) // ¨C¦¸³Ì¦h°eX­Ólogout
+			//if( cleanCount >=30) // æ¯æ¬¡æœ€å¤šé€Xå€‹logout
 			//	break;
 		}
 	}
 
-	// ¤@¦¸¥ş²MÂk¹s
+	// ä¸€æ¬¡å…¨æ¸…æ­¸é›¶
 	iUnlockPoolAdd =0;
 	unlockindex =0;
 

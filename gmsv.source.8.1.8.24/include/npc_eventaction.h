@@ -34,7 +34,7 @@ BOOL NPC_EventBMM(int meindex, int talker, char *buff2,int mode);
 BOOL NPC_ActionVipCheck(int meindex,int talker,int memberp,int flg);
 BOOL NPC_ActionSubMemberP( int talker,char *buf);
 #endif
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 BOOL NPC_ActionClassCheck( int meindex,int talker,int p_class,int flg);
 
 BOOL NPC_ActionSkillCheck( int meindex,int talker,int skillId,int flg);
@@ -119,15 +119,15 @@ BOOL NPC_DelItem( int toindex, int ti, int num);
 void NPC_ActionDoPileClearItem( int toindex, int itemID);
 
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 int PROFESSION_RESTORE_POINT( int charaindex );
 #endif
 
 
 #ifdef _NPC_ADDWARPMAN1
 BOOL NPC_ActionPartyCountCheck( int toindex, int nums, int flg);
-BOOL NPC_ActionManCountCheck( int toindex, int nums, int flg);//ÀË¬d¨k¥Í¤H¼Æ
-BOOL NPC_ActionWomanCountCheck( int toindex, int nums, int flg);//ÀË¬d¤k¥Í¤H¼Æ
+BOOL NPC_ActionManCountCheck( int toindex, int nums, int flg);//æª¢æŸ¥ç”·ç”Ÿäººæ•¸
+BOOL NPC_ActionWomanCountCheck( int toindex, int nums, int flg);//æª¢æŸ¥å¥³ç”Ÿäººæ•¸
 #endif
 
 #endif

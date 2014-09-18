@@ -22,7 +22,7 @@
 #include "handletime.h"
 #include "chatmagic.h"
 
-#ifdef _RECAL_ASK_PLAYER			// WON ­n¨D¤Hª«¸ê®Æ
+#ifdef _RECAL_ASK_PLAYER			// WON è¦æ±‚äººç‰©è³‡æ–™
 #include "saacproto_cli.h"
 #endif
 
@@ -109,7 +109,7 @@ int mproto_ClientDispatchMessage(int fd,char* data)
 		return 0;		
 	}
 
-#ifdef _GM_WARP_PLAYER				// WON ¶Ç°eª±®a
+#ifdef _GM_WARP_PLAYER				// WON å‚³é€ç©å®¶
 	if (func == MPROTO_WARP_RECV) {
 		int checksum=0, checksumrecv=0;
 		int userfdid,floor,x,y;
@@ -131,9 +131,9 @@ int mproto_ClientDispatchMessage(int fd,char* data)
 	}
 #endif
 
-#ifdef _RECAL_ASK_PLAYER			// WON ­n¨D¤Hª«¸ê®Æ
+#ifdef _RECAL_ASK_PLAYER			// WON è¦æ±‚äººç‰©è³‡æ–™
 
-	// ½u¤W¤Hª«¸ê®Æ
+	// ç·šä¸Šäººç‰©è³‡æ–™
 	if (func == MPROTO_RECALL_PLAYER_RECV) {
 		int checksum=0, checksumrecv=0, backup_flag=0;
 		int userfdid, char_num, date, GmCliId;
@@ -158,7 +158,7 @@ int mproto_ClientDispatchMessage(int fd,char* data)
 		util_DiscardMessage();
 		return 0;		
 	}
-	// ³Æ¥÷¤Hª«¸ê®Æ
+	// å‚™ä»½äººç‰©è³‡æ–™
 	if (func == MPROTO_RECALL_BACKUP_RECV) {
 		int checksum=0, checksumrecv=0;
 		int userfdid, char_num, date, GmCliId, backup_flag;
@@ -238,7 +238,7 @@ int mproto_ClientDispatchMessage(int fd,char* data)
                 return 0;
 	}
 
-#ifdef _RECAL_SERVER_OFF			// WON MSERVER Ãö³¬ GS	
+#ifdef _RECAL_SERVER_OFF			// WON MSERVER é—œé–‰ GS	
 	if (func == MPROTO_RECALL_SERVER_OFF_RECV) {
 		int checksum=0,checksumrecv=0;
 		char msg[10];
@@ -263,7 +263,7 @@ int mproto_ClientDispatchMessage(int fd,char* data)
             return -1;
         }
 		
-		// Ãö¾÷
+		// é—œæ©Ÿ
 		if( strcmp(msg, "OFF") == 0){
 			print("\n\n\n\n\n GM server shoutdown GS !!  (%d:%d:%d)\n\n\n\n\n", HOUR, MIN, SEC);
 			system( "~/gmsvstop.sh" );
@@ -277,7 +277,7 @@ int mproto_ClientDispatchMessage(int fd,char* data)
 	util_DiscardMessage();
 	return 0;
 }
-//GM¦^ÂĞ°İÃD
+//GMå›è¦†å•é¡Œ
 void mproto_Que_Recv(int fd,char* uid,int userfdid,char* ans)
 {
 	int fd_charaindex;
@@ -285,7 +285,7 @@ void mproto_Que_Recv(int fd,char* uid,int userfdid,char* ans)
 	int clifd=getfdFromFdid(userfdid);
 	if  (clifd == -1) return ;
 	if (ans == NULL || uid==NULL) return; 
-    	sprintf(sGM,"GM[%s]¬°§A¸Ñµª¦p¤U:",uid);
+    	sprintf(sGM,"GM[%s]ç‚ºä½ è§£ç­”å¦‚ä¸‹:",uid);
     	fd_charaindex = CONNECT_getCharaindex( clifd );
 	if (!CHAR_CHECKINDEX(fd_charaindex)) return;
 	CHAR_talkToCli(fd_charaindex, -1, sGM, CHAR_COLORYELLOW);
@@ -293,7 +293,7 @@ void mproto_Que_Recv(int fd,char* uid,int userfdid,char* ans)
 
 	return;
 }
-//GM°T®§
+//GMè¨Šæ¯
 void mproto_Message_Recv(int fd,char* uid,int userfdid,char* ans)
 {
 	int fd_charaindex;
@@ -301,10 +301,10 @@ void mproto_Message_Recv(int fd,char* uid,int userfdid,char* ans)
 	int clifd=getfdFromFdid(userfdid);
 	if  (clifd == -1)	return ;
 	if (ans == NULL || uid==NULL)	return; 
-	if( !strcmp( uid, "µL") )	{
+	if( !strcmp( uid, "ç„¡") )	{
 		sprintf( sGM, "%s", ans);
 	}else{
-		sprintf( sGM, "GM[%s]°T®§:%s", uid, ans);
+		sprintf( sGM, "GM[%s]è¨Šæ¯:%s", uid, ans);
 	}
 
     fd_charaindex = CONNECT_getCharaindex( clifd );
@@ -313,7 +313,7 @@ void mproto_Message_Recv(int fd,char* uid,int userfdid,char* ans)
 	return;
 }
 
-//GM¸T¨¥
+//GMç¦è¨€
 void mproto_NoTalk_Recv(int fd,char* uid,int userfdid,int nTime)
 {
 	int fd_charaindex;
@@ -325,12 +325,12 @@ void mproto_NoTalk_Recv(int fd,char* uid,int userfdid,int nTime)
 	if (!CHAR_CHECKINDEX(fd_charaindex)) return;
 	CHAR_setInt( fd_charaindex,CHAR_SILENT, nTime );
 	CHAR_setWorkInt( fd_charaindex, CHAR_WORKLOGINTIME, (int)NowTime.tv_sec );
-	CHAR_talkToCli( fd_charaindex, -1, "¥Ñ©ó·o¶Ã¡A³QGM¸T¨¥10¨ì30¤ÀÄÁ", CHAR_COLORYELLOW);
+	CHAR_talkToCli( fd_charaindex, -1, "ç”±æ–¼æ—äº‚ï¼Œè¢«GMç¦è¨€10åˆ°30åˆ†é˜", CHAR_COLORYELLOW);
 	CHAR_setWorkInt(fd_charaindex, CHAR_WORKTALKCOUNT, 0 );
 }
 
 
-#ifdef _GM_WARP_PLAYER				// WON ¶Ç°eª±®a
+#ifdef _GM_WARP_PLAYER				// WON å‚³é€ç©å®¶
 void mproto_WARP_Recv(int fd,char* uid,int userfdid,int floor, int x, int y)
 {
 	int fd_charaindex;
@@ -345,7 +345,7 @@ void mproto_WARP_Recv(int fd,char* uid,int userfdid,int floor, int x, int y)
 }
 #endif
 
-#ifdef _RECAL_ASK_PLAYER			// WON ­n¨D¤Hª«¸ê®Æ
+#ifdef _RECAL_ASK_PLAYER			// WON è¦æ±‚äººç‰©è³‡æ–™
 void mproto_RECALL_ASK_PLAYER_Recv(int fd, char *uid, int userfdid, int GmCliId, char *id, int char_num, int date, int backup_flag)
 {
 	extern int acfd;
@@ -371,11 +371,11 @@ void mproto_Jail_Recv(int fd,char* uid,int userfdid)
 	fd_charaindex = CONNECT_getCharaindex(clifd);
 	if (!CHAR_CHECKINDEX(fd_charaindex))
 		return;
-	CHAR_talkToCli( fd_charaindex, -1, "¥Ñ©ó·o¶Ã¡A³QGMÃö¤JºÊ¨c", CHAR_COLORYELLOW);
+	CHAR_talkToCli( fd_charaindex, -1, "ç”±æ–¼æ—äº‚ï¼Œè¢«GMé—œå…¥ç›£ç‰¢", CHAR_COLORYELLOW);
 	CHAR_CHAT_DEBUG_jail( -1, CHAR_getChar( fd_charaindex, CHAR_CDKEY));
 }
 
-//GM½ğ¤H
+//GMè¸¢äºº
 void mproto_WaeiKick_Recv(int fd,char* uid,int userfdid)
 {
 	int fd_charaindex;
@@ -385,10 +385,10 @@ void mproto_WaeiKick_Recv(int fd,char* uid,int userfdid)
 	fd_charaindex = CONNECT_getCharaindex(clifd);
 	if (!CHAR_CHECKINDEX(fd_charaindex))
 		return;
-	CHAR_talkToCli( fd_charaindex, -1, "¥Ñ©ó·o¶Ã¡A³QGM½ğ°£", CHAR_COLORYELLOW);
+	CHAR_talkToCli( fd_charaindex, -1, "ç”±æ–¼æ—äº‚ï¼Œè¢«GMè¸¢é™¤", CHAR_COLORYELLOW);
 	CHAR_CHAT_DEBUG_gmkick( -1, CHAR_getChar( fd_charaindex, CHAR_CDKEY));
 }
-//GM¼s¼½
+//GMå»£æ’­
 void mproto_GMTalk_Recv(int fd,char* uid,int ntime,char* data)
 {
     char    message[65530];
@@ -413,7 +413,7 @@ void mproto_Que_Send( int fd, int uid, int index, char* question)
 	char *charname = CHAR_getChar( index, CHAR_NAME);
 
 	if( strlen( question) <= 0 ){
-		CHAR_talkToCli( index, -1, "¦r¦êªø«×¤£¨¬¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( index, -1, "å­—ä¸²é•·åº¦ä¸è¶³ï¼", CHAR_COLORYELLOW);
 		return;
 	}
 	memset( wheres, 0, sizeof( wheres));
@@ -433,9 +433,9 @@ void mproto_Que_Send( int fd, int uid, int index, char* question)
 	util_SendMesg(fd, MPROTO_QUE_SEND, buffer);
 }
 
-#ifdef _RECAL_ASK_PLAYER			// WON ­n¨D¤Hª«¸ê®Æ
+#ifdef _RECAL_ASK_PLAYER			// WON è¦æ±‚äººç‰©è³‡æ–™
 
-// ½u¤W¤Hª«¸ê®Æ
+// ç·šä¸Šäººç‰©è³‡æ–™
 void saacproto_ACRecalPlayer_recv(char *uid, int userfdid, int GmCliId, char *id, int char_num, int date, char *char_data)
 {
 	char buffer[65500];
@@ -455,7 +455,7 @@ void saacproto_ACRecalPlayer_recv(char *uid, int userfdid, int GmCliId, char *id
 	util_SendMesg(mfd, MPROTO_RECALL_PLAYER_SEND, buffer);
 }
 
-// ³Æ¥÷¤Hª«¸ê®Æ
+// å‚™ä»½äººç‰©è³‡æ–™
 void saacproto_ACRecalBackupPlayer_recv(char *uid, int userfdid, int GmCliId, char *id, int char_num, int date, char *char_data)
 {
 	char buffer[65500];
@@ -475,7 +475,7 @@ void saacproto_ACRecalBackupPlayer_recv(char *uid, int userfdid, int GmCliId, ch
 	util_SendMesg(mfd, MPROTO_RECALL_BACKUP_SEND, buffer);
 }
 
-// ¦^·¹ok
+// å›æº¯ok
 void saacproto_ACRecalAllBackupOK_recv(char *uid, int userfdid, int GmCliId, char *id, int char_num, int date, char *char_data)
 {
 	char buffer[65500];
@@ -494,7 +494,7 @@ void saacproto_ACRecalAllBackupOK_recv(char *uid, int userfdid, int GmCliId, cha
 	util_SendMesg(mfd, MPROTO_RECALL_BACKUP_OK_SEND, buffer);
 }
 
-// ¨ú±o³Æ¥÷¤é´Á
+// å–å¾—å‚™ä»½æ—¥æœŸ
 void saacproto_ACRecalBackupDate_recv(char *uid, int userfdid, int GmCliId, char *id, int char_num, int date, char *char_data)
 {
 	char buffer[65500];
@@ -610,7 +610,7 @@ int connectmServer(char* hostname,unsigned short port)
 
 #endif
 
-#ifdef _RECAL_SEND_COUNT		// WON ¶Ç°eGS¸ê°T 
+#ifdef _RECAL_SEND_COUNT		// WON å‚³é€GSè³‡è¨Š 
 void recal_get_count()
 {
 	FILE *fp;
@@ -654,7 +654,7 @@ void recal_get_count()
 }
 #endif
 
-#ifdef _GSERVER_RUNTIME //¶Ç°eGSERVER°õ¦æ¦h¤Ö®É¶¡µ¹MSERVER
+#ifdef _GSERVER_RUNTIME //å‚³é€GSERVERåŸ·è¡Œå¤šå°‘æ™‚é–“çµ¦MSERVER
 void gserver_runtime()
 {
 	int checksum=0;
@@ -666,11 +666,11 @@ void gserver_runtime()
 	    gserver_runtime_starttime0_flag = FALSE;
 		gserver_runtime_starttime0 = time(NULL);
 	}
-	print("\nChange->¶Ç°e®É¶¡µ¹mserver\n");
+	print("\nChange->å‚³é€æ™‚é–“çµ¦mserver\n");
 	strcpy(buffer, "");
 	strcpy(PersonalKey, MSPERSIONALKEY);
     starttime1 = time(NULL);   
-	checksum += util_mkint(buffer, (int)difftime(starttime1,gserver_runtime_starttime0));//¶Ç°eªº³æ¦ì¬°¬í
+	checksum += util_mkint(buffer, (int)difftime(starttime1,gserver_runtime_starttime0));//å‚³é€çš„å–®ä½ç‚ºç§’
 	util_mkint(buffer, checksum);
 	util_SendMesg(mfd, MPROTO_RECALL_GSERVER_RUNTIME, buffer);
 }

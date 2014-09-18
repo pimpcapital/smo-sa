@@ -14,7 +14,7 @@
 #include "handletime.h"
 #include "npc_eventaction.h"
 
-//¯S¦a±q¤Ñ°ó°ªÁ~«õ¨¤¨Óªº"¶Ç°e®v"
+//ç‰¹åœ°å¾å¤©å ‚é«˜è–ªæŒ–è§’ä¾†çš„"å‚³é€å¸«"
 #ifdef _TRANSER_MAN
 enum {
 	WINDOW_START=1,
@@ -69,14 +69,14 @@ void NPC_TranserManTalked( int meindex, int talkerindex, char *msg, int color )
 	}
 #ifdef _ITEM_CHECKWARES
 	if( CHAR_CheckInItemForWares( talkerindex, 0) == FALSE ){
-		CHAR_talkToCli( talkerindex, meindex, "®Ú¾Ú¶Ç°e®v¤u·|³W©w¡A¤£¯àªA°ÈÄâ±a³fª«ªº¤H¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( talkerindex, meindex, "æ ¹æ“šå‚³é€å¸«å·¥æœƒè¦å®šï¼Œä¸èƒ½æœå‹™æ”œå¸¶è²¨ç‰©çš„äººï¼", CHAR_COLORYELLOW);
 		return;
 	}
 #endif
-// Syu ADD ¤Ñ¤~¶Ç°e®v§PÂ_²Õ¶¤ª¬ºA
+// Syu ADD å¤©æ‰å‚³é€å¸«åˆ¤æ–·çµ„éšŠç‹€æ…‹
 	if( CHAR_getWorkInt ( talkerindex , CHAR_WORKPARTYMODE) != CHAR_PARTY_NONE)
 	{
-		CHAR_talkToCli( talkerindex, meindex, "®Ú¾Ú¶Ç°e®v¤u·|³W©w¡A¤£¯àÀ°²Õ¶¤¤¤ªº¤H¶Ç°e¡I",CHAR_COLORYELLOW);
+		CHAR_talkToCli( talkerindex, meindex, "æ ¹æ“šå‚³é€å¸«å·¥æœƒè¦å®šï¼Œä¸èƒ½å¹«çµ„éšŠä¸­çš„äººå‚³é€ï¼",CHAR_COLORYELLOW);
 		return;
 	}
 

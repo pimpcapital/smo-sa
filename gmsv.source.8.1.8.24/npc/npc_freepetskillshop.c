@@ -118,14 +118,14 @@ static void NPC_FreePetSkillShop_selectWindow( int meindex, int toindex, int num
 			CHAR_setWorkInt( toindex, CHAR_WORKSHOPRELEVANT, 0);
 			return;
 		}
-		//ª±®a±ø¥ó§PÂ_
+		//ç©å®¶æ¢ä»¶åˆ¤æ–·
 		if( NPC_Util_GetStrFromStrWithDelim( npcarg, "FREE", buf1, sizeof( buf1)) != NULL ) {
 			if( NPC_ActionPassCheck( meindex, toindex, buf1) == FALSE )	{
 				 Evflg = FALSE;
 			}
 		}
 		if( Evflg == FALSE)	{
-			CHAR_talkToCli( toindex, -1, "§A·QÅıÃdª«¾Ç¯S®í§Ş¯à¡H¥i§Aªº±ø¥óÁÙ¤£°÷³á¡I", CHAR_COLORYELLOW);
+			CHAR_talkToCli( toindex, -1, "ä½ æƒ³è®“å¯µç‰©å­¸ç‰¹æ®ŠæŠ€èƒ½ï¼Ÿå¯ä½ çš„æ¢ä»¶é‚„ä¸å¤ å–”ï¼", CHAR_COLORYELLOW);
 			CHAR_setWorkInt( toindex, CHAR_WORKSHOPRELEVANT, 0);
 			return;
 		}else	{
@@ -140,7 +140,7 @@ static void NPC_FreePetSkillShop_selectWindow( int meindex, int toindex, int num
 		break;
 	  case SKILL_WINDOW:
 		  if( NPC_FreePetSkillMakeStr( meindex, toindex, select) == FALSE )	{
-			print("\n npc_freepetskillshop.c ¿ù»~");
+			print("\n npc_freepetskillshop.c éŒ¯èª¤");
 		  }
 		break;
 	  case MEEND_WINDOW:
@@ -235,7 +235,7 @@ void NPC_FreePetSkillShopWindowTalked( int meindex, int talkerindex, int seqno, 
 		cost = PETSKILL_getInt( petskillindex, PETSKILL_COST );
 		cost = cost * rate;
 
-		//±ø¥ó§PÂ_
+		//æ¢ä»¶åˆ¤æ–·
 		if(CHAR_getInt(talkerindex,CHAR_GOLD) < cost && CHAR_getInt(talkerindex,CHAR_FAME)< petskCostFametemp){
 			CHAR_send_P_StatusString( talkerindex, CHAR_P_STRING_GOLD);
 			return;
@@ -244,7 +244,7 @@ void NPC_FreePetSkillShopWindowTalked( int meindex, int talkerindex, int seqno, 
 		if( NPC_CHECKFREEPETSKILL( talkerindex, petindex, skillID ) == TRUE ){
 
 			if( Action_RunDoEventAction( meindex, talkerindex, argstr) == FALSE ){
-				CHAR_talkToCli( talkerindex, -1, "©Ò»İª««~¤£¨¬!!", CHAR_COLORYELLOW);
+				CHAR_talkToCli( talkerindex, -1, "æ‰€éœ€ç‰©å“ä¸è¶³!!", CHAR_COLORYELLOW);
 				CHAR_send_P_StatusString( talkerindex, CHAR_P_STRING_GOLD);
 				CHAR_setWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT, 0);
 				return;
@@ -261,7 +261,7 @@ void NPC_FreePetSkillShopWindowTalked( int meindex, int talkerindex, int seqno, 
 				sprintf(msgbuf,"FAME|%d",CHAR_getInt(talkerindex,CHAR_FAME)/100);
 				lssproto_S2_send(fd,msgbuf);
 #endif
-				snprintf( msgbuf, sizeof( msgbuf ), "¦©°£Án±æÂI¼Æ:%4.2f",FlpetCFameTemp);
+				snprintf( msgbuf, sizeof( msgbuf ), "æ‰£é™¤è²æœ›é»æ•¸:%4.2f",FlpetCFameTemp);
 			}
 #endif
 			CHAR_talkToCli( talkerindex, -1, msgbuf, CHAR_COLORYELLOW);
@@ -274,7 +274,7 @@ void NPC_FreePetSkillShopWindowTalked( int meindex, int talkerindex, int seqno, 
 					return;
 		}else	{
 			CHAR_send_P_StatusString( talkerindex, CHAR_P_STRING_GOLD);
-			CHAR_talkToCli( talkerindex, -1, "±ø¥ó¤£¨¬!!", CHAR_COLORYELLOW);
+			CHAR_talkToCli( talkerindex, -1, "æ¢ä»¶ä¸è¶³!!", CHAR_COLORYELLOW);
 		}
 		//ADD
 		NPC_FreePetSkillShop_selectWindow( meindex, talkerindex, SKILL_WINDOW, -1);
@@ -313,11 +313,11 @@ BOOL NPC_CHECKFREEPETSKILL( int toindex, int petindex, int skillID)
 		}
 	}
 
-	//§ä¤£¨ì³o¥uÃdª«
+	//æ‰¾ä¸åˆ°é€™åªå¯µç‰©
 	if( i == arraysizeof( Code_skill) )	{
 		{
 			char buff1[256];
-			sprintf( buff1, "%s¤£¯à¾Ç¯S®í§Ş¯à!!", CHAR_getChar( petindex, CHAR_NAME));
+			sprintf( buff1, "%sä¸èƒ½å­¸ç‰¹æ®ŠæŠ€èƒ½!!", CHAR_getChar( petindex, CHAR_NAME));
 			CHAR_talkToCli( toindex, -1, buff1, CHAR_COLORYELLOW);
 		}
 		return FALSE;
@@ -327,7 +327,7 @@ BOOL NPC_CHECKFREEPETSKILL( int toindex, int petindex, int skillID)
 	if( strstr( Code_skill[i].Code, SCode ) != NULL )	{
 		if( NPC_SkillShopPetCheck( toindex, petindex, skillID) == FALSE )	{
 			char buff1[256];
-			sprintf( buff1, "%s²{¦bÁÙ¤£¯à¾Ç%s!", CHAR_getChar( petindex, CHAR_NAME),
+			sprintf( buff1, "%sç¾åœ¨é‚„ä¸èƒ½å­¸%s!", CHAR_getChar( petindex, CHAR_NAME),
 									PETSKILL_getChar( skillindex, PETSKILL_NAME) );
 			CHAR_talkToCli( toindex, -1, buff1, CHAR_COLORYELLOW);
 			return  FALSE;
@@ -335,7 +335,7 @@ BOOL NPC_CHECKFREEPETSKILL( int toindex, int petindex, int skillID)
 		return TRUE;
 	}else	{
 			char buff1[256];
-			sprintf( buff1, "%s¤£¯à¾Ç%s!!", CHAR_getChar( petindex, CHAR_NAME),
+			sprintf( buff1, "%sä¸èƒ½å­¸%s!!", CHAR_getChar( petindex, CHAR_NAME),
 						PETSKILL_getChar( skillindex, PETSKILL_NAME) );
 			CHAR_talkToCli( toindex, -1, buff1, CHAR_COLORYELLOW);
 	}

@@ -65,23 +65,23 @@ static CHAR_WALKRET CHAR_walk_turn( int index, int dir )
 
 
 /*------------------------------------------------------------
- * n ¬¤ ¬¤¤¤¤¿map¤òÁ÷¤ë
- * °ú¿ô
- *  index       int     ¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- *  fl          int     ¥Õ¤Ò¥¢ID
- *  ox          int     Á°¤Î¾õÂÖ¤Îx
- *  oy          int     Á°¤Î¾õÂÖ¤Îy
- *  fx          int     ¬¤¤¤¤¿  ¤Îx
- *  fy          int     ¬¤¤¤¤¿  ¤Îy
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * n æ´¶ æ´¶ä¸­å‡¶mapæ¯›éœœæœˆ
+ * å©é†’
+ *  index       int     å¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ *  fl          int     ç™½å¤«å¤±ID
+ *  ox          int     èŸ†åŠæ©‡è¬«åŠx
+ *  oy          int     èŸ†åŠæ©‡è¬«åŠy
+ *  fx          int     æ´¶ä¸­å‡¶  åŠx
+ *  fy          int     æ´¶ä¸­å‡¶  åŠy
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 static void CHAR_sendMapAtWalk( int index, int fl ,int ox ,int oy,
 								int fx, int fy )
 {
     /*
-     *  ¸½ºß¤ÎÃÍ¤È¡bÁ°¤Ş¤Ç¤ÎÃÍ¤Îº¹¤ò¸«¤ë
-     *  ¤³¤¦¤¹¤ë¤È¡b¥ï¡¼¥×NPC¤â´ÊÃ±¤À¡e
+     *  èœ‡ç®•åŠè¥–åˆï½èŸ†å¼•åŒ¹åŠè¥–åŠçŠ’æ¯›è‘¦æœˆ
+     *  ä»‡ä¸¹å…æœˆåˆï½ä¼â–¡çš¿NPCæ‰‹æ£µç°½åˆ†ã€”
      */
     int     vx,vy;
     const int     seesiz = MAP_CHAR_DEFAULTSEESIZ;
@@ -91,8 +91,8 @@ static void CHAR_sendMapAtWalk( int index, int fl ,int ox ,int oy,
     vx = fx - ox;
     vy = fy - oy;
 
-    if( ABS(vx) >= seesiz/2 ||       /*  º¹¤¬  ¤­¤¤  */
-        ABS(vy) >= seesiz/2 ){       /*  º¹¤¬  ¤­¤¤  */
+    if( ABS(vx) >= seesiz/2 ||       /*  çŠ’äº’  äº”ä¸­  */
+        ABS(vy) >= seesiz/2 ){       /*  çŠ’äº’  äº”ä¸­  */
         return;
 
     }else{
@@ -103,12 +103,12 @@ static void CHAR_sendMapAtWalk( int index, int fl ,int ox ,int oy,
         int absx = ABS(vx);
         int absy = ABS(vy);
         /*
-         * ¤Ò¤È¤ÄÂ¿¤á¤Ë¥¹¥¿¡¼¥È¤ò¼è¤ë¤Î¤È¡bvx , vy ¤«¤é1¤Ò¤¯¤Î¤¬¥İ¥¤¥ó¥È
-         * Á°¤È¤«¤µ¤Ê¤é¤Ê¤¤¤è¤¦¤Ë¡b
-         * clipRect ¤Ï w,h 0 ¤ò¤ß¤È¤á¤Æ¤¤¤ë
+         * å¤«åˆå‹¾è¶æˆ¶åæ—¦æ­£â–¡ç„æ¯›æ½¸æœˆåŠåˆï½vx , vy äº•æ—¥1å¤«ä»åŠäº’ç¦¾å¥¶ä»¶ç„
+         * èŸ†åˆäº•ä»Šå…æ—¥å…ä¸­æ–¹ä¸¹åï½
+         * clipRect å w,h 0 æ¯›å¿ƒåˆæˆ¶åŒ–ä¸­æœˆ
          */
 
-        /*  == 0 ¤Î»ş¤ÏÁ÷¤é¤Ê¤¯¤Æ¤è¤¤   */
+        /*  == 0 åŠå‡œåéœœæ—¥å…ä»åŒ–æ–¹ä¸­   */
         if( vx != 0 ){
             if( vx > 0 ){
                 send.x     = oldlux + seesiz;
@@ -143,7 +143,7 @@ static void CHAR_sendMapAtWalk( int index, int fl ,int ox ,int oy,
 }
         }
 
-        /*  == 0 ¤Î»ş¤ÏÁ÷¤é¤Ê¤¯¤Æ¤è¤¤   */
+        /*  == 0 åŠå‡œåéœœæ—¥å…ä»åŒ–æ–¹ä¸­   */
         if( vy != 0 ){
             if( vy > 0 ){
                 send.y      = oldluy + seesiz;
@@ -182,11 +182,11 @@ static void CHAR_sendMapAtWalk( int index, int fl ,int ox ,int oy,
 }
 static CHAR_WALKRET CHAR_walk_move( int charaindex, int dir );
 /*------------------------------------------------------------
- * °Ü  ¤¹¤ë¡e
- * °ú¿ô
- *  index       int     ¥­¥ã¥é¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- *  dir         int       ¸ş
- * ÊÖ¤êÃÍ
+ * å•–  å…æœˆã€”
+ * å©é†’
+ *  index       int     å¹³ä¹“ä»¿åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ *  dir         int       è¼Š
+ * å¿’æ›°è¥–
  *  CHAR_WALKRET
  ------------------------------------------------------------*/
 static CHAR_WALKRET CHAR_walk_move( int charaindex, int dir )
@@ -334,7 +334,7 @@ static CHAR_WALKRET CHAR_walk_move( int charaindex, int dir )
             ox = OBJECT_setX(objindex,CHAR_getInt(charaindex,CHAR_X));
             oy = OBJECT_setY(objindex,CHAR_getInt(charaindex,CHAR_Y));
             if( !MAP_objmove( objindex, of,ox,oy,ff,fx,fy ) ){
-                /*  ¤³¤ó¤Ê¤ó¤É¤¦¤·¤è¤¦¤â¤Ê¤¤    */
+                /*  ä»‡æ°å…æ°å‡ä¸¹ä»„æ–¹ä¸¹æ‰‹å…ä¸­    */
                 fprint( "ERROR MAP_OBJMOVE objindex=%d(%s)\n",objindex,
                 	CHAR_getUseName( charaindex ) );
             }
@@ -376,10 +376,10 @@ static CHAR_WALKRET CHAR_walk_move( int charaindex, int dir )
                 ofunc = (OFFFUNC)CHAR_getFunctionPointer( OBJECT_getIndex(objindex), CHAR_OFFFUNC);
                 break;
             case OBJTYPE_ITEM:
-                /*    ¤Ë²¿¤â¤·¤Ê¤¤  */
+                /*    åçª’æ‰‹ä»„å…ä¸­  */
                 break;
             case OBJTYPE_GOLD:
-                /*    ¤Ë²¿¤â¤·¤Ê¤¤  */
+                /*    åçª’æ‰‹ä»„å…ä¸­  */
                 break;
             default:
                 break;
@@ -427,7 +427,7 @@ CHAR_AFTERWALK:
 		if( count > 0 ) {
 			CHAR_setWorkInt( charaindex, CHAR_WORK_TOHELOS_COUNT, count -1);
 			if( count -1 == 0 ) {
-				CHAR_talkToCli( charaindex, -1, "¹D¨ãªº®Ä¤O¤w¨ì¡C", CHAR_COLORWHITE);
+				CHAR_talkToCli( charaindex, -1, "é“å…·çš„æ•ˆåŠ›å·²åˆ°ã€‚", CHAR_COLORWHITE);
 			}
 		}
 		par = ENCOUNT_getEncountPercentMin( charaindex, of,ox,oy);
@@ -466,7 +466,7 @@ CHAR_AFTERWALK:
 
           // Arminius 7.31 cursed stone
           if (getStayEncount(enfd)>0) {
-#ifdef _ESCAPE_RESET // ´cÄ_¸Ñ°£«á°k¶]®É¶¡­«·sÂk¹s
+#ifdef _ESCAPE_RESET // æƒ¡å¯¶è§£é™¤å¾Œé€ƒè·‘æ™‚é–“é‡æ–°æ­¸é›¶
 			  CHAR_setWorkInt( charaindex, CHAR_WORKLASTESCAPE, 0);
 #endif
 			  clearStayEncount(enfd);
@@ -491,12 +491,12 @@ CHAR_AFTERWALK:
 		    int minep = CHAR_getWorkInt(charaindex, CHAR_WORKENCOUNTPROBABILITY_MIN);
 		    int cep = CONNECT_get_CEP(enfd);
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 			int temp=0;
 			int p_cep = CHAR_getWorkInt(charaindex, CHAR_ENCOUNT_FIX);
 			if( p_cep != 0 ){
 				if( CHAR_getWorkInt( charaindex, CHAR_ENCOUNT_NUM) < (int)time(NULL) ){
-					CHAR_talkToCli( charaindex, -1, "§Ş¯à®Ä¥Îµ²§ô¡C", CHAR_COLORYELLOW);
+					CHAR_talkToCli( charaindex, -1, "æŠ€èƒ½æ•ˆç”¨çµæŸã€‚", CHAR_COLORYELLOW);
 					CHAR_setWorkInt( charaindex, CHAR_ENCOUNT_FIX, 0);
 					CHAR_setWorkInt( charaindex, CHAR_ENCOUNT_NUM, 0);
 				}
@@ -539,7 +539,7 @@ CHAR_AFTERWALK:
 				}
 
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 			  if( rand()%120 < temp ){
 #else			
 		      if (rand()%120<cep){	// Arminius 6.28 lower encounter prob.
@@ -608,12 +608,12 @@ CHAR_AFTERWALK:
 }
 
 /*------------------------------------------------------------
- * ¥­¥ã¥é¤¬¬¤¤¯¡e
- * °ú¿ô
- *  index   int     Char¤Ç¤Îindex
- *  dir     int       ¸ş
- *  mode    int     0¤Ê¤é¬¤¤¯¡e1¤Ê¤é  ¸şÅ¾´¹¡e
- * ÊÖ¤êÃÍ
+ * å¹³ä¹“ä»¿äº’æ´¶ä»ã€”
+ * å©é†’
+ *  index   int     CharåŒ¹åŠindex
+ *  dir     int       è¼Š
+ *  mode    int     0å…æ—¥æ´¶ä»ã€”1å…æ—¥  è¼Šé±‰æ™¶ã€”
+ * å¿’æ›°è¥–
  *  CHAR_WALKRET
  ------------------------------------------------------------*/
 CHAR_WALKRET CHAR_walk( int index, int dir, int mode)
@@ -649,11 +649,11 @@ CHAR_WALKRET CHAR_walk( int index, int dir, int mode)
 
 
 /*------------------------------------------------------------
- * ¬¤¤«¤»¤ëÁ°½à  ¡e
- * °ú¿ô
- *  index       int         ¥­¥ã¥é¥¤¥ó¥Ç¥Ã¥¯¥¹
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * æ´¶äº•å…­æœˆèŸ†è³  ã€”
+ * å©é†’
+ *  index       int         å¹³ä¹“ä»¿å¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 void CHAR_walkcall( int index )
 {
@@ -668,8 +668,8 @@ void CHAR_walkcall( int index )
                 CHAR_getWorkChar(index,CHAR_WORKWALKARRAY));
 
     CHAR_ctodirmode( tmp[0], &dir ,&mode );
-	/* ¿Æ¤Ê¤é»öÁ°¤Ë¾ì½ê¤òµ­²±¤·¤Æ¶³¤¯
-	 * ¿Æ¤Î  ¤¯Á°¤Î¾ì½ê¤ò    ¤Ë»Ò¤¬°Ü  ¤¹¤ë°Ù
+	/* è¤ªå…æ—¥å„€èŸ†åæ¨ºèµ­æ¯›ç­ç››ä»„åŒ–é›²ä»
+	 * è¤ªåŠ  ä»èŸ†åŠæ¨ºèµ­æ¯›    åé–¡äº’å•–  å…æœˆå•ƒ
 	 */
 	if( CHAR_getInt( index, CHAR_WHICHTYPE) == CHAR_TYPEPLAYER ) {
 		if( CHAR_getWorkInt( index, CHAR_WORKPARTYMODE ) == CHAR_PARTY_LEADER ) {
@@ -678,11 +678,11 @@ void CHAR_walkcall( int index )
 		}
 	}
 
-	/* ¬¤¤¯ */
+	/* æ´¶ä» */
     ret = CHAR_walk( index , dir ,mode );
 
 	if( mode == 0 && ret == CHAR_WALKSUCCESSED ) {
-		/* ¼«Ê¬¤¬¿Æ¤Ê¤éÃç´Ö¤ò¬¤¤«¤»¤ë */
+		/* æ†¤åŒäº’è¤ªå…æ—¥é†®æ£‰æ¯›æ´¶äº•å…­æœˆ */
 		if( CHAR_getInt( index, CHAR_WHICHTYPE) == CHAR_TYPEPLAYER ) {
 		
 
@@ -692,13 +692,13 @@ void CHAR_walkcall( int index )
 					int toindex = CHAR_getWorkInt( index, i + CHAR_WORKPARTYINDEX1);
 					if( CHAR_CHECKINDEX(toindex) ) {
 						int		parent_dir;
-						/* »Ò¤Î°Ì  ¤È¡f¿Æ¤Î¬¤¤­Á°¤Î°Ì  ¤«¤é  ¸ş¤òµá¤á¤ë */
-						/* ¬¤¤¯ */
+						/* é–¡åŠåŒ  åˆã€•è¤ªåŠæ´¶äº”èŸ†åŠåŒ  äº•æ—¥  è¼Šæ¯›è²æˆ¶æœˆ */
+						/* æ´¶ä» */
 						start.x = CHAR_getInt( toindex, CHAR_X);
 						start.y = CHAR_getInt( toindex, CHAR_Y);
 						parent_dir = NPC_Util_getDirFromTwoPoint( &start,&end );
-						/* ¥°¥é¥Ç¥£¥¦¥¹¥ª¥×¼³¥ç¥ó¬¤¤­¤ò  ¸½¤¹¤ë°Ù¤Ë¡f
-						 * ±­¤Î»Ò¤ÏÁ°¤Î»Ò¤Î  ¤òÄÉ¤¦¤è¤¦¤Ë¤¹¤ë
+						/* å¼˜ä»¿çŠ¯å¥´å®ƒæ—¦å·¦çš¿æ’²äº¦ä»¶æ´¶äº”æ¯›  èœ‡å…æœˆå•ƒåã€•
+						 * æˆšåŠé–¡åèŸ†åŠé–¡åŠ  æ¯›é¦¨ä¸¹æ–¹ä¸¹åå…æœˆ
 						 */
 						end = start;
 						if( parent_dir != -1 ) {
@@ -710,8 +710,8 @@ void CHAR_walkcall( int index )
 					int petindex = CHAR_getWorkInt( toindex, CHAR_WORKPETFOLLOW);
 					if( CHAR_CHECKINDEX(petindex) ) {
 						int		parent_dir;
-						/* »Ò¤Î°Ì  ¤È¡f¿Æ¤Î¬¤¤­Á°¤Î°Ì  ¤«¤é  ¸ş¤òµá¤á¤ë */
-						/* ¬¤¤¯ */
+						/* é–¡åŠåŒ  åˆã€•è¤ªåŠæ´¶äº”èŸ†åŠåŒ  äº•æ—¥  è¼Šæ¯›è²æˆ¶æœˆ */
+						/* æ´¶ä» */
 						end.x = CHAR_getInt( toindex, CHAR_X);
 						end.y = CHAR_getInt( toindex, CHAR_Y);						
 						start.x = CHAR_getInt( petindex, CHAR_X);
@@ -745,7 +745,7 @@ void CHAR_walkcall( int index )
 						}
 					}
 					else {
-						/* ½é´ü²½¤·¤Ê¶³¤¹ */
+						/* è³¡æ¸ç¥­ä»„å…é›²å… */
 						CHAR_setWorkInt( index, i+CHAR_WORKPARTYINDEX1, -1);
 					}
 				}
@@ -756,8 +756,8 @@ void CHAR_walkcall( int index )
 					int petindex = CHAR_getWorkInt( index, CHAR_WORKPETFOLLOW);
 					if( CHAR_CHECKINDEX(petindex) ) {
 						int		parent_dir;
-						/* »Ò¤Î°Ì  ¤È¡f¿Æ¤Î¬¤¤­Á°¤Î°Ì  ¤«¤é  ¸ş¤òµá¤á¤ë */
-						/* ¬¤¤¯ */
+						/* é–¡åŠåŒ  åˆã€•è¤ªåŠæ´¶äº”èŸ†åŠåŒ  äº•æ—¥  è¼Šæ¯›è²æˆ¶æœˆ */
+						/* æ´¶ä» */
 						end.x = CHAR_getInt( index, CHAR_X);
 						end.y = CHAR_getInt( index, CHAR_Y);						
 						start.x = CHAR_getInt( petindex, CHAR_X);
@@ -772,8 +772,8 @@ void CHAR_walkcall( int index )
 						//if( (end.x == start.x) && (end.x == start.y) )
 						//	parent_dir = -1;						
 
-						/* ¥°¥é¥Ç¥£¥¦¥¹¥ª¥×¼³¥ç¥ó¬¤¤­¤ò  ¸½¤¹¤ë°Ù¤Ë¡f
-						 * ±­¤Î»Ò¤ÏÁ°¤Î»Ò¤Î  ¤òÄÉ¤¦¤è¤¦¤Ë¤¹¤ë
+						/* å¼˜ä»¿çŠ¯å¥´å®ƒæ—¦å·¦çš¿æ’²äº¦ä»¶æ´¶äº”æ¯›  èœ‡å…æœˆå•ƒåã€•
+						 * æˆšåŠé–¡åèŸ†åŠé–¡åŠ  æ¯›é¦¨ä¸¹æ–¹ä¸¹åå…æœˆ
 						 */
 						//print(" pdir:%d sx:%d sy:%d ex:%d ey:%d ", 
 						//	parent_dir, start.x, start.y, end.x, end.y ); 
@@ -797,7 +797,7 @@ void CHAR_walkcall( int index )
 						}
 					}
 					else {
-						/* ½é´ü²½¤·¤Ê¶³¤¹ */
+						/* è³¡æ¸ç¥­ä»„å…é›²å… */
 						CHAR_setWorkInt( index, CHAR_WORKPETFOLLOW, -1);
 					}
 				
@@ -809,8 +809,8 @@ void CHAR_walkcall( int index )
     }
 
     /* 99/03/09 By Kawata */
-    /* walk¤Î·ë²Ì¡bWALKARRAY¤¬¥¯¥ê¥¢¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¤¬¤¢¤ë¤Î¤Ç
-     * ¼è¤ê  ¤·¤Æ¥³¥Ô¤ë
+    /* walkåŠç‘›çµ†ï½WALKARRAYäº’å¼ä¼‰å¤±ä»Šæœ¨åŒ–ä¸­æœˆæ¨ºå¯§äº’ä¸æœˆåŠåŒ¹
+     * æ½¸æ›°  ä»„åŒ–æˆŠç–‹æœˆ
      */
     strcpysafe( tmp ,sizeof(tmp),
                 CHAR_getWorkChar(index,CHAR_WORKWALKARRAY));
@@ -818,7 +818,7 @@ void CHAR_walkcall( int index )
         CHAR_setWorkChar(index,CHAR_WORKWALKARRAY,&tmp[1]);
     }
 
-    /*  »ş´Ö¤ò¿Ê¤á¤ë    */
+    /*  å‡œæ£‰æ¯›è¤¡æˆ¶æœˆ    */
     CHAR_setWorkInt( index, CHAR_WORKWALKSTARTSEC , NowTime.tv_sec );
     CHAR_setWorkInt( index, CHAR_WORKWALKSTARTMSEC , NowTime.tv_usec );
 }
@@ -826,13 +826,13 @@ void CHAR_walkcall( int index )
 
 
 /*------------------------------------------------------------
- * ¬¤¤­»Ï¤á¤òÅĞ  ¤¹¤ë¡e
- * °ú¿ô
- *  index           int         ¥­¥ã¥é    ¤Ç¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- *  dir             char*         ¸ş  »ú  
+ * æ´¶äº”éŠ¨æˆ¶æ¯›ç“š  å…æœˆã€”
+ * å©é†’
+ *  index           int         å¹³ä¹“ä»¿    åŒ¹åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ *  dir             char*         è¼Š  å„‚  
  *  id              int         ID
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 void CHAR_walk_start(int index, int x, int y, char* dir, BOOL mapsendmode )
 {
@@ -847,7 +847,7 @@ void CHAR_walk_start(int index, int x, int y, char* dir, BOOL mapsendmode )
        ox = CHAR_getInt(index,CHAR_X);
        oy = CHAR_getInt(index,CHAR_Y);
        if ( ABS(x - ox) > seesiz || ABS(y - oy) > seesiz ) {
-          CHAR_talkToCli(index, -1, "¦]®y¼Ğ¿ù»~¦ÓÂ_½u¡C", CHAR_COLORYELLOW);
+          CHAR_talkToCli(index, -1, "å› åº§æ¨™éŒ¯èª¤è€Œæ–·ç·šã€‚", CHAR_COLORYELLOW);
           CONNECT_setCloseRequest(getfdFromCharaIndex(index) , 1);
           return;
        }
@@ -895,13 +895,13 @@ void CHAR_walk_start(int index, int x, int y, char* dir, BOOL mapsendmode )
     if( strlen( dir ) >= 1 ) CHAR_walkcall( index );
 }
 /*------------------------------------------------------------
- * ¬¤¤­¤Î  ½é
- * °ú¿ô
- *  index           int         ¥­¥ã¥é    ¤Ç¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
- *  dir             char*         ¸ş  »ú  
+ * æ´¶äº”åŠ  è³¡
+ * å©é†’
+ *  index           int         å¹³ä¹“ä»¿    åŒ¹åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+ *  dir             char*         è¼Š  å„‚  
  *  id              int         ID
- * ÊÖ¤êÃÍ
- *  ¤Ê¤·
+ * å¿’æ›°è¥–
+ *  å…ä»„
  ------------------------------------------------------------*/
 void CHAR_walk_init( int fd, int x, int y, char *direction, BOOL mapsendmode)
 {
@@ -925,7 +925,7 @@ void CHAR_walk_init( int fd, int x, int y, char *direction, BOOL mapsendmode)
 		int		dir, mode;
 	    CHAR_ctodirmode( direction[0], &dir ,&mode );
 		if( mode == 0 ) {
-			//print( "ª±®a¨Ã«D»â¶¤¤]«D³æ¤Hª±®a¡C\n");
+			//print( "ç©å®¶ä¸¦éé ˜éšŠä¹Ÿéå–®äººç©å®¶ã€‚\n");
 		}else {
 	    	CHAR_walk_start( CONNECT_getCharaindex(fd),
                              x,y,direction, FALSE );
@@ -1033,7 +1033,7 @@ void CHAR_sendCharaAtWalk( int charaindex, int of,int ox,int  oy,int xflg, int y
 									//print(" %s[%d]: BATTLE_CHECKINDEX( %d) err!!\n", __FILE__, __LINE__, battleno);
 								}else	{
 									helpno = (BattleArray[ battleno].Side[ sideno].flg & BSIDE_FLG_HELP_OK) ? TRUE:FALSE;
-									/* HelpNo = 1 ¤Ï²¾ */
+									/* HelpNo = 1 åç§» */
 									if( CHAR_makeCAOPT3String( objindex, cabuf, sizeof( cabuf),
 																CHAR_ACTBATTLE,	battleno,sideno,helpno )){
 										CONNECT_appendCAbuf( fd,cabuf,strlen(cabuf));
@@ -1217,9 +1217,9 @@ static void CHAR_sendCDCharaAtWalk( int charaindex, int of, int ox, int oy,	 int
 	x = CHAR_getInt( charaindex, CHAR_X);
 	y = CHAR_getInt( charaindex, CHAR_Y);
 
-	if( of !=  fl ||  /*  ¥Õ¤Ò¥¢¤¬°ã¤¦    */
-		ABS(x - ox) > seesiz/2 ||       /*  º¹¤¬  ¤­¤¤  */
-		ABS(y - oy) > seesiz/2 )        /*  º¹¤¬  ¤­¤¤  */
+	if( of !=  fl ||  /*  ç™½å¤«å¤±äº’å•œä¸¹    */
+		ABS(x - ox) > seesiz/2 ||       /*  çŠ’äº’  äº”ä¸­  */
+		ABS(y - oy) > seesiz/2 )        /*  çŠ’äº’  äº”ä¸­  */
 		return;
 
 	fd = getfdFromCharaIndex( charaindex );

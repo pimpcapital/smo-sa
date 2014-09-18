@@ -1,32 +1,32 @@
 #ifndef _RECV_H_
 #define _RECV_H_
 
-#ifdef _CK_ONLINE_PLAYER_COUNT    // WON ADD ­pºâ½u¤W¤H¼Æ
+#ifdef _CK_ONLINE_PLAYER_COUNT    // WON ADD è¨ˆç®—ç·šä¸Šäººæ•¸
 void PlayerCount(void);
 #endif
 
-#ifdef _SEND_EFFECT		   // WON ADD °e¤U³·¡B¤U«Bµ¥¯S®Ä
+#ifdef _SEND_EFFECT		   // WON ADD é€ä¸‹é›ªã€ä¸‹é›¨ç­‰ç‰¹æ•ˆ
 void SendEffect(char *ffect);
 #endif
 
-#ifdef _BAD_PLAYER            // WON ADD °eÃaª±®a¥hÃö
+#ifdef _BAD_PLAYER            // WON ADD é€å£ç©å®¶å»é—œ
 void BadPlayer(void);
 char BadPlayerList[500][20];
 int MAX_BAD_PLAYER;
 #endif
 
-#ifdef _WORKER_AUTO_LOGOUT     // WON ADD GSÂ_½u¦Û°Ê°eLOGOUTµ¹WORKER
+#ifdef _WORKER_AUTO_LOGOUT     // WON ADD GSæ–·ç·šè‡ªå‹•é€LOGOUTçµ¦WORKER
 void Worker_send_logout( int ti ,char* id );
 #endif
 
 
-#ifdef _AC_SEND_FM_PK		 // WON ADD ²ø¶é¹ï¾Ô¦CªíÀx¦s¦bAC
+#ifdef _AC_SEND_FM_PK		 // WON ADD èŠåœ’å°æˆ°åˆ—è¡¨å„²å­˜åœ¨AC
 void load_fm_pk_list(void);
 void save_fm_pk_list(void);
 char fm_pk_list[10][255];
 #endif
 
-#ifdef _ALLDOMAN // Syu ADD ±Æ¦æº]NPC
+#ifdef _ALLDOMAN // Syu ADD æ’è¡Œæ¦œNPC
 void LOAD_herolist(); 
 void SAVE_herolist(int);
 void Send_A_herolist(int);
@@ -52,7 +52,7 @@ char Herolist[MAX_HERO_LIST][MAX_HERO_COLUMN][72];
 #endif
 
 
-#ifdef _RECAL_BACKUP_PLAYER			// WON ¦^·¹¥\¯à
+#ifdef _RECAL_BACKUP_PLAYER			// WON å›æº¯åŠŸèƒ½
 
 struct PLAYER_DATA {
 	char name[20];
@@ -130,12 +130,12 @@ int UNlockM_UnlockPlayer( void);
 int UNlockM_Init( void);
 
 
-#ifdef _GM_BROADCAST					// WON ADD «ÈªA¤½§i¨t²Î
+#ifdef _GM_BROADCAST					// WON ADD å®¢æœå…¬å‘Šç³»çµ±
 void broadcast( char *msg );
 #endif
 
 
-#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 void saacproto_ACShowMemberList_2_recv( int fd, int charindex, int fm1, int fm2, int time, int id );
 #endif
 

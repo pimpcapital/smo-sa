@@ -15,7 +15,7 @@
 #include "char_talk.h"
 
 /*========================================================================
- * ¥Ú¥Ã¥È¤Î  ¤Ë¤Ä¤¤¤Æ¤Î¥½¡¼¥¹ Ãdª«ªº¦U¦¡§Ş¯à
+ * çŸ¢æ°¸ç„åŠ  åå‹¾ä¸­åŒ–åŠæœ«â–¡æ—¦ å¯µç‰©çš„å„å¼æŠ€èƒ½
  *========================================================================*/
 
 
@@ -24,13 +24,13 @@ static int		PETSKILL_petskillnum;
 
 typedef struct tagPetskill_PetskillFunctionTable
 {
-	char			*functionname;		/*	ÀßÄê¥Õ¥¡¥¤¥ë¤Ë½ñ¤¯´Ø¿ô¤Î  Á° */
-	PETSKILL_CALLFUNC	func;				/*    ºİ¤Ë¸Æ¤Ó½Ğ¤µ¤ì¤ë´Ø¿ô */
+	char			*functionname;		/*	æ¾€çˆ›ç™½å¤®å¥¶ä¼™åè¸ä»æ¥®é†’åŠ  èŸ† */
+	PETSKILL_CALLFUNC	func;				/*    ç«¯åè£Ÿå¤ªè«‹ä»Šæœ¨æœˆæ¥®é†’ */
 	int				hash;				/*  hash */
-	int				status;				/*  ¤³¤Î¥³¥Ş¥ó¥É¤ò¥Ú¥Ã¥È¤¬»ØÄê¤·¤¿°õ */
+	int				status;				/*  ä»‡åŠæˆŠç©´ä»¶ç‰æ¯›çŸ¢æ°¸ç„äº’éš™çˆ›ä»„å‡¶åŸ· */
 }PETSKILL_PetskillFunctionTable;
 
-/*   ¤ò  ¤ä¤·¤¿¤é¤³¤³¤ËÅĞ  ¤¹¤ë»ö */
+/*   æ¯›  æ”¯ä»„å‡¶æ—¥ä»‡ä»‡åç“š  å…æœˆå„€ */
 static PETSKILL_PetskillFunctionTable PETSKILL_functbl[] = {
 	{ "PETSKILL_None",				PETSKILL_None,		0 },
 	{ "PETSKILL_NormalAttack",		PETSKILL_NormalAttack,	0 },
@@ -43,7 +43,7 @@ static PETSKILL_PetskillFunctionTable PETSKILL_functbl[] = {
 	{ "PETSKILL_StatusChange",		PETSKILL_StatusChange,	0 },
 	{ "PETSKILL_EarthRound",		PETSKILL_EarthRound,	0 },
 	{ "PETSKILL_GuardBreak",		PETSKILL_GuardBreak,	0 },
-#ifdef _SKILL_GUARDBREAK2//¯}°£¨¾¿m2 vincent add 2002/05/20
+#ifdef _SKILL_GUARDBREAK2//ç ´é™¤é˜²ç¦¦2 vincent add 2002/05/20
 	{ "PETSKILL_GuardBreak2",		PETSKILL_GuardBreak2,	0 },
 #endif
 	{ "PETSKILL_Abduct",			PETSKILL_Abduct,		0 },
@@ -113,7 +113,7 @@ static PETSKILL_PetskillFunctionTable PETSKILL_functbl[] = {
 	{ "PETSKILL_AttackCrazed",	PETSKILL_AttackCrazed, 0},
 #endif
 
-#ifdef _SHOOTCHESTNUT	// Syu ADD Ãd§Ş¡G¥á®ß¤l
+#ifdef _SHOOTCHESTNUT	// Syu ADD å¯µæŠ€ï¼šä¸Ÿæ —å­
 	{ "PETSKILL_AttackShoot",	PETSKILL_AttackShoot, 0},
 #endif
 
@@ -154,27 +154,27 @@ static PETSKILL_PetskillFunctionTable PETSKILL_functbl[] = {
 #ifdef _SKILL_REFRESH
     { "PETSKILL_Refresh",	PETSKILL_Refresh, 0},//vincent add 2002/08/08
 #endif
-#ifdef _SKILL_WEAKEN  //vincentÃd§Ş:µê®z
+#ifdef _SKILL_WEAKEN  //vincentå¯µæŠ€:è™›å¼±
     { "PETSKILL_Weaken",	PETSKILL_Weaken, 0},//vincent add 2002/07/11
 #endif
-#ifdef _SKILL_DEEPPOISON  //vincentÃd§Ş:¼@¬r 
+#ifdef _SKILL_DEEPPOISON  //vincentå¯µæŠ€:åŠ‡æ¯’ 
     { "PETSKILL_Deeppoison",	PETSKILL_Deeppoison, 0},//vincent add 2002/07/16
 #endif
-#ifdef _SKILL_BARRIER  //vincentÃd§Ş:Å]»Ù 
+#ifdef _SKILL_BARRIER  //vincentå¯µæŠ€:é­”éšœ 
     { "PETSKILL_Barrier",	PETSKILL_Barrier, 0},//vincent add 2002/07/16
 #endif
-#ifdef _SKILL_NOCAST  //vincentÃd§Ş:¨IÀq 
+#ifdef _SKILL_NOCAST  //vincentå¯µæŠ€:æ²‰é»˜ 
     { "PETSKILL_Nocast",	PETSKILL_Nocast, 0},//vincent add 2002/07/16
 #endif
-#ifdef _SKILL_ROAR //vincentÃd§Ş:¤j§q
+#ifdef _SKILL_ROAR //vincentå¯µæŠ€:å¤§å¼
     { "PETSKILL_Roar",	PETSKILL_Roar, 0},//vincent add 2002/07/11
 #endif	
 
-#ifdef _PET_SKILL_SARS				// WON ADD ¬r·Ù½¯©µ
+#ifdef _PET_SKILL_SARS				// WON ADD æ¯’ç…è”“å»¶
 	{ "PETSKILL_Sars",	PETSKILL_Sars, 0},
 #endif
 
-#ifdef _SONIC_ATTACK				// WON ADD ­µªi§ğÀ»
+#ifdef _SONIC_ATTACK				// WON ADD éŸ³æ³¢æ”»æ“Š
 	{ "PETSKILL_Sonic",	PETSKILL_Sonic, 0},
 #endif
 #ifdef _PETSKILL_REGRET
@@ -185,7 +185,7 @@ static PETSKILL_PetskillFunctionTable PETSKILL_functbl[] = {
     { "PETSKILL_Gyrate", PETSKILL_Gyrate, 0},
 #endif 
 	
-#ifdef _PETSKILL_ACUPUNCTURE //°w¨ë¥~¥Ö
+#ifdef _PETSKILL_ACUPUNCTURE //é‡åˆºå¤–çš®
     { "PETSKILL_Acupuncture", PETSKILL_Acupuncture, 0},
 #endif
 
@@ -233,7 +233,7 @@ static PETSKILL_PetskillFunctionTable PETSKILL_functbl[] = {
 /*----------------------------------------------------------------------*/
 
 
-/* ´ğ  ¥Á¥§¥Ã¥¯¡f¥¢¥¯¥»¥¹´Ø·¸ */
+/* æ¹˜  æ°‘å°¼æ°¸å¼ã€•å¤±å¼æœ¬æ—¦æ¥®æº¢ */
 /*----------------------------------------------------------------------*/
 INLINE BOOL PETSKILL_CHECKINDEX( int index )
 {
@@ -284,7 +284,7 @@ INLINE BOOL PETSKILL_setChar( int index ,PETSKILL_DATACHAR element, char* new )
     return TRUE;
 }
 /*----------------------------------------------------------------------
- * ¥Ú¥Ã¥È  ¤Î¿ô¤òÃÎ¤ë¡e
+ * çŸ¢æ°¸ç„  åŠé†’æ¯›è¥æœˆã€”
  *---------------------------------------------------------------------*/
 int PETSKILL_getPetskillNum( void)
 {
@@ -298,7 +298,7 @@ int PETSKILL_getPetskillNum( void)
 #endif
 
 /*----------------------------------------------------------------------
- * ¥Ú¥Ã¥È  ¤ÎÀßÄê¥Õ¥¡¥¤¥ë¤ò  ¤à//ªì©lÃd§Ş
+ * çŸ¢æ°¸ç„  åŠæ¾€çˆ›ç™½å¤®å¥¶ä¼™æ¯›  æˆˆ//åˆå§‹å¯µæŠ€
  *---------------------------------------------------------------------*/
 BOOL PETSKILL_initPetskill( char *filename)
 {
@@ -317,7 +317,7 @@ BOOL PETSKILL_initPetskill( char *filename)
 
     PETSKILL_petskillnum=0;
 
-    /*  ¤Ş¤º  ¸ú¤Ê¹Ô¤¬²¿¹Ô¤¢¤ë¤«¤É¤¦¤«Ä´¤Ù¤ë    *///Åª¦±Ãd§ŞÁ`¼Æ
+    /*  å¼•å…§  èº²å…å¢Šäº’çª’å¢Šä¸æœˆäº•å‡ä¸¹äº•è­¬å±¯æœˆ    *///è®€æ›²å¯µæŠ€ç¸½æ•¸
     while( fgets( line, sizeof( line ), f ) ){
 		char    token[256];
         linenum ++;
@@ -325,10 +325,10 @@ BOOL PETSKILL_initPetskill( char *filename)
         if( line[0] == '\n' )continue;       /* none    */
         chomp( line );
         PETSKILL_petskillnum++;
-#ifdef _PETSKILL_OPTIMUM // Robin ¨ú¥X³Ì¤jÃd§ŞID
+#ifdef _PETSKILL_OPTIMUM // Robin å–å‡ºæœ€å¤§å¯µæŠ€ID
 		if( getStringFromIndexWithDelim( line, ",", PETSKILL_STARTINTNUM, token, sizeof(token)) == FALSE )
 			continue;
-		//print("\n Ãd§ŞID:%d %s ", atoi( token), line);
+		//print("\n å¯µæŠ€ID:%d %s ", atoi( token), line);
 		max_skillid = max( atoi( token), max_skillid);
 #endif
     }
@@ -339,9 +339,9 @@ BOOL PETSKILL_initPetskill( char *filename)
         return FALSE;
     }
 
-#ifdef _PETSKILL_OPTIMUM // Ãd§ŞTable¼Æ¬° ³Ì¤j§Ş¯àID +1
+#ifdef _PETSKILL_OPTIMUM // å¯µæŠ€Tableæ•¸ç‚º æœ€å¤§æŠ€èƒ½ID +1
 	PETSKILL_petskillnum = max_skillid +1;
-//	print("\n ³Ì¤jÃd§ŞID = %d\n", max_skillid);
+//	print("\n æœ€å¤§å¯µæŠ€ID = %d\n", max_skillid);
 #endif
 
     PETSKILL_petskill = allocateMemory( sizeof(struct tagPetskill)
@@ -353,7 +353,7 @@ BOOL PETSKILL_initPetskill( char *filename)
         return FALSE;
     }
 
-	/* ½é´ü²½ */
+	/* è³¡æ¸ç¥­ */
     for( i = 0; i < PETSKILL_petskillnum; i ++ ) {
     	for( j = 0; j < PETSKILL_DATAINTNUM; j ++ ) {
     		PETSKILL_setInt( i,j,-1);
@@ -363,7 +363,7 @@ BOOL PETSKILL_initPetskill( char *filename)
     	}
     }
 
-    /*  ¤Ş¤¿  ¤ß  ¤¹    */
+    /*  å¼•å‡¶  å¿ƒ  å…    */
     linenum = 0;
     while( fgets( line, sizeof( line ), f ) ){
         linenum ++;
@@ -372,10 +372,10 @@ BOOL PETSKILL_initPetskill( char *filename)
                 
         chomp( line );
 
-        /*  ¹Ô¤òÀ°·Á¤¹¤ë    */
-        /*  ¤Ş¤º tab ¤ò " " ¤Ë  ¤­´¹¤¨¤ë    */
+        /*  å¢Šæ¯›å¹«æº¥å…æœˆ    */
+        /*  å¼•å…§ tab æ¯› " " å  äº”æ™¶å°¹æœˆ    */
         replaceString( line, '\t' , ' ' );
-        /* Àè  ¤Î¥¹¥Ú¡¼¥¹¤ò¼è¤ë¡e*/
+        /* ç‡®  åŠæ—¦çŸ¢â–¡æ—¦æ¯›æ½¸æœˆã€”*/
 {
         char    buf[256];
         for( i = 0; i < strlen( line); i ++) {
@@ -392,7 +392,7 @@ BOOL PETSKILL_initPetskill( char *filename)
         char    token[256];
         int     ret;
 
-#ifdef _PETSKILL_OPTIMUM // Åª¨ú¥»¦æÃd§ŞªºID, ª½±µ¥HÃd§ŞID·íTable index
+#ifdef _PETSKILL_OPTIMUM // è®€å–æœ¬è¡Œå¯µæŠ€çš„ID, ç›´æ¥ä»¥å¯µæŠ€IDç•¶Table index
 		ret = getStringFromIndexWithDelim( line, ",", PETSKILL_STARTINTNUM, token, sizeof(token));
 		if( ret==FALSE ){
 			fprint("Syntax Error file:%s line:%d\n",filename,linenum);
@@ -402,7 +402,7 @@ BOOL PETSKILL_initPetskill( char *filename)
 #endif
 
 		for( i = 0; i < PETSKILL_DATACHARNUM; i ++ ) {
-	        /*    »ú  ÍÑ¥È¡¼¥¯¥ó¤ò¸«¤ë    */
+	        /*    å„‚  è¿•ç„â–¡å¼ä»¶æ¯›è‘¦æœˆ    */
 	        ret = getStringFromIndexWithDelim( line,",", i + 1, token,sizeof(token));
 	        if( ret==FALSE ){
 	            fprint("Syntax Error file:%s line:%d\n",filename,linenum);
@@ -411,7 +411,7 @@ BOOL PETSKILL_initPetskill( char *filename)
 	        PETSKILL_setChar( petskill_readlen, i, token);
 		}
 
-        /* 4¤Ä  °Ê¹ß¤Ï¿ôÃÍ¥Ç¡¼¥¿ */
+        /* 4å‹¾  å‹•å«¦åé†’è¥–çŠ¯â–¡æ­£ */
         for( i = PETSKILL_STARTINTNUM; i < PETSKILL_DATAINTNUM+PETSKILL_STARTINTNUM; i ++ ) {
             ret = getStringFromIndexWithDelim( line,",",i,token,
                                                sizeof(token));
@@ -444,7 +444,7 @@ BOOL PETSKILL_initPetskill( char *filename)
 
     print( "Valid petskill Num is %d...", PETSKILL_petskillnum );
 
-	/* hash ¤ÎÅĞ   */
+	/* hash åŠç“š   */
 	for( i = 0; i < arraysizeof( PETSKILL_functbl); i ++ ) {
 		PETSKILL_functbl[i].hash = hashpjw( PETSKILL_functbl[i].functionname);
 	}
@@ -467,7 +467,7 @@ BOOL PETSKILL_initPetskill( char *filename)
     return TRUE;
 }
 /*------------------------------------------------------------------------
- * Petskill¤ÎÀßÄê¥Õ¥¡¥¤¥ë  ¤ß  ¤·
+ * PetskillåŠæ¾€çˆ›ç™½å¤®å¥¶ä¼™  å¿ƒ  ä»„
  *-----------------------------------------------------------------------*/
 BOOL PETSKILL_reinitPetskill( void )
 {
@@ -475,14 +475,14 @@ BOOL PETSKILL_reinitPetskill( void )
 	return( PETSKILL_initPetskill( getPetskillfile()));
 }
 /*------------------------------------------------------------------------
- * PETSKILL_ID¤«¤éÅº»ú¤òÃÎ¤ë´Ø¿ô
- * ÊÖ¤êÃÍ
- * ©¨  : Åº»ú
- * ¼º  : -1
+ * PETSKILL_IDäº•æ—¥é©•å„‚æ¯›è¥æœˆæ¥®é†’
+ * å¿’æ›°è¥–
+ * å²³  : é©•å„‚
+ * æ’©  : -1
  *-----------------------------------------------------------------------*/
 int PETSKILL_getPetskillArray( int petskillid)
 {
-#ifdef _PETSKILL_OPTIMUM // ¬d¸ßÃd§ŞID§ï¬°°}¦C¦¡
+#ifdef _PETSKILL_OPTIMUM // æŸ¥è©¢å¯µæŠ€IDæ”¹ç‚ºé™£åˆ—å¼
 	if( petskillid >= 0 && petskillid < PETSKILL_petskillnum )
 		return PETSKILL_petskill[petskillid].data[PETSKILL_ID];
 #else
@@ -496,11 +496,11 @@ int PETSKILL_getPetskillArray( int petskillid)
 	return -1;
 }
 /*------------------------------------------------------------
- * ¥Ú¥Ã¥È  ¤Î´Ø¿ô  ¤«¤é¥İ¥¤¥ó¥¿¡¼¤òÊÖ¤¹
- * °ú¿ô
- *  name        char*       ¼ö½Ñ¤Î  Á°
- * ÊÖ¤êÃÍ
- *  ´Ø¿ô¤Ø¤Î¥İ¥¤¥ó¥¿¡e¤Ê¤¤¾ì¹ç¤Ë¤ÏNULL
+ * çŸ¢æ°¸ç„  åŠæ¥®é†’  äº•æ—¥ç¦¾å¥¶ä»¶æ­£â–¡æ¯›å¿’å…
+ * å©é†’
+ *  name        char*       ç†±è«¸åŠ  èŸ†
+ * å¿’æ›°è¥–
+ *  æ¥®é†’å°ºåŠç¦¾å¥¶ä»¶æ­£ã€”å…ä¸­æ¨ºå¯§ååNULL
  ------------------------------------------------------------*/
 PETSKILL_CALLFUNC PETSKILL_getPetskillFuncPointer(char* name )
 {
@@ -530,7 +530,7 @@ int PETSKILL_Use(
     char combined[32], *pszOption;
 
 	petskillid = CHAR_getPetSkill( charaindex, havepetskill);
-#ifdef _FIXWOLF	 // Syu ADD ­×¥¿¯T¤HÅÜ¨­Bug
+#ifdef _FIXWOLF	 // Syu ADD ä¿®æ­£ç‹¼äººè®Šèº«Bug
     if( petskillid == 600 ){
 		if ( CHAR_getInt ( charaindex , CHAR_BASEIMAGENUMBER) == 101428 )
         petskillid = -1;
@@ -630,7 +630,7 @@ int PETSKILL_ChargeAttack(
 	}else{
 		N = 1;
 	}
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%d", &Per );
 	}
 	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, N );
@@ -653,7 +653,7 @@ int PETSKILL_Guardian(
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
@@ -661,7 +661,7 @@ int PETSKILL_Guardian(
 		CHAR_setWorkInt(charaindex,CHAR_WORKATTACKPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef));
 	}
 
-	if( (pszP = strstr( pszOption, "¨¾%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "é˜²%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXTOUGH);
@@ -682,7 +682,7 @@ int PETSKILL_Guardian(
 	pos = BATTLE_Index2No( battleindex, charaindex );
 
 	if( (pszP = strstr( pszOption, "COM:" ) ) != NULL
-	&&  strstr( pszP+4, "¨¾¿m" ) != NULL
+	&&  strstr( pszP+4, "é˜²ç¦¦" ) != NULL
 	){
 		CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_GUARD );
 
@@ -722,13 +722,13 @@ int PETSKILL_Mighty(
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toindex );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
-	if( (pszP = strstr( pszOption, "­¿" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "å€" ) ) != NULL ){
 		sscanf( pszP+2, "%f", &fBai );
 		iBai = (int)(fBai * 100);
 	}
 	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, iBai );
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
-	if( ( pszP = strstr( pszOption, "Á×" ) ) != NULL){
+	if( ( pszP = strstr( pszOption, "é¿" ) ) != NULL){
 		sscanf(	 pszP+2, "%d", &iDuck );
 	}
 	CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM3, iDuck );
@@ -758,7 +758,7 @@ int PETSKILL_PowerBalance(
 		print("\n pszOption == NULL ");
 		return FALSE;
 	}
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
@@ -766,7 +766,7 @@ int PETSKILL_PowerBalance(
 		CHAR_setWorkInt(charaindex,CHAR_WORKATTACKPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef));
 	}
 
-	if( (pszP = strstr( pszOption, "¨¾%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "é˜²%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXTOUGH);
@@ -817,7 +817,7 @@ int PETSKILL_StatusChange(
 	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, i );
 	CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM3, turn );
 
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
@@ -826,7 +826,7 @@ int PETSKILL_StatusChange(
 			(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef) );
 	}
 
-	if( (pszP = strstr( pszOption, "¨¾%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "é˜²%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 
@@ -868,7 +868,7 @@ int PETSKILL_Vary( int cindex, int tindex, int id, char* data)
 		print("\n pszOption==NULL");
 		return FALSE;
 	}
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		CHAR_setWorkInt( cindex, CHAR_SKILLSTRPOWER, fPer);
 		fPer = fPer / 100;
@@ -877,7 +877,7 @@ int PETSKILL_Vary( int cindex, int tindex, int id, char* data)
 		CHAR_setWorkInt( cindex, CHAR_WORKATTACKPOWER, CHAR_getWorkInt( cindex, CHAR_WORKFIXSTR) + a_dep);
 		
 	}
-	if( (pszP = strstr( pszOption, "±Ó%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ•%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		CHAR_setWorkInt( cindex, CHAR_SKILLDEXPOWER, fPer);
 		fPer = fPer / 100;
@@ -920,31 +920,31 @@ int PETSKILL_WildViolentAttack(
 		print("\n pszOption == NULL ");
 		return FALSE;
 	}
-	//Åª¨ú§ğ­È
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	//è®€å–æ”»å€¼
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 
-		//³]©w­×¥¿­È
+		//è¨­å®šä¿®æ­£å€¼
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
 		strdef=(int)(strdef * fPer);
 		CHAR_setWorkInt(charaindex,CHAR_WORKATTACKPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef));
 	}
-    //Åª¨ú¨¾­È
-	if( (pszP = strstr( pszOption, "¨¾%" ) ) != NULL ){
+    //è®€å–é˜²å€¼
+	if( (pszP = strstr( pszOption, "é˜²%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 
-		//³]©w­×¥¿­È
+		//è¨­å®šä¿®æ­£å€¼
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXTOUGH);
 		strdef=(int)(strdef * fPer);
 		CHAR_setWorkInt(charaindex,CHAR_WORKDEFENCEPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXTOUGH)+strdef));
 	}
-    //Åª¨úÁ×­È
-	if( ( pszP = strstr( pszOption, "Á×" ) ) != NULL){
+    //è®€å–é¿å€¼
+	if( ( pszP = strstr( pszOption, "é¿" ) ) != NULL){
 		sscanf(	 pszP+2, "%d", &iDuck );
 	}
-	//       ½¤Àµ¤òÊİÂ¸
+	//       è†œæ‡‡æ¯›å¿¡ç¹¡
 	CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM3, iDuck );
 
 	return TRUE;
@@ -971,7 +971,7 @@ int PETSKILL_Sacrifice(
 	  else
 		{
 		        
-			sprintf(buf, "%s¦Û¨­­@¤[¤O¤£¨¬ ±Ï´©¥¢±Ñ!!", CHAR_getChar( charaindex, CHAR_NAME ));
+			sprintf(buf, "%sè‡ªèº«è€ä¹…åŠ›ä¸è¶³ æ•‘æ´å¤±æ•—!!", CHAR_getChar( charaindex, CHAR_NAME ));
 			CHAR_talkToCli( CHAR_getWorkInt(charaindex, CHAR_WORKPLAYERINDEX), -1, buf, CHAR_COLORYELLOW);
 				return FALSE;
 		}
@@ -995,7 +995,7 @@ int PETSKILL_Refresh(
 				return TRUE;
 }
 #endif
-#ifdef _SKILL_WEAKEN  //vincentÃd§Ş:µê®z
+#ifdef _SKILL_WEAKEN  //vincentå¯µæŠ€:è™›å¼±
 int PETSKILL_Weaken(
 	int charaindex,
 	int toindex,
@@ -1011,7 +1011,7 @@ int PETSKILL_Weaken(
 				return TRUE;
 }
 #endif
-#ifdef _SKILL_DEEPPOISON  //vincentÃd§Ş:¼@¬r 
+#ifdef _SKILL_DEEPPOISON  //vincentå¯µæŠ€:åŠ‡æ¯’ 
 int PETSKILL_Deeppoison(
 	int charaindex,
 	int toindex,
@@ -1028,7 +1028,7 @@ int PETSKILL_Deeppoison(
 }
 #endif
 
-#ifdef _SKILL_BARRIER  //vincentÃd§Ş:Å]»Ù
+#ifdef _SKILL_BARRIER  //vincentå¯µæŠ€:é­”éšœ
 int PETSKILL_Barrier(
 	int charaindex,
 	int toindex,
@@ -1045,7 +1045,7 @@ int PETSKILL_Barrier(
 }
 #endif
 
-#ifdef _SKILL_NOCAST  //vincentÃd§Ş:¨IÀq
+#ifdef _SKILL_NOCAST  //vincentå¯µæŠ€:æ²‰é»˜
 int PETSKILL_Nocast(
 	int charaindex,
 	int toindex,
@@ -1062,7 +1062,7 @@ int PETSKILL_Nocast(
 }
 #endif
 
-#ifdef _SKILL_ROAR //vincentÃd§Ş:¤j§q
+#ifdef _SKILL_ROAR //vincentå¯µæŠ€:å¤§å¼
 int PETSKILL_Roar(
 	int charaindex,
 	int toindex,
@@ -1079,7 +1079,7 @@ int PETSKILL_Roar(
 }
 #endif
 
-#ifdef _SKILL_GUARDBREAK2//¯}°£¨¾¿m2 vincent add 2002/05/20
+#ifdef _SKILL_GUARDBREAK2//ç ´é™¤é˜²ç¦¦2 vincent add 2002/05/20
 int PETSKILL_GuardBreak2(
 	int charaindex,
 	int toNo,
@@ -1162,7 +1162,7 @@ int PETSKILL_EarthRound(
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		CHAR_setWorkInt(charaindex,CHAR_WORKBATTLECOM3, (int)fPer );
 	}
@@ -1191,7 +1191,7 @@ int PETSKILL_GuardBreak(
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 
@@ -1204,7 +1204,7 @@ int PETSKILL_GuardBreak(
 	return TRUE;
 
 }
-#ifdef _SKILL_SPEEDY_ATT//¯e³t§ğÀ» vincent add 2002/05/20
+#ifdef _SKILL_SPEEDY_ATT//ç–¾é€Ÿæ”»æ“Š vincent add 2002/05/20
 int PETSKILL_SpeedyAttack(
 	int charaindex,
 	int toNo,
@@ -1228,12 +1228,12 @@ int PETSKILL_SpeedyAttack(
 		return FALSE;
 	}
 
-    //Åª¨ú¨¾­È
-	if( (pszP = strstr( pszOption, "¨¾%" ) ) != NULL ){
+    //è®€å–é˜²å€¼
+	if( (pszP = strstr( pszOption, "é˜²%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 
-		//³]©w­×¥¿­È
+		//è¨­å®šä¿®æ­£å€¼
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXTOUGH);
 		strdef=(int)(strdef * fPer);
 		CHAR_setWorkInt(charaindex,CHAR_WORKDEFENCEPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXTOUGH)+strdef));
@@ -1283,7 +1283,7 @@ int PETSKILL_StealMoney( int charaindex, int toNo, int array, char *data)
 #endif
 
 //*******************************************************
-// ÀĞ  -- ¥¢¥¤  ¥à¹ç©¨
+// æª—  -- å¤±å¥¶  ä¸å¯§å²³
 //
 int PETSKILL_Merge(
 	int charaindex,
@@ -1342,14 +1342,14 @@ int PETSKILL_NoGuard(
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
-	if( (pszP = strstr( pszOption, "Á×%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "é¿%" ) ) != NULL ){
 		sscanf( pszP+3, "%d", &Duck );
 		CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM3, Duck );
 	}
-	if( (pszP = strstr( pszOption, "À»%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ“Š%" ) ) != NULL ){
 		sscanf( pszP+3, "%d", &Counter );
 	}
-	if( (pszP = strstr( pszOption, "¤ß%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "å¿ƒ%" ) ) != NULL ){
 		sscanf( pszP+3, "%d", &Critical );
 	}
 	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3,
@@ -1370,32 +1370,32 @@ int PETSKILL_AttackMagic(
 	char *pszP;
 	char szMagic[] = "magic";
 	char szItem[] = "item";
-	int magic = 313,item = 19659;	// magic id¹w³]¬°¤õÅ]ªkµ¥¯Å¤@,item index¹w³]¬°19659
+	int magic = 313,item = 19659;	// magic idé è¨­ç‚ºç«é­”æ³•ç­‰ç´šä¸€,item indexé è¨­ç‚º19659
 
-	// ¨ú±oÃdª«§Ş¯à©R¥O
+	// å–å¾—å¯µç‰©æŠ€èƒ½å‘½ä»¤
 	pszP = PETSKILL_getChar( array, PETSKILL_OPTION );
 
-	// ¨ú±o¬I©ñªºÅ]ªkªºmagic id
+	// å–å¾—æ–½æ”¾çš„é­”æ³•çš„magic id
 	if((pszP = strstr(pszP,szMagic)) != NULL)
 	{
 		pszP += sizeof(szMagic);
 		sscanf(pszP,"%d",&magic);
 	}
-	// ¨ú±o¦³¦¹Å]ªkÄİ©Êªºitem index
+	// å–å¾—æœ‰æ­¤é­”æ³•å±¬æ€§çš„item index
 	if((pszP = strstr(pszP,szItem)) != NULL)
 	{
 		pszP += sizeof(szItem);
 		sscanf(pszP,"%d",&item);
 	}
-	// ³]©wÃdª«§Ş¯à¬°Å]ªk
+	// è¨­å®šå¯µç‰©æŠ€èƒ½ç‚ºé­”æ³•
 	CHAR_setWorkInt(charaindex,CHAR_WORKBATTLECOM1,BATTLE_COM_S_ATTACK_MAGIC );
-	// §ğÀ»¥Ø¼Ğ³]©w
+	// æ”»æ“Šç›®æ¨™è¨­å®š
 	CHAR_setWorkInt(charaindex,CHAR_WORKBATTLECOM2,toindex);
-	// ³]©w©Ò¨Ï¥Îªº¬O¨º¤@ºØÅ]ªk
+	// è¨­å®šæ‰€ä½¿ç”¨çš„æ˜¯é‚£ä¸€ç¨®é­”æ³•
 	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3,magic);
-	// ³]©w©Ò¨Ï¥ÎªºÅ]ªkªº¹D¨ã
+	// è¨­å®šæ‰€ä½¿ç”¨çš„é­”æ³•çš„é“å…·
 	CHAR_SETWORKINT_HIGH(charaindex,CHAR_WORKBATTLECOM3,item);
-	// ©R¥O¤U¹F§¹²¦
+	// å‘½ä»¤ä¸‹é”å®Œç•¢
 	CHAR_setWorkInt(charaindex,CHAR_WORKBATTLEMODE,BATTLE_CHARMODE_C_OK );
 
 	return TRUE;
@@ -1403,7 +1403,7 @@ int PETSKILL_AttackMagic(
 
 #endif
 
-#ifdef _PSKILL_FALLGROUND	//¸¨°¨³N
+#ifdef _PSKILL_FALLGROUND	//è½é¦¬è¡“
 int PETSKILL_FallGround( int charaindex, int toNo, int array, char *data )
 {
 	char *pszOption, *pszP;
@@ -1415,7 +1415,7 @@ int PETSKILL_FallGround( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
@@ -1445,14 +1445,14 @@ int PETSKILL_Explode( int charaindex, int toNo, int array, char *data )
 
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
-	if( (pszP = strstr( pszOption, "©R%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "å‘½%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
 		strdef=(int)(strdef * fPer);
 		CHAR_setWorkInt(charaindex,CHAR_WORKFIXDEX,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXDEX)+strdef));
 	}
-	if( (pszP = strstr( pszOption, "¨¾%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "é˜²%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
@@ -1491,7 +1491,7 @@ int ENEMYSKILL_EnemyHelp( int enemyindex, int toNo, int array, char *data )
 
 #endif
 
-#ifdef _SKILL_DAMAGETOHP	//¶İ¦å§Ş { "PETSKILL_DamageToHp",	PETSKILL_DamageToHp, 0},
+#ifdef _SKILL_DAMAGETOHP	//å—œè¡€æŠ€ { "PETSKILL_DamageToHp",	PETSKILL_DamageToHp, 0},
 int PETSKILL_DamageToHp( int charaindex, int toNo, int array, char *data )
 {
 	char *pszOption;
@@ -1502,7 +1502,7 @@ int PETSKILL_DamageToHp( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_DAMAGETOHP );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	//°O¿ı§Ş¯à
+	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„æŠ€èƒ½
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 
 	if( pszOption == NULL ) return FALSE;
@@ -1530,7 +1530,7 @@ int PETSKILL_MpDamage( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_MPDAMAGE );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	////°O¿ı§Ş¯à
+	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	////è¨˜éŒ„æŠ€èƒ½
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 	if( pszOption == NULL ) return FALSE;
@@ -1558,7 +1558,7 @@ int PETSKILL_ToothCrushe( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_TOOTHCRUSHE );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ı§Ş¯à
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„æŠ€èƒ½
 /*
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 	if( pszOption == NULL ) return FALSE;
@@ -1584,7 +1584,7 @@ int PETSKILL_Modifyattack( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_MODIFYATT );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ı§Ş¯à
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„æŠ€èƒ½
 /*
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 	if( pszOption == NULL ) return FALSE;
@@ -1611,7 +1611,7 @@ int PETSKILL_Mdfyattack( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_MDFYATTACK);
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 	if( pszOption == NULL ) return FALSE;
@@ -1622,11 +1622,11 @@ int PETSKILL_Mdfyattack( int charaindex, int toNo, int array, char *data )
 		break;
 	}
 	if( i == 4 ) return FALSE;
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM4, i);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM4, i);//è¨˜éŒ„å±¬æ€§
 	if( getStringFromIndexWithDelim( pszOption, "|", 2, buf1, sizeof( buf1)) == FALSE )
 		return FALSE;
 	nums=atoi( buf1);
-	CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM4, nums);//°O¿ı¼Æ­È
+	CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM4, nums);//è¨˜éŒ„æ•¸å€¼
 	return TRUE;
 }
 #endif
@@ -1663,12 +1663,12 @@ int PETSKILL_Inslay( int index, int toNo, int array, char *data)
 		if( !ITEM_CHECKINDEX( itemindex) ) continue;
 
 		if( i >= MAXINSLAY )	{
-			CHAR_talkToCli( charaindex, -1, "ºë¤u¨C¦¸¥u¯à¿ï¾Ü¥|­Óª««~¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charaindex, -1, "ç²¾å·¥æ¯æ¬¡åªèƒ½é¸æ“‡å››å€‹ç‰©å“ã€‚", CHAR_COLORYELLOW);
 			return FALSE;
 		}
 		for( j=0; j< MAXINSLAY; j++ ) {
 			if( itemindexs[j] == itemindex )	{
-				print("ºë¤uª««~index¬Û¦P ERROR !!\n");
+				print("ç²¾å·¥ç‰©å“indexç›¸åŒ ERROR !!\n");
 				return FALSE;
 			}
 		}
@@ -1677,7 +1677,7 @@ int PETSKILL_Inslay( int index, int toNo, int array, char *data)
 			return FALSE;
 		}
 		if( !strcmp( buf1, "\0") || !strcmp( buf1, "NULL") )	{
-			CHAR_talkToCli( charaindex, -1, "³o¼Ëª««~¤£¾A¦Xºë¤u¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charaindex, -1, "é€™æ¨£ç‰©å“ä¸é©åˆç²¾å·¥ã€‚", CHAR_COLORYELLOW);
 			return FALSE;
 		}
 		if( strstr( buf1, "INSLAY") != 0 )	{
@@ -1685,7 +1685,7 @@ int PETSKILL_Inslay( int index, int toNo, int array, char *data)
 				inslayindex = itemindex;
 				inslayno = itemno;
 			}else	{
-				CHAR_talkToCli( charaindex, -1, "ºë¤u¨C¦¸¥u¯à¿ï¾Ü¤@­ÓªZ¾¹©Î¨¾¨ã¡C", CHAR_COLORYELLOW);
+				CHAR_talkToCli( charaindex, -1, "ç²¾å·¥æ¯æ¬¡åªèƒ½é¸æ“‡ä¸€å€‹æ­¦å™¨æˆ–é˜²å…·ã€‚", CHAR_COLORYELLOW);
 				return FALSE;
 			}
 		}
@@ -1694,7 +1694,7 @@ int PETSKILL_Inslay( int index, int toNo, int array, char *data)
 	}
 
 	if( !ITEM_CHECKINDEX( inslayindex) )	{
-		CHAR_talkToCli( charaindex, -1, "ºë¤u¥²¶·¿ï¾Ü¤@­ÓªZ¾¹©Î¨¾¨ã¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "ç²¾å·¥å¿…é ˆé¸æ“‡ä¸€å€‹æ­¦å™¨æˆ–é˜²å…·ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 
@@ -1730,7 +1730,7 @@ int	PETSKILL_MagicStatusChange( int charaindex, int toindex, int array, char *da
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_SUPERWALL);
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toindex );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 
 	return TRUE;
 }
@@ -1745,7 +1745,7 @@ int PETSKILL_SetDuck( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_SETDUCK);
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 
 
 	CHAR_setWorkInt( charaindex, CHAR_MAGICPETMP, 0 );
@@ -1763,7 +1763,7 @@ int PETSKILL_SetMagicPet( int charaindex, int toNo, int array, char *data )
 	nums = CHAR_getWorkInt( charaindex, CHAR_MAGICPETMP);
 	if( nums >= 3 ){
 		int toindex = CHAR_getWorkInt( charaindex, CHAR_WORKPLAYERINDEX);
-		CHAR_talkToCli( toindex, -1, "¦¹§Ş¯à³æ³õ­­¥Î¤T¦¸¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( toindex, -1, "æ­¤æŠ€èƒ½å–®å ´é™ç”¨ä¸‰æ¬¡ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 	CHAR_setWorkInt( charaindex, CHAR_MAGICPETMP, nums );
@@ -1771,7 +1771,7 @@ int PETSKILL_SetMagicPet( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_SETMAGICPET);
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -1808,18 +1808,18 @@ int PETSKILL_Fixitem( int index, int toNo, int array, char *data)
 		if( !ITEM_CHECKINDEX( itemindex) ) continue;
 
 		if( i >= MAXFIXITEM )	{
-			CHAR_talkToCli( charaindex, -1, "­×´_¨C¦¸¥u¯à¿ï¾Ü¨â­Óª««~¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charaindex, -1, "ä¿®å¾©æ¯æ¬¡åªèƒ½é¸æ“‡å…©å€‹ç‰©å“ã€‚", CHAR_COLORYELLOW);
 			return FALSE;
 		}
 		for( j=0; j< MAXFIXITEM; j++ ) {
 			if( itemindexs[j] == itemindex )	{
-				print("­×´_ª««~index¬Û¦P ERROR !!\n");
+				print("ä¿®å¾©ç‰©å“indexç›¸åŒ ERROR !!\n");
 				return FALSE;
 			}
 		}
 		itemtype = ITEM_getInt( itemindex, ITEM_TYPE);
 		if( itemtype == ITEM_DISH )	{
-			CHAR_talkToCli( charaindex, -1, "®Æ²z¤£¯à°µ­×´_¡C", CHAR_COLORYELLOW);
+			CHAR_talkToCli( charaindex, -1, "æ–™ç†ä¸èƒ½åšä¿®å¾©ã€‚", CHAR_COLORYELLOW);
 			return FALSE;
 		}
 
@@ -1829,7 +1829,7 @@ int PETSKILL_Fixitem( int index, int toNo, int array, char *data)
 				fixindex = itemindex;
 				fixno = itemno;
 			}else	{
-				CHAR_talkToCli( charaindex, -1, "­×´_¨C¦¸¥u¯à¿ï¾Ü¤@­ÓªZ¾¹©Î¨¾¨ã¡C", CHAR_COLORYELLOW);
+				CHAR_talkToCli( charaindex, -1, "ä¿®å¾©æ¯æ¬¡åªèƒ½é¸æ“‡ä¸€å€‹æ­¦å™¨æˆ–é˜²å…·ã€‚", CHAR_COLORYELLOW);
 				return FALSE;
 			}
 		}
@@ -1839,7 +1839,7 @@ int PETSKILL_Fixitem( int index, int toNo, int array, char *data)
 	}
 
 	if( !ITEM_CHECKINDEX( fixindex) )	{
-		CHAR_talkToCli( charaindex, -1, "­×´_¥²¶·¿ï¾Ü¤@­ÓªZ¾¹©Î¨¾¨ã¡C", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "ä¿®å¾©å¿…é ˆé¸æ“‡ä¸€å€‹æ­¦å™¨æˆ–é˜²å…·ã€‚", CHAR_COLORYELLOW);
 		return FALSE;
 	}
 
@@ -1859,7 +1859,7 @@ int PETSKILL_Fixitem( int index, int toNo, int array, char *data)
 	CHAR_complianceParameter( charaindex );
 	CHAR_send_P_StatusString( charaindex, CHAR_P_STRING_ATK | CHAR_P_STRING_DEF 
 		| CHAR_P_STRING_QUICK | CHAR_P_STRING_CHARM );
-	CHAR_talkToCli( charaindex, -1, "­×´_§¹¦¨¡C", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charaindex, -1, "ä¿®å¾©å®Œæˆã€‚", CHAR_COLORYELLOW);
 	return TRUE;
 }
 #endif
@@ -1877,7 +1877,7 @@ int PETSKILL_BattleTimid( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKATTACKPOWER, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR)*0.7) );
 	CHAR_setWorkInt( charaindex, CHAR_WORKDEFENCEPOWER, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH)*0.4) );
 	CHAR_setWorkInt( charaindex, CHAR_WORKQUICK, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXDEX)*0.8) );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 
 	return TRUE;
 }
@@ -1896,38 +1896,38 @@ int PETSKILL_2BattleTimid( int charaindex, int toNo, int array, char *data )
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 	if( pszOption == NULL ) return FALSE;
-	if( (pszP = strstr( pszOption, "-§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "-æ”»%" ) ) != NULL ){
 		sscanf( pszP+4, "%f", &fPer );
 		fPer=(fPer/100);
 		CHAR_setWorkInt( charaindex, CHAR_WORKATTACKPOWER, (CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR)*fPer) );
 	}
-	if( (pszP = strstr( pszOption, "+§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "+æ”»%" ) ) != NULL ){
 		sscanf( pszP+4, "%f", &fPer );
 		fPer=(fPer/100);
 		CHAR_setWorkInt( charaindex, CHAR_WORKATTACKPOWER, CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR)+(CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR)*fPer) );
 	}
-	if( (pszP = strstr( pszOption, "-¨¾%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "-é˜²%" ) ) != NULL ){
 		sscanf( pszP+4, "%f", &fPer );
 		fPer=(fPer/100);
 		CHAR_setWorkInt( charaindex, CHAR_WORKDEFENCEPOWER, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH)*fPer) );
 	}
-	if( (pszP = strstr( pszOption, "+¨¾%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "+é˜²%" ) ) != NULL ){
 		sscanf( pszP+4, "%f", &fPer );
 		fPer=(fPer/100);
 		CHAR_setWorkInt( charaindex, CHAR_WORKDEFENCEPOWER, CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH)+(CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH)*fPer) );
 	}
-	if( (pszP = strstr( pszOption, "-±Ó%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "-æ•%" ) ) != NULL ){
 		sscanf( pszP+4, "%f", &fPer );
 		fPer=(fPer/100);
 		CHAR_setWorkInt( charaindex, CHAR_WORKQUICK, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXDEX)*fPer) );
 	}
-	if( (pszP = strstr( pszOption, "+±Ó%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "+æ•%" ) ) != NULL ){
 		sscanf( pszP+4, "%f", &fPer );
 		fPer=(fPer/100);
 		CHAR_setWorkInt( charaindex, CHAR_WORKQUICK, CHAR_getWorkInt( charaindex, CHAR_WORKFIXDEX)+(CHAR_getWorkInt( charaindex, CHAR_WORKFIXDEX)*fPer) );
 	}
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 
 	return TRUE;
 }
@@ -1941,7 +1941,7 @@ int PETSKILL_AntInter( int charaindex, int toNo, int array, char* data)
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -1959,7 +1959,7 @@ int PETSKILL_BattleProperty( int charaindex, int toNo, int array, char *data )
 //	CHAR_setWorkInt( charaindex, CHAR_WORKATTACKPOWER, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR)*0.7) );
 //	CHAR_setWorkInt( charaindex, CHAR_WORKDEFENCEPOWER, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH)*0.5) );
 //	CHAR_setWorkInt( charaindex, CHAR_WORKQUICK, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXDEX)*0.95) );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 
 	return TRUE;
 }
@@ -1977,7 +1977,7 @@ int PETSKILL_BattleTearDamage( int charaindex, int toNo, int array, char *data )
 
 	CHAR_setWorkInt( charaindex, CHAR_WORKATTACKPOWER, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR)*0.9) );
 	CHAR_setWorkInt( charaindex, CHAR_WORKDEFENCEPOWER, ( CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH)*0.8) );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -1996,7 +1996,7 @@ int PETSKILL_Lighttakeed( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKATTACKPOWER, (CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR)*0.7) );
 	CHAR_setWorkInt( charaindex, CHAR_WORKDEFENCEPOWER, (CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH)*0.5) );
 //	CHAR_setWorkInt( charaindex, CHAR_WORKQUICK, (CHAR_getWorkInt( charaindex, CHAR_WORKFIXDEX)*0.95) );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -2018,13 +2018,13 @@ int PETSKILL_AttackCrazed( int charaindex, int toNo, int array, char *data )
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 	if( pszOption == NULL ) return FALSE;
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 	CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM3, atoi(pszOption));
 	return TRUE;
 }
 #endif
 
-#ifdef _SHOOTCHESTNUT	// Syu ADD Ãd§Ş¡G¥á®ß¤l
+#ifdef _SHOOTCHESTNUT	// Syu ADD å¯µæŠ€ï¼šä¸Ÿæ —å­
 int PETSKILL_AttackShoot( int charaindex, int toNo, int array, char *data )
 {
 	//int n = RAND ( 3 , 5 ) ; 
@@ -2057,13 +2057,13 @@ int PETSKILL_AttackShoot( int charaindex, int toNo, int array, char *data )
 		CHAR_setWorkInt( charaindex, CHAR_WORKATTACKPOWER, (CHAR_getWorkInt( charaindex, CHAR_WORKFIXSTR) * 1.2 / 4 ) );
 	CHAR_setWorkInt( charaindex, CHAR_WORKDEFENCEPOWER, (CHAR_getWorkInt( charaindex, CHAR_WORKFIXTOUGH) * 1) );
 */
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);//è¨˜éŒ„å±¬æ€§
 	CHAR_SETWORKINT_HIGH( charaindex, CHAR_WORKBATTLECOM3, n);
 	return TRUE;
 }
 #endif
 
-#ifdef _PET_SKILL_SARS				// WON ADD ¬r·Ù½¯©µ
+#ifdef _PET_SKILL_SARS				// WON ADD æ¯’ç…è”“å»¶
 int PETSKILL_Sars( int charaindex, int toNo, int array, char *data )
 {
 
@@ -2102,14 +2102,14 @@ int PETSKILL_Sars( int charaindex, int toNo, int array, char *data )
 }
 #endif
 
-#ifdef _SONIC_ATTACK				// WON ADD ­µªi§ğÀ»
+#ifdef _SONIC_ATTACK				// WON ADD éŸ³æ³¢æ”»æ“Š
 int PETSKILL_Sonic( int charaindex, int toNo, int array, char *data )
 {
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_SONIC );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 
 }
@@ -2121,7 +2121,7 @@ int PETSKILL_Regret( int charaindex, int toNo, int array, char *data )
 	int strdef;
 	float fPer = 0.01;
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
@@ -2129,7 +2129,7 @@ int PETSKILL_Regret( int charaindex, int toNo, int array, char *data )
 		CHAR_setWorkInt(charaindex,CHAR_WORKATTACKPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef));
 	}
 
-	if( (pszP = strstr( pszOption, "¨¾%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "é˜²%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXTOUGH);
@@ -2141,7 +2141,7 @@ int PETSKILL_Regret( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 
 }
@@ -2155,7 +2155,7 @@ int PETSKILL_Gyrate( int charaindex, int toNo, int array, char *data )
 	int strdef=0;
 
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_GYRATE );
-	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo ); //§ğÀ»¹ï¹³  23,24,25,26 ¬°³æ±Æ
+	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo ); //æ”»æ“Šå°åƒ  23,24,25,26 ç‚ºå–®æ’
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 
 	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
@@ -2165,18 +2165,18 @@ int PETSKILL_Gyrate( int charaindex, int toNo, int array, char *data )
 		return FALSE;
 	}
 
-	//Åª¨ú§ğ­È
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	//è®€å–æ”»å€¼
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 
-		//³]©w­×¥¿­È
+		//è¨­å®šä¿®æ­£å€¼
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
 		strdef=(int)(strdef * fPer);
 		CHAR_setWorkInt(charaindex,CHAR_WORKATTACKPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef));
 	}
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -2188,7 +2188,7 @@ int PETSKILL_Acupuncture( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -2211,17 +2211,17 @@ int PETSKILL_Retrace( int charaindex, int toNo, int array, char *data )
 		return FALSE;
 	}
 
-	//Åª¨ú§ğ­È
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	//è®€å–æ”»å€¼
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
-		//³]©w­×¥¿­È
+		//è¨­å®šä¿®æ­£å€¼
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
 		strdef=(int)(strdef * fPer);
 		CHAR_setWorkInt(charaindex,CHAR_WORKATTACKPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef));
 	}
 */
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -2247,18 +2247,18 @@ int PETSKILL_Hector( int charaindex, int toNo, int array, char *data )
 		return FALSE;
 	}
 
-	//Åª¨ú§ğ­È
-	if( (pszP = strstr( pszOption, "§ğ%" ) ) != NULL ){
+	//è®€å–æ”»å€¼
+	if( (pszP = strstr( pszOption, "æ”»%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		fPer=(fPer/100);
 
-		//³]©w­×¥¿­È
+		//è¨­å®šä¿®æ­£å€¼
 		strdef=CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR);
 		strdef=(int)(strdef * fPer);
 		CHAR_setWorkInt(charaindex,CHAR_WORKATTACKPOWER,(CHAR_getWorkInt(charaindex,CHAR_WORKFIXSTR)+strdef));
 	}
     
-	if( (pszP = strstr( pszOption, "±Ó%" ) ) != NULL ){
+	if( (pszP = strstr( pszOption, "æ•%" ) ) != NULL ){
 		sscanf( pszP+3, "%f", &fPer );
 		CHAR_setWorkInt( charaindex, CHAR_SKILLDEXPOWER, fPer);
 		fPer = fPer / 100;
@@ -2267,7 +2267,7 @@ int PETSKILL_Hector( int charaindex, int toNo, int array, char *data )
 		CHAR_setWorkInt( charaindex, CHAR_WORKQUICK, CHAR_getWorkInt( charaindex, CHAR_WORKFIXDEX) + d_dep);	
 	}
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 
 	return TRUE;
 }
@@ -2280,7 +2280,7 @@ int PETSKILL_Firekill( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
 
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 
 	return TRUE;
 }
@@ -2293,7 +2293,7 @@ int PETSKILL_DamageToHp2( int charaindex, int toNo, int array, char *data )
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_DAMAGETOHP2 );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	//°O¿ı§Ş¯à
+	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„æŠ€èƒ½
 /*	pszOption = PETSKILL_getChar( array, PETSKILL_OPTION );
 
 	if( pszOption == NULL ) return FALSE;
@@ -2315,7 +2315,7 @@ int PETSKILL_BecomeFox( int charaindex, int toNo, int array, char* data)
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_BECOMEFOX);
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	//°O¿ı§Ş¯à
+	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„æŠ€èƒ½
 
 	return TRUE;
 }
@@ -2327,7 +2327,7 @@ int PETSKILL_BecomePig( int charaindex, int toNo, int array, char* data)
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM1, BATTLE_COM_S_BECOMEPIG);
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLECOM2, toNo );
 	CHAR_setWorkInt( charaindex, CHAR_WORKBATTLEMODE, BATTLE_CHARMODE_C_OK );
-	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//°O¿ıÄİ©Ê
+	CHAR_SETWORKINT_LOW( charaindex, CHAR_WORKBATTLECOM3, array);	//è¨˜éŒ„å±¬æ€§
 	return TRUE;
 }
 #endif
@@ -2359,7 +2359,7 @@ int PETSKILL_BattleModel(int charaindex, int toindex, int array, char* data)
 	int i,iType,iObjectNum,iValue;
 	int iAddPowerType[3] = {CHAR_WORKATTACKPOWER,CHAR_WORKDEFENCEPOWER,CHAR_WORKQUICK};
 	char *pszOption,szData[32],szData2[32];
-	char szWord[3][3] = {"§ğ","¨¾","±Ó"};
+	char szWord[3][3] = {"æ”»","é˜²","æ•"};
 
   pszOption = PETSKILL_getChar(array,PETSKILL_OPTION);
 	if(pszOption == NULL){
@@ -2367,13 +2367,13 @@ int PETSKILL_BattleModel(int charaindex, int toindex, int array, char* data)
 		return FALSE;
 	}
 
-	// ¨ú±o§ğÀ»Ãş«¬
+	// å–å¾—æ”»æ“Šé¡å‹
 	if(getStringFromIndexWithDelim(pszOption,"|",1,szData,sizeof(szData)) == FALSE){
 		printf("PETSKILL_BattleModel: no type data!!(file:%s,line:%d)\n",__FILE__,__LINE__);
 		return FALSE;
 	}
 	iType = atoi(szData);
-	// ¨ú±o§ğÀ»ª«¥ó¼Æ¶q
+	// å–å¾—æ”»æ“Šç‰©ä»¶æ•¸é‡
 	if(getStringFromIndexWithDelim(pszOption,"|",2,szData,sizeof(szData)) == FALSE){
 		printf("PETSKILL_BattleModel: no object number data!!(file:%s,line:%d)\n",__FILE__,__LINE__);
 		return FALSE;
@@ -2381,20 +2381,20 @@ int PETSKILL_BattleModel(int charaindex, int toindex, int array, char* data)
 	iObjectNum = atoi(szData);
 	if(iObjectNum <= 0) iObjectNum = RAND(1,10);
 	else if(iObjectNum > 10) iObjectNum = 10;
-	// ¨ú±o¯à¤O¼W´î
+	// å–å¾—èƒ½åŠ›å¢æ¸›
 	if(getStringFromIndexWithDelim(pszOption,"|",6,szData,sizeof(szData)) != FALSE){
 		for(i=0;i<3;i++){
 			if(getStringFromIndexWithDelim(szData," ",i+1,szData2,sizeof(szData2)) != FALSE){
-				// ÀË¬d³]©w
+				// æª¢æŸ¥è¨­å®š
 				if(strstr(szData2,szWord[i]) != NULL){
 					iValue = CHAR_getWorkInt(charaindex,CHAR_WORKATTACKPOWER);
-					// ¦³±a "%" ªº³]©w ex: "§ğ%"
+					// æœ‰å¸¶ "%" çš„è¨­å®š ex: "æ”»%"
 					if(strstr(szData2,"%") != NULL){
 						sscanf(szData2 + 3,"%f",&fPer);
 						fPer = (fPer/100);
 						iValue += (int)(iValue * fPer);
 					}
-					// ¨S±a "%" ªº³]©w ex: "§ğ"
+					// æ²’å¸¶ "%" çš„è¨­å®š ex: "æ”»"
 					else{
 						sscanf(szData2 + 2,"%f",&fPer);
 						iValue = (int)fPer;
@@ -2408,8 +2408,8 @@ int PETSKILL_BattleModel(int charaindex, int toindex, int array, char* data)
 
 	CHAR_setWorkInt(charaindex,CHAR_WORKBATTLEMODE,BATTLE_CHARMODE_C_OK);
 	CHAR_setWorkInt(charaindex,CHAR_WORKBATTLECOM1,BATTLE_COM_S_BATTLE_MODEL);
-	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM2,iType);				// °O¿ı§ğÀ»Ãş«¬
-	CHAR_SETWORKINT_HIGH(charaindex,CHAR_WORKBATTLECOM2,iObjectNum);	// °O¿ı§ğÀ»ª«¥ó¼Æ¶q
+	CHAR_SETWORKINT_LOW(charaindex,CHAR_WORKBATTLECOM2,iType);				// è¨˜éŒ„æ”»æ“Šé¡å‹
+	CHAR_SETWORKINT_HIGH(charaindex,CHAR_WORKBATTLECOM2,iObjectNum);	// è¨˜éŒ„æ”»æ“Šç‰©ä»¶æ•¸é‡
 	CHAR_setWorkInt(charaindex,CHAR_WORKBATTLECOM3,array);
 	return TRUE;
 }
@@ -2439,7 +2439,7 @@ int PETSKILL_Combined( int charaindex, int toNo, int array, char* data)
 
 	strcpy( combined, " " );
 	getStringFromIndexWithDelim( pszOption, "|", 1, combined, sizeof( combined));
-    if( strcmp( combined, "ºî¦Xªk" ) == 0 ){ 
+    if( strcmp( combined, "ç¶œåˆæ³•" ) == 0 ){ 
 		if( getStringFromIndexWithDelim( pszOption, "|", 2, countstr, sizeof( countstr)) == FALSE )
 		    return FALSE;
         count = atoi(countstr);

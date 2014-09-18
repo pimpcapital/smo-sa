@@ -2,7 +2,7 @@
 
 #include "version.h"
 
-#ifdef _SASQL1//·s²K¥[
+#ifdef _SASQL1//æ–°æ·»åŠ 
 
 #include "main.h"
 #include "util.h"
@@ -61,7 +61,7 @@ int worksockfd;
 #include "saacproto_lserver.h"
 #endif
 
-#ifdef _SEND_EFFECT                     // WON ADD °e¤U³·¡B¤U«Bµ¥¯S®Ä
+#ifdef _SEND_EFFECT                     // WON ADD é€ä¸‹é›ªã€ä¸‹é›¨ç­‰ç‰¹æ•ˆ
 #include "recv.h"
 #endif
 
@@ -147,9 +147,9 @@ int sasql_init( void )
     }
     if( !mysql_real_connect( &mysql,
                   SASQL_MYSQLSERVER,
-                  SASQL_SQLUSER,//±b¸¹
-                  SASQL_SQLPASS,//±K½X
-                  SASQL_DBNAME,//¿ï¾Üªº¸ê®Æ®w
+                  SASQL_SQLUSER,//å¸³è™Ÿ
+                  SASQL_SQLPASS,//å¯†ç¢¼
+                  SASQL_DBNAME,//é¸æ“‡çš„è³‡æ–™åº«
                   atoi(SASQL_MYSQLPORT),
                   NULL,
                   0 ) )

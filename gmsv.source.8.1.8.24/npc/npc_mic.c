@@ -49,7 +49,7 @@ BOOL NPC_MicInit( int meindex )
 		    if( getStringFromIndexWithDelim(argstr, "|" , i , buf,sizeof(buf) )
 	    		== FALSE ) 
 	    	    {
-	    		printf( "NPC_MIC:¬Ù²¤°Ñ¼Æ\n");
+	    		printf( "NPC_MIC:çœç•¥åƒæ•¸\n");
 	    		arg_param[i-1] = 0;
 	    		continue;
 	    	    }
@@ -92,7 +92,7 @@ void NPC_MicTalked( int meindex , int talkerindex , char *msg ,int color )
 				CHAR_getChar( talkerindex, CHAR_NAME),
 				msg);
 	
-	// Robin 0621 ±Úªø¼s¼½
+	// Robin 0621 æ—é•·å»£æ’­
 	print(" MIC_FL:%d ", CHAR_getWorkInt( meindex, CHAR_WORK_FMFL ));
 	if( CHAR_getWorkInt( meindex, CHAR_WORK_FMFL ) != 0 )
 	{
@@ -107,7 +107,7 @@ void NPC_MicTalked( int meindex , int talkerindex , char *msg ,int color )
 				CHAR_getChar( talkerindex, CHAR_FMNAME), CHAR_getInt( talkerindex, CHAR_FMINDEX),
 				CHAR_getWorkInt( talkerindex, CHAR_WORKFMINDEXI), buf);
 			
-			sprintf(message, "[±Úªø¼s¼½]%s", buf);
+			sprintf(message, "[æ—é•·å»£æ’­]%s", buf);
 			saacproto_ACFMAnnounce_send( acfd, 
 						CHAR_getChar( talkerindex, CHAR_FMNAME), 
 						CHAR_getInt( talkerindex, CHAR_FMINDEX),

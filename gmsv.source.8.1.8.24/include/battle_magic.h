@@ -80,7 +80,7 @@ void BATTLE_MultiRecovery(
 	int power,
 	int per,
 	int UseEffect,
-#ifdef _CHANGEITEMUSE	 // Syu ADD ½Õ¾ã¾Ô°«¤¤¨Ï¥Î®Æ²z³]©w
+#ifdef _CHANGEITEMUSE	 // Syu ADD èª¿æ•´æˆ°é¬¥ä¸­ä½¿ç”¨æ–™ç†è¨­å®š
 	int RecevEffect,
 	int power1
 #else
@@ -206,74 +206,74 @@ void BATTLE_MultiCaptureUp(
 
 //****************************************************************
 //
-// µ¤Àä¤«¤éÉü³è¤¹¤ë¼ö½Ñ
+// ç«£æ¿®äº•æ—¥æ±Šå”¾å…æœˆç†±è«¸
 //
 int	MAGIC_Ressurect_Battle(
-	int charaindex, // ¤«¤±¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
-	int toNo, 		// ¤«¤±¤é¤ì¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
+	int charaindex, // äº•ä»ƒæœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+	int toNo, 		// äº•ä»ƒæ—¥æœ¨æœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
 	int marray, 	// magicindex
 	int mp 			// MP
 );
-//  ©¨  ¤·¤¿¤é TRUE
-//  ¼º  ¤·¤¿¤é FALSE
+//  å²³  ä»„å‡¶æ—¥ TRUE
+//  æ’©  ä»„å‡¶æ—¥ FALSE
 //****************************************************************
 
 //****************************************************************
 //
-// Â°À­¤Î  Å¾¤ò¤¹¤ë¼ö½Ñ
+// ç°å¶ºåŠ  é±‰æ¯›å…æœˆç†±è«¸
 //
 int	MAGIC_AttReverse_Battle(
-	int charaindex, // ¤«¤±¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
-	int toNo, 		// ¤«¤±¤é¤ì¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
+	int charaindex, // äº•ä»ƒæœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+	int toNo, 		// äº•ä»ƒæ—¥æœ¨æœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
 	int marray, 	// magicindex
 	int mp 			// MP
 );
-//  ©¨  ¤·¤¿¤é TRUE
-//  ¼º  ¤·¤¿¤é FALSE
+//  å²³  ä»„å‡¶æ—¥ TRUE
+//  æ’©  ä»„å‡¶æ—¥ FALSE
 //****************************************************************
 //****************************************************************
 //
-//   ³Í    ²½¤¹¤ë¼ö½Ñ
+//   å‡±    ç¥­å…æœˆç†±è«¸
 //
 int	MAGIC_CaptureUp_Battle(
-	int charaindex, // ¤«¤±¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
-	int toNo, 		// ¤«¤±¤é¤ì¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
+	int charaindex, // äº•ä»ƒæœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+	int toNo, 		// äº•ä»ƒæ—¥æœ¨æœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
 	int marray, 	// magicindex
 	int mp 			// MP
 );
-//  ©¨  ¤·¤¿¤é TRUE
-//  ¼º  ¤·¤¿¤é FALSE
+//  å²³  ä»„å‡¶æ—¥ TRUE
+//  æ’©  ä»„å‡¶æ—¥ FALSE
 //****************************************************************
 
 //***********************************************************
 //
-//    Ë¡Åù¤Ç  ¿ô¤Î¥­¥ã¥é¥¯¥¿¡¼¤òÉü³è¤µ¤»¤ë¤µ¤é¤Ë  Ë¡  ¸æ¤òÄÉ²Ã
+//    èŠŠç¾ˆåŒ¹  é†’åŠå¹³ä¹“ä»¿å¼æ­£â–¡æ¯›æ±Šå”¾ä»Šå…­æœˆä»Šæ—¥å  èŠŠ  è±¢æ¯›é¦¨ç¬›
 //
 void BATTLE_MultiResAndDef( 
-	int battleindex, 	// ¥Ğ¥È¥ë¥¤¥ó¥Ç¥Ã¥¯¥¹
-	int attackNo,		// ¤«¤±¤ë¿Í  ¹æ
-	int toNo,			// ¤«¤±¤é¤ì¤ë¿Í  ¹æ
-	int power,			// ´ğ  ²óÉüÃÍ
-	int per,			// ¡ó¤«¡ª
-	int kind, 			//   Ë¡  ¸æ¤Î¼ï  
-	int count, 			// ²¿²ó  ¤°¤«
-	int UseEffect,		// »È¤¦¿Í¤Î¥¨¥Õ¥§¥¯¥È
-	int RecevEffect		// ¤«¤±¤é¤ì¤ë¿Í¤Î¥¨¥Õ¥§¥¯¥È
+	int battleindex, 	// ç”°ç„ä¼™å¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+	int attackNo,		// äº•ä»ƒæœˆè«¦  å¯
+	int toNo,			// äº•ä»ƒæ—¥æœ¨æœˆè«¦  å¯
+	int power,			// æ¹˜  è¢æ±Šè¥–
+	int per,			// âŠ™äº•ã€
+	int kind, 			//   èŠŠ  è±¢åŠæ½˜  
+	int count, 			// çª’è¢  ä»€äº•
+	int UseEffect,		// éŠ€ä¸¹è«¦åŠå·¨ç™½å°¼å¼ç„
+	int RecevEffect		// äº•ä»ƒæ—¥æœ¨æœˆè«¦åŠå·¨ç™½å°¼å¼ç„
 );
 //
 //***********************************************************
 //****************************************************************
 //
-// Éü³è¡Ü  Ë¡  ¸æ¤òÍ¿¤¨¤ë¼ö½Ñ
+// æ±Šå”¾â‰’  èŠŠ  è±¢æ¯›èŠ¨å°¹æœˆç†±è«¸
 //
 int	MAGIC_ResAndDef_Battle(
-	int charaindex, // ¤«¤±¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
-	int toNo, 		// ¤«¤±¤é¤ì¤ë¿Í¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹
+	int charaindex, // äº•ä»ƒæœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
+	int toNo, 		// äº•ä»ƒæ—¥æœ¨æœˆè«¦åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦
 	int marray, 	// magicindex
 	int mp 			// MP
 );
-//  ©¨  ¤·¤¿¤é TRUE
-//  ¼º  ¤·¤¿¤é FALSE
+//  å²³  ä»„å‡¶æ—¥ TRUE
+//  æ’©  ä»„å‡¶æ—¥ FALSE
 //****************************************************************
 
 #ifdef __ATTACK_MAGIC
@@ -310,7 +310,7 @@ int BATTLE_MagicEffect(	int battleindex,int attackNo,int ToList[],int MyEffect,i
 
 
 
-#ifdef _PROFESSION_SKILL			// WON ADD ¤Hª«Â¾·~§Ş¯à
+#ifdef _PROFESSION_SKILL			// WON ADD äººç‰©è·æ¥­æŠ€èƒ½
 void PROFESSION_MAGIC_ATTAIC( int battleindex, int attackNo, int toNo, int attIdx, int FieldAttr, int skill);
 int PROFESSION_MAGIC_ATTAIC_Effect( int battleindex, int attackNo, int ToList[], int AttackMgcNo );
 int analysis_profession_parameter( int attIdx, int skill, int toNo, int charaindex );

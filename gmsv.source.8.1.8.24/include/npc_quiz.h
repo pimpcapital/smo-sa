@@ -3,15 +3,15 @@
 
 typedef struct NPC_Quiz{
 
-	int 	no;				//  Âê¤Î  ¹æ
-	int 	type;			//  Âê¤Î¥¿¥¤¥×  ¥²¡¼¥à    ¡b¥¹¥İ¡¼¥Ä)	
-	int		level;  		//  Âê¤Î¥ì¥Ù¥ë
-	int 	answertype;		//Åú¤¨¤ÎÁª¤Ó¤«¤¿(£²  ¡b£³  ¡bÃ±¸ì¥Ş¥Ã¥Á  
-	int 	answerNo;		//  Âê¤ÎÅú¤¨
-	char	question[512]; 	//  Âê
-	char	select1[128]; 	//Áª  »Ş1
-	char	select2[128]; 	//Áª  »Ş2
-	char	select3[128]; 	//Áª  »Ş3
+	int 	no;				//  é–åŠ  å¯
+	int 	type;			//  é–åŠæ­£å¥¶çš¿  å¿…â–¡ä¸    ï½æ—¦ç¦¾â–¡æ±)	
+	int		level;  		//  é–åŠä¼ŠçŸ›ä¼™
+	int 	answertype;		//è ¶å°¹åŠè–Šå¤ªäº•å‡¶(ã„¡  ï½ã„¢  ï½ç°½è³„ç©´æ°¸æ°‘  
+	int 	answerNo;		//  é–åŠè ¶å°¹
+	char	question[512]; 	//  é–
+	char	select1[128]; 	//è–Š  é¼1
+	char	select2[128]; 	//è–Š  é¼2
+	char	select3[128]; 	//è–Š  é¼3
 
 }NPC_QUIZ;
 

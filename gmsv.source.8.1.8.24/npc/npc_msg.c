@@ -7,10 +7,10 @@
 
 
 /*
-  ŵ��Ū�ʴ�  �e  ���ϲ��Ǥ�褯�e
-  �Ȥꤢ�����ɤ�  ������Ǥ⸫����褦�ˤ���e
+  霾滇讀卅棗  〔  颶反窒匹手方仁〔
+  午曰丐尹內升及  輊井日匹手葦尹月方丹卞允月〔
 
-  init , looked �Τߤ�  ��
+  init , looked 及心卞  殺
 
   */  
 BOOL NPC_MsgInit( int meindex )
@@ -27,14 +27,14 @@ BOOL NPC_MsgInit( int meindex )
 
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPETOWNPEOPLE );
     //CHAR_setFlg( meindex , CHAR_ISOVERED , 0 );
-    //CHAR_setFlg( meindex , CHAR_ISATTACKED , 0 );  /*   �⤵��ʤ���� */
+    //CHAR_setFlg( meindex , CHAR_ISATTACKED , 0 );  /*   猾今木卅中方氏 */
 
     return TRUE;
 }
 
 
 /*
- * ����줿�e�Ϥʤ������e
+ * 葦日木凶〔反卅允分仃〔
  */
 void NPC_MsgLooked( int meindex , int lookedindex )
 {

@@ -4,36 +4,36 @@
 #include "buf.h"
 
 /*
- *  ¥ê¥ó¥¯¤Î  ¤Ë¤Ä¤±¤ë
- * °ú¿ô
- *      top         ¥È¥Ã¥×¥Î¡¼¥É
- *      add         ÉÕ¤±²Ã¤¨¤ë¥Î¡¼¥É¤Î    ¤òÊÝ  ¤¹¤ë¥Î¡¼¥É¤Ø¤Î¥Ý¥¤¥ó¥¿¡¼
- * ÊÖ¤êÃÍ
- *      TRUE(1)     ©¨  
- *      FALSE(0)    ¼º  
+ *  ä¼‰ä»¶å¼åŠ  åžå‹¾ä»ƒæœˆ
+ * å©é†’
+ *      top         çŽ„æ°¸çš¿ç”¨â–¡çŽ‰
+ *      add         å°¥ä»ƒç¬›å°¹æœˆç”¨â–¡çŽ‰åŠ    æ¯›å¿¡  å…æœˆç”¨â–¡çŽ‰å°ºåŠç¦¾å¥¶ä»¶æ­£â–¡
+ * å¿’æ›°è¥–
+ *      TRUE(1)     å²³  
+ *      FALSE(0)    æ’©  
  */
 BOOL Nodeappendtail( Node** top  , Node* add )
 {
-    Node* c;        /*¥ë¡¼¥×ÍÑ*/
-    Node* next;     /*¿·¤·¤¯ºî¤ë¥Î¡¼¥ÉÍÑ*/
+    Node* c;        /*ä¼™â–¡çš¿è¿•*/
+    Node* next;     /*è•™ä»„ä»ç¶œæœˆç”¨â–¡çŽ‰è¿•*/
 
-    /*¥È¥Ã¥×¤¬NULL¤«¤É¤¦¤«¤Î¥Á¥§¥Ã¥¯*/
+    /*çŽ„æ°¸çš¿äº’NULLäº•å‡ä¸¹äº•åŠæ°‘å°¼æ°¸å¼*/
     if( *top == NULL ){
         *top = allocateMemory( sizeof( Node  ) );
         if( *top== NULL ) return FALSE;
-        (*top)->next    = NULL;            /*Â³¤­¤Ï  ¤¤*/
-        (*top)->size    = add->size;   /*Ä¹¤µ¤ÎÊÝ´É*/
-        (*top)->val     = add->val;         /*¥Ý¥¤¥ó¥¿¡¼¤Î¥³¥Ô¡¼*/
+        (*top)->next    = NULL;            /*ç³§äº”å  ä¸­*/
+        (*top)->size    = add->size;   /*è´ä»ŠåŠå¿¡æ£Ÿ*/
+        (*top)->val     = add->val;         /*ç¦¾å¥¶ä»¶æ­£â–¡åŠæˆŠç–‹â–¡*/
         return TRUE;
     }
 
-    for( c = *top ; c->next ; c = c->next ); /* c¤Î°Ì  ¤ò¤º¤é¤¹ */
+    for( c = *top ; c->next ; c = c->next ); /* cåŠåŒ  æ¯›å…§æ—¥å… */
     next = allocateMemory( sizeof(Node) );
     if( next == NULL )return FALSE;
-    c->next = next;                         /* next¤ËÃÍ¤òÀßÄê¤¹¤ë */
-    next->next  = NULL;                      /*Â³¤­¤Ï  ¤¤*/
-    next->val   = add->val;                   /*¥Ý¥¤¥ó¥¿¡¼¤Î¥³¥Ô¡¼*/
-    next->size  = add->size;             /*Ä¹¤µ¤ÎÊÝ´É*/
+    c->next = next;                         /* nextåžè¥–æ¯›æ¾€çˆ›å…æœˆ */
+    next->next  = NULL;                      /*ç³§äº”å  ä¸­*/
+    next->val   = add->val;                   /*ç¦¾å¥¶ä»¶æ­£â–¡åŠæˆŠç–‹â–¡*/
+    next->size  = add->size;             /*è´ä»ŠåŠå¿¡æ£Ÿ*/
     return TRUE;
 }
 
@@ -41,32 +41,32 @@ BOOL Nodeappendtail( Node** top  , Node* add )
 
 
 /*
- *  ¥ê¥ó¥¯¤ÎÁ°¤Ë¤Ä¤±¤ë
- * °ú¿ô
- *      top         ¥È¥Ã¥×¥Î¡¼¥É
- *      add         ÉÕ¤±²Ã¤¨¤ë¥Î¡¼¥É¤Î    ¤òÊÝ  ¤¹¤ë¥Î¡¼¥É¤Ø¤Î¥Ý¥¤¥ó¥¿¡¼
- * ÊÖ¤êÃÍ
- *      TRUE(1)     ©¨  
- *      FALSE(0)    ¼º  
+ *  ä¼‰ä»¶å¼åŠèŸ†åžå‹¾ä»ƒæœˆ
+ * å©é†’
+ *      top         çŽ„æ°¸çš¿ç”¨â–¡çŽ‰
+ *      add         å°¥ä»ƒç¬›å°¹æœˆç”¨â–¡çŽ‰åŠ    æ¯›å¿¡  å…æœˆç”¨â–¡çŽ‰å°ºåŠç¦¾å¥¶ä»¶æ­£â–¡
+ * å¿’æ›°è¥–
+ *      TRUE(1)     å²³  
+ *      FALSE(0)    æ’©  
  */
 BOOL Nodeappendhead( Node** nowtop  , Node* add )
 {
-    Node* newtop;       /*¿·¤·¤¤Àè  ÍÑ*/
+    Node* newtop;       /*è•™ä»„ä¸­ç‡®  è¿•*/
 
-    /*¥È¥Ã¥×¤¬NULL¤«¤É¤¦¤«¤Î¥Á¥§¥Ã¥¯*/
+    /*çŽ„æ°¸çš¿äº’NULLäº•å‡ä¸¹äº•åŠæ°‘å°¼æ°¸å¼*/
     if( *nowtop == NULL ){
         *nowtop = allocateMemory( sizeof( Node  ) );
         if( *nowtop == NULL ) return FALSE;
-        (*nowtop)->next = NULL;             /*Â³¤­¤Ï  ¤¤*/
-        (*nowtop)->size = add->size;        /*Ä¹¤µ¤ÎÊÝ´É*/
-        (*nowtop)->val  = add->val;         /*¥Ý¥¤¥ó¥¿¡¼¤Î¥³¥Ô¡¼*/
+        (*nowtop)->next = NULL;             /*ç³§äº”å  ä¸­*/
+        (*nowtop)->size = add->size;        /*è´ä»ŠåŠå¿¡æ£Ÿ*/
+        (*nowtop)->val  = add->val;         /*ç¦¾å¥¶ä»¶æ­£â–¡åŠæˆŠç–‹â–¡*/
         return TRUE;
     }
 
     /*
-     * ¿·¤·¤¤¥Î¡¼¥É¤ò°ì¤Äºî¤ë
-     * next ¤¬º¹¤¹¤â¤Î¤ò nowtop ¤Ë¤¹¤ë¡e
-     * nowtop ¤Ë¤Ï ³ÎÊÝ¤·¤¿ newtop ¤òÂå  ¤¹¤ë¡e
+     * è•™ä»„ä¸­ç”¨â–¡çŽ‰æ¯›åŸŸå‹¾ç¶œæœˆ
+     * next äº’çŠ’å…æ‰‹åŠæ¯› nowtop åžå…æœˆã€”
+     * nowtop åžå å‰²å¿¡ä»„å‡¶ newtop æ¯›é†«  å…æœˆã€”
      */
     newtop = allocateMemory( sizeof(Node) );
     newtop->next    = *nowtop;
@@ -80,17 +80,17 @@ BOOL Nodeappendhead( Node** nowtop  , Node* add )
 
 
 /*
- * °ì    ½é¤Î¥Î¡¼¥É¤ò°ú¿ô¤Ë¥³¥Ô¡¼¤·¤Æ¼è¤ê½ü¤¯
- * °ú¿ô
- *          top         ¥Î¡¼¥É¤ÎÀè  
- *          ret         ¼è¤ê½ü¤¤¤¿¥Î¡¼¥É¤Î¥³¥Ô¡¼
- * ÊÖ¤êÃÍ
- *      TRUE(1)         ©¨  
- *      FALSE(0)        ¼º      ¥Î¡¼¥É¤ÎÀè  ¤¬NULL
+ * åŸŸ    è³¡åŠç”¨â–¡çŽ‰æ¯›å©é†’åžæˆŠç–‹â–¡ä»„åŒ–æ½¸æ›°è¼ªä»
+ * å©é†’
+ *          top         ç”¨â–¡çŽ‰åŠç‡®  
+ *          ret         æ½¸æ›°è¼ªä¸­å‡¶ç”¨â–¡çŽ‰åŠæˆŠç–‹â–¡
+ * å¿’æ›°è¥–
+ *      TRUE(1)         å²³  
+ *      FALSE(0)        æ’©      ç”¨â–¡çŽ‰åŠç‡®  äº’NULL
  */
 BOOL  Noderemovehead( Node** top , Node* ret)
 {
-    Node* newtop;         /*¿·¤·¤¯Àè  ¤Ë¤Ê¤ë¥Î¡¼¥É*/
+    Node* newtop;         /*è•™ä»„ä»ç‡®  åžå…æœˆç”¨â–¡çŽ‰*/
 
     if( *top == NULL )return FALSE;
 
@@ -108,27 +108,27 @@ BOOL  Noderemovehead( Node** top , Node* ret)
 
 
 /*
- * °ì      ¤Î¥Î¡¼¥É¤ò°ú¿ô¤Ë¥³¥Ô¡¼¤·¤Æ¼è¤ê½ü¤¯
- * °ú¿ô
- *          top         ¥Î¡¼¥É¤ÎÀè  
- *          ret         ¼è¤ê½ü¤¤¤¿¥Î¡¼¥É¤Î¥³¥Ô¡¼
- * ÊÖ¤êÃÍ
- *      TRUE(1)         ©¨  
- *      FALSE(0)        ¼º      ¥Î¡¼¥É¤ÎÀè  ¤¬NULL
+ * åŸŸ      åŠç”¨â–¡çŽ‰æ¯›å©é†’åžæˆŠç–‹â–¡ä»„åŒ–æ½¸æ›°è¼ªä»
+ * å©é†’
+ *          top         ç”¨â–¡çŽ‰åŠç‡®  
+ *          ret         æ½¸æ›°è¼ªä¸­å‡¶ç”¨â–¡çŽ‰åŠæˆŠç–‹â–¡
+ * å¿’æ›°è¥–
+ *      TRUE(1)         å²³  
+ *      FALSE(0)        æ’©      ç”¨â–¡çŽ‰åŠç‡®  äº’NULL
  */
 BOOL  Noderemovetail( Node** top , Node* ret)
 {
-    Node* c;             /*¥ë¡¼¥×ÍÑ*/
-    Node* c1;            /*¥ë¡¼¥×ÍÑ ¤¤¤Ä¤Ç¤â c->next¤ò»Ø¤¹*/
+    Node* c;             /*ä¼™â–¡çš¿è¿•*/
+    Node* c1;            /*ä¼™â–¡çš¿è¿• ä¸­å‹¾åŒ¹æ‰‹ c->nextæ¯›éš™å…*/
 
     if( *top == NULL )return FALSE;
 
-    c = *top;           /*½é´üÃÍÀßÄê*/
-    c1 = c->next;       /*½é´üÃÍÀßÄê*/
+    c = *top;           /*è³¡æ¸è¥–æ¾€çˆ›*/
+    c1 = c->next;       /*è³¡æ¸è¥–æ¾€çˆ›*/
     while(1){
         if( c1->next == NULL )
             /*
-             * ¤³¤Î»þÅÀ¤Ç          c1
+             * ä»‡åŠå‡œé°¾åŒ¹          c1
              *                      |
              *  c ---> +------+       
              *         | next |---->+------+
@@ -136,14 +136,14 @@ BOOL  Noderemovetail( Node** top , Node* ret)
              *         |      |     +------+
              *         +------+     |      |
              *                      +------+
-             *¤È¤Ê¤Ã¤Æ¤¤¤ë
+             *åˆå…å‹»åŒ–ä¸­æœˆ
              */
             break;
         c=c->next;
         c1=c->next;
     }
-    c->next = NULL;     /*c1¤Ë¤¢¤¿¤ë¤â¤Î¤òºï½ü¤¹¤ë¤Î¤Çnext¤ÏNULL¤È¤¹¤ë*/
-    /*¥³¥Ô¡¼*/
+    c->next = NULL;     /*c1åžä¸å‡¶æœˆæ‰‹åŠæ¯›ç¶½è¼ªå…æœˆåŠåŒ¹nextåNULLåˆå…æœˆ*/
+    /*æˆŠç–‹â–¡*/
     ret->val    = c1->val;
     ret->size   = c1->size;
 

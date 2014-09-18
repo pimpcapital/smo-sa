@@ -146,7 +146,7 @@ BOOL TcpIp_LS_accept()
 				Ls.errs = 1;
 				Ls.data[LS_LASTERROR] = LSMESS_READERROR;
 			} else {
-				Add_LS_WRMemBuffer( tmpbuf , rr, MEMREAD); //¼W¥[°T®§
+				Add_LS_WRMemBuffer( tmpbuf , rr, MEMREAD); //å¢åŠ è¨Šæ¯
 			}
 		}
 	}
@@ -684,7 +684,7 @@ void saacproto_SAUCheck_send( char *Pcdkey, int flg)
 	}
 }
 
-void DefTimeC( char *buf, int flg)// 1 ¤ñ¸û 2 ¨q®É¶¡ 0 ´À´«
+void DefTimeC( char *buf, int flg)// 1 æ¯”è¼ƒ 2 ç§€æ™‚é–“ 0 æ›¿æ›
 {
 	static long int dTimes = 0;
 	time_t defLsTime;

@@ -11,19 +11,19 @@
 
 
 /*
- *  ¤Ş¤Á¤Î¤Ò¤È¤Ó¤È  by nakamura
- *  ¥¿¥¤¥×  ¡uTownPeople
- *    ¤·¤«¤±¤é¤ì¤¿¤È¤­¤ËNPCARGUMENT¤Î  »ú  ¤ò  ¤·¤«¤±¤Æ¤­¤¿¿Í¤Ë  ¤¹¡e
+ *  å¼•åˆ‡åŠå¤«åˆå¤ªåˆ  by nakamura
+ *  æ­£å¥¶çš¿  ã€ŒTownPeople
+ *    ä»„äº•ä»ƒæ—¥æœ¨å‡¶åˆäº”åNPCARGUMENTåŠ  å„‚  æ¯›  ä»„äº•ä»ƒåŒ–äº”å‡¶è«¦å  å…ã€”
  *
- *  ¤Ş¤¿¡bnpcarg¤Ë ¤³¤ó¤Ë¤Á¤Ï,º£  ¤Ï¤Æ¤ó¤­¤¬¤¤¤¤¤Ç¤¹¤Í
- *  ¤Î¤è¤¦¤Ë  ³Ñ¥³¥ó¥Ş¤ò¥Ç¥ê¥ß¥¿¤È¤·¤Æ  ¿ô¤Î¥á¡¼¥»¡¼¥¸¤ò
- *  ½ñ¤¯¤³¤È¤¬¤Ç¤­¡b¤½¤Î¾ì¹ç¥é¥ó¥À¥à¤Ç¤½¤Î  ¤«¤é¤·¤ã¤Ù¤ë¡e
- *  npcgen.perl ¤Ç¤Ï¡b MAN¤Ç¤¢¤ë¡e MSG¤È¤Û¤È¤ó¤É¶³¤Ê¤¸¤À¤Ê¤¢
+ *  å¼•å‡¶ï½npcargå ä»‡æ°ååˆ‡å,æ¼†  ååŒ–æ°äº”äº’ä¸­ä¸­åŒ¹å…å‹
+ *  åŠæ–¹ä¸¹å  å‰©æˆŠä»¶ç©´æ¯›çŠ¯ä¼‰ç«‹æ­£åˆä»„åŒ–  é†’åŠä¸Ÿâ–¡æœ¬â–¡æ–¥æ¯›
+ *  è¸ä»ä»‡åˆäº’åŒ¹äº”ï½å…¬åŠæ¨ºå¯§ä»¿ä»¶æ¯ä¸åŒ¹å…¬åŠ  äº•æ—¥ä»„æ‰å±¯æœˆã€”
+ *  npcgen.perl åŒ¹åï½ MANåŒ¹ä¸æœˆã€” MSGåˆå¹»åˆæ°å‡é›²å…å…ƒåˆ†å…ä¸
  *
  */
 
 /*
- *   ¤·¤«¤±¤é¤ì¤¿¤È¤­¤ÏNPCARGUMENT¤ò¤½¤Î¤Ş¤Ş  ¤¹¡e
+ *   ä»„äº•ä»ƒæ—¥æœ¨å‡¶åˆäº”åNPCARGUMENTæ¯›å…¬åŠå¼•å¼•  å…ã€”
  */
 void NPC_TownPeopleTalked( int index, int talker, char *msg, int color )
 {
@@ -31,7 +31,7 @@ void NPC_TownPeopleTalked( int index, int talker, char *msg, int color )
 	char *arg;
     int i, tokennum;
 
-    /* 3¥°¥ê¥Ã¥É°Ê  ¤Î¾ì¹ç¤À¤±ÊÖÅú¤¹¤ë */
+    /* 3å¼˜ä¼‰æ°¸ç‰å‹•  åŠæ¨ºå¯§åˆ†ä»ƒå¿’è ¶å…æœˆ */
 
 	if( CHAR_getInt(talker,CHAR_WHICHTYPE) == CHAR_TYPEPLAYER 
         && NPC_Util_charIsInFrontOfChar( talker, index, 3 ) ){
@@ -39,12 +39,12 @@ void NPC_TownPeopleTalked( int index, int talker, char *msg, int color )
         arg = NPC_Util_GetArgStr( index, arg1, sizeof( arg1));
 
         tokennum = 1;
-        /* ¥³¥ó¥Ş¤Ç¶èÀÚ¤é¤ì¤¿¥È¡¼¥¯¥ó¤¬²¿¤³¤¢¤ë¤«¿ô¤¨¤ë */
+        /* æˆŠä»¶ç©´åŒ¹å—‰æ¿ æ—¥æœ¨å‡¶ç„â–¡å¼ä»¶äº’çª’ä»‡ä¸æœˆäº•é†’å°¹æœˆ */
         for( i=0;arg[i]!='\0';i++ ){
             if( arg[i] == ',' ) tokennum++;
         }
 
-        /* ¥é¥ó¥À¥à¤Ç¤É¤ì¤òÃı¤ë¤«·è¤á¤Æ¡b¤½¤Î¥È¡¼¥¯¥ó¤ò¼è¤ê¤À¤¹ */
+        /* ä»¿ä»¶æ¯ä¸åŒ¹å‡æœ¨æ¯›éŸ»æœˆäº•ç‘æˆ¶åŒ–ï½å…¬åŠç„â–¡å¼ä»¶æ¯›æ½¸æ›°åˆ†å… */
         getStringFromIndexWithDelim( arg,",",
                                      rand()%tokennum+1,token, sizeof(token));
 
@@ -53,7 +53,7 @@ void NPC_TownPeopleTalked( int index, int talker, char *msg, int color )
 }
 
 /*
- * ½é´ü²½¤¹¤ë¡e
+ * è³¡æ¸ç¥­å…æœˆã€”
  */
 BOOL NPC_TownPeopleInit( int meindex )
 {
@@ -67,7 +67,7 @@ BOOL NPC_TownPeopleInit( int meindex )
 
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPETOWNPEOPLE );
     //CHAR_setFlg( meindex , CHAR_ISOVERED , 1 );
-    //CHAR_setFlg( meindex , CHAR_ISATTACKED , 0 );  /*   ·â¤µ¤ì¤Ê¤¤¤è¤ó */
+    //CHAR_setFlg( meindex , CHAR_ISATTACKED , 0 );  /*   çŒ¾ä»Šæœ¨å…ä¸­æ–¹æ° */
     
     return TRUE;
 }

@@ -3,27 +3,27 @@
 
 #ifdef _AUCTIONEER
 
-// ¥H¤U³o¨â­Ó±`¼Æ­n¸ò saac/auction.h ¸Ì­±ªº©w¸q¤@­P
-#define MAX_AUCTION	100	// ³Ì¤jªº©e°U¼Æ
-#define MAX_OVERDUE	500	// ¹L´Áªº©e°U³æ«O¯d¼Æ (³Ì¤p³]©w=¹L´Á«O¯d¤Ñ¼Æ*³Ì¤j©e°U¼Æ)
+// ä»¥ä¸‹é€™å…©å€‹å¸¸æ•¸è¦è·Ÿ saac/auction.h è£¡é¢çš„å®šç¾©ä¸€è‡´
+#define MAX_AUCTION	100	// æœ€å¤§çš„å§”è¨—æ•¸
+#define MAX_OVERDUE	500	// éæœŸçš„å§”è¨—å–®ä¿ç•™æ•¸ (æœ€å°è¨­å®š=éæœŸä¿ç•™å¤©æ•¸*æœ€å¤§å§”è¨—æ•¸)
 #define AUC_PET     1
 #define AUC_ITEM    2
 
 typedef struct tagAuctionTable {
-	int  flag;		      // 0=(null) 1=¨Ï¥Î¤¤ 2=¹L´Á
-	char cdkey[32];		  // ©e°U¤H cdkey
-	char customer[32];	// ©e°U¤H¤Hª«¦WºÙ
-	int itemtype;		    // 1=Ãdª« 2=¹D¨ã otherwise=error
-	char goods[4096];	  // ª««~ (Ãdª« or ¹D¨ã)
-	char description[256];	// ±Ô­z
-  char listdata[512]; // Åã¥Ü¦bªí³æªº¸ê®Æ
-	int price;		      // ¼Ğ»ù
+	int  flag;		      // 0=(null) 1=ä½¿ç”¨ä¸­ 2=éæœŸ
+	char cdkey[32];		  // å§”è¨—äºº cdkey
+	char customer[32];	// å§”è¨—äººäººç‰©åç¨±
+	int itemtype;		    // 1=å¯µç‰© 2=é“å…· otherwise=error
+	char goods[4096];	  // ç‰©å“ (å¯µç‰© or é“å…·)
+	char description[256];	// æ•˜è¿°
+  char listdata[512]; // é¡¯ç¤ºåœ¨è¡¨å–®çš„è³‡æ–™
+	int price;		      // æ¨™åƒ¹
   int onsaletime;
   int overduetime;
 } AuctionTable;
 
-extern AuctionTable onsale[MAX_AUCTION];	// ©ç½æ¤¤ªº¹D¨ã¡BÃdª«
-//extern AuctionTable overdue[MAX_OVERDUE];	// ¹L´Áªº¹D¨ã¡BÃdª«
+extern AuctionTable onsale[MAX_AUCTION];	// æ‹è³£ä¸­çš„é“å…·ã€å¯µç‰©
+//extern AuctionTable overdue[MAX_OVERDUE];	// éæœŸçš„é“å…·ã€å¯µç‰©
 
 BOOL NPC_AuctioneerInit(int meindex);
 void NPC_AuctioneerTalked(int meindex, int talkerindex, char *msg, int color);

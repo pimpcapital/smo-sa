@@ -53,10 +53,10 @@ void ITEM_metamo( int charaindex, int toindex, int haveitemindex );
 #ifdef _ITEM_CRACKER
 void ITEM_Cracker(int charaindex,int toindex,int haveitemindex);
 #endif
-#ifdef _ITEM_ADDEXP	//vincent ¸gÅç´£¤É
+#ifdef _ITEM_ADDEXP	//vincent ç¶“é©—æå‡
 void ITEM_Addexp(int charaindex,int toindex,int haveitemindex);
 #endif
-#ifdef _ITEM_REFRESH //vincent ¸Ñ°£²§±`ª¬ºA¹D¨ã
+#ifdef _ITEM_REFRESH //vincent è§£é™¤ç•°å¸¸ç‹€æ…‹é“å…·
 void ITEM_Refresh(int charaindex,int toindex,int haveitemindex);
 #endif
 //Terry 2001/12/21
@@ -114,7 +114,7 @@ void ITEM_MagicResist( int charaindex, int itemindex);
 void ITEM_MagicReResist( int charaindex, int itemindex);
 #endif
 
-#ifdef _MAGIC_RESIST_EQUIT			// WON ADD Â¾·~§Ü©Ê¸Ë³Æ    
+#ifdef _MAGIC_RESIST_EQUIT			// WON ADD è·æ¥­æŠ—æ€§è£å‚™    
 void ITEM_P_MagicEquitWear( int charaindex, int itemindex );
 void ITEM_P_MagicEquitReWear( int charaindex, int itemindex );
 #endif
@@ -128,7 +128,7 @@ void ITEM_UseDeathCounter( int charaindex, int toindex, int haveitemindex);
 void ITEM_useWatchBattle( int charaindex, int toindex, int haveitemindex);
 #endif
 
-#ifdef _FEV_ADD_NEW_ITEM			// FEV ADD ¼W¥[´_¬¡¦uºë
+#ifdef _FEV_ADD_NEW_ITEM			// FEV ADD å¢åŠ å¾©æ´»å®ˆç²¾
 void ITEM_ResAndDef( int charaindex, int toindex, int haveitemindex );
 #endif
 
@@ -220,7 +220,7 @@ enum{
 	BD_KIND_CURSE,
 	BD_KIND_BESTOW,
 	BD_KIND_WISHES,
-#ifdef _CHANGEITEMUSE	 // Syu ADD ½Õ¾ã¾Ô°«¤¤¨Ï¥Î®Æ²z³]©w
+#ifdef _CHANGEITEMUSE	 // Syu ADD èª¿æ•´æˆ°é¬¥ä¸­ä½¿ç”¨æ–™ç†è¨­å®š
 	BD_KIND_HP_MP,
 #endif
 #ifdef _ITEM_UNBECOMEPIG

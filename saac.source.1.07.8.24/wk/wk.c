@@ -49,7 +49,7 @@ int WGSPort = -1;
 int zap=0;
 int additional_process=0;
 
-#ifdef _ADD_AC_IP				 // WON ADD ¥[AC_IP¦Ü³q°T¨ó©w¤¤
+#ifdef _ADD_AC_IP				 // WON ADD åŠ AC_IPè‡³é€šè¨Šå”å®šä¸­
 char AC_IP[20];
 #endif
 
@@ -148,9 +148,9 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 		switch (*flag) {
 		case '1': // Login
 		
-#ifdef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e		
+#ifdef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹		
 
-#ifdef _ADD_AC_IP				 // WON ADD ¥[AC_IP¦Ü³q°T¨ó©w¤¤
+#ifdef _ADD_AC_IP				 // WON ADD åŠ AC_IPè‡³é€šè¨Šå”å®šä¸­
 			sprintf(buffer,"&;5;6;%s;%s;0;%s;",idbuf,pasbuf, AC_IP);
 #else
 			sprintf(buffer,"&;5;6;%s;%s;0;",idbuf,pasbuf);
@@ -164,9 +164,9 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 			break;
 		case '4': // Delete
 
-#ifdef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e		
+#ifdef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹		
 
-#ifdef _ADD_AC_IP				 // WON ADD ¥[AC_IP¦Ü³q°T¨ó©w¤¤
+#ifdef _ADD_AC_IP				 // WON ADD åŠ AC_IPè‡³é€šè¨Šå”å®šä¸­
 			sprintf(buffer,"&;5;6;%s;%s;0;%s;",idbuf,pasbuf, AC_IP);
 #else
 			sprintf(buffer,"&;5;6;%s;%s;0;",idbuf,pasbuf);
@@ -182,9 +182,9 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 		case '5': // recheck WGS deadline
 #endif
 
-#ifdef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e		
+#ifdef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹		
 
-#ifdef _ADD_AC_IP				 // WON ADD ¥[AC_IP¦Ü³q°T¨ó©w¤¤
+#ifdef _ADD_AC_IP				 // WON ADD åŠ AC_IPè‡³é€šè¨Šå”å®šä¸­
 			sprintf(buffer,"&;4;6;%s;%s;%s;",idbuf,pasbuf, AC_IP);
 #else
 			sprintf(buffer,"&;4;6;%s;%s;",idbuf,pasbuf);
@@ -198,9 +198,9 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 			break;
 		case '3': // Game End
 		
-#ifdef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e		
+#ifdef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹		
 
-#ifdef _ADD_AC_IP				 // WON ADD ¥[AC_IP¦Ü³q°T¨ó©w¤¤
+#ifdef _ADD_AC_IP				 // WON ADD åŠ AC_IPè‡³é€šè¨Šå”å®šä¸­
 			sprintf(buffer,"&;3;7;%s;%s;",idbuf, AC_IP);
 #else
 			sprintf(buffer,"&;3;7;%s;",idbuf);
@@ -257,7 +257,7 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 
 			int payType;
 
-#ifndef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e	
+#ifndef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹	
 			if (atoi(ptr+1)!=baka){
 				char buff1[256];
 				sprintf( buff1, "%d != %d\n", atoi(ptr+1), baka);
@@ -275,23 +275,23 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 			}
 			
 			if( strcmp( strtok(0,";"), idbuf)) {  // get PlayerAccount
-				//Log(" ¦^¶Ç±b¸¹¤£²Å! ");
+				//Log(" å›å‚³å¸³è™Ÿä¸ç¬¦! ");
 				//return(-106);
 			}
 
 			switch( payType) {
-			case 1: // ¥]¤ë¨î
+			case 1: // åŒ…æœˆåˆ¶
 				strcpy( deadline ,"0");
-				Log(" ¥]¤ë ");
+				Log(" åŒ…æœˆ ");
 				break;
-			case 2: // ®É¬q¨î
+			case 2: // æ™‚æ®µåˆ¶
 				//strtok(0,";"); // get PlayerAccount
 				strcpy( deadline ,strtok(0,";"));
-				Log(" ®É¬q ");
+				Log(" æ™‚æ®µ ");
 				break;
 			case 0:
 				strcpy( deadline ,"0");
-				Log(" µ²§ô ");
+				Log(" çµæŸ ");
 				break;
 			}
 
@@ -322,8 +322,8 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 			return(0); // Authencation passed
 		}
 
-#ifdef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e
-		// ¦^¶Ç¿ù»~½X
+#ifdef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹
+		// å›å‚³éŒ¯èª¤ç¢¼
 		else if (ptr[0]=='E'){
 			char err_code[10];
 			int i, err_num=0, login_star=-1;
@@ -332,7 +332,7 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 				strtok(0,";"); // Get 1
 			if( *flag != '1' && *flag != '4') {
 				if( strcmp( strtok(0,";"), idbuf)) {  // get PlayerAccount
-					//Log(" ¦^¶Ç±b¸¹¤£²Å! ");
+					//Log(" å›å‚³å¸³è™Ÿä¸ç¬¦! ");
 					//return(-106);
 				}
 			}
@@ -347,17 +347,17 @@ static int doKN( char *id , char *pas , char *flag , char *process)
 
 			err_num=atoi(err_code);
 
-			if( err_num == 203 ){			// 203 ¤£¦P¬P¨t
+			if( err_num == 203 ){			// 203 ä¸åŒæ˜Ÿç³»
 					login_star=atoi(ptr+i);
 					Log("203");
-					// ¦^¶Ç¤wµn¤Jªº¬P¨t¥N½X
+					// å›å‚³å·²ç™»å…¥çš„æ˜Ÿç³»ä»£ç¢¼
 					if(login_star != -1)
 						return(login_star+2030);
 			}
-			else if( err_num == 204 ){		// 204 ¦P¬P¨t	
+			else if( err_num == 204 ){		// 204 åŒæ˜Ÿç³»	
 					Log("204");
 					if( *flag == '5')
-						Log(" ®É¬q¥¼¨ì ");
+						Log(" æ™‚æ®µæœªåˆ° ");
 					return(204);
 			}else{
 				char msg[256];
@@ -495,7 +495,7 @@ static void workerMainLoop( void )
     }
 #endif
 
-	//½T»{CS¥i³s½u
+	//ç¢ºèªCSå¯é€£ç·š
 	if( checkCSconnect() == -1 ) return;
 #ifdef _FIX_WORKS
 	if( !LoginToAC() )	//login to ac
@@ -542,12 +542,12 @@ while( fgets( linebuf,sizeof(linebuf), fp)){
         }else{
        		switch (i_flag) {  //Arminius && ttom
 
-#ifdef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e	
+#ifdef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹	
 
 #ifdef _TIMEOUTKICK
 
 			case  1: // List
-#ifdef _AP_CHECK_3_TIMES           // WON ADD ´î¤Ö»{ÃÒ¦¸¼Æ
+#ifdef _AP_CHECK_3_TIMES           // WON ADD æ¸›å°‘èªè­‰æ¬¡æ•¸
 				knret = 0;
 #else
 				knret = doKN( id, pas, flag, "", deadline);
@@ -569,7 +569,7 @@ while( fgets( linebuf,sizeof(linebuf), fp)){
 #else
 
 			case  1: // List
-#ifdef _AP_CHECK_3_TIMES           // WON ADD ´î¤Ö»{ÃÒ¦¸¼Æ
+#ifdef _AP_CHECK_3_TIMES           // WON ADD æ¸›å°‘èªè­‰æ¬¡æ•¸
 				knret = 0;
 #else
 				knret = doKN( id, pas, flag, "");
@@ -648,7 +648,7 @@ static void parseOpt( int argc , char **argv )
     int c;
     int option_index;
 
-#ifdef _ADD_AC_IP                // WON ADD ­×§ï«Ê¥]¤º®e
+#ifdef _ADD_AC_IP                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹
 	memset( AC_IP, -1 , sizeof( AC_IP) );
 #endif
 
@@ -666,13 +666,13 @@ static void parseOpt( int argc , char **argv )
             {"logdir", 1, 0, 'l' },
             {"csaddr", 1, 0, 'a' },
             {"csport", 1, 0, 'c' },
-#ifdef _ADD_AC_IP                // WON ADD ­×§ï«Ê¥]¤º®e
+#ifdef _ADD_AC_IP                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹
 			{"acaddr", 1, 0, 'w' },
 #endif
             {0,0,0,0}
         };
 
-#ifdef _FIX_MESSAGE                // WON ADD ­×§ï«Ê¥]¤º®e
+#ifdef _FIX_MESSAGE                // WON ADD ä¿®æ”¹å°åŒ…å…§å®¹
         c = getopt_long ( argc, argv, "p:dhl:a:c:w:", long_options, &option_index );
 #else
         c = getopt_long ( argc, argv, "p:dhl:a:c:", long_options, &option_index );
@@ -711,7 +711,7 @@ static void parseOpt( int argc , char **argv )
             WGSPort = atoi( optarg );
             break;
         // Spock end
-#ifdef _ADD_AC_IP				 // WON ADD ¥[AC_IP¦Ü³q°T¨ó©w¤¤
+#ifdef _ADD_AC_IP				 // WON ADD åŠ AC_IPè‡³é€šè¨Šå”å®šä¸­
 		case 'w':
 			strcpy( AC_IP, optarg ); 
 			Log( AC_IP );

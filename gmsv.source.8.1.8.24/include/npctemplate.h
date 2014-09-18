@@ -24,10 +24,10 @@ typedef struct tagNPC_haveItem
 
 typedef enum
 {
-    NPC_TEMPLATENAME,           /*    ��ץ졼�Ȥ�  ��  */
-    NPC_TEMPLATECHARNAME,       /*    ��    */
+    NPC_TEMPLATENAME,           /*    件皿伊□玄及  蟆  */
+    NPC_TEMPLATECHARNAME,       /*    蟆    */
 
-    NPC_TEMPLATEINITFUNC,       /*  CHAR_INITFUNC�˹Ԥ� */
+    NPC_TEMPLATEINITFUNC,       /*  CHAR_INITFUNC卞墊仁 */
     NPC_TEMPLATEWALKPREFUNC,    /*  CHAR_WALKPREFUNC    */
     NPC_TEMPLATEWALKPOSTFUNC,   /*  CHAR_WALKPOSTFUNC   */
     NPC_TEMPLATEPREOVERFUNC,    /*  CHAR_PREOVERFUNC    */
@@ -56,10 +56,10 @@ typedef enum
 
 typedef enum
 {
-    NPC_TEMPLATEMAKEATNOBODY,           /* ï�⤤�ʤ����ˤ��뤫�ɤ��� */
-    NPC_TEMPLATEMAKEATNOSEE,            /* �����ʤ���Ǻ�뤫�ɤ���    */
-    NPC_TEMPLATEIMAGENUMBER,            /*   ��  ��    */
-    NPC_TEMPLATETYPE,                   /*     ������˷���        */
+    NPC_TEMPLATEMAKEATNOBODY,           /* 簿手中卅中凜卞手綜月井升丹井 */
+    NPC_TEMPLATEMAKEATNOSEE,            /* 葦尹卅中赭匹綜月井升丹井    */
+    NPC_TEMPLATEIMAGENUMBER,            /*   颶  寞    */
+    NPC_TEMPLATETYPE,                   /*     瑁戶月凜卞瑁戶月        */
 
     NPC_TEMPLATEMINHP,                  /* HP   */
 
@@ -69,17 +69,17 @@ typedef enum
 
     NPC_TEMPLATEMINTOUGH,               /* TOUGH    */
 
-    NPC_TEMPLATEISFLYING,               /*  ��Ǥ뤫�ɤ���  */
+    NPC_TEMPLATEISFLYING,               /*  氏匹月井升丹井  */
 
-    NPC_TEMPLATEITEMNUM,                /*   �����륢��  ���    ��    */
+    NPC_TEMPLATEITEMNUM,                /*   切丹月失奶  丞及    醒    */
 
     NPC_TEMPLATELOOPFUNCTIME,           /*
-                                         * ���ߥ�  ���Ȥ˥롼�״ؿ�
-                                         * ��Ƥ֤�
+                                         * 窒立伉  仍午卞伙□皿楮醒
+                                         * 毛裟少井
                                          */
     NPC_TEMPLATEFUNCTIONINDEX,         /*
-                                        * fucntionSet �β�    ��
-                                        * ����ǥå�����
+                                        * fucntionSet 及窒    及
+                                        * 奶件犯永弁旦井
                                         */
 
     NPC_TEMPLATEINTNUM,
@@ -89,8 +89,8 @@ typedef struct tagNPC_Template
 {
     STRING64    chardata[NPC_TEMPLATECHARNUM];
     int         intdata[NPC_TEMPLATEINTNUM];
-    int         randomdata[NPC_TEMPLATEINTNUM]; /*  �������  ����
-                                                    ��  �äƤ���  */
+    int         randomdata[NPC_TEMPLATEINTNUM]; /*  仿件母丞及  五今
+                                                    互  勻化中月  */
     int         hash;
     NPC_haveItem*   haveitem;
 }NPC_Template;

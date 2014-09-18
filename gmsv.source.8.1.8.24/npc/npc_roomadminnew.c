@@ -19,79 +19,79 @@
 
 
 /* 
- * ÉÔ  »º¤ä¤µ¤ó By Kawata
+ * å°•  é£æ”¯ä»Šæ° By Kawata
  *
- * »Å    Éı¤Ë  ¹¹¤Î°Ù½ñ¤­  ¤·¤¿  ¤¬Áá¤¤¤È  ¤¦¤Î¤Ç½ñ¤­¤Ê¶³¤·
+ * é…·    æ±”å  å‡³åŠå•ƒè¸äº”  ä»„å‡¶  äº’éä¸­åˆ  ä¸¹åŠåŒ¹è¸äº”å…é›²ä»„
  */
 
 
 enum{
-	/* ¥ª¡¼¥¯¼³¥ç¥ó  °Ï */
+	/* å·¦â–¡å¼æ’²äº¦ä»¶  å€ */
 	CHAR_WORKINT_RANGE     = CHAR_NPCWORKINT1,
-	/* ±­¤ÎÄùÀÚ»ş´Ö */
+	/* æˆšåŠè ¡æ¿ å‡œæ£‰ */
 	CHAR_WORKINT_NEXTTIME  = CHAR_NPCWORKINT2,
-	/*   ¼¨ÍÑ¡ÖÄùÀÚ¡ªÊ¬Á°¡× */
+	/*   æ†è¿•ï¼è ¡æ¿ ã€åŒèŸ†ï¼ */
 	CHAR_WORKINT_PRINTCLOSETIME = CHAR_NPCWORKINT3,
-	/*   ²°¸¡º÷¤·¤¿  ÉÕ */
+	/*   ç›’è…¹ç¶¢ä»„å‡¶  å°¥ */
 	CHAR_WORKINT_SEARCHROOMTIME = CHAR_NPCWORKINT4,
 	
 };
 enum {
-	/* ¼«Ê¬¤Î  Á° */
+	/* æ†¤åŒåŠ  èŸ† */
 	CHAR_WORKCHAR_MYNAME   = CHAR_NPCWORKCHAR1,
-	/* ±­¤Î  ·ï */
+	/* æˆšåŠ  ç˜€ */
 	CHAR_WORKCHAR_NEXTROOM = CHAR_NPCWORKCHAR2,
 	
 };
 
-/* ¥é¥ó¥­¥ó¥°  ¼¨      ÍÑ¥ï¡¼¥¯*/
+/* ä»¿ä»¶å¹³ä»¶å¼˜  æ†      è¿•ä¼â–¡å¼*/
 enum {
-	/* ´É  ¿Í¤Î  Á° */
+	/* æ£Ÿ  è«¦åŠ  èŸ† */
 	CHAR_WORKCHAR_ADMNAME = CHAR_NPCWORKCHAR1,
 };
 
 
-/* ¥Ç¡¼¥¿¥Õ¥¡¥¤¥ë¤ò³Ê  ¤¹¤ë¥Ç¥£¥ì¥¯¥È¥ê¡els2/src/lss ¤«¤é¤ÎÁêÂĞ»ØÄê */
+/* çŠ¯â–¡æ­£ç™½å¤®å¥¶ä¼™æ¯›å‚˜  å…æœˆçŠ¯å¥´ä¼Šå¼ç„ä¼‰ã€”ls2/src/lss äº•æ—¥åŠé¬è¦†éš™çˆ› */
 #define     NPC_ROOMADMINNEW_DATADIR        "roomadmin/"
-/* ¥Ç¡¼¥¿¥Õ¥¡¥¤¥ë¤Î³ÈÄ¥»Ò */
+/* çŠ¯â–¡æ­£ç™½å¤®å¥¶ä¼™åŠå‚€è‰¦é–¡ */
 #define     NPC_ROOMADMINNEW_EXTENSION      ".room"
-/* ¥é¥ó¥­¥ó¥°¥Ç¡¼¥¿¥Õ¥¡¥¤¥ë¤Î³ÈÄ¥»Ò    ¥ó¥İ¥é¥ê   */
+/* ä»¿ä»¶å¹³ä»¶å¼˜çŠ¯â–¡æ­£ç™½å¤®å¥¶ä¼™åŠå‚€è‰¦é–¡    ä»¶ç¦¾ä»¿ä¼‰   */
 #define     NPC_ROOMADMINNEW_RANKING_EXTENSION      ".score"
 #define     NPC_ROOMADMINNEW_RANKING_EXTENSION_TMP  ".score.tmp"
-/*   ¹â  »¥¼Ô¥é¥ó¥­¥ó¥°¥Õ¥¡¥¤¥ë */
+/*   å«–  èª‘æ¨Šä»¿ä»¶å¹³ä»¶å¼˜ç™½å¤®å¥¶ä¼™ */
 #define     NPC_ROOMADMINNEW_SCOREFILE      ".score"
-/* Äù¤áÀÚ¤ê¡ªÊ¬Á°¤«¤é¥á¥Ã¥»¡¼¥¸ */
+/* è ¡æˆ¶æ¿ æ›°ã€åŒèŸ†äº•æ—¥ä¸Ÿæ°¸æœ¬â–¡æ–¥ */
 #define     NPC_ROOMADMINNEW_PRINTCLOSETIME_DEFAULT     5
 
 #define     NPC_ROOMADMINNEW_MSG_CLOSE_BEFORE       \
-"%s %s %sªº¬¡°Ê¡AºI¤î¤é%d¤À«e¡C"
+"%s %s %sçš„æ´»å‹•ï¼Œæˆªæ­¢æ—¥%dåˆ†å‰ã€‚"
 #define     NPC_ROOMADMINNEW_MSG_CLOSE              \
-"¡C¡C¡C¤wºI¤î¡C"
+"ã€‚ã€‚ã€‚å·²æˆªæ­¢ã€‚"
 #define     NPC_ROOMADMINNEW_MSG_NONE               \
-"«Ü¥i±¤¥»¦¸¨S¦³¤HÀò±o©Ğ¶¡ªº¾Ö¦³Åv¡C"
+"å¾ˆå¯æƒœæœ¬æ¬¡æ²’æœ‰äººç²å¾—æˆ¿é–“çš„æ“æœ‰æ¬Šã€‚"
 #define     NPC_ROOMADMINNEW_MSG_CONGRATULATION     \
-"®¥³ß±z¡I%sÀò±o©Ğ¶¡ªº©Ò¦³Åv¡I%sªºª÷¿ú¥ş³¡³Q¼x¦¬¤F¡C%s½Ğ¦VºŞ²z­û¸ß°İ©Ğ¶¡·t¸¹¡C"
+"æ­å–œæ‚¨ï¼%sç²å¾—æˆ¿é–“çš„æ‰€æœ‰æ¬Šï¼%sçš„é‡‘éŒ¢å…¨éƒ¨è¢«å¾µæ”¶äº†ã€‚%sè«‹å‘ç®¡ç†å“¡è©¢å•æˆ¿é–“æš—è™Ÿã€‚"
 #define     NPC_ROOMADMINNEW_MSG_PRINTPASSWD_NONE    \
-"¥Ñ©ó§A¥¼«ù¦³©Ğ¶¡¦]¦¹¨S¦³·t¸¹¡C"
+"ç”±æ–¼ä½ æœªæŒæœ‰æˆ¿é–“å› æ­¤æ²’æœ‰æš—è™Ÿã€‚"
 #define     NPC_ROOMADMINNEW_MSG_DSPPASSWD1          \
-"§Aªº©Ğ¶¡¬O %s %s %s¡C"
+"ä½ çš„æˆ¿é–“æ˜¯ %s %s %sã€‚"
 #define     NPC_ROOMADMINNEW_MSG_DSPPASSWD2          \
-"©Ğ¶¡ªº·t¸¹¬O ¡u%s ¡v¡C¥u­n¦b¹ïµÛªù»¡¸Ü®É¦b»P§À¥[¤W¡u...¡v¡A§O¤H´N¬İ¤£¨£¤F­ò¡I"
+"æˆ¿é–“çš„æš—è™Ÿæ˜¯ ã€Œ%s ã€ã€‚åªè¦åœ¨å°è‘—é–€èªªè©±æ™‚åœ¨èˆ‡å°¾åŠ ä¸Šã€Œ...ã€ï¼Œåˆ¥äººå°±çœ‹ä¸è¦‹äº†å”·ï¼"
 #define     NPC_ROOMADMINNEW_MSG_DSPNEXTAUCTION_NONE        \
-"¥»¤éªº¬¡°Êµ²§ô¡C"
+"æœ¬æ—¥çš„æ´»å‹•çµæŸã€‚"
 #define     NPC_ROOMADMINNEW_MSG_DSPNEXTAUCTION1     \
-"±µ¤U¨Óªº©Ğ¶¡¬O %s %s %s¡C"
+"æ¥ä¸‹ä¾†çš„æˆ¿é–“æ˜¯ %s %s %sã€‚"
 #define     NPC_ROOMADMINNEW_MSG_DSPNEXTAUCTION2     \
-"ºI¤î¤é¬O %d:%d ¡C¨ìºI¤î¤é¬°¤îÁÙ¦³%2d¤p®É%02d¤À¡C"
+"æˆªæ­¢æ—¥æ˜¯ %d:%d ã€‚åˆ°æˆªæ­¢æ—¥ç‚ºæ­¢é‚„æœ‰%2då°æ™‚%02dåˆ†ã€‚"
 #define     NPC_ROOMADMINNEW_MSG_DSPNEXTAUCTION3     \
-"³Ì§C±o¼Ğª÷ÃB¬O %s ¡C"
+"æœ€ä½å¾—æ¨™é‡‘é¡æ˜¯ %s ã€‚"
 
 #define     NPC_ROOMADMINNEW_MSG_RANKING_INFO       \
-"³o¬O°ªÃB±o¼ĞªÌ±Æ¦æº]¡C"
+"é€™æ˜¯é«˜é¡å¾—æ¨™è€…æ’è¡Œæ¦œã€‚"
 #define     NPC_ROOMADMINNEW_MSG_RANKING            \
 "Rank %2d:%4d/%02d/%02d %8d GOLD %s%s "
 
-/* ¤³¤ÎNPC¤Î¥á¥Ã¥»¡¼¥¸¿§ */
+/* ä»‡åŠNPCåŠä¸Ÿæ°¸æœ¬â–¡æ–¥ç¸‰ */
 #define     NPC_ROOMADMINNEW_MSGCOLOR           CHAR_COLORWHITE
 #define     NPC_RANKING_MSGCOLOR                CHAR_COLORWHITE
 #define		NPC_ROOMADMINNEW_2WEEK				60*60*24*14
@@ -110,7 +110,7 @@ static void NPC_RoomAdminNew_ReadScoreFile( int meindex, int talkerindex,
 											char *admname);
 
 /************************************************
- * ½é´ü½è  
+ * è³¡æ¸è³ª  
  ************************************************/
 BOOL NPC_RoomAdminNewInit( int meindex )
 {
@@ -119,11 +119,11 @@ BOOL NPC_RoomAdminNewInit( int meindex )
 	char    argstr1[NPC_UTIL_GETARGSTR_BUFSIZE];
 	char *argstr;
 	
-	/* ¼«Ê¬¤Î´É³í¤ÎÁ´  ¤Î¥É¥¢¤¬½Ğ  ¾å¤¬¤ë¤Ş¤Ç¤³¤ÎNPC¤Ïºî©¨¤µ¤ì¤Ê¤¤ */
+	/* æ†¤åŒåŠæ£Ÿå–±åŠèŸˆ  åŠç‰å¤±äº’è«‹  æ›‰äº’æœˆå¼•åŒ¹ä»‡åŠNPCåç¶œå²³ä»Šæœ¨å…ä¸­ */
 	for( i = 3; ; i ++ ) {
 		if( getStringFromIndexWithDelim(argstr, "|" , i , buf,sizeof(buf) )) {
 			if( NPC_DoorSearchByName( buf) < 0 ) {
-				print( "admin not created.¦b±K½Xªù°µ¦n¤§«e¥ıµ¥«İ¡C\n");
+				print( "admin not created.åœ¨å¯†ç¢¼é–€åšå¥½ä¹‹å‰å…ˆç­‰å¾…ã€‚\n");
 				return FALSE;
 			}
 		}
@@ -134,39 +134,39 @@ BOOL NPC_RoomAdminNewInit( int meindex )
 	
 	argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1));
 	
-	/* ½é´ü²½½è   */
+	/* è³¡æ¸ç¥­è³ª   */
 	
-	/* type¥»¥Ã¥È */
+	/* typeæœ¬æ°¸ç„ */
 	CHAR_setInt( meindex, CHAR_WHICHTYPE, CHAR_TYPEROOMADMIN);
-	/*   ¸ú  °Ï¼è   */
+	/*   èº²  å€æ½¸   */
 	getStringFromIndexWithDelim(argstr, "|" , 1 , buf,sizeof(buf) );
 	CHAR_setWorkInt( meindex , CHAR_WORKINT_RANGE , atoi( buf ));
-	/* ¼«Ê¬¤Î  Á°¼è   */
+	/* æ†¤åŒåŠ  èŸ†æ½¸   */
 	if( !getStringFromIndexWithDelim(argstr, "|" , 2 , buf,sizeof(buf) )) {
 		print( "arg err.admin not created.\n");
 		return( FALSE);
 	}
 	CHAR_setWorkChar( meindex , CHAR_WORKCHAR_MYNAME , buf);
 	
-	/*   ¼¨ÍÑ¡ÖÄùÀÚ¡ªÊ¬Á°¡×½é´ü²½ */
+	/*   æ†è¿•ï¼è ¡æ¿ ã€åŒèŸ†ï¼è³¡æ¸ç¥­ */
 	CHAR_setWorkInt( meindex, CHAR_WORKINT_PRINTCLOSETIME, 0);
 	
-	/* ±­¤Î  ·ï¤È¥ª¡¼¥¯¼³¥ç¥ó³«ºÅ»ş´Ö¤ò¥»¥Ã¥È */
+	/* æˆšåŠ  ç˜€åˆå·¦â–¡å¼æ’²äº¦ä»¶é‡©ç˜å‡œæ£‰æ¯›æœ¬æ°¸ç„ */
 	NPC_RoomAdminNew_SetNextAuction( meindex);
 	
 	return TRUE;
 }
 /************************************************
- * ¥ë¡¼¥×½è  
- * ¸Æ¤Ó½Ğ¤·  ÅÙ¤Ï¤½¤ó¤Ê¤Ë    ¤Ç¤Ê¤¯¤Æ¤â¤¤¤¤¡e
- * ¤Ç¤âÀäÂĞ¤Ë£±Ê¬    ¤Ë¤¹¤ë»ö
+ * ä¼™â–¡çš¿è³ª  
+ * è£Ÿå¤ªè«‹ä»„  è˜¸åå…¬æ°å…å    åŒ¹å…ä»åŒ–æ‰‹ä¸­ä¸­ã€”
+ * åŒ¹æ‰‹æ¿®è¦†åã„ åŒ    åå…æœˆå„€
  ************************************************/
 void NPC_RoomAdminNewLoop( int meindex )
 {
 	int     hun;
-	/* ¤â¤·¤â³«ºÅ»ş´Ö¤¬·è¤Ş¤Ã¤Æ¤¤¤Ê¤«¤Ã¤¿¤é¼è  ¤·¤Ê¶³¤¹ */
+	/* æ‰‹ä»„æ‰‹é‡©ç˜å‡œæ£‰äº’ç‘å¼•å‹»åŒ–ä¸­å…äº•å‹»å‡¶æ—¥æ½¸  ä»„å…é›²å… */
 	if( CHAR_getWorkInt( meindex, CHAR_WORKINT_NEXTTIME) == 0 ) {
-		/* Á°²ó¸¡º÷¤·¤¿  ¤¬°ã¤¨¤Ğ¸¡º÷¤·¤Ê¶³¤¹ */
+		/* èŸ†è¢è…¹ç¶¢ä»„å‡¶  äº’å•œå°¹å£¬è…¹ç¶¢ä»„å…é›²å… */
 		struct  tm      tm1,tm2;
 		time_t          t;
 		memcpy( &tm1, localtime( (time_t *)&NowTime.tv_sec), sizeof( tm1));
@@ -184,11 +184,11 @@ void NPC_RoomAdminNewLoop( int meindex )
 	
 	hun = ceil((double)(CHAR_getWorkInt( meindex, CHAR_WORKINT_NEXTTIME) - 
 		   NowTime.tv_sec) / 60.0);
-	/* ¤â¤·¤â¤Î»ş¤Î°Ù¤Ëhun¤¬¥Ş¥¤¥Ê¥¹¤Î»ş¤Ï£°¤Ë  ¤¹ */
+	/* æ‰‹ä»„æ‰‹åŠå‡œåŠå•ƒåhunäº’ç©´å¥¶ç“œæ—¦åŠå‡œåã„Ÿå  å… */
 	if( hun < 0 ) hun = 0;
 	
 	if( hun < NPC_ROOMADMINNEW_PRINTCLOSETIME_DEFAULT ) {
-		/* Äù¤áÀÚ¤ê¶á¤¯¤Ë¤Ê¤Ã¤¿¤é¡ÖÄù¤áÀÚ¤ê¡ªÊ¬Á°¤Ç¤¹¡×¤È¸À¤ï¤¹ */
+		/* è ¡æˆ¶æ¿ æ›°å—¤ä»åå…å‹»å‡¶æ—¥ï¼è ¡æˆ¶æ¿ æ›°ã€åŒèŸ†åŒ¹å…ï¼åˆè›»æ­¹å… */
 		if( hun != CHAR_getWorkInt( meindex, CHAR_WORKINT_PRINTCLOSETIME)) {
 			char    buff[256];
 			if( hun != 0 ) {
@@ -198,19 +198,19 @@ void NPC_RoomAdminNewLoop( int meindex )
 				char *argstr2;
 				int		doorindex;
 
-				/*   ²°¾ğ  ¼è   */
+				/*   ç›’æ¨¹  æ½¸   */
 				doorindex = NPC_DoorSearchByName( CHAR_getWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM));
 				argstr2 = NPC_Util_GetArgStr( doorindex, argstr3, sizeof( argstr3));
 				getStringFromIndexWithDelim( argstr2, "|" , 9 , 
 											 buf2,sizeof(buf2) );
-				/*   ²°¾ğ  */
+				/*   ç›’æ¨¹  */
 				if( strlen(CHAR_getChar( doorindex, CHAR_NAME) ) != 0 ) {
-					strcpy( msgbuff, "¸¹«Ç");
+					strcpy( msgbuff, "è™Ÿå®¤");
 				}
 				else {
 					msgbuff[0] = '\0';
 				}
-				/* ¡ÖÄù¤áÀÚ¤ê¡ªÊ¬Á°¤Ç¤¹¡× */
+				/* ï¼è ¡æˆ¶æ¿ æ›°ã€åŒèŸ†åŒ¹å…ï¼ */
 				snprintf( buff, sizeof(buff), 
 							NPC_ROOMADMINNEW_MSG_CLOSE_BEFORE, 
 							buf2,
@@ -221,38 +221,38 @@ void NPC_RoomAdminNewLoop( int meindex )
 				CHAR_setWorkInt( meindex, CHAR_WORKINT_PRINTCLOSETIME, hun);
 			}
 			else {
-				/* ¡ÖÄù¤áÀÚ¤ê¤Ş¤·¤¿¡× */
+				/* ï¼è ¡æˆ¶æ¿ æ›°å¼•ä»„å‡¶ï¼ */
 				strcpy( buff, NPC_ROOMADMINNEW_MSG_CLOSE);
 				CHAR_setWorkInt( meindex, CHAR_WORKINT_PRINTCLOSETIME, 0);
 			}
-			/* ¤³¤Î¥Õ¤Ò¥¢¤Ë¤¤¤ë¿ÍÁ´°÷¤ËÁ÷¿® */
+			/* ä»‡åŠç™½å¤«å¤±åä¸­æœˆè«¦èŸˆå¤ åéœœè€¨ */
 			NPC_RoomAdminNew_SendMsgThisFloor( meindex, buff);
 		}
 	}
-	/* Äù¤áÀÚ¤Ã¤¿»ş¤Î½è   */
+	/* è ¡æˆ¶æ¿ å‹»å‡¶å‡œåŠè³ª   */
 	if( hun == 0 ) {
 		NPC_RoomAdminNew_CloseProc( meindex);
 	}
 }
 
 /************************************************
- *   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+ *   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
  ************************************************/
 void NPC_RoomAdminNewTalked( int meindex , int talkerindex , char *msg ,
 							 int color )
 {
 	
-	/* ¥×¥ì¥¤¥ä¡¼¤¬¥É¥¢¥Ş¥ó¤Î1¥°¥ê¥Ã¥É°Ê  ¤Ê¤é  ±ş¤¹¤ë¡e */
+	/* çš¿ä¼Šå¥¶ä¹©â–¡äº’ç‰å¤±ç©´ä»¶åŠ1å¼˜ä¼‰æ°¸ç‰å‹•  å…æ—¥  æ®ºå…æœˆã€” */
 	if(NPC_Util_CharDistance( talkerindex, meindex ) > 1)return;
 	
-	/*   ¤·¤«¤±¤é¤ì¤¿¿Í¤¬  ²°¤ò¼Ú¤ê¤Æ¤¤¤¿¤é¥Ñ¥¹¥ï¡¼¥É¤ò  ¼¨¤¹¤ë */
+	/*   ä»„äº•ä»ƒæ—¥æœ¨å‡¶è«¦äº’  ç›’æ¯›æ­æ›°åŒ–ä¸­å‡¶æ—¥ç”±æ—¦ä¼â–¡ç‰æ¯›  æ†å…æœˆ */
 	/*NPC_RoomAdminNew_DspRoomPasswd( meindex, talkerindex);*/
 	
-	/* ±­²ó³«ºÅ»ş´Ö¡f  ²°¤ò¸À¤¦ */
+	/* æˆšè¢é‡©ç˜å‡œæ£‰ã€•  ç›’æ¯›è›»ä¸¹ */
 	NPC_RoomAdminNew_DspNextAuction( meindex, talkerindex);
 }
 /*-----------------------------------------------
- * Äù¤áÀÚ¤é¤ì¤¿»ş¤Î½è  
+ * è ¡æˆ¶æ¿ æ—¥æœ¨å‡¶å‡œåŠè³ª  
  *----------------------------------------------*/
 static void NPC_RoomAdminNew_CloseProc( int meindex)
 {
@@ -261,19 +261,19 @@ static void NPC_RoomAdminNew_CloseProc( int meindex)
 	char    pname[32];
 	int     failed = TRUE;
 	
-	/* °ì  ¶³¶â¤òÂ¿¤¯  ¤Ã¤Æ¤¤¤ë¥×¥ì¥¤¥ä¡¼¤òÃµ¤¹ */
+	/* åŸŸ  é›²å—¯æ¯›è¶ä»  å‹»åŒ–ä¸­æœˆçš¿ä¼Šå¥¶ä¹©â–¡æ¯›ç¹­å… */
 	pindex = NPC_RoomAdminNew_SearchPlayerHasMostMoney( meindex);
-	/* ³ºÅö¼Ô¥¢¥ê */
+	/* ç«Ÿç™²æ¨Šå¤±ä¼‰ */
 	if( pindex != -1) {
-		/* £±²ó¤Ç  ¤±¤ë¥ë¡¼¥×¤Ç¤¹ */
+		/* ã„ è¢åŒ¹  ä»ƒæœˆä¼™â–¡çš¿åŒ¹å… */
 		while( 1) {
 			char    passwd[9];
 			int		doorindex;
 			doorindex = NPC_DoorSearchByName( 
 							CHAR_getWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM));
-			/* ¥Ñ¥¹¥ï¡¼¥É¤òÀ¸©¨¤¹¤ë */
+			/* ç”±æ—¦ä¼â–¡ç‰æ¯›æˆ²å²³å…æœˆ */
 			NPC_RoomAdminNew_CreatePasswd( passwd, sizeof( passwd));
-			/* ¥Õ¥¡¥¤¥ë¤Ë¤³¤Î¿Í¤Î    ¥­¡¼¡f¥­¥ã¥é  ¡f  ²°  ¡f¥Ñ¥¹¤ò½ñ¤­  ¤à */
+			/* ç™½å¤®å¥¶ä¼™åä»‡åŠè«¦åŠ    å¹³â–¡ã€•å¹³ä¹“ä»¿  ã€•  ç›’  ã€•ç”±æ—¦æ¯›è¸äº”  æˆˆ */
 			if( NPC_RoomAdminNew_WriteDataFile( meindex, pindex,
 							CHAR_getWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM),
 												passwd, 1)
@@ -281,22 +281,22 @@ static void NPC_RoomAdminNew_CloseProc( int meindex)
 			{
 				break;
 			}
-			/* ¥É¥¢¤Ë¥Ñ¥¹¤ò¥»¥Ã¥È */
+			/* ç‰å¤±åç”±æ—¦æ¯›æœ¬æ°¸ç„ */
 			if( NPC_DoorSetPasswd( doorindex, passwd) == -1 ) {
 				break;
 			}
-			/*   ¸ú´ü¸Â¤ò¥»¥Ã¥È */
+			/*   èº²æ¸èœƒæ¯›æœ¬æ°¸ç„ */
 			CHAR_setWorkInt( doorindex, CHAR_WORKDOOREXPIRETIME, 
 							CHAR_getWorkInt( meindex, CHAR_WORKINT_NEXTTIME)
 							+ NPC_ROOMADMINNEW_2WEEK);
-			/*   »¥¼Ô¥é¥ó¥­¥ó¥°¥Á¥§¥Ã¥¯¡õ¥Õ¥¡¥¤¥ë½ñ¤­  ¤ß */
+			/*   èª‘æ¨Šä»¿ä»¶å¹³ä»¶å¼˜æ°‘å°¼æ°¸å¼â†“ç™½å¤®å¥¶ä¼™è¸äº”  å¿ƒ */
 			NPC_RoomAdminNew_WriteScoreFile( meindex, pindex);
 
 			CHAR_setInt( pindex, CHAR_GOLD, 0);
 
 			CHAR_send_P_StatusString( pindex , CHAR_P_STRING_GOLD);
 			
-			/* ¶³¤á¤Ç¤È¤¦¡ª¥á¥Ã¥»¡¼¥¸ */
+			/* é›²æˆ¶åŒ¹åˆä¸¹ã€ä¸Ÿæ°¸æœ¬â–¡æ–¥ */
 			strcpy( pname, CHAR_getChar( pindex, CHAR_NAME));
 			snprintf( buff, sizeof(buff), 
 						NPC_ROOMADMINNEW_MSG_CONGRATULATION, pname, pname, pname);
@@ -305,25 +305,25 @@ static void NPC_RoomAdminNew_CloseProc( int meindex)
 		}
 	}
 	
-	/* ³ºÅö¼Ô¥Ê¼³¤Ş¤¿¤Ï½è  ¼º  ¤Î»ş */
+	/* ç«Ÿç™²æ¨Šç“œæ’²å¼•å‡¶åè³ª  æ’©  åŠå‡œ */
 	if( failed) {
-		/* ¥Õ¥¡¥¤¥ë¤«¤é¤³¤Î  ²°¤Î¾ğ  ¤ò¾Ã¤¹ */
+		/* ç™½å¤®å¥¶ä¼™äº•æ—¥ä»‡åŠ  ç›’åŠæ¨¹  æ¯›å£…å… */
 		NPC_RoomAdminNew_WriteDataFile( meindex, -1,
 					CHAR_getWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM),
 										NULL, 0);
-		/* ³ºÅö¼Ô¤Ï¤¤¤Ş¤»¤ó¥á¥Ã¥»¡¼¥¸ */
+		/* ç«Ÿç™²æ¨Šåä¸­å¼•å…­æ°ä¸Ÿæ°¸æœ¬â–¡æ–¥ */
 		snprintf( buff, sizeof(buff), 
 				NPC_ROOMADMINNEW_MSG_NONE);
 	}
-	/* ¤³¤Î¥Õ¤Ò¥¢¤Ë¤¤¤ë¿ÍÁ´°÷¤ËÁ÷¿® */
+	/* ä»‡åŠç™½å¤«å¤±åä¸­æœˆè«¦èŸˆå¤ åéœœè€¨ */
 	NPC_RoomAdminNew_SendMsgThisFloor( meindex, buff);
 	
-	/* ±­¤Î  ·ï¤È¥ª¡¼¥¯¼³¥ç¥ó³«ºÅ»ş´Ö¤ò¥»¥Ã¥È */
+	/* æˆšåŠ  ç˜€åˆå·¦â–¡å¼æ’²äº¦ä»¶é‡©ç˜å‡œæ£‰æ¯›æœ¬æ°¸ç„ */
 	NPC_RoomAdminNew_SetNextAuction( meindex);
 	
 }
 /*-----------------------------------------------
- * °ì  ¶³¶â¤òÂ¿¤¯  ¤Ã¤Æ¤¤¤ë¥×¥ì¥¤¥ä¡¼¤òÃµ¤¹
+ * åŸŸ  é›²å—¯æ¯›è¶ä»  å‹»åŒ–ä¸­æœˆçš¿ä¼Šå¥¶ä¹©â–¡æ¯›ç¹­å…
  *----------------------------------------------*/
 static int NPC_RoomAdminNew_SearchPlayerHasMostMoney( int meindex)
 {
@@ -338,11 +338,11 @@ static int NPC_RoomAdminNew_SearchPlayerHasMostMoney( int meindex)
 	range = CHAR_getWorkInt( meindex , CHAR_WORKINT_RANGE);
 	topindex = -1;
 	
-	/*   ²°¤Î  Á°¤«¤é  Äã  »¥¶â³Û¤òÄ´¤Ù¤ë */
+	/*   ç›’åŠ  èŸ†äº•æ—¥  æ–•  èª‘å—¯å–Šæ¯›è­¬å±¯æœˆ */
 	doorindex = NPC_DoorSearchByName( CHAR_getWorkChar( meindex, 
 														CHAR_WORKCHAR_NEXTROOM));
 	gold = atoi( CHAR_getWorkChar( doorindex, CHAR_WORKDOORGOLDLIMIT));
-	/*   °Ï  ¤Ë¤¤¤ë¥­¥ã¥é¤Î¿ô¤òÄ´¤Ù¤ë */
+	/*   å€  åä¸­æœˆå¹³ä¹“ä»¿åŠé†’æ¯›è­¬å±¯æœˆ */
 	for( i = x-range ; i <= x+range ; i++ ){
 		for( j = y-range ; j <= y+range ; j ++ ){
 			OBJECT  object;
@@ -361,7 +361,7 @@ static int NPC_RoomAdminNew_SearchPlayerHasMostMoney( int meindex)
 								topindex =  index;
 							}
 							else {
-								/* ¥È¥Ã¥×¤Î¿Í¤È¶³¶â  ³Ó */
+								/* ç„æ°¸çš¿åŠè«¦åˆé›²å—¯  å‹ */
 								int nowgold,topgold;
 								nowgold = CHAR_getInt( index, CHAR_GOLD );
 								topgold = CHAR_getInt( topindex, CHAR_GOLD);
@@ -369,15 +369,15 @@ static int NPC_RoomAdminNew_SearchPlayerHasMostMoney( int meindex)
 									topindex = index;
 								}
 								else if( nowgold == topgold ) {
-									/* °ì½ï¤Ê¤é¥ì¥Ù¥ë¤¬Äã¤¤¿Í */
+									/* åŸŸè¸å…æ—¥ä¼ŠçŸ›ä¼™äº’æ–•ä¸­è«¦ */
 									int nowlv, toplv;
 									nowlv = CHAR_getInt( index, CHAR_LV );
 									toplv = CHAR_getInt( topindex, CHAR_LV);
 									if( nowlv < toplv ) {
 										topindex = index;
 									}
-									/* ¤½¤ì¤Ç¤â²ò·è¤·¤Ê¤¤¤ó¤Ê¤é¥é¥ó¥À¥à¤¸¤ã*/
-									/* index¤¬Àè¤Î¿Í¤¬¤Á¤ç¤Ã¤ÈÉÔÍø¤À¤±¤É */
+									/* å…¬æœ¨åŒ¹æ‰‹è¸ç‘ä»„å…ä¸­æ°å…æ—¥ä»¿ä»¶æ¯ä¸å…ƒæ‰*/
+									/* indexäº’ç‡®åŠè«¦äº’åˆ‡æ–¤å‹»åˆå°•å™åˆ†ä»ƒå‡ */
 									else if( nowlv == toplv ) {
 										if( RAND( 0,1)) {
 											topindex = index;
@@ -394,8 +394,8 @@ static int NPC_RoomAdminNew_SearchPlayerHasMostMoney( int meindex)
 	return( topindex);
 }
 /*-----------------------------------------------
- * »ØÄê¤µ¤ì¤¿index¤Î¥Õ¤Ò¥¢¤Ë¤¤¤ë¥×¥ì¥¤¥ä¡¼Á´°÷¤Ë
- * ¥á¥Ã¥»¡¼¥¸¤òÁ÷¿®¤¹¤ë¡e
+ * éš™çˆ›ä»Šæœ¨å‡¶indexåŠç™½å¤«å¤±åä¸­æœˆçš¿ä¼Šå¥¶ä¹©â–¡èŸˆå¤ å
+ * ä¸Ÿæ°¸æœ¬â–¡æ–¥æ¯›éœœè€¨å…æœˆã€”
  *----------------------------------------------*/
 static void NPC_RoomAdminNew_SendMsgThisFloor( int index, char *buff)
 {
@@ -405,7 +405,7 @@ static void NPC_RoomAdminNew_SendMsgThisFloor( int index, char *buff)
 	fl = CHAR_getInt( index, CHAR_FLOOR);
 	for( i = 0; i < playernum; i ++ ) {
 		if( CHAR_getInt( i, CHAR_FLOOR) == fl ) {
-			/*   ¤Î¤¿¤á¥×¥ì¥¤¥ä¡¼¤«¥Á¥§¥Ã¥¯ */
+			/*   åŠå‡¶æˆ¶çš¿ä¼Šå¥¶ä¹©â–¡äº•æ°‘å°¼æ°¸å¼ */
 			if( CHAR_getInt( i, CHAR_WHICHTYPE) == CHAR_TYPEPLAYER ) {
 				CHAR_talkToCli( i, index, buff, NPC_ROOMADMINNEW_MSGCOLOR);
 			}
@@ -413,12 +413,12 @@ static void NPC_RoomAdminNew_SendMsgThisFloor( int index, char *buff)
 	}
 }
 /*-----------------------------------------------
- * ¥Ñ¥¹¥ï¡¼¥É¤òÀ¸©¨¤¹¤ë¡epasslen¤Î-1  »ú¤¬ºî¤é¤ì¤ë¡e
- * makecdn.c¤Î¤Ñ¤¯¤ê¡e
+ * ç”±æ—¦ä¼â–¡ç‰æ¯›æˆ²å²³å…æœˆã€”passlenåŠ-1  å„‚äº’ç¶œæ—¥æœ¨æœˆã€”
+ * makecdn.cåŠå¤©ä»æ›°ã€”
  *----------------------------------------------*/
 static void NPC_RoomAdminNew_CreatePasswd( char *passwd, int passlen)
 {
-#define NPC_ROOMADMINNEW_RAND()    ( (rand() /256) % 32768 )       /* 256¤Ç³ä¤ë¤Î¤ÏÍğ¿ô¤Î  ¼Á¤Î¤¿¤á */
+#define NPC_ROOMADMINNEW_RAND()    ( (rand() /256) % 32768 )       /* 256åŒ¹å–ƒæœˆåŠåå‰„é†’åŠ  æ’™åŠå‡¶æˆ¶ */
 	int     i;
 	char *candidates[]= {
 		"A","B","D",   "E","F","G","H",   "J","K","L","M",   "N","P","Q","R",
@@ -432,18 +432,18 @@ static void NPC_RoomAdminNew_CreatePasswd( char *passwd, int passlen)
 #undef NPC_ROOMADMINNEW_RAND
 }
 /*-----------------------------------------------
- * ´É  ¿ÍÍÑ¤Î¥Õ¥¡¥¤¥ë¤Ë¥Ç¡¼¥¿¤ò½ñ¤­  ¤à
+ * æ£Ÿ  è«¦è¿•åŠç™½å¤®å¥¶ä¼™åçŠ¯â–¡æ­£æ¯›è¸äº”  æˆˆ
  *
- * ¥Õ¥¡¥¤¥ë  ¤Ï"©Ğ¶¡ªº¦W¦r.room"
- * ¤ò»È¤¦¡e
+ * ç™½å¤®å¥¶ä¼™  å"æˆ¿é–“çš„åå­—.room"
+ * æ¯›éŠ€ä¸¹ã€”
  *
- * ¥Õ¥¡¥¤¥ë¤Î¥Õ¥©¡¼¥Ş¥Ã¥È¤Ï¡f
+ * ç™½å¤®å¥¶ä¼™åŠç™½å·§â–¡ç©´æ°¸ç„åã€•
  * cdkey|charaname|passwd|expiretime
  *
  *
- * °ú¿ô¤Îflg ¤¬£±¤À¤Ã¤¿¤é½ñ¤­  ¤ß¡f£°¤À¤Ã¤¿¤é¥Õ¥¡¥¤¥ëºï½ü
- *   ¤êÃÍ¡uTRUE¡u©¨  
- *         FALSE:²¿¤é¤«¤Î¼º  
+ * å©é†’åŠflg äº’ã„ åˆ†å‹»å‡¶æ—¥è¸äº”  å¿ƒã€•ã„Ÿåˆ†å‹»å‡¶æ—¥ç™½å¤®å¥¶ä¼™ç¶½è¼ª
+ *   æ›°è¥–ã€ŒTRUEã€Œå²³  
+ *         FALSE:çª’æ—¥äº•åŠæ’©  
  *----------------------------------------------*/
 static BOOL NPC_RoomAdminNew_WriteDataFile( int meindex, int pindex, 
 											char *roomname,
@@ -456,26 +456,26 @@ static BOOL NPC_RoomAdminNew_WriteDataFile( int meindex, int pindex,
 	char    outbuf[1024];
 	FILE    *fp_src;
 	
-	/* ¥Õ¥¡¥¤¥ë  ¤òÀ¸©¨ */
+	/* ç™½å¤®å¥¶ä¼™  æ¯›æˆ²å²³ */
 	strcpy( filename, NPC_ROOMADMINNEW_DATADIR);
 	/*strcat( filename, CHAR_getWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM));*/
 	strcat( filename, roomname);
 	strcat( filename, NPC_ROOMADMINNEW_EXTENSION);
 
 	if( flg) {
-		/*   »¥¤·¤¿¿Í¤Î    ¥­¡¼ */
+		/*   èª‘ä»„å‡¶è«¦åŠ    å¹³â–¡ */
         //getcdkeyFromCharaIndex( pindex, cdkey, sizeof(cdkey ));
 		cdkey = CHAR_getChar( pindex, CHAR_CDKEY);
-		/*   »¥¤·¤¿¿Í¤Î¥­¥ã¥é   */
+		/*   èª‘ä»„å‡¶è«¦åŠå¹³ä¹“ä»¿   */
 		makeEscapeString(  CHAR_getChar( pindex, CHAR_NAME),
 							charaname, sizeof( charaname));
-		/* ´ü¸ÂÀÚ¤ì»ş´Ö */
+		/* æ¸èœƒæ¿ æœ¨å‡œæ£‰ */
 		snprintf( expiretime, sizeof( expiretime), "%d", 
 					CHAR_getWorkInt( meindex, CHAR_WORKINT_NEXTTIME)
-					+ NPC_ROOMADMINNEW_2WEEK   /* £²½µ´Ö   */
+					+ NPC_ROOMADMINNEW_2WEEK   /* ã„¡è”¥æ£‰   */
 					);
 
-		/* ¥Ç¥ê¥ß¥¿¤Ç¤¯¤¯¤ë */
+		/* çŠ¯ä¼‰ç«‹æ­£åŒ¹ä»ä»æœˆ */
 		snprintf( outbuf, sizeof( outbuf), "%s|%s|%s|%s|",
 					cdkey, charaname, passwd, expiretime);
 		fp_src = fopen( filename, "w");
@@ -494,8 +494,8 @@ static BOOL NPC_RoomAdminNew_WriteDataFile( int meindex, int pindex,
 	
 }
 /*-----------------------------------------------
- * ¥Ç¡¼¥¿¥Õ¥¡¥¤¥ë¤ò  ¤ó¤Ç³ºÅö¤¹¤ë  ²°¤¬¤¢¤ì¤Ğ
- * ¥Ç¡¼¥¿¤ò³Ê  ¤·¤ÆÊÖ¤¹¡e
+ * çŠ¯â–¡æ­£ç™½å¤®å¥¶ä¼™æ¯›  æ°åŒ¹ç«Ÿç™²å…æœˆ  ç›’äº’ä¸æœ¨å£¬
+ * çŠ¯â–¡æ­£æ¯›å‚˜  ä»„åŒ–å¿’å…ã€”
  *----------------------------------------------*/
 BOOL NPC_RoomAdminNew_ReadFile( char *roomname, NPC_ROOMINFO *data)
 {
@@ -504,7 +504,7 @@ BOOL NPC_RoomAdminNew_ReadFile( char *roomname, NPC_ROOMINFO *data)
 	char    buf2[128];
 	char    filename[128];
 	
-	/* ¥Õ¥¡¥¤¥ë  ¤òÀ¸©¨ */
+	/* ç™½å¤®å¥¶ä¼™  æ¯›æˆ²å²³ */
 	strcpy( filename, NPC_ROOMADMINNEW_DATADIR);
 	strcat( filename, roomname);
 	strcat( filename, NPC_ROOMADMINNEW_EXTENSION);
@@ -512,7 +512,7 @@ BOOL NPC_RoomAdminNew_ReadFile( char *roomname, NPC_ROOMINFO *data)
 	fp = fopen( filename, "r");
 	if( !fp) return FALSE;
 	fgets( line, sizeof( line), fp);
-	/* ¥Ç¡¼¥¿¥»¥Ã¥È */
+	/* çŠ¯â–¡æ­£æœ¬æ°¸ç„ */
 	getStringFromIndexWithDelim( line, "|" , 1 , buf2,sizeof(buf2) );
 	strcpy( data->cdkey, buf2);
 	getStringFromIndexWithDelim( line, "|" , 2 , buf2,sizeof(buf2) );
@@ -530,7 +530,7 @@ BOOL NPC_RoomAdminNew_ReadFile( char *roomname, NPC_ROOMINFO *data)
 	return TRUE;
 }
 /*-----------------------------------------------
- * ±­¤Î¥ª¡¼¥¯¼³¥ç¥ó¤Î»ş´Ö¤È  ²°  ¤ò¥ï¡¼¥¯¤Ë¥»¥Ã¥È¤¹¤ë
+ * æˆšåŠå·¦â–¡å¼æ’²äº¦ä»¶åŠå‡œæ£‰åˆ  ç›’  æ¯›ä¼â–¡å¼åæœ¬æ°¸ç„å…æœˆ
  *----------------------------------------------*/
 static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 {
@@ -541,13 +541,13 @@ static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 	char *argstr;
 	struct  tm  tmwk;
 	
-	/*     ¤Ê¤É¤ò¼è  ¤¹¤ë*/
+	/*     å…å‡æ¯›æ½¸  å…æœˆ*/
 	memcpy( &tmwk, localtime( ( time_t *)&NowTime.tv_sec), sizeof( tmwk));
 	
 	argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1));
 
-	/* ¥É¥¢¤ò¸¡º÷¤¹¤ë¡eNPC_DoorSearchByName()¤ò»È¤Ã¤¿¤é³Ú¤À¤±¤É
-	 *    ÂÌ¤¬Â¿¤¯¤Ê¤ê¤½¤¦¤Ê¤Î¤Ç¤³¤³¥ª¥ê¥¸¥Ê¥ë
+	/* ç‰å¤±æ¯›è…¹ç¶¢å…æœˆã€”NPC_DoorSearchByName()æ¯›éŠ€å‹»å‡¶æ—¥å•¼åˆ†ä»ƒå‡
+	 *    èŸ¯äº’è¶ä»å…æ›°å…¬ä¸¹å…åŠåŒ¹ä»‡ä»‡å·¦ä¼‰æ–¥ç“œä¼™
 	 */
 	for( i = CHAR_getPlayerMaxNum()+ CHAR_getPetMaxNum(); 
 		 i < charnum;
@@ -559,7 +559,7 @@ static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 		if( CHAR_getWorkInt( i, CHAR_WORKDOORPASSFLG) == 0 ) {
 			continue;
 		}
-		/*   Á°¤¬´É³í¤Î¤â¤Î¤«¥Á¥§¥Ã¥¯¤¹¤ë */
+		/*   èŸ†äº’æ£Ÿå–±åŠæ‰‹åŠäº•æ°‘å°¼æ°¸å¼å…æœˆ */
 		for( j = 3; ; j ++ ) {
 			int rc;
 			char    *doorname;
@@ -573,32 +573,32 @@ static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 				break;
 			}
 			doorname = CHAR_getWorkChar( i, CHAR_WORKDOORNAME);
-			/* ¥É¥¢  ¤¬°ìÃ×¤·¤¿ */
+			/* ç‰å¤±  äº’åŸŸè­™ä»„å‡¶ */
 			if( strcmp( buf, doorname ) != 0 ) {
 				continue;
 			}
-			/*     ¤¬°ìÃ×¤¹¤ë */
+			/*     äº’åŸŸè­™å…æœˆ */
 			if( atoi( CHAR_getWorkChar( i, CHAR_WORKDOORWEEK)) != tmwk.tm_wday) {
 				break;
 			}
-			/* °ì±ş½é´ü²½ */
+			/* åŸŸæ®ºè³¡æ¸ç¥­ */
 			memset( &data, 0, sizeof( data));
-			/* ¥Ç¡¼¥¿¥Õ¥¡¥¤¥ë¤«¤é¥Ç¡¼¥¿¤ò  ¤à */
+			/* çŠ¯â–¡æ­£ç™½å¤®å¥¶ä¼™äº•æ—¥çŠ¯â–¡æ­£æ¯›  æˆˆ */
 			if( NPC_RoomAdminNew_ReadFile( doorname, &data) ) {
 				struct tm   tmdoor;
-				/* ¤³¤³¤Ç´ü¸ÂÀÚ¤ì¥Á¥§¥Ã¥¯¤ò¤ä¤Ã¤Æ¤ä¤ë¡e
-				 * ´ü¸Â¤¬ÀÚ¤ì¤Æ¤¤¤¿¤é¥Õ¥¡¥¤¥ë¤òºï½ü¤¹¤ë
-				 * »Å  Åª¤Ë¤¢¤Ş¤ê¤³¤Î¥ë¡¼¥Á¥óÄÌ¤ë»ö¤Ï¤Ê¤¤¤È  ¤¦¡e
+				/* ä»‡ä»‡åŒ¹æ¸èœƒæ¿ æœ¨æ°‘å°¼æ°¸å¼æ¯›æ”¯å‹»åŒ–æ”¯æœˆã€”
+				 * æ¸èœƒäº’æ¿ æœ¨åŒ–ä¸­å‡¶æ—¥ç™½å¤®å¥¶ä¼™æ¯›ç¶½è¼ªå…æœˆ
+				 * é…·  è®€åä¸å¼•æ›°ä»‡åŠä¼™â–¡æ°‘ä»¶é¨·æœˆå„€åå…ä¸­åˆ  ä¸¹ã€”
 				 */
 				if( data.expire < NowTime.tv_sec) {
 					NPC_RoomAdminNew_WriteDataFile( meindex, -1,doorname, NULL, 0);
-					/* ¥É¥¢¤â¤­¤ì¤¤¤Ë*/
+					/* ç‰å¤±æ‰‹äº”æœ¨ä¸­å*/
 					NPC_DoorSetPasswd( i, "8hda8iauia90494jasd9asodfasdf89");
 					CHAR_setWorkInt( i, CHAR_WORKDOOREXPIRETIME, 0xffffffff);
 					
 					break;
 				}
-				/* º£  ¤ÇÀÚ¤ì¤ë  ·ï¤Ê¤é     */
+				/* æ¼†  åŒ¹æ¿ æœ¨æœˆ  ç˜€å…æ—¥     */
 				memcpy( &tmdoor, localtime( ( time_t *)&data.expire), sizeof( tmdoor));
 				if( tmdoor.tm_mon != tmwk.tm_mon ||
 					tmdoor.tm_mday != tmwk.tm_mday)
@@ -610,7 +610,7 @@ static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 			else {
 				dataexist = FALSE;
 			}
-			/* ¸½ºß¤Î»ş´Ö¤è¤ê  ¤Ç¤¢¤ë»ö¡e */
+			/* èœ‡ç®•åŠå‡œæ£‰æ–¹æ›°  åŒ¹ä¸æœˆå„€ã€” */
 			if( tmwk.tm_hour > atoi( CHAR_getWorkChar( i, CHAR_WORKDOORHOUR))){
 				break;
 			}
@@ -619,14 +619,14 @@ static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 					break;
 				}
 			}
-			/* ¤³¤³¤Ş¤Ç¤­¤¿¤é¤È¤ê¤¢¤¨¤º¤³¤Î¥É¥¢¤Ï±­³«ºÅ¤Ë½Ğ¤ë»ñ³Ê¤¬
-			 * ¤¢¤ë¤È¤¤¤¦»ö¡e¤³¤ì¤«¤éÂ¾¤Î¥É¥¢¤È¥Á¥§¥Ã¥¯¤¹¤ë¡e
+			/* ä»‡ä»‡å¼•åŒ¹äº”å‡¶æ—¥åˆæ›°ä¸å°¹å…§ä»‡åŠç‰å¤±åæˆšé‡©ç˜åè«‹æœˆé³³å‚˜äº’
+			 * ä¸æœˆåˆä¸­ä¸¹å„€ã€”ä»‡æœ¨äº•æ—¥è·åŠç‰å¤±åˆæ°‘å°¼æ°¸å¼å…æœˆã€”
 			 */
 			if( hitindex == -1 ) {
 				hitindex = i;
 			}
 			else {
-				/* ³«ºÅ»ş´Ö¤¬Áá¤¯¡f¸½ºß¼Ú¤ê¤é¤ì¤Æ¤¤¤ë¤È¤¤¤¦¤Î¤¬Í¥Àè½ç°Ì */
+				/* é‡©ç˜å‡œæ£‰äº’éä»ã€•èœ‡ç®•æ­æ›°æ—¥æœ¨åŒ–ä¸­æœˆåˆä¸­ä¸¹åŠäº’ç©¸ç‡®è³œåŒ */
 				if( atoi( CHAR_getWorkChar( hitindex, CHAR_WORKDOORHOUR)) 
 					> atoi( CHAR_getWorkChar( i, CHAR_WORKDOORHOUR)))
 				{
@@ -651,7 +651,7 @@ static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 						if( hitindexdataexist < dataexist ) {
 							hitindex = i;
 						}
-						/* ¤³¤³¤Ş¤Ç  ¤ë¤è¤¦¤Ê¤éÀè¤Îindex¤Î¤Ş¤Ş¤È¤¹¤ë¡e*/
+						/* ä»‡ä»‡å¼•åŒ¹  æœˆæ–¹ä¸¹å…æ—¥ç‡®åŠindexåŠå¼•å¼•åˆå…æœˆã€”*/
 						
 					}
 				}
@@ -659,28 +659,28 @@ static BOOL NPC_RoomAdminNew_SetNextAuction( int meindex)
 		}
 	}
 	if( hitindex > 0 ) {
-		/* ³«ºÅ»ş´Ö¤ò¥»¥Ã¥È */
+		/* é‡©ç˜å‡œæ£‰æ¯›æœ¬æ°¸ç„ */
 		tmwk.tm_sec = 0;
 		tmwk.tm_min = atoi( CHAR_getWorkChar( hitindex, CHAR_WORKDOORMINUTE));
 		tmwk.tm_hour = atoi( CHAR_getWorkChar( hitindex, CHAR_WORKDOORHOUR));
 		CHAR_setWorkInt( meindex, CHAR_WORKINT_NEXTTIME, mktime( &tmwk));
-		/*   ²°  ¤ò¥»¥Ã¥È */
+		/*   ç›’  æ¯›æœ¬æ°¸ç„ */
 		CHAR_setWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM,
 						 CHAR_getWorkChar( hitindex, CHAR_WORKDOORNAME));
 		
 	}
 	else {
 		CHAR_setWorkInt( meindex, CHAR_WORKINT_NEXTTIME, 0);
-		/*   ²°  ¤ò¥»¥Ã¥È */
+		/*   ç›’  æ¯›æœ¬æ°¸ç„ */
 		CHAR_setWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM,"" );
 	
 	}
-	/* ¸¡º÷»ş´Ö¤ò¥»¥Ã¥È */
+	/* è…¹ç¶¢å‡œæ£‰æ¯›æœ¬æ°¸ç„ */
 	CHAR_setWorkInt( meindex, CHAR_WORKINT_SEARCHROOMTIME, NowTime.tv_sec);
 	return( TRUE);
 }
 /*-----------------------------------------------
- *   ¤·¤«¤±¤é¤ì¤¿¿Í¤¬  ²°¤ò¼Ú¤ê¤Æ¤¤¤¿¤é¥Ñ¥¹¥ï¡¼¥É¤ò  ¼¨¤¹¤ë
+ *   ä»„äº•ä»ƒæ—¥æœ¨å‡¶è«¦äº’  ç›’æ¯›æ­æ›°åŒ–ä¸­å‡¶æ—¥ç”±æ—¦ä¼â–¡ç‰æ¯›  æ†å…æœˆ
  *----------------------------------------------*/
 static void NPC_RoomAdminNew_DspRoomPasswd( int index, int adminindex, int talkerindex)
 {
@@ -703,43 +703,43 @@ static void NPC_RoomAdminNew_DspRoomPasswd( int index, int adminindex, int talke
 		if( getStringFromIndexWithDelim(argstr, "|" , i , buf,sizeof(buf) )) {
 			rc = NPC_RoomAdminNew_ReadFile( buf, &info);
 			if( rc == TRUE ) {
-				/* CDKEY ¤È¥­¥ã¥é¤Î  Á°¤¬°ìÃ×¤·¤¿¤é */
+				/* CDKEY åˆå¹³ä¹“ä»¿åŠ  èŸ†äº’åŸŸè­™ä»„å‡¶æ—¥ */
 				if( strcmp( info.cdkey, cdkey) == 0 &&
 					strcmp( info.charaname, 
 							CHAR_getChar( talkerindex, CHAR_NAME)) == 0 )
 				{
 					int doorindex;
 					char    msgbuf[256];
-					/*   ²°¾ğ  ¼è   */
+					/*   ç›’æ¨¹  æ½¸   */
 					doorindex = NPC_DoorSearchByName( buf);
 					argstr2 = NPC_Util_GetArgStr( doorindex, argstr3, sizeof( argstr3));
 					getStringFromIndexWithDelim( argstr2, "|" , 9 , 
 												 buf2,sizeof(buf2) );
-					/*   ²°¾ğ  */
+					/*   ç›’æ¨¹  */
 					if( strlen(CHAR_getChar( doorindex, CHAR_NAME) ) != 0 ) {
-						strcpy( buff, "¸¹«Ç");
+						strcpy( buff, "è™Ÿå®¤");
 					}
 					else {
 						buff[0] = '\0';
 					}
 					
-					/* ¥á¥Ã¥»¡¼¥¸¥»¥Ã¥È */
+					/* ä¸Ÿæ°¸æœ¬â–¡æ–¥æœ¬æ°¸ç„ */
 					snprintf( msgbuf, sizeof( msgbuf), 
 								NPC_ROOMADMINNEW_MSG_DSPPASSWD1,
 								buf2,
 								CHAR_getChar( doorindex, CHAR_NAME),
 								buff
 							);
-					/* ¥á¥Ã¥»¡¼¥¸Á÷¿® */
+					/* ä¸Ÿæ°¸æœ¬â–¡æ–¥éœœè€¨ */
 					CHAR_talkToCli( talkerindex, index,msgbuf, 
 									NPC_ROOMADMINNEW_MSGCOLOR);
 
-					/* ¥á¥Ã¥»¡¼¥¸¥»¥Ã¥È */
+					/* ä¸Ÿæ°¸æœ¬â–¡æ–¥æœ¬æ°¸ç„ */
 					snprintf( msgbuf, sizeof( msgbuf), 
 								NPC_ROOMADMINNEW_MSG_DSPPASSWD2,
 								CHAR_getWorkChar(doorindex, CHAR_WORKDOORPASSWD)
 							);
-					/* ¥á¥Ã¥»¡¼¥¸Á÷¿® */
+					/* ä¸Ÿæ°¸æœ¬â–¡æ–¥éœœè€¨ */
 					CHAR_talkToCli( talkerindex, index,msgbuf, 
 									NPC_ROOMADMINNEW_MSGCOLOR);
 					flg = TRUE;
@@ -757,7 +757,7 @@ static void NPC_RoomAdminNew_DspRoomPasswd( int index, int adminindex, int talke
 	}
 }
 /*-----------------------------------------------
- * ±­²ó³«ºÅ»ş´Ö¡f  ²°¤ò¸À¤¦
+ * æˆšè¢é‡©ç˜å‡œæ£‰ã€•  ç›’æ¯›è›»ä¸¹
  *----------------------------------------------*/
 static void NPC_RoomAdminNew_DspNextAuction( int meindex, int talkerindex)
 {
@@ -765,7 +765,7 @@ static void NPC_RoomAdminNew_DspNextAuction( int meindex, int talkerindex)
 	time_t  closetime;
 	
 	closetime = CHAR_getWorkInt( meindex, CHAR_WORKINT_NEXTTIME);
-	/* ±­¤Î³«ºÅ»ş´Ö¤¬·è¤Ş¤Ã¤Æ¤¤¤Ê¤±¤ì¤Ğ¡Ö·è¤Ş¤Ã¤Æ¤Ş¤»¤ó¡e¡×¥á¥Ã¥»¡¼¥¸*/
+	/* æˆšåŠé‡©ç˜å‡œæ£‰äº’ç‘å¼•å‹»åŒ–ä¸­å…ä»ƒæœ¨å£¬ï¼ç‘å¼•å‹»åŒ–å¼•å…­æ°ã€”ï¼ä¸Ÿæ°¸æœ¬â–¡æ–¥*/
 	if( closetime == 0 ) {
 		snprintf( msgbuf, sizeof( msgbuf),
 					NPC_ROOMADMINNEW_MSG_DSPNEXTAUCTION_NONE
@@ -780,14 +780,14 @@ static void NPC_RoomAdminNew_DspNextAuction( int meindex, int talkerindex)
 		char	buff[16];
 		struct  tm tmwk;
 		int     difftime;
-		/*   ²°¾ğ  ¤ò¼è   */
+		/*   ç›’æ¨¹  æ¯›æ½¸   */
 		doorindex = NPC_DoorSearchByName( 
 					CHAR_getWorkChar( meindex, CHAR_WORKCHAR_NEXTROOM));
 		argstr = NPC_Util_GetArgStr( doorindex, argstr1, sizeof( argstr1));
 		getStringFromIndexWithDelim(argstr, "|" , 9 , explain,sizeof(explain));
-		/*   ²°¾ğ  */
+		/*   ç›’æ¨¹  */
 		if( strlen(CHAR_getChar( doorindex, CHAR_NAME) ) != 0 ) {
-			strcpy( buff, "¸¹«Ç");
+			strcpy( buff, "è™Ÿå®¤");
 		}
 		else {
 			buff[0] = '\0';
@@ -799,7 +799,7 @@ static void NPC_RoomAdminNew_DspNextAuction( int meindex, int talkerindex)
 					buff
 				);
 		CHAR_talkToCli( talkerindex, meindex,msgbuf, NPC_ROOMADMINNEW_MSGCOLOR);
-		/* Äù¤áÀÚ¤ê»ş´Ö */
+		/* è ¡æˆ¶æ¿ æ›°å‡œæ£‰ */
 		memcpy( &tmwk, localtime( &closetime), sizeof( tmwk));
 		difftime = closetime - NowTime.tv_sec;
 		snprintf( msgbuf, sizeof( msgbuf),
@@ -811,7 +811,7 @@ static void NPC_RoomAdminNew_DspNextAuction( int meindex, int talkerindex)
 				);
 		CHAR_talkToCli( talkerindex, meindex,msgbuf, NPC_ROOMADMINNEW_MSGCOLOR);
 		
-		/* ²¼¸Â¶â³Û */
+		/* ç¥¨èœƒå—¯å–Š */
 		snprintf( msgbuf, sizeof( msgbuf),
 					NPC_ROOMADMINNEW_MSG_DSPNEXTAUCTION3,
 					CHAR_getWorkChar( doorindex, CHAR_WORKDOORGOLDLIMIT)
@@ -821,17 +821,17 @@ static void NPC_RoomAdminNew_DspNextAuction( int meindex, int talkerindex)
 	
 }
 /*-----------------------------------------------
- *   »¥¼Ô¥é¥ó¥­¥ó¥°¥Á¥§¥Ã¥¯¡õ¥Õ¥¡¥¤¥ë½ñ¤­  ¤ß
+ *   èª‘æ¨Šä»¿ä»¶å¹³ä»¶å¼˜æ°‘å°¼æ°¸å¼â†“ç™½å¤®å¥¶ä¼™è¸äº”  å¿ƒ
  *
- * ¥Õ¥¡¥¤¥ë  ¤Ï"ºŞ²zªÌªº¦W¦r.score"
- *   ¥ó¥İ¥é¥ê¥Õ¥¡¥¤¥ë  ¤Ï"ºŞ²zªÌªº¦W¦r.score.tmp"
+ * ç™½å¤®å¥¶ä¼™  å"ç®¡ç†è€…çš„åå­—.score"
+ *   ä»¶ç¦¾ä»¿ä¼‰ç™½å¤®å¥¶ä¼™  å"ç®¡ç†è€…çš„åå­—.score.tmp"
  *
- * ¥Õ¥¡¥¤¥ë¥Õ¥©¡¼¥Ş¥Ã¥È¤Ï¡f
+ * ç™½å¤®å¥¶ä¼™ç™½å·§â–¡ç©´æ°¸ç„åã€•
  * gold|time|cdkey|charaname|owntitle
- * ¤Ç£±£°¹Ô¤Ş¤Ç¡e
+ * åŒ¹ã„ ã„Ÿå¢Šå¼•åŒ¹ã€”
  *
- *   ¤êÃÍ¡u ©¨  ¡u¥é¥ó¥­¥ó¥°²¿°Ì¤«ÊÖ¤¹¡e¥é¥ó¥­¥ó¥°¤Ë  ¤é¤Ê¤±¤ì¤Ğ£°¡e
- *          ¼º  ¡u-1
+ *   æ›°è¥–ã€Œ å²³  ã€Œä»¿ä»¶å¹³ä»¶å¼˜çª’åŒäº•å¿’å…ã€”ä»¿ä»¶å¹³ä»¶å¼˜å  æ—¥å…ä»ƒæœ¨å£¬ã„Ÿã€”
+ *          æ’©  ã€Œ-1
  *----------------------------------------------*/
 static int NPC_RoomAdminNew_WriteScoreFile( int meindex, int pindex)
 {
@@ -843,26 +843,26 @@ static int NPC_RoomAdminNew_WriteScoreFile( int meindex, int pindex)
 	char    outbuf[1024], line[1024];
 	FILE    *fp_src, *fp_dest;
 
-	/* ¥Õ¥¡¥¤¥ë  ¤òÀ¸©¨ */
+	/* ç™½å¤®å¥¶ä¼™  æ¯›æˆ²å²³ */
 	strcpy( filename, NPC_ROOMADMINNEW_DATADIR);
 	strcat( filename, CHAR_getWorkChar( meindex, CHAR_WORKCHAR_MYNAME));
 	strcpy( filename_dest, filename);
 	strcat( filename, NPC_ROOMADMINNEW_RANKING_EXTENSION);
 	strcat( filename_dest, NPC_ROOMADMINNEW_RANKING_EXTENSION_TMP);
 	
-	/*   »¥¤·¤¿¿Í¤Î    ¥­¡¼ */
+	/*   èª‘ä»„å‡¶è«¦åŠ    å¹³â–¡ */
 	//getcdkeyFromCharaIndex( pindex , cdkey , sizeof(cdkey ));
 	cdkey = CHAR_getChar( pindex, CHAR_CDKEY);
 	
-	/*   »¥¤·¤¿¿Í¤Î¥­¥ã¥é   */
+	/*   èª‘ä»„å‡¶è«¦åŠå¹³ä¹“ä»¿   */
 	makeEscapeString(  CHAR_getChar( pindex, CHAR_NAME),
 						charaname, sizeof( charaname));
 	
-	/*   »¥¤·¤¿¿Í¤Î¾Î¹æ */
+	/*   èª‘ä»„å‡¶è«¦åŠæ†Šå¯ */
 	makeEscapeString(  CHAR_getChar( pindex, CHAR_OWNTITLE),
 						owntitle, sizeof( owntitle));
 
-	/* ¥Ç¥ê¥ß¥¿¤Ç¤¯¤¯¤ë */
+	/* çŠ¯ä¼‰ç«‹æ­£åŒ¹ä»ä»æœˆ */
 	snprintf( outbuf, sizeof( outbuf), "%d|%d|%s|%s|%s|\n",
 				CHAR_getInt( pindex, CHAR_GOLD),
 				CHAR_getWorkInt( meindex,CHAR_WORKINT_NEXTTIME),
@@ -874,7 +874,7 @@ static int NPC_RoomAdminNew_WriteScoreFile( int meindex, int pindex)
 	
 	fp_src = fopen( filename, "r");
 	if( !fp_src ) {
-		/*   ½é¤Î°ì·ï¤Ê¤Î¤Ç¤½¤Î¤Ş¤Ş½ñ¤¤¤Æ½ª¤ï¤ê */
+		/*   è³¡åŠåŸŸç˜€å…åŠåŒ¹å…¬åŠå¼•å¼•è¸ä¸­åŒ–è”½æ­¹æ›° */
 		fclose( fp_dest);
 		fp_src = fopen( filename, "w");
 		if( !fp_src) return -1;
@@ -888,27 +888,27 @@ static int NPC_RoomAdminNew_WriteScoreFile( int meindex, int pindex)
 		while( fgets( line, sizeof( line), fp_src)) {
 			getStringFromIndexWithDelim( line, "|" , 1 , buf,sizeof(buf) );
 			if( ret == 0 ) {
-				/*   »¥¶â³Û  ³Ó */
+				/*   èª‘å—¯å–Š  å‹ */
 				if( atoi( buf) < CHAR_getInt( pindex, CHAR_GOLD) ) {
-					/* ¶â³Û¤¬  ¤Ã¤Æ¤¤¤ë¤Î¤ÇÁŞ   */
+					/* å—¯å–Šäº’  å‹»åŒ–ä¸­æœˆåŠåŒ¹é†£   */
 					fputs( outbuf, fp_dest);
 					fputs( line, fp_dest);
 					ret = cnt;
 					cnt ++;
 				}
 				else {
-					/* ¤½¤ì°Ê³°¤Ï¤½¤Î¤Ş¤Ş½ñ¤¯ */
+					/* å…¬æœ¨å‹•é™¸åå…¬åŠå¼•å¼•è¸ä» */
 					fputs( line, fp_dest);
 				}
 			}
 			else {
-				/* ¤½¤ì°Ê³°¤Ï¤½¤Î¤Ş¤Ş½ñ¤¯ */
+				/* å…¬æœ¨å‹•é™¸åå…¬åŠå¼•å¼•è¸ä» */
 				fputs( line, fp_dest);
 			}
 			cnt ++;
 			if( cnt > NPC_RANKING_DEFAULT ) break;
 		}
-		/* ¥é¥ó¥­¥ó¥°¤¬£±£°¸Ä¤½¤í¤Ã¤Æ¤¤¤Ê¤¤»ş */
+		/* ä»¿ä»¶å¹³ä»¶å¼˜äº’ã„ ã„ŸèœŠå…¬æ¬ å‹»åŒ–ä¸­å…ä¸­å‡œ */
 		if( ret == 0 && cnt <= NPC_RANKING_DEFAULT ) {
 			fputs( outbuf, fp_dest);
 			ret = cnt;
@@ -916,8 +916,8 @@ static int NPC_RoomAdminNew_WriteScoreFile( int meindex, int pindex)
 	}
 	fclose( fp_src);
 	fclose( fp_dest);
-	/*   ¿È  ¤ì´¹¤¨ */
-	/* Ã¯¤«¥Õ¥¡¥¤¥ë¥³¥Ô¡¼¤¹¤ë´ÊÃ±¤Ê  Ë¡ÃÎ¤Ã¤Æ¤¿¤é  ¤¨¤Æ²¼¤µ¤¤¡e */
+	/*   è¤¥  æœ¨æ™¶å°¹ */
+	/* ç°¿äº•ç™½å¤®å¥¶ä¼™æˆŠç–‹â–¡å…æœˆæ£µç°½å…  èŠŠè¥å‹»åŒ–å‡¶æ—¥  å°¹åŒ–ç¥¨ä»Šä¸­ã€” */
 	fp_src = fopen( filename_dest, "r");
 	if( !fp_src) return -1;
 	fp_dest = fopen( filename, "w");
@@ -934,11 +934,11 @@ static int NPC_RoomAdminNew_WriteScoreFile( int meindex, int pindex)
 #undef  NPC_RANKING_DEFAULT
 }
 /*-----------------------------------------------
- *   »¥¼Ô¥é¥ó¥­¥ó¥°¥Õ¥¡¥¤¥ë  ¤ß  ¤ß¡õ  ¼¨
+ *   èª‘æ¨Šä»¿ä»¶å¹³ä»¶å¼˜ç™½å¤®å¥¶ä¼™  å¿ƒ  å¿ƒâ†“  æ†
  *
- * °ú¿ô meindex     ¥­¥ã¥é¥¤¥ó¥Ç¥Ã¥¯¥¹¡e¥é¥ó¥­¥ó¥°NPC¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¡e
- *      talkerindex   ¤·¤«¤±¤é¤ì¤¿¿Í¤Îindex¡e¤³¤ì¤Ëtalk¤òÁ÷¿®¤¹¤ë¡e
- *      admname     ÉÔ  »º²°¤µ¤ó¤Î  Á°
+ * å©é†’ meindex     å¹³ä¹“ä»¿å¥¶ä»¶çŠ¯æ°¸å¼æ—¦ã€”ä»¿ä»¶å¹³ä»¶å¼˜NPCåŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦ã€”
+ *      talkerindex   ä»„äº•ä»ƒæ—¥æœ¨å‡¶è«¦åŠindexã€”ä»‡æœ¨åtalkæ¯›éœœè€¨å…æœˆã€”
+ *      admname     å°•  é£ç›’ä»Šæ°åŠ  èŸ†
  *      
  *----------------------------------------------*/
 static void NPC_RoomAdminNew_ReadScoreFile( int meindex, int talkerindex, 
@@ -949,7 +949,7 @@ static void NPC_RoomAdminNew_ReadScoreFile( int meindex, int talkerindex,
 	char    line[1024];
 	FILE    *fp;
 	
-	/* ¥Õ¥¡¥¤¥ë  ¤òÀ¸©¨ */
+	/* ç™½å¤®å¥¶ä¼™  æ¯›æˆ²å²³ */
 	strcpy( filename, NPC_ROOMADMINNEW_DATADIR);
 	strcat( filename, admname);
 	strcat( filename, NPC_ROOMADMINNEW_RANKING_EXTENSION);
@@ -999,7 +999,7 @@ static void NPC_RoomAdminNew_ReadScoreFile( int meindex, int talkerindex,
 	
 }
 /************************************************
- * ½é´ü½è  
+ * è³¡æ¸è³ª  
  ************************************************/
 BOOL NPC_RankingInit( int meindex )
 {
@@ -1009,11 +1009,11 @@ BOOL NPC_RankingInit( int meindex )
 	
 	argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1));
 	
-	/* ½é´ü²½½è   */
+	/* è³¡æ¸ç¥­è³ª   */
 	
-	/* type¥»¥Ã¥È */
+	/* typeæœ¬æ°¸ç„ */
 	CHAR_setInt( meindex, CHAR_WHICHTYPE, CHAR_TYPERANKING);
-	/* ´É  ¿Í¤Î  Á°¼è   */
+	/* æ£Ÿ  è«¦åŠ  èŸ†æ½¸   */
 	if( !getStringFromIndexWithDelim(argstr, "|" , 1 , buf,sizeof(buf) )) {
 		print( "arg err.rankingNPC not created.\n");
 		return( FALSE);
@@ -1023,12 +1023,12 @@ BOOL NPC_RankingInit( int meindex )
 	return TRUE;
 }
 /************************************************
- *   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+ *   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
  ************************************************/
 void NPC_RankingTalked( int meindex , int talkerindex , char *msg ,
 							 int color )
 {
-	/* ¥×¥ì¥¤¥ä¡¼¤¬¥É¥¢¥Ş¥ó¤Î1¥°¥ê¥Ã¥É°Ê  ¤Ê¤é  ±ş¤¹¤ë¡e */
+	/* çš¿ä¼Šå¥¶ä¹©â–¡äº’ç‰å¤±ç©´ä»¶åŠ1å¼˜ä¼‰æ°¸ç‰å‹•  å…æ—¥  æ®ºå…æœˆã€” */
 	if(NPC_Util_CharDistance( talkerindex, meindex ) > 1)return;
 	
 	CHAR_talkToCli( talkerindex, meindex,
@@ -1040,7 +1040,7 @@ void NPC_RankingTalked( int meindex , int talkerindex , char *msg ,
 	
 }
 /************************************************
- * ½é´ü½è  
+ * è³¡æ¸è³ª  
  ************************************************/
 BOOL NPC_PrintpassmanInit( int meindex )
 {
@@ -1050,11 +1050,11 @@ BOOL NPC_PrintpassmanInit( int meindex )
 	
 	argstr = NPC_Util_GetArgStr( meindex, argstr1, sizeof( argstr1));
 	
-	/* ½é´ü²½½è   */
+	/* è³¡æ¸ç¥­è³ª   */
 	
-	/* type¥»¥Ã¥È */
+	/* typeæœ¬æ°¸ç„ */
 	CHAR_setInt( meindex, CHAR_WHICHTYPE, CHAR_TYPEPRINTPASSMAN);
-	/* ´É  ¿Í¤Î  Á°¼è   */
+	/* æ£Ÿ  è«¦åŠ  èŸ†æ½¸   */
 	if( !getStringFromIndexWithDelim(argstr, "|" , 1 , buf,sizeof(buf) )) {
 		print( "arg err.passmanNPC not created.\n");
 		return( FALSE);
@@ -1064,17 +1064,17 @@ BOOL NPC_PrintpassmanInit( int meindex )
 	return TRUE;
 }
 /************************************************
- *   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+ *   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
  ************************************************/
 void NPC_PrintpassmanTalked( int meindex , int talkerindex , char *msg ,
 							 int color )
 {
 	int i;
 	int charnum;
-	/* ¥×¥ì¥¤¥ä¡¼¤¬¥É¥¢¥Ş¥ó¤Î2¥°¥ê¥Ã¥É°Ê  ¤Ê¤é  ±ş¤¹¤ë¡e */
+	/* çš¿ä¼Šå¥¶ä¹©â–¡äº’ç‰å¤±ç©´ä»¶åŠ2å¼˜ä¼‰æ°¸ç‰å‹•  å…æ—¥  æ®ºå…æœˆã€” */
 	if(NPC_Util_CharDistance( talkerindex, meindex ) > 2)return;
 	
-	/* ¼«Ê¬ÍÑ¤Î´É  ¿Í¤Î  Á°¤ò¸¡º÷¤¹¤ë*/
+	/* æ†¤åŒè¿•åŠæ£Ÿ  è«¦åŠ  èŸ†æ¯›è…¹ç¶¢å…æœˆ*/
 	charnum  = CHAR_getCharNum();
 	for(i= CHAR_getPlayerMaxNum() +CHAR_getPetMaxNum();
 		i<charnum;
@@ -1094,7 +1094,7 @@ void NPC_PrintpassmanTalked( int meindex , int talkerindex , char *msg ,
 		NPC_RoomAdminNew_DspRoomPasswd( meindex, i, talkerindex);
 	}
 	else {
-		CHAR_talkToCli( talkerindex, meindex, "¡C¡C¡C", NPC_RANKING_MSGCOLOR);
+		CHAR_talkToCli( talkerindex, meindex, "ã€‚ã€‚ã€‚", NPC_RANKING_MSGCOLOR);
 	}
 }
 /* end of roomadminnew */

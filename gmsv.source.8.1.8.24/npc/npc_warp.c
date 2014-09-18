@@ -10,7 +10,7 @@
 #include "handletime.h"
 #include "npc_eventaction.h"
 
-//#define _RECORD_NPCMAN_ //¬ö¿ı
+//#define _RECORD_NPCMAN_ //ç´€éŒ„
 
 BOOL NPC_TimeWarpCheck(int meindex,char *buf,int mode);
 
@@ -30,7 +30,7 @@ BOOL NPC_WarpInit( int charaindex )
     int floor=-1,x=-1,y=-1;
     char    token[128];
 
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 	char evtype[256];
 	char evtime[256];
 	char argfile[256];
@@ -46,7 +46,7 @@ BOOL NPC_WarpInit( int charaindex )
 	}
 #ifdef _NEW_WARPPOINT
 	if( strstr( arg, "FREEMORE") != NULL )	{
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 		sprintf( evtype, "FREE");
 		sprintf( evtime, "NULL");
 #endif
@@ -56,7 +56,7 @@ BOOL NPC_WarpInit( int charaindex )
 #ifdef _MAP_WARPPOINT
 		return FALSE;
 #endif
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 		sprintf( evtype, "NONE");
 #endif
 		ret=getStringFromIndexWithDelim(arg,"|", 1,token,sizeof(token));
@@ -80,28 +80,28 @@ BOOL NPC_WarpInit( int charaindex )
 			int day;
 			day=NPC_TimeWarpCheck(charaindex,token,0);
 				if(day==0){
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 					sprintf( evtime, "N");
 #endif
 					CHAR_setWorkInt( charaindex, CHAR_WORKEVENTTYPE, CHAR_EVENT_WARP_NIGHT);
 				}else if(day==1){
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 					sprintf( evtime, "M");
 #endif
 					CHAR_setWorkInt( charaindex, CHAR_WORKEVENTTYPE, CHAR_EVENT_WARP_MORNING);
 				}else if(day==2){
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 					sprintf( evtime, "A");
 #endif
 					CHAR_setWorkInt( charaindex, CHAR_WORKEVENTTYPE, CHAR_EVENT_WARP_NOON);
 				}else{
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 					sprintf( evtime, "NULL");
 #endif
 					CHAR_setWorkInt( charaindex, CHAR_WORKEVENTTYPE, CHAR_EVENT_WARP);
 				}
 		}else{
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 					sprintf( evtime, "NULL");
 #endif
 			CHAR_setWorkInt( charaindex, CHAR_WORKEVENTTYPE, CHAR_EVENT_WARP);
@@ -114,7 +114,7 @@ BOOL NPC_WarpInit( int charaindex )
     CHAR_setFlg( charaindex,CHAR_ISATTACKED,0 );
     CHAR_setFlg( charaindex,CHAR_ISATTACK,0 );
 
-#ifdef _RECORD_NPCMAN_ //¬ö¿ı
+#ifdef _RECORD_NPCMAN_ //ç´€éŒ„
 	{
 		FILE *fp=NULL;
 		char filename[256];
@@ -202,7 +202,7 @@ void NPC_WarpWarpCharacter( int warpnpcindex, int charaindex )
 				break;
 		}
 
-		if( nBefind == FALSE || iRand <= 0){	//¨S§ä¨ì±ø¥ó
+		if( nBefind == FALSE || iRand <= 0){	//æ²’æ‰¾åˆ°æ¢ä»¶
 			floor = CHAR_getInt( warpnpcindex, CHAR_FLOOR);
 			x = CHAR_getInt( warpnpcindex, CHAR_X);
 			y = CHAR_getInt( warpnpcindex, CHAR_Y);
@@ -214,7 +214,7 @@ void NPC_WarpWarpCharacter( int warpnpcindex, int charaindex )
 			if( NPC_Util_GetStrFromStrWithDelim( arg, "CHECKPARTY", buf1, sizeof( buf1)) != NULL ) {
 				if( strstr( buf1, "TRUE") != NULL ){
 					if( CHAR_getWorkInt( charaindex, CHAR_WORKPARTYMODE ) == CHAR_PARTY_LEADER )	{
-						CHAR_DischargeParty( charaindex, 0); // ©î¶¤
+						CHAR_DischargeParty( charaindex, 0); // æ‹†éšŠ
 					}
 				}
 			}
@@ -251,33 +251,33 @@ void NPC_WarpWarpCharacter( int warpnpcindex, int charaindex )
 				if ((ff==100)||(ff==200)||(ff==300)||(ff==400)||(ff==500)) {
 				  if ((of!=100)&&(of!=200)&&(of!=300)&&(of!=400)&&(of!=500)) {
 					CHAR_talkToCli(charaindex, -1,
-					  "¤Ó¶§¯«ªº­º¹¢µo¥X¤@¹D©_²§ªº¥ú¨~¡AÁôÂÃ¤F§Aªº¦æÂÜ¡C", CHAR_COLORWHITE);
+					  "å¤ªé™½ç¥çš„é¦–é£¾ç™¼å‡ºä¸€é“å¥‡ç•°çš„å…‰èŠ’ï¼Œéš±è—äº†ä½ çš„è¡Œè¹¤ã€‚", CHAR_COLORWHITE);
 				  }
 				} else {
 				  if ((of==100)||(of==200)||(of==300)||(of==400)||(of==500)) {
-					CHAR_talkToCli(charaindex, -1, "ÀôÂ¶µÛ§Aªº¥ú¨~®ø¥¢¤F¡C", CHAR_COLORWHITE);
+					CHAR_talkToCli(charaindex, -1, "ç’°ç¹è‘—ä½ çš„å…‰èŠ’æ¶ˆå¤±äº†ã€‚", CHAR_COLORWHITE);
 				  }
 				}
 			  } else if (eqen>=80) {
 				if ((ff==100)||(ff==200)||(ff==300)||(ff==400)) {
 				  if ((of!=100)&&(of!=200)&&(of!=300)&&(of!=400)) {
 					CHAR_talkToCli(charaindex, -1,
-					  "¤Ó¶§¯«ªº­º¹¢µo¥X¤@¹D©_²§ªº¥ú¨~¡AÁôÂÃ¤F§Aªº¦æÂÜ¡C", CHAR_COLORWHITE);
+					  "å¤ªé™½ç¥çš„é¦–é£¾ç™¼å‡ºä¸€é“å¥‡ç•°çš„å…‰èŠ’ï¼Œéš±è—äº†ä½ çš„è¡Œè¹¤ã€‚", CHAR_COLORWHITE);
 				  }
 				} else {
 				  if ((of==100)||(of==200)||(of==300)||(of==400)) {
-					CHAR_talkToCli(charaindex, -1, "ÀôÂ¶µÛ§Aªº¥ú¨~®ø¥¢¤F¡C", CHAR_COLORWHITE);
+					CHAR_talkToCli(charaindex, -1, "ç’°ç¹è‘—ä½ çš„å…‰èŠ’æ¶ˆå¤±äº†ã€‚", CHAR_COLORWHITE);
 				  }
 				}
 			  } else if (eqen>=40) {
 				if ((ff==100)||(ff==200)) {
 				  if ((of!=100)&&(of!=200)) {
 					CHAR_talkToCli(charaindex, -1,
-					  "¤Ó¶§¯«ªº­º¹¢µo¥X¤@¹D©_²§ªº¥ú¨~¡AÁôÂÃ¤F§Aªº¦æÂÜ¡C", CHAR_COLORWHITE);
+					  "å¤ªé™½ç¥çš„é¦–é£¾ç™¼å‡ºä¸€é“å¥‡ç•°çš„å…‰èŠ’ï¼Œéš±è—äº†ä½ çš„è¡Œè¹¤ã€‚", CHAR_COLORWHITE);
 				  }
 				} else {
 				  if ((of==100)||(of==200)) {
-					CHAR_talkToCli(charaindex, -1, "ÀôÂ¶µÛ§Aªº¥ú¨~®ø¥¢¤F¡C", CHAR_COLORWHITE);
+					CHAR_talkToCli(charaindex, -1, "ç’°ç¹è‘—ä½ çš„å…‰èŠ’æ¶ˆå¤±äº†ã€‚", CHAR_COLORWHITE);
 				  }
 				}
 			  }
@@ -290,7 +290,7 @@ void NPC_WarpWarpCharacter( int warpnpcindex, int charaindex )
 			for (i = 0; i < MAXSTAKENUM; i++){
 				if (CHAR_getWorkInt(charaindex, CHAR_WORKSTAKETYPE1 + i) > 0){
 					char tmpbuf[256];
-					snprintf(tmpbuf, sizeof(tmpbuf), "¥Ñ©ó§AÂ÷¶}¤F©Ğ¶¡¡A©Ò¥H±NµLªk¨ú¦^±m¨é¡I");
+					snprintf(tmpbuf, sizeof(tmpbuf), "ç”±æ–¼ä½ é›¢é–‹äº†æˆ¿é–“ï¼Œæ‰€ä»¥å°‡ç„¡æ³•å–å›å½©åˆ¸ï¼");
 					CHAR_setWorkInt(charaindex, CHAR_WORKSTAKETYPE1 + i, 0);
 					CHAR_talkToCli(charaindex, -1, tmpbuf, CHAR_COLORYELLOW);
 				}

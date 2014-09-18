@@ -122,7 +122,7 @@ int lssproto_ServerDispatchMessage(int fd, char *encoded);
 #define LSSPROTO_MA_RECV    98
 #endif
 
-#ifdef _FIX_DEL_MAP              // WON ADD ª±®a©â¦a¹Ï°eºÊº»
+#ifdef _FIX_DEL_MAP              // WON ADD ç©å®¶æŠ½åœ°åœ–é€ç›£ç„
 #define LSSPROTO_DM_RECV    99
 #endif
 
@@ -130,12 +130,12 @@ int lssproto_ServerDispatchMessage(int fd, char *encoded);
 #define LSSPROTO_IC_SEND    100
 #endif
 
-#ifdef _MAGIC_NOCAST             // ºëÆF:¨IÀq
+#ifdef _MAGIC_NOCAST             // ç²¾éˆ:æ²‰é»˜
 #define LSSPROTO_NC_SEND    101
 #endif
 #ifdef _CHECK_GAMESPEED
-#define LSSPROTO_CS_RECV	103 //¥[³t±´°w
-#define LSSPROTO_CS_SEND	104 //¥[³t±´°w
+#define LSSPROTO_CS_RECV	103 //åŠ é€Ÿæ¢é‡
+#define LSSPROTO_CS_SEND	104 //åŠ é€Ÿæ¢é‡
 #endif
 
 #ifdef _TEAM_KICKPARTY
@@ -144,24 +144,24 @@ int lssproto_ServerDispatchMessage(int fd, char *encoded);
 #ifdef _PETS_SELECTCON
 #define LSSPROTO_PETST_SEND 107
 #endif
-#ifdef _NEWREQUESTPROTOCOL			// (¤£¥i¶}) Syu ADD ·s¼WProtocol­n¨D²Ó¶µ
+#ifdef _NEWREQUESTPROTOCOL			// (ä¸å¯é–‹) Syu ADD æ–°å¢Protocolè¦æ±‚ç´°é …
 #define LSSPROTO_RESIST_RECV 108
 #define LSSPROTO_RESIST_SEND 109
 #endif
-#ifdef _OUTOFBATTLESKILL			// (¤£¥i¶}) Syu ADD «D¾Ô°«®É§Ş¯àProtocol
+#ifdef _OUTOFBATTLESKILL			// (ä¸å¯é–‹) Syu ADD éæˆ°é¬¥æ™‚æŠ€èƒ½Protocol
 #define LSSPROTO_BATTLESKILL_RECV 110
 #define LSSPROTO_BATTLESKILL_SEND 111
 #endif
-#ifdef _CHATROOMPROTOCOL			// (¤£¥i¶}) Syu ADD ²á¤Ñ«ÇÀW¹D
+#ifdef _CHATROOMPROTOCOL			// (ä¸å¯é–‹) Syu ADD èŠå¤©å®¤é »é“
 #define LSSPROTO_CHATROOM_RECV 112
 #define LSSPROTO_CHATROOM_SEND 113
 #endif
 
-#define LSSPROTO_SPET_RECV 	114		// Robin «İ¾÷Ãd
+#define LSSPROTO_SPET_RECV 	114		// Robin å¾…æ©Ÿå¯µ
 #define LSSPROTO_SPET_SEND 	115
 
 #ifdef _STREET_VENDOR
-#define LSSPROTO_STREET_VENDOR_RECV 	116		// Â\Åu¥\¯à
+#define LSSPROTO_STREET_VENDOR_RECV 	116		// æ“ºæ”¤åŠŸèƒ½
 #define LSSPROTO_STREET_VENDOR_SEND 	117
 #endif
 
@@ -171,12 +171,12 @@ int lssproto_ServerDispatchMessage(int fd, char *encoded);
 #endif
 
 #ifdef _JOBDAILY
-#define LSSPROTO_JOBDAILY_SEND 	120		// CYG¡@¥ô°È¤é»x¥\¯à
+#define LSSPROTO_JOBDAILY_SEND 	120		// CYGã€€ä»»å‹™æ—¥èªŒåŠŸèƒ½
 #define LSSPROTO_JOBDAILY_RECV 	121
 #endif
 
 #ifdef _TEACHER_SYSTEM
-#define LSSPROTO_TEACHER_SYSTEM_RECV 	122		// ¾É®v¥\¯à
+#define LSSPROTO_TEACHER_SYSTEM_RECV 	122		// å°å¸«åŠŸèƒ½
 #define LSSPROTO_TEACHER_SYSTEM_SEND 	123
 #endif
 
@@ -185,7 +185,7 @@ int lssproto_ServerDispatchMessage(int fd, char *encoded);
 #define LSSPROTO_S2_SEND 	125
 #endif
 
-#define LSSPROTO_CD_NUM		126		//³Ì¤jªº«ü¥O¼Æ
+#define LSSPROTO_CD_NUM		126		//æœ€å¤§çš„æŒ‡ä»¤æ•¸
 
 
 void lssproto_W_recv(int fd,int x,int y,char* direction);
@@ -294,16 +294,16 @@ void lssproto_Shutdown_recv(int fd,char* passwd,int min);
 void lssproto_TD_send(int fd, int index, char* message);
 void lssproto_TD_recv(int fd, char* message);
 
-#ifdef _CHATROOMPROTOCOL			// (¤£¥i¶}) Syu ADD ²á¤Ñ«ÇÀW¹D
+#ifdef _CHATROOMPROTOCOL			// (ä¸å¯é–‹) Syu ADD èŠå¤©å®¤é »é“
 void lssproto_CHATROOM_recv(int fd , char *data) ; 
 void lssproto_CHATROOM_send(int fd , char* message ) ; 
 #endif
 
-#ifdef _NEWREQUESTPROTOCOL			// (¤£¥i¶}) Syu ADD ·s¼WProtocol­n¨D²Ó¶µ
+#ifdef _NEWREQUESTPROTOCOL			// (ä¸å¯é–‹) Syu ADD æ–°å¢Protocolè¦æ±‚ç´°é …
 void lssproto_RESIST_recv(int fd ) ; 
 void lssproto_RESIST_send(int fd , char* message ) ; 
 #endif
-#ifdef _OUTOFBATTLESKILL			// (¤£¥i¶}) Syu ADD «D¾Ô°«®É§Ş¯àProtocol
+#ifdef _OUTOFBATTLESKILL			// (ä¸å¯é–‹) Syu ADD éæˆ°é¬¥æ™‚æŠ€èƒ½Protocol
 void lssproto_BATTLESKILL_recv(int fd, int iNum) ; 
 void lssproto_BATTLESKILL_send(int fd , char* message ) ; 
 #endif
@@ -317,7 +317,7 @@ void lssproto_WO_send(int fd,int effect);
 void lssproto_PETST_recv( int fd,  int nPet, int sPet);
 void lssproto_BM_recv(int fd, int iindex);
 
-#ifdef _FIX_DEL_MAP           // WON ADD ª±®a©â¦a¹Ï°eºÊº»
+#ifdef _FIX_DEL_MAP           // WON ADD ç©å®¶æŠ½åœ°åœ–é€ç›£ç„
 void lssproto_DM_recv( int fd );
 #endif
 

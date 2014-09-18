@@ -12,7 +12,7 @@
 #ifdef _CHECK_ENEMY_PET
 #include "enemy.h"
 #endif
-/* ¥á¥Ã¥»¡¼¥¸¤Îenum */
+/* ä¸Ÿæ°¸æœ¬â–¡æ–¥åŠenum */
 enum {
 	NPC_PETSHOP_MSG_OVER,
 	NPC_PETSHOP_MSG_MAIN,
@@ -29,14 +29,14 @@ typedef struct {
 }NPC_PETSHOP_MSG;
 
 NPC_PETSHOP_MSG		shopmsg[] = {
-	{ "over_msg",		"¿ú¥Î§¹Ã¹!¨S°İÃD¶Ü?"},
-	{ "main_msg",		"Åwªï"},
-	{ "realy_msg",		"¯uªº¥i¥H¶Ü?"},
-	{ "thanks_msg",		"ÁÂÁÂ!"},
-	{ "cost_msg",		"¿ú¤£°÷³á!"},
-	{ "pooltanks_msg",	"ÁÂÁÂ!"},
-	{ "poolfull_msg",	"¶W¹LªºµLªk³B²z³á"},
-	{ "getfull_msg",	"§A¤£¬O¦³«Ü¦hÃdª«¶Ü"}
+	{ "over_msg",		"éŒ¢ç”¨å®Œç¾…!æ²’å•é¡Œå—?"},
+	{ "main_msg",		"æ­¡è¿"},
+	{ "realy_msg",		"çœŸçš„å¯ä»¥å—?"},
+	{ "thanks_msg",		"è¬è¬!"},
+	{ "cost_msg",		"éŒ¢ä¸å¤ å–”!"},
+	{ "pooltanks_msg",	"è¬è¬!"},
+	{ "poolfull_msg",	"è¶…éçš„ç„¡æ³•è™•ç†å–”"},
+	{ "getfull_msg",	"ä½ ä¸æ˜¯æœ‰å¾ˆå¤šå¯µç‰©å—"}
 	
 };
 
@@ -67,13 +67,13 @@ void NPC_DepotPet_AskGet(int meindex,int talker,int select,char *token);
 #endif
 
 
-//   ¤±  ¤ì¶â³Û·×»»¼°
+//   ä»ƒ  æœ¨å—¯å–Šç…Œé™æ‘¯
 #define		NPC_GETPOOLCOST( talker)		( 50 + CHAR_getInt( talker, CHAR_LV)*4)
 
-//   ¤±  ¤ì¶â¥Ç¥Õ¥©¥ë¥È
+//   ä»ƒ  æœ¨å—¯çŠ¯ç™½å·§ä¼™ç„
 #define		NPC_PETSHOP_POOLCOST_DEFAULT	200
 
-/*--¥ï¡¼¥¯    ¤Î³ÎÊİ--*/
+/*--ä¼â–¡å¼    åŠå‰²å¿¡--*/
 enum {
 	CHAR_WORK_NOMALRATE	= CHAR_NPCWORKINT1,
 	CHAR_WORK_SPECIALRATE	= CHAR_NPCWORKINT2,
@@ -83,7 +83,7 @@ enum {
 
 
 /*********************************
-* ½é´ü½è  
+* è³¡æ¸è³ª  
 *********************************/
 BOOL NPC_PetShopInit( int meindex )
 {
@@ -96,7 +96,7 @@ BOOL NPC_PetShopInit( int meindex )
 //	int cost;
 	int tmp;
 
-	/*--¥¿¥¤¥×ÀßÄê--*/
+	/*--æ­£å¥¶çš¿æ¾€çˆ›--*/
    	CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPESTONESHOP );
 
 
@@ -105,7 +105,7 @@ BOOL NPC_PetShopInit( int meindex )
 		return FALSE;
 	}
 
-	/*--¥ì¡¼¥È¤ò»Ï¤á¤Ëµ­²±¤µ¤»¤Æ¶³¤¯*/
+	/*--ä¼Šâ–¡ç„æ¯›éŠ¨æˆ¶åç­ç››ä»Šå…­åŒ–é›²ä»*/
 	if( NPC_Util_GetStrFromStrWithDelim( npcarg, "nomal_rate", buf, sizeof( buf)) != NULL){
 		rate = atof( buf);		
 		intrate = ( int)( rate *1000);		
@@ -115,7 +115,7 @@ BOOL NPC_PetShopInit( int meindex )
 	}
 
 		
-	/*--¥¹¥Ú¼³¥ã¥ë¥ì¡¼¥È¤âµ­²±¤µ¤»¤Æ¶³¤¯--*/
+	/*--æ—¦çŸ¢æ’²ä¹“ä¼™ä¼Šâ–¡ç„æ‰‹ç­ç››ä»Šå…­åŒ–é›²ä»--*/
 	if(NPC_Util_GetStrFromStrWithDelim( npcarg, "special_rate", buf, sizeof( buf))
 	!=NULL)
 	{
@@ -126,13 +126,13 @@ BOOL NPC_PetShopInit( int meindex )
 		CHAR_setWorkInt( meindex , CHAR_WORK_SPECIALRATE ,1200 );
 	}
 	
-	//   ¤±  ¤ì¶âµ­²±
+	//   ä»ƒ  æœ¨å—¯ç­ç››
 	//cost = NPC_Util_GetNumFromStrWithDelim( npcarg, "pool_cost");
 	//if( cost == -1 ) cost = NPC_PETSHOP_POOLCOST_DEFAULT;
 	//CHAR_setWorkInt( meindex, CHAR_WORK_POOLCOST, cost);
 	
 	
-	//   ¤±  ¤ì¤¬½Ğ  ¤ë¤«¤É¤¦¤«¤òµ­²±
+	//   ä»ƒ  æœ¨äº’è«‹  æœˆäº•å‡ä¸¹äº•æ¯›ç­ç››
 	tmp = NPC_Util_GetNumFromStrWithDelim( npcarg, "pool_flg");
 	if( tmp != 1 ) tmp = 0;
 	CHAR_setWorkInt( meindex, CHAR_WORK_POOLFLG, tmp);
@@ -145,45 +145,45 @@ BOOL NPC_PetShopInit( int meindex )
 
 
 /*********************************
-*   ¤·¤«¤±¤é¤ì¤¿»ş¤Î½è  
+*   ä»„äº•ä»ƒæ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_PetShopTalked( int meindex , int talkerindex , char *szMes ,int color )
 {
 
-    /* ¥×¥ì¥¤¥ä¡¼¤ËÂĞ¤·¤Æ¤À¤±  ±ş¤¹¤ë */
+    /* çš¿ä¼Šå¥¶ä¹©â–¡åè¦†ä»„åŒ–åˆ†ä»ƒ  æ®ºå…æœˆ */
     if( CHAR_getInt( talkerindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) {
     	return;
     }
 	
 
-	/*--  ¤ÎÁ°¤Ë¤¤¤ë¤«¤É¤¦¤«¡ª--*/
+	/*--  åŠèŸ†åä¸­æœˆäº•å‡ä¸¹äº•ã€--*/
 	if(NPC_Util_isFaceToFace(talkerindex,meindex,2 )==FALSE){
-		/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+		/* ã„ å¼˜ä¼‰æ°¸ç‰å‹•  åŠå¿ƒ */
 		if( NPC_Util_CharDistance( talkerindex, meindex ) > 1) return;
 	}
 
-	/*--¥ï¡¼¥¯¤Î½é´ü²½--*/
+	/*--ä¼â–¡å¼åŠè³¡æ¸ç¥­--*/
 	CHAR_setWorkInt(talkerindex,CHAR_WORKSHOPRELEVANT,0);
 
-	/*-¤Ï¤¸¤á¤ÎÁª      --*/
+	/*-åå…ƒæˆ¶åŠè–Š      --*/
 	NPC_PetShop_selectWindow( meindex, talkerindex,0,-1);
 
 }
 
 /*********************************
-* ¸«¤é¤ì¤¿»ş¤Î½è  
+* è‘¦æ—¥æœ¨å‡¶å‡œåŠè³ª  
 *********************************/
 void NPC_PetShopLooked( int meindex , int lookedindex)
 {
-    /* ¥×¥ì¥¤¥ä¡¼¤ËÂĞ¤·¤Æ¤À¤±  ±ş¤¹¤ë */
+    /* çš¿ä¼Šå¥¶ä¹©â–¡åè¦†ä»„åŒ–åˆ†ä»ƒ  æ®ºå…æœˆ */
     if( CHAR_getInt( lookedindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER ) {
     	return;
     }
 
-	/* £±¥°¥ê¥Ã¥É°Ê  ¤Î¤ß */
+	/* ã„ å¼˜ä¼‰æ°¸ç‰å‹•  åŠå¿ƒ */
 	if( NPC_Util_CharDistance( lookedindex, meindex ) > 2) return;
 
-	/*--¥ï¡¼¥¯¤Î½é´ü²½--*/
+	/*--ä¼â–¡å¼åŠè³¡æ¸ç¥­--*/
 //	CHAR_setWorkInt(lookedindex,CHAR_WORKSHOPRELEVANT,0);
 
 
@@ -209,45 +209,45 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 	token[0] = '\0';
 
 	switch(num){
-      //   ½é¤Î¥¦¥£¥ó¥É¥¦
+      //   è³¡åŠå®ƒå¥´ä»¶ç‰å®ƒ
 	  case 0:
 		NPC_MaxGoldOver( meindex, toindex, NPC_PETSHOP_MSG_MAIN, buf);
 #ifdef _NPC_DEPOTPET
 		if( !CHAR_getWorkInt( meindex, CHAR_WORK_POOLFLG)) {
-			sprintf(token, "4\n¡@¡@¡@¡@¡@¡@¡¸Ãdª«°Ó©±¡¸"
+			sprintf(token, "4\nã€€ã€€ã€€ã€€ã€€ã€€â˜†å¯µç‰©å•†åº—â˜†"
 							"%s"
 							"\n"
-							"\n¡@¡@¡@¡@¡@¡@ ¡m ½æÃdª« ¡n"
+							"\nã€€ã€€ã€€ã€€ã€€ã€€ ã€Š è³£å¯µç‰© ã€‹"
 							"\n"
 							"\n"
-							"\n             ¡m Â÷¶} ¡n",
+							"\n             ã€Š é›¢é–‹ ã€‹",
 							buf);
 		}else {
-			sprintf(token, "4\n¡@¡@¡@¡@¡@¡@¡¸Ãdª«°Ó©±¡¸"
+			sprintf(token, "4\nã€€ã€€ã€€ã€€ã€€ã€€â˜†å¯µç‰©å•†åº—â˜†"
 							"%s"
-							"\n            ¡m ±H©ñÃdª« ¡n"
-							"\n            ¡m »â¨úÃdª« ¡n"
-							"\n¡@¡@¡@¡@¡@¡@ ¡m ½æÃdª« ¡n"
-							"\n            ¡m ¨Ï¥Î­Ü®w ¡n"
-							"\n              ¡m Â÷¶} ¡n",
+							"\n            ã€Š å¯„æ”¾å¯µç‰© ã€‹"
+							"\n            ã€Š é ˜å–å¯µç‰© ã€‹"
+							"\nã€€ã€€ã€€ã€€ã€€ã€€ ã€Š è³£å¯µç‰© ã€‹"
+							"\n            ã€Š ä½¿ç”¨å€‰åº« ã€‹"
+							"\n              ã€Š é›¢é–‹ ã€‹",
 							buf);
 		}
 #else
 		if( !CHAR_getWorkInt( meindex, CHAR_WORK_POOLFLG)) {
-			sprintf(token, "4\n¡@¡@¡@¡@¡@¡@¡¸Ãdª«°Ó©±¡¸"
+			sprintf(token, "4\nã€€ã€€ã€€ã€€ã€€ã€€â˜†å¯µç‰©å•†åº—â˜†"
 							"%s"
 							"\n"
-							"\n¡@¡@¡@¡@¡@¡@ ¡m ½æÃdª« ¡n"
+							"\nã€€ã€€ã€€ã€€ã€€ã€€ ã€Š è³£å¯µç‰© ã€‹"
 							"\n"
-							"\n             ¡m Â÷¶} ¡n",
+							"\n             ã€Š é›¢é–‹ ã€‹",
 							buf);
 		}else {
-			sprintf(token, "4\n¡@¡@¡@¡@¡@¡@¡¸Ãdª«°Ó©±¡¸"
+			sprintf(token, "4\nã€€ã€€ã€€ã€€ã€€ã€€â˜†å¯µç‰©å•†åº—â˜†"
 							"%s"
-							"\n            ¡m ±H©ñÃdª« ¡n"
-							"\n            ¡m »â¨úÃdª« ¡n"
-							"\n¡@¡@¡@¡@¡@¡@ ¡m ½æÃdª« ¡n"
-							"\n              ¡m Â÷¶} ¡n",
+							"\n            ã€Š å¯„æ”¾å¯µç‰© ã€‹"
+							"\n            ã€Š é ˜å–å¯µç‰© ã€‹"
+							"\nã€€ã€€ã€€ã€€ã€€ã€€ ã€Š è³£å¯µç‰© ã€‹"
+							"\n              ã€Š é›¢é–‹ ã€‹",
 							buf);
 		}
 #endif
@@ -288,7 +288,7 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 		windowno=CHAR_WINDOWTYPE_WINDOWPETSHOP_END; 
 		windowtype=WINDOW_MESSAGETYPE_MESSAGE;
 		break;
-	  case 5: // »â¨ú±H©ñÃd¦Cªí
+	  case 5: // é ˜å–å¯„æ”¾å¯µåˆ—è¡¨
 	  	if( CHAR_getWorkInt( meindex, CHAR_WORK_POOLFLG ) != 1 )
 	  		return;
 	  	buttontype=WINDOW_BUTTONTYPE_CANCEL;
@@ -322,29 +322,29 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 	  	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 		windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_END; 
 	    break;
-	  //   ¤±  ¤ì  ¤¬°ì  
+	  //   ä»ƒ  æœ¨  äº’åŸŸ  
 	  case 8:
 	  	NPC_MaxGoldOver( meindex, toindex, NPC_PETSHOP_MSG_POOLFULL, token);
 		buttontype = WINDOW_BUTTONTYPE_OK;
 	  	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 		windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_END; 
 	    break;
-	  // °ú¤­¼è¤ê¥Ú¥Ã¥È°ì  ¥¦¥£¥ó¥É¥¦
-	  case 9: // ¨ú¥X±H©ñÃd¦Cªí
+	  // å©äº”æ½¸æ›°çŸ¢æ°¸ç„åŸŸ  å®ƒå¥´ä»¶ç‰å®ƒ
+	  case 9: // å–å‡ºå¯„æ”¾å¯µåˆ—è¡¨
 	  	if( CHAR_getWorkInt( meindex, CHAR_WORK_POOLFLG) != 1 )
 	  		return;
 	  	NPC_getDrawPet( meindex, toindex, token, &buttontype, select);
 	  	windowtype = WINDOW_MESSAGETYPE_SELECT;
 		windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_DRAWSELECT; 
 		break;
-	  // °ú¤­¼è¤ê    ¡ª
+	  // å©äº”æ½¸æ›°    ã€
 	  case 10:
 		NPC_PetDate3( meindex, toindex, select, token);
 		buttontype = WINDOW_BUTTONTYPE_YESNO;
 	  	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 		windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_ASKDRAW;
 	    break;
-	  // ÊÖ¤¹
+	  // å¿’å…
 	  case 11:
 	  	if( CHAR_getWorkInt( meindex, CHAR_WORK_POOLFLG ) != 1 )
 	  		return;	  
@@ -353,7 +353,7 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 	  	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 		windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_END; 
 	    break;
-	  // ¥Ú¥Ã¥È  ¤¬°ì  
+	  // çŸ¢æ°¸ç„  äº’åŸŸ  
 	  case 12:
 	  	NPC_MaxGoldOver( meindex, toindex, NPC_PETSHOP_MSG_GETFULL, token);
 		buttontype = WINDOW_BUTTONTYPE_OK;
@@ -361,14 +361,14 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 		windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_END; 
 	    break;
 #ifdef _NPC_DEPOTPET
-	  case 13: // ¦s¤J­Ü®w¦Cªí
+	  case 13: // å­˜å…¥å€‰åº«åˆ—è¡¨
 	  	if( !CHAR_CheckDepotPet( toindex) )
 	  		return;
 	  	buttontype=WINDOW_BUTTONTYPE_CANCEL;
 	  	windowtype=WINDOW_MESSAGETYPE_PETSELECT;
 		windowno=CHAR_WINDOWTYPE_DEPOTPETSHOP_ADD;
 	    break;
-	  case 14: // ¨ú¥X­Ü®w¦Cªí
+	  case 14: // å–å‡ºå€‰åº«åˆ—è¡¨
 	  	if( !CHAR_CheckDepotPet( toindex) )
 	  		return;
 		NPC_DepotPet_List( meindex, toindex, token, &buttontype, select);
@@ -377,7 +377,7 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 		windowno = CHAR_WINDOWTYPE_DEPOTPETSHOP_GET;
 		break;
 
-	  case 15: // ¸ß°İ½T»{¦s¤J­Ü®w
+	  case 15: // è©¢å•ç¢ºèªå­˜å…¥å€‰åº«
 		if( CHAR_getInt( toindex, CHAR_GOLD) 
 			< NPC_GETPOOLCOST( toindex)) 
 		{
@@ -392,14 +392,14 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 		windowno = CHAR_WINDOWTYPE_DEPOTPETSHOP_ASKADD;
 	    break;
 
-	  case 16: // ¸ß°İ½T»{¨ú¥X­Ü®w
+	  case 16: // è©¢å•ç¢ºèªå–å‡ºå€‰åº«
 		NPC_DepotPet_AskGet( meindex, toindex, select, token);
 		buttontype = WINDOW_BUTTONTYPE_YESNO;
 	  	windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 		windowno = CHAR_WINDOWTYPE_DEPOTPETSHOP_ASKGET;
 	    break;
 
-	  case 17: // ½T»{¦s¤J­Ü®w
+	  case 17: // ç¢ºèªå­˜å…¥å€‰åº«
 	  	if( !CHAR_CheckDepotPet(toindex) )
 	  		return;
 		if( CHAR_getInt( toindex, CHAR_GOLD) < NPC_GETPOOLCOST( toindex)){
@@ -412,7 +412,7 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 		windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_END; 
 	    break;
 
-	  case 18: // ½T»{¨ú¥X­Ü®w
+	  case 18: // ç¢ºèªå–å‡ºå€‰åº«
 	  	if( CHAR_getWorkInt( meindex, CHAR_WORK_POOLFLG ) != 1 )
 	  		return;	  
 		if( NPC_DepotPet_CheckLevel( meindex, toindex, select, token) == TRUE) {
@@ -422,7 +422,7 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 			windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_END; 
 		}
 		else {
-			sprintf( token, "\n§AµLªk·ÓÅU³o¥uÃdª«¡C");
+			sprintf( token, "\nä½ ç„¡æ³•ç…§é¡§é€™åªå¯µç‰©ã€‚");
 			buttontype = WINDOW_BUTTONTYPE_OK;
 			windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 			windowno = CHAR_WINDOWTYPE_WINDOWPETSHOP_END;
@@ -435,11 +435,11 @@ static void NPC_PetShop_selectWindow( int meindex, int toindex, int num,int sele
 	
 	}
 	
-	/*--¥¨¥¹¥±¡¼¥×--*/
+	/*--å·¨æ—¦å¼—â–¡çš¿--*/
 	//makeEscapeString( token, escapedname, sizeof(escapedname));
 		
 		
-	/*--Á÷¿®--*/
+	/*--éœœè€¨--*/
 	lssproto_WN_send( fd, windowtype, 
 				buttontype, 
 				windowno,
@@ -467,17 +467,17 @@ void NPC_PetShopWindowTalked( int meindex, int talkerindex,
 		{
 			int poolflg = CHAR_getWorkInt( meindex, CHAR_WORK_POOLFLG);
 			
-			if( ( datanum == 3 && poolflg) || // ½æÃdª«
-				( datanum == 2 && !poolflg ) ){	// »â¨úÃdª«
+			if( ( datanum == 3 && poolflg) || // è³£å¯µç‰©
+				( datanum == 2 && !poolflg ) ){	// é ˜å–å¯µç‰©
 				NPC_PetShop_selectWindow( meindex, talkerindex, 1, -1 );
-			}else if( datanum == 1 && poolflg) { // ±H©ñÃdª« 
+			}else if( datanum == 1 && poolflg) { // å¯„æ”¾å¯µç‰© 
 				if( CHAR_getCharPoolPetElement( talkerindex) != -1 ) {
 					NPC_PetShop_selectWindow( meindex, talkerindex, 5, -1 );
 				}
 				else {
 					NPC_PetShop_selectWindow( meindex, talkerindex, 8, -1 );
 				}
-			}else if( datanum == 2 && poolflg ) { // »â¨úÃdª«
+			}else if( datanum == 2 && poolflg ) { // é ˜å–å¯µç‰©
 				if( CHAR_getCharPetElement( talkerindex) != -1 ) {
 					CHAR_setWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT, 0);
 					NPC_PetShop_selectWindow( meindex, talkerindex, 9, 0);
@@ -486,12 +486,12 @@ void NPC_PetShopWindowTalked( int meindex, int talkerindex,
 				}
 			}
 #ifdef _NPC_DEPOTPET
-			else if( datanum == 4 ) { // ¨Ï¥ÎÃdª«­Ü®w
-				//print(" ¨Ï¥ÎÃdª«­Ü®w ");
+			else if( datanum == 4 ) { // ä½¿ç”¨å¯µç‰©å€‰åº«
+				//print(" ä½¿ç”¨å¯µç‰©å€‰åº« ");
 				CHAR_setWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT, 0);
 				if( !CHAR_CheckDepotPet( talkerindex) ){
 					CHAR_GetDepotPet( meindex, talkerindex);
-					CHAR_talkToCli( talkerindex, -1, "¨ú±oÃdª«¡A½Ğµy«á¡I", CHAR_COLORYELLOW);
+					CHAR_talkToCli( talkerindex, -1, "å–å¾—å¯µç‰©ï¼Œè«‹ç¨å¾Œï¼", CHAR_COLORYELLOW);
 				}else{
 					NPC_PoolPetShop_DepotPet_Menu( meindex, talkerindex);
 				}
@@ -567,17 +567,17 @@ void NPC_PetShopWindowTalked( int meindex, int talkerindex,
 	  case CHAR_WINDOWTYPE_DEPOTPETSHOP_HANDLE:
 		  if( !CHAR_CheckDepotPet( talkerindex) ) return ;
 		  switch( datanum ) {
-		  case 1://©ñ¤J
+		  case 1://æ”¾å…¥
 				if( CHAR_findEmptyDepotPet( talkerindex) == -1 ){
-					CHAR_talkToCli( talkerindex, -1, "Ãdª«­Ü®w¤wº¡¡I", CHAR_COLORYELLOW);
+					CHAR_talkToCli( talkerindex, -1, "å¯µç‰©å€‰åº«å·²æ»¿ï¼", CHAR_COLORYELLOW);
 					return;
 				}
 				//NPC_DepotPet_Pet_printWindow( meindex, talkerindex);
 				NPC_PetShop_selectWindow( meindex, talkerindex, 13, -1 );
 			  break;
-		  case 2://¨ú¥X
+		  case 2://å–å‡º
 				if( CHAR_getCharPetElement( talkerindex) < 0 ) {
-					CHAR_talkToCli( talkerindex, -1, "¨­¤WÃdª«Äæ¦ì¤wº¡¡I", CHAR_COLORYELLOW);
+					CHAR_talkToCli( talkerindex, -1, "èº«ä¸Šå¯µç‰©æ¬„ä½å·²æ»¿ï¼", CHAR_COLORYELLOW);
 					return;
 				}
 				NPC_PetShop_selectWindow( meindex, talkerindex, 14, 0);
@@ -612,7 +612,7 @@ void NPC_PetShopWindowTalked( int meindex, int talkerindex,
 		}
 
 		break;
-	  case CHAR_WINDOWTYPE_DEPOTPETSHOP_ASKADD: // ½T»{¦s¤J­Ü®w
+	  case CHAR_WINDOWTYPE_DEPOTPETSHOP_ASKADD: // ç¢ºèªå­˜å…¥å€‰åº«
 		if(select==WINDOW_BUTTONTYPE_YES){
 			NPC_PetShop_selectWindow( meindex, talkerindex, 17,-1 );
 		}else {
@@ -620,7 +620,7 @@ void NPC_PetShopWindowTalked( int meindex, int talkerindex,
 	  	}
 		break;
 			
-	  case CHAR_WINDOWTYPE_DEPOTPETSHOP_ASKGET: // ½T»{¨ú¥X­Ü®w
+	  case CHAR_WINDOWTYPE_DEPOTPETSHOP_ASKGET: // ç¢ºèªå–å‡ºå€‰åº«
 		if( select == WINDOW_BUTTONTYPE_YES){
 			if( CHAR_getCharPetElement( talkerindex) != -1 ) {
 				NPC_PetShop_selectWindow( meindex, talkerindex, 18,-1 );
@@ -655,7 +655,7 @@ void NPC_PetDate(int meindex,int talker,int select,char *token)
 	char *petname;
 	char buf[1024];
 
-	/*--¥ï¡¼¥¯¤Î½é´ü²½--*/
+	/*--ä¼â–¡å¼åŠè³¡æ¸ç¥­--*/
 	CHAR_setWorkInt(talker,CHAR_WORKSHOPRELEVANT,select);
 
 	petindex = CHAR_getCharPet( talker, select-1);
@@ -669,8 +669,8 @@ void NPC_PetDate(int meindex,int talker,int select,char *token)
 
 	petname = CHAR_getUseName( petindex);
 
-	sprintf(token,"\n¬O[%s]¨S¿ù§a¡H""%s"
-					"\n\n    ¶R½æ»ù®æ         %d STONE\n"
+	sprintf(token,"\næ˜¯[%s]æ²’éŒ¯å§ï¼Ÿ""%s"
+					"\n\n    è²·è³£åƒ¹æ ¼         %d STONE\n"
 					,petname,buf,cost);	
 		
 }
@@ -685,8 +685,8 @@ void NPC_PetDate2(int meindex,int talker,int select,char *token)
 	petindex = CHAR_getCharPet( talker, select-1);
 	if( !CHAR_CHECKINDEX(petindex) ) return;
 	petname = CHAR_getUseName( petindex);
-	sprintf(token,"\n±H©ñ[%s]"
-					"\n\n    ±H©ñ»ù®æ            %d stone\n"
+	sprintf(token,"\nå¯„æ”¾[%s]"
+					"\n\n    å¯„æ”¾åƒ¹æ ¼            %d stone\n"
 					,petname, NPC_GETPOOLCOST( talker)
 					);	
 }
@@ -701,7 +701,7 @@ void NPC_PetDate3(int meindex,int talker,int select,char *token)
 	petindex = CHAR_getCharPoolPet( talker, poolindex);
 	if( !CHAR_CHECKINDEX(petindex) ) return;
 	petname = CHAR_getUseName( petindex);
-	sprintf(token,"\n»â¦^[%s]", petname);	
+	sprintf(token,"\né ˜å›[%s]", petname);	
 }
 
 int NPC_GetCost(int meindex,int talker,int petindex)
@@ -735,10 +735,10 @@ int NPC_GetCost(int meindex,int talker,int petindex)
 
 	if(getlevel==0)	getlevel=1	;
 	
-	/*--ÃÍÃÊ¤òµá¤á¤ë--*/
+	/*--è¥–èŸ¾æ¯›è²æˆ¶æœˆ--*/
 	levelcost=(level*level)*10;
 	getlevel=(getlevel*getlevel)*10;
-// Syu ADD ­×§ï½æÂà¥ÍÃdª÷¿ú·|ÅÜ­tªºbug
+// Syu ADD ä¿®æ”¹è³£è½‰ç”Ÿå¯µé‡‘éŒ¢æœƒè®Šè² çš„bug
 #ifdef _PET_2TRANS
 	if( CHAR_getInt(petindex , CHAR_TRANSMIGRATION)>0)
 #else
@@ -759,7 +759,7 @@ int NPC_GetCost(int meindex,int talker,int petindex)
 	NPC_Util_GetStrFromStrWithDelim( npcarg, "special_pet", buf, sizeof( buf));
 
 	i=1;
-	/*--¥¹¥Ú¼³¥ã¥ë¥ì¡¼¥È¤Ç·×»»¤µ¤ì¤ë¥Ú¥Ã¥È¤ò³ä¤ê½Ğ¤¹  ¥Ú¥Ã¥È¤Î»ØÄê¤Ï  Áü  ¹æ)--*/
+	/*--æ—¦çŸ¢æ’²ä¹“ä¼™ä¼Šâ–¡ç„åŒ¹ç…Œé™ä»Šæœ¨æœˆçŸ¢æ°¸ç„æ¯›å–ƒæ›°è«‹å…  çŸ¢æ°¸ç„åŠéš™çˆ›å  é¢¶  å¯)--*/
 	while( getStringFromIndexWithDelim(buf,",",i,buff2,sizeof(buff2)) !=FALSE )
 	{
 		if(strstr( buff2, "-")==NULL){
@@ -769,20 +769,20 @@ int NPC_GetCost(int meindex,int talker,int petindex)
 				break; 
 			}
 		}else{
-			/*--¥¢¥¤  ¥à¤¬  15-25  ¤Î·Á¤Ç¶èÀÚ¤é¤ì¤Æ¤¤¤ë¾ì¹ç--*/
+			/*--å¤±å¥¶  ä¸äº’  15-25  åŠæº¥åŒ¹å—‰æ¿ æ—¥æœ¨åŒ–ä¸­æœˆæ¨ºå¯§--*/
 			int start;
 			int end;
 			int tmp;
 			int graflg=0;
 			char	token2[128];
 	
-			/*-"-"¤Ç¶èÀÚ¤é¤ì¤¿»Ï¤á¤Î¿ôÃÍ¤È  ¤Î¿ôÃÍ¤ò¼è  --*/
+			/*-"-"åŒ¹å—‰æ¿ æ—¥æœ¨å‡¶éŠ¨æˆ¶åŠé†’è¥–åˆ  åŠé†’è¥–æ¯›æ½¸  --*/
 			getStringFromIndexWithDelim( buff2, "-", 1, token2, sizeof(token2));
 			start = atoi( token2);
 			getStringFromIndexWithDelim( buff2, "-", 2 ,token2, sizeof(token2));
 			end = atoi( token2);
 
-			/*--  ¹æ¤¬µÕ¤Ë¤Ê¤Ã¤Æ¤¤¤¿¤é¡b  ¤ìÂØ¤¨¤ë**/
+			/*--  å¯äº’è…åå…å‹»åŒ–ä¸­å‡¶æ—¥ï½  æœ¨è´…å°¹æœˆ**/
 			if(start > end){
 				tmp=start;
 				start=end;
@@ -790,7 +790,7 @@ int NPC_GetCost(int meindex,int talker,int petindex)
 			}
 
 			end++;
-			/*--"-"¤Ç¶èÀÚ¤é¤ì¤¿Ê¬¤Î¥¢¥¤  ¥à¾ğ  ¤ò  ¤ë--*/
+			/*--"-"åŒ¹å—‰æ¿ æ—¥æœ¨å‡¶åŒåŠå¤±å¥¶  ä¸æ¨¹  æ¯›  æœˆ--*/
 			if(start <= graNo && graNo < end){
 				intrate=CHAR_getWorkInt( meindex , CHAR_WORK_SPECIALRATE);
 				rate=(double) intrate / 1000;
@@ -803,13 +803,13 @@ int NPC_GetCost(int meindex,int talker,int petindex)
 		i++;
 	}
 
-	/*--¥Ú¥Ã¥È¤ÎÃéÀ¿ÅÙ¤ò      ---*/
+	/*--çŸ¢æ°¸ç„åŠé‘æ“¦è˜¸æ¯›      ---*/
 	petai=CHAR_getWorkInt(petindex,CHAR_WORKFIXAI);
 
-	/*--    ¤ò¥²¥Ã¥È--*/
+	/*--    æ¯›å¿…æ°¸ç„--*/
 	charm = CHAR_getWorkInt(talker,CHAR_WORKFIXCHARM);
 
-	/*--      ¡ÜÃéÀ¿ÅÙ  / £²  */
+	/*--      â‰’é‘æ“¦è˜¸  / ã„¡  */
 	charm = charm + petai;
 
 	if(charm < 20){
@@ -822,10 +822,10 @@ int NPC_GetCost(int meindex,int talker,int petindex)
 
 	rate=(double)charm/100;
 
-	/*--    ÃéÀ¿³İ¤±--*/
+	/*--    é‘æ“¦å–˜ä»ƒ--*/
 	cost = cost * rate;
 
-	/*--¶³¶â¤òµ­²±--*/
+	/*--é›²å—¯æ¯›ç­ç››--*/
    	CHAR_setWorkInt(talker,CHAR_WORKSHOPRELEVANTSEC,cost);
 
 	return cost;
@@ -855,9 +855,9 @@ void NPC_PetDel(int meindex, int talker,int select,char* token)
 		lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
 			WINDOW_BUTTONTYPE_OK,
 			-1, -1,
-		makeEscapeString("\n\n«Ü©êºp¡ã¦uÅ@Ã~µLªk³c½æ³á¡I\n½Ğ¦Û¤v¦n¦n·ÓÅU¡I", buf, sizeof(buf)));
+		makeEscapeString("\n\nå¾ˆæŠ±æ­‰ï½å®ˆè­·ç¸ç„¡æ³•è²©è³£å–”ï¼\nè«‹è‡ªå·±å¥½å¥½ç…§é¡§ï¼", buf, sizeof(buf)));
 */
-		sprintf(token,"\n\n«Ü©êºp¡ã¦uÅ@Ã~µLªk³c½æ³á¡I\n½Ğ¦Û¤v¦n¦n·ÓÅU¡I");
+		sprintf(token,"\n\nå¾ˆæŠ±æ­‰ï½å®ˆè­·ç¸ç„¡æ³•è²©è³£å–”ï¼\nè«‹è‡ªå·±å¥½å¥½ç…§é¡§ï¼");
 		return;
 	}
 
@@ -867,9 +867,9 @@ void NPC_PetDel(int meindex, int talker,int select,char* token)
         	lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
         		WINDOW_BUTTONTYPE_OK,
         		-1, -1,
-        		makeEscapeString("\n\nÃM­¼¤¤ªºÃdª«µLªk³c½æ³á¡I", buf, sizeof(buf)));
+        		makeEscapeString("\n\né¨ä¹˜ä¸­çš„å¯µç‰©ç„¡æ³•è²©è³£å–”ï¼", buf, sizeof(buf)));
 */
-					sprintf(token,"\n\nÃM­¼¤¤ªºÃdª«µLªk³c½æ³á¡I");
+					sprintf(token,"\n\né¨ä¹˜ä¸­çš„å¯µç‰©ç„¡æ³•è²©è³£å–”ï¼");
         	return;
         }
 
@@ -882,11 +882,11 @@ void NPC_PetDel(int meindex, int talker,int select,char* token)
 	}
    	CHAR_setCharPet( talker, petsel, -1);
 	LogPet(
-		CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+		CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 		CHAR_getChar( talker, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"sell(½æÃd)",
+		"sell(è³£å¯µ)",
 		CHAR_getInt( talker,CHAR_FLOOR),
 		CHAR_getInt( talker,CHAR_X ),
 		CHAR_getInt( talker,CHAR_Y ),
@@ -914,7 +914,7 @@ void NPC_PetDel2( int meindex, int talker, int select, char *token)
 		fprint( "err\n");
 		return;
 	}
-	// ¥Ú¥Ã¥È¥Ç¡¼¥¿  ¹¹¡e¥Ú¥Ã¥È      ¤±  ¤ì  
+	// çŸ¢æ°¸ç„çŠ¯â–¡æ­£  å‡³ã€”çŸ¢æ°¸ç„      ä»ƒ  æœ¨  
 	selectpet = CHAR_getWorkInt( talker, CHAR_WORKSHOPRELEVANT) -1;
 	petindex = CHAR_getCharPet( talker, selectpet);
 	if( !CHAR_CHECKINDEX( petindex) ) return;
@@ -926,47 +926,47 @@ void NPC_PetDel2( int meindex, int talker, int select, char *token)
         	lssproto_WN_send(fd, WINDOW_MESSAGETYPE_MESSAGE,
         		WINDOW_BUTTONTYPE_OK,
         		-1, -1,
-        		makeEscapeString("\n\nÃM­¼¤¤ªºÃdª«µLªk±H©ñ³á¡I", buf, sizeof(buf)));
+        		makeEscapeString("\n\né¨ä¹˜ä¸­çš„å¯µç‰©ç„¡æ³•å¯„æ”¾å–”ï¼", buf, sizeof(buf)));
 */
-					sprintf(token,"\n\nÃM­¼¤¤ªºÃdª«µLªk±H©ñ³á¡I");
+					sprintf(token,"\n\né¨ä¹˜ä¸­çš„å¯µç‰©ç„¡æ³•å¯„æ”¾å–”ï¼");
         	return;
         }
         
-	// ¶õ¤­¤òÃµ¤¹¡eÁ°¤ËÃµ¤·¤Æ¥Á¥§¥Ã¥¯¤·¤Æ¤¤¤ë¤Î¤Ç¡f¤³¤³¤Ç¶õ¤¤¤Æ¤¤¤Ê¤¤¤Î¤Ï¶³¤«¤·¤¤
+	// å¡¢äº”æ¯›ç¹­å…ã€”èŸ†åç¹­ä»„åŒ–æ°‘å°¼æ°¸å¼ä»„åŒ–ä¸­æœˆåŠåŒ¹ã€•ä»‡ä»‡åŒ¹å¡¢ä¸­åŒ–ä¸­å…ä¸­åŠåé›²äº•ä»„ä¸­
 	emptyindex = CHAR_getCharPoolPetElement( talker);
 	if( emptyindex == -1 ) {
 		fprint( "err\n");
 		return;
 	}
-	// Àï  ½à  ÍÑ¥Ú¥Ã¥È¤Ê¤é¡f¤½¤ì¤ÎÅĞ  ¤ò¾Ã¤¹¡e
+	// çˆµ  è³  è¿•çŸ¢æ°¸ç„å…æ—¥ã€•å…¬æœ¨åŠç“š  æ¯›å£…å…ã€”
 	if( CHAR_getInt( talker, CHAR_DEFAULTPET) == selectpet) {
 		CHAR_setInt( talker, CHAR_DEFAULTPET, -1);
 		lssproto_KS_send( fd, -1, TRUE);
 	}
-	//   ¤±  ¤ì  ¤Ë¡f¥Ú¥Ã¥È¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¤ò¥³¥Ô¡¼
+	//   ä»ƒ  æœ¨  åã€•çŸ¢æ°¸ç„åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦æ¯›æˆŠç–‹â–¡
 	CHAR_setCharPoolPet( talker, emptyindex, petindex);
-	// ¥Ú¥Ã¥È  ¤«¤é¾Ã¤¹
+	// çŸ¢æ°¸ç„  äº•æ—¥å£…å…
 	CHAR_setCharPet( talker, selectpet, -1);
 	
-	// ¥á¥Ã¥»¡¼¥¸¼è  
+	// ä¸Ÿæ°¸æœ¬â–¡æ–¥æ½¸  
 	NPC_MaxGoldOver( meindex, talker, NPC_PETSHOP_MSG_POOLTHANKS, token);
-	// ¶³¶â¸º¤é¤¹
+	// é›²å—¯è›¹æ—¥å…
 
 	CHAR_DelGold( talker, NPC_GETPOOLCOST( talker) );
 
-	// ¶³¶â¥Ç¡¼¥¿Á÷¤ë
+	// é›²å—¯çŠ¯â–¡æ­£éœœæœˆ
 	CHAR_send_P_StatusString(talker,CHAR_P_STRING_GOLD);
 
 	snprintf( szPet, sizeof( szPet ), "K%d", selectpet);
-	// ¿·¤·¤¤¥Ú¥Ã¥È¥¹  ¡¼¥¿¥¹Á÷¤ê¤Ä¤±¤ë
+	// è•™ä»„ä¸­çŸ¢æ°¸ç„æ—¦  â–¡æ­£æ—¦éœœæ›°å‹¾ä»ƒæœˆ
 	CHAR_sendStatusString( talker, szPet );
-	// ¥Ú¥Ã¥È¤ò  ¤±¤¿¤Ò¥°
+	// çŸ¢æ°¸ç„æ¯›  ä»ƒå‡¶å¤«å¼˜
 	LogPet(
-		CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+		CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 		CHAR_getChar( talker, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"pool(±H©ñÃdª«©±)",
+		"pool(å¯„æ”¾å¯µç‰©åº—)",
 		CHAR_getInt( talker,CHAR_FLOOR),
 		CHAR_getInt( talker,CHAR_X ),
 		CHAR_getInt( talker,CHAR_Y ),
@@ -995,11 +995,11 @@ void NPC_PetDel3( int meindex, int talker, int select, char *token)
 		return;
 	}
 
-	// ¦pªG¬O¦uÅ@Ã~§ï¬°´¶³qÃ~
+	// å¦‚æœæ˜¯å®ˆè­·ç¸æ”¹ç‚ºæ™®é€šç¸
 	if( CHAR_getInt( petindex, CHAR_PETFAMILY) == 1 
 		&& CHAR_getInt( talker, CHAR_FMLEADERFLAG) != 3 ) {
 		CHAR_setInt( petindex, CHAR_PETFAMILY, 0);
-		CHAR_talkToCli( talker, -1, "¦uÅ@Ã~§ï¬°´¶³qÃ~", CHAR_COLORYELLOW);
+		CHAR_talkToCli( talker, -1, "å®ˆè­·ç¸æ”¹ç‚ºæ™®é€šç¸", CHAR_COLORYELLOW);
 	}
 
 	CHAR_setCharPet( talker, emptyindex, petindex);
@@ -1027,7 +1027,7 @@ void NPC_PetDel3( int meindex, int talker, int select, char *token)
 		CHAR_getChar( talker, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"draw(»â¨úÃdª«©±)",
+		"draw(é ˜å–å¯µç‰©åº—)",
 		CHAR_getInt( talker,CHAR_FLOOR),
 		CHAR_getInt( talker,CHAR_X ),
 		CHAR_getInt( talker,CHAR_Y ),
@@ -1035,7 +1035,7 @@ void NPC_PetDel3( int meindex, int talker, int select, char *token)
 	);
 #ifdef _PET_EVOLUTION
 	if( CHAR_getInt( petindex, CHAR_FUSIONBEIT) == 1 &&
-		CHAR_getInt( petindex, CHAR_FUSIONRAISE) > 0 ){//ÀË¬d¬O§_¬°¿Ä¦XÃd
+		CHAR_getInt( petindex, CHAR_FUSIONRAISE) > 0 ){//æª¢æŸ¥æ˜¯å¦ç‚ºèåˆå¯µ
 		CHAR_setInt( petindex, CHAR_FUSIONTIMELIMIT, (int)time( NULL));
 	}
 #endif
@@ -1043,13 +1043,13 @@ void NPC_PetDel3( int meindex, int talker, int select, char *token)
 
 void NPC_getDrawPet( int meindex, int toindex, char *token, int *buttontype, int select)
 {
-	// £±¥Ú¡¼¥¸¤¢¤¿¤ê¤Î¹Ô¿ô
+	// ã„ çŸ¢â–¡æ–¥ä¸å‡¶æ›°åŠå¢Šé†’
 	#define		LINENUM		5
 	char buf[1024];
 	int i;
 	int startnum, endnum;
 	int petindex = -1;
-	// ¸½ºß¤Î¥Ú¡¼¥¸
+	// èœ‡ç®•åŠçŸ¢â–¡æ–¥
 	int page = CHAR_getWorkInt( toindex, CHAR_WORKSHOPRELEVANT);
 	int limit;
 	//andy_reEdit 2003/09/18
@@ -1058,7 +1058,7 @@ void NPC_getDrawPet( int meindex, int toindex, char *token, int *buttontype, int
 	endnum = (page + select+1)*LINENUM ;
 	startnum = endnum - LINENUM;
 	*buttontype = WINDOW_BUTTONTYPE_CANCEL;
-	// Ã¼¥Ú¡¼¥¸Ä´À°¡e
+	// ç¾¹çŸ¢â–¡æ–¥è­¬å¹«ã€”
 	if( endnum >= limit ) {
 		endnum = limit;
 		if( page +select!= 0 ) *buttontype |= WINDOW_BUTTONTYPE_PREV;
@@ -1072,7 +1072,7 @@ void NPC_getDrawPet( int meindex, int toindex, char *token, int *buttontype, int
 	}
 	CHAR_setWorkInt( toindex, CHAR_WORKSHOPRELEVANT, page +select);
 	
-	strcpy( token, "2\n======  ½Ğ¿ï¾ÜÃdª«  ======\n\n");
+	strcpy( token, "2\n======  è«‹é¸æ“‡å¯µç‰©  ======\n\n");
 	for( i =  startnum; i < endnum; i ++ ) {
 		petindex = CHAR_getCharPoolPet( toindex, i);
 		if( CHAR_CHECKINDEX( petindex) ) {
@@ -1087,7 +1087,7 @@ void NPC_getDrawPet( int meindex, int toindex, char *token, int *buttontype, int
 		}
 		strcat( token, buf);
 	}
-	// ±­¤Î°ì¸Ä¤òÄ´¤Ù¤Æ¡f  ¤«¤Ã¤¿¤é±­¤Ø¥Ü¥¿¥ó¤ò¼è¤ë
+	// æˆšåŠåŸŸèœŠæ¯›è­¬å±¯åŒ–ã€•  äº•å‹»å‡¶æ—¥æˆšå°ºç¤ºæ­£ä»¶æ¯›æ½¸æœˆ
 	if( i != limit ) {
 		petindex = CHAR_getCharPoolPet( toindex, i);
 		if( !CHAR_CHECKINDEX( petindex)) {
@@ -1097,7 +1097,7 @@ void NPC_getDrawPet( int meindex, int toindex, char *token, int *buttontype, int
 }
 
 /*
- *¶³¶â¤¬¥ª¡¼¥Ğ¡¼¤½¤ÎÂ¾¤¤¤í¤¤¤í
+ *é›²å—¯äº’å·¦â–¡ç”°â–¡å…¬åŠè·ä¸­æ¬ ä¸­æ¬ 
  */
 void	NPC_MaxGoldOver(int meindex,int toindex,int select,char *token)
 {
@@ -1134,9 +1134,9 @@ void NPC_PoolPetShop_DepotPet_Menu( int meindex, int talkerindex)
 
 		strcpy( message, 
 			"3\n\n"
-			"          ¨Ï¥ÎÃdª«­Ü®w\n\n"
-			"          ¡Õ¦s©ñÃdª«¡Ö\n"
-			"          ¡Õ¨ú¦^Ãdª«¡Ö\n"
+			"          ä½¿ç”¨å¯µç‰©å€‰åº«\n\n"
+			"          ï¼œå­˜æ”¾å¯µç‰©ï¼\n"
+			"          ï¼œå–å›å¯µç‰©ï¼\n"
 		);
 
 		lssproto_WN_send( fd, WINDOW_MESSAGETYPE_SELECT, 
@@ -1149,13 +1149,13 @@ void NPC_PoolPetShop_DepotPet_Menu( int meindex, int talkerindex)
 
 void NPC_DepotPet_List( int meindex, int toindex, char *token, int *buttontype, int select)
 {
-	// £±¥Ú¡¼¥¸¤¢¤¿¤ê¤Î¹Ô¿ô
+	// ã„ çŸ¢â–¡æ–¥ä¸å‡¶æ›°åŠå¢Šé†’
 	#define		LINENUM		5
 	char buf[1024];
 	int i;
 	int startnum, endnum;
 	int petindex = -1;
-	// ¸½ºß¤Î¥Ú¡¼¥¸
+	// èœ‡ç®•åŠçŸ¢â–¡æ–¥
 	int page = CHAR_getWorkInt( toindex, CHAR_WORKSHOPRELEVANT);
 	int limit;
 
@@ -1164,7 +1164,7 @@ void NPC_DepotPet_List( int meindex, int toindex, char *token, int *buttontype, 
 	endnum = (page + select+1)*LINENUM ;
 	startnum = endnum - LINENUM;
 	*buttontype = WINDOW_BUTTONTYPE_CANCEL;
-	// Ã¼¥Ú¡¼¥¸Ä´À°¡e
+	// ç¾¹çŸ¢â–¡æ–¥è­¬å¹«ã€”
 	if( endnum >= limit ) {
 		endnum = limit;
 		if( page +select!= 0 ) *buttontype |= WINDOW_BUTTONTYPE_PREV;
@@ -1178,7 +1178,7 @@ void NPC_DepotPet_List( int meindex, int toindex, char *token, int *buttontype, 
 	}
 	CHAR_setWorkInt( toindex, CHAR_WORKSHOPRELEVANT, page +select);
 	
-	strcpy( token, "2\n======  ½Ğ¿ï¾Ü­n±q­Ü®w¨ú¥XªºÃdª«  ======\n\n");
+	strcpy( token, "2\n======  è«‹é¸æ“‡è¦å¾å€‰åº«å–å‡ºçš„å¯µç‰©  ======\n\n");
 	for( i =  startnum; i < endnum; i ++ ) {
 		petindex = CHAR_getDepotPetIndex( toindex, i);
 		if( CHAR_CHECKINDEX( petindex) ) {
@@ -1193,7 +1193,7 @@ void NPC_DepotPet_List( int meindex, int toindex, char *token, int *buttontype, 
 		}
 		strcat( token, buf);
 	}
-	// ±­¤Î°ì¸Ä¤òÄ´¤Ù¤Æ¡f  ¤«¤Ã¤¿¤é±­¤Ø¥Ü¥¿¥ó¤ò¼è¤ë
+	// æˆšåŠåŸŸèœŠæ¯›è­¬å±¯åŒ–ã€•  äº•å‹»å‡¶æ—¥æˆšå°ºç¤ºæ­£ä»¶æ¯›æ½¸æœˆ
 	if( i != limit ) {
 		petindex = CHAR_getDepotPetIndex( toindex, i);
 		if( !CHAR_CHECKINDEX( petindex)) {
@@ -1217,7 +1217,7 @@ void NPC_DepotPet_Add( int meindex, int talker, int select, char *token)
 		fprint( "err\n");
 		return;
 	}
-	// ¥Ú¥Ã¥È¥Ç¡¼¥¿  ¹¹¡e¥Ú¥Ã¥È      ¤±  ¤ì  
+	// çŸ¢æ°¸ç„çŠ¯â–¡æ­£  å‡³ã€”çŸ¢æ°¸ç„      ä»ƒ  æœ¨  
 	selectpet = CHAR_getWorkInt( talker, CHAR_WORKSHOPRELEVANT) -1;
 	//print("\n selectpet:%d ", selectpet);
 	petindex = CHAR_getCharPet( talker, selectpet);
@@ -1226,13 +1226,13 @@ void NPC_DepotPet_Add( int meindex, int talker, int select, char *token)
     // Robin 0725
     if (CHAR_getInt( talker, CHAR_RIDEPET ) == selectpet )
     {
-		sprintf(token,"\n\nÃM­¼¤¤ªºÃdª«µLªk¦s¤J­Ü®w³á¡I");
+		sprintf(token,"\n\né¨ä¹˜ä¸­çš„å¯µç‰©ç„¡æ³•å­˜å…¥å€‰åº«å–”ï¼");
 		return;
 	}
 
 	if( CHAR_getInt( petindex, CHAR_PETFAMILY) == 1 )
 	{
-		sprintf(token,"\n\n®a±Ú¦uÅ@Ã~µLªk¦s¤J­Ü®w³á¡I");
+		sprintf(token,"\n\nå®¶æ—å®ˆè­·ç¸ç„¡æ³•å­˜å…¥å€‰åº«å–”ï¼");
 		return;
 	}
 
@@ -1242,51 +1242,51 @@ void NPC_DepotPet_Add( int meindex, int talker, int select, char *token)
 		for( j=0;j<ENEMYTEMP_getEnemyNum();j++ ) {//ENEMY_getEnemyNum()
 			if( CHAR_getInt( petindex, CHAR_PETID) == ENEMYTEMP_getInt( j, E_T_TEMPNO ) ) {//ENEMY_getInt( j, ENEMY_TEMPNO)
 				if( ENEMYTEMP_getInt( j, E_T_PETFLG ) == 0 ){//ENEMY_getInt( j, ENEMY_PETFLG) 
-				    sprintf(token,"\n\n³o¬O¤£¯à«ù¦³ªºÃdª«³á¡I");
+				    sprintf(token,"\n\né€™æ˜¯ä¸èƒ½æŒæœ‰çš„å¯µç‰©å–”ï¼");
 					return;
 				}
 			}
 		}
 	}
 #endif    
-	// ¶õ¤­¤òÃµ¤¹¡eÁ°¤ËÃµ¤·¤Æ¥Á¥§¥Ã¥¯¤·¤Æ¤¤¤ë¤Î¤Ç¡f¤³¤³¤Ç¶õ¤¤¤Æ¤¤¤Ê¤¤¤Î¤Ï¶³¤«¤·¤¤
+	// å¡¢äº”æ¯›ç¹­å…ã€”èŸ†åç¹­ä»„åŒ–æ°‘å°¼æ°¸å¼ä»„åŒ–ä¸­æœˆåŠåŒ¹ã€•ä»‡ä»‡åŒ¹å¡¢ä¸­åŒ–ä¸­å…ä¸­åŠåé›²äº•ä»„ä¸­
 	emptyindex = CHAR_getCharDepotPetElement( talker);
 	if( emptyindex == -1 ) {
 		fprint( "err\n");
 		return;
 	}
 
-	// Àï  ½à  ÍÑ¥Ú¥Ã¥È¤Ê¤é¡f¤½¤ì¤ÎÅĞ  ¤ò¾Ã¤¹¡e
+	// çˆµ  è³  è¿•çŸ¢æ°¸ç„å…æ—¥ã€•å…¬æœ¨åŠç“š  æ¯›å£…å…ã€”
 	if( CHAR_getInt( talker, CHAR_DEFAULTPET) == selectpet) {
 		CHAR_setInt( talker, CHAR_DEFAULTPET, -1);
 		lssproto_KS_send( fd, -1, TRUE);
 	}
-	//   ¤±  ¤ì  ¤Ë¡f¥Ú¥Ã¥È¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¤ò¥³¥Ô¡¼
+	//   ä»ƒ  æœ¨  åã€•çŸ¢æ°¸ç„åŠå¥¶ä»¶çŠ¯æ°¸å¼æ—¦æ¯›æˆŠç–‹â–¡
 	CHAR_setDepotPetIndex( talker, emptyindex, petindex);
-	// ¥Ú¥Ã¥È  ¤«¤é¾Ã¤¹
+	// çŸ¢æ°¸ç„  äº•æ—¥å£…å…
 	CHAR_setCharPet( talker, selectpet, -1);
 	
-	// ¥á¥Ã¥»¡¼¥¸¼è  
+	// ä¸Ÿæ°¸æœ¬â–¡æ–¥æ½¸  
 	NPC_MaxGoldOver( meindex, talker, NPC_PETSHOP_MSG_POOLTHANKS, token);
-	// ¶³¶â¸º¤é¤¹
+	// é›²å—¯è›¹æ—¥å…
 
 	CHAR_DelGold( talker, NPC_GETPOOLCOST( talker) );
 
-	// ¶³¶â¥Ç¡¼¥¿Á÷¤ë
+	// é›²å—¯çŠ¯â–¡æ­£éœœæœˆ
 	CHAR_send_P_StatusString(talker,CHAR_P_STRING_GOLD);
 
 	snprintf( szPet, sizeof( szPet ), "K%d", selectpet);
-	// ¿·¤·¤¤¥Ú¥Ã¥È¥¹  ¡¼¥¿¥¹Á÷¤ê¤Ä¤±¤ë
+	// è•™ä»„ä¸­çŸ¢æ°¸ç„æ—¦  â–¡æ­£æ—¦éœœæ›°å‹¾ä»ƒæœˆ
 	CHAR_sendStatusString( talker, szPet );
-	// ¥Ú¥Ã¥È¤ò  ¤±¤¿¤Ò¥°
-	if( NPC_DepotPet_CheckRepeat( talker) == 0)  // ÀË¬d½s½X­«½ÆÃd
+	// çŸ¢æ°¸ç„æ¯›  ä»ƒå‡¶å¤«å¼˜
+	if( NPC_DepotPet_CheckRepeat( talker) == 0)  // æª¢æŸ¥ç·¨ç¢¼é‡è¤‡å¯µ
 	{
 		LogPet(
-			CHAR_getChar( talker, CHAR_NAME ), /* ¥­¥ã¥é   */
+			CHAR_getChar( talker, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 			CHAR_getChar( talker, CHAR_CDKEY ),
 			CHAR_getChar( petindex, CHAR_NAME),
 			CHAR_getInt( petindex, CHAR_LV),
-			"pool(¦s¤JÃdª«­Ü®w)",
+			"pool(å­˜å…¥å¯µç‰©å€‰åº«)",
 			CHAR_getInt( talker,CHAR_FLOOR),
 			CHAR_getInt( talker,CHAR_X ),
 			CHAR_getInt( talker,CHAR_Y ),
@@ -1295,7 +1295,7 @@ void NPC_DepotPet_Add( int meindex, int talker, int select, char *token)
 	}
 	else
 	{
-		CHAR_talkToCli( talker, -1, "³o¬O«DªkªºÃdª«³á!!", CHAR_COLORYELLOW);
+		CHAR_talkToCli( talker, -1, "é€™æ˜¯éæ³•çš„å¯µç‰©å–”!!", CHAR_COLORYELLOW);
 	}
 
 }	
@@ -1328,18 +1328,18 @@ void NPC_DepotPet_Get( int meindex, int talker, int select, char *token)
 		ID2 = getDelPet(j);
 		if(ID2 == 0)break;
 		if( ID1 == ID2){
-			CHAR_setDepotPetIndex( talker, i, -1);//²M°£¤£¯à·íÃdª«ªº¨¤¦â
+			CHAR_setDepotPetIndex( talker, i, -1);//æ¸…é™¤ä¸èƒ½ç•¶å¯µç‰©çš„è§’è‰²
 			LogPet( CHAR_getChar( talker, CHAR_NAME ),
 							CHAR_getChar( talker, CHAR_CDKEY ),
 							CHAR_getChar( petindex, CHAR_NAME),
 							CHAR_getInt( petindex, CHAR_LV),
-							"petshop(²M°£CF³]¸mªºÃdª«)",
+							"petshop(æ¸…é™¤CFè¨­ç½®çš„å¯µç‰©)",
 							CHAR_getInt( talker,CHAR_FLOOR),
 							CHAR_getInt( talker,CHAR_X ),
 							CHAR_getInt( talker,CHAR_Y ),
 							CHAR_getChar( petindex, CHAR_UNIQUECODE)
 						);
-			CHAR_talkToCli(talker,-1,"¨t²Î²M°£§A­Ü®w¸ÌªºÃdª«",CHAR_COLORWHITE);
+			CHAR_talkToCli(talker,-1,"ç³»çµ±æ¸…é™¤ä½ å€‰åº«è£¡çš„å¯µç‰©",CHAR_COLORWHITE);
 			goto petshopOut;
 		}
 	}
@@ -1357,7 +1357,7 @@ void NPC_DepotPet_Get( int meindex, int talker, int select, char *token)
 		CHAR_getChar( talker, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"draw(»â¨ú­Ü®wÃdª«)",
+		"draw(é ˜å–å€‰åº«å¯µç‰©)",
 		CHAR_getInt( talker,CHAR_FLOOR),
 		CHAR_getInt( talker,CHAR_X ),
 		CHAR_getInt( talker,CHAR_Y ),
@@ -1366,7 +1366,7 @@ void NPC_DepotPet_Get( int meindex, int talker, int select, char *token)
 petshopOut:
 #ifdef _PET_EVOLUTION
 	if( CHAR_getInt( petindex, CHAR_FUSIONBEIT) == 1 &&
-		CHAR_getInt( petindex, CHAR_FUSIONRAISE) > 0 ){//ÀË¬d¬O§_¬°¿Ä¦XÃd
+		CHAR_getInt( petindex, CHAR_FUSIONRAISE) > 0 ){//æª¢æŸ¥æ˜¯å¦ç‚ºèåˆå¯µ
 		CHAR_setInt( petindex, CHAR_FUSIONTIMELIMIT, (int)time( NULL));
 	}
 #endif
@@ -1395,7 +1395,7 @@ void NPC_DepotPet_AskGet(int meindex,int talker,int select,char *token)
 	petindex = CHAR_getDepotPetIndex( talker, depotindex);
 	if( !CHAR_CHECKINDEX(petindex) ) return;
 	petname = CHAR_getUseName( petindex);
-	sprintf(token,"\n»â¦^[%s]", petname);	
+	sprintf(token,"\né ˜å›[%s]", petname);	
 }
 
 int NPC_DepotPet_CheckRepeat( int charaindex)
@@ -1417,7 +1417,7 @@ int NPC_DepotPet_CheckRepeat( int charaindex)
 			if( !strcmp( CHAR_getChar( petindex1, CHAR_UNIQUECODE),
 						CHAR_getChar( petindex2, CHAR_UNIQUECODE) ) )
 			{
-				print(" ¦b­Ü®w§ä¨ì«DªkÃd¤F ");
+				print(" åœ¨å€‰åº«æ‰¾åˆ°éæ³•å¯µäº† ");
 				CHAR_setDepotPetIndex( charaindex, j, -1);
 				NPC_DepotPet_CheckRepeat_del( charaindex, petindex2);
 				find ++;
@@ -1452,11 +1452,11 @@ int NPC_DepotPet_CheckRepeat_del( int charaindex, int petindex)
 	int i;
 
 	LogPet(
-		CHAR_getChar( charaindex, CHAR_NAME ), /* ¥­¥ã¥é   */
+		CHAR_getChar( charaindex, CHAR_NAME ), /* å¹³ä¹“ä»¿   */
 		CHAR_getChar( charaindex, CHAR_CDKEY ),
 		CHAR_getChar( petindex, CHAR_NAME),
 		CHAR_getInt( petindex, CHAR_LV),
-		"del(²M°£­Ü®w¬~Ãd)",
+		"del(æ¸…é™¤å€‰åº«æ´—å¯µ)",
 		CHAR_getInt( charaindex,CHAR_FLOOR),
 		CHAR_getInt( charaindex,CHAR_X ),
 		CHAR_getInt( charaindex,CHAR_Y ),
@@ -1467,7 +1467,7 @@ int NPC_DepotPet_CheckRepeat_del( int charaindex, int petindex)
 
 }
 
-// ÀË¬dµ¥¯Å¬O§_¨¬°÷
+// æª¢æŸ¥ç­‰ç´šæ˜¯å¦è¶³å¤ 
 int NPC_DepotPet_CheckLevel(int meindex,int talker,int select,char *token)
 {
 	int petindex;
@@ -1485,13 +1485,13 @@ int NPC_DepotPet_CheckLevel(int meindex,int talker,int select,char *token)
 	//	CHAR_getInt( talker, CHAR_LV),
 	//	CHAR_getInt( petindex, CHAR_LV) );
 
-	// ¦pªG¬O¦uÅ@Ã~§ï¬°´¶³qÃ~
+	// å¦‚æœæ˜¯å®ˆè­·ç¸æ”¹ç‚ºæ™®é€šç¸
 	if( CHAR_getInt( petindex, CHAR_PETFAMILY) == 1 
 		&& CHAR_getInt( talker, CHAR_FMLEADERFLAG) != 3 ) {
 		CHAR_setInt( petindex, CHAR_PETFAMILY, 0);
 	}
 
-	if( CHAR_getWorkInt( talker, CHAR_PickAllPet) == TRUE ) { // ¸Ë³Æ¹¥Ã~§Ù«üªº¸Ü...
+	if( CHAR_getWorkInt( talker, CHAR_PickAllPet) == TRUE ) { // è£å‚™é¦´ç¸æˆ’æŒ‡çš„è©±...
 		return TRUE;
 	}
 

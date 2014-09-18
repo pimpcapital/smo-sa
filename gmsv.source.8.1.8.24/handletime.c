@@ -6,21 +6,21 @@
 #include "common.h"
 #include "handletime.h"
 
-#define LSTIME_SECONDS_PER_DAY 5400 /* LSTIME��  �֤�θ�  ��  �� */
+#define LSTIME_SECONDS_PER_DAY 5400 /* LSTIME域  少氏及蜇  及  醒 */
 
 /*
-  LSTIME_SECONDS_PER_DAY ��  ����ȡb���֤οʤ߶���  ���뤳�Ȥ��Ǥ���e
+  LSTIME_SECONDS_PER_DAY 毛  尹月午｝凜棉及褡心填寧毛  尹月仇午互匹五月〔
 
-  ��            LS���֤ǰ�  ������θ�  �λ��ֿ�
-  9000 (  ��)   2.5 [hour]
+  襖            LS凜棉匹域  丐凶曰及蜇  及凜棉醒
+  9000 (  賞)   2.5 [hour]
   900           0.25[hour] = 15[min]
   90            0.025[hour] = 1.5[min] = 90[sec]
   9             9[sec]
 
 */
    
-#define LSTIME_HOURS_PER_DAY 1024 /* LSTIME��  �֤��LSTIME�λ��ֿ� */
-#define LSTIME_DAYS_PER_YEAR 100 /* LSTIME��  �֤��LSTIME��  �� */
+#define LSTIME_HOURS_PER_DAY 1024 /* LSTIME域  少氏及LSTIME及凜棉醒 */
+#define LSTIME_DAYS_PER_YEAR 100 /* LSTIME域  少氏及LSTIME及  醒 */
 
 
 // WON REM 
@@ -44,12 +44,12 @@ struct tm *localtime(const time_t *timep)
 */
 
 /*------------------------------------------------------------
- * ��롼�פ˰��ƤФ�ơb���֤�ʤ��e
- * ����
- *  �ʤ�
- * �֤���
- *  ��      TRUE(1)
- *  ��      FALSE(0)
+ * 域伙□皿卞域莢裟壬木化｝凜棉毛褡戶月〔
+ * 婁醒
+ *  卅仄
+ * 忒曰襖
+ *  岳      TRUE(1)
+ *  撩      FALSE(0)
  ------------------------------------------------------------*/
 BOOL setNewTime( void )
 {
@@ -65,53 +65,53 @@ BOOL setNewTime( void )
 
 
 /*******************************************************************
-����ö�ˤ����ebyHiO 1998/12/4 18:37
+漆葭繹卞仄凶〔byHiO 1998/12/4 18:37
 *******************************************************************/
 static long era = (long)912766409 + 5400; 
-									/* SA�ΰ٤ˤ��餷�� */
-									/* LS��  ���������Ƥ��ȡ��ʿ��͡e
-                                    ���饤����Ȥ�  ������ʤ��Ȥ���e*/
+									/* SA及啃卞內日仄凶 */
+									/* LS葭  毛爛聒允月化五午□卅醒襖〔
+                                    弁仿奶失件玄午  元元扎卅中午分戶〔*/
 
 /*******************************************************************
-	�޼�����֤���LS���֤ˤ���
-	long t : time�ǽФ�
-	LSTIME *lstime : LSTIME��¤  �ؤΥݥ���
+	穴撲件凜棉井日LS凜棉卞允月
+	long t : time匹請月
+	LSTIME *lstime : LSTIME厭瞻  尺及禾奶件正
 *******************************************************************/
 void RealTimeToLSTime(long t , LSTIME *lstime)
 {
-	long lsseconds = t - era; /* LS��  �����  �� */
-    long lsdays; /* LS��  �����  �� */
+	long lsseconds = t - era; /* LS葭  井日及  醒 */
+    long lsdays; /* LS葭  井日及  醒 */
 
-    /* ��  �����  ����1  �����  ���ǳ��ȡb  �ˤʤ� */
+    /* 葭  井日及  醒毛1  癲曰及  醒匹喃月午｝  卞卅月 */
 	lstime->year = (int)( lsseconds/(LSTIME_SECONDS_PER_DAY*LSTIME_DAYS_PER_YEAR) );
 
-    lsdays = lsseconds/LSTIME_SECONDS_PER_DAY;/* �ޤ���  �����  ����׻����� */
-	lstime->day  = lsdays % LSTIME_DAYS_PER_YEAR;/*   �������  ���ǳ�ä����ޤ꤬  */
+    lsdays = lsseconds/LSTIME_SECONDS_PER_DAY;/* 引內葭  井日及  醒毛煌遙仄化 */
+	lstime->day  = lsdays % LSTIME_DAYS_PER_YEAR;/*   癲凶曰及  醒匹喃勻凶丐引曰互  */
 
 
-    /*(450*12)  ��1  */
+    /*(450*12)  匹1  */
     lstime->hour = (int)(lsseconds % LSTIME_SECONDS_PER_DAY )
-/* �����ޤǤǡb��  ���ϤޤäƤ��鲿  ���ä����e */
+/* 仇仇引匹匹｝域  互銨引勻化井日窒  凶勻凶井〔 */
         * LSTIME_HOURS_PER_DAY / LSTIME_SECONDS_PER_DAY;
-    /* ��  �������  ���ǳ�äƤ����  ������λ��ֿ��򤫤���ȸ��߲���
-     �ʤΤ����狼��e*/
+    /* 域  丐凶曰及  醒匹喃勻化井日域  丐凶曰及凜棉醒毛井仃月午蜇箕窒凜
+     卅及井互歹井月〔*/
 
 	return;
 }
 
 /*******************************************************************
-	LS���֤���޼�����֤ˤ���
-	LSTIME *lstime : LSTIME��¤  �ؤΥݥ���
-	long *t :   ���֤ؤΥݥ���
+	LS凜棉井日穴撲件凜棉卞允月
+	LSTIME *lstime : LSTIME厭瞻  尺及禾奶件正
+	long *t :   凜棉尺及禾奶件正
 *******************************************************************/
 void LSTimeToRealTime( LSTIME *lstime, long *t)
 {
 	*t=(long)(
-        ( lstime->hour*LSTIME_DAYS_PER_YEAR+lstime->day) /* ���� */
+        ( lstime->hour*LSTIME_DAYS_PER_YEAR+lstime->day) /* 凜棉 */
                *LSTIME_HOURS_PER_DAY
 
         +     lstime->year)
-        /*���δؿ��ϤФ��äƤ���褦�˸�����enakamura      */
+        /*仇及楮醒反壬什勻化中月方丹卞葦尹月〔nakamura      */
 
 
         *450;
@@ -119,9 +119,9 @@ void LSTimeToRealTime( LSTIME *lstime, long *t)
 }
 
 /*******************************************************************
-	LS���֤Ǻ��λ��ֶ�ʬ��  ��
-	  ���� int :   0�bī1�b��2�b  3
-	LSTIME *lstime : LSTIME��¤  �ؤΥݥ���
+	LS凜棉匹漆及凜棉嗉坌毛  月
+	  曰襖 int :   0｝蘋1｝鏃2｝  3
+	LSTIME *lstime : LSTIME厭瞻  尺及禾奶件正
 *******************************************************************/
 LSTIME_SECTION getLSTime (LSTIME *lstime)
 {

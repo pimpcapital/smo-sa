@@ -43,12 +43,12 @@
 #include "deathcontend.h"
 #endif
 
-#ifdef _CHAR_PROFESSION			// WON ADD ¤Hª«Â¾·~
+#ifdef _CHAR_PROFESSION			// WON ADD äººç‰©è·æ¥­
 #include "profession_skill.h"
 #endif
 #include "char_talk.h"
 
-// WON ADD ­×¥¿±Úªø°İÃD
+// WON ADD ä¿®æ­£æ—é•·å•é¡Œ
 #include "family.h"
 
 #include "petmail.h"
@@ -57,7 +57,7 @@
 #include "unpipc.h"
 #endif
 
-// WON ADD ­«·sÅª¨úITEMSET.TXT
+// WON ADD é‡æ–°è®€å–ITEMSET.TXT
 #include "item.h"
 #include "npc_raceman.h"
 
@@ -99,7 +99,7 @@ void CHAR_CHAT_DEBUG_hp( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -138,7 +138,7 @@ void CHAR_CHAT_DEBUG_mp( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -175,7 +175,7 @@ void CHAR_CHAT_DEBUG_str( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -209,7 +209,7 @@ void CHAR_CHAT_DEBUG_tgh( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -243,7 +243,7 @@ void CHAR_CHAT_DEBUG_dex( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -277,7 +277,7 @@ void CHAR_CHAT_DEBUG_vital( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -324,7 +324,7 @@ void CHAR_CHAT_DEBUG_gold( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -384,7 +384,7 @@ void CHAR_CHAT_DEBUG_dropmypet( int charindex, char *message )
 				CHAR_talkToCli( charindex, -1, "err Can't Drop", CHAR_COLORYELLOW);
 				return;
 			}
-			for( k = 1; k < cLeve; k ++ ){	//¤É¯Å
+			for( k = 1; k < cLeve; k ++ ){	//å‡ç´š
 				CHAR_PetLevelUp( petindex );
 				CHAR_PetAddVariableAi( petindex, AI_FIX_PETLEVELUP );
 				CHAR_setInt( petindex, CHAR_LV, CHAR_getInt( petindex, CHAR_LV) +1 );
@@ -403,7 +403,7 @@ void CHAR_CHAT_DEBUG_dropmypet( int charindex, char *message )
 			count++;
 		}
 	}
-	sprintf( buf, "Á`¦@¥áÂY %d¥uÃdª«¡C", count);
+	sprintf( buf, "ç¸½å…±ä¸Ÿæ“² %dåªå¯µç‰©ã€‚", count);
 	CHAR_talkToCli( charindex, -1, buf, CHAR_COLORYELLOW);
 
 
@@ -456,7 +456,7 @@ void CHAR_CHAT_DEBUG_dropmyitem( int charindex, char *message )
 			if( (ret = CHAR_DropItemFXY( charindex, emptyitemindexinchara,
 				floor, i, j, &objindex )) != 0 ){
 				char buf[256];
-				sprintf( buf, "¿ù»~%d", ret);
+				sprintf( buf, "éŒ¯èª¤%d", ret);
 				CHAR_talkToCli( charindex, -1, buf, CHAR_COLORYELLOW);
 			}
 			ITEM_setInt(itemindex,ITEM_PUTTIME,NowTime.tv_sec);
@@ -468,7 +468,7 @@ void CHAR_CHAT_DEBUG_dropmyitem( int charindex, char *message )
 	}
 	{
 				char buf[256];
-				sprintf( buf, "³Ì«áID%d", itemID-1);
+				sprintf( buf, "æœ€å¾ŒID%d", itemID-1);
 				CHAR_talkToCli( charindex, -1, buf, CHAR_COLORYELLOW);
 	}
 }
@@ -496,7 +496,7 @@ void CHAR_CHAT_DEBUG_additem( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 3 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -515,7 +515,7 @@ void CHAR_CHAT_DEBUG_additem( int charindex , char *message )
 	    emptyitemindexinchara = CHAR_findEmptyItemBox( charindex );
 
 		if( emptyitemindexinchara < 0 ){
-			sprintf( msgbuf, "ªÅ¶¡Äæ¦ì¤£¨¬¡C" );
+			sprintf( msgbuf, "ç©ºé–“æ¬„ä½ä¸è¶³ã€‚" );
 
 			CHAR_talkToCli( charindex, -1, msgbuf, CHAR_COLORYELLOW);
 #ifdef _JZ_IMPROVE_GMCOMMAND
@@ -535,12 +535,12 @@ void CHAR_CHAT_DEBUG_additem( int charindex , char *message )
 			LogItem(
 				CHAR_getChar( charindex, CHAR_NAME ),
 				CHAR_getChar( charindex, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 				itemindex,
 #else
 				atoi( message),
 #endif
-				"AddItem(»s§@¹D¨ãGM)",
+				"AddItem(è£½ä½œé“å…·GM)",
 		       	CHAR_getInt( charindex,CHAR_FLOOR),
 				CHAR_getInt( charindex,CHAR_X ),
 	 	      	CHAR_getInt( charindex,CHAR_Y ),
@@ -549,7 +549,7 @@ void CHAR_CHAT_DEBUG_additem( int charindex , char *message )
 					ITEM_getInt( itemindex, ITEM_ID)
 
 			);
-			snprintf( msgbuf, sizeof( msgbuf), "»s§@%s¦¨¥\\¡C",
+			snprintf( msgbuf, sizeof( msgbuf), "è£½ä½œ%sæˆåŠŸ\ã€‚",
 										ITEM_getChar( itemindex, ITEM_NAME));
 			CHAR_talkToCli( charindex, -1,msgbuf, CHAR_COLORYELLOW);
 #ifdef _JZ_IMPROVE_GMCOMMAND
@@ -557,7 +557,7 @@ void CHAR_CHAT_DEBUG_additem( int charindex , char *message )
 			CHAR_talkToCli( fd_charindex, -1, msgbuf, CHAR_COLORYELLOW);
 #endif
 		}else{
-			sprintf( msgbuf, "»s§@¹D¨ã¥¢±Ñ¡C" );
+			sprintf( msgbuf, "è£½ä½œé“å…·å¤±æ•—ã€‚" );
 			CHAR_talkToCli( charindex, -1, msgbuf, CHAR_COLORYELLOW);
 #ifdef _JZ_IMPROVE_GMCOMMAND
 			if(fd_charindex)
@@ -590,7 +590,7 @@ void CHAR_CHAT_DEBUG_info( int charindex , char *message )
 		index = charindex;
 	}
 	if( !CHAR_CHECKINDEX( index)) {
-		CHAR_talkToCli( charindex, -1 , "¸ÓindexµLªk¨Ï¥Î¡C" , CHAR_COLORWHITE );
+		CHAR_talkToCli( charindex, -1 , "è©²indexç„¡æ³•ä½¿ç”¨ã€‚" , CHAR_COLORWHITE );
 		return;
 	}
 
@@ -617,7 +617,7 @@ void CHAR_CHAT_DEBUG_info( int charindex , char *message )
 
 	if( CHAR_getInt( index, CHAR_WHICHTYPE ) == CHAR_TYPEPET ){
 		snprintf( line, sizeof(line),
-			  "Åé:%d ¤O:%d ¤V:%d ¦­:%d ­@:%d §ğ:%d ¦u:%d ±Ó:%d ©¾­×:%d ©¾ÅÜ:%.2f ½s½X:%s",
+			  "é«”:%d åŠ›:%d ä¸ˆ:%d æ—©:%d è€:%d æ”»:%d å®ˆ:%d æ•:%d å¿ ä¿®:%d å¿ è®Š:%.2f ç·¨ç¢¼:%s",
 			  CHAR_getInt( index, CHAR_VITAL )/100,
 			  CHAR_getInt( index, CHAR_STR )/100,
 			  CHAR_getInt( index, CHAR_TOUGH )/100,
@@ -631,7 +631,7 @@ void CHAR_CHAT_DEBUG_info( int charindex , char *message )
 			  CHAR_getChar( index, CHAR_UNIQUECODE) );
 	}else{
 		snprintf( line, sizeof(line),
-			  "Åé:%d ¤O:%d ¤V:%d ¦­:%d ­@:%d §ğ:%d ¦u:%d ¾y:%d ¹B:%d",
+			  "é«”:%d åŠ›:%d ä¸ˆ:%d æ—©:%d è€:%d æ”»:%d å®ˆ:%d é­…:%d é‹:%d",
 			  CHAR_getInt( index, CHAR_VITAL )/100,
 			  CHAR_getInt( index, CHAR_STR )/100,
 			  CHAR_getInt( index, CHAR_TOUGH )/100,
@@ -646,7 +646,7 @@ void CHAR_CHAT_DEBUG_info( int charindex , char *message )
 
 
 	snprintf( line, sizeof(line),
-			  "¤g:%d ¤ô:%d ¤õ:%d ­·:%d",
+			  "åœŸ:%d æ°´:%d ç«:%d é¢¨:%d",
 			  CHAR_getWorkInt( index, CHAR_WORKFIXEARTHAT ),
 			  CHAR_getWorkInt( index, CHAR_WORKFIXWATERAT ),
 			  CHAR_getWorkInt( index, CHAR_WORKFIXFIREAT ),
@@ -662,7 +662,7 @@ void CHAR_CHAT_DEBUG_info( int charindex , char *message )
 
 
 	snprintf( line, sizeof( line),
-			  "Status ¬r:%d ³Â:%d Àq:%d ¥Û:%d ·t:%d ¶Ã:%d" ,
+			  "Status æ¯’:%d éº»:%d é»˜:%d çŸ³:%d æš—:%d äº‚:%d" ,
 			  CHAR_getInt( index , CHAR_POISON ),
 			  CHAR_getInt( index , CHAR_PARALYSIS ),
 			  CHAR_getInt( index , CHAR_SLEEP ),
@@ -671,7 +671,7 @@ void CHAR_CHAT_DEBUG_info( int charindex , char *message )
 			  CHAR_getInt( index , CHAR_CONFUSION ) );
 	CHAR_talkToCli( charindex, -1 , line , CHAR_COLORWHITE );
 
-#ifdef _PERSONAL_FAME	// Arminius: ®a±Ú­Ó¤HÁn±æ
+#ifdef _PERSONAL_FAME	// Arminius: å®¶æ—å€‹äººè²æœ›
 	snprintf( line, sizeof( line),
 #ifdef _NEW_MANOR_LAW
 				"TitInd:%d FL:%d X:%d Y:%d DIR:%d FAME:%d MOMENTUM:%d" ,
@@ -751,7 +751,7 @@ void CHAR_CHAT_DEBUG_info( int charindex , char *message )
 	}
 
 	snprintf( line, sizeof( line),
-				  "levelup [%d], ²Ö¿n %d   ½ä³õ¿n¤À[%d]" ,
+				  "levelup [%d], ç´¯ç© %d   è³­å ´ç©åˆ†[%d]" ,
 			CHAR_getInt( index, CHAR_LEVELUPPOINT),
 			CHAR_getWorkInt( index, 	CHAR_WORKULTIMATE),
 			CHAR_getInt( index, CHAR_GAMBLENUM) );
@@ -825,7 +825,7 @@ void CHAR_CHAT_DEBUG_sysinfo( int charindex , char *message )
 	ASSESS_getSysEfficacy_sub( &jzbattle,3);
 	ASSESS_getSysEfficacy_sub( &jzchar,4);
 	snprintf( msg , sizeof(msg),
-			  "ªA°Èºİµû¦ô¼Æ¾Ú:sys:%2.4f net:%2.4f battle:%2.4f char:%2.4f",
+			  "æœå‹™ç«¯è©•ä¼°æ•¸æ“š:sys:%2.4f net:%2.4f battle:%2.4f char:%2.4f",
 			  jzsys, jznet, jzbattle ,jzchar);
 	CHAR_talkToCli(charindex,-1,msg,CHAR_COLORYELLOW );
 
@@ -837,7 +837,7 @@ void CHAR_CHAT_DEBUG_sysinfo( int charindex , char *message )
         ss=(int) new_t;
 
 	snprintf( msg, sizeof( msg ) ,
-          	"start: %d days %d hours %d min %d sec¡C",dd,hh,mm,ss);
+          	"start: %d days %d hours %d min %d secã€‚",dd,hh,mm,ss);
         CHAR_talkToCli( charindex, -1, msg, CHAR_COLORYELLOW );
 
 	{
@@ -845,7 +845,7 @@ void CHAR_CHAT_DEBUG_sysinfo( int charindex , char *message )
 		CHAR_talkToCli( charindex, -1, msg, CHAR_COLORYELLOW);
 	}
 	snprintf( msg, sizeof( msg ) ,
-			"NPC_createnum:%d¡C",NPC_createnum);
+			"NPC_createnum:%dã€‚",NPC_createnum);
 	CHAR_talkToCli( charindex, -1, msg, CHAR_COLORYELLOW );
 
 }
@@ -874,7 +874,7 @@ void CHAR_CHAT_DEBUG_level( int charaindex, char* message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , buf1, sizeof(buf1));
   if( strlen(buf1)==0){
-  	CHAR_talkToCli( charaindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charaindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -891,7 +891,7 @@ void CHAR_CHAT_DEBUG_level( int charaindex, char* message )
 #endif
 	CHAR_setInt(charaindex,CHAR_LV, leveltemp);
 	CHAR_send_P_StatusString( charaindex , CHAR_P_STRING_LV);
-	sprintf( buf1, "LEVEL ³]¬°%d¡C", leveltemp);
+	sprintf( buf1, "LEVEL è¨­ç‚º%dã€‚", leveltemp);
 	CHAR_talkToCli( charaindex, -1, buf1, CHAR_COLORYELLOW);
 #ifdef _JZ_IMPROVE_GMCOMMAND
 	CHAR_talkToCli( fd_charindex, -1, buf1, CHAR_COLORYELLOW);
@@ -912,7 +912,7 @@ void CHAR_CHAT_DEBUG_exp( int charaindex, char* message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charaindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charaindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -930,7 +930,7 @@ void CHAR_CHAT_DEBUG_exp( int charaindex, char* message )
 
 	CHAR_setMaxExp( charaindex, exptemp);
 	CHAR_send_P_StatusString( charaindex , CHAR_P_STRING_EXP);
-	sprintf( buf1, "EXP ³]¬°%d¡C", exptemp);
+	sprintf( buf1, "EXP è¨­ç‚º%dã€‚", exptemp);
 	CHAR_talkToCli( charaindex, -1, buf1, CHAR_COLORYELLOW);
 #ifdef _JZ_IMPROVE_GMCOMMAND
 	CHAR_talkToCli( fd_charindex, -1, buf1, CHAR_COLORYELLOW);
@@ -950,12 +950,12 @@ void CHAR_CHAT_DEBUG_delitem( int charindex , char *message )
 					LogItem(
 						CHAR_getChar( charindex, CHAR_NAME ),
 						CHAR_getChar( charindex, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 						itemid,
 #else
 			       		ITEM_getInt( itemid, ITEM_ID ),
 #endif
-						"DelItem(§R°£¹D¨ãGM)",
+						"DelItem(åˆªé™¤é“å…·GM)",
 						CHAR_getInt( charindex,CHAR_FLOOR),
 						CHAR_getInt( charindex,CHAR_X ),
  			    	  	CHAR_getInt( charindex,CHAR_Y ),
@@ -971,7 +971,7 @@ void CHAR_CHAT_DEBUG_delitem( int charindex , char *message )
 		int		equipplace;
 		equipplace = atoi( message);
 		if( equipplace < CHAR_STARTITEMARRAY || equipplace > CHAR_MAXITEMHAVE -1 ) {
-			CHAR_talkToCli( charindex, -1, "¸¹½X¤£¥¿½T¡C",  CHAR_COLORWHITE);
+			CHAR_talkToCli( charindex, -1, "è™Ÿç¢¼ä¸æ­£ç¢ºã€‚",  CHAR_COLORWHITE);
 			return;
 		}
 	    itemid = CHAR_getItemIndex(charindex, equipplace);
@@ -980,12 +980,12 @@ void CHAR_CHAT_DEBUG_delitem( int charindex , char *message )
 			LogItem(
 				CHAR_getChar( charindex, CHAR_NAME ),
 				CHAR_getChar( charindex, CHAR_CDKEY ),
-#ifdef _add_item_log_name  // WON ADD ¦bitemªºlog¤¤¼W¥[item¦WºÙ
+#ifdef _add_item_log_name  // WON ADD åœ¨itemçš„logä¸­å¢åŠ itemåç¨±
 				itemid,
 #else
 	       		ITEM_getInt( itemid, ITEM_ID ),
 #endif
-				"DelItem(§R°£¹D¨ãGM)",
+				"DelItem(åˆªé™¤é“å…·GM)",
 				CHAR_getInt( charindex,CHAR_FLOOR),
 				CHAR_getInt( charindex,CHAR_X ),
  	      		CHAR_getInt( charindex,CHAR_Y ),
@@ -998,7 +998,7 @@ void CHAR_CHAT_DEBUG_delitem( int charindex , char *message )
 	}
 }
 
-#ifdef _CHAR_PROFESSION			// WON ADD ¤Hª«Â¾·~
+#ifdef _CHAR_PROFESSION			// WON ADD äººç‰©è·æ¥­
 void CHAR_CHAT_DEBUG_addsk( int charaindex, char* message )
 {
 
@@ -1014,7 +1014,7 @@ void CHAR_CHAT_DEBUG_addsk( int charaindex, char* message )
 	level = atoi(msg2);
 
 	if( level > 100 ){
-		CHAR_talkToCli( charaindex, -1, "µ¥¯Å¤£¥¿½T",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "ç­‰ç´šä¸æ­£ç¢º",  CHAR_COLORWHITE);
 		return;
 	}
 	if( level < 1 ) level = 1;
@@ -1025,7 +1025,7 @@ void CHAR_CHAT_DEBUG_addsk( int charaindex, char* message )
 		pSkil = CHAR_getCharHaveSkill( charaindex, i );
 		skill_id = SKILL_getInt( &pSkil->skill, SKILL_IDENTITY);
 		if( skill == skill_id && skill_id != -1 ){
-			CHAR_talkToCli(charaindex,-1, "§A¤w¸g¾Ç²ß¹L¦¹§Ş¯à", CHAR_COLORYELLOW);
+			CHAR_talkToCli(charaindex,-1, "ä½ å·²ç¶“å­¸ç¿’éæ­¤æŠ€èƒ½", CHAR_COLORYELLOW);
 			return;
 		}
 
@@ -1036,7 +1036,7 @@ void CHAR_CHAT_DEBUG_addsk( int charaindex, char* message )
 	}
 
 	if( i >= CHAR_SKILLMAXHAVE ){
-		CHAR_talkToCli(charaindex,-1, "§Ş¯à¼Æ¶q¤w¹F¤W­­", CHAR_COLORYELLOW);
+		CHAR_talkToCli(charaindex,-1, "æŠ€èƒ½æ•¸é‡å·²é”ä¸Šé™", CHAR_COLORYELLOW);
 		return;
 	}else{
 		level *= 100;
@@ -1055,7 +1055,7 @@ void CHAR_CHAT_DEBUG_delsk( int charaindex, char* message )
 	CHAR_HaveSkill *pSkil;
 	
 	if( strcmp( message, "all" ) == 0 ){
-//		CHAR_talkToCli( charaindex, -1, "²M°£©Ò¦³§Ş¯à",  CHAR_COLORWHITE);
+//		CHAR_talkToCli( charaindex, -1, "æ¸…é™¤æ‰€æœ‰æŠ€èƒ½",  CHAR_COLORWHITE);
 		for( i = CHAR_SKILLMAXHAVE-1; i >= 0; i -- ){
 			pSkil = CHAR_getCharHaveSkill( charaindex, i );
 			if( pSkil == NULL )continue;
@@ -1074,7 +1074,7 @@ void CHAR_CHAT_DEBUG_delsk( int charaindex, char* message )
 	}
 
 	if( i < 0 ){
-//		CHAR_talkToCli( charaindex, -1, "¤wµLªk¦A«d´î¤F¡C",  CHAR_COLORWHITE);
+//		CHAR_talkToCli( charaindex, -1, "å·²ç„¡æ³•å†å‰Šæ¸›äº†ã€‚",  CHAR_COLORWHITE);
 		;;
 	}else{
 		SKILL_makeSkillData( &pSkil->skill, 0, 0 );
@@ -1109,12 +1109,12 @@ void CHAR_CHAT_Kusabana( int charaindex, char* message ){
 #else
 
 	if( obj != 0 ){
-		CHAR_talkToCli( charaindex, -1, "¦³¹s¥ó¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "æœ‰é›¶ä»¶ã€‚",  CHAR_COLORWHITE);
 		return;
 	}
 
 	if( MAP_walkAbleFromPoint( ff, fx, fy, FALSE ) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "µLªk¨«¤F¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "ç„¡æ³•èµ°äº†ã€‚",  CHAR_COLORWHITE);
 		return;
 	}
 
@@ -1158,7 +1158,7 @@ void CHAR_CHAT_Fukuwa( int charaindex, char* message ){
 	stringlen = strlen( message );
 
     if( message[0] == '[' && message[stringlen-1] == ']' ){
-		CHAR_talkToCli( charaindex, -1, "»y¨¥¨S¦³Âà´«¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "èªè¨€æ²’æœ‰è½‰æ›ã€‚",  CHAR_COLORWHITE);
 		return ;
     }
 
@@ -1212,7 +1212,7 @@ void CHAR_CHAT_printcount( int charaindex, char* message )
 	char	msgbuf[512];
 
 	snprintf( msgbuf,sizeof( msgbuf),
-			  "§A»¡¤F %d ¦¸¸Ü,¨«¤F %d ¨B¸ô,¦º¤F %d ¦¸",
+			  "ä½ èªªäº† %d æ¬¡è©±,èµ°äº† %d æ­¥è·¯,æ­»äº† %d æ¬¡",
 			  CHAR_getInt( charaindex, CHAR_TALKCOUNT),
 			  CHAR_getInt( charaindex, CHAR_WALKCOUNT),
 			  CHAR_getInt( charaindex, CHAR_DEADCOUNT)
@@ -1257,7 +1257,7 @@ void CHAR_CHAT_DEBUG_petmake( int charaindex, char* message )
   char cdkey[256];
   easyGetTokenFromString( message , 3 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charaindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charaindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -1283,10 +1283,10 @@ void CHAR_CHAT_DEBUG_petmake( int charaindex, char* message )
 	ret = ENEMY_createPetFromEnemyIndex( charaindex, i);
 	if( !CHAR_CHECKINDEX( ret))return;
 #ifdef _JZ_IMPROVE_GMCOMMAND
-	snprintf( msgbuf,sizeof( msgbuf), "Ãdª«»s§@¦¨¥\\!index[%d]",ret);
+	snprintf( msgbuf,sizeof( msgbuf), "å¯µç‰©è£½ä½œæˆåŠŸ\!index[%d]",ret);
 	CHAR_talkToCli( fd_charindex, -1, msgbuf,  CHAR_COLORWHITE);
 #endif
-	CHAR_talkToCli( charaindex, -1, "§AÀò±o¤F¤@°¦Ãdª«",  CHAR_COLORWHITE);
+	CHAR_talkToCli( charaindex, -1, "ä½ ç²å¾—äº†ä¸€éš»å¯µç‰©",  CHAR_COLORWHITE);
 	for( i = 0; i < CHAR_MAXPETHAVE; i ++ ){
 		if( CHAR_getCharPet( charaindex, i ) == ret )break;
 	}
@@ -1301,7 +1301,7 @@ void CHAR_CHAT_DEBUG_petmake( int charaindex, char* message )
 		level = level - CHAR_getInt( ret, CHAR_LV )+1;
 		if( level > 0 ){
 			int k;
-			for( k = 1; k < level; k ++ ){	//¤É¯Å
+			for( k = 1; k < level; k ++ ){	//å‡ç´š
 				CHAR_PetLevelUp( ret );
 				CHAR_PetAddVariableAi( ret, AI_FIX_PETLEVELUP );
 				CHAR_setInt( ret, CHAR_LV, CHAR_getInt( ret, CHAR_LV) +1 );
@@ -1332,7 +1332,7 @@ void CHAR_CHAT_DEBUG_deletepet( int charaindex, char* message )
 		}
 	}
 	
-	CHAR_talkToCli( charaindex, -1, "²M°£¨­¤W©Ò¦³Ãdª«¡C",  CHAR_COLORWHITE);
+	CHAR_talkToCli( charaindex, -1, "æ¸…é™¤èº«ä¸Šæ‰€æœ‰å¯µç‰©ã€‚",  CHAR_COLORWHITE);
 
 }
 
@@ -1349,36 +1349,36 @@ void CHAR_CHAT_DEBUG_reset( int charaindex, char* message )
 			break;
 	}
 	if( i >= MAXMESS_LISTNUM ){
-		CHAR_talkToCli( charaindex, -1, "«ü¥O¿ù»~",  CHAR_COLORRED);//CHAR_COLORYELLOW
+		CHAR_talkToCli( charaindex, -1, "æŒ‡ä»¤éŒ¯èª¤",  CHAR_COLORRED);//CHAR_COLORYELLOW
 		return;
 	}
 	switch( i){
 	case ALLRESET:
 	case 0:
 		if( !ENEMYTEMP_reinitEnemy() || !ENEMY_reinitEnemy() ){
-			CHAR_talkToCli( charaindex, -1, "­«·sÅª¨ú¼Ä¤H°ò¥»¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORRED);
+			CHAR_talkToCli( charaindex, -1, "é‡æ–°è®€å–æ•µäººåŸºæœ¬è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORRED);
 			return;
 		}
 		if( i != ALLRESET ) break;
 	case 1:
 		if( !GROUP_reinitGroup() || !ENCOUNT_reinitEncount() ){
-			CHAR_talkToCli( charaindex, -1, "­«·sÅª¨ú¾D¹J¹Î¶¤¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORRED);
+			CHAR_talkToCli( charaindex, -1, "é‡æ–°è®€å–é­é‡åœ˜éšŠè³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORRED);
 		}
 		if( i != ALLRESET ) break;
 	case 2:
 		if( !MAGIC_reinitMagic() || !ATTMAGIC_reinitMagic() ) {
-			CHAR_talkToCli( charaindex, -1, "­«·sÅª¨ú©G³N¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORRED);
+			CHAR_talkToCli( charaindex, -1, "é‡æ–°è®€å–å’’è¡“è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORRED);
 		}
 		if( i != ALLRESET ) break;
 	case 3:
 		MAPPOINT_resetMapWarpPoint( 1);
 		if( !MAPPOINT_loadMapWarpPoint() ){
-			CHAR_talkToCli( charaindex, -1, "­«·sÅª¨ú¸õÅDÂI¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORRED);
+			CHAR_talkToCli( charaindex, -1, "é‡æ–°è®€å–è·³èºé»è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORRED);
 		}
 		if( i != ALLRESET ) break;
 	case 4:
 		if( !PETSKILL_reinitPetskill() ) {
-			CHAR_talkToCli( charaindex, -1, "­«·sÅª¨úÃdª«§Ş¯à¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORRED);
+			CHAR_talkToCli( charaindex, -1, "é‡æ–°è®€å–å¯µç‰©æŠ€èƒ½è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORRED);
 		}
 		if( i != ALLRESET ) break;
 	case 5:
@@ -1386,57 +1386,57 @@ void CHAR_CHAT_DEBUG_reset( int charaindex, char* message )
 		if( i != ALLRESET ) break;
 		break;
 	}
-	CHAR_talkToCli( charaindex, -1, "­«·sÅª¨ú¹CÀ¸¸ê®Æ¡C",  CHAR_COLORYELLOW);
+	CHAR_talkToCli( charaindex, -1, "é‡æ–°è®€å–éŠæˆ²è³‡æ–™ã€‚",  CHAR_COLORYELLOW);
 }
 
 void CHAR_CHAT_DEBUG_enemyrestart( int charaindex, char* message )
 {
 	if( ENEMYTEMP_reinitEnemy()) {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¼Ä¤H°ò¥»¸ê®Æ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–æ•µäººåŸºæœ¬è³‡æ–™ã€‚",  CHAR_COLORWHITE);
 	}else {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¼Ä¤H°ò¥»¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–æ•µäººåŸºæœ¬è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORWHITE);
 	}
 
 	if( ENEMY_reinitEnemy()) {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¼Ä¤H¸ê®Æ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–æ•µäººè³‡æ–™ã€‚",  CHAR_COLORWHITE);
 	}else {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¼Ä¤H°ò¥»¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–æ•µäººåŸºæœ¬è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORWHITE);
 	}
 
 	if( GROUP_reinitGroup()) {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¹Î¶¤¸ê®Æ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–åœ˜éšŠè³‡æ–™ã€‚",  CHAR_COLORWHITE);
 	}else {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¹Î¶¤¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–åœ˜éšŠè³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORWHITE);
 	}
 	if( ENCOUNT_reinitEncount()) {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¾D¹J¸ê®Æ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–é­é‡è³‡æ–™ã€‚",  CHAR_COLORWHITE);
 	}
 	else {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¾D¹J¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–é­é‡è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORWHITE);
 	}
 
 	if( MAGIC_reinitMagic()) {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú©G³N¸ê®Æ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–å’’è¡“è³‡æ–™ã€‚",  CHAR_COLORWHITE);
 	}
 	else {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú©G³N¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–å’’è¡“è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORWHITE);
 	}
 
 #ifdef __ATTACK_MAGIC
   if( ATTMAGIC_reinitMagic() )
-    CHAR_talkToCli( charaindex , -1 , "¦A¦¸Åª¨ú©G³N¸ê®Æ¡C" , CHAR_COLORWHITE );
+    CHAR_talkToCli( charaindex , -1 , "å†æ¬¡è®€å–å’’è¡“è³‡æ–™ã€‚" , CHAR_COLORWHITE );
   else
-    CHAR_talkToCli( charaindex , -1 , "¦A¦¸Åª¨ú©G³N¸ê®Æ¥¢±Ñ¡C" , CHAR_COLORWHITE );
+    CHAR_talkToCli( charaindex , -1 , "å†æ¬¡è®€å–å’’è¡“è³‡æ–™å¤±æ•—ã€‚" , CHAR_COLORWHITE );
 #endif
 	if( PETSKILL_reinitPetskill()) {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨úÃdª«§Ş¯à¸ê®Æ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–å¯µç‰©æŠ€èƒ½è³‡æ–™ã€‚",  CHAR_COLORWHITE);
 	}
 	else {
-		CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨úÃdª«§Ş¯à¸ê®Æ¥¢±Ñ¡C",  CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–å¯µç‰©æŠ€èƒ½è³‡æ–™å¤±æ•—ã€‚",  CHAR_COLORWHITE);
 	}
 	
 	LoadPetTalk();	// Arminius 8.15 pet talk
-	CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨úÃdª«Á¿¸Ü¸ê®Æ¡C", CHAR_COLORWHITE);
+	CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–å¯µç‰©è¬›è©±è³‡æ–™ã€‚", CHAR_COLORWHITE);
 
 }
 
@@ -1450,10 +1450,10 @@ void CHAR_CHAT_DEBUG_battlewatch( int charaindex, char* message )
 	}
 }
 
-// shan 2001/12/18 Begin   ¥Ñ©ó§ïÅÜ¹L¦h¡A¬G±N­ì¥ıªºfunctionª`±¼
+// shan 2001/12/18 Begin   ç”±æ–¼æ”¹è®Šéå¤šï¼Œæ•…å°‡åŸå…ˆçš„functionæ³¨æ‰
 void CHAR_CHAT_DEBUG_eventclean( int charaindex, char* message )
 {	
-#ifdef _ADD_NEWEVENT              // WON ¦h¼W¥ô°ÈºX¼Ğ
+#ifdef _ADD_NEWEVENT              // WON å¤šå¢ä»»å‹™æ——æ¨™
 	int event_num = 8;
 #else
 	int event_num = 6;
@@ -1483,7 +1483,7 @@ void CHAR_CHAT_DEBUG_eventclean( int charaindex, char* message )
 		find=TRUE;
 	}else{
 		if( shiftbit==-1 || strlen(token_cdkey)==0 || strlen(token_name)==0 ){
-			sprintf( token, "%s", "°Ñ¼Æ¤£¥¿½T¡C¥¿½T®æ¦¡¡G[eventsetend ¥ô°ÈºX¼Ğ ±b¸¹ ¤Hª«¦WºÙ]");
+			sprintf( token, "%s", "åƒæ•¸ä¸æ­£ç¢ºã€‚æ­£ç¢ºæ ¼å¼ï¼š[eventsetend ä»»å‹™æ——æ¨™ å¸³è™Ÿ äººç‰©åç¨±]");
 			CHAR_talkToCli( charaindex, -1, token, CHAR_COLORWHITE);
 			return; 
 		}
@@ -1521,14 +1521,14 @@ void CHAR_CHAT_DEBUG_eventclean( int charaindex, char* message )
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT5, 0);
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT6, 0);
 #endif
-#ifdef _ADD_NEWEVENT              // WON ¦h¼W¥ô°ÈºX¼Ğ
+#ifdef _ADD_NEWEVENT              // WON å¤šå¢ä»»å‹™æ——æ¨™
 		CHAR_setInt( charaindex_tmp, CHAR_ENDEVENT7, 0);
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT7, 0);
 		CHAR_setInt( charaindex_tmp, CHAR_ENDEVENT8, 0);
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT8, 0);
 #endif
 
-		sprintf( token, "«d°£¥ş³¡ªº¨Æ¥óºX¡C" );
+		sprintf( token, "å‰Šé™¤å…¨éƒ¨çš„äº‹ä»¶æ——ã€‚" );
 		CHAR_talkToCli( charaindex, -1,token, CHAR_COLORWHITE);
 		return ;
 	}
@@ -1538,7 +1538,7 @@ void CHAR_CHAT_DEBUG_eventclean( int charaindex, char* message )
 		shift = shiftbit % 32;
 		
 		if( array>=event_num ){
-			sprintf( token, "¿ù»~¡I¡I§A©Ò³]ªº¥ô°ÈºX¼Ğ½s¸¹¤w¶W¹L  ³ò(0~%d)¡C",32*event_num-1);
+			sprintf( token, "éŒ¯èª¤ï¼ï¼ä½ æ‰€è¨­çš„ä»»å‹™æ——æ¨™ç·¨è™Ÿå·²è¶…é  åœ(0~%d)ã€‚",32*event_num-1);
 			CHAR_talkToCli( charaindex, -1, token, CHAR_COLORWHITE);
 			return;
 		}
@@ -1558,18 +1558,18 @@ void CHAR_CHAT_DEBUG_eventclean( int charaindex, char* message )
 			sprintf( token, "%s %s", token_cdkey, token_name);
 		//CHAR_CHAT_DEBUG_watchevent( charaindex, token );
 	}else{
-		sprintf( token,"%s\n","¥¢±Ñ¡I¡I±b¸¹»P¤Hª«¦WºÙµLªk¬Û²Å¡C");
+		sprintf( token,"%s\n","å¤±æ•—ï¼ï¼å¸³è™Ÿèˆ‡äººç‰©åç¨±ç„¡æ³•ç›¸ç¬¦ã€‚");
 		CHAR_talkToCli(charaindex, -1, token, CHAR_COLORWHITE);
 	}	
 }
 
 // shan 2001/12/15 End
 
-// shan 2001/12/18 Begin   ¥Ñ©ó§ïÅÜ¹L¦h¡A¬G±N­ì¥ıªºfunctionª`±¼
+// shan 2001/12/18 Begin   ç”±æ–¼æ”¹è®Šéå¤šï¼Œæ•…å°‡åŸå…ˆçš„functionæ³¨æ‰
 
 void CHAR_CHAT_DEBUG_eventsetnow( int charaindex, char* message )
 {
-#ifdef _ADD_NEWEVENT              // WON ¦h¼W¥ô°ÈºX¼Ğ
+#ifdef _ADD_NEWEVENT              // WON å¤šå¢ä»»å‹™æ——æ¨™
 	int event_num = 8;
 #else
 	int event_num = 6;
@@ -1600,7 +1600,7 @@ void CHAR_CHAT_DEBUG_eventsetnow( int charaindex, char* message )
 	}
 	else{
 		if( shiftbit==-1 || strlen(token_cdkey)==0 || strlen(token_name)==0 ){
-			sprintf( token, "%s", "°Ñ¼Æ¤£¥¿½T¡C¥¿½T®æ¦¡¡G[eventsetend ¥ô°ÈºX¼Ğ ±b¸¹ ¤Hª«¦WºÙ]");
+			sprintf( token, "%s", "åƒæ•¸ä¸æ­£ç¢ºã€‚æ­£ç¢ºæ ¼å¼ï¼š[eventsetend ä»»å‹™æ——æ¨™ å¸³è™Ÿ äººç‰©åç¨±]");
 			CHAR_talkToCli( charaindex, -1, token, CHAR_COLORWHITE);
 			return; 
 		}
@@ -1630,7 +1630,7 @@ void CHAR_CHAT_DEBUG_eventsetnow( int charaindex, char* message )
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT5, -1);
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT6, -1);
 #endif
-#ifdef _ADD_NEWEVENT              // WON ¦h¼W¥ô°ÈºX¼Ğ
+#ifdef _ADD_NEWEVENT              // WON å¤šå¢ä»»å‹™æ——æ¨™
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT7, -1);
 		CHAR_setInt( charaindex_tmp, CHAR_NOWEVENT8, -1);
 #endif
@@ -1645,7 +1645,7 @@ void CHAR_CHAT_DEBUG_eventsetnow( int charaindex, char* message )
 		shift = shiftbit % 32;
 		
 		if( array>=event_num ){
-			sprintf( token, "¿ù»~¡I¡I§A©Ò³]ªº¥ô°ÈºX¼Ğ½s¸¹¤w¶W¹L  ³ò(0~%d)¡C",32*event_num-1);
+			sprintf( token, "éŒ¯èª¤ï¼ï¼ä½ æ‰€è¨­çš„ä»»å‹™æ——æ¨™ç·¨è™Ÿå·²è¶…é  åœ(0~%d)ã€‚",32*event_num-1);
 			CHAR_talkToCli( charaindex, -1, token, CHAR_COLORWHITE);
 			return;
 		}		
@@ -1662,7 +1662,7 @@ void CHAR_CHAT_DEBUG_eventsetnow( int charaindex, char* message )
 			sprintf( token, "%s %s", token_cdkey, token_name);
 		CHAR_CHAT_DEBUG_watchevent( charaindex, token );
 	}else{
-		sprintf( token,"%s\n","¥¢±Ñ¡I¡I±b¸¹»P¤Hª«¦WºÙµLªk¬Û²Å¡C");
+		sprintf( token,"%s\n","å¤±æ•—ï¼ï¼å¸³è™Ÿèˆ‡äººç‰©åç¨±ç„¡æ³•ç›¸ç¬¦ã€‚");
 		CHAR_talkToCli(charaindex, -1, token, CHAR_COLORWHITE);
 	}
 }
@@ -1678,7 +1678,7 @@ void CHAR_CHAT_DEBUG_eventsetnow( int charaindex, char* message )
 	shiftbit=atoi(message);
 	eventno=atoi(message);
 
-	// -1¤Ï¥Õ¥é¥°¤Ë´Ø·¸¤¬¤Ê¤¤¥¤¥Ù¥ó¥È   
+	// -1åç™½ä»¿å¼˜åæ¥®æº¢äº’å…ä¸­å¥¶çŸ›ä»¶ç„   
 	if(shiftbit==-1) return;
 
 	array = shiftbit / 32;
@@ -1688,16 +1688,16 @@ void CHAR_CHAT_DEBUG_eventsetnow( int charaindex, char* message )
 	point = point | (1 << shift);
 	CHAR_setInt(charaindex,CHAR_NOWEVENT+array,point);
 
-	sprintf( token, "³]©w¨Æ¥ó¤¤%d¸¹ºX¡C",eventno);
+	sprintf( token, "è¨­å®šäº‹ä»¶ä¸­%dè™Ÿæ——ã€‚",eventno);
 	CHAR_talkToCli( charaindex, -1,token, CHAR_COLORWHITE);
 }*/
 // shan 2001/12/18 End
 
-// shan 2001/12/15 Begin   ¥Ñ©ó§ïÅÜ¹L¦h¡A¬G±N­ì¥ıªºfunctionª`±¼
+// shan 2001/12/15 Begin   ç”±æ–¼æ”¹è®Šéå¤šï¼Œæ•…å°‡åŸå…ˆçš„functionæ³¨æ‰
 
 void CHAR_CHAT_DEBUG_eventsetend( int charaindex, char* message )
 {
-#ifdef _ADD_NEWEVENT              // WON ¦h¼W¥ô°ÈºX¼Ğ
+#ifdef _ADD_NEWEVENT              // WON å¤šå¢ä»»å‹™æ——æ¨™
 	int event_num = 8;
 #else
  	int event_num = 6;
@@ -1728,7 +1728,7 @@ void CHAR_CHAT_DEBUG_eventsetend( int charaindex, char* message )
 	}
 	else{
 		if( shiftbit==-1 || strlen(token_cdkey)==0 || strlen(token_name)==0 ){
-			sprintf( token, "%s", "°Ñ¼Æ¤£¥¿½T¡C¥¿½T®æ¦¡¡G[eventsetend ¥ô°ÈºX¼Ğ ±b¸¹ ¤Hª«¦WºÙ]");
+			sprintf( token, "%s", "åƒæ•¸ä¸æ­£ç¢ºã€‚æ­£ç¢ºæ ¼å¼ï¼š[eventsetend ä»»å‹™æ——æ¨™ å¸³è™Ÿ äººç‰©åç¨±]");
 			CHAR_talkToCli( charaindex, -1, token, CHAR_COLORWHITE);
 			return; 
 		}
@@ -1758,7 +1758,7 @@ void CHAR_CHAT_DEBUG_eventsetend( int charaindex, char* message )
 		CHAR_setInt( charaindex_tmp, CHAR_ENDEVENT5, -1);
 		CHAR_setInt( charaindex_tmp, CHAR_ENDEVENT6, -1);
 #endif
-#ifdef _ADD_NEWEVENT              // WON ¦h¼W¥ô°ÈºX¼Ğ
+#ifdef _ADD_NEWEVENT              // WON å¤šå¢ä»»å‹™æ——æ¨™
 		CHAR_setInt( charaindex_tmp, CHAR_ENDEVENT7, -1);
 		CHAR_setInt( charaindex_tmp, CHAR_ENDEVENT8, -1);
 #endif
@@ -1773,7 +1773,7 @@ void CHAR_CHAT_DEBUG_eventsetend( int charaindex, char* message )
 		shift = shiftbit % 32;
 		
 		if( array>=event_num ){
-			sprintf( token, "¿ù»~¡I¡I§A©Ò³]ªº¥ô°ÈºX¼Ğ½s¸¹¤w¶W¹L  ³ò(0~%d)¡C",32*event_num-1);
+			sprintf( token, "éŒ¯èª¤ï¼ï¼ä½ æ‰€è¨­çš„ä»»å‹™æ——æ¨™ç·¨è™Ÿå·²è¶…é  åœ(0~%d)ã€‚",32*event_num-1);
 			CHAR_talkToCli( charaindex, -1, token, CHAR_COLORWHITE);
 			return;
 		}
@@ -1790,7 +1790,7 @@ void CHAR_CHAT_DEBUG_eventsetend( int charaindex, char* message )
 			sprintf( token, "%s %s", token_cdkey, token_name);
 		CHAR_CHAT_DEBUG_watchevent( charaindex, token );
 	}else{
-		sprintf( token,"%s\n","¥¢±Ñ¡I¡I±b¸¹»P¤Hª«¦WºÙµLªk¬Û²Å¡C");
+		sprintf( token,"%s\n","å¤±æ•—ï¼ï¼å¸³è™Ÿèˆ‡äººç‰©åç¨±ç„¡æ³•ç›¸ç¬¦ã€‚");
 		CHAR_talkToCli(charaindex, -1, token, CHAR_COLORYELLOW);
 	}
 
@@ -1810,7 +1810,7 @@ void CHAR_CHAT_DEBUG_debug( int charaindex, char* message )
 		CHAR_setWorkInt( charaindex, CHAR_WORKDEBUGMODE, FALSE);
 	}
 	CHAR_send_P_StatusString( charaindex, CHAR_P_STRING_DEBUGMODE);
-	snprintf( msgbuf, sizeof( msgbuf), "¤w³]©w°£¿ù¼Ò¦¡¬°%s¡C",
+	snprintf( msgbuf, sizeof( msgbuf), "å·²è¨­å®šé™¤éŒ¯æ¨¡å¼ç‚º%sã€‚",
 		( flg == TRUE) ? "ON" : "OFF");
 
 	CHAR_talkToCli( charaindex, -1, msgbuf, CHAR_COLORYELLOW);
@@ -1828,7 +1828,7 @@ void CHAR_CHAT_DEBUG_dp( int charindex , char *message )
   char cdkey[256];
   easyGetTokenFromString( message , 2 , token, sizeof(token));
   if( strlen(token)==0){
-  	CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+  	CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
   }else{
 		for(i=0;i<getFdnum();i++){
 			i_use=CONNECT_getUse(i);
@@ -1852,7 +1852,7 @@ void CHAR_CHAT_DEBUG_arrange( int charindex , char *message )
 {
 	CHAR_setWorkInt( charindex, CHAR_WORKFIXARRANGE, atoi( message) );
 	CHAR_complianceParameter( charindex );
-	CHAR_talkToCli( charindex, -1, "³]©w¾×®æ", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "è¨­å®šæ“‹æ ¼", CHAR_COLORYELLOW);
 }
 #endif
 
@@ -1862,7 +1862,7 @@ void CHAR_CHAT_DEBUG_sequence( int charindex , char *message )
 {
 	CHAR_setWorkInt( charindex, CHAR_WORKFIXSEQUENCE, atoi( message) );
 	CHAR_complianceParameter( charindex );
-	CHAR_talkToCli( charindex, -1, "³]©w¶¶§Ç", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "è¨­å®šé †åº", CHAR_COLORYELLOW);
 }
 #endif
 
@@ -1875,17 +1875,17 @@ void CHAR_CHAT_DEBUG_setmerge_main( int charaindex, char* message, int mode )
 	int itemindex;
 	
 	if( !CHAR_CHECKITEMINDEX( charaindex, haveitemindex) ){
-		CHAR_talkToCli( charaindex, -1, "¸¹½X«Ü©_©Ç¡C", CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "è™Ÿç¢¼å¾ˆå¥‡æ€ªã€‚", CHAR_COLORWHITE);
 		return;
 	}
 	itemindex = CHAR_getItemIndex( charaindex, haveitemindex);
 	if( !ITEM_CHECKINDEX( itemindex)) {
-		CHAR_talkToCli( charaindex, -1, "¸Ó³B¬O§_¨S¦³¥ô¦ó¹D¨ã,±¡³ø¥ç«Ü©_©Ç¡C", CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1, "è©²è™•æ˜¯å¦æ²’æœ‰ä»»ä½•é“å…·,æƒ…å ±äº¦å¾ˆå¥‡æ€ªã€‚", CHAR_COLORWHITE);
 		return;
 	}
 	ITEM_setInt( itemindex, ITEM_MERGEFLG, mode);
 	
-	CHAR_talkToCli( charaindex, -1, "¹ç©¨¥Õ¥é¥°¤Î¤¡ºî¤ò¤·¤Ş¤·¤¿¡e", CHAR_COLORWHITE);
+	CHAR_talkToCli( charaindex, -1, "å¯§å²³ç™½ä»¿å¼˜åŠä¸‘ç¶œæ¯›ä»„å¼•ä»„å‡¶ã€”", CHAR_COLORWHITE);
 	
 	CHAR_sendItemDataOne( charaindex, haveitemindex);
 }
@@ -1951,17 +1951,17 @@ void CHAR_CHAT_DEBUG_setTrans( int charaindex, char *message)
 	int Reward=1;
 	int quest,level,teq=0,max,lv;
 #ifdef _JZ_TRANSX
-	float table[]={437,490,521,550,578,620,630}; //¦UÂà³Ì°ªÂI¼Æ(´î10)
+	float table[]={437,490,521,550,578,620,630}; //å„è½‰æœ€é«˜é»æ•¸(æ¸›10)
 #else
-	float table[]={437,490,521,550,578,620};	//¦UÂà³Ì°ªÂI¼Æ(´î10)
+	float table[]={437,490,521,550,578,620};	//å„è½‰æœ€é«˜é»æ•¸(æ¸›10)
 #endif
-	if(getStringFromIndexWithDelim( message, " ", 3, token , sizeof( token ))) //¬õ§Q
+	if(getStringFromIndexWithDelim( message, " ", 3, token , sizeof( token ))) //ç´…åˆ©
 	{
 		Reward = atoi(token);
 	}
 
   if(!getStringFromIndexWithDelim( message, " ", 1, token , sizeof( token ))){
-		CHAR_talkToCli( charaindex, -1,"°Ñ¼Æ¤£¥¿½T->Âà¼Æ", CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1,"åƒæ•¸ä¸æ­£ç¢º->è½‰æ•¸", CHAR_COLORWHITE);
 		return;
 	}
 	transtemp=atoi(token);
@@ -1970,7 +1970,7 @@ void CHAR_CHAT_DEBUG_setTrans( int charaindex, char *message)
 #else
 	if(transtemp<0 || transtemp > 6){
 #endif
-		CHAR_talkToCli( charaindex, -1,"°Ñ¼Æ½d³ò¿ù»~->Âà¼Æ", CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1,"åƒæ•¸ç¯„åœéŒ¯èª¤->è½‰æ•¸", CHAR_COLORWHITE);
 		return;
 	}
 	if (Reward>=1){
@@ -1979,17 +1979,17 @@ void CHAR_CHAT_DEBUG_setTrans( int charaindex, char *message)
     teq = (quest << 16) + level;
 	}
 	if(!getStringFromIndexWithDelim( message, " ", 2, token , sizeof( token ))){
-		CHAR_talkToCli( charaindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
 		lv = CHAR_getInt(charaindex,CHAR_LV);
-  	max=(transtemp==0)?(lv-1)*3+20+10: // 0Âà447
+  	max=(transtemp==0)?(lv-1)*3+20+10: // 0è½‰447
 			(lv-1)*3+table[transtemp-1]/12.0+quest/4.0+(level-transtemp*85)/4.0+10+1+10+transtemp*10;
-/* 1Âà¥H¤W=¤É¯ÅÂI¼Æ+Ä~©ÓÂI³N+¾ú¥v¥ô°È+¾ú¥vµ¥¯Å+Âà«e¯¬ºÖ+»~®t1ÂI+Âà«á¯¬ºÖ+Âà¥Í¬õ§Q */
-		if (transtemp==6) max=max-20; /* ¤»Âà®É¨S¦³Âà«e¯¬ºÖ»PÂà«á¯¬ºÖ */
+/* 1è½‰ä»¥ä¸Š=å‡ç´šé»æ•¸+ç¹¼æ‰¿é»è¡“+æ­·å²ä»»å‹™+æ­·å²ç­‰ç´š+è½‰å‰ç¥ç¦+èª¤å·®1é»+è½‰å¾Œç¥ç¦+è½‰ç”Ÿç´…åˆ© */
+		if (transtemp==6) max=max-20; /* å…­è½‰æ™‚æ²’æœ‰è½‰å‰ç¥ç¦èˆ‡è½‰å¾Œç¥ç¦ */
 #ifdef _JZ_TRANSX
-		if (transtemp==7) max=max-10; //7Âà¨S¦³Âà«e¯¬ºÖ
+		if (transtemp==7) max=max-10; //7è½‰æ²’æœ‰è½‰å‰ç¥ç¦
 #endif
 		CHAR_setInt(charaindex, CHAR_TRANSEQUATION, teq);
-		print("\n­«½ÕÂI¼Æ[%s:%s]:%d->%d ",
+		print("\né‡èª¿é»æ•¸[%s:%s]:%d->%d ",
 			CHAR_getChar(charaindex,CHAR_CDKEY),
 			CHAR_getChar(charaindex,CHAR_NAME),
 			0,max);
@@ -2002,7 +2002,7 @@ void CHAR_CHAT_DEBUG_setTrans( int charaindex, char *message)
     CHAR_Skillupsend(charaindex);
     CHAR_setInt(charaindex, CHAR_TRANSMIGRATION, transtemp);
 		CHAR_sendStatusString( charaindex, "P" );
-    sprintf(buf,"³]©wÂà¥Í%d",transtemp);
+    sprintf(buf,"è¨­å®šè½‰ç”Ÿ%d",transtemp);
 		CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 		CHAR_sendCToArroundCharacter( CHAR_getWorkInt( charaindex, CHAR_WORKOBJINDEX ));
 		return;
@@ -2015,12 +2015,12 @@ void CHAR_CHAT_DEBUG_setTrans( int charaindex, char *message)
 				if(strcmp(token,cdkey)==0){
 					fd_charaindex = CONNECT_getCharaindex( i );
 					lv = CHAR_getInt(fd_charaindex,CHAR_LV);
-			  	max=(transtemp==0)?(lv-1)*3+20+10: // 0Âà447
+			  	max=(transtemp==0)?(lv-1)*3+20+10: // 0è½‰447
 						(lv-1)*3+table[transtemp-1]/12.0+quest/4.0+(level-transtemp*85)/4.0+10+1+10+transtemp*10;
-/* 1Âà¥H¤W=¤É¯ÅÂI¼Æ+Ä~©ÓÂI³N+¾ú¥v¥ô°È+¾ú¥vµ¥¯Å+Âà«e¯¬ºÖ+»~®t1ÂI+Âà«á¯¬ºÖ+Âà¥Í¬õ§Q */
-					if (transtemp==6) max=max-20; /* ¤»Âà®É¨S¦³Âà«e¯¬ºÖ»PÂà«á¯¬ºÖ */
+/* 1è½‰ä»¥ä¸Š=å‡ç´šé»æ•¸+ç¹¼æ‰¿é»è¡“+æ­·å²ä»»å‹™+æ­·å²ç­‰ç´š+è½‰å‰ç¥ç¦+èª¤å·®1é»+è½‰å¾Œç¥ç¦+è½‰ç”Ÿç´…åˆ© */
+					if (transtemp==6) max=max-20; /* å…­è½‰æ™‚æ²’æœ‰è½‰å‰ç¥ç¦èˆ‡è½‰å¾Œç¥ç¦ */
 					CHAR_setInt(fd_charaindex, CHAR_TRANSEQUATION, teq);
-					print("\n­«½ÕÂI¼Æ[%s:%s]:%d->%d ",
+					print("\né‡èª¿é»æ•¸[%s:%s]:%d->%d ",
 						CHAR_getChar(fd_charaindex,CHAR_CDKEY),
 						CHAR_getChar(fd_charaindex,CHAR_NAME),
 						0,max);
@@ -2033,7 +2033,7 @@ void CHAR_CHAT_DEBUG_setTrans( int charaindex, char *message)
 			    CHAR_Skillupsend(fd_charaindex);
 			    CHAR_setInt(fd_charaindex, CHAR_TRANSMIGRATION, transtemp);
 					CHAR_sendStatusString( fd_charaindex, "P" );
-					sprintf(buf,"³]©wÂà¥Í%d",transtemp);
+					sprintf(buf,"è¨­å®šè½‰ç”Ÿ%d",transtemp);
 					CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 					CHAR_talkToCli( fd_charaindex, -1,buf, CHAR_COLORWHITE);
 					CHAR_sendCToArroundCharacter( CHAR_getWorkInt( fd_charaindex, CHAR_WORKOBJINDEX ));
@@ -2060,12 +2060,12 @@ void CHAR_CHAT_DEBUG_shutup(int charindex ,char *message)
      easyGetTokenFromString( message , 1 , token, sizeof(token));
      easyGetTokenFromString( message , 2 , token1, sizeof(token1));
      if( strlen(message)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORYELLOW);
          return;
      }
      if( strlen(token1)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T--> ON OFF");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º--> ON OFF");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORYELLOW);
          return;
      }
@@ -2082,7 +2082,7 @@ void CHAR_CHAT_DEBUG_shutup(int charindex ,char *message)
                   CONNECT_set_shutup(i,TRUE);
                   //print("\n<Set TRUE");
                   snprintf( line, sizeof( line),
-                            "±N name:%s account=%s«Ê¼L",
+                            "å°‡ name:%s account=%så°å˜´",
                             CHAR_getChar( index, CHAR_NAME),
                             cdkey);
                   CHAR_talkToCli( charindex, -1,line, CHAR_COLORYELLOW);
@@ -2090,7 +2090,7 @@ void CHAR_CHAT_DEBUG_shutup(int charindex ,char *message)
                   CONNECT_set_shutup(i,FALSE);
                   //print("\n<Set FALSE");
                   snprintf( line, sizeof( line),
-                            "±N name:%s account=%s¶}¤f",
+                            "å°‡ name:%s account=%sé–‹å£",
                             CHAR_getChar( index, CHAR_NAME),
                             cdkey);
                   CHAR_talkToCli( charindex, -1,line, CHAR_COLORYELLOW);
@@ -2185,13 +2185,13 @@ void CHAR_CHAT_DEBUG_waeikick( int charindex, char* message )
     unsigned int MAX_USER=0;
     int fd_charaindex;
     if( strlen(message)==0){
-        sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-> ±b¸¹");
+        sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-> å¸³è™Ÿ");
         CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
         return;
     }
     easyGetTokenFromString( message , 1 , token, sizeof(token));
     if( strlen(token)==0){
-        sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T");
+        sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º");
         CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
         return;
     }
@@ -2204,8 +2204,8 @@ void CHAR_CHAT_DEBUG_waeikick( int charindex, char* message )
            if(strcmp(cdkey,token)==0){
               fd_charaindex = CONNECT_getCharaindex( i );
               CONNECT_getCharname( i, szName, sizeof( szName ) );
-              sprintf(kcmsg,"%sÀ½¥XªA°È¾¹¡C",szName);
-              CHAR_talkToCli(fd_charaindex, -1, "¦]°µÃa¨Æ¦ÓÂ_½u¡C", CHAR_COLORYELLOW);
+              sprintf(kcmsg,"%sæ“ å‡ºæœå‹™å™¨ã€‚",szName);
+              CHAR_talkToCli(fd_charaindex, -1, "å› åšå£äº‹è€Œæ–·ç·šã€‚", CHAR_COLORYELLOW);
               CONNECT_setCloseRequest( i , 1 );
               print( "\nWAEIKICK cdkey=%s", cdkey);
               find=TRUE;
@@ -2213,7 +2213,7 @@ void CHAR_CHAT_DEBUG_waeikick( int charindex, char* message )
         }
     }//for i
     if(find){
-       sprintf(kctalk,"¥Û¾¹¤jÅ]¤ı¬I®i¶WµL¼ÄÀ½¥¤¤â¡uÀ½À½À½À½À½À½À½¡D¡D¡D¡D¡D¡D¡D§â¡v");
+       sprintf(kctalk,"çŸ³å™¨å¤§é­”ç‹æ–½å±•è¶…ç„¡æ•µæ“ å¥¶æ‰‹ã€Œæ“ æ“ æ“ æ“ æ“ æ“ æ“ ï¼ï¼ï¼ï¼ï¼ï¼ï¼æŠŠã€");
        for(i=0;i<MAX_USER;i++){
            int i_use;
            i_use=CONNECT_getUse(i);
@@ -2256,13 +2256,13 @@ void CHAR_CHAT_DEBUG_jail( int charindex, char* message )
      Char *chwk;
                       
      if( strlen(message)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-> ±b¸¹");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-> å¸³è™Ÿ");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
          return;
      }
      easyGetTokenFromString( message , 1 , token, sizeof(token));
      if( strlen(token)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
          return;
      }
@@ -2275,8 +2275,8 @@ void CHAR_CHAT_DEBUG_jail( int charindex, char* message )
             if(strcmp(cdkey,token)==0){
                fd_charaindex = CONNECT_getCharaindex( i );
                CONNECT_getCharname( i, szName, sizeof( szName ) );
-               sprintf(kcmsg,"%s§ì¤J¦aµ¢¡C",szName);
-               CHAR_talkToCli(fd_charaindex, -1, "¦]ªø¬Û¤Ó®t¦Ó¤Jº»¡C", CHAR_COLORYELLOW);
+               sprintf(kcmsg,"%sæŠ“å…¥åœ°çª–ã€‚",szName);
+               CHAR_talkToCli(fd_charaindex, -1, "å› é•·ç›¸å¤ªå·®è€Œå…¥ç„ã€‚", CHAR_COLORYELLOW);
                CHAR_setInt(fd_charaindex,CHAR_FLOOR,117);
                CHAR_setInt(fd_charaindex,CHAR_X,225);
                CHAR_setInt(fd_charaindex,CHAR_Y,13);
@@ -2302,7 +2302,7 @@ void CHAR_CHAT_DEBUG_jail( int charindex, char* message )
          }
      }//for i
       if(find){
-         sprintf(kctalk,"¥Û¾¹¤jÅ]¤ı¬I®i¶WµL¼Ä§ì¥¤¤â¡u§ì§ì§ì§ì§ì§ì¡D¡D¡D¡D¡D¡D¡D§â¡v");
+         sprintf(kctalk,"çŸ³å™¨å¤§é­”ç‹æ–½å±•è¶…ç„¡æ•µæŠ“å¥¶æ‰‹ã€ŒæŠ“æŠ“æŠ“æŠ“æŠ“æŠ“ï¼ï¼ï¼ï¼ï¼ï¼ï¼æŠŠã€");
          for(i=0;i<MAX_USER;i++){
              int i_use;
              i_use=CONNECT_getUse(i);
@@ -2335,11 +2335,11 @@ void CHAR_CHAT_DEBUG_shutupall(int charindex ,char *message)
                             CONNECT_set_shutup(fd,TRUE);
                             CONNECT_getCdkey( fd, cdkey, sizeof( cdkey ));
                             snprintf( line, sizeof( line),
-                                      "±N name:%s account=%s«Ê¼L",
+                                      "å°‡ name:%s account=%så°å˜´",
                                       CHAR_getChar( chara_index, CHAR_NAME),
                                       cdkey);
                             CHAR_talkToCli( charindex, -1,line, CHAR_COLORWHITE);
-                            CHAR_talkToCli(chara_index,-1,"³Q¤jÅ]¤ı«Ê¼L", CHAR_COLORWHITE);
+                            CHAR_talkToCli(chara_index,-1,"è¢«å¤§é­”ç‹å°å˜´", CHAR_COLORWHITE);
                                                                                                                                   
                       }
                   }
@@ -2358,34 +2358,34 @@ void CHAR_CHAT_DEBUG_send(int charindex ,char *message)
      unsigned int MAX_USER=0;
      MAX_USER=getFdnum();
      if( strlen(message)==0){
-        sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-> FLOOR X Y ±b¸¹");
+        sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-> FLOOR X Y å¸³è™Ÿ");
         CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
         return;
      }
      easyGetTokenFromString( message , 1 , token, sizeof(token));
      if( strlen(token)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->¦a¹Ï½s¸¹");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->åœ°åœ–ç·¨è™Ÿ");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
          return;
      }
      fl=atoi( token );
      easyGetTokenFromString( message , 2 , token, sizeof(token));
      if( strlen(token)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->X®y¼Ğ ");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->Xåº§æ¨™ ");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
          return;
      }
      x = atoi( token );
      easyGetTokenFromString( message , 3 , token, sizeof(token));
      if( strlen(token)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->Y®y¼Ğ ");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->Yåº§æ¨™ ");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
          return;
      }
      y = atoi( token );
      easyGetTokenFromString( message , 4 , token, sizeof(token));
      if( strlen(token)==0){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->±b¸¹");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->å¸³è™Ÿ");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
          return;
      }
@@ -2399,10 +2399,10 @@ void CHAR_CHAT_DEBUG_send(int charindex ,char *message)
                fd_charaindex = CONNECT_getCharaindex( i );
                CHAR_warpToSpecificPoint(fd_charaindex, fl, x, y);
                snprintf( line, sizeof( line),
-                         "§â name:%s account=%s ¶Ç°e¨ì FL=%d X=%d Y=%d",
+                         "æŠŠ name:%s account=%s å‚³é€åˆ° FL=%d X=%d Y=%d",
                           szName,cdkey,fl,x,y);
                  CHAR_talkToCli( charindex, -1 , line , CHAR_COLORWHITE );
-                 CHAR_talkToCli( fd_charaindex, -1 ,"¡¯.¡¯³Q¥Û¾¹¤jÅ]¤ı¶Ç°e", CHAR_COLORWHITE );
+                 CHAR_talkToCli( fd_charaindex, -1 ,"ï¼Š.ï¼Šè¢«çŸ³å™¨å¤§é­”ç‹å‚³é€", CHAR_COLORWHITE );
             }                                  
          }
      }
@@ -2419,8 +2419,8 @@ void CHAR_CHAT_DEBUG_noenemy( int charaindex, char* message )
 	  int fd=CHAR_getWorkInt( charaindex, CHAR_WORKFD);
 	  setEqNoenemy(fd, 0);
 	}
-	snprintf( msgbuf, sizeof( msgbuf), "¤£¹J¼Ä¼Ò¦¡%s¡C",
-		( flg == TRUE) ? "¶}±Ò" : "Ãö³¬");
+	snprintf( msgbuf, sizeof( msgbuf), "ä¸é‡æ•µæ¨¡å¼%sã€‚",
+		( flg == TRUE) ? "é–‹å•Ÿ" : "é—œé–‰");
 
 	CHAR_talkToCli( charaindex, -1, msgbuf, CHAR_COLORWHITE);
 }
@@ -2436,7 +2436,7 @@ void CHAR_CHAT_DEBUG_loginannounce( int charaindex, char* message )
 
   if (message == NULL)	return;
   if( strlen(message)==0){
-    sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-> clear/add/send ½Ğ¥Î¤p¼g");
+    sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-> clear/add/send è«‹ç”¨å°å¯«");
     CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
     return;
   }
@@ -2444,7 +2444,7 @@ void CHAR_CHAT_DEBUG_loginannounce( int charaindex, char* message )
   if (strcmp(cmd,"clear")==0) {
     FILE *f=fopen(ANNOUNCEFILE,"w");
 
-    strcpy(buf, "¥Û¾¹®É¥N¤½§i\n");
+    strcpy(buf, "çŸ³å™¨æ™‚ä»£å…¬å‘Š\n");
     fwrite(buf, strlen(buf), 1, f);
     fclose(f);
     LoadAnnounce();
@@ -2454,14 +2454,14 @@ void CHAR_CHAT_DEBUG_loginannounce( int charaindex, char* message )
 
     easyGetTokenFromString(message, 2, say, sizeof(say));
     if (strlen(say)==0) {
-      sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T");
+      sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º");
       CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
       return;
     }
   
     if (!(f=fopen(ANNOUNCEFILE,"a+"))) {
       f=fopen(ANNOUNCEFILE,"w");
-      strcpy(buf, "¥Û¾¹®É¥N¤½§i\n");
+      strcpy(buf, "çŸ³å™¨æ™‚ä»£å…¬å‘Š\n");
       fwrite(buf, strlen(buf), 1, f);
     }
     fwrite(say, strlen(say), 1, f);
@@ -2478,7 +2478,7 @@ void CHAR_CHAT_DEBUG_loginannounce( int charaindex, char* message )
     LoadAnnounce();
     CHAR_talkToCli(charaindex, -1, "OK, loginannounce loaded.", CHAR_COLORWHITE);
   } else {
-    sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-> clear/add/send (½Ğ¥Î¤p¼g)");
+    sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-> clear/add/send (è«‹ç”¨å°å¯«)");
     CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
     return;
   }
@@ -2488,7 +2488,7 @@ void CHAR_CHAT_DEBUG_checklock( int charaindex, char* message )
 {
   char cmd[256];
   if( strlen(message)==0){
-    CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T", CHAR_COLORWHITE);
+    CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º", CHAR_COLORWHITE);
     return;
   }
   easyGetTokenFromString( message, 1, cmd, sizeof(cmd));
@@ -2503,7 +2503,7 @@ void CHAR_CHAT_DEBUG_unlock( int charaindex, char* message )
 #endif
 
   if( strlen(message)==0){
-    CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T", CHAR_COLORWHITE);
+    CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º", CHAR_COLORWHITE);
     return;
   }
   easyGetTokenFromString(message, 1, cmd, sizeof(cmd));
@@ -2519,7 +2519,7 @@ void CHAR_CHAT_DEBUG_unlockserver( int charaindex, char* message )
   char cmd[256];
 
   if( strlen(message)==0){
-    CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T", CHAR_COLORWHITE);
+    CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º", CHAR_COLORWHITE);
     return;
   }
   easyGetTokenFromString(message, 1, cmd, sizeof(cmd));
@@ -2532,24 +2532,24 @@ void CHAR_CHAT_DEBUG_fixfmdata(int charaindex, char *message)
   int	i,index = -1,charindex = -1,iPlayerNum = CHAR_getPlayerMaxNum();
 
 	if(message == NULL || getStringFromIndexWithDelim(message," ",1,szFamilyID,sizeof(szFamilyID)) == FALSE){
-		CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T [fixfmdata <®a±ÚID> <±b¸¹(or -1)> <cmd> <data>]",CHAR_COLORRED);
+		CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º [fixfmdata <å®¶æ—ID> <å¸³è™Ÿ(or -1)> <cmd> <data>]",CHAR_COLORRED);
    	return;
   }
 	if(message == NULL || getStringFromIndexWithDelim(message," ",2,szID,sizeof(szID)) == FALSE){
-		CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T [fixfmdata <®a±ÚID> <±b¸¹(or -1)> <cmd> <data>]",CHAR_COLORRED);
+		CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º [fixfmdata <å®¶æ—ID> <å¸³è™Ÿ(or -1)> <cmd> <data>]",CHAR_COLORRED);
    	return;
   }
 	if(message == NULL || getStringFromIndexWithDelim(message," ",3,szCmd,sizeof(szCmd)) == FALSE){
-		CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T [fixfmdata <®a±ÚID> <±b¸¹(or -1)> <cmd> <data>]",CHAR_COLORRED);
+		CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º [fixfmdata <å®¶æ—ID> <å¸³è™Ÿ(or -1)> <cmd> <data>]",CHAR_COLORRED);
    	return;
   }
 	if(message == NULL || getStringFromIndexWithDelim(message," ",4,szData,sizeof(szData)) == FALSE){
-		CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T [fixfmdata <®a±ÚID> <±b¸¹(or -1)> <cmd> <data>]",CHAR_COLORRED);
+		CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º [fixfmdata <å®¶æ—ID> <å¸³è™Ÿ(or -1)> <cmd> <data>]",CHAR_COLORRED);
    	return;
   }
 	index = atoi(szFamilyID);
 	if(index < 1 || index > 1000){
-		CHAR_talkToCli(charaindex,-1,"id ­È¿ù»~", CHAR_COLORRED);
+		CHAR_talkToCli(charaindex,-1,"id å€¼éŒ¯èª¤", CHAR_COLORRED);
 		return;
 	}
 	index -= 1;
@@ -2563,16 +2563,16 @@ void CHAR_CHAT_DEBUG_fixfmdata(int charaindex, char *message)
 			}
 		}
 		if(charindex == -1){
-			CHAR_talkToCli(charaindex,-1,"§ä¤£¨ì¦¹±b¸¹ªº¤Hª«", CHAR_COLORRED);
+			CHAR_talkToCli(charaindex,-1,"æ‰¾ä¸åˆ°æ­¤å¸³è™Ÿçš„äººç‰©", CHAR_COLORRED);
 			return;
 		}
 		if(CHAR_getInt(charindex,CHAR_FMINDEX) == -1){
-			CHAR_talkToCli(charaindex,-1,"¦¹±b¸¹ªº¤Hª«¨S¦³®a±Ú", CHAR_COLORRED);
+			CHAR_talkToCli(charaindex,-1,"æ­¤å¸³è™Ÿçš„äººç‰©æ²’æœ‰å®¶æ—", CHAR_COLORRED);
 			return;
 		}
 		else{
 			if(CHAR_getWorkInt(charindex,CHAR_WORKFMINDEXI) != index){
-				CHAR_talkToCli(charaindex,-1,"¦¹±b¸¹ªº¤Hª«®a±ÚID»P¿é¤Jªº®a±ÚID¤£²Å", CHAR_COLORRED);
+				CHAR_talkToCli(charaindex,-1,"æ­¤å¸³è™Ÿçš„äººç‰©å®¶æ—IDèˆ‡è¼¸å…¥çš„å®¶æ—IDä¸ç¬¦", CHAR_COLORRED);
 				return;
 			}
 		}
@@ -2582,7 +2582,7 @@ void CHAR_CHAT_DEBUG_fixfmdata(int charaindex, char *message)
   saacproto_ACGMFixFMData_send(acfd,index,szID,szCmd,szData,getFdidFromCharaIndex(charaindex));
 }
 
-// WON ADD ­×¥¿±Úªø°İÃD
+// WON ADD ä¿®æ­£æ—é•·å•é¡Œ
 void CHAR_CHAT_DEBUG_fixfmleader(int charaindex, char *message)
 {
    char	token[256], cmd[256], id[16];
@@ -2591,7 +2591,7 @@ void CHAR_CHAT_DEBUG_fixfmleader(int charaindex, char *message)
 
    if (strlen(message) == 0)
    {
-   		CHAR_talkToCli(charaindex, -1, "°Ñ¼Æ¤£¥¿½T [fixfmleader ±b¸¹ 1]", CHAR_COLORWHITE);
+   		CHAR_talkToCli(charaindex, -1, "åƒæ•¸ä¸æ­£ç¢º [fixfmleader å¸³è™Ÿ 1]", CHAR_COLORWHITE);
 		return;
    }
 
@@ -2599,7 +2599,7 @@ void CHAR_CHAT_DEBUG_fixfmleader(int charaindex, char *message)
    sprintf(id, token);			// id		
    
    easyGetTokenFromString(message, 2, token, sizeof(token));
-   flag = atoi(token);			// flag °õ¦æºX¼Ğ¡A¿é¤J 1 ´N¦æ¤F
+   flag = atoi(token);			// flag åŸ·è¡Œæ——æ¨™ï¼Œè¼¸å…¥ 1 å°±è¡Œäº†
 
    for(i=0;i<getFdnum() ;i++){
 	   if( CONNECT_getUse(i) ){
@@ -2614,7 +2614,7 @@ void CHAR_CHAT_DEBUG_fixfmleader(int charaindex, char *message)
    }
 
    if(user_index == -1 ){
-   		CHAR_talkToCli(charaindex, -1, "ª±®a¤£¦b½u¤W!!", CHAR_COLORWHITE);	   
+   		CHAR_talkToCli(charaindex, -1, "ç©å®¶ä¸åœ¨ç·šä¸Š!!", CHAR_COLORWHITE);	   
 		return;
    }
 
@@ -2624,11 +2624,11 @@ void CHAR_CHAT_DEBUG_fixfmleader(int charaindex, char *message)
    if( !flag ){ 
 		
 		if(strcmp(memberlist[index].numberlistarray[0], "") == 0 ){
-		   	CHAR_talkToCli(charaindex, -1, "¦¹®a±Ú¤w¦³±Úªø¤F!!", CHAR_COLORWHITE);	   
+		   	CHAR_talkToCli(charaindex, -1, "æ­¤å®¶æ—å·²æœ‰æ—é•·äº†!!", CHAR_COLORWHITE);	   
 			return;
 		}
 		if(CHAR_getInt( user_index, CHAR_FMLEADERFLAG ) == FMMEMBER_LEADER ){
-		   	CHAR_talkToCli(charaindex, -1, "ª±®a¬O¨ä¥¦®a±Úªº±Úªø!!", CHAR_COLORWHITE);	   
+		   	CHAR_talkToCli(charaindex, -1, "ç©å®¶æ˜¯å…¶å®ƒå®¶æ—çš„æ—é•·!!", CHAR_COLORWHITE);	   
 			return;
 		}
 		saacproto_ACGMFixFMData_send(acfd, index, id, " "," ", getFdidFromCharaIndex(charaindex));
@@ -2675,7 +2675,7 @@ void CHAR_CHAT_DEBUG_manorpk(int charaindex, char *message)
 
 	if (message == NULL)	return;
 	if( strlen(message)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T¡C [manorpk <allpeace/allreset/clean> id]");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢ºã€‚ [manorpk <allpeace/allreset/clean> id]");
 		CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 		return;
 	}
@@ -2691,7 +2691,7 @@ void CHAR_CHAT_DEBUG_manorpk(int charaindex, char *message)
 		easyGetTokenFromString(message, 2, cmd, sizeof(cmd));
 		manorid=atoi(cmd);
 		if ((manorid<1)||(manorid>MANORNUM)) {
-			sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T¡C id ¥²¶·¦b 1~9 ¤§¶¡¡C");
+			sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢ºã€‚ id å¿…é ˆåœ¨ 1~9 ä¹‹é–“ã€‚");
 			CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 			return;
 		}
@@ -2704,7 +2704,7 @@ void CHAR_CHAT_DEBUG_manorpk(int charaindex, char *message)
 #ifdef _NEW_MANOR_LAW
 					CHAR_setWorkInt(i,CHAR_NPCWORKINT6,tm1.tm_mday);
 #endif
-					sprintf(buf,"%d peace¡C", CHAR_getWorkInt(i, CHAR_NPCWORKINT2));
+					sprintf(buf,"%d peaceã€‚", CHAR_getWorkInt(i, CHAR_NPCWORKINT2));
 					CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 				}
 			}
@@ -2718,7 +2718,7 @@ void CHAR_CHAT_DEBUG_manorpk(int charaindex, char *message)
 		easyGetTokenFromString(message, 2, cmd, sizeof(cmd));
 		manorid=atoi(cmd);
 		if ((manorid<1)||(manorid>MANORNUM)) {
-			sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T¡C id ¥²¶·¦b 1~9 ¤§¶¡¡C");
+			sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢ºã€‚ id å¿…é ˆåœ¨ 1~9 ä¹‹é–“ã€‚");
 			CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 			return;
 		}
@@ -2748,7 +2748,7 @@ void CHAR_CHAT_DEBUG_manorpk(int charaindex, char *message)
 		data = atoi( cmd);
 		saacproto_ACreLoadFmData_send( acfd, type, data);
 	}else {
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T¡C [manorpk <allpeace/peace> id]");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢ºã€‚ [manorpk <allpeace/peace> id]");
 		CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 	}
 }
@@ -2762,7 +2762,7 @@ void CHAR_CHAT_DEBUG_shutdown(int charindex , char *message )
 
 void CHAR_CHAT_DEBUG_watchevent( int charaindex, char* message )
 {
-#ifdef _ADD_NEWEVENT              // WON ¦h¼W¥ô°ÈºX¼Ğ
+#ifdef _ADD_NEWEVENT              // WON å¤šå¢ä»»å‹™æ——æ¨™
 	int event_num = 8;
 #else
 	int event_num = 6;
@@ -2782,7 +2782,7 @@ void CHAR_CHAT_DEBUG_watchevent( int charaindex, char* message )
 		getStringFromIndexWithDelim( message, " ", 1, token_cdkey, sizeof( token_cdkey));
         getStringFromIndexWithDelim( message, " ", 2, token_name, sizeof( token_name));
         if( strlen(token_cdkey)==0 || strlen(token_name)==0 ){
-            sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T¡C¥¿½T®æ¦¡¡G[wahctevent ±b¸¹ ¤Hª«¦WºÙ]");
+            sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢ºã€‚æ­£ç¢ºæ ¼å¼ï¼š[wahctevent å¸³è™Ÿ äººç‰©åç¨±]");
             CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORWHITE);
             return;
 		}
@@ -2842,7 +2842,7 @@ void CHAR_CHAT_DEBUG_watchevent( int charaindex, char* message )
 		}	
 		CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 	}else{
-		sprintf(buf,"%s\n","¥¢±Ñ¡I¡I±b¸¹»P¤Hª«¦WºÙµLªk¬Û²Å¡C");
+		sprintf(buf,"%s\n","å¤±æ•—ï¼ï¼å¸³è™Ÿèˆ‡äººç‰©åç¨±ç„¡æ³•ç›¸ç¬¦ã€‚");
 		CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 	}
 }
@@ -2859,7 +2859,7 @@ void CHAR_CHAT_DEBUG_gmreload( int charaindex, char* message )
 	if (message == NULL)	return;
 	if (strlen(message) == 0)
 	{
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T¡A[gmreload all] ©Î [gmreload id level(1~3)] level 3:¤uµ{®v,2:²Õªø¯Å,1:¤@¯ëgm");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢ºï¼Œ[gmreload all] æˆ– [gmreload id level(1~3)] level 3:å·¥ç¨‹å¸«,2:çµ„é•·ç´š,1:ä¸€èˆ¬gm");
 		CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORWHITE);
 		return;
 	}
@@ -2877,13 +2877,13 @@ void CHAR_CHAT_DEBUG_gmreload( int charaindex, char* message )
 	{
 		if (charlevel != 3)
 		{
-			CHAR_talkToCli( charaindex, -1, "§A¨S¦³­×§ï¢Õ¢Ûµ¥¯ÅªºÅv­­¡I",  CHAR_COLORWHITE);
+			CHAR_talkToCli( charaindex, -1, "ä½ æ²’æœ‰ä¿®æ”¹ï¼§ï¼­ç­‰ç´šçš„æ¬Šé™ï¼",  CHAR_COLORWHITE);
 			return;
 		}
 		if (LoadGMSet(getGMSetfile()))
-			CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¢Õ¢Û°ò¥»³]©w¢İ¢Ù¡I",  CHAR_COLORWHITE);
+			CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–ï¼§ï¼­åŸºæœ¬è¨­å®šï¼¯ï¼«ï¼",  CHAR_COLORWHITE);
 		else 
-			CHAR_talkToCli( charaindex, -1, "¦A¦¸Åª¨ú¢Õ¢Û°ò¥»³]©w¥¢±Ñ¡I",  CHAR_COLORRED);
+			CHAR_talkToCli( charaindex, -1, "å†æ¬¡è®€å–ï¼§ï¼­åŸºæœ¬è¨­å®šå¤±æ•—ï¼",  CHAR_COLORRED);
 	}
 	else
 	{
@@ -2893,7 +2893,7 @@ void CHAR_CHAT_DEBUG_gmreload( int charaindex, char* message )
 		level = atoi(clevel);
 		if (level > 4 || level < 1 || level > gminfo[i].level)
 		{
-			CHAR_talkToCli( charaindex, -1, "­×§ï¥¢±Ñ¡AµLªk±N¦¹±b¸¹µ¥¯Å­×§ïªº¤ñ¦Û¤vµ¥¯Å°ª¡Ilevel(1~3)",  CHAR_COLORWHITE);
+			CHAR_talkToCli( charaindex, -1, "ä¿®æ”¹å¤±æ•—ï¼Œç„¡æ³•å°‡æ­¤å¸³è™Ÿç­‰ç´šä¿®æ”¹çš„æ¯”è‡ªå·±ç­‰ç´šé«˜ï¼level(1~3)",  CHAR_COLORWHITE);
 			return;
 		}
 		for (i = 0; i < GMMAXNUM; i++)
@@ -2902,12 +2902,12 @@ void CHAR_CHAT_DEBUG_gmreload( int charaindex, char* message )
 			{
 				if (gminfo[i].level > charlevel)
 				{
-					snprintf(tmpbuf, sizeof(tmpbuf), "­×§ï¥¢±Ñ¡AµLªk­×§ïµ¥¯Å¤ñ¦Û¤v°ªªº±b¸¹¡I");
+					snprintf(tmpbuf, sizeof(tmpbuf), "ä¿®æ”¹å¤±æ•—ï¼Œç„¡æ³•ä¿®æ”¹ç­‰ç´šæ¯”è‡ªå·±é«˜çš„å¸³è™Ÿï¼");
 					CHAR_talkToCli(charaindex, -1, tmpbuf, CHAR_COLORWHITE);
 					return;
 				}
 				gminfo[i].level = level;
-				snprintf(tmpbuf, sizeof(tmpbuf), "­×§ï%sµ¥¯Å¬°%d¢İ¢Ù¡I", gminfo[i].cdkey, gminfo[i].level);
+				snprintf(tmpbuf, sizeof(tmpbuf), "ä¿®æ”¹%sç­‰ç´šç‚º%dï¼¯ï¼«ï¼", gminfo[i].cdkey, gminfo[i].level);
 				CHAR_talkToCli(charaindex, -1, tmpbuf, CHAR_COLORWHITE);
 				changeflag = 1;
 				break;
@@ -2915,7 +2915,7 @@ void CHAR_CHAT_DEBUG_gmreload( int charaindex, char* message )
 		}
 		if (changeflag == 0)
 		{
-			snprintf(tmpbuf, sizeof(tmpbuf), "¢Õ¢Û¦Cªí¤¤¬dµL¦¹±b¸¹¡A­×§ï¥¢±Ñ¡I");
+			snprintf(tmpbuf, sizeof(tmpbuf), "ï¼§ï¼­åˆ—è¡¨ä¸­æŸ¥ç„¡æ­¤å¸³è™Ÿï¼Œä¿®æ”¹å¤±æ•—ï¼");
 			CHAR_talkToCli(charaindex, -1, tmpbuf, CHAR_COLORWHITE);
 		}
 	}
@@ -3000,9 +3000,9 @@ void CHAR_CHAT_DEBUG_setBattle( int charaindex, char *message )
 
 void CHAR_CHAT_DEBUG_reloadpkteamlist( int charaindex, char *message)
 {
-#ifdef _DEATH_CONTEND				// (¤£¥i¶}) ANDY ¦º°«
+#ifdef _DEATH_CONTEND				// (ä¸å¯é–‹) ANDY æ­»é¬¥
 	ABATTLE_InitABattle(19);
-	CHAR_talkToCli(charaindex, -1,"­«Åª¤ñÁÉ¶¤¥î¦Cªí§¹¦¨", CHAR_COLORWHITE);
+	CHAR_talkToCli(charaindex, -1,"é‡è®€æ¯”è³½éšŠä¼åˆ—è¡¨å®Œæˆ", CHAR_COLORWHITE);
 #endif
 }
 
@@ -3170,7 +3170,7 @@ void TEST_CreatPet( )
 		return;
 	}
 
-	//creatÃdª«
+	//creatå¯µç‰©
 	for( j=0; j < pet_Num; j++ )     {
 		if( AVGCREATPET[struct_num].creat_num <= 0 )	{
 			DefPetNum( struct_num, AVGCREATPET[struct_num].petId);
@@ -3178,7 +3178,7 @@ void TEST_CreatPet( )
 			AVGCREATPET[struct_num+1].petId = -1;
 			AVGCREATPET[struct_num].creat_num = 0;
 			AVGCREATPET[struct_num+1].creat_num = 0;
-			//­pºâ
+			//è¨ˆç®—
 			return;
 		}
 		ret = ENEMY_TEST_createPetIndex( pet_list );
@@ -3204,7 +3204,7 @@ void TEST_CreatPet( )
 		sprintf( buf,"%s", CHAR_getChar( petindex, CHAR_NAME ));
 		memcpy( AVGCREATPET[struct_num].name, buf, sizeof( AVGCREATPET[struct_num].name)  );
 		AVGCREATPET[struct_num].creat_num -=1;
-		//°O¿ı
+		//è¨˜éŒ„
 		AVGCREATPET[struct_num].char_hp += CHAR_getInt( petindex, CHAR_HP );
 		AVGCREATPET[struct_num].char_vital += CHAR_getInt( petindex, CHAR_VITAL);
 		AVGCREATPET[struct_num].char_str += CHAR_getInt( petindex, CHAR_STR);
@@ -3220,7 +3220,7 @@ void TEST_CreatPet( )
 		AVGCREATPET[struct_num].fixtgh = CHAR_getWorkInt(petindex,CHAR_WORKFIXTOUGH);
 		AVGCREATPET[struct_num].fixdex = CHAR_getWorkInt(petindex,CHAR_WORKFIXDEX);
 
-		CHAR_PetTakeLevelUp( petindex, pet_Lv);//±j¨îÃdª«¤É¯Å
+		CHAR_PetTakeLevelUp( petindex, pet_Lv);//å¼·åˆ¶å¯µç‰©å‡ç´š
 		CHAR_setInt( petindex , CHAR_HP , CHAR_getWorkInt( petindex , CHAR_WORKMAXHP ) );
 
 		//log
@@ -3254,7 +3254,7 @@ void TEST_CreatPet( )
 		AVGCREATPET[struct_num + 1].fixtgh = CHAR_getWorkInt(petindex,CHAR_WORKFIXTOUGH);
 		AVGCREATPET[struct_num + 1].fixdex = CHAR_getWorkInt(petindex,CHAR_WORKFIXDEX);
 
-		CHAR_PetTakeDrop( petindex, floor, -1, -1);	//±j¨î¥á±óÃdª«
+		CHAR_PetTakeDrop( petindex, floor, -1, -1);	//å¼·åˆ¶ä¸Ÿæ£„å¯µç‰©
 		CHAR_setInt( petindex, CHAR_PUTPETTIME, NowTime.tv_sec);
 	}
 
@@ -3301,7 +3301,7 @@ void CHAR_CHAT_DEBUG_cleanfloor( int charaindex, char *message)
 			goldnum++;
 		}
 	}
-	sprintf( buf, "²M°£ Ãdª«:%d¥u¡A¹D¨ã:%d­Ó¡A¥Û¹ô:%d­Ó¡C", petnum, itemnum, goldnum);
+	sprintf( buf, "æ¸…é™¤ å¯µç‰©:%dåªï¼Œé“å…·:%då€‹ï¼ŒçŸ³å¹£:%då€‹ã€‚", petnum, itemnum, goldnum);
 	CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
 	return;
 }
@@ -3343,7 +3343,7 @@ void CHAR_CHAT_DEBUG_setgamblenum( int charaindex, char *message )
 	if( set_num > 10000) set_num = 10000;
 	CHAR_setInt( charaindex, CHAR_GAMBLENUM, set_num);
 
-	sprintf( buf,"­Ó¤H¹C¼Ö³õ¿n¤À³]¬°%dÂI¡C", CHAR_getInt( charaindex, CHAR_GAMBLENUM));
+	sprintf( buf,"å€‹äººéŠæ¨‚å ´ç©åˆ†è¨­ç‚º%dé»ã€‚", CHAR_getInt( charaindex, CHAR_GAMBLENUM));
 	CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
 	return;
 }
@@ -3371,7 +3371,7 @@ void CHAR_CHAT_DEBUG_petlevelup( int charaindex, char* message )
 		if( !CHAR_CHECKINDEX( petindex) )return;
 		mylevel = CHAR_getInt( petindex, CHAR_LV);
 		level = level-mylevel+1;
-		for( k = 1; k < level; k ++ ){	//¤É¯Å
+		for( k = 1; k < level; k ++ ){	//å‡ç´š
 			CHAR_PetLevelUp( petindex );
 			CHAR_PetAddVariableAi( petindex, AI_FIX_PETLEVELUP );
 			CHAR_setInt( petindex, CHAR_LV, CHAR_getInt( petindex, CHAR_LV) +1 );
@@ -3384,7 +3384,7 @@ void CHAR_CHAT_DEBUG_petlevelup( int charaindex, char* message )
 		CHAR_sendStatusString( charaindex, msgbuf );
 		snprintf( msgbuf, sizeof( msgbuf ), "W%d", i );
 		CHAR_sendStatusString( charaindex, msgbuf );
-		snprintf( msgbuf, sizeof( msgbuf ), "Ãdª«%d ¤É¦Ü%d", i,level);
+		snprintf( msgbuf, sizeof( msgbuf ), "å¯µç‰©%d å‡è‡³%d", i,level);
 		CHAR_talkToCli(charaindex, -1, msgbuf, CHAR_COLORYELLOW);
 		return;
 	}
@@ -3393,14 +3393,14 @@ void CHAR_CHAT_DEBUG_petlevelup( int charaindex, char* message )
 		if( !CHAR_CHECKINDEX( petindex) )continue;
 		mylevel = CHAR_getInt( petindex, CHAR_LV);
 		level = level-mylevel+1;
-		for( k = 1; k < level; k ++ ){	//¤É¯Å
+		for( k = 1; k < level; k ++ ){	//å‡ç´š
 			CHAR_PetLevelUp( petindex );
 			CHAR_PetAddVariableAi( petindex, AI_FIX_PETLEVELUP );
 			CHAR_setInt( petindex, CHAR_LV, CHAR_getInt( petindex, CHAR_LV) +1 );
 		}
 		CHAR_complianceParameter( petindex );
 		CHAR_setInt( petindex , CHAR_HP , CHAR_getWorkInt( petindex , CHAR_WORKMAXHP ) );
-		snprintf( msgbuf, sizeof( msgbuf ), "Ãdª«%d ¤É¦Ü%d", i,level);
+		snprintf( msgbuf, sizeof( msgbuf ), "å¯µç‰©%d å‡è‡³%d", i,level);
 		CHAR_talkToCli(charaindex, -1, msgbuf, CHAR_COLORYELLOW);
 	}
 
@@ -3462,14 +3462,14 @@ void CHAR_CHAT_DEBUG_engineer( int charindex, char *message)
 		}
 		j=0;
 		for( petNum=0; petNum<arraysizeof( petTemp); petNum++)	{
-			enemyarray = ENEMY_getEnemyArrayFromId( petTemp[ petNum]); //¥Õªê
+			enemyarray = ENEMY_getEnemyArrayFromId( petTemp[ petNum]); //ç™½è™
 			petindex = ENEMY_createPetFromEnemyIndex( charindex, enemyarray);
 			if( petindex == -1 ) {
 				continue;
 			}
 			add_pet[j]=petindex;
 			j++;
-			for( k = 1; k < 120; k ++ ){	//¤É¯Å
+			for( k = 1; k < 120; k ++ ){	//å‡ç´š
 				CHAR_PetLevelUp( petindex );
 				CHAR_PetAddVariableAi( petindex, AI_FIX_PETLEVELUP );
 				CHAR_setInt( petindex, CHAR_LV, CHAR_getInt( petindex, CHAR_LV) +1 );
@@ -3510,7 +3510,7 @@ void CHAR_CHAT_DEBUG_gmkick( int charindex, char* message)
 	int act=1;
 
 	if( getStringFromIndexWithDelim( message, " ", 1, buf1, sizeof( buf1)) == FALSE )	{
-		CHAR_talkToCli(charindex, -1, "°Ñ¼Æ¤£¥¿½T", CHAR_COLORYELLOW);
+		CHAR_talkToCli(charindex, -1, "åƒæ•¸ä¸æ­£ç¢º", CHAR_COLORYELLOW);
 		return;
 	}
 	sprintf( cmd, "%s", buf1);
@@ -3522,13 +3522,13 @@ void CHAR_CHAT_DEBUG_gmkick( int charindex, char* message)
 			}
 		}
 		if( i >= arraysizeof( gmset) )	{
-			CHAR_talkToCli(charindex, -1, "°Ñ¼Æ¤£¥¿½T", CHAR_COLORYELLOW);
+			CHAR_talkToCli(charindex, -1, "åƒæ•¸ä¸æ­£ç¢º", CHAR_COLORYELLOW);
 			return;
 		}
 		act = i;
 		// WON FIX 5 --> 6
 		if( act < 0 || act > 6 ){
-			CHAR_talkToCli(charindex, -1, "°Ñ¼Æ¤£¥¿½T", CHAR_COLORYELLOW);
+			CHAR_talkToCli(charindex, -1, "åƒæ•¸ä¸æ­£ç¢º", CHAR_COLORYELLOW);
 			return;
 		}
 	}
@@ -3566,7 +3566,7 @@ void CHAR_CHAT_DEBUG_remserver( int charaindex, char *message )
 #endif
 }
 #ifdef _M_SERVER
-//³à§Ó
+//å–ªå¿—
 void CHAR_CHAT_DEBUG_reloadmsip( int charaindex, char *message)
 {
 	char buf1[256];
@@ -3583,7 +3583,7 @@ void CHAR_CHAT_DEBUG_reloadmsip( int charaindex, char *message)
 }
 #endif
 
-// WON ADD ·í¾÷«ü¥O
+// WON ADD ç•¶æ©ŸæŒ‡ä»¤
 void CHAR_CHAT_DEBUG_crash(int charaindex , char *message)
 {
 	int fd;
@@ -3615,7 +3615,7 @@ void CHAR_CHAT_DEBUG_Toxication( int charaindex, char *message)
 {
 	int fd = getfdFromCharaIndex( charaindex );
 	if( strstr( message, "TRUE") != 0){
-		CHAR_talkToCli( charaindex, -1, "¤¤¬r", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "ä¸­æ¯’", CHAR_COLORYELLOW);
 		setToxication( fd, 1);
 	}else	{
 		setToxication( fd, 0);
@@ -3628,14 +3628,14 @@ void CHAR_CHAT_DEBUG_Toxication( int charaindex, char *message)
 void CHAR_CHAT_DEBUG_getascore(int charindex, char *message)
 {
 	int witchi[5] = { -1,CHAR_ABULLSTART, CHAR_ABULLSCORE, CHAR_ABULLTIME, CHAR_ABULLSTARTTIME};
-	char witchn[5][256]={"¥ş","°Ñ»PºX¼Ğ","¬¡°ÊÁZ¤À","¾Ô°«²Ö¿n®É¶¡","¶}©l®É¶¡"};
+	char witchn[5][256]={"å…¨","åƒèˆ‡æ——æ¨™","æ´»å‹•ç¸¾åˆ†","æˆ°é¬¥ç´¯ç©æ™‚é–“","é–‹å§‹æ™‚é–“"};
 	char witchs[5][256]={"all","start","score","btime","stime"};
 	int i;
 	for( i=0; i<5; i++)	{
 		if( strstr( message, witchs[i]) != 0 ){
 			char buf[256];
 			if( i == 0 ){
-				sprintf( buf, "%s:%d %s:%d %s:%d %s:%d¡C",
+				sprintf( buf, "%s:%d %s:%d %s:%d %s:%dã€‚",
 					witchn[1], CHAR_getInt( charindex, witchi[1]),
 					witchn[2], CHAR_getInt( charindex, witchi[2]),
 					witchn[3], CHAR_getInt( charindex, witchi[3]),
@@ -3643,9 +3643,9 @@ void CHAR_CHAT_DEBUG_getascore(int charindex, char *message)
 			}else{
 				if( i == 2 ){
 					int batime = CHAR_getInt( charindex, witchi[i]);
-					sprintf( buf, "%s : %d¤À%d¬í¡C", witchn[i], batime/60, batime%60 );
+					sprintf( buf, "%s : %dåˆ†%dç§’ã€‚", witchn[i], batime/60, batime%60 );
 				}else {
-					sprintf( buf, "%s : %d¡C", witchn[i], CHAR_getInt( charindex, witchi[i]) );
+					sprintf( buf, "%s : %dã€‚", witchn[i], CHAR_getInt( charindex, witchi[i]) );
 				}
 			}
 			CHAR_talkToCli( charindex, -1, buf, CHAR_COLORYELLOW);
@@ -3669,16 +3669,16 @@ void CHAR_CHAT_DEBUG_setascore(int charindex, char *message)
 			if( strstr( buf1, witchs[i]) != 0 ){
 				char buf2[256];
 				int nums=0;
-				char witchn[3][256]={"°Ñ»PºX¼Ğ","¬¡°ÊÁZ¤À","¶}©l®É¶¡"};
+				char witchn[3][256]={"åƒèˆ‡æ——æ¨™","æ´»å‹•ç¸¾åˆ†","é–‹å§‹æ™‚é–“"};
 				if( getStringFromIndexWithDelim( message, " ", 2, buf2, sizeof( buf2)) == FALSE )
 					return;
 				nums = atoi( buf2);
 				if( i == 2 )	{
-					sprintf( buf2, "%s³]©w¬°´£«e%d¡C", witchn[i], nums);
+					sprintf( buf2, "%sè¨­å®šç‚ºæå‰%dã€‚", witchn[i], nums);
 					nums = (nums * 24) * (60 * 60);
 					nums = (int)time( NULL) - nums;
 				}else{
-					sprintf( buf2, "%s³]©w¬°%d¡C", witchn[i], nums);
+					sprintf( buf2, "%sè¨­å®šç‚º%dã€‚", witchn[i], nums);
 				}
 				CHAR_setInt( charindex, witchi[i], nums);
 				CHAR_talkToCli( charindex, -1, buf2, CHAR_COLORYELLOW);
@@ -3694,14 +3694,14 @@ void CHAR_CHAT_DEBUG_setascore(int charindex, char *message)
 void CHAR_CHAT_DEBUG_saveditem(int charaindex, char *message)
 {
 	if( CHAR_SaveDepotItem( charaindex) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "Àx¦s¥¢±Ñ¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "å„²å­˜å¤±æ•—ï¼", CHAR_COLORYELLOW);
 	}
 }
 
 void CHAR_CHAT_DEBUG_insertditem(int charaindex, char *message)
 {
 	if( CHAR_GetDepotItem( -1, charaindex) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "Åª¨ú¥¢±Ñ¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "è®€å–å¤±æ•—ï¼", CHAR_COLORYELLOW);
 	}
 }
 
@@ -3709,7 +3709,7 @@ void CHAR_CHAT_DEBUG_ShowMyDepotItems( int charaindex, char *message )
 {
 	if( !CHAR_CheckDepotItem( charaindex) ){
 		char token[256];
-		sprintf( token, "©|¥¼¨ú±o­Ü®w¡C");
+		sprintf( token, "å°šæœªå–å¾—å€‰åº«ã€‚");
 		CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
     	return;
 	}
@@ -3722,7 +3722,7 @@ void CHAR_CHAT_DEBUG_InSideMyDepotItems( int charaindex, char *message )
 	char token[256];
 
 	if( !CHAR_CheckDepotItem( charaindex) ){
-		sprintf( token, "©|¥¼¨ú±o­Ü®w¡C");
+		sprintf( token, "å°šæœªå–å¾—å€‰åº«ã€‚");
 		CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
     	return;
 	}
@@ -3739,7 +3739,7 @@ void CHAR_CHAT_DEBUG_InSideMyDepotItems( int charaindex, char *message )
 			break;
 		}
 	}
-	sprintf( token, "Âà´«%d­Ó¹D¨ã¡C", count);
+	sprintf( token, "è½‰æ›%då€‹é“å…·ã€‚", count);
 	CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
 }
 #endif
@@ -3749,14 +3749,14 @@ void CHAR_CHAT_DEBUG_InSideMyDepotItems( int charaindex, char *message )
 void CHAR_CHAT_DEBUG_savedpet(int charaindex, char *message)
 {
 	if( CHAR_SaveDepotPet( charaindex) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "Àx¦s¥¢±Ñ¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "å„²å­˜å¤±æ•—ï¼", CHAR_COLORYELLOW);
 	}
 }
 
 void CHAR_CHAT_DEBUG_insertdpet(int charaindex, char *message)
 {
 	if( CHAR_GetDepotPet( -1, charaindex) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "Åª¨ú¥¢±Ñ¡I", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "è®€å–å¤±æ•—ï¼", CHAR_COLORYELLOW);
 	}
 }
 
@@ -3764,7 +3764,7 @@ void CHAR_CHAT_DEBUG_ShowMyDepotPets( int charaindex, char *message )
 {
 	if( !CHAR_CheckDepotPet( charaindex) ){
 		char token[256];
-		sprintf( token, "©|¥¼¨ú±o­Ü®w¡C");
+		sprintf( token, "å°šæœªå–å¾—å€‰åº«ã€‚");
 		CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
     	return;
 	}
@@ -3777,7 +3777,7 @@ void CHAR_CHAT_DEBUG_InSideMyDepotPets( int charaindex, char *message )
 	char token[256];
 
 	if( !CHAR_CheckDepotPet( charaindex) ){
-		sprintf( token, "©|¥¼¨ú±o­Ü®w¡C");
+		sprintf( token, "å°šæœªå–å¾—å€‰åº«ã€‚");
 		CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
     	return;
 	}
@@ -3799,7 +3799,7 @@ void CHAR_CHAT_DEBUG_InSideMyDepotPets( int charaindex, char *message )
 			break;
 		}
 	}
-	sprintf( token, "Âà´«%d­ÓÃdª«¡C", count);
+	sprintf( token, "è½‰æ›%då€‹å¯µç‰©ã€‚", count);
 	CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
 }
 #endif
@@ -3826,7 +3826,7 @@ void CHAR_CHAT_DEBUG_cleanfreepet(int charaindex, char *message)
 	}
 	if( delobjnum > 0 ){
 		char buf[256];
-		sprintf( buf, "²M°£%d  ¸mÃdª«¡C", delobjnum);
+		sprintf( buf, "æ¸…é™¤%d  ç½®å¯µç‰©ã€‚", delobjnum);
 		CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORRED);
 	}
 }
@@ -3851,7 +3851,7 @@ void CHAR_CHAT_DEBUG_acnewplayer(int charaindex, char *message)
 	buf[ strlen( buf)+1]=0;
 	RunType = atoi( buf);
 	if( RunType < 1 || RunType > 2 ){
-		CHAR_talkToCli( charaindex, -1, "°Ñ¼Æ¿ù»~", CHAR_COLORRED);
+		CHAR_talkToCli( charaindex, -1, "åƒæ•¸éŒ¯èª¤", CHAR_COLORRED);
 		return;
 	}
 	saacproto_ACNEWPlayerList_send( acfd, CdKey, UserName, charaindex, RunType);
@@ -3863,7 +3863,7 @@ void CHAR_CHAT_DEBUG_loadnewplayer( int charaindex, char*message )
 }
 #endif
 
-#ifdef _SEND_EFFECT	   	        // WON ADD AC°e¤U³·¡B¤U«Bµ¥¯S®Ä
+#ifdef _SEND_EFFECT	   	        // WON ADD ACé€ä¸‹é›ªã€ä¸‹é›¨ç­‰ç‰¹æ•ˆ
 void CHAR_CHAT_DEBUG_sendeffect( int charaindex, char *message)
 {
 	int i, j, effect, level;
@@ -3966,14 +3966,14 @@ void CHAR_CHAT_DEBUG_checktime( int charaindex, char *message)
 {
 	time_t newsec;
 	char buf[256];
-	char WKday[7][32]={"¤é","¤@","¤G","¤T","¥|","¤­","¤»"};
+	char WKday[7][32]={"æ—¥","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­"};
 	struct tm *p;
 
 
 	newsec = time( NULL);
 	p = localtime( &newsec);
 //	newsec = localtime( &newsec);
-	sprintf( buf, "¤µ¤Ñ¡G%d¦~%d¤ë%d¤é %s %d:%d:%d ...newsec:%ld¡C",
+	sprintf( buf, "ä»Šå¤©ï¼š%då¹´%dæœˆ%dæ—¥ %s %d:%d:%d ...newsec:%ldã€‚",
 		(1900+p->tm_year), (1+p->tm_mon), p->tm_mday, WKday[p->tm_wday],
 		p->tm_hour, p->tm_min, p->tm_sec, newsec );
 	CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORRED);
@@ -3999,13 +3999,13 @@ void CHAR_CHAT_DEBUG_checktime( int charaindex, char *message)
 	p->tm_sec =  atoi( buf);
 
 	newsec = mktime( p);
-	sprintf( buf, "½T»{1¡G%d¦~%d¤ë%d¤é %s %d:%d:%d ...newsec:%ld¡C",
+	sprintf( buf, "ç¢ºèª1ï¼š%då¹´%dæœˆ%dæ—¥ %s %d:%d:%d ...newsec:%ldã€‚",
 		(1900+p->tm_year), (1+p->tm_mon), p->tm_mday, WKday[p->tm_wday],
 		p->tm_hour, p->tm_min, p->tm_sec, newsec );
 	CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORRED);
 
 	p = localtime( &newsec);
-	sprintf( buf, "½T»{2¡G%d¦~%d¤ë%d¤é %s %d:%d:%d ...newsec:%ld..time:%d¡C",
+	sprintf( buf, "ç¢ºèª2ï¼š%då¹´%dæœˆ%dæ—¥ %s %d:%d:%d ...newsec:%ld..time:%dã€‚",
 		(1900+p->tm_year), (1+p->tm_mon), p->tm_mday, WKday[p->tm_wday],
 		p->tm_hour, p->tm_min, p->tm_sec, newsec, (int)time(NULL));
 	CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORRED);
@@ -4036,14 +4036,14 @@ void CHAR_CHAT_DEBUG_cleanqute( int charaindex, char *message)
 			CHAR_setInt( i, CHAR_GMQUEFLG, 0 );
 			CHAR_setInt( i, CHAR_GMQUENUMS, 0);
 
-			sprintf( token,"²M°£%s¬¡°Ê°O¸¹¡C", CHAR_getUseName(i) );
+			sprintf( token,"æ¸…é™¤%sæ´»å‹•è¨˜è™Ÿã€‚", CHAR_getUseName(i) );
 			CHAR_talkToCli( charaindex, -1, token, CHAR_COLORRED);
-			sprintf( token,"%s²M°£§Aªº¬¡°Ê°O¸¹¡C", CHAR_getUseName(charaindex) );
+			sprintf( token,"%sæ¸…é™¤ä½ çš„æ´»å‹•è¨˜è™Ÿã€‚", CHAR_getUseName(charaindex) );
 			CHAR_talkToCli( i, -1, token, CHAR_COLORRED);
 			return;
 		}
 	}
-	CHAR_talkToCli( charaindex, -1, "¨S¦³§ä¨ì¹ï¹³!!", CHAR_COLORRED);
+	CHAR_talkToCli( charaindex, -1, "æ²’æœ‰æ‰¾åˆ°å°åƒ!!", CHAR_COLORRED);
 }
 #endif
 
@@ -4093,12 +4093,12 @@ void CHAR_CHAT_DEBUG_playerspread( int charaindex, char *message)
 }
 
 
-#ifdef _CHAR_PROFESSION			// WON ADD ¤Hª«Â¾·~
+#ifdef _CHAR_PROFESSION			// WON ADD äººç‰©è·æ¥­
 
 void CHAR_CHAT_DEBUG_set_regist( int charaindex, char*message )
 {
 
-#ifdef _MAGIC_RESIST_EQUIT		// WON ADD Â¾·~§Ü©Ê¸Ë³Æ
+#ifdef _MAGIC_RESIST_EQUIT		// WON ADD è·æ¥­æŠ—æ€§è£å‚™
 	char temp[128] = {0}, msg[128] = {0};
 	int f = 0, i = 0, t = 0;
 
@@ -4113,7 +4113,7 @@ void CHAR_CHAT_DEBUG_set_regist( int charaindex, char*message )
 	CHAR_setWorkInt( charaindex, CHAR_WORK_I_SUIT, i );
 	CHAR_setWorkInt( charaindex, CHAR_WORK_T_SUIT, t );
 
-	sprintf(msg, "¤õ§Ü©Ê(%d) ¤ô§Ü©Ê(%d) ¹q§Ü©Ê(%d)",
+	sprintf(msg, "ç«æŠ—æ€§(%d) æ°´æŠ—æ€§(%d) é›»æŠ—æ€§(%d)",
 			CHAR_getWorkInt( charaindex, CHAR_WORK_F_SUIT),				
 			CHAR_getWorkInt( charaindex, CHAR_WORK_I_SUIT),
 			CHAR_getWorkInt( charaindex, CHAR_WORK_T_SUIT)
@@ -4138,10 +4138,10 @@ void CHAR_CHAT_DEBUG_show_profession( int charaindex, char*message )
 	getStringFromIndexWithDelim( message, " ", 2, worker, sizeof(worker) );
 	getStringFromIndexWithDelim( message, " ", 3, value, sizeof(value) );
 
-	if( strcmp(type, "restart") == 0 ){	// ­«Åª profession.txt 
-			CHAR_talkToCli( charaindex, -1, "­«Åª profession.txt", CHAR_COLORRED);
+	if( strcmp(type, "restart") == 0 ){	// é‡è®€ profession.txt 
+			CHAR_talkToCli( charaindex, -1, "é‡è®€ profession.txt", CHAR_COLORRED);
 			rePROFESSION_initSkill();
-	}else if( strcmp(type, "") != 0 ){	// ­×§ïÂ¾·~Äİ©Ê
+	}else if( strcmp(type, "") != 0 ){	// ä¿®æ”¹è·æ¥­å±¬æ€§
 		if( strcmp(worker, "") != 0 ){
 			if( strcmp(value, "") != 0 ){
 				CHAR_setInt(charaindex, PROFESSION_CLASS+atoi(worker), atoi(value) );
@@ -4157,14 +4157,14 @@ void CHAR_CHAT_DEBUG_show_profession( int charaindex, char*message )
 				}
 #endif
 			}else
-				CHAR_talkToCli( charaindex, -1, "½Ğ¿é¤J¼Æ­È", CHAR_COLORRED);
+				CHAR_talkToCli( charaindex, -1, "è«‹è¼¸å…¥æ•¸å€¼", CHAR_COLORRED);
 		}else 
-			CHAR_talkToCli( charaindex, -1, "½Ğ¿é¤J­×§ï¶µ¥Ø¡G1(Â¾·~§O) 2(Â¾·~µ¥¯Å) 3(Â¾·~¸gÅç­È) 4(³Ñ¾lÂI¼Æ)", CHAR_COLORRED);
+			CHAR_talkToCli( charaindex, -1, "è«‹è¼¸å…¥ä¿®æ”¹é …ç›®ï¼š1(è·æ¥­åˆ¥) 2(è·æ¥­ç­‰ç´š) 3(è·æ¥­ç¶“é©—å€¼) 4(å‰©é¤˜é»æ•¸)", CHAR_COLORRED);
 	}
 
 	if(  strcmp(type, "1") != 0 ){
 		memset(msg, 0, sizeof(msg));
-		sprintf(msg, "Â¾·~§O(%d) Â¾·~µ¥¯Å(%d) ³Ñ¾lÂI¼Æ(%d)",
+		sprintf(msg, "è·æ¥­åˆ¥(%d) è·æ¥­ç­‰ç´š(%d) å‰©é¤˜é»æ•¸(%d)",
 				CHAR_getInt(charaindex, PROFESSION_CLASS),
 				CHAR_getInt(charaindex, PROFESSION_LEVEL),
 				CHAR_getInt(charaindex, PROFESSION_SKILL_POINT)
@@ -4212,7 +4212,7 @@ void CHAR_CHAT_DEBUG_samecode( int charaindex, char *message)
 		}
 	}
 	if( j >= 3 ){
-		CHAR_talkToCli( charaindex, -1, "°Ñ¼Æ¿ù»~¡I", CHAR_COLORRED);
+		CHAR_talkToCli( charaindex, -1, "åƒæ•¸éŒ¯èª¤ï¼", CHAR_COLORRED);
 		return;
 	}
 
@@ -4281,7 +4281,7 @@ void CHAR_CHAT_DEBUG_silent(int charindex ,char *message)
      easyGetTokenFromString( message , 1 , token, sizeof(token));
      easyGetTokenFromString( message , 2 , token1, sizeof(token1));
      if( (strlen(message)==0) || (strlen(token1)==0) ){
-         sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T--> ±b¸¹ ¤ÀÄÁ");
+         sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º--> å¸³è™Ÿ åˆ†é˜");
          CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
          return;
      }
@@ -4310,7 +4310,7 @@ void CHAR_CHAT_DEBUG_silent(int charindex ,char *message)
                 
                 //print("\n<Set TRUE");
                 snprintf( line, sizeof( line),
-               		"¥Û¾¹¤jÅ]¤ı±N %s «Ê¼L%d¤ÀÄÁ¡C",
+               		"çŸ³å™¨å¤§é­”ç‹å°‡ %s å°å˜´%dåˆ†é˜ã€‚",
                 	CHAR_getChar( index, CHAR_NAME),
                 	minu );
                 CHAR_talkToCli( charindex, -1,line, CHAR_COLORWHITE);
@@ -4329,13 +4329,13 @@ void CHAR_CHAT_DEBUG_help( int charindex, char *message)
 
 	getStringFromIndexWithDelim( message, " ", 1, buf, sizeof( buf) );
 	if( ( strlen( message) == 0 ) || ( strlen( buf) == 0 ) ){
-		strcpy( buf, "[help «ü¥O/all]");
+		strcpy( buf, "[help æŒ‡ä»¤/all]");
 		CHAR_talkToCli( charindex, -1, buf, CHAR_COLORYELLOW);
 		return;
 	}
 
 	if( !strcmp( buf, "all") ) type = 1;
-	strcpy( token, "¥i¥ÎGM«ü¥O:");
+	strcpy( token, "å¯ç”¨GMæŒ‡ä»¤:");
 	GmLevel = CHAR_getWorkInt( charindex, CHAR_WORKGMLEVEL);
 
 	for( i=0; i<MaxMagicNum; i++){
@@ -4344,14 +4344,14 @@ void CHAR_CHAT_DEBUG_help( int charindex, char *message)
 			sprintf( buf2, ", [%s ]", buf1);
 			if( strlen( token) >= 220 ){
 				CHAR_talkToCli( charindex, -1, token, CHAR_COLORYELLOW);	
-				strcpy( token, "¥i¥ÎGM«ü¥O:");
+				strcpy( token, "å¯ç”¨GMæŒ‡ä»¤:");
 			}
 			strcat( token, buf2);
 			continue;
 		}else{
 			if( strstr( buf1, buf) != NULL || 
 				strstr( buf2, buf) != NULL ){
-				sprintf( token, "GM«ü¥O:[%s %s]", buf1, buf2);
+				sprintf( token, "GMæŒ‡ä»¤:[%s %s]", buf1, buf2);
 				CHAR_talkToCli( charindex, -1, token, CHAR_COLORYELLOW);
 			}
 			continue;
@@ -4365,9 +4365,9 @@ void CHAR_CHAT_DEBUG_help( int charindex, char *message)
 void CHAR_CHAR_DEBUG_gmidentify( int charaindex, char* message )
 {
     int i;
-	int MAX_USER=getFdnum(); //ª±®a¼Æ¶q
-    CHAR_setChar(charaindex, CHAR_GMIDENTIFY, message); //³]©wgm¦r¦ê
-    CHAR_sendCToArroundCharacter(CHAR_getWorkInt( charaindex, CHAR_WORKOBJINDEX )); //¶Ç°eµ¹©P³òªº¤H
+	int MAX_USER=getFdnum(); //ç©å®¶æ•¸é‡
+    CHAR_setChar(charaindex, CHAR_GMIDENTIFY, message); //è¨­å®šgmå­—ä¸²
+    CHAR_sendCToArroundCharacter(CHAR_getWorkInt( charaindex, CHAR_WORKOBJINDEX )); //å‚³é€çµ¦å‘¨åœçš„äºº
 	//for(i=0;i<MAX_USER;i++){
       //  CHAR_talkToCli( i, -1, CHAR_getChar(charaindex, CHAR_GMIDENTIFY), CHAR_COLORWHITE);
     //}
@@ -4399,11 +4399,11 @@ void CHAR_CHAT_DEBUG_updatepklist( int charaindex, char* message )
 	PKLIST_ShowPkListTeamData( );
 
 	if( PKLIST_GetTeamLeaderCdkey( mynum, mycdkey) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "µLªk§ä¨ì¶¤¥î1", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "ç„¡æ³•æ‰¾åˆ°éšŠä¼1", CHAR_COLORYELLOW);
 		return;
 	}
 	if( PKLIST_GetTeamLeaderCdkey( tonum, tocdkey) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "µLªk§ä¨ì¶¤¥î2", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "ç„¡æ³•æ‰¾åˆ°éšŠä¼2", CHAR_COLORYELLOW);
 		return;
 	}
 
@@ -4419,23 +4419,23 @@ void CHAR_CHAT_DEBUG_updatepklist( int charaindex, char* message )
 
 
 
-#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD ®a±Ú¾ÔGM«ü¥O
+#ifdef _DEATH_FAMILY_GM_COMMAND	// WON ADD å®¶æ—æˆ°GMæŒ‡ä»¤
 
 void CHAR_CHAR_DEBUG_reloadfm( int charaindex, char* message )
 {
 
-	CHAR_talkToCli( charaindex, -1, "­«Åª®a±Ú¸ê®Æ¤¤...", CHAR_COLORYELLOW);		
+	CHAR_talkToCli( charaindex, -1, "é‡è®€å®¶æ—è³‡æ–™ä¸­...", CHAR_COLORYELLOW);		
 	saacproto_ReloadFamily_send( acfd, charaindex );
 }
 
 void CHAR_CHAR_DEBUG_fmpk( int charaindex, char* message )
 {
-	//°Ñ¼Æ¡G ®a±Ú1 ®a±Ú2 ®É¶¡ ³õ¦a
+	//åƒæ•¸ï¼š å®¶æ—1 å®¶æ—2 æ™‚é–“ å ´åœ°
 	static int fm1 = -1, fm2 = -1, time = -1, id = -1;
 	char buf1[256] = {0};
 
 	if( getStringFromIndexWithDelim( message, " ", 1, buf1, sizeof(buf1) ) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "[fmpk ®a±Ú1 ®a±Ú2 ®É¶¡ ³õ¦a]",  CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "[fmpk å®¶æ—1 å®¶æ—2 æ™‚é–“ å ´åœ°]",  CHAR_COLORYELLOW);
 		return;
 	}
 	fm1 = atoi( buf1);
@@ -4452,20 +4452,20 @@ void CHAR_CHAR_DEBUG_fmpk( int charaindex, char* message )
 
 void CHAR_CHAR_DEBUG_fmpk_clean( int charaindex, char* message )
 {
-	//°Ñ¼Æ¡G³õ¦a ®É¶¡ 
+	//åƒæ•¸ï¼šå ´åœ° æ™‚é–“ 
 	int time = -1, id = -1;
 	char buf1[256] = {0};
 	int i, fmpks_pos = -1, hour = -1, min = -1;
 
 	if( getStringFromIndexWithDelim( message, " ", 1, buf1, sizeof(buf1) ) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "[fmpk_clean ³õ¦a ®É¶¡]",  CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "[fmpk_clean å ´åœ° æ™‚é–“]",  CHAR_COLORYELLOW);
 		return;
 	}
 	id = atoi( buf1 );
 	fmpks_pos = id * MAX_SCHEDULE;
 
 	if( getStringFromIndexWithDelim( message, " ", 2, buf1, sizeof(buf1) ) == FALSE ){
-		CHAR_talkToCli( charaindex, -1, "[fmpk_clean ³õ¦a ®É¶¡]",  CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "[fmpk_clean å ´åœ° æ™‚é–“]",  CHAR_COLORYELLOW);
 		return;
 	}
 	if( strcmp( buf1, "all" ) == 0 ) time = 2500;
@@ -4490,7 +4490,7 @@ void CHAR_CHAR_DEBUG_fmpk_clean( int charaindex, char* message )
 			fmpks[fmpks_pos+i].flag = FMPKS_FLAG_NONE;
 			fmpks[fmpks_pos+i].setting_timeout = -1; 
 
-			sprintf( msg, "ID:%d TIME:%d ®a±Ú¬D¾Ô²M°£§¹¦¨", id, time );
+			sprintf( msg, "ID:%d TIME:%d å®¶æ—æŒ‘æˆ°æ¸…é™¤å®Œæˆ", id, time );
 			CHAR_talkToCli( charaindex, -1, msg, CHAR_COLORYELLOW );
 
 			return;
@@ -4514,11 +4514,11 @@ void CHAR_CHAT_DEBUG_set_momentum( int charaindex, char* message )
 		}
 	}
 	if(i >= iPlayerNum){
-		CHAR_talkToCli(charaindex,-1,"§ä¤£¨ì³o¦Wª±®a",CHAR_COLORYELLOW);
+		CHAR_talkToCli(charaindex,-1,"æ‰¾ä¸åˆ°é€™åç©å®¶",CHAR_COLORYELLOW);
 		return;
 	}
 	CHAR_setInt(i,CHAR_MOMENTUM,id);
-	sprintf(szMsg,"¥Ø«e®ğ¶Õ­È: %d",CHAR_getInt(i,CHAR_MOMENTUM)/100);
+	sprintf(szMsg,"ç›®å‰æ°£å‹¢å€¼: %d",CHAR_getInt(i,CHAR_MOMENTUM)/100);
 	CHAR_talkToCli(charaindex,-1,szMsg,CHAR_COLORYELLOW);
 	sprintf(buf,"%d",id);
 	fd = getfdFromCharaIndex(i);
@@ -4534,32 +4534,32 @@ void CHAR_CHAT_DEBUG_set_manor_owner( int charindex, char* message )
 	char szId[8],szUseFlag[2],szFamilyNameOrID[64],szToken[4096],szFamilyIndex[8],szGetFamilyName[64];
 
 	if(message == NULL || getStringFromIndexWithDelim(message," ",1,szId,sizeof(szId)) == FALSE){
-		CHAR_talkToCli(charindex,-1, "°Ñ¼Æ¤£¥¿½T [set_manor_owner ²ø¶éid(1~9) ¨Ï¥ÎºX¼Ğ(0:¦WºÙ 1:id) ®a±Ú¦WºÙ©Îid]", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "åƒæ•¸ä¸æ­£ç¢º [set_manor_owner èŠåœ’id(1~9) ä½¿ç”¨æ——æ¨™(0:åç¨± 1:id) å®¶æ—åç¨±æˆ–id]", CHAR_COLORRED);
 		return;
 	}
 	if(atoi(szId) < 1 || atoi(szId) > MANORNUM){
-		CHAR_talkToCli(charindex,-1, "²ø¶éID­È¤£¥¿½T(1~9)", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "èŠåœ’IDå€¼ä¸æ­£ç¢º(1~9)", CHAR_COLORRED);
 		return;
 	}
 	if(getStringFromIndexWithDelim(message," ",2,szUseFlag,sizeof(szUseFlag)) == FALSE){
-		CHAR_talkToCli(charindex,-1, "°Ñ¼Æ¤£¥¿½T [set_manor_owner ²ø¶éid(1~9) ¨Ï¥ÎºX¼Ğ(0:¦WºÙ 1:id) ®a±Ú¦WºÙ©Îid]", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "åƒæ•¸ä¸æ­£ç¢º [set_manor_owner èŠåœ’id(1~9) ä½¿ç”¨æ——æ¨™(0:åç¨± 1:id) å®¶æ—åç¨±æˆ–id]", CHAR_COLORRED);
 		return;
 	}
 	iUseFlag = atoi(szUseFlag);
 	if(iUseFlag < 0 || iUseFlag > 1){
-		CHAR_talkToCli(charindex,-1, "¨Ï¥ÎºX¼Ğ­È¤£¥¿½T(0:¦WºÙ 1:id)", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "ä½¿ç”¨æ——æ¨™å€¼ä¸æ­£ç¢º(0:åç¨± 1:id)", CHAR_COLORRED);
 		return;
 	}
 	if(getStringFromIndexWithDelim(message," ",3,szFamilyNameOrID,sizeof(szFamilyNameOrID)) == FALSE){
-		CHAR_talkToCli(charindex,-1, "°Ñ¼Æ¤£¥¿½T [set_manor_owner ²ø¶éid(1~9) ¨Ï¥ÎºX¼Ğ(0:¦WºÙ 1:id) ®a±Ú¦WºÙ©Îid]", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "åƒæ•¸ä¸æ­£ç¢º [set_manor_owner èŠåœ’id(1~9) ä½¿ç”¨æ——æ¨™(0:åç¨± 1:id) å®¶æ—åç¨±æˆ–id]", CHAR_COLORRED);
 		return;
 	}
 	if(iUseFlag == 1){
-		// ÀË¬d¬O§_³£¬O¼Æ¦r
+		// æª¢æŸ¥æ˜¯å¦éƒ½æ˜¯æ•¸å­—
 		for(i=0;i<sizeof(szFamilyNameOrID);i++){
 			if(szFamilyNameOrID[i] == '\0') break;
 			if(szFamilyNameOrID[i] > '9' || szFamilyNameOrID < '0'){
-				CHAR_talkToCli(charindex,-1, "®a±Úid®æ¦¡¿ù»~", CHAR_COLORRED);
+				CHAR_talkToCli(charindex,-1, "å®¶æ—idæ ¼å¼éŒ¯èª¤", CHAR_COLORRED);
 				return;
 			}
 		}
@@ -4576,10 +4576,10 @@ void CHAR_CHAT_DEBUG_set_manor_owner( int charindex, char* message )
 			else break;
 		}
 		if(index == -1){
-			CHAR_talkToCli(charindex,-1,"§ä¤£¨ì¦¹®a±Ú¸ê®Æ", CHAR_COLORRED);
+			CHAR_talkToCli(charindex,-1,"æ‰¾ä¸åˆ°æ­¤å®¶æ—è³‡æ–™", CHAR_COLORRED);
 			return;
 		}
-		sprintf(szToken,"²ø¶é %s ³]©wµ¹ %s ®a±Ú",szId,szGetFamilyName);
+		sprintf(szToken,"èŠåœ’ %s è¨­å®šçµ¦ %s å®¶æ—",szId,szGetFamilyName);
 		saacproto_ACFixFMPoint_send(acfd,szGetFamilyName,index+1,index,szGetFamilyName,index+1,index,atoi(szId));
 	}
 	else{
@@ -4597,10 +4597,10 @@ void CHAR_CHAT_DEBUG_set_manor_owner( int charindex, char* message )
 		}
 	
 		if(index == -1){
-			CHAR_talkToCli(charindex,-1,"§ä¤£¨ì¦¹®a±Ú¸ê®Æ", CHAR_COLORRED);
+			CHAR_talkToCli(charindex,-1,"æ‰¾ä¸åˆ°æ­¤å®¶æ—è³‡æ–™", CHAR_COLORRED);
 			return;
 		}
-		sprintf(szToken,"²ø¶é %s ³]©wµ¹ %s ®a±Ú",szId,szFamilyNameOrID);
+		sprintf(szToken,"èŠåœ’ %s è¨­å®šçµ¦ %s å®¶æ—",szId,szFamilyNameOrID);
 		saacproto_ACFixFMPoint_send(acfd,szFamilyNameOrID,index+1,index,szFamilyNameOrID,index+1,index,atoi(szId));
 	}
 	CHAR_talkToCli(charindex,-1,szToken,CHAR_COLORRED);
@@ -4613,15 +4613,15 @@ void CHAR_CHAT_DEBUG_set_schedule_time( int charindex, char* message )
 	char szId[8],szTime[12],szMsg[128];
 
 	if(message == NULL || getStringFromIndexWithDelim(message," ",1,szId,sizeof(szId)) == FALSE){
-		CHAR_talkToCli(charindex,-1, "°Ñ¼Æ¤£¥¿½T [set_schedule_time ²ø¶éid(1~9) ®É¶¡(¤À)]", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "åƒæ•¸ä¸æ­£ç¢º [set_schedule_time èŠåœ’id(1~9) æ™‚é–“(åˆ†)]", CHAR_COLORRED);
 		return;
 	}
 	if(atoi(szId) < 1 || atoi(szId) > MANORNUM){
-		CHAR_talkToCli(charindex,-1, "²ø¶éID­È¤£¥¿½T", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "èŠåœ’IDå€¼ä¸æ­£ç¢º", CHAR_COLORRED);
 		return;
 	}
 	if(getStringFromIndexWithDelim(message," ",2,szTime,sizeof(szTime)) == FALSE){
-		CHAR_talkToCli(charindex,-1, "°Ñ¼Æ¤£¥¿½T [set_schedule_time ²ø¶éid(1~9) ®É¶¡(¤À)]", CHAR_COLORRED);
+		CHAR_talkToCli(charindex,-1, "åƒæ•¸ä¸æ­£ç¢º [set_schedule_time èŠåœ’id(1~9) æ™‚é–“(åˆ†)]", CHAR_COLORRED);
 		return;
 	}
 	for(i=0;i<char_max;i++){
@@ -4631,20 +4631,20 @@ void CHAR_CHAT_DEBUG_set_schedule_time( int charindex, char* message )
 
 				memcpy(&tm1,localtime((time_t*)&NowTime.tv_sec),sizeof(tm1));
 				fmpks[fmpks_pos+1].dueltime = NowTime.tv_sec + atoi(szTime) * 60;
-				sprintf(szMsg,"²ø¶é®É¶¡³]©w¬° %s ¤À",szTime);
+				sprintf(szMsg,"èŠåœ’æ™‚é–“è¨­å®šç‚º %s åˆ†",szTime);
 				CHAR_talkToCli(charindex,-1,szMsg,CHAR_COLORRED);
 				return;
 			}
 		}
 	}
-	CHAR_talkToCli(charindex,-1,"§ä¤£¨ì²ø¶énpc",CHAR_COLORRED);
+	CHAR_talkToCli(charindex,-1,"æ‰¾ä¸åˆ°èŠåœ’npc",CHAR_COLORRED);
 }
 
 #endif
 
 
 #ifdef _ANGEL_SUMMON
-void CHAR_CHAT_DEBUG_angelinfo(int charindex ,char *message) // Åã¥ÜMission¸ê®Æ
+void CHAR_CHAT_DEBUG_angelinfo(int charindex ,char *message) // é¡¯ç¤ºMissionè³‡æ–™
 {
 	char cdkey[256], msg[1024], buf[256];
 	int i, clean =FALSE;
@@ -4653,24 +4653,24 @@ void CHAR_CHAT_DEBUG_angelinfo(int charindex ,char *message) // Åã¥ÜMission¸ê®Æ
 	char herokey[256], heroname[256];
 
 	if( message[0] == NULL || getStringFromIndexWithDelim( message, " ", 1, cdkey, sizeof(cdkey) ) == FALSE ){
-		CHAR_talkToCli( charindex, -1, "°Ñ¼Æ¤£¥¿½T [angelinfo ±b¸¹(all) (clean)]", CHAR_COLORRED);
+		CHAR_talkToCli( charindex, -1, "åƒæ•¸ä¸æ­£ç¢º [angelinfo å¸³è™Ÿ(all) (clean)]", CHAR_COLORRED);
 		return;
 	}
 	if( getStringFromIndexWithDelim( message, " ", 2, buf, sizeof(buf) ) != FALSE ){
 		//if( !strcmp( buf, "clean") )	clean =TRUE;
 	}
 
-	if( !strcmp( cdkey, "all") ) { // Åã¥Ü¥ş³¡¸ê®Æ
+	if( !strcmp( cdkey, "all") ) { // é¡¯ç¤ºå…¨éƒ¨è³‡æ–™
 		for( i =0; i <MAXMISSIONTABLE; i++) {
 			if( missiontable[i].angelinfo[0] == NULL )
 				continue;
 		
-			sprintf( msg, "%d ¨ÏªÌ:%s «iªÌ:%s MS:%d FLG:%d TIME:%d LT:%d ",
+			sprintf( msg, "%d ä½¿è€…:%s å‹‡è€…:%s MS:%d FLG:%d TIME:%d LT:%d ",
 					i, missiontable[i].angelinfo, missiontable[i].heroinfo,
 					missiontable[i].mission, missiontable[i].flag, missiontable[i].time, missiontable[i].limittime);
 			if( clean) {
 				saacproto_ACMissionTable_send( acfd, i, 3, "", "");
-				strcat( msg, "...²M°£!! ");
+				strcat( msg, "...æ¸…é™¤!! ");
 			}
 			CHAR_talkToCli( charindex, -1, msg, CHAR_COLORYELLOW);
 		}
@@ -4683,7 +4683,7 @@ void CHAR_CHAT_DEBUG_angelinfo(int charindex ,char *message) // Åã¥ÜMission¸ê®Æ
 			getStringFromIndexWithDelim( missiontable[i].heroinfo, ":", 1, herokey, sizeof(herokey));
 
 			if( !strcmp( angelkey, cdkey) || !strcmp( herokey, cdkey)) {
-				sprintf( msg, "%d ¨ÏªÌ:%s «iªÌ:%s MS:%d FLG:%d TIME:%d LT:%d ",
+				sprintf( msg, "%d ä½¿è€…:%s å‹‡è€…:%s MS:%d FLG:%d TIME:%d LT:%d ",
 					i, missiontable[i].angelinfo, missiontable[i].heroinfo,
 					missiontable[i].mission, missiontable[i].flag, missiontable[i].time, missiontable[i].limittime);
 				CHAR_talkToCli( charindex, -1, msg, CHAR_COLORYELLOW);
@@ -4694,27 +4694,27 @@ void CHAR_CHAT_DEBUG_angelinfo(int charindex ,char *message) // Åã¥ÜMission¸ê®Æ
 			}
 		}
 	}
-	CHAR_talkToCli( charindex, -1, "....µ²§ô", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "....çµæŸ", CHAR_COLORYELLOW);
 }
 
-void CHAR_CHAT_DEBUG_angelclean(int charindex ,char *message) // ²M°£Mission¸ê®Æ
+void CHAR_CHAT_DEBUG_angelclean(int charindex ,char *message) // æ¸…é™¤Missionè³‡æ–™
 {
 	int mindex;
 	char msg[1024];
 
 	mindex = atoi( message);
 	if( mindex <0 || mindex >=MAXMISSIONTABLE) {
-		CHAR_talkToCli( charindex, -1, "½s¸¹¤£¥¿½T", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charindex, -1, "ç·¨è™Ÿä¸æ­£ç¢º", CHAR_COLORYELLOW);
 		return;
 	}
 	if( missiontable[mindex].flag == MISSION_NONE ) {
-		CHAR_talkToCli( charindex, -1, "µL¦¹¸ê®Æ", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charindex, -1, "ç„¡æ­¤è³‡æ–™", CHAR_COLORYELLOW);
 		return;
 	}
 	
 	saacproto_ACMissionTable_send( acfd, mindex, 3, "", "");
 
-	sprintf( msg, " GM«ü¥O ²M°£¥ô°È¸ê®Æ i:%d ¨ÏªÌ:%s «iªÌ:%s m:%d flg:%d time:%d lt:%d ",
+	sprintf( msg, " GMæŒ‡ä»¤ æ¸…é™¤ä»»å‹™è³‡æ–™ i:%d ä½¿è€…:%s å‹‡è€…:%s m:%d flg:%d time:%d lt:%d ",
 		mindex, missiontable[mindex].angelinfo, missiontable[mindex].heroinfo,
 		missiontable[mindex].mission, missiontable[mindex].flag,
 		missiontable[mindex].time, missiontable[mindex].limittime );
@@ -4722,7 +4722,7 @@ void CHAR_CHAT_DEBUG_angelclean(int charindex ,char *message) // ²M°£Mission¸ê®Æ
 	LogAngel( msg);
 }
 
-void CHAR_CHAT_DEBUG_angelcreate(int charindex ,char *message) // »s³y¨ÏªÌ»P«iªÌ°t¹ï
+void CHAR_CHAT_DEBUG_angelcreate(int charindex ,char *message) // è£½é€ ä½¿è€…èˆ‡å‹‡è€…é…å°
 {
 	char angelid[256], heroid[256], msg[1024], buf[256];
 	int i, clean =FALSE;
@@ -4730,21 +4730,21 @@ void CHAR_CHAT_DEBUG_angelcreate(int charindex ,char *message) // »s³y¨ÏªÌ»P«iªÌ
 	int angelindex =-1, heroindex =-1, mission =-1;
 
 	if( getStringFromIndexWithDelim( message, " ", 1, angelid, sizeof(angelid) ) == FALSE ){
-		CHAR_talkToCli( charindex, -1, "°Ñ¼Æ¤£¥¿½T [angelcreate ¨ÏªÌ±b¸¹ «iªÌ±b¸¹ ¥ô°È½s¸¹]", CHAR_COLORRED);
+		CHAR_talkToCli( charindex, -1, "åƒæ•¸ä¸æ­£ç¢º [angelcreate ä½¿è€…å¸³è™Ÿ å‹‡è€…å¸³è™Ÿ ä»»å‹™ç·¨è™Ÿ]", CHAR_COLORRED);
 		return;
 	}
 	if( getStringFromIndexWithDelim( message, " ", 2, heroid, sizeof(heroid) ) == FALSE ){
-		CHAR_talkToCli( charindex, -1, "°Ñ¼Æ¤£¥¿½T [angelcreate ¨ÏªÌ±b¸¹ «iªÌ±b¸¹ ¥ô°È½s¸¹]", CHAR_COLORRED);
+		CHAR_talkToCli( charindex, -1, "åƒæ•¸ä¸æ­£ç¢º [angelcreate ä½¿è€…å¸³è™Ÿ å‹‡è€…å¸³è™Ÿ ä»»å‹™ç·¨è™Ÿ]", CHAR_COLORRED);
 		return;
 	}
 	if( getStringFromIndexWithDelim( message, " ", 3, buf, sizeof(buf) ) == FALSE ){
-		CHAR_talkToCli( charindex, -1, "°Ñ¼Æ¤£¥¿½T [angelcreate ¨ÏªÌ±b¸¹ «iªÌ±b¸¹ ¥ô°È½s¸¹]", CHAR_COLORRED);
+		CHAR_talkToCli( charindex, -1, "åƒæ•¸ä¸æ­£ç¢º [angelcreate ä½¿è€…å¸³è™Ÿ å‹‡è€…å¸³è™Ÿ ä»»å‹™ç·¨è™Ÿ]", CHAR_COLORRED);
 		return;
 	}
 	mission = atoi( buf);
 	//if( mission <= 0 || mission >= MAXMISSION || missionlist[mission].id <= 0) {
 	if( mission >= MAXMISSION ) {
-		CHAR_talkToCli( charindex, -1, "¥ô°È½s¸¹¤£¥¿½T", CHAR_COLORRED);
+		CHAR_talkToCli( charindex, -1, "ä»»å‹™ç·¨è™Ÿä¸æ­£ç¢º", CHAR_COLORRED);
 		return;
 	}
 
@@ -4761,12 +4761,12 @@ void CHAR_CHAT_DEBUG_angelcreate(int charindex ,char *message) // »s³y¨ÏªÌ»P«iªÌ
 			break;
 	}
 	if( angelindex == -1 || heroindex == -1 ) {
-		CHAR_talkToCli( charindex, -1, "§ä¤£¨ì¨ÏªÌ©Î«iªÌ", CHAR_COLORRED);
+		CHAR_talkToCli( charindex, -1, "æ‰¾ä¸åˆ°ä½¿è€…æˆ–å‹‡è€…", CHAR_COLORRED);
 		return;
 	}
 
 	if( checkIfAngel( angelindex) != -1 || checkIfAngel( heroindex) != -1 ) {
-		CHAR_talkToCli( charindex, -1, "¨ÏªÌ©Î«iªÌ¤w¸g¦³¥ô°È¤F", CHAR_COLORRED);
+		CHAR_talkToCli( charindex, -1, "ä½¿è€…æˆ–å‹‡è€…å·²ç¶“æœ‰ä»»å‹™äº†", CHAR_COLORRED);
 		return;
 	}
 
@@ -4777,14 +4777,14 @@ void CHAR_CHAT_DEBUG_angelcreate(int charindex ,char *message) // »s³y¨ÏªÌ»P«iªÌ
 void CHAR_CHAT_DEBUG_missionreload(int charindex ,char *message)
 {
 	print("Reading MissionList File...");
-	CHAR_talkToCli( charindex, -1, "­«·sÅª¨ú¨ÏªÌ¥ô°È¦Cªí...", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "é‡æ–°è®€å–ä½¿è€…ä»»å‹™åˆ—è¡¨...", CHAR_COLORYELLOW);
 	if( !LoadMissionList( ) ) {
-		CHAR_talkToCli( charindex, -1, "Åª¨ú¥¢±Ñ", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charindex, -1, "è®€å–å¤±æ•—", CHAR_COLORYELLOW);
 		print("fail!!\n");
 		return;
 	}
 	print("done\n");
-	CHAR_talkToCli( charindex, -1, "Åª¨ú§¹¦¨", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "è®€å–å®Œæˆ", CHAR_COLORYELLOW);
 
 }
 
@@ -4793,13 +4793,13 @@ void CHAR_CHAT_DEBUG_missionreload(int charindex ,char *message)
 void CHAR_CHAT_DEBUG_itemreload(int charindex ,char *message)
 {
 	print("Reading itemset File...");
-	CHAR_talkToCli( charindex, -1, "­«·s¹D¨ã¸ê®Æ...", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "é‡æ–°é“å…·è³‡æ–™...", CHAR_COLORYELLOW);
 
 	if(!ITEM_readItemConfFile( getItemfile()) ) {
-		CHAR_talkToCli( charindex, -1, "Åª¨ú¥¢±Ñ", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charindex, -1, "è®€å–å¤±æ•—", CHAR_COLORYELLOW);
 	}
 	print("done\n");
-	CHAR_talkToCli( charindex, -1, "Åª¨ú§¹¦¨", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "è®€å–å®Œæˆ", CHAR_COLORYELLOW);
 }
 
 
@@ -4809,18 +4809,18 @@ void CHAR_CHAT_DEBUG_skywalker(int charaindex ,char *message)
 		return;
 
 	if( strstr( message, "on") != NULL )	{
-		CHAR_talkToCli( charaindex, -1, "¤Ñ¦æªÌ¼Ò¦¡±Ò°Ê", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "å¤©è¡Œè€…æ¨¡å¼å•Ÿå‹•", CHAR_COLORYELLOW);
 		CHAR_setWorkInt( charaindex, CHAR_WORKSKYWALKER, TRUE);
 	}
 	if( strstr( message, "off") != NULL )	{
-		CHAR_talkToCli( charaindex, -1, "¤Ñ¦æªÌ¼Ò¦¡Ãö³¬", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "å¤©è¡Œè€…æ¨¡å¼é—œé–‰", CHAR_COLORYELLOW);
 		CHAR_setWorkInt( charaindex, CHAR_WORKSKYWALKER, FALSE);
 	}
 
 	CHAR_send_P_StatusString( charaindex, CHAR_P_STRING_SKYWALKER);
 }
 
-#ifdef _ITEM_ADDEXP // Åã¥Ü´¼ªG®ÄªG
+#ifdef _ITEM_ADDEXP // é¡¯ç¤ºæ™ºæœæ•ˆæœ
 void CHAR_CHAT_DEBUG_itemaddexp(int charaindex ,char *message)
 {
 	char msg[1024];
@@ -4845,12 +4845,12 @@ void CHAR_CHAT_DEBUG_itemaddexp(int charaindex ,char *message)
 			}
 		}
 		if( toindex == -1 ) {
-			CHAR_talkToCli( charaindex,-1, "¬dµL¦¹¤H", CHAR_COLORRED);
+			CHAR_talkToCli( charaindex,-1, "æŸ¥ç„¡æ­¤äºº", CHAR_COLORRED);
 			return;
 		}
 	}
 
-	sprintf( msg, "´¼¼z¤§ªG®ÄªG  %s¡@¥Ø«e¤À¼Æ%d  %d¢H  ®É¶¡%d¤À¡C",
+	sprintf( msg, "æ™ºæ…§ä¹‹æœæ•ˆæœ  %sã€€ç›®å‰åˆ†æ•¸%d  %dï¼…  æ™‚é–“%dåˆ†ã€‚",
 			CHAR_getChar( toindex, CHAR_NAME),
 			CHAR_getWorkInt( toindex, CHAR_WORKITEM_ADDEXP)
 					* (int)(CHAR_getWorkInt( toindex, CHAR_WORKITEM_ADDEXPTIME)/60),
@@ -4871,7 +4871,7 @@ void CHAR_CHAT_DEBUG_fmfreetime(int charaindex,char *message)
 		return;
 	getStringFromIndexWithDelim( message, " ", 1, token_cdkey, sizeof( token_cdkey));
 	if( strlen(token_cdkey)==0){
-        sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T¡C¥¿½T®æ¦¡¡G[fmfreetime  ±b¸¹]");
+        sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢ºã€‚æ­£ç¢ºæ ¼å¼ï¼š[fmfreetime  å¸³è™Ÿ]");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
         return;
 	}
@@ -4886,11 +4886,11 @@ void CHAR_CHAT_DEBUG_fmfreetime(int charaindex,char *message)
 		}
 	}
 	if( i >= Playernum ){
-		sprintf(buf,"%s\n","¥¢±Ñ¡I¬dµL¦¹±b¸¹¡C");
+		sprintf(buf,"%s\n","å¤±æ•—ï¼æŸ¥ç„¡æ­¤å¸³è™Ÿã€‚");
 		CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORRED);	
 	}else{
 		if(!CHAR_getInt( i , CHAR_FMTIMELIMIT )){
-			sprintf(buf,"%s\n","³]©w§¹¦¨¡C");
+			sprintf(buf,"%s\n","è¨­å®šå®Œæˆã€‚");
 			CHAR_talkToCli(charaindex, -1, buf, CHAR_COLORYELLOW);	
 		}		
 	}
@@ -4911,7 +4911,7 @@ void CHAR_CHAT_DEBUG_getyou(int charaindex,char *message)
 	getStringFromIndexWithDelim( message, " ", 1, areabuf , sizeof( areabuf ));
 	area = atoi(areabuf);
 	if( area <= 0 || area > 3 ){
-        sprintf(buf,"%s","¨S¦³¿é¤J½d³ò©Î½d³ò¶W¥X­­¨î¡A½Ğ¿é¤J1~3");
+        sprintf(buf,"%s","æ²’æœ‰è¼¸å…¥ç¯„åœæˆ–ç¯„åœè¶…å‡ºé™åˆ¶ï¼Œè«‹è¼¸å…¥1~3");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
         return;
 	}
@@ -4925,21 +4925,21 @@ void CHAR_CHAT_DEBUG_getyou(int charaindex,char *message)
 				if( OBJECT_getType(o) == OBJTYPE_CHARA ){
 					chara_index=OBJECT_getIndex(o);
 					if( CHAR_getInt( chara_index, CHAR_WHICHTYPE) != CHAR_TYPEPLAYER ) continue;
-					if( chara_index == charaindex ) continue;  //§ä¨ì¦Û¤v¤F 
+					if( chara_index == charaindex ) continue;  //æ‰¾åˆ°è‡ªå·±äº† 
 					if( ( fd = getfdFromCharaIndex(chara_index) ) != -1 ){				
 						getnum++;
-						CONNECT_getCharname( fd, szName, sizeof( szName ) );  //¤Hª«¦WºÙ
-						CONNECT_getCdkey( fd, cdkey, sizeof( cdkey ));		  //±b¸¹	
+						CONNECT_getCharname( fd, szName, sizeof( szName ) );  //äººç‰©åç¨±
+						CONNECT_getCdkey( fd, cdkey, sizeof( cdkey ));		  //å¸³è™Ÿ	
 						//CHAR_getChar( chara_index, CHAR_NAME);  
-						snprintf( line, sizeof( line), "²Ä%d­Ó§ä¨ì[%s]ªº±b¸¹¬O[%s]",getnum,szName,cdkey);
+						snprintf( line, sizeof( line), "ç¬¬%då€‹æ‰¾åˆ°[%s]çš„å¸³è™Ÿæ˜¯[%s]",getnum,szName,cdkey);
                         CHAR_talkToCli( charaindex, -1,line, CHAR_COLORRED);
-						print("²Ä%d­Ó§ä¨ì[%s]ªº±b¸¹¬O[%s]\n",getnum,szName,cdkey);					
+						print("ç¬¬%då€‹æ‰¾åˆ°[%s]çš„å¸³è™Ÿæ˜¯[%s]\n",getnum,szName,cdkey);					
 					}
 				}
 			}
 		}
 	}
-	if(!getnum) CHAR_talkToCli( charaindex, -1, "  ³ò¤º¨S¦³¤H", CHAR_COLORYELLOW);
+	if(!getnum) CHAR_talkToCli( charaindex, -1, "  åœå…§æ²’æœ‰äºº", CHAR_COLORYELLOW);
 }
 #endif
 
@@ -4956,34 +4956,34 @@ void CHAR_CHAT_DEBUG_newsend(int charindex ,char *message)
 	unsigned int MAX_USER=0;
 	MAX_USER=getFdnum();
 	if( strlen(message)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-> FLOOR X Y µL/­n»¡ªº¸Ü");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-> FLOOR X Y ç„¡/è¦èªªçš„è©±");
 		CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	easyGetTokenFromString( message , 1 , token, sizeof(token));
 	if( strlen(token)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->¦a¹Ï½s¸¹");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->åœ°åœ–ç·¨è™Ÿ");
 		CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	fl=atoi( token );
 	easyGetTokenFromString( message , 2 , token, sizeof(token));
 	if( strlen(token)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->X®y¼Ğ ");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->Xåº§æ¨™ ");
 		CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	x = atoi( token );
 	easyGetTokenFromString( message , 3 , token, sizeof(token));
 	if( strlen(token)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->Y®y¼Ğ ");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->Yåº§æ¨™ ");
 		CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	y = atoi( token );
 	easyGetTokenFromString( message , 4 , token, sizeof(token));
 	if( strlen(token)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->±b¸¹");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->å¸³è™Ÿ");
 		CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
@@ -4999,7 +4999,7 @@ void CHAR_CHAT_DEBUG_newsend(int charindex ,char *message)
 				fd_charaindex = CONNECT_getCharaindex( i );
 				CHAR_warpToSpecificPoint(fd_charaindex, fl, x, y);
 				snprintf( line, sizeof( line),
-						 "§â name:%s account=%s ¶Ç°e¨ì FL=%d X=%d Y=%d say:%s",
+						 "æŠŠ name:%s account=%s å‚³é€åˆ° FL=%d X=%d Y=%d say:%s",
 						  szName,cdkey,fl,x,y,say);
 				CHAR_talkToCli( charindex, -1 , line , CHAR_COLORWHITE );
 				if(strlen(say)){ 
@@ -5022,52 +5022,52 @@ void CHAR_CHAT_DEBUG_supersend(int charaindex ,char *message)
 	char say[128];
 	int tofl,toX,toY,i,j,k,area;
     OBJECT  object;
-	int fl,x,y,fd,fd_charaindex; //±b¸¹©Ò¦b¦ì¸m
+	int fl,x,y,fd,fd_charaindex; //å¸³è™Ÿæ‰€åœ¨ä½ç½®
 	unsigned int MAX_USER=0;
 	int sendnum = 0;
 	int o,chara_index;
 
 
 	if( strlen(message)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-> FLOOR X Y ±b¸¹ ®æ¼Æ µL/­n»¡ªº¸Ü");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-> FLOOR X Y å¸³è™Ÿ æ ¼æ•¸ ç„¡/è¦èªªçš„è©±");
 		CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	easyGetTokenFromString( message , 1 , token, sizeof(token));
 	if( strlen(token)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->¦a¹Ï½s¸¹");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->åœ°åœ–ç·¨è™Ÿ");
 		CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	tofl=atoi( token );
 	easyGetTokenFromString( message , 2 , token, sizeof(token));
 	if( strlen(token)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->X®y¼Ğ ");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->Xåº§æ¨™ ");
 		CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	toX = atoi( token );
 	easyGetTokenFromString( message , 3 , token, sizeof(token));
 	if( strlen(token)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->Y®y¼Ğ ");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->Yåº§æ¨™ ");
 		CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	toY = atoi( token );
 	easyGetTokenFromString( message , 4 , cdkeytoken , sizeof(cdkeytoken));
 	if( strlen(cdkeytoken)==0){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->±b¸¹");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->å¸³è™Ÿ");
 		CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
 	easyGetTokenFromString( message , 5 , token, sizeof(token));
 	area = atoi( token );
 	if( strlen(token)==0 ||	area <= 0 || area > 3 ){
-		sprintf(buf,"%s","°Ñ¼Æ¤£¥¿½T-->®æ¼Æ(1~3)");
+		sprintf(buf,"%s","åƒæ•¸ä¸æ­£ç¢º-->æ ¼æ•¸(1~3)");
 		CHAR_talkToCli( charaindex, -1,buf, CHAR_COLORWHITE);
 		return;
 	}
-	easyGetTokenFromString( message , 6 , say , sizeof(say));  //»¡¸Ü
+	easyGetTokenFromString( message , 6 , say , sizeof(say));  //èªªè©±
 
 	MAX_USER=getFdnum();
     for(k=0;k<MAX_USER;k++){
@@ -5089,12 +5089,12 @@ void CHAR_CHAT_DEBUG_supersend(int charaindex ,char *message)
 							if( OBJECT_getType(o) == OBJTYPE_CHARA ){
 								chara_index=OBJECT_getIndex(o);
 								if( CHAR_getInt( chara_index, CHAR_WHICHTYPE) == CHAR_TYPEPLAYER ){
-									//if( chara_index == charaindex ) continue;  //§ä¨ì¦Û¤v¤F 
+									//if( chara_index == charaindex ) continue;  //æ‰¾åˆ°è‡ªå·±äº† 
 									if( ( fd = getfdFromCharaIndex(chara_index) ) != -1 ){				
 										sendnum++;
-										CONNECT_getCharname( fd, szName, sizeof( szName ) );  //¤Hª«¦WºÙ
+										CONNECT_getCharname( fd, szName, sizeof( szName ) );  //äººç‰©åç¨±
 										CHAR_warpToSpecificPoint( chara_index, tofl, toX, toY);
-										snprintf(line,sizeof( line),"²Ä%d­Ó¶Ç°e[%s]",sendnum,szName);
+										snprintf(line,sizeof( line),"ç¬¬%då€‹å‚³é€[%s]",sendnum,szName);
 										CHAR_talkToCli( charaindex, -1,line, CHAR_COLORWHITE);
 										if(strlen(say))
 											CHAR_talkToCli( chara_index, -1 , say , CHAR_COLORYELLOW );										
@@ -5107,8 +5107,8 @@ void CHAR_CHAT_DEBUG_supersend(int charaindex ,char *message)
 						}
 					}
 				}
-				if(sendnum<=1) CHAR_talkToCli( charaindex, -1, "  ³ò¤º¨S¦³§Oªºª±®a", CHAR_COLORYELLOW);
-				snprintf( line, sizeof( line),"§â name:%s account=%s ©P³ò%d®æ¤ºªºª±®a¦@%d­Ó¶Ç°e¨ì FL=%d X=%d Y=%d",
+				if(sendnum<=1) CHAR_talkToCli( charaindex, -1, "  åœå…§æ²’æœ‰åˆ¥çš„ç©å®¶", CHAR_COLORYELLOW);
+				snprintf( line, sizeof( line),"æŠŠ name:%s account=%s å‘¨åœ%dæ ¼å…§çš„ç©å®¶å…±%då€‹å‚³é€åˆ° FL=%d X=%d Y=%d",
 													  name,cdkey,area,sendnum,tofl,toX,toY);
 				CHAR_talkToCli( charaindex, -1 , line , CHAR_COLORYELLOW );
 				break;
@@ -5124,7 +5124,7 @@ void CHAR_CHAT_DEBUG_fsize( int charaindex, char* message )
 	char buf1[256];
 	CHAR_setWorkInt( charaindex, CHAR_WORKFONTSIZE, atoi( message ));
 	//CHAR_send_P_StatusString( charaindex , CHAR_P_STRING_LV);
-	sprintf( buf1, "»¡¸Ü¦r«¬¤j¤p³]¬°%d¡C", atoi( message ));
+	sprintf( buf1, "èªªè©±å­—å‹å¤§å°è¨­ç‚º%dã€‚", atoi( message ));
 	CHAR_talkToCli( charaindex, -1, buf1, CHAR_COLORYELLOW);
 }
 #endif
@@ -5132,14 +5132,14 @@ void CHAR_CHAT_DEBUG_fsize( int charaindex, char* message )
 #ifdef _JZ_RIDE
 void CHAR_CHAT_DEBUG_reride(int charindex ,char *message)
 {
-	CHAR_talkToCli( charindex, -1, "­«·sÅª¨ú¦Û©w¸qÃMÃd¦Cªí...", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "é‡æ–°è®€å–è‡ªå®šç¾©é¨å¯µåˆ—è¡¨...", CHAR_COLORYELLOW);
 	print("GM Reading Ride File...");
 	if(CHAR_InitRide(getRidefile())){
 		print("done\n");
-		CHAR_talkToCli( charindex, -1, "Åª¨ú§¹¦¨", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charindex, -1, "è®€å–å®Œæˆ", CHAR_COLORYELLOW);
 		return;
 	}
-	CHAR_talkToCli( charindex, -1, "Åª¨ú¥¢±Ñ", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charindex, -1, "è®€å–å¤±æ•—", CHAR_COLORYELLOW);
 }
 #endif
 
@@ -5147,14 +5147,14 @@ void CHAR_CHAT_DEBUG_reride(int charindex ,char *message)
 void CHAR_CHAT_DEBUG_rejobdaily(int charaindex ,char *message)
 {
 	print("Reading Jobdaily File...");
-	CHAR_talkToCli( charaindex, -1, "­«·sÅª¨ú¥ô°È¤é»x¦Cªí...", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charaindex, -1, "é‡æ–°è®€å–ä»»å‹™æ—¥èªŒåˆ—è¡¨...", CHAR_COLORYELLOW);
 	if(!LoadJobdailyfile()){
-		CHAR_talkToCli( charaindex, -1, "Åª¨ú¥¢±Ñ", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "è®€å–å¤±æ•—", CHAR_COLORYELLOW);
 		print("fail!!\n");
 		return;
 	}
 	print("done\n");
-	CHAR_talkToCli( charaindex, -1, "Åª¨ú§¹¦¨", CHAR_COLORYELLOW);
+	CHAR_talkToCli( charaindex, -1, "è®€å–å®Œæˆ", CHAR_COLORYELLOW);
 }
 #endif
 
@@ -5171,19 +5171,19 @@ void CHAR_CHAT_DEBUG_changeask(int charaindex, char *message)
 
 	easyGetTokenFromString( message , 1 , cdkey , sizeof(cdkey));
 	if( strlen(cdkey)==0){
-        sprintf(buf,"%s","¨S¦³±b¸¹¡C¥¿½T®æ¦¡¡G[changeask  ±b¸¹  ¤Hª«¦WºÙ  ÃdÃÒid 0/1]");
+        sprintf(buf,"%s","æ²’æœ‰å¸³è™Ÿã€‚æ­£ç¢ºæ ¼å¼ï¼š[changeask  å¸³è™Ÿ  äººç‰©åç¨±  å¯µè­‰id 0/1]");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
         return;
 	}
 	easyGetTokenFromString( message , 2 , item, sizeof(item));
 	if( strlen(item)==0){
-        sprintf(buf,"%s","¨S¦³ÃdÃÒid¡C¥¿½T®æ¦¡¡G[changeask  ±b¸¹  ÃdÃÒid 0/1]");
+        sprintf(buf,"%s","æ²’æœ‰å¯µè­‰idã€‚æ­£ç¢ºæ ¼å¼ï¼š[changeask  å¸³è™Ÿ  å¯µè­‰id 0/1]");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
         return;
 	}
 	easyGetTokenFromString( message , 3 , free , sizeof(free));
 	if( strlen(free)==0 ){
-        sprintf(buf,"%s","³Ì«áªº°Ñ¼Æ¿ù»~¡C¥¿½T®æ¦¡¡G[changeask  ±b¸¹ ÃdÃÒid 0/1]");
+        sprintf(buf,"%s","æœ€å¾Œçš„åƒæ•¸éŒ¯èª¤ã€‚æ­£ç¢ºæ ¼å¼ï¼š[changeask  å¸³è™Ÿ å¯µè­‰id 0/1]");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
         return;
 	}
@@ -5200,18 +5200,18 @@ void CHAR_CHAT_DEBUG_changeask(int charaindex, char *message)
 		}
 	}
 	if(i>=Playernum){
-        sprintf(buf,"%s","§ä¤£¨ì³o­Ó¤H¡A½Ğ½T»{±b¸¹");
+        sprintf(buf,"%s","æ‰¾ä¸åˆ°é€™å€‹äººï¼Œè«‹ç¢ºèªå¸³è™Ÿ");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
         return;
 	}
-	//§ä¹D¨ã
+	//æ‰¾é“å…·
 	for( i = 0 ; i < CHAR_MAXITEMHAVE ; i++ ) {
 		itemindex=CHAR_getItemIndex( toindex , i );
 		if( ITEM_CHECKINDEX( itemindex) ) {
 			itemid=ITEM_getInt( itemindex ,ITEM_ID );			
-			if(itemid==atoi(item)){	//§ä¨ìÂyÃdÃÒ
+			if(itemid==atoi(item)){	//æ‰¾åˆ°çµå¯µè­‰
 				if(atoi(free)==1){
-					//³]©w¸Ñ¹L
+					//è¨­å®šè§£é
 					petNo = ( CHAR_getInt( toindex , CHAR_CHECKIN ) & 0x7FC00000 ) >> 22 ;	
 					intNo = petNo / 32 ;	
 					shift = petNo % 32 ;
@@ -5219,9 +5219,9 @@ void CHAR_CHAT_DEBUG_changeask(int charaindex, char *message)
 					CHAR_setInt( toindex , CHAR_KINDCNT1 + intNo , CHAR_getInt( toindex , CHAR_KINDCNT1 + intNo ) | base );
 					CHAR_setInt( toindex,CHAR_CATCHCNT5,CHAR_getInt( toindex,CHAR_CATCHCNT5 ) +1 );
 				}
-				//µ¹¤U¤@ÃD
+				//çµ¦ä¸‹ä¸€é¡Œ
 				if(CHAR_getInt( toindex,CHAR_CATCHCNT5 ) >= asktotal ){
-					sprintf( buf,"®¥³ß§A¹F¨ìÂyÃd¤jÁÉ²×·¥¥Ø¼Ğ¡A¯¬±z©â¤¤¤j¼ú");
+					sprintf( buf,"æ­å–œä½ é”åˆ°çµå¯µå¤§è³½çµ‚æ¥µç›®æ¨™ï¼Œç¥æ‚¨æŠ½ä¸­å¤§ç");
 				}else{
 					askno = Raceman_getokask( toindex , rand() % asktotal );
 					asklv = asktable[askno].lowlv + rand()%((asktable[askno].highlv+1)-asktable[askno].lowlv);
@@ -5230,9 +5230,9 @@ void CHAR_CHAT_DEBUG_changeask(int charaindex, char *message)
 					temp = temp | ((asktable[askno].bbi - 100000) & 0x00003FFF);
 					CHAR_setInt(  toindex , CHAR_CHECKIN , temp );  		
 					if( asktable[askno].highlv == 0 )
-						sprintf( buf,"½Ğ§ìµ¹§Úµ¥¯Å%d¡y¥H¤W¡zªº%s¦n¶Ü¡C±z¥Ø«e°O¿ı%dºØ", asktable[askno].lowlv , asktable[askno].petname, CHAR_getInt( toindex,CHAR_CATCHCNT5 ) );
+						sprintf( buf,"è«‹æŠ“çµ¦æˆ‘ç­‰ç´š%dã€ä»¥ä¸Šã€çš„%så¥½å—ã€‚æ‚¨ç›®å‰è¨˜éŒ„%dç¨®", asktable[askno].lowlv , asktable[askno].petname, CHAR_getInt( toindex,CHAR_CATCHCNT5 ) );
 					else
-						sprintf( buf,"½Ğ§ìµ¹§Ú¡y¥u¯à¡zµ¥¯Å%dªº%s¦n¶Ü¡C±z¥Ø«e°O¿ı%dºØ", asklv , asktable[askno].petname, CHAR_getInt( toindex,CHAR_CATCHCNT5 ) );
+						sprintf( buf,"è«‹æŠ“çµ¦æˆ‘ã€åªèƒ½ã€ç­‰ç´š%dçš„%så¥½å—ã€‚æ‚¨ç›®å‰è¨˜éŒ„%dç¨®", asklv , asktable[askno].petname, CHAR_getInt( toindex,CHAR_CATCHCNT5 ) );
 				}				
 				ITEM_setChar( itemindex, ITEM_EFFECTSTRING, buf);
 				CHAR_sendItemDataOne( toindex , i );
@@ -5241,11 +5241,11 @@ void CHAR_CHAT_DEBUG_changeask(int charaindex, char *message)
 		}
 	}
 	if( i >= CHAR_MAXITEMHAVE ){
-		sprintf(buf,"%s","§ä¤£¨ìÂyÃdÃÒ¡I");
+		sprintf(buf,"%s","æ‰¾ä¸åˆ°çµå¯µè­‰ï¼");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
         return;
 	}else{
-		sprintf(buf,"%s","³]©w§¹¦¨");
+		sprintf(buf,"%s","è¨­å®šå®Œæˆ");
         CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
 	}
 }
@@ -5270,7 +5270,7 @@ void CHAR_CHAT_DEBUG_BestMM(int charindex ,char *message)
 	}else if( atoi(message)== 2){
 		enemyid = 2547;
 	}else{
-		CHAR_talkToCli( charindex, -1, "°Ñ¼Æ¿ù»~->1/2 ¡]1=1¥NMM 2=2¥NMM¡^", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charindex, -1, "åƒæ•¸éŒ¯èª¤->1/2 ï¼ˆ1=1ä»£MM 2=2ä»£MMï¼‰", CHAR_COLORYELLOW);
 	}
 	enemynum = ENEMY_getEnemyNum();
 	for( i = 0; i < enemynum; i ++ ) {
@@ -5282,7 +5282,7 @@ void CHAR_CHAT_DEBUG_BestMM(int charindex ,char *message)
 
 	ret = ENEMY_createPetFromEnemyIndex( charindex, i);
 	if( !CHAR_CHECKINDEX( ret))return;
-	snprintf( msgbuf,sizeof( msgbuf), "·¥«~MM»s§@¦¨¥\\!index[%d]",ret);
+	snprintf( msgbuf,sizeof( msgbuf), "æ¥µå“MMè£½ä½œæˆåŠŸ\!index[%d]",ret);
 	CHAR_talkToCli( charindex, -1, msgbuf,  CHAR_COLORWHITE);
 	
 	vital = 50;
@@ -5305,7 +5305,7 @@ void CHAR_CHAT_DEBUG_BestMM(int charindex ,char *message)
 		if( level < 0 ) level = 0;
 		if( level > 0 ){
 			int k;
-			for( k = 1; k < level; k ++ ){	//¤É¯Å
+			for( k = 1; k < level; k ++ ){	//å‡ç´š
 				CHAR_PetLevelUp( ret );
 				CHAR_PetAddVariableAi( ret, AI_FIX_PETLEVELUP );
 				CHAR_setInt( ret, CHAR_LV, CHAR_getInt( ret, CHAR_LV) +1 );
@@ -5322,7 +5322,7 @@ void CHAR_CHAT_DEBUG_Support(int charindex ,char *message)
 	int timemintemp;
 	timemintemp = atoi(message);
 	if (timemintemp==0)return;
-	lssproto_Shutdown_recv(0, "hogehoge",timemintemp);	// n¤ÀÄÁ«áºû­×
+	lssproto_Shutdown_recv(0, "hogehoge",timemintemp);	// nåˆ†é˜å¾Œç¶­ä¿®
 }
 void CHAR_CHAT_DEBUG_setNormalTrans(int charindex ,char *message)
 {
@@ -5333,14 +5333,14 @@ void CHAR_CHAT_DEBUG_setNormalTrans(int charindex ,char *message)
 	int work[10];
   easyGetTokenFromString( message , 1 , token, sizeof(token));
   if( strlen(token)==0){
-		CHAR_talkToCli( charindex, -1,"©¿²¤°Ñ¼Æ->±b¸¹", CHAR_COLORWHITE);
+		CHAR_talkToCli( charindex, -1,"å¿½ç•¥åƒæ•¸->å¸³è™Ÿ", CHAR_COLORWHITE);
 		transtemp = CHAR_getInt(	charindex, CHAR_TRANSMIGRATION)+1;
 #ifdef _JZ_TRANSX
 		if( transtemp > _JZ_TRANSX)transtemp=_JZ_TRANSX;
 #else
 		if( transtemp > 6)transtemp=6;
 #endif
-		sprintf(buf,"³]©wÂà¥Í%d",transtemp);
+		sprintf(buf,"è¨­å®šè½‰ç”Ÿ%d",transtemp);
 		CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
 
 		CHAR_setInt(charindex ,CHAR_TRANSMIGRATION,transtemp);
@@ -5374,7 +5374,7 @@ void CHAR_CHAT_DEBUG_setNormalTrans(int charindex ,char *message)
 #else
 					if( transtemp > 6)transtemp=6;
 #endif
-					sprintf(buf,"³]©wÂà¥Í%d",transtemp);
+					sprintf(buf,"è¨­å®šè½‰ç”Ÿ%d",transtemp);
 					CHAR_talkToCli( charindex, -1,buf, CHAR_COLORWHITE);
 					CHAR_talkToCli( fd_charindex, -1,buf, CHAR_COLORWHITE);
 					CHAR_setInt(fd_charindex ,CHAR_TRANSMIGRATION,transtemp);
@@ -5401,13 +5401,13 @@ void CHAR_CHAT_DEBUG_setNormalTrans(int charindex ,char *message)
 #ifdef _JZ_CAPTURE_FREES
 void CHAR_CHAT_DEBUG_recapfree(int charindex ,char *message)
 {
-	CHAR_talkToCli( charindex, -1,"¶}©l­«Åªcapfree.....", CHAR_COLORWHITE);
+	CHAR_talkToCli( charindex, -1,"é–‹å§‹é‡è®€capfree.....", CHAR_COLORWHITE);
 	if(BATTLE_InitCapFree(getCapFreeFile()))
 		{
-			CHAR_talkToCli( charindex, -1,"¦¨¥\¡I", CHAR_COLORWHITE);
+			CHAR_talkToCli( charindex, -1,"æˆåŠŸï¼", CHAR_COLORWHITE);
 			return;
 		}
-		CHAR_talkToCli( charindex, -1,"¥¢±Ñ¡I", CHAR_COLORWHITE);
+		CHAR_talkToCli( charindex, -1,"å¤±æ•—ï¼", CHAR_COLORWHITE);
 }
 #endif
 
@@ -5416,10 +5416,10 @@ void CHAR_CHAT_DEBUG_charfame( int charaindex, char *message)
 	int charfame,i;
 	char charkey[32];
 	int buff1[32];
-	if(getStringFromIndexWithDelim( message, " ", 2, charkey , sizeof( charkey ))) //§PÂ_°Ñ¼Æ­Ó¼Æ
+	if(getStringFromIndexWithDelim( message, " ", 2, charkey , sizeof( charkey ))) //åˆ¤æ–·åƒæ•¸å€‹æ•¸
 	{
 		charfame = atoi(charkey);
-		getStringFromIndexWithDelim( message, " ", 1, charkey , sizeof( charkey )); //±b¸¹
+		getStringFromIndexWithDelim( message, " ", 1, charkey , sizeof( charkey )); //å¸³è™Ÿ
 		for(i=0;i<getFdnum();i++){
 			int i_use,fd_charindex;
 			char cdkey[64];
@@ -5429,7 +5429,7 @@ void CHAR_CHAT_DEBUG_charfame( int charaindex, char *message)
 				if(strcmp(charkey,cdkey)==0){
 					fd_charindex = CONNECT_getCharaindex( i );
 					CHAR_setInt(fd_charindex, CHAR_FAME, charfame);
-					sprintf(buff1,"³]¸mÁn±b¸¹:%s ±æ­È¬°:%d",charkey,charfame/100);
+					sprintf(buff1,"è¨­ç½®è²å¸³è™Ÿ:%s æœ›å€¼ç‚º:%d",charkey,charfame/100);
 					CHAR_talkToCli( fd_charindex, -1,buff1, CHAR_COLORWHITE);
 					return;
 				}
@@ -5439,7 +5439,7 @@ void CHAR_CHAT_DEBUG_charfame( int charaindex, char *message)
 	getStringFromIndexWithDelim( message, " ", 1, charkey , sizeof( charkey ));
 	charfame = atoi(charkey);
 	CHAR_setInt(charaindex, CHAR_FAME, charfame);
-	sprintf(buff1,"³]¸mÁn±æ­È¬°:%d",charfame/100);
+	sprintf(buff1,"è¨­ç½®è²æœ›å€¼ç‚º:%d",charfame/100);
 	CHAR_talkToCli( charaindex, -1,buff1, CHAR_COLORWHITE);
 }
 
@@ -5447,8 +5447,8 @@ void CHAR_CHAT_DEBUG_charfame( int charaindex, char *message)
 void CHAR_CHAT_DEBUG_reloopan( int charaindex, char *message)
 {
 	if(!net_loadloopan(getloopanfile()))
-		CHAR_talkToCli( charaindex, -1,"­«Åª´`Àô¤½§i..¥¢±Ñ", CHAR_COLORWHITE);
-	CHAR_talkToCli( charaindex, -1,"­«Åª´`Àô¤½§i..¦¨¥\", CHAR_COLORWHITE);
+		CHAR_talkToCli( charaindex, -1,"é‡è®€å¾ªç’°å…¬å‘Š..å¤±æ•—", CHAR_COLORWHITE);
+	CHAR_talkToCli( charaindex, -1,"é‡è®€å¾ªç’°å…¬å‘Š..æˆåŠŸ", CHAR_COLORWHITE);
 }
 #endif
 
@@ -5466,7 +5466,7 @@ void CHAR_CHAT_DEBUG_showip( int charaindex, char *message)
 			CONNECT_getCdkey( i, cdkey, sizeof( cdkey ));
 			if(strcmp(message,cdkey)==0){
 				net_showip(i,charip);
-				sprintf(buff1,"ª±®a:%sªºIP¦a§}:%s",message,charip);
+				sprintf(buff1,"ç©å®¶:%sçš„IPåœ°å€:%s",message,charip);
 				CHAR_talkToCli( charaindex, -1,buff1, CHAR_COLORWHITE);
 			}
 		}
@@ -5496,7 +5496,7 @@ void CHAR_CHAT_DEBUG_sendto(int charindex ,char *message)
 				y = CHAR_getInt( fd_charaindex, CHAR_Y);
 				CHAR_warpToSpecificPoint(charindex, fl, x, y);
 				snprintf( line, sizeof( line),
-					"¶Ç°e¨ì %s ªº¨­Ãä",
+					"å‚³é€åˆ° %s çš„èº«é‚Š",
 					szName);
 				CHAR_talkToCli( charindex, -1 , line , CHAR_COLORWHITE );
 			}

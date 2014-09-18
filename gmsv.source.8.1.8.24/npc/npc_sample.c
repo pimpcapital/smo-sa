@@ -5,10 +5,10 @@
 #include "readmap.h"
  
 /*
- * ����ץ��NPC������
+ * 扔件皿伙及NPC戊□玉
  *
- * ������  �u Sample
- * �������ؿ�  �u ����  �e
+ * 正奶皿  「 Sample
+ * 爛聒允月楮醒  「 蟈潘  〔
  * NPC_SamplePreWalk
  * NPC_SamplePostWalk
  * NPC_SamplePreOver
@@ -24,9 +24,9 @@
  * NPC_SampleItemPut
  */
 /*------------------------------------------------------------
- * NPC�Υ���ץ�롼����
- * ����
- *  index       int     ����ǥå���
+ * NPC及扔件皿伙伙□民件
+ * 婁醒
+ *  index       int     奶件犯永弁旦
  ------------------------------------------------------------*/
 void NPC_SampleLoop( int index )
 {
@@ -40,10 +40,10 @@ void NPC_SampleLoop( int index )
     y  = CHAR_getInt(index,CHAR_Y);
 
     /*
-     * �᤯�˥ץ쥤�䡼�����뤫�ɤ�����Ĵ�٤ơb�����餽���Ĥ˶�Ť�
-     * ���ߡb  ��ˤߤĤ��ä���Ĥ����e
-     * ���ʤ��ä�������०������
-     *  �쬤����  ��  �⤹��
+     * 嗤仁卞皿伊奶乩□互中月井升丹井毛譬屯化｝中凶日公中勾卞嗤勿仁
+     * 蜇箕｝  賡卞心勾井勻凶支勾分仃〔
+     * 中卅井勻凶日仿件母丞它巧□弁
+     *  域洶洶仁  卞  猾允月
      */
     for( i=x-2 ; i<=x+2 ; i ++ ){
         for( j=y-2 ; j<=y+2 ; j++ ){
@@ -65,7 +65,7 @@ void NPC_SampleLoop( int index )
                     if( dir != -1 )
                         CHAR_walk(index,dir,0);
                     else
-                        /*    ����  ��  */
+                        /*    元甄  支  */
                         print( "????????same coordinates\n" );
                     found = TRUE;
 

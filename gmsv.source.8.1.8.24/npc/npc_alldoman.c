@@ -62,30 +62,30 @@ void NPC_AlldomanWindowTalked(int meindex, int talkerindex, int seqno, int selec
 			NPC_Alldoman_selectWindow(meindex , talkerindex , 4 ,"");
 		}
 		if ( select == WINDOW_BUTTONTYPE_OK ) {
-			//CHAR_talkToCli(talkerindex,meindex,"¬Ý²M·¡¤F¡I",CHAR_COLORRED);
+			//CHAR_talkToCli(talkerindex,meindex,"çœ‹æ¸…æ¥šäº†ï¼",CHAR_COLORRED);
 			showpage = 1 ; 
 			NPC_Alldoman_selectWindow(meindex , talkerindex, 5 ,"");
 		}
 		break;
 	case NPC_ALLDOMAN_SELECT_WND:
 		if(atoi(data)==2) {
-			//CHAR_talkToCli(talkerindex,meindex,"¢°¡I",CHAR_COLORRED);
+			//CHAR_talkToCli(talkerindex,meindex,"ï¼‘ï¼",CHAR_COLORRED);
 			if ( CHAR_getInt( talkerindex , CHAR_FLOOR ) != 8200 ) {
-				CHAR_talkToCli(talkerindex,-1,"³o¸Ì¥u¯àµ¹¯u¥¿ªº­^¶¯¨è¼g¡I",CHAR_COLORRED);
+				CHAR_talkToCli(talkerindex,-1,"é€™è£¡åªèƒ½çµ¦çœŸæ­£çš„è‹±é›„åˆ»å¯«ï¼",CHAR_COLORRED);
 				break;
 			}
 			if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) > 132 ||
 				CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) <= 0 ) {
 				CHAR_setWorkInt( talkerindex  , CHAR_WORKHEROFLOOR , 0 ) ;
-				CHAR_talkToCli(talkerindex,-1,"³o¸Ì¥u¯àµ¹¯u¥¿ªº­^¶¯¨è¼g¡I",CHAR_COLORRED);
+				CHAR_talkToCli(talkerindex,-1,"é€™è£¡åªèƒ½çµ¦çœŸæ­£çš„è‹±é›„åˆ»å¯«ï¼",CHAR_COLORRED);
 				break;
 			}
-			sprintf( buf2 , "§A®³¥X¤F¥´±Ñ¦uÆFªÌ%3dªºÃÒ©ú¡A¸Õ¹Ï±N¦Û¤vªº©m¦W¨è¤W¥Û¸O¡I" ,	 CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) );
+			sprintf( buf2 , "ä½ æ‹¿å‡ºäº†æ‰“æ•—å®ˆéˆè€…%3dçš„è­‰æ˜Žï¼Œè©¦åœ–å°‡è‡ªå·±çš„å§“ååˆ»ä¸ŠçŸ³ç¢‘ï¼" ,	 CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) );
 			CHAR_talkToCli(talkerindex,-1,buf2,CHAR_COLORRED);
 			if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) == 132 ) {
-				sprintf( buf2 , "%s" , "¥§´µ¤j³°­^¶¯" ) ; 
-				//¨ì¹F³»¼h¹ï¥þ¬P¨t¼s¼½
-				sprintf( buf , "%s©ºªA¤F­^¶¯¾Ô³õ¡A¥Ñ­·¤§ºëÆF±N³o­Ó®ø®§³qª¾¥þ¥@¬É¡A·sªº­^¶¯½Ï¥Í¤F!!" , CHAR_getChar( talkerindex, CHAR_NAME ) );
+				sprintf( buf2 , "%s" , "å°¼æ–¯å¤§é™¸è‹±é›„" ) ; 
+				//åˆ°é”é ‚å±¤å°å…¨æ˜Ÿç³»å»£æ’­
+				sprintf( buf , "%så¾æœäº†è‹±é›„æˆ°å ´ï¼Œç”±é¢¨ä¹‹ç²¾éˆå°‡é€™å€‹æ¶ˆæ¯é€šçŸ¥å…¨ä¸–ç•Œï¼Œæ–°çš„è‹±é›„èª•ç”Ÿäº†!!" , CHAR_getChar( talkerindex, CHAR_NAME ) );
 				for( i = 0 ; i < playernum ; i++) {
 					if( CHAR_getCharUse(i) != FALSE ) {
 						CHAR_talkToCli( i, -1, buf, CHAR_COLORBLUE2);
@@ -93,27 +93,27 @@ void NPC_AlldomanWindowTalked(int meindex, int talkerindex, int seqno, int selec
 				}
 			}
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 130 )
-				sprintf( buf2 , "%s" , "¥§´µ¤j³°¾Ô¤h" ) ; 
+				sprintf( buf2 , "%s" , "å°¼æ–¯å¤§é™¸æˆ°å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 125 )
-				sprintf( buf2 , "%s" , "¥§´µ¤j³°«i¤h" ) ; 
+				sprintf( buf2 , "%s" , "å°¼æ–¯å¤§é™¸å‹‡å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 120 )
-				sprintf( buf2 , "%s" , "ÂÄ¥ì¨º´µ­^¶¯" ) ; 
+				sprintf( buf2 , "%s" , "è–©ä¼Šé‚£æ–¯è‹±é›„" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 115 )
-				sprintf( buf2 , "%s" , "´µ¤Ú¹F¾Ô¤h" ) ; 
+				sprintf( buf2 , "%s" , "æ–¯å·´é”æˆ°å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 110 )
-				sprintf( buf2 , "%s" , "ÂÄ©i¦Nº¸¾Ô¤h" ) ; 
+				sprintf( buf2 , "%s" , "è–©å§†å‰çˆ¾æˆ°å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 100 )
-				sprintf( buf2 , "%s" , "º¿ÄR¨ºµ·¾Ô¤h" ) ; 
+				sprintf( buf2 , "%s" , "ç‘ªéº—é‚£çµ²æˆ°å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 80 )
-				sprintf( buf2 , "%s" , "¥d©Z¾Ô¤h" ) ; 
+				sprintf( buf2 , "%s" , "å¡å¦æˆ°å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 60 )
-				sprintf( buf2 , "%s" , "ÀN¯Sº¸¾Ô¤h" ) ; 
+				sprintf( buf2 , "%s" , "éœç‰¹çˆ¾æˆ°å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 40 )
-				sprintf( buf2 , "%s" , "­°Å]«i¤h" ) ; 
+				sprintf( buf2 , "%s" , "é™é­”å‹‡å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 20 )
-				sprintf( buf2 , "%s" , "¸tÆF«i¤h" ) ; 
+				sprintf( buf2 , "%s" , "è–éˆå‹‡å£«" ) ; 
 			else if ( CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) >= 1 )
-				sprintf( buf2 , "%s" , "ªìÃ}«i¤h" ) ; 
+				sprintf( buf2 , "%s" , "åˆçŠ¢å‹‡å£«" ) ; 
 			else
 				sprintf( buf2 , " " );
 			saacproto_UpdataStele_send ( 				
@@ -126,16 +126,16 @@ void NPC_AlldomanWindowTalked(int meindex, int talkerindex, int seqno, int selec
 				10 	, 
 				CHAR_getWorkInt( talkerindex  , CHAR_WORKHEROFLOOR ) 
 				) ; 
-			//²M°£WorkFloor
+			//æ¸…é™¤WorkFloor
 			CHAR_setWorkInt( talkerindex  , CHAR_WORKHEROFLOOR , 0 ) ;
 		}
 		if(atoi(data)==4) {
-			//CHAR_talkToCli(talkerindex,meindex,"¢±¡I",CHAR_COLORRED);
+			//CHAR_talkToCli(talkerindex,meindex,"ï¼’ï¼",CHAR_COLORRED);
 			showpage = 1 ; 
 			NPC_Alldoman_selectWindow(meindex , talkerindex, 6 ,"");
 		}
 		if(atoi(data)==6) {
-			//CHAR_talkToCli(talkerindex,meindex,"¢²¡I",CHAR_COLORRED);
+			//CHAR_talkToCli(talkerindex,meindex,"ï¼“ï¼",CHAR_COLORRED);
 		}
 		break;
 	case NPC_ALLDOMAN_LIST_WND:
@@ -169,15 +169,15 @@ static void NPC_Alldoman_selectWindow( int meindex, int talker, int num, char *d
 	 case 4:
 		 if ( showpage == 1 ) {
 			 buttontype = WINDOW_BUTTONTYPE_NEXT;
-			 sprintf( token, "¢³¢·¢´¢³¢³¢¶¸t»æ®É¡A¦N¾|¥X²{¤j§å¾÷¼É¾î¦æ¡A©Ò¨ì¤§³B¬ÒµL¤@­Æ§K¡A¥§´µ¦U§øªºªø¦Ñ¹F¦¨¦@ÃÑ¡A½Õ¶°¦U§ø«i¤h¡A«e©¹®ø·À³o¸sµo¨gªº¾÷¼É¡A³o¸s«i¤h¦b®ü©³ÀG¹D¤J¤f¸ò³o¸s¾÷¼É¿E¾Ô¡A¤£®Æ¡A¹ê¤O¬Û®tÄa®í¡A«i¤h­Ì¶Ë¤`ºG­«¡A´Ý¾lªº«i¤h¡A¿ï¾Ü¦bÀN¯Sº¸®ü©³³q¸ôªº¤J¤f°µ³Ì");
+			 sprintf( token, "ï¼”ï¼˜ï¼•ï¼”ï¼”ï¼—è–é¤…æ™‚ï¼Œå‰é­¯å‡ºç¾å¤§æ‰¹æ©Ÿæš´æ©«è¡Œï¼Œæ‰€åˆ°ä¹‹è™•çš†ç„¡ä¸€å€–å…ï¼Œå°¼æ–¯å„æ‘çš„é•·è€é”æˆå…±è­˜ï¼Œèª¿é›†å„æ‘å‹‡å£«ï¼Œå‰å¾€æ¶ˆæ»…é€™ç¾¤ç™¼ç‹‚çš„æ©Ÿæš´ï¼Œé€™ç¾¤å‹‡å£«åœ¨æµ·åº•éš§é“å…¥å£è·Ÿé€™ç¾¤æ©Ÿæš´æ¿€æˆ°ï¼Œä¸æ–™ï¼Œå¯¦åŠ›ç›¸å·®æ‡¸æ®Šï¼Œå‹‡å£«å€‘å‚·äº¡æ…˜é‡ï¼Œæ®˜é¤˜çš„å‹‡å£«ï¼Œé¸æ“‡åœ¨éœç‰¹çˆ¾æµ·åº•é€šè·¯çš„å…¥å£åšæœ€");
 		 }
 		 else if ( showpage == 2 ) {
 			 buttontype = WINDOW_BUTTONTYPE_NEXT;
-			 sprintf( token, "«áªºªº©è§Ü¡A¦U§øªø¦Ñ¥l¶°¤j§å¤H¤O¡A«Ê¦º©Ò¦³³q©¹¦N¾|ªº®ü©³³q¹D¡A²×©ó¦b¤j§å¾÷¼É´é¤J«e¡A±N¤J¤f«Ê¦º¡A¦¹¦a¬°¢³¢·¢´¢´¢´¢¯¸t»æ®É©Ò«Ø³y¡A¬°¬ö©À¢³¢·¢´¢³¢³¢¶¸t»æ®É©ÒÄë¬¹ªº«i¤h¡A¥ß¦¹¥Û¸O¡A«Ø¦¹¦a¬}¡A©R¦W¬°¡u­^¶¯¾Ô³õ¡v¡A±æ«á¥@¤H³Ëªk¥ý¯Pªº¦æ®|¡A¹F¨ì±jºØ±j");
+			 sprintf( token, "å¾Œçš„çš„æŠµæŠ—ï¼Œå„æ‘é•·è€å¬é›†å¤§æ‰¹äººåŠ›ï¼Œå°æ­»æ‰€æœ‰é€šå¾€å‰é­¯çš„æµ·åº•é€šé“ï¼Œçµ‚æ–¼åœ¨å¤§æ‰¹æ©Ÿæš´æ¹§å…¥å‰ï¼Œå°‡å…¥å£å°æ­»ï¼Œæ­¤åœ°ç‚ºï¼”ï¼˜ï¼•ï¼•ï¼•ï¼è–é¤…æ™‚æ‰€å»ºé€ ï¼Œç‚ºç´€å¿µï¼”ï¼˜ï¼•ï¼”ï¼”ï¼—è–é¤…æ™‚æ‰€çŠ§ç‰²çš„å‹‡å£«ï¼Œç«‹æ­¤çŸ³ç¢‘ï¼Œå»ºæ­¤åœ°æ´žï¼Œå‘½åç‚ºã€Œè‹±é›„æˆ°å ´ã€ï¼Œæœ›å¾Œä¸–äººå‚šæ³•å…ˆçƒˆçš„è¡Œå¾‘ï¼Œé”åˆ°å¼·ç¨®å¼·");
 		 }
 		 else if ( showpage == 3) {
 			 buttontype = WINDOW_BUTTONTYPE_OK;
-			 sprintf( token, "±Ú¬°¥Øªº¡AÅý¥§´µ¤j³°ªº¤H­Ì¥Í¥Í¤£®§¡A¤W­±ªº­^¶¯¬O³Ìªñ«iÂô¡u­^¶¯¾Ô³õ¡v©Ò¯d¤U¨Óªº¡A¯S¦¹¶@§i¥þ¥§´µ­^¶¯¡I\n\n                      ­^¶¯¾Ô³õ»s§@©e­û·|");
+			 sprintf( token, "æ—ç‚ºç›®çš„ï¼Œè®“å°¼æ–¯å¤§é™¸çš„äººå€‘ç”Ÿç”Ÿä¸æ¯ï¼Œä¸Šé¢çš„è‹±é›„æ˜¯æœ€è¿‘å‹‡é—–ã€Œè‹±é›„æˆ°å ´ã€æ‰€ç•™ä¸‹ä¾†çš„ï¼Œç‰¹æ­¤è©”å‘Šå…¨å°¼æ–¯è‹±é›„ï¼\n\n                      è‹±é›„æˆ°å ´è£½ä½œå§”å“¡æœƒ");
 		 }
 		 windowtype = WINDOW_MESSAGETYPE_MESSAGE;
 		 windowno = NPC_ALLDOMAN_MAIN_WND;
@@ -189,9 +189,9 @@ static void NPC_Alldoman_selectWindow( int meindex, int talker, int num, char *d
 		 windowtype = WINDOW_MESSAGETYPE_SELECT;
 		 windowno = NPC_ALLDOMAN_SELECT_WND;
 		 sprintf(token,
-			"0\n\n¡@¡@¡@¡@¡@¡@¡@¡@      ¨è¼g¥Û¸O"
-			 "\n\n¡@¡@¡@      ¡@¡@¡@¡@ÀËµø¨ä¥L«iªÌ"
-			 "\n\n¡@¡@¡@¡@¡@      ¡@¡@¡@¡@¨ú®ø"
+			"0\n\nã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€      åˆ»å¯«çŸ³ç¢‘"
+			 "\n\nã€€ã€€ã€€      ã€€ã€€ã€€ã€€æª¢è¦–å…¶ä»–å‹‡è€…"
+			 "\n\nã€€ã€€ã€€ã€€ã€€      ã€€ã€€ã€€ã€€å–æ¶ˆ"
 			 );
 		 lssproto_WN_send( fd, windowtype, buttontype, windowno,
 			 CHAR_getWorkInt( meindex, CHAR_WORKOBJINDEX),token);
@@ -207,7 +207,7 @@ static void NPC_Alldoman_selectWindow( int meindex, int talker, int num, char *d
 			 buttontype = WINDOW_BUTTONTYPE_OK | WINDOW_BUTTONTYPE_PREV | WINDOW_BUTTONTYPE_NEXT;
 		 windowtype = WINDOW_MESSAGETYPE_WIDEMESSAGEANDLINEINPUT;
 		 windowno = NPC_ALLDOMAN_LIST_WND;
-		 sprintf ( token2 , "            ©m¦W          ÀY»Î    ¼Ó¼h    µ¥¯Å    Âà¥Í\n");
+		 sprintf ( token2 , "            å§“å          é ­éŠœ    æ¨“å±¤    ç­‰ç´š    è½‰ç”Ÿ\n");
 		 for ( i=0+(showpage-1 )*15; i<showpage*15; i++) {
 #ifdef _FIX_ALLDOMAN
 			if( i >= MAX_HERO_LIST || i<0 ) break;
@@ -246,7 +246,7 @@ BOOL NPC_AlldomanInit( int meindex )
 //print( "\n\nNPC_AlldomanInit( %d)\n\n", meindex);
 	if( loadherolist == 0){
 		loadherolist = 1;
-		saacproto_UpdataStele_send ( acfd , "FirstLoad", "LoadHerolist" , "µØ¸q" , 0 , 0 , 0 , 999 ) ; 
+		saacproto_UpdataStele_send ( acfd , "FirstLoad", "LoadHerolist" , "è¯ç¾©" , 0 , 0 , 0 , 999 ) ; 
 	}
     CHAR_setInt( meindex , CHAR_WHICHTYPE , CHAR_TYPEALLDOMAN);
     CHAR_setFlg( meindex , CHAR_ISATTACKED , 0 );

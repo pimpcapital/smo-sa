@@ -8,7 +8,7 @@
 
 
 /*------------------------------------------------------------
- *�ե���Ȥο������
+ *白巧件玄及縉及爛聒
  *------------------------------------------------------------*/
 typedef enum
 {
@@ -24,16 +24,16 @@ typedef enum
 	CHAR_COLORGREEN2,
 	CHAR_COLORBLACK,
 }CHAR_COLOR;
-/*====================�����κ�˴ؤ���ؿ�====================*/
+/*====================平乓仿及綜岳卞楮允月楮醒====================*/
 void CHAR_createNewChar( int clifd, int dataplacenum,char* charname ,
 						  int imgno,int faceimgno,
 						  int vital,int str,int tgh,int dex,
 						  int earth,int water,int fire,int wind,
 						  int hometown , char *cdkey );
 
-/*====================�����Τҥ�����====================*/
+/*====================平乓仿及夫弘奶件====================*/
 
-#ifdef _BAD_PLAYER             // WON ADD �e�a���a�h��
+#ifdef _BAD_PLAYER             // WON ADD 送壞玩家去關
 void CHAR_login( int clifd, char* data, int saveindex, int badplayer );
 #else
 void CHAR_login( int clifd, char* data, int saveindex );
@@ -44,8 +44,8 @@ BOOL _CHAR_warpToSpecificPoint( char *file, int line,
 							int charaindex, int fl, int x, int y);
 
 
-/*====================�����Υ�����====================*/
-/*====================�����Τҥ�������====================*/
+/*====================平乓仿及本□皮====================*/
+/*====================平乓仿及夫弘失它玄====================*/
 BOOL CHAR_charSaveFromConnectAndChar( int fd,Char* ch, int unlock );
 BOOL CHAR_charSaveFromConnect( int fd,int unlock );
 #define	CHAR_logout( clifd, save)	_CHAR_logout( __FILE__, __LINE__, clifd, save)
@@ -54,24 +54,24 @@ BOOL _CHAR_logout( char *file, int line, int clifd, BOOL save);
 /*====================watch event    ====================*/
 void CHAR_sendWatchEvent( int objindex, int chac, int* opt,int optlen,BOOL myflg );
 
-/*====================������====================*/
+/*====================旦平伙====================*/
 BOOL CHAR_Skillupsend(int charaindex );
 void CHAR_SkillUp(  int charaindex, int skillid );
 void CHAR_useSkill( int charaindex, int dir ,int skindex );
 
 typedef enum
 {
-    CHAR_WALKSUCCESSED,     /* ��      */
-    CHAR_WALKSYSTEMERROR,   /* ����  �२�顼    ��index�����å���
-                             * �Ҥä����ä��Ȥ� */
-    CHAR_WALKEXTEND,        /*    �ϥ����С����Ƭ������Ȥ����eNPC�ˤΤ�*/
-    CHAR_WALKHITOBJECT,     /*  ����  �����äơb�����ʤ��ä�    */
-    CHAR_WALKPREWALK,       /*  prewalk���٥�ȤǬ����ʤ��ä�( �в� ) */
-    CHAR_WALKDIE,           /*  ���Ǥ��Ƭ����ʤ�  */
-    CHAR_WALK1357,          /*  �Ф�  ���ˬ������Ȥ��Ƭ����ʤ��ä�  */
+    CHAR_WALKSUCCESSED,     /* 岳      */
+    CHAR_WALKSYSTEMERROR,   /* 撲旦  丞巨仿□    及index民尼永弁卞
+                             * 夫勻井井勻凶午井 */
+    CHAR_WALKEXTEND,        /*    區左□田□仄化洶仇丹午仄凶〔NPC卞及心*/
+    CHAR_WALKHITOBJECT,     /*  窒井  卞癲勻化｝洶仃卅井勻凶    */
+    CHAR_WALKPREWALK,       /*  prewalk奶矛件玄匹洶仃卅井勻凶( 檗祭 ) */
+    CHAR_WALKDIE,           /*  韶氏匹中化洶仃卅中  */
+    CHAR_WALK1357,          /*  標戶  輊卞洶仇丹午仄化洶仃卅井勻凶  */
 }CHAR_WALKRET;
 
-/*====================�����ΰ�  �˴ؤ���ؿ�====================*/
+/*====================平乓仿及啖  卞楮允月楮醒====================*/
 void CHAR_ctodirmode(char moji , int* dir , int* mode);
 INLINE void CHAR_getDXDY( int dir , int* dx, int* dy );
 INLINE int CHAR_getDX( int dir );
@@ -243,16 +243,16 @@ typedef enum
 	WINDOWS_MESSAGETYPE_SELLSTHSELL,
 #endif
 
-#ifdef _PROFESSION_SKILL			// WON ADD �H��¾�~�ޯ�
+#ifdef _PROFESSION_SKILL			// WON ADD 人物職業技能
 	WINDOW_MESSAGETYPE_PROFESSIONSHOP,
 #endif
-#ifdef _NPC_WELFARE_2				// WON ADD ¾�~NPC-2
+#ifdef _NPC_WELFARE_2				// WON ADD 職業NPC-2
 	WINDOW_MESSAGETYPE_PROFESSIONSHOP2,
 #endif
 #ifdef _NEW_MANOR_LAW
-	WINDOW_FMMESSAGETYPE_10_MEMONTUM,	// �Q�j��ծa��
-	WINDOW_FMMESSAGETYPE_FM_MEMONTUM,	// �ۤv�a�ڮ�ձƦW
-	WINDOW_FMMESSAGETYPE_MANOR_SCHEDULE,	// �D�Բ���Ʀ�
+	WINDOW_FMMESSAGETYPE_10_MEMONTUM,	// 十大氣勢家族
+	WINDOW_FMMESSAGETYPE_FM_MEMONTUM,	// 自己家族氣勢排名
+	WINDOW_FMMESSAGETYPE_MANOR_SCHEDULE,	// 挑戰莊園排行
 #endif
 
 #ifdef _ANGEL_SUMMON
@@ -276,27 +276,27 @@ typedef enum
 
 typedef enum
 {
-    CHAR_WINDOWTYPE_RETURNTOELDER=-1,   /*  Ĺ  ��  �륦����ɥ�    */
-    CHAR_WINDOWTYPE_RESURRECTION=-2,   /*  ���褹�륦����ɥ�    */
+    CHAR_WINDOWTYPE_RETURNTOELDER=-1,   /*  贏  尺  月它奴件玉它    */
+    CHAR_WINDOWTYPE_RESURRECTION=-2,   /*  汊唾允月它奴件玉它    */
 
-	CHAR_WINDOWTYPE_SELECTBATTLE = 1,		/*   ����  ����  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTDUEL = 2,  		/*   ��DUEL����  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTTRADECARD = 3, 	/*   �ɸ򴹤���  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTPARTY = 4, 		/* �ѡ�  ������  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTBATTLEWATCH = 5, 	/* �������  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_MICMESSAGE = 6,			/* MICNPC��ȤäƽФ륦����ɥ� */
+	CHAR_WINDOWTYPE_SELECTBATTLE = 1,		/*   月爵  毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTDUEL = 2,  		/*   月DUEL毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTTRADECARD = 3, 	/*   銅跟晶毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTPARTY = 4, 		/* 由□  奴毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTBATTLEWATCH = 5, 	/* 棋爵毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_MICMESSAGE = 6,			/* MICNPC毛銀勻化請月它奴件玉它 */
 
 	// CoolFish: Trade 2001/4/18
-	CHAR_WINDOWTYPE_SELECTTRADE = 7,	/* ��� Window */
+	CHAR_WINDOWTYPE_SELECTTRADE = 7,	/* 交易 Window */
 
-	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE1 = 10,	/*   ����  �����륢��  �����  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE2 = 11,	/*   ����  �����륢��  �����  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE3 = 12,	/*   ����  �����륢��  �����  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE4 = 13,	/*   ����  �����륢��  �����  ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTRENAMEITEM_RENAME = 14,	/*   ����    ���륦����ɥ� */
-	CHAR_WINDOWTYPE_SELECTRENAMEITEM_RENAME_ATTENTION  = 15,	/*   ����    ���륦����ɥ� */
+	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE1 = 10,	/*   蟆毛  凳允月失奶  丞毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE2 = 11,	/*   蟆毛  凳允月失奶  丞毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE3 = 12,	/*   蟆毛  凳允月失奶  丞毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTRENAMEITEM_PAGE4 = 13,	/*   蟆毛  凳允月失奶  丞毛薊  允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTRENAMEITEM_RENAME = 14,	/*   蟆毛    允月它奴件玉它 */
+	CHAR_WINDOWTYPE_SELECTRENAMEITEM_RENAME_ATTENTION  = 15,	/*   蟆毛    允月它奴件玉它 */
 	
-	CHAR_WINDOWTYPE_DENGON = 50,			/* ����   */
+	CHAR_WINDOWTYPE_DENGON = 50,			/* 鰻蛻   */
 
 	CHAR_WINDOWTYPE_WINDOWMAN_START = 100,
 	CHAR_WINDOWTYPE_WINDOWMAN_STARTMSG = CHAR_WINDOWTYPE_WINDOWMAN_START,
@@ -407,23 +407,23 @@ typedef enum
 	CHAR_WINDOWTYPE_MANORPK_END = 362,
 
         // shan
-        CHAR_WINDOWTYPE_FM_DENGON      = 370,     // �a�گd���O
-        CHAR_WINDOWTYPE_FM_FMSDENGON   = 371,     // �a�ڤ����d���O
-        CHAR_WINDOWTYPE_FM_MESSAGE1    = 372,     // ��������(���I)
-        CHAR_WINDOWTYPE_FM_MESSAGE2    = 373,     // ��������(����)
-        CHAR_WINDOWTYPE_FM_SELECT      = 374,     // �ﶵ����
-        CHAR_WINDOWTYPE_FM_MEMBERLIST  = 375,     // �����C��
-        CHAR_WINDOWTYPE_FM_POINTLIST   = 376,     // ���I�C��
-        CHAR_WINDOWTYPE_FM_DPTOP       = 377,     // �j�̪�(�e�T�Q�j�C�])
-        CHAR_WINDOWTYPE_FM_DPME        = 378,     // �j�̪�(�ۤv���C�])
-        CHAR_WINDOWTYPE_FM_DPSELECT    = 379,     // �j�̪����ﶵ����
+        CHAR_WINDOWTYPE_FM_DENGON      = 370,     // 家族留言板
+        CHAR_WINDOWTYPE_FM_FMSDENGON   = 371,     // 家族之間留言板
+        CHAR_WINDOWTYPE_FM_MESSAGE1    = 372,     // 說明視窗(據點)
+        CHAR_WINDOWTYPE_FM_MESSAGE2    = 373,     // 說明視窗(成員)
+        CHAR_WINDOWTYPE_FM_SELECT      = 374,     // 選項視窗
+        CHAR_WINDOWTYPE_FM_MEMBERLIST  = 375,     // 成員列表
+        CHAR_WINDOWTYPE_FM_POINTLIST   = 376,     // 據點列表
+        CHAR_WINDOWTYPE_FM_DPTOP       = 377,     // 強者表(前三十大列榜)
+        CHAR_WINDOWTYPE_FM_DPME        = 378,     // 強者表(自己的列榜)
+        CHAR_WINDOWTYPE_FM_DPSELECT    = 379,     // 強者表的選項視窗
         
 // Terry 2001/08/31
 #ifdef _SERVICE
-        CHAR_WINDOWTYPE_SERVICE_START     = 380,    // �۾��A�ȭ��T�w����
-        CHAR_WINDOWTYPE_SERVICE_EXIT      = 381,    // �۾��A�ȭ���������
-        CHAR_WINDOWTYPE_SERVICE_CONTINUE  = 382,    // �۾��A�ȭ��~�����
-        CHAR_WINDOWTYPE_SERVICE_WAIT      = 383,    // �۾��A�ȭ����ݵ���
+        CHAR_WINDOWTYPE_SERVICE_START     = 380,    // 石器服務員確定視窗
+        CHAR_WINDOWTYPE_SERVICE_EXIT      = 381,    // 石器服務員取消視窗
+        CHAR_WINDOWTYPE_SERVICE_CONTINUE  = 382,    // 石器服務員繼續視窗
+        CHAR_WINDOWTYPE_SERVICE_WAIT      = 383,    // 石器服務員等待視窗
 #endif       
 
 #ifdef _PET_TRANS
@@ -495,7 +495,7 @@ typedef enum
 	NPC_PAUCTION_WARP,
 	NPC_PAUCTION_END,
 #endif
-#ifdef _ALLDOMAN // (���i�}) Syu ADD �Ʀ�]NPC
+#ifdef _ALLDOMAN // (不可開) Syu ADD 排行榜NPC
 	NPC_ALLDOMAN_START = 460,
 	NPC_ALLDOMAN_START2,
 	NPC_ALLDOMAN_START3,
@@ -524,7 +524,7 @@ typedef enum
 	NPC_VERYWELFARE_END,
 #endif
 
-#ifdef _NPC_WELFARE_2				// WON ADD ¾�~NPC-2
+#ifdef _NPC_WELFARE_2				// WON ADD 職業NPC-2
     NPC_WELFARE_START2 = 495,
 	NPC_WELFARE_END2,
 #endif
@@ -547,26 +547,26 @@ typedef enum
 	CHAR_WINDOWTYPE_CONTRACT_ANSWER = 530,
 #endif
 
-#ifdef _RACEMAN							//�y�d�j�|
-	CHAR_WINDOWTYPE_RACE_START = 540,			// �}�l
-	CHAR_WINDOWTYPE_RACE_SUBJECT,				// �y�d�����D��
-	CHAR_WINDOWTYPE_RACE_TICKET,				// ����y�d��
-	CHAR_WINDOWTYPE_RACE_PETSELECT,				// �d�����
-	CHAR_WINDOWTYPE_RACE_CHECKIN,				// �y�d�n�O
-	CHAR_WINDOWTYPE_RACE_RANK,					// �y�d�Ʀ�]
-	CHAR_WINDOWTYPE_RACE_PRIZE,					// �I��
-	CHAR_WINDOWTYPE_RACE_NORMAL,				// �L���D����
-	CHAR_WINDOWTYPE_RACE_SHOWRANK1,				// �s��Ʀ�]
-	CHAR_WINDOWTYPE_RACE_SHOWRANK2,				// �Ʀ�]
-	CHAR_WINDOWTYPE_RACE_SHOWRANK3,				// �Ʀ�]
-	CHAR_WINDOWTYPE_RACE_SHOWRANK4,				// �Ʀ�]
-	CHAR_WINDOWTYPE_RACE_SHOWRANK5,				// �Ʀ�]
-	CHAR_WINDOWTYPE_RACE_SHOWRANK11,			// ��ܾ��v�O��
-	CHAR_WINDOWTYPE_RACE_SHOWRANK12,			// ��ܾ��v�O��
-	CHAR_WINDOWTYPE_RACE_SHOWRANK13,			// ��ܾ��v�O��
-	CHAR_WINDOWTYPE_RACE_SHOWRANK14,			// ��ܾ��v�O��
-	CHAR_WINDOWTYPE_RACE_SHOWRANK15,			// ��ܾ��v�O��
-	CHAR_WINDOWTYPE_RACE_QUIZ,					// �q���K�y
+#ifdef _RACEMAN							//獵寵大會
+	CHAR_WINDOWTYPE_RACE_START = 540,			// 開始
+	CHAR_WINDOWTYPE_RACE_SUBJECT,				// 獵寵比賽題目
+	CHAR_WINDOWTYPE_RACE_TICKET,				// 領取獵寵證
+	CHAR_WINDOWTYPE_RACE_PETSELECT,				// 寵物選擇
+	CHAR_WINDOWTYPE_RACE_CHECKIN,				// 獵寵登記
+	CHAR_WINDOWTYPE_RACE_RANK,					// 獵寵排行榜
+	CHAR_WINDOWTYPE_RACE_PRIZE,					// 兌獎
+	CHAR_WINDOWTYPE_RACE_NORMAL,				// 無標題視窗
+	CHAR_WINDOWTYPE_RACE_SHOWRANK1,				// 新手排行榜
+	CHAR_WINDOWTYPE_RACE_SHOWRANK2,				// 排行榜
+	CHAR_WINDOWTYPE_RACE_SHOWRANK3,				// 排行榜
+	CHAR_WINDOWTYPE_RACE_SHOWRANK4,				// 排行榜
+	CHAR_WINDOWTYPE_RACE_SHOWRANK5,				// 排行榜
+	CHAR_WINDOWTYPE_RACE_SHOWRANK11,			// 顯示歷史記錄
+	CHAR_WINDOWTYPE_RACE_SHOWRANK12,			// 顯示歷史記錄
+	CHAR_WINDOWTYPE_RACE_SHOWRANK13,			// 顯示歷史記錄
+	CHAR_WINDOWTYPE_RACE_SHOWRANK14,			// 顯示歷史記錄
+	CHAR_WINDOWTYPE_RACE_SHOWRANK15,			// 顯示歷史記錄
+	CHAR_WINDOWTYPE_RACE_QUIZ,					// 通關密語
 #endif
 #ifdef _JZ_NEW_ADDMEMBERPOINT
 	CHAR_WINDOWTYPE_MEMBER_NEXT=545,
@@ -623,10 +623,10 @@ extern struct MissionTable missiontable[MAXMISSIONTABLE];
 #define MAXMISSIONFLAG 1000
 typedef struct _DailyFileType
 {
-	char jobid[10];			//���Ƚs��
-	char rule[16384];		//����P�_
-	char explain[200];		//���Ȼ���
-	char state[20];			//���A����
+	char jobid[10];			//任務編號
+	char rule[16384];		//條件判斷
+	char explain[200];		//任務說明
+	char state[20];			//狀態說明
 }DailyFileType;
 //extern struct DailyFileType dailyfile[MAXDAILYLIST];
 
@@ -675,12 +675,12 @@ void CHAR_PetAddVariableAi( int petindex, int iValue );
 void CHAR_PartyUpdate( int charaindex, int senddata );
 char *CHAR_getUseName( int charaindex );
 char *CHAR_getUseID( int charaindex );
-EXTERN int EnemyMoveNum;	/*   ����  ��  ����Ũ�ο� */
+EXTERN int EnemyMoveNum;	/*   凜卞  嫖  仃月襯及醒 */
 extern char *DebugFunctionName;
 extern int DebugPoint;
 
-#define DB_DUELPOINT	"db_duel"			// �ǥ奨��ݥ���ȥǡ����١���
-#define DB_ADDRESSBOOK	"db_addressbook"	// ���ɥ쥹�֥å��ǡ����١���
+#define DB_DUELPOINT	"db_duel"			// 犯亙巨伙禾奶件玄犯□正矛□旦
+#define DB_ADDRESSBOOK	"db_addressbook"	// 失玉伊旦皮永弁犯□正矛□旦
 
 BOOL CHAR_send_DpDBUpdate( int charaindex );
 BOOL CHAR_send_DpDBUpdate_AddressBook( int charaindex, int mode );
@@ -701,7 +701,7 @@ int CHAR_setChatMagicCDKey( int mode, char *cdkey);
 
 float GetRecoveryRate( int charaindex );
 int storeCharaData( void );
-#ifdef _MAGIC_REHPAI	//�ɦ�AI
+#ifdef _MAGIC_REHPAI	//補血AI
 int Magic_RideGetHP( int toindex, int petindex, int flg);
 #endif
 // CoolFish: Trade 2001/4/18
@@ -718,19 +718,19 @@ BOOL NPCSERVER_CreateObjindexFromServer( int fd, int npcindex, char *Name, int i
 #endif
 
 
-#ifdef _SEND_EFFECT	   	        // WON ADD AC�e�U���B�U�B���S��
+#ifdef _SEND_EFFECT	   	        // WON ADD AC送下雪、下雨等特效
 #define		CHAR_EFFECT_SETTINGBUFFER	256
 typedef struct tagCHAR_effectsetting
 {
-    int     floor;								//	�դҥ�
-	int		effect;								//	���  ��
-	int		level;								//	��ФΥ�٥�e  ���ζ����e
-	int		sendflg;							//	  �����ե����Ȥ����ä����ɤ����e
-	char	month[CHAR_EFFECT_SETTINGBUFFER];	//	  �Ԥ����
-	char	day[CHAR_EFFECT_SETTINGBUFFER];		//	  �Ԥ���  
-	char	hour[CHAR_EFFECT_SETTINGBUFFER];	//	  �Ԥ������
-	char	min[CHAR_EFFECT_SETTINGBUFFER];		//	  �Ԥ���ʬ
-	char	expire[CHAR_EFFECT_SETTINGBUFFER];	//	  �Ԥ��Ƥ���Ĺ���e(    
+    int     floor;								//	白夫失
+	int		effect;								//	梢請  寞
+	int		level;								//	梢請及伊矛伙〔  蜇及雄今〔
+	int		sendflg;							//	  憎巨白尼弁玄毛霜勻凶井升丹井〔
+	char	month[CHAR_EFFECT_SETTINGBUFFER];	//	  墊允月畸
+	char	day[CHAR_EFFECT_SETTINGBUFFER];		//	  墊允月  
+	char	hour[CHAR_EFFECT_SETTINGBUFFER];	//	  墊允月凜棉
+	char	min[CHAR_EFFECT_SETTINGBUFFER];		//	  墊允月坌
+	char	expire[CHAR_EFFECT_SETTINGBUFFER];	//	  墊仄化中月贏今〔(    
 	
 }CHAR_effectsetting;
 
