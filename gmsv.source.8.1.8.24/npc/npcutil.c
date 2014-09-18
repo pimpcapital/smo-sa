@@ -1147,7 +1147,7 @@ loadarg:
 				if( NPC_Util_MargeStrFromArgFile( opfile, cret, buff.st_size) != NULL ) {
 					//memcpy(cret,argstr,buff.st_size);
 					ch->workint[CHAR_NPCBUFPOINT] = (int)cret;
-					(unsigned long)ch->workint[CHAR_NPCFILECTIMEH32] = (unsigned long)buff.st_mtime;
+					ch->workint[CHAR_NPCFILECTIMEH32] = (unsigned long)buff.st_mtime;
 				}else{
 					freeMemory(cret);
 					cret = NULL;
